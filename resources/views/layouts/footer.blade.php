@@ -1,45 +1,70 @@
-<footer class="footer section">
-    <div class="footer__container bd-container bd-grid">
-        <div class="footer__content">
-            <h3 class="footer__title font-semibold">
-                <a href="{{ route('home') }}" class="footer__logo">Berbinar Insightful Indonesia</a>
-            </h3>
-            <p class="footer__description">Kami hadir untuk memberikan layanan psikologi <br> terbaik di indonesia</p>
+{{-- FOOTER --}}
+<footer class="w-full font-plusJakartaSans mt-16 px-10 py-16 bg-blur-bg rounded-tl-3xl rounded-tr-3xl z-40 relative">
+    <div class="flex flex-col md:flex-row gap-4 border-b-primary border-b-2 pb-5 max-w-6xl mx-auto">
+        <div class="flex-1 flex flex-col gap-5">
+            <div class="flex gap-2 items-center">
+                <img src="{{ asset('assets/images/logo-berbinar.png') }}" alt="Logo Berbinar Insightful Indonesia"
+                    title="Logo Berbinar Insightful Indonesia" class="w-[40px]">
+                <h5 class="text-lg text-primary font-bold">PT. Berbinar Insightful Indonesia</h5>
+            </div>
+            <p class="text-base text-disabled">Kami hadir untuk memberikan layanan psikologi terbaik di Indonesia</p>
         </div>
-
-        <div class="footer__content">
-            <h3 class="footer__title font-semibold">Produk Berbinar</h3>
-            <ul>
-                <li><a href="{{ route('konseling') }}" class="footer__link">Konseling </a></li>
-                <li><a href="{{ route('psikotes') }}" class="footer__link">Asesmen Psikologi</a></li>
-                <li><a href="{{ route('kelas') }}" class="footer__link">Kelas Berbinar</a></li>
-                <li><a href="{{ route('kelas') }}" class="footer__link">Webinar</a></li>
-            </ul>
+        <div class="flex-1 flex flex-col gap-5 md:ml-10">
+            <div class="flex gap-2 items-center">
+                <h5 class="text-lg text-primary font-bold">Produk Berbinar</h5>
+            </div>
+            <div class="flex flex-col gap-2">
+                <a href="{{ route('counseling') }}" class="text-base text-disabled">Konseling</a>
+                <a href="{{ route('psikotest') }}" class="text-base text-disabled">Asesmen Psikologi</a>
+                <a href="{{ route('class') }}" class="text-base text-disabled">Kelas Berbinar</a>
+            </div>
         </div>
-
-        <div class="footer__content">
-            <h3 class="footer__title font-semibold">Layanan Kami</h3>
-            <ul>
-                <li><a href="{{ route('home') }}" class="footer__link">Home</a></li>
-                <li><a href="{{ route('tentang-kami') }}" class="footer__link">Tentang Kami</a></li>
-                <li><a href="{{ route('produk-berbinar') }}" class="footer__link">Produk Berbinar</a></li>
-                <li><a href="https://api.whatsapp.com/send/?phone=6282141869800&text&type=phone_number&app_absent=0" class="footer__link">Hubungi Kami</a></li>
-            </ul>
+        <div class="flex-1 flex flex-col gap-5">
+            <div class="flex gap-2 items-center">
+                <h5 class="text-lg text-primary font-bold">Layanan Berbinar</h5>
+            </div>
+            <div class="flex flex-col gap-2">
+                <a href="{{ route('home') }}" class="text-base text-disabled">Home</a>
+                <a href="{{ route('about') }}" class="text-base text-disabled">Tentang Kami</a>
+                <a href="{{ route('products') }}" class="text-base text-disabled">Produk Berbinar</a>
+                <a href="{{ route('contact') }}" class="text-base text-disabled">Kontak</a>
+                <a href="{{ route('workWithUs') }}" class="text-base text-disabled">Work With Us</a>
+            </div>
         </div>
-
-        <div class="footer__content">
-            <h3 class="footer__title font-semibold">Social</h3>
-            <div class="flex flex-row gap-1 items-center">
-                <a href="https://www.linkedin.com/company/berbinar/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BH62OB4vFS7yp93D8kOV0oQ%3D%3D" class="footer__social"><i class='bx bxl-linkedin'></i></a>
-                <a href="https://www.youtube.com/@berbinar" class="footer__social"><i class='bx bxl-youtube' ></i></a>
-                <a href="https://twitter.com/BerbinarIn" class="footer__social"><i class='bx bxl-twitter'></i></a>
-                <a href="https://www.instagram.com/berbinar.in/" class="footer__social"><i class='bx bxl-instagram-alt'></i></a>
-                <a href="https://www.instagram.com/berbinar.in/" class="footer__social">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: #333;transform: ;msFilter:;"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path></svg>
+        <div class="flex-1 flex flex-col gap-5">
+            <div class="flex gap-2 items-center">
+                <h5 class="text-lg text-primary font-bold">Sosial Media</h5>
+            </div>
+            <div class="flex flew-row gap-5 flex-wrap">
+                <a href="https://www.instagram.com/berbinar.in/" class="flex items-center justify-center"
+                    target="_blank">
+                    <i class='bx bxl-instagram-alt text-primary text-[30px]'></i>
+                </a>
+                <a href="https://www.youtube.com/@berbinar" class="flex items-center justify-center" target="_blank">
+                    <i class='bx bxl-youtube text-primary text-[30px]'></i>
+                </a>
+                <a href="https://www.tiktok.com/@berbinar.in?_t=8zrlrhuqnha&_r=1"
+                    class="flex items-center justify-center" target="_blank">
+                    <i class='bx bxl-tiktok text-primary text-[30px]'></i>
+                </a>
+                <a href="https://twitter.com/BerbinarIn" class="flex items-center justify-center" target="_blank">
+                    <i class='bx bxl-twitter text-primary text-[30px]'></i>
+                </a>
+                <a href="https://www.linkedin.com/company/berbinar/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BH62OB4vFS7yp93D8kOV0oQ%3D%3D"
+                    class="flex items-center justify-center" target="_blank">
+                    <i class='bx bxl-linkedin text-primary text-[30px]'></i>
+                </a>
+                <a href="" class="flex items-center justify-center" target="_blank">
+                    <i class='bx bxl-telegram text-primary text-[30px]'></i>
                 </a>
             </div>
         </div>
     </div>
-
-    <p class="footer__copy">&#169; 2023 Berbinar Insightful Indonesia. All right reserved</p>
+    <div class="flex gap-5 items-center justify-between mt-5 max-w-6xl mx-auto">
+        <p class="text-base text-disabled">Copyright © 2023 Berbinar Insightful Indonesia</p>
+        <p class="text-disabled">
+            All Rights Reserved | <a href="{{ route('toc') }}">Terms and Conditions</a> | <a
+                href="{{ route('pp') }}">Privacy Policy</a>
+        </p>
+    </div>
 </footer>

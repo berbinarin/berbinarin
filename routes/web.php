@@ -15,10 +15,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [LandingController::class, 'index'])->name('home');
-Route::get('/tentang-kami', [LandingController::class, 'tentangKami'])->name('tentang-kami');
-Route::get('/produk-berbinar', [LandingController::class, 'produkBerbinar'])->name('produk-berbinar');
-Route::get('/konseling', [LandingController::class, 'konseling'])->name('konseling');
-Route::get('/psikotes', [LandingController::class, 'psikotes'])->name('psikotes');
-Route::get('/kelas', [LandingController::class, 'kelas'])->name('kelas');
+Route::get('/about-us', [LandingController::class, 'tentangKami'])->name('about');
+Route::get('/products', [LandingController::class, 'products'])->name('products');
+Route::get('/counseling', [LandingController::class, 'konseling'])->name('counseling');
+Route::get('/psikotest', [LandingController::class, 'psikotest'])->name('psikotest');
+
 Route::get('/artikel', [LandingController::class, 'artikel'])->name('artikel');
-Route::get('/hiring', [LandingController::class, 'hiring'])->name('hiring');
+
+Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
+
+Route::get('/term-condition', [LandingController::class, 'termCondition'])->name('toc');
+Route::get('/privacy-policy', [LandingController::class, 'privacyPolicy'])->name('pp');
+
+Route::get('/work-with-us', [LandingController::class, 'workWithUs'])->name('workWithUs');
+
+Route::get('/class', [LandingController::class, 'class'])->name('class');
+Route::get('/class/webinar', [LandingController::class, 'classWebinar'])->name('webinar');
+Route::get('/class/bisikan', [LandingController::class, 'classBisikan'])->name('bisikan');
+Route::get('/class/berbinar+', [LandingController::class, 'classBerbinarPlus'])->name('berbinarPlus');
+
+Route::get('/careers', [LandingController::class, 'hiring'])->name('hiring');
+Route::get('/careers/positions', [LandingController::class, 'hiringPositions'])->name('hiringPositions');

@@ -1,40 +1,16 @@
-<section class="fixed bottom-8 left-8 flex flex-col gap-3">
-    <div class="socials flex-col gap-3 hidden">
-        <article class="bg-primary w-14 h-14 p-5 flex items-center justify-center rounded-full duration-700 hover:cursor-pointer hover:bg-primary-alt">
-            <i class='bx bxl-youtube text-white text-3xl' ></i>
-        </article>
-
-        <article class="bg-primary w-14 h-14 p-5 flex items-center justify-center rounded-full duration-700 hover:cursor-pointer hover:bg-primary-alt">
-            <img src="{{ asset('assets/images/tiktok.png') }}" class="w-full object-contain h-[2rem]" />
-        </article>
-
-        <article class="bg-primary w-14 h-14 p-5 flex items-center justify-center rounded-full duration-700 hover:cursor-pointer hover:bg-primary-alt">
-            <i class='bx bx-envelope text-white text-3xl' ></i>
-        </article>
-
-        <article class="bg-primary w-14 h-14 p-5 flex items-center justify-center rounded-full duration-700 hover:cursor-pointer hover:bg-primary-alt">
-            <i class='bx bxl-whatsapp text-white text-3xl'></i>
-        </article>
-
-        <article class="bg-primary w-14 h-14 p-5 flex items-center justify-center rounded-full duration-700 hover:cursor-pointer hover:bg-primary-alt">
-            <i class='bx bxl-twitter text-white text-3xl' ></i>
-        </article>
-
-        <article class="bg-primary w-14 h-14 p-5 flex items-center justify-center rounded-full duration-700 hover:cursor-pointer hover:bg-primary-alt">
-            <i class='bx bxl-instagram text-white text-3xl' ></i>
-        </article>
+{{-- CONTACT US SECTION --}}
+<section
+    class="max-w-6xl @if ($page === 'Kontak') mt-40 @else mt-16 @endif mx-5 md:mx-auto text-center font-plusJakartaSans z-40">
+    <div
+        class="flex flex-col items-center justify-center gap-3 w-full rounded-md bg-gradient-to-r from-primary to-blur-bg mx-auto py-12 md:px-32">
+        <h1 class="text-white fomt-semibold text-3xl px-5 md:px-0">
+            Hubungi Kami Sekarang
+        </h1>
+        <p class="text-white text-lg px-5 md:px-0 text-center">
+            Buat janji dan lakukan konseling dengan tim Berbinar Insightful Indonesia untuk layanan konseling online
+            ataupun offline.
+        </p>
+        <a href="/produk-berbinar" class="text-lg text-primary bg-white rounded-md px-5 py-2 w-fit mx-5 md:mx-0">Hubungi
+            Kami</a>
     </div>
-
-    <article class="cta bg-primary w-14 h-14 p-5 flex items-center justify-center rounded-full cursor-pointer">
-        <i class='bx bxs-purchase-tag-alt text-white text-3xl mt-1' ></i>
-    </article>
 </section>
-
-<script>
-    const cta = document.querySelector(".cta")
-    const socials = document.querySelector(".socials")
-    cta.addEventListener("click", function () {
-        socials.classList.toggle("hidden")
-        socials.classList.toggle("flex")
-    })
-</script>

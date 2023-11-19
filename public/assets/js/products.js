@@ -15,7 +15,7 @@ var swiper = new Swiper(".mySwiper", {
     pagination: {
         el: '.swiper-pagination',
         type: 'bullets',
-        clickable: true,
+        clickable: true
     },
     navigation: {
         nextEl: '.swiper-button-next',

@@ -9,10 +9,15 @@ export default {
     extend: {
       fontFamily: {
         "poppins": ["Poppins", "sans-serif"],
+        "plusJakartaSans": ["Plus Jakarta Sans", "sans-serif"],
       },
       colors: {
         "primary": "#3986a3",
         "primary-alt": "#75badb",
+        "disabled": "#70787D",
+        "blur-bg": "#EAF8FF",
+        "blur-bg-2": "#C7F8FF",
+        "card-box": "#F7F7F7",
       }
     },
   },

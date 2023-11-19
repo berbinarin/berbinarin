@@ -1,86 +1,73 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <!--========== META TAG ==========-->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
+<html lang="en">
 
-        <!--=========== TITLE ============-->
-        <title>{{ $title }}</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ $title }}</title>
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo-berbinar.png') }}" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-        <!--============ ICON ============-->
-        <link rel="shortcut icon" href="{{ asset('assets/images/logo-berbinar.png') }}" type="icon">
+    @if ($page === 'Produk Berbinar')
+        <link rel="stylesheet" href="{{ asset('assets/css/products.css') }}">
+    @endif
 
-        <!--=========== VENDORS ==========-->
-        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
+    @vite('resources/css/app.css')
+    @if ($page === 'Tentang Kami' || $active === 'Hiring')
+        <link rel="stylesheet" href="{{ asset('assets/css/about.css') }}">
+    @endif
+</head>
 
-        <!--============ SWIPER ==========-->
-        <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-        />
+<body class="relative overflow-x-hidden w-full">
+    @if ($page != 'Kontak' && $page != 'Work With Us' && $page != 'Coming Soon')
+        <img src="{{ asset('assets/images/elipse-berbinar-1.png') }}" title="Decoration" alt="Decoration"
+            class="w-full absolute top-[70vh] md:-top-16" />
+    @endif
 
-        <!--=========== STYLES ===========-->
-        @vite('resources/css/app.css')
-        @if($page == 'Kelas')
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-        @endif
-        <link rel="stylesheet" href="assets/css/styles.css">
+    @if ($page == 'Konseling' && $page != 'Work With Us' && $page != 'Coming Soon')
+        <img src="{{ asset('assets/images/elipse-berbinar-1.png') }}" title="Decoration" alt="Decoration"
+            class="w-full absolute top-[270vh]" />
+    @endif
 
-        <!--=========== ALPHINE ===========-->
-        <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
+    @include('layouts.navbar')
 
-        @if($page == 'Produk Berbinar')
-            <link rel="stylesheet" href="{{ asset('assets/css/products.css') }}">
-        @endif
+    <main class="w-full bg-white font-plusJakartaSans gap-12 flex flex-col relative">
+        @yield('content')
+    </main>
 
-        @if($page == 'Psikotes')
-            <link rel="stylesheet" href="{{ asset('assets/css/psikotest.css') }}">
-        @endif
-
-        @if($page == 'Tentang Kami')
-            <link rel="stylesheet" href="{{ asset('assets/css/about-us.css') }}">
-        @endif
-
-        @if($page == 'Konseling')
-            <link rel="stylesheet" href="{{ asset('assets/css/konseling.css') }}">
-        @endif
-
-        @if($page == 'Kelas')
-            <link rel="stylesheet" href="{{ asset('assets/css/kelas.css') }}">
-            <style>
-                .accessory__container{
-                    grid-template-columns: repeat(3,224px);
-                    justify-content: center;
-                }
-            </style>
-        @endif
-
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    </head>
-    <body class="relative font-poppins bg-white">
-        <!--========== SCROLL TOP ========-->
-        <a href="#" class="scrolltop" id="scroll-top">
-            <i class='bx bx-up-arrow-alt scrolltop__icon'></i>
-        </a>
-        
-        <!--========== NAVBAR ============-->
-        @include('layouts.navbar')
-
-        <main class="l-main">
-            @yield('content')
-        </main>
-
-        @include('layouts.footer')
-
-        @include('layouts.scripts')
-
+    @if ($page != 'Work With Us' && $page != 'Coming Soon')
         @include('layouts.cta')
+    @endif
 
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
-            AOS.init();
-        </script>
-    </body>
+    @include('layouts.footer')
+
+    @if ($page != 'Kontak' && $page != 'Work With Us' && $page != 'Coming Soon')
+        <img src="{{ asset('assets/images/elipse-berbinar-2.png') }}" title="Decoration" alt="Decoration"
+            class="w-[500px] absolute top-[200vh] @if ($page == 'Produk Berbinar') top-[300vh] @endif @if ($page === 'Hiring') top-[320vh] @endif object-fill" />
+    @endif
+
+    @if ($page == 'Work With Us' || $page == 'Coming Soon')
+        <img src="{{ asset('assets/images/elipse-berbinar-4.png') }}" title="Decoration" alt="Decoration"
+            class="w-[1100px] object-fill absolute bottom-0 right-0 z-20" />
+    @endif
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    @if ($page === 'Produk Berbinar')
+        <script src="{{ asset('assets/js/products.js') }}"></script>
+    @endif
+
+    @if ($page === 'Tentang Kami' || $page === 'Hiring')
+        <script src="{{ asset('assets/js/about.js') }}"></script>
+    @endif
+</body>
+
 </html>
