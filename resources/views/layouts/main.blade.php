@@ -22,6 +22,19 @@
     @endif
 </head>
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-60HVW4DS4P"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-60HVW4DS4P');
+</script>
+
 <body class="relative overflow-x-hidden w-full">
     @if ($page != 'Kontak' && $page != 'Work With Us' && $page != 'Coming Soon')
         <img src="{{ asset('assets/images/elipse-berbinar-1.png') }}" title="Decoration" alt="Decoration"

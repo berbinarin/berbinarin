@@ -28,6 +28,7 @@
                 <a href="{{ route('about') }}" class="text-base text-disabled">Tentang Kami</a>
                 <a href="{{ route('products') }}" class="text-base text-disabled">Produk Berbinar</a>
                 <a href="{{ route('contact') }}" class="text-base text-disabled">Kontak</a>
+                <a href="{{ route('hiring') }}" class="text-base text-disabled">Berbinar Careers</a>
                 <a href="{{ route('workWithUs') }}" class="text-base text-disabled">Work With Us</a>
             </div>
         </div>
