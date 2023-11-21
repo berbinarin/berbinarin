@@ -59,56 +59,49 @@ class LandingController extends Controller
                 "jabatan" => "Manager",
                 "divisi" => "Tiktok Creator",
                 "testimonial" => "Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya sangat bagus.",
-                "image" => "https://i.postimg.cc/QthPrpJY/20230715-163432-Ace-Pebri.jpg"
+                "image" => "https://i.ibb.co/rQydWQt/Ace-Pebri.png"
             ],
             [
                 "name" => "Mellynda Silanur Rohmah",
                 "jabatan" => "Manager",
                 "divisi" => "Human Resource",
                 "testimonial" => "Tentunya produk dari berbinar itu memiliki kualitas unggul karena ditangani langsung oleh seorang psikolog, tetapi dengan harga yang terjangkau.",
-                "image" => "https://i.postimg.cc/3rDpHPW6/90x90-900-900-px-4-Mellynda.png"
+                "image" => "https://i.ibb.co/wyvBGh6/Mellynda.png"
             ],
             [
                 "name" => "Caroline Athalia Rianda",
                 "jabatan" => "Manager",
                 "divisi" => "Graphic Designer",
                 "testimonial" => "Sejauh yang aku tau di berbinar sendiri itu udah nyediain beragam banget layanan psikologi  untuk sobat binar semua ",
-                "image" => "https://i.postimg.cc/sgMTFndg/Whats-App-Image-2022-03-27-at-17-04-49-caroline-athalia.jpg"
+                "image" => "https://i.ibb.co/rym84ky/Caroline.png"
             ],
             [
                 "name" => "Mawaliatul Khasanah",
                 "jabatan" => "Manager",
                 "divisi" => "IG Creator",
                 "testimonial" => "Produknya keren, kualitas dan kuantitas bisa di tingkatkan",
-                "image" => "https://i.postimg.cc/pL3qPDRY/1689071354341-Mawaliatul-Khasanah.jpg"
+                "image" => "https://i.ibb.co/s9dPkbj/Mawaliatul.png"
             ],
             [
                 "name" => "Regina Amanda Sharen",
                 "jabatan" => "Manager",
                 "divisi" => "Secretary & Finance",
                 "testimonial" => "Produk Berbinar pun sgt beragam dan pastiny ramah di kantong. Menurut saya produk-produk Berbinar telah sesuai dengan kebutuhan masyarakat skrng ini. Selain itu dengan harga yg affordable sehingga dapat dibeli oleh semua kalangan usia.",
-                "image" => "https://i.postimg.cc/5tcTscYV/60-CC00-E1-003-B-488-B-A89-D-82213-B9-D2415-Amanda-Sharen.png"
+                "image" => "https://i.ibb.co/9YckWd6/Regina.png"
             ],
             [
                 "name" => "Zalfa Qanita",
                 "jabatan" => "Manager",
                 "divisi" => "PTPM",
                 "testimonial" => "Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya yang baru pertama kali melakukan psikotes sangat bagus dan mudah dipahami. Dan mengikuti layanan psikotes di Berbinar seras santai dan tidak tertekan.",
-                "image" => ""
+                "image" => "https://i.ibb.co/Qjnwc0q/Zalfa.png"
             ],
             [
                 "name" => "Ghina",
                 "jabatan" => "Manager",
                 "divisi" => "Class Product Management",
                 "testimonial" => "Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya yang baru pertama kali melakukan psikotes sangat bagus dan mudah dipahami. Dan mengikuti layanan psikotes di Berbinar seras santai dan tidak tertekan.",
-                "image" => ""
-            ],
-            [
-                "name" => "Ace Pebri Ala",
-                "jabatan" => "Manager",
-                "divisi" => "Tiktok Creator",
-                "testimonial" => "Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya yang baru pertama kali melakukan psikotes sangat bagus dan mudah dipahami. Dan mengikuti layanan psikotes di Berbinar seras santai dan tidak tertekan.",
-                "image" => ""
+                "image" => "https://i.ibb.co/CKzPsdN/Ghina.png"
             ],
         ];
 
@@ -180,21 +173,22 @@ class LandingController extends Controller
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
-                "testimonial" => "Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya yang baru pertama kali melakukan psikotes sangat bagus dan mudah dipahami. Dan mengikuti layanan psikotes di Berbinar seras santai dan tidak tertekan.",
+                "testimonial" => "Sesi konseling merubah pandang: tak masalah berubah demi orang lain. Dorongan jadi lebih baik. Lakukan yang diinginkan, tetap aman. Belajarlah. Lampiaskan sakit, geser ke positif, hargai diri dan peduli orang.",
                 "image" => ""
             ],
             [
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
-                "testimonial" => "Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya yang baru pertama kali melakukan psikotes sangat bagus dan mudah dipahami. Dan mengikuti layanan psikotes di Berbinar seras santai dan tidak tertekan.",
+                "testimonial" => "Konseling sangat membantu, konselor ramah. Pertama kali cerita, terbantu menceritakan masalah yang selama ini takut dibagikan sebelumnya. Rasanya lega, tanpa beban dan validasi. Kakak konselor memberi waktu dan kenyamanan.",
                 "image" => ""
             ],
             [
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
-                "testimonial" => "Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya yang baru pertama kali melakukan psikotes sangat bagus dan mudah dipahami. Dan mengikuti layanan psikotes di Berbinar seras santai dan tidak tertekan.",
+                "testimonial" => "Konselor mendengarkan dan memerhatikan dengan seksama, memberi saran dan bimbingan spesifik. Dituntun dengan pertanyaan terkait permasalahan, sangat terbantu. Akan segera menyelesaikan tugas setelah konseling hari ini.
+                ",
                 "image" => ""
             ],
         ];
@@ -749,60 +743,25 @@ class LandingController extends Controller
         
         $testimonials = [
             [
-                "name" => "Ace Pebri Ala",
-                "jabatan" => "Manager",
-                "divisi" => "Tiktok Creator",
-                "testimonial" => "Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya sangat bagus.",
-                "image" => "https://i.postimg.cc/QthPrpJY/20230715-163432-Ace-Pebri.jpg"
-            ],
-            [
-                "name" => "Mellynda Silanur Rohmah",
-                "jabatan" => "Manager",
-                "divisi" => "Human Resource",
-                "testimonial" => "Tentunya produk dari berbinar itu memiliki kualitas unggul karena ditangani langsung oleh seorang psikolog, tetapi dengan harga yang terjangkau.",
-                "image" => "https://i.postimg.cc/3rDpHPW6/90x90-900-900-px-4-Mellynda.png"
-            ],
-            [
-                "name" => "Caroline Athalia Rianda",
-                "jabatan" => "Manager",
-                "divisi" => "Graphic Designer",
-                "testimonial" => "Sejauh yang aku tau di berbinar sendiri itu udah nyediain beragam banget layanan psikologi  untuk sobat binar semua ",
-                "image" => "https://i.postimg.cc/sgMTFndg/Whats-App-Image-2022-03-27-at-17-04-49-caroline-athalia.jpg"
-            ],
-            [
-                "name" => "Mawaliatul Khasanah",
-                "jabatan" => "Manager",
-                "divisi" => "IG Creator",
-                "testimonial" => "Produknya keren, kualitas dan kuantitas bisa di tingkatkan",
-                "image" => "https://i.postimg.cc/pL3qPDRY/1689071354341-Mawaliatul-Khasanah.jpg"
-            ],
-            [
-                "name" => "Regina Amanda Sharen",
-                "jabatan" => "Manager",
-                "divisi" => "Secretary & Finance",
-                "testimonial" => "Produk Berbinar pun sgt beragam dan pastiny ramah di kantong. Menurut saya produk-produk Berbinar telah sesuai dengan kebutuhan masyarakat skrng ini. Selain itu dengan harga yg affordable sehingga dapat dibeli oleh semua kalangan usia.",
-                "image" => "https://i.postimg.cc/5tcTscYV/60-CC00-E1-003-B-488-B-A89-D-82213-B9-D2415-Amanda-Sharen.png"
+                "name" => "Oktaviani Dwi Wulansari",
+                "jabatan" => "Staff",
+                "divisi" => "Marketing Strategist and Sales",
+                "testimonial" => "Selama bekerja di Berbinar, impact yang saya rasakan adalah skill time management, kolaborasi dan juga decision making yang semakin terasah. Meskipun dilaksanakan secara daring pun experience bekerja disini sangat terasa, banyak sekali yang saya pelajari.",
+                "image" => "https://i.ibb.co/XXRRSrz/Oktaviani.png"
             ],
             [
                 "name" => "Zalfa Qanita",
                 "jabatan" => "Manager",
                 "divisi" => "PTPM",
-                "testimonial" => "Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya yang baru pertama kali melakukan psikotes sangat bagus dan mudah dipahami. Dan mengikuti layanan psikotes di Berbinar seras santai dan tidak tertekan.",
-                "image" => ""
+                "testimonial" => "Selama bekerja di Berbinar, saya selalu merasa tertantang keluar dari zona nyaman dan menjadi 'the best version of yourself'. Selain itu, banyak hal yang saya pelajari sebagai posisi manager yaitu task management, mengatur waktu, mengeluarkan ide baru dan pendapat.",
+                "image" => "https://i.ibb.co/Qjnwc0q/Zalfa.png"
             ],
             [
                 "name" => "Ghina",
                 "jabatan" => "Manager",
                 "divisi" => "Class Product Management",
-                "testimonial" => "Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya yang baru pertama kali melakukan psikotes sangat bagus dan mudah dipahami. Dan mengikuti layanan psikotes di Berbinar seras santai dan tidak tertekan.",
-                "image" => ""
-            ],
-            [
-                "name" => "Ace Pebri Ala",
-                "jabatan" => "Manager",
-                "divisi" => "Tiktok Creator",
-                "testimonial" => "Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya yang baru pertama kali melakukan psikotes sangat bagus dan mudah dipahami. Dan mengikuti layanan psikotes di Berbinar seras santai dan tidak tertekan.",
-                "image" => ""
+                "testimonial" => "Selama di berbinar, aku belajar banyak banget. mulai dari hal hal yang sebelumnya ada basic sampe hal hal yang baru dan belum pernah aku dapetin. berbinar punya banyak acara yang menarik yang bisa diikutin. temen temennya juga asik dan seru banget!",
+                "image" => "https://i.ibb.co/CKzPsdN/Ghina.png"
             ],
         ];
 
@@ -854,10 +813,32 @@ class LandingController extends Controller
             ],
         ];
 
+        $generalRequirements = [
+            "Terbuka untuk mahasiswa aktif semester 1-6",
+            "Memiliki ketertarikan pada kepemimpinan dan pengembangan skill",
+            "Mampu bekerja secara mandiri maupun bekerja secara tim",
+            "Memiliki keterampilan komunikasi yang kuat",
+            "Tertarik untuk mempelajari hal baru",
+            "Mampu berkomitmen tinggi untuk berkontribusi di Berbinar selama 6 bulan/ 1 tahun",
+            "Tertarik pada bidang psikologi/ kesehatan mental",
+            "Mampu bekerja dibawah tekanan dan deadline",
+        ];
+
+        $benefits = [
+            "Sertifikat Elektronik : Staf akan mendapatkan e-certificate di akhir masa jabatan sesuai dengan kontrak kerja yang berlaku",
+            "Relasi : Staf dapat memperluas network dan membangun lingkungan yang positif dengan praktisi psikologi dan mahasiswa dari berbagai universitas",
+            "Wawasan : Staf dapat menambah wawasan baik pada bidang psikologi maupun pelaksanaan operasional perusahaan",
+            "Konseling Gratis : Mendapatkan sesi konseling gratis sebulan sekali",
+            "Rekomendasi Linkedin : Staf akan mendapatkan rekomendasi kerja dari CEO Berbinar apabila dalam masa kerjanya mampu menunjukkan kinerja yang baik melalui Linkedin maupun tertulis",
+            "Pengalaman : Staf akan mendapatkan pengalaman internship dibawah naungan perusahaan yang andal di bidang Psikologi",
+        ];
+
         return view('moduls.hiring.hiring', [
             'testimonials' => $testimonials,
             'faqs' => $faqs,
             'positions' => $positions,
+            'generalRequirements' => $generalRequirements,
+            'benefits' => $benefits,
         ]);
     }
 

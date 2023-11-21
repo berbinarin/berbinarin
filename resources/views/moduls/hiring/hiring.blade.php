@@ -157,8 +157,45 @@
         </div>
     </section>
 
-    {{-- POSITIONS SECTION --}}
+    {{-- GENERAL REQUIREMENTS & BENEFIT SECTION --}}
     <section class="max-w-6xl mx-auto flex flex-col gap-8 z-40 items-center justify-center">
+        <div class="flex flex-col gap-2">
+            <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
+                General Requirements dan Benefit
+            </h1>
+            <p class="text-disabled text-lg text-center px-5 md:px-0">
+                Perhatikan syarat dan ketentuan umum dan manfaat internship di Berbinar
+            </p>
+        </div>
+
+        <div class="flex flex-col mt-3 md:flex-row gap-5 w-full justify-between">
+            <div class="flex-col gap-1 flex flex-1">
+                <h5 class="text-black text-lg font-medium text-center">General Requirements</h5>
+                @foreach ($generalRequirements as $generalRequirement)
+                    <div class="flex flex-col bg-white shadow-md rounded-md gap-5 px-5 py-5 w-full" data-aos="fade-right"
+                        data-aos-duration="1000">
+                        <p class="text-disabled text-base">
+                            {{ $generalRequirement }}
+                        </p>
+                    </div>
+                @endforeach
+            </div>
+            <div class="flex-col gap-1 flex flex-1">
+                <h5 class="text-black text-lg font-medium text-center">Benefits</h5>
+                @foreach ($benefits as $benefit)
+                    <div class="flex flex-col bg-white shadow-md rounded-md gap-5 px-5 py-5 w-full" data-aos="fade-left"
+                        data-aos-duration="1000">
+                        <p class="text-disabled text-base">
+                            {{ $benefit }}
+                        </p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    {{-- POSITIONS SECTION --}}
+    <section class="max-w-6xl mx-auto flex flex-col mt-8 gap-8 z-40 items-center justify-center">
         <div class="flex flex-col gap-2">
             <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
                 Posisi Yang Tersedia
@@ -170,7 +207,8 @@
 
         <div class="flex flex-row flex-wrap items-center justify-center gap-5 mx-5 md:mx-0">
             @for ($i = 0; $i < sizeof($positions) / 2; $i++)
-                <div class="flex flex-col bg-white shadow-md rounded-md gap-5 px-5 py-5 w-full md:w-[250px]">
+                <div class="flex flex-col bg-white shadow-md rounded-md gap-5 px-5 py-5 w-full md:w-[250px]"
+                    data-aos="fade-right" data-aos-duration="1000">
                     <div class="flex flex-col gap-1">
                         <h5 class="text-black text-lg">{{ $positions[$i]['name'] }}</h5>
                         <div class="flex flex-row items-center gap-2 text-base">
@@ -205,16 +243,15 @@
     </section>
 
     {{-- TESTIMONIALS SECTION --}}
-    <section class="max-w-6xl mx-auto flex-col gap-10 z-40 mt-12 hidden md:flex">
+    <section class="max-w-6xl mx-auto flex-col gap-10 z-40 mt-12">
         <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
             Apa kata mereka Internship di <span class="text-primary font-bold">Berbinar Careers</span>
         </h1>
 
-        <div
-            class="flex-1 xl:mx-8 swiper mySwiper max-w-7xl md:w-full mx-auto flex items-center justify-center -mt-7 z-40 pb-12">
-            <div class="swiper-wrapper w-full">
+        <div class="flex-1 max-w-6xl md:w-full mx-auto flex items-center justify-centerå z-40 pb-12">
+            <div class="w-full flex flex-col md:flex-row mt-16 md:mt-8">
                 @foreach ($testimonials as $testimonial)
-                    <div class="p-6 swiper-slide w-full md:w-full h-full">
+                    <div class="p-6 mb-10 md:mb-0 w-full md:w-full h-full">
                         <div class="container max-w-xl mx-auto w-[350px]">
                             <div
                                 class="flex flex-col items-center w-full p-6 space-y-8  lg:h-full lg:p-8 shadow-lg rounded-xl pb-8">
@@ -228,7 +265,7 @@
                                     class="max-w-lg text-lg italic text-center border-b-2 pb-5 text-black border-b-[#70787D]">
                                     "{{ $testimonial['testimonial'] }}"</blockquote>
                                 <div class="text-center dark:text-gray-400 flex flex-col items-center">
-                                    <img src=https://i.postimg.cc/QthPrpJY/20230715-163432-Ace-Pebri.jpg alt=""
+                                    <img src="{{ $testimonial['image'] }}" alt=""
                                         class="w-20 h-20 rounded-full dark:bg-gray-500 object-cover">
                                     <p class="text-black text-lg font-medium mt-2">{{ $testimonial['name'] }}</p>
                                     <p>{{ $testimonial['divisi'] }}</p>
@@ -238,8 +275,6 @@
                     </div>
                 @endforeach
             </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
         </div>
     </section>
 
