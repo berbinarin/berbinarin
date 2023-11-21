@@ -168,9 +168,9 @@
             </p>
         </div>
 
-        <div class="flex flex-col mt-3 md:flex-row gap-5 w-full justify-between">
+        <div class="flex flex-col mt-3 md:flex-row gap-5 w-full md:justify-between items-center">
             <div class="flex-col gap-1 flex flex-1">
-                <h5 class="text-black text-lg font-medium text-center">General Requirements</h5>
+                <h5 class="text-black text-lg font-medium text-center mb-3">General Requirements</h5>
                 @foreach ($generalRequirements as $generalRequirement)
                     <div class="flex flex-col bg-white shadow-md rounded-md gap-5 px-5 py-5 w-full" data-aos="fade-right"
                         data-aos-duration="1000">
@@ -181,9 +181,9 @@
                 @endforeach
             </div>
             <div class="flex-col gap-1 flex flex-1">
-                <h5 class="text-black text-lg font-medium text-center">Benefits</h5>
+                <h5 class="text-black text-lg font-medium text-center mb-3">Benefits</h5>
                 @foreach ($benefits as $benefit)
-                    <div class="flex flex-col bg-white shadow-md rounded-md gap-5 px-5 py-5 w-full" data-aos="fade-left"
+                    <div class="flex flex-col bg-white shadow-md rounded-md gap-5 px-5 py-5 w-full" data-aos="fade-right"
                         data-aos-duration="1000">
                         <p class="text-disabled text-base">
                             {{ $benefit }}
