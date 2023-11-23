@@ -5,6 +5,8 @@
 ])
 
 @section('content')
+
+
     <div
         class="bg-blur-bg-2 rounded-[700px] blur-[85px] w-[300px] md:w-[600px] h-[250px] md:h-[600px] absolute top-56 md:-top-20">
     </div>

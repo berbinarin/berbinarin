@@ -1,0 +1,108 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\Hiring_PositionsRequest;
+use App\Models\Hiring_Positions;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+
+class HiringPositionsController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        //
+        $HiringPosisitons = Hiring_Positions::all();
+
+        return view("HiringPositionsGet",['HiringPosisitons'=>$HiringPosisitons]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        // 
+        return view("CreateHiringPositions");
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store( Hiring_PositionsRequest $request)
+    {
+        //
+        $validated = $request->validated();
+
+        Hiring_Positions::create([
+            "name"=>$validated["name"],
+            "type"=>$validated["type"],
+            "positions"=>$validated["positions"],
+            "location"=>$validated["location"],
+            "link"=>$validated["link"]
+        ]);
+
+        session()->flash('success', 'Data Berhasil Masuk');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+        $HiringPositions = Hiring_Positions::find($id);
+        return view ("HiringPositionsGetdataById",['HiringPositions'=>$HiringPositions]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+        $Hiring_Positions = Hiring_Positions::find($id);
+        return view("UpdateHiringPositions", ["Hiring_Positions"=>$Hiring_Positions]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Hiring_PositionsRequest $request, string $id)
+    {
+        //
+        $HiringPositions = Hiring_Positions::find($id);
+        $HiringPositions->name =$request->name;
+        $HiringPositions->type = $request->type;
+        $HiringPositions->positions = $request->positions;
+        $HiringPositions->location = $request->location;
+        $HiringPositions->link = $request->link;
+
+        $HiringPositions->save();
+
+        session()->flash('success', 'Data Berhasil Update');
+
+        return redirect()->back();
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+
+        $HiringPositions = Hiring_Positions::find($id);
+        $HiringPositions->delete();
+
+        session()->flash('success', 'Data Berhasil Delete');
+
+        return redirect("/HiringPositions/create");
+    }
+}

@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\HiringPositionsController;
+use App\Http\Controllers\HiringPositionsJobDescriptionController;
+use App\Http\Controllers\HiringPositionsRequirementsController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\UserController;
+use App\Models\Hiring_Positions_Job_Descriptions;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,3 +41,8 @@ Route::get('/class/berbinar+', [LandingController::class, 'classBerbinarPlus'])-
 
 Route::get('/careers', [LandingController::class, 'hiring'])->name('hiring');
 Route::get('/careers/positions', [LandingController::class, 'hiringPositions'])->name('hiringPositions');
+
+Route::resource('user', UserController::class);
+Route::resource('HiringPositions', HiringPositionsController::class);
+Route::resource('JobDecription',HiringPositionsJobDescriptionController::class);
+Route::resource('Position-Requirement', HiringPositionsRequirementsController::class);
