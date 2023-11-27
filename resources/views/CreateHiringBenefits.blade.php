@@ -20,33 +20,19 @@
         {{ session('error') }}
     </div>
     @endif
-    
-    
+
     <div class="container">
         <br><br>
-        <h1>Add Job Decription</h1>
+        <h1>Register Hiring Benefits</h1>
         <div class="card" style="margin-top: 40px">
 
-            <form method="POST" action="/JobDecription" style="padding: 50px">
-                @csrf         
+            <form method="POST" action="/HiringBenefit" style="padding: 50px">
+                @csrf
                 <div class="mb-3">
-                <label for="position_id">Position_id:</label>
-                <select name="position_id" >
-                  @forelse ($HiringPositions as $item)
-                  <option value="{{ $item->id }}">{{ $item->name }}</option>
-                      
-                  @empty
-                      
-                  @endforelse
-                    
-                </select>
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">JobDecription</label>
-                  <textarea name="job_description" id=""  class="form-control" cols="30" rows="10"></textarea>
+                    <label for="exampleInputEmail1" class="form-label">Benefit</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="benefit" aria-describedby="emailHelp">
+                  </div>
 
-                </div>
-              
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
         </div>

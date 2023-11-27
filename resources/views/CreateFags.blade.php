@@ -16,37 +16,41 @@
     @endif
 
     @if(session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-    @endif
-    
-    
+  <div class="alert alert-danger">
+      {{ session('error') }}
+  </div>
+  @endif
+  
+
     <div class="container">
         <br><br>
-        <h1>Add Job Decription</h1>
+        <h1>Register Fags</h1>
         <div class="card" style="margin-top: 40px">
 
-            <form method="POST" action="/JobDecription" style="padding: 50px">
-                @csrf         
+            <form method="POST" action="/Fags" style="padding: 50px">
+                @csrf
                 <div class="mb-3">
-                <label for="position_id">Position_id:</label>
-                <select name="position_id" >
-                  @forelse ($HiringPositions as $item)
-                  <option value="{{ $item->id }}">{{ $item->name }}</option>
-                      
-                  @empty
-                      
-                  @endforelse
-                    
+                    <label for="exampleInputEmail1" class="form-label">Question</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="question" aria-describedby="emailHelp">
+                </div>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Answer</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="answer" aria-describedby="emailHelp">
+                  </div>
+               
+                <div class="mb-3">
+                <label for="service">Service:</label>
+                <select name="service" id="service">
+                    <option value="konseling">Konseling</option>
+                    <option value="psikotes">Psikotes</option>
+                    <option value="kelas">Kelas</option>
+                    <option value="careers">Careers</option>
+                    <option value="webinar">Webinar</option>
+                    <option value="bisikan">Bisikan</option>
+                    <option value="berbinar plus">Berbinar Plus</option>
                 </select>
                 </div>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">JobDecription</label>
-                  <textarea name="job_description" id=""  class="form-control" cols="30" rows="10"></textarea>
-
-                </div>
-              
+               
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
         </div>

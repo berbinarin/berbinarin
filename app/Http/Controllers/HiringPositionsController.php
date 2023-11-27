@@ -35,19 +35,25 @@ class HiringPositionsController extends Controller
     public function store( Hiring_PositionsRequest $request)
     {
         //
-        $validated = $request->validated();
+        try{
 
-        Hiring_Positions::create([
-            "name"=>$validated["name"],
-            "type"=>$validated["type"],
-            "positions"=>$validated["positions"],
-            "location"=>$validated["location"],
-            "link"=>$validated["link"]
-        ]);
-
-        session()->flash('success', 'Data Berhasil Masuk');
-
-        return redirect()->back();
+            $validated = $request->validated();
+    
+            Hiring_Positions::create([
+                "name"=>$validated["name"],
+                "type"=>$validated["type"],
+                "positions"=>$validated["positions"],
+                "location"=>$validated["location"],
+                "link"=>$validated["link"]
+            ]);
+    
+            session()->flash('success', 'Data Berhasil Masuk');
+    
+            return redirect()->back();
+        }catch(\Exception $e){
+            session()->flash('error', 'Terjadi kesalahan saat menyimpan data.');
+            return redirect()->back();
+        }
     }
 
     /**
@@ -76,18 +82,24 @@ class HiringPositionsController extends Controller
     public function update(Hiring_PositionsRequest $request, string $id)
     {
         //
-        $HiringPositions = Hiring_Positions::find($id);
-        $HiringPositions->name =$request->name;
-        $HiringPositions->type = $request->type;
-        $HiringPositions->positions = $request->positions;
-        $HiringPositions->location = $request->location;
-        $HiringPositions->link = $request->link;
+        try{
 
-        $HiringPositions->save();
-
-        session()->flash('success', 'Data Berhasil Update');
-
-        return redirect()->back();
+            $HiringPositions = Hiring_Positions::find($id);
+            $HiringPositions->name =$request->name;
+            $HiringPositions->type = $request->type;
+            $HiringPositions->positions = $request->positions;
+            $HiringPositions->location = $request->location;
+            $HiringPositions->link = $request->link;
+    
+            $HiringPositions->save();
+    
+            session()->flash('success', 'Data Berhasil Update');
+    
+            return redirect()->back();
+        }catch(\Exception $e){
+            session()->flash('error', 'Terjadi kesalahan saat Update data.');
+            return redirect()->back();
+        }
 
     }
 
@@ -97,12 +109,21 @@ class HiringPositionsController extends Controller
     public function destroy(string $id)
     {
         //
+        try{
 
-        $HiringPositions = Hiring_Positions::find($id);
-        $HiringPositions->delete();
+            $HiringPositions = Hiring_Positions::find($id);
+            if (!$HiringPositions) {
+                throw new \Exception('Data tidak ditemukan.'); // Atau gunakan jenis Exception yang sesuai
+            }
+            $HiringPositions->delete();
+    
+            session()->flash('success', 'Data Berhasil Delete');
+    
+            return redirect("/HiringPositions/create");
+        }catch(\Exception $e){
+            session()->flash('error', 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage());
 
-        session()->flash('success', 'Data Berhasil Delete');
-
-        return redirect("/HiringPositions/create");
+            return redirect("/HiringPositions/create");
+        }
     }
 }

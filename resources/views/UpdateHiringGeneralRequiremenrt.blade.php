@@ -14,40 +14,27 @@
         {{ session('success') }}
     </div>
     @endif
-
+    
     @if(session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-    @endif
-    
-    
+  <div class="alert alert-danger">
+      {{ session('error') }}
+  </div>
+  @endif
     <div class="container">
         <br><br>
-        <h1>Add Job Decription</h1>
+        <h1>Update Hiring General Requirement</h1>
         <div class="card" style="margin-top: 40px">
 
-            <form method="POST" action="/JobDecription" style="padding: 50px">
-                @csrf         
+            <form method="POST" action="/HiringGeneralRequirement/{{ $HiringGeneralRequirement->id }}" style="padding: 50px">
+                @csrf
+                @method('put')
                 <div class="mb-3">
-                <label for="position_id">Position_id:</label>
-                <select name="position_id" >
-                  @forelse ($HiringPositions as $item)
-                  <option value="{{ $item->id }}">{{ $item->name }}</option>
-                      
-                  @empty
-                      
-                  @endforelse
-                    
-                </select>
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">JobDecription</label>
-                  <textarea name="job_description" id=""  class="form-control" cols="30" rows="10"></textarea>
-
-                </div>
-              
+                    <label for="exampleInputEmail1" class="form-label">Requirement</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="requirement" aria-describedby="emailHelp" value="{{ $HiringGeneralRequirement->requirement }}">
+                  </div>
+                
                 <button type="submit" class="btn btn-primary">Submit</button>
+               
               </form>
         </div>
     </div>

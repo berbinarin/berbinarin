@@ -37,14 +37,20 @@ class HiringPositionsRequirementsController extends Controller
     public function store(HiringPositionsRequirementsRequest $request)
     {
         //
-        $validated = $request->validated();
-        Hiring_Positions_Requirements::create([
-            'position_id'=>$validated["position_id"],
-            'requirement'=>$validated["requirement"]
-        ]);
-
-        session()->flash('success', 'Data Berhasil Masuk');
-        return redirect()->back();
+        try{
+            
+            $validated = $request->validated();
+            Hiring_Positions_Requirements::create([
+                'position_id'=>$validated["position_id"],
+                'requirement'=>$validated["requirement"]
+            ]);
+    
+            session()->flash('success', 'Data Berhasil Masuk');
+            return redirect()->back();
+        }catch(\Exception $e){
+            session()->flash('error', 'Terjadi kesalahan saat menyimpan data.');
+            return redirect()->back();
+        }
     }
 
     /**
@@ -62,10 +68,23 @@ class HiringPositionsRequirementsController extends Controller
      */
     public function edit(string $id)
     {
-        //
-        $HiringPositions = Hiring_Positions::all();
-        $hiring_position_requirements = Hiring_Positions_Requirements::find($id);
-        return view("UpdatePositionRequirement",["hiring_position_requirements"=>$hiring_position_requirements,"HiringPositions"=>$HiringPositions]);
+        try {
+            $HiringPositions = Hiring_Positions::all();
+            $hiring_position_requirements = Hiring_Positions_Requirements::find($id);
+    
+            if (!$hiring_position_requirements) {
+                throw new \Exception('Data tidak ditemukan.'); // Atau gunakan jenis Exception yang sesuai
+            }
+    
+            return view("UpdatePositionRequirement", [
+                "hiring_position_requirements" => $hiring_position_requirements,
+                "HiringPositions" => $HiringPositions
+            ]);
+        } catch (\Exception $e) {
+            session()->flash('error', 'Terjadi kesalahan: ' . $e->getMessage());
+    
+            return redirect("/Position-Requirement"); 
+        }
     }
 
     /**
@@ -73,15 +92,21 @@ class HiringPositionsRequirementsController extends Controller
      */
     public function update(HiringPositionsRequirementsRequest $request, string $id)
     {
-        //
-        $hiring_position_requirements = Hiring_Positions_Requirements::find($id);
-        $hiring_position_requirements->position_id = $request->position_id;
-        $hiring_position_requirements->requirement = $request->requirement;
-        $hiring_position_requirements->save();
+        
+        try{
 
-        session()->flash('success', 'Data Berhasil Update');
-
-        return redirect()->back();
+            $hiring_position_requirements = Hiring_Positions_Requirements::find($id);
+            $hiring_position_requirements->position_id = $request->position_id;
+            $hiring_position_requirements->requirement = $request->requirement;
+            $hiring_position_requirements->save();
+    
+            session()->flash('success', 'Data Berhasil Update');
+    
+            return redirect()->back();
+        }catch(\Exception $e){
+            session()->flash('error', 'Terjadi kesalahan saat Update data.');
+            return redirect()->back();
+        }
     }
 
     /**
@@ -90,13 +115,24 @@ class HiringPositionsRequirementsController extends Controller
     public function destroy(string $id)
     {
         //
-        $hiring_position_requirements = Hiring_Positions_Requirements::find($id);
-        $hiring_position_requirements->delete();
+        try{
 
+            $hiring_position_requirements = Hiring_Positions_Requirements::find($id);
 
-        session()->flash('success', 'Data Berhasil Delete');
-
-        return redirect("/Position-Requirement/create");
+            if (!$hiring_position_requirements) {
+                throw new \Exception('Data tidak ditemukan.'); // Atau gunakan jenis Exception yang sesuai
+            }
+            $hiring_position_requirements->delete();
+    
+    
+            session()->flash('success', 'Data Berhasil Delete');
+    
+            return redirect("/Position-Requirement/create");
+        }catch(\Exception $e){
+            session()->flash('error', 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage());
+    
+            return redirect('/Position-Requirement/create');
+        }
         
     }
 }

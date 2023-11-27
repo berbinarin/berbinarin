@@ -9,32 +9,28 @@
 
 </head>
 <body>
-  
-  @if(session('error'))
-  <div class="alert alert-danger">
-      {{ session('error') }}
-  </div>
-  @endif
 
     <div class="container">
         <br><br>
-        <h1>Get ALL Data Hiring Position Requirement</h1>
+        <h1>Get ALL Data Fags</h1>
         <div class="card" style="margin-top: 40px">
 
         <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Position_id</th>
-                    <th scope="col">Requirement</th>
+                    <th scope="col">Question</th>
+                    <th scope="col">Answer</th>
+                    <th scope="col">Service</th>
                   </tr>
                 </thead>
                 <tbody>
-                    @forelse ($hiring_position_requirements as $item)
+                    @forelse ($Fags as $item)
                     <tr>
                       <th scope="row">{{ $item->id }}</th>
-                      <td>{{ $item->position_id }}</td>
-                      <td>{{ $item->requirement }}</td>
+                      <td>{{ $item->question }}</td>
+                      <td>{{ $item->answer }}</td>
+                      <td>{{ $item->service }}</td>
                     </tr>
                         
                     @empty

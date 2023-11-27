@@ -10,6 +10,12 @@
 </head>
 <body>
 
+  @if(session('error'))
+  <div class="alert alert-danger">
+      {{ session('error') }}
+  </div>
+  @endif
+
     <div class="container">
         <br><br>
         <h1>Get All Data Position Job Decription</h1>

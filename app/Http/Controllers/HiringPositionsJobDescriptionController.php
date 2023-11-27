@@ -36,15 +36,20 @@ class HiringPositionsJobDescriptionController extends Controller
     public function store(HiringPositionsJobDescriptionsRequest $request)
     {
         //
+        try{
 
-        $validated = $request->validated();
-        Hiring_Positions_Job_Descriptions::create([
-            'position_id'=>$validated["position_id"],
-            'job_description'=>$validated["job_description"]
-        ]);
-
-        session()->flash('success', 'Data Berhasil Masuk');
-        return redirect()->back();
+            $validated = $request->validated();
+            Hiring_Positions_Job_Descriptions::create([
+                'position_id'=>$validated["position_id"],
+                'job_description'=>$validated["job_description"]
+            ]);
+    
+            session()->flash('success', 'Data Berhasil Masuk');
+            return redirect()->back();
+        }catch(\Exception $e){
+            session()->flash('error', 'Terjadi kesalahan saat menyimpan data.');
+            return redirect()->back();
+        }
 
     }
 
@@ -64,9 +69,20 @@ class HiringPositionsJobDescriptionController extends Controller
     public function edit(string $id)
     {
         //
-        $HiringPositions = Hiring_Positions::all();
-        $hiring_position_job_descriptions = Hiring_Positions_Job_Descriptions::find($id);
-        return view("UpdateJobDescription", ["hiring_position_job_descriptions"=>$hiring_position_job_descriptions,"HiringPositions"=>$HiringPositions]);
+        try{
+
+            $HiringPositions = Hiring_Positions::all();
+            $hiring_position_job_descriptions = Hiring_Positions_Job_Descriptions::find($id);
+
+            if (!$hiring_position_job_descriptions) {
+                throw new \Exception('Data tidak ditemukan.'); // Atau gunakan jenis Exception yang sesuai
+            }
+            return view("UpdateJobDescription", ["hiring_position_job_descriptions"=>$hiring_position_job_descriptions,"HiringPositions"=>$HiringPositions]);
+        }catch(\Exception $e){
+            session()->flash('error', 'Terjadi kesalahan: ' . $e->getMessage());
+    
+            return redirect("/JobDecription"); 
+        }
     }
 
     /**
@@ -75,14 +91,20 @@ class HiringPositionsJobDescriptionController extends Controller
     public function update(HiringPositionsJobDescriptionsRequest $request, string $id)
     {
         //
-        $hiring_position_job_descriptions = Hiring_Positions_Job_Descriptions::find($id);
-        $hiring_position_job_descriptions->position_id = $request->position_id;
-        $hiring_position_job_descriptions->job_description = $request->job_description;
-        $hiring_position_job_descriptions->save();
+        try{
 
-        session()->flash('success', 'Data Berhasil Update');
-
-        return redirect()->back();
+            $hiring_position_job_descriptions = Hiring_Positions_Job_Descriptions::find($id);
+            $hiring_position_job_descriptions->position_id = $request->position_id;
+            $hiring_position_job_descriptions->job_description = $request->job_description;
+            $hiring_position_job_descriptions->save();
+    
+            session()->flash('success', 'Data Berhasil Update');
+    
+            return redirect()->back();
+        }catch(\Exception $e){
+            session()->flash('error', 'Terjadi kesalahan saat Update data.');
+            return redirect()->back();
+        }
     }
 
     /**
@@ -91,12 +113,22 @@ class HiringPositionsJobDescriptionController extends Controller
     public function destroy(string $id)
     {
         //
-        $hiring_position_job_descriptions = Hiring_Positions_Job_Descriptions::find($id);
-        $hiring_position_job_descriptions->delete();
+        try{
 
+            $hiring_position_job_descriptions = Hiring_Positions_Job_Descriptions::find($id);
+            if (!$hiring_position_job_descriptions) {
+                throw new \Exception('Data tidak ditemukan'); // Atau gunakan jenis Exception yang sesuai
+            }
+            $hiring_position_job_descriptions->delete();
+    
+    
+            session()->flash('success', 'Data Berhasil Delete');
+    
+            return redirect("/JobDecription/create");
+        }catch(\Exception $e){
+            session()->flash('error', 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage());
 
-        session()->flash('success', 'Data Berhasil Delete');
-
-        return redirect("/JobDecription/create");
+            return redirect("/JobDecription/create");
+        }
     }
 }
