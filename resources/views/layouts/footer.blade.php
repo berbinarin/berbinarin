@@ -48,7 +48,7 @@
                     class="flex items-center justify-center" target="_blank">
                     <i class='bx bxl-tiktok text-primary text-[30px]'></i>
                 </a>
-                <a href="https://twitter.com/BerbinarIn" class="flex items-center justify-center" target="_blank">
+                <a href="https://twitter.com/PsikologiDiri" class="flex items-center justify-center" target="_blank">
                     <i class='bx bxl-twitter text-primary text-[30px]'></i>
                 </a>
                 <a href="https://www.linkedin.com/company/berbinar/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BH62OB4vFS7yp93D8kOV0oQ%3D%3D"
