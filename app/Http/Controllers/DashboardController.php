@@ -10,4 +10,9 @@ class DashboardController extends Controller
     {
         return view('moduls.dashboard.index');
     }
+
+    public function login()
+    {
+        return view('moduls.dashboard.login');
+    }
 }

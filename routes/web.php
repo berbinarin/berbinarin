@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HiringPositionsController;
 use App\Http\Controllers\HiringPositionsJobDescriptionController;
 use App\Http\Controllers\HiringPositionsRequirementsController;
@@ -46,3 +47,6 @@ Route::resource('user', UserController::class);
 Route::resource('HiringPositions', HiringPositionsController::class);
 Route::resource('JobDecription',HiringPositionsJobDescriptionController::class);
 Route::resource('Position-Requirement', HiringPositionsRequirementsController::class);
+
+Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard/login', [DashboardController::class, 'login'])->name('dashboard.login');

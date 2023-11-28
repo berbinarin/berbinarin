@@ -1,1 +1,7 @@
-@extends('moduls.dashboard.layouts.main')
+@extends('moduls.dashboard.layouts.main', [
+    'title' => 'Dashboard',
+    'active' => 'Dashboard',
+])
+
+@section('content-dashboard')
+@endsection

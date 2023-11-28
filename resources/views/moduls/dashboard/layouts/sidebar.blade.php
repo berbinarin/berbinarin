@@ -1,4 +1,4 @@
-<nav class="w-24 flex flex-col items-center bg-white py-4">
+<nav class="w-[10%] flex flex-col items-center bg-white py-8 px-4">
     {{-- LOGO BERBINAR --}}
     <div>
         <img src="{{ asset('assets/images/logo-berbinar.png') }}" alt="Logo Berbinar Insightful Indonesia"
@@ -6,7 +6,7 @@
     </div>
 
     {{-- LIST MENU --}}
-    <ul class="mt-2 text-gray-700 dark:text-gray-400 capitalize">
+    <ul class="mt-10 text-gray-700 dark:text-gray-400 capitalize">
         <!-- Links -->
 
         <li class="mt-6 p-2 text-primary rounded-lg">
@@ -16,7 +16,7 @@
 17v2H5v-2h4M21 3h-8v6h8V3M11 3H3v10h8V3m10
 8h-8v10h8V11m-10 4H3v6h8v-6z"></path>
                 </svg>
-                <span class="text-xs mt-2">dashBoard</span>
+                <span class="text-base mt-2">dashBoard</span>
             </a>
 
         </li>
@@ -25,7 +25,7 @@
         rounded-lg">
             <a href="#" class=" flex flex-col items-center">
                 <i class='bx bx-user text-gray-700 text-lg'></i>
-                <span class="text-xs mt-2 text-center">Users Management</span>
+                <span class="text-base mt-2 text-center">Users Management</span>
             </a>
 
         </li>
@@ -34,7 +34,7 @@
         rounded-lg">
             <a href="#" class=" flex flex-col items-center">
                 <i class='bx bx-question-mark text-gray-700 text-lg'></i>
-                <span class="text-xs mt-2">FAQs</span>
+                <span class="text-base mt-2">FAQs</span>
             </a>
 
         </li>
@@ -43,7 +43,7 @@
         rounded-lg">
             <a href="#" class=" flex flex-col items-center">
                 <i class='bx bx-briefcase-alt-2 text-gray-700 text-lg'></i>
-                <span class="text-xs mt-2">Positions</span>
+                <span class="text-base mt-2">Positions</span>
             </a>
 
         </li>
@@ -52,16 +52,16 @@
         rounded-lg">
             <a href="#" class=" flex flex-col items-center">
                 <i class='bx bxl-upwork text-gray-700 text-lg'></i>
-                <span class="text-xs mt-2 text-center">Position Descriptions</span>
+                <span class="text-base mt-2 text-center">Position Descriptions</span>
             </a>
 
         </li>
 
-        <li class="mt-40 p-2 hover:text-primary dark-hover:text-blue-300
+        <li class="mt-20 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
             <a href="#" class=" flex flex-col items-center">
                 <i class='bx bx-log-out text-gray-700 text-lg'></i>
-                <span class="text-xs mt-2 text-center">Logout</span>
+                <span class="text-base mt-2 text-center">Logout</span>
             </a>
 
         </li>
