@@ -31,40 +31,42 @@ class AuthController extends Controller
                 "role" => $validated["role"]
             ]);
             
-            Alert::toast('Formulir Pendaftaran Berhasil', 'success');
+            Alert::toast('Formulir Pendaftaran Berhasil', 'success')->autoClose(5000);;
             return redirect()->back();
         } catch (\Exception $e) {
-            Alert::toast('Terjadi kesalahan saat menyimpan data', 'error');
+            Alert::toast('Terjadi kesalahan saat menyimpan data', 'error')->autoClose(5000);;
             return redirect()->back();
         }
     }
 
     public function Login(LoginRequest $request){
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('username', 'password');
     
         if (Auth::attempt($credentials) ) {
             // Authenticated and role matches
-              if (auth()->user()->role == 'Admin' && auth()->user()->role == 'HR') {
+              if (auth()->user()->role == 'Admin' || auth()->user()->role == 'HR') {
 
-                Alert::toast('Welcome!', 'success');
+                Alert::toast('Login Sucessfully!', 'success')->autoClose(5000);;
                 return redirect()->route('dashboard');
             
             }else{
 
-                Alert::toast('Welcome!', 'success');
+                Alert::toast('Login Sucessfully', 'success')->autoClose(5000);;
                 return redirect()->route('home');
             }
         }
     
         // Authentication failed
-        Alert::toast('Invalid Email-Address And Password', 'error');
+        Alert::toast('Invalid Email-Address And Password', 'error')->autoClose(5000);;
 
-        return redirect()->route('login');
+        return redirect()->route('dashboard.login');
     
     }
     public function Logout(){
 
         Auth::logout();
+        Alert::toast('Logout Sucessfully!', 'success')->autoClose(5000);;
+
         return redirect()->route('home');
     }
 

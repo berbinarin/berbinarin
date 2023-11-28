@@ -16,11 +16,11 @@ class Role
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // if(Auth::user()->role == 'Admin'||Auth::user()->role == 'HR'){
-        //     return $next($request);
-        // }else{
+        if(Auth::user()->role == 'Admin'||Auth::user()->role == 'HR'){
+            return $next($request);
+        }else{
 
-        // }
+        }
         return redirect()->route('dashboard.login');
 
 

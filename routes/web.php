@@ -55,5 +55,7 @@ Route::resource('Position-Requirement', HiringPositionsRequirementsController::c
 
 Route::get('/dashboard/login', [DashboardController::class, 'login'])->name('dashboard.login');
 
-Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
+Route::group(['middleware'=>['auth']],function(){
+    Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
 
+});

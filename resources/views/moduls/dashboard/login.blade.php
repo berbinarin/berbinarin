@@ -15,12 +15,13 @@
             </p>
         </div>
 
-        <form action="" class="mx-auto mb-0 mt-5 max-w-md space-y-4">
+        <form action="/login" method="POST"  class="mx-auto mb-0 mt-5 max-w-md space-y-4">
+            @csrf
             <div>
                 <label for="username" class="sr-only">Username</label>
 
                 <div class="relative">
-                    <input type="text" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-base shadow-sm"
+                    <input type="text" name="username" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-base shadow-sm"
                         placeholder="Enter username" />
 
                     <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -37,7 +38,7 @@
                 <label for="password" class="sr-only">Password</label>
 
                 <div class="relative">
-                    <input type="password" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-base shadow-sm"
+                    <input type="password" name="password" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-base shadow-sm"
                         placeholder="Enter password" />
 
                     <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
