@@ -50,3 +50,6 @@ Route::resource('Position-Requirement', HiringPositionsRequirementsController::c
 
 Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/dashboard/login', [DashboardController::class, 'login'])->name('dashboard.login');
+
+Route::get('/dashboard/admin/faqs', [DashboardController::class, 'faqa'])->name('dashboard.faqs');
+Route::get('/dashboard/admin/positions', [DashboardController::class, 'positions'])->name('dashboard.positions');

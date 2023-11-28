@@ -15,4 +15,14 @@ class DashboardController extends Controller
     {
         return view('moduls.dashboard.login');
     }
+
+    public function faqs()
+    {
+        return view('moduls.dashboard.faqs');
+    }
+
+    public function positions()
+    {
+        return view('moduls.dashboard.positions');
+    }
 }
