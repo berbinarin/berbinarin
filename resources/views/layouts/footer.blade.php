@@ -55,7 +55,7 @@
                     class="flex items-center justify-center" target="_blank">
                     <i class='bx bxl-linkedin text-primary text-[30px]'></i>
                 </a>
-                <a href="" class="flex items-center justify-center" target="_blank">
+                <a href="https://t.me/OfficialChannelBerbinar" class="flex items-center justify-center" target="_blank">
                     <i class='bx bxl-telegram text-primary text-[30px]'></i>
                 </a>
             </div>

@@ -55,12 +55,12 @@
                     <h1 class="text-3xl font-bold text-black" data-aos="zoom-out" data-aos-duration="500">12</h1>
                     <p class="text-disabled text-base md:text-lg leading-[120%]">Media Partner</p>
                 </div>
-                <div class="flex flex-col items-center justify-center gap-1 p-4 border border-[#70787D] rounded-md w-full">
+                <div class="flex flex-col items-center ml-6 justify-center gap-1 p-4 border border-[#70787D] rounded-md w-full">
                     <h1 class="text-3xl font-bold text-black" data-aos="zoom-out" data-aos-duration="1000"
                         data-aos-duration="500">3</h1>
                     <p class="text-disabled text-base md:text-lg leading-[120%]">Produk</p>
                 </div>
-                <div class="flex flex-col items-center justify-center gap-1 p-4 border border-[#70787D] rounded-md w-full">
+                <div class="flex flex-col items-center ml-6 justify-center gap-1 p-4 border border-[#70787D] rounded-md w-full">
                     <h1 class="text-3xl font-bold text-black" data-aos="zoom-out" data-aos-duration="1500"
                         data-aos-delay="500">8</h1>
                     <p class="text-disabled text-base md:text-lg leading-[120%]">Sub Produk</p>

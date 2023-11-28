@@ -44,7 +44,7 @@
                 hidup
                 dengan bijaksana, memberikan dukungan emosional</p>
 
-            <div class="flex flex-col md:grid w-full grid-cols-1 gap-x-6 gap-y-12  lg:grid-cols-4 items-center mt-10">
+            <div class="flex flex-col md:grid w-4/5 grid-cols-1 gap-x-6 gap-y-12  lg:grid-cols-4 items-center mt-10">
                 <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                     <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                         src="{{ asset('assets/images/konseling/psikolog1.jpg') }}">
@@ -88,7 +88,7 @@
                 </div>
             </div>
 
-            <div class="flex flex-col md:flex-row gap-16 mt-10 w-full items-center justify-center">
+            <div class="flex flex-col md:flex-row gap-6 mt-10 w-2/5 items-center justify-center">
                 <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px]">
                     <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                         src="{{ asset('assets/images/konseling/psikolog4.jpg') }}">
@@ -176,13 +176,12 @@
             <p class="text-lg text-disabled text-center md:w-1/2">Tim kami terdiri dari peer counselor berpengalaman,
                 membantu Anda menavigasi hidup dengan bijaksana, memberikan dukungan emosional</p>
 
-            <div class="flex flex-col md:grid w-full grid-cols-1 gap-x-6 gap-y-12  lg:grid-cols-4 items-center mt-10">
+            <div class="flex flex-col md:grid w-4/5 grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-4 items-center mt-10">
                 <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                     <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                         src="{{ asset('assets/images/konseling/peer1.PNG') }}">
                     <div class="flex flex-col items-center">
-                        <a target="_blank" href="#" class="text-xl font-medium text-center">Sarah Hasanah Delonix
-                            R</a>
+                        <div class="text-xl font-medium text-center">Sarah Hasanah Delonix R</div>
                         <p class="text-sm text-disabled">Universitas Negeri Surabaya</p>
                     </div>
                 </div>
@@ -190,9 +189,8 @@
                     <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                         src="{{ asset('assets/images/konseling/peer3.jpeg') }}">
                     <div class="flex flex-col items-center">
-                        <a target="_blank" href="#" class="text-xl font-medium text-center">Sofia Zulaikha
-                            Salsabila
-                        </a>
+                        <div class="text-xl font-medium text-center">Sofia Zulaikha Salsabila
+                        </div>
                         <p class="text-sm text-disabled">Universitas Sumatera Utara</p>
                     </div>
                 </div>
@@ -200,7 +198,7 @@
                     <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                         src="{{ asset('assets/images/konseling/peer4.jpeg') }}">
                     <div class="flex flex-col items-center">
-                        <a target="_blank" href="#" class="text-xl font-medium text-center">Rahmadea An Nariya</a>
+                        <div class="text-xl font-medium text-center">Rahmadea An Nariya</div>
                         <p class="text-sm text-disabled">Universitas Brawijaya</p>
                     </div>
                 </div>
@@ -208,8 +206,7 @@
                     <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                         src="{{ asset('assets/images/konseling/peer5.jpg') }}">
                     <div class="flex flex-col items-center">
-                        <a target="_blank" href="#" class="text-xl font-medium text-center">Greis Meita Pardede
-                        </a>
+                        <div class="text-xl font-medium text-center">Greis Meita Pardede</div>
                         <p class="text-sm text-disabled">Universitas Sumatera Utara
                         </p>
                     </div>
