@@ -31,5 +31,7 @@
     @endif
 
 </body>
+<!-- resources/views/layouts/app.blade.php atau file lainnya -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </html>

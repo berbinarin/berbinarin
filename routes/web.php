@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HiringPositionsController;
 use App\Http\Controllers\HiringPositionsJobDescriptionController;
@@ -43,10 +44,16 @@ Route::get('/class/berbinar+', [LandingController::class, 'classBerbinarPlus'])-
 Route::get('/careers', [LandingController::class, 'hiring'])->name('hiring');
 Route::get('/careers/positions', [LandingController::class, 'hiringPositions'])->name('hiringPositions');
 
+Route::get('/HalamanRegister',[AuthController::class, 'HalamanRegister']);
+Route::post("/register", [AuthController::class, 'Register']);
+Route::post("/login", [AuthController::class, 'Login']);
+Route::post("/logout", [AuthController::class, 'Logout']);
 Route::resource('user', UserController::class);
 Route::resource('HiringPositions', HiringPositionsController::class);
 Route::resource('JobDecription',HiringPositionsJobDescriptionController::class);
 Route::resource('Position-Requirement', HiringPositionsRequirementsController::class);
 
-Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/dashboard/login', [DashboardController::class, 'login'])->name('dashboard.login');
+
+Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
+
