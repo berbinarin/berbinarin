@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\FagsController;
-use App\Http\Controllers\HiringBenefitsController;
-use App\Http\Controllers\HiringGeneralRequirementsController;
 use App\Http\Controllers\HiringPositionsController;
 use App\Http\Controllers\HiringPositionsJobDescriptionController;
 use App\Http\Controllers\HiringPositionsRequirementsController;
@@ -49,6 +46,3 @@ Route::resource('user', UserController::class);
 Route::resource('HiringPositions', HiringPositionsController::class);
 Route::resource('JobDecription',HiringPositionsJobDescriptionController::class);
 Route::resource('Position-Requirement', HiringPositionsRequirementsController::class);
-Route::resource('Fags', FagsController::class);
-Route::resource('HiringBenefit', HiringBenefitsController::class);
-Route::resource('HiringGeneralRequirement', HiringGeneralRequirementsController::class);
