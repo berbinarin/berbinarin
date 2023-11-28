@@ -20,7 +20,7 @@
                 <p class="text-lg text-disabled text-center md:w-1/2">Berbinar hadir menawarkan layanan konseling bersama
                     psikolog
                     partner dan peer counselor untuk setiap individu yang sedang berjuang.</p>
-                <a href="{{ route('workWithUs') }}"
+                <a href="https://linktr.ee/berbinarinsight"
                     class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Hubungi
                     Kami</a>
             </div>

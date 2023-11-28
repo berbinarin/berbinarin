@@ -53,9 +53,13 @@ Route::resource('HiringPositions', HiringPositionsController::class);
 Route::resource('JobDecription',HiringPositionsJobDescriptionController::class);
 Route::resource('Position-Requirement', HiringPositionsRequirementsController::class);
 
+
 Route::get('/dashboard/login', [DashboardController::class, 'login'])->name('dashboard.login');
 
 Route::group(['middleware'=>['auth']],function(){
     Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/admin/faqs', [DashboardController::class, 'faqs'])->name('dashboard.faqs');
+    Route::get('/dashboard/admin/positions', [DashboardController::class, 'positions'])->name('dashboard.positions');
 
 });
+

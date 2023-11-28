@@ -10,7 +10,6 @@
             Buat janji dan lakukan konseling dengan tim Berbinar Insightful Indonesia untuk layanan konseling online
             ataupun offline.
         </p>
-        <a href="/produk-berbinar" class="text-lg text-primary bg-white rounded-md px-5 py-2 w-fit mx-5 md:mx-0">Hubungi
-            Kami</a>
+        <a href="https://api.whatsapp.com/send/?phone=6282141869800&text&type=phone_number&app_absent=0" class="text-lg text-primary bg-white rounded-md px-5 py-2 w-fit mx-5 md:mx-0">Hubungi Kami</a>
     </div>
 </section>

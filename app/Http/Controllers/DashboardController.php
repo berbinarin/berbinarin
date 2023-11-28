@@ -9,8 +9,8 @@ class DashboardController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['only' => ['index']]);
-        $this->middleware('role:Admin,HR', ['only' => ['index']]);
+        $this->middleware('auth')->except(['login']);
+        $this->middleware('role:Admin,HR')->except(['login']);
     }
     public function index()
     {
@@ -20,5 +20,15 @@ class DashboardController extends Controller
     public function login()
     {
         return view('moduls.dashboard.login');
+    }
+
+    public function faqs()
+    {
+        return view('moduls.dashboard.faqs');
+    }
+
+    public function positions()
+    {
+        return view('moduls.dashboard.positions');
     }
 }
