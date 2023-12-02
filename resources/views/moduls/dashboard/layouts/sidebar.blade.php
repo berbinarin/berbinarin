@@ -9,6 +9,8 @@
     <ul class="mt-10 text-gray-700 dark:text-gray-400 capitalize">
         <!-- Links -->
 
+        @if (auth()->user()->role == "Admin")
+            
         <li class="mt-6 p-2 text-primary rounded-lg">
             <a href="#" class=" flex flex-col items-center">
                 <svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
@@ -32,16 +34,19 @@
 
         <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
-            <a href="#" class=" flex flex-col items-center">
+            <a href="{{ route("dashboard.faqs") }}" class=" flex flex-col items-center">
                 <i class='bx bx-question-mark text-gray-700 text-lg'></i>
                 <span class="text-base mt-2">FAQs</span>
             </a>
 
         </li>
+        @endif
 
+        @if (auth()->user()->role == "HR")
+            
         <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
-            <a href="#" class=" flex flex-col items-center">
+            <a href="{{ route("dashboard.positions") }}" class=" flex flex-col items-center">
                 <i class='bx bx-briefcase-alt-2 text-gray-700 text-lg'></i>
                 <span class="text-base mt-2">Positions</span>
             </a>
@@ -50,19 +55,27 @@
 
         <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
-            <a href="#" class=" flex flex-col items-center">
+            <a href="{{ route("JobDecription.index") }}" class=" flex flex-col items-center">
                 <i class='bx bxl-upwork text-gray-700 text-lg'></i>
                 <span class="text-base mt-2 text-center">Position Descriptions</span>
             </a>
 
         </li>
+        @endif
 
         <li class="mt-20 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
-            <a href="#" class=" flex flex-col items-center">
-                <i class='bx bx-log-out text-gray-700 text-lg'></i>
-                <span class="text-base mt-2 text-center">Logout</span>
+        <form action="/logout" method="POST">
+            @csrf
+            <a href="/logout" class=" flex flex-col items-center">
+                <button type="submit">
+                    <i class='bx bx-log-out text-gray-700 text-lg'></i>
+                    <span class="text-base mt-2 text-center">Logout</span>
+
+                </button>
             </a>
+            
+        </form>
 
         </li>
 

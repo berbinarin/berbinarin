@@ -24,6 +24,8 @@
                     <th scope="col">Positions</th>
                     <th scope="col">Location</th>
                     <th scope="col">Link</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -34,6 +36,8 @@
                       <td>{{ $item->positions }}</td>
                       <td>{{ $item->location }}</td>
                       <td>{{ $item->link }}</td>
+                      <td><a href="HiringPositions/{{ $item->id }}/edit">Edit</a></td>
+                      <td><a href="HiringPositions/{{ $item->id }}">Read</a></td>
                     </tr>
                         
                     @empty
@@ -42,7 +46,11 @@
                  
                 </tbody>
               </table>
-        </div>
+              
+            </div> 
+            <br><br>
+            <a href="/HiringPositions/create" class="btn btn-success">Tambah data</a>
+            <a href="/dashboard/admin" class="btn btn-success">Back</a>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

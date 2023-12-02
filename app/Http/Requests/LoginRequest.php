@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Response;
-class UserRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +25,9 @@ class UserRequest extends FormRequest
     {
         return [
             //
+
             'username' => "required |string",
-            'email' => "required |string|email|unique:users,email",
-            'password' => "required |string|regex:/[a-zA-Z]/|regex:/[0-9]/|regex:/[@$!%*#?&]/",
-            'role' => "required|in:Super Admin,Admin,HR'",
+            'password' => "required |string",
         ];
     }
 
@@ -43,4 +42,3 @@ class UserRequest extends FormRequest
         );
     }
 }
-

@@ -27,6 +27,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Position_id</th>
                     <th scope="col">Requirement</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
@@ -35,12 +36,14 @@
                       <th scope="row">{{ $item->id }}</th>
                       <td>{{ $item->position_id }}</td>
                       <td>{{ $item->requirement }}</td>
+                    
+                      
                     </tr>
                         
+                    
                     @empty
                         
                     @endforelse
-                 
                 </tbody>
               </table>
         </div>

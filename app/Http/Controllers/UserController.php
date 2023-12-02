@@ -23,35 +23,12 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-        return view ("create");
-    }
+  
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UserRequest $request)
-    {
-        try {
-            $validated = $request->validated();
-    
-            User::create([
-                'username' => $validated["username"],
-                'email' => $validated['email'],
-                'password' => bcrypt($validated['password']),
-                "role" => $validated["role"]
-            ]);
-    
-            session()->flash('success', 'Formulir Pendaftaran Berhasil');
-            return redirect()->back();
-        } catch (\Exception $e) {
-            session()->flash('error', 'Terjadi kesalahan saat menyimpan data.');
-            return redirect()->back();
-        }
-    }
-    
+   
 
     /**
      * Display the specified resource.

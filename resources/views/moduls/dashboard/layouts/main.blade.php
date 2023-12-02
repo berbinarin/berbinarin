@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/logo-berbinar.png') }}" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     @vite('resources/css/app.css')
+    <link rel="stylesheet" href="{{ asset('assets/css/dataTables.min.css') }}">
 </head>
 
 <body class="font-plusJakartaSans">
@@ -30,6 +31,18 @@
         </main>
     @endif
 
+    @include('sweetalert::alert')
+
+    <script src="{{ asset('assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.datables.min.js') }}"></script>
+    <script>
+        new DataTable('#example');
+    </script>
+
+
 </body>
+
+<!-- resources/views/layouts/app.blade.php atau file lainnya -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </html>
