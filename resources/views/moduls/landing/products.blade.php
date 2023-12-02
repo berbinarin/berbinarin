@@ -25,36 +25,40 @@
         <div class="swiper mySwiper md:-mt-10">
             <div class="swiper-wrapper">
                 <div class="swiper-slide relative">
-                    <img src="https://i.ibb.co/zrWwWmr/1.png" title="Slider's Image" alt="Slider's Image"
-                        class="-z-50 absolute" />
-                    <div
-                        class="description absolute top-0 flex flex-col items-start md:px-[3.5rem] px-[1.5rem] py-[2rem] md:py-[4.5rem] gap-40">
-                    </div>
-
+                    <picture>
+                        <!-- view mobile -->
+                        <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Konseling.png') }}" class="description absolute top-0 flex flex-col items-start">
+                        <!-- view desktop -->
+                        <source media="(min-width: 768px)" srcset="https://i.ibb.co/zrWwWmr/1.png" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                        <img src="https://i.ibb.co/zrWwWmr/1.png" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
+                    </picture>
                 </div>
                 <div class="swiper-slide relative">
-                    <img src="https://i.ibb.co/cg7DxZZ/2.png" title="Slider's Image" alt="Slider's Image"
-                        class="-z-50 absolute" />
-                    <div
-                        class="description absolute top-0 flex flex-col items-start md:px-[3.5rem] px-[1.5rem] py-[2rem] md:py-[4.5rem] gap-40">
-                    </div>
-
+                    <picture>
+                        <!-- view mobile -->
+                        <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Asesmen-Psikologi.png') }}" class="description absolute top-0 flex flex-col items-start">
+                        <!-- view desktop -->
+                        <source media="(min-width: 768px)" srcset="https://i.ibb.co/cg7DxZZ/2.png" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                        <img src="https://i.ibb.co/cg7DxZZ/2.png" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
+                    </picture>
                 </div>
                 <div class="swiper-slide relative">
-                    <img src="https://i.ibb.co/Q9z9F1t/3.png" title="Slider's Image" alt="Slider's Image"
-                        class="-z-50 absolute" />
-                    <div
-                        class="description absolute top-0 flex flex-col items-start md:px-[3.5rem] px-[1.5rem] py-[2rem] md:py-[4.5rem] gap-40">
-                    </div>
-
+                    <picture>
+                        <!-- view mobile -->
+                        <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Kelas.png') }}" class="description absolute top-0 flex flex-col items-start">
+                        <!-- view desktop -->
+                        <source media="(min-width: 768px)" srcset="https://i.ibb.co/Q9z9F1t/3.png" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                        <img src="https://i.ibb.co/Q9z9F1t/3.png" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
+                    </picture>
                 </div>
                 <div class="swiper-slide relative">
-                    <img src="https://i.ibb.co/6Jwpb3f/4.png" title="Slider's Image" alt="Slider's Image"
-                        class="-z-50 absolute" />
-                    <div
-                        class="description absolute top-0 flex flex-col items-start md:px-[3.5rem] px-[1.5rem] py-[2rem] md:py-[4.5rem] gap-40">
-                    </div>
-
+                    <picture>
+                        <!-- view mobile -->
+                        <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Webinar.png') }}" class="description absolute top-0 flex flex-col items-start">
+                        <!-- view desktop -->
+                        <source media="(min-width: 768px)" srcset="https://i.ibb.co/Q9z9F1t/3.png" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                        <img src="https://i.ibb.co/Q9z9F1t/3.png" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
+                    </picture>
                 </div>
             </div>
             <div class="swiper-pagination"></div>

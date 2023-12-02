@@ -34,3 +34,16 @@
                 object-contain: fit;
             }
         }
+
+        @media screen and (max-width: 767px) {
+            .mySwiper .swiper-slide {
+                height: 378px;
+                width: 293px;
+                object-contain: fit;
+                margin-top: -2rem;
+            }
+            .mySwiper .swiper-slide img {
+                height: 378px;
+                object-contain: fit;
+            }
+        }
