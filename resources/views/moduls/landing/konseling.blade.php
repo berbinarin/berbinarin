@@ -91,21 +91,21 @@
             <div class="flex flex-col md:flex-row gap-16 mt-10 w-full items-center justify-center">
                 <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px]">
                     <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                        src="{{ asset('assets/images/konseling/psikolog4.jpg') }}">
+                        src="{{ asset('assets/images/konseling/psikolog/istna.jpeg') }}">
                     <div class="flex flex-col items-center">
                         <a target="_blank"
                             href="https://drive.google.com/file/d/1A8UBHm58SeRO0p0Erk9_B37Fyfv50xf4/view?usp=share_link"
-                            class="text-xl font-medium text-center">Novia Solichah, S.Psi., M.Psi.i.</a>
+                            class="text-xl font-medium text-center">Istna Anisatul Fadillah, S.Psi., M.Psi. Psikolog</a>
                         <p class="text-sm text-disabled">S1 Uinsa, Mapro Unair</p>
                     </div>
                 </div>
                 <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px]">
                     <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                        src="{{ asset('assets/images/konseling/psikolog5.jpg') }}">
+                        src="{{ asset('assets/images/konseling/putu-yoga.jpeg') }}">
                     <div class="flex flex-col items-center">
                         <a target="_blank"
                             href="https://drive.google.com/file/d/1fSXvXB4hjSpPJNny6rOOZmxgqwuWqEWM/view?usp=share_link"
-                            class="text-xl font-medium text-center">Putri Maharani, S.Psi., M.Psi.i.</a>
+                            class="text-xl font-medium text-center">Putu Yoga, S.Psi., M.Psi. Psikolog</a>
                         <p class="text-sm text-disabled">S1 Unair, Mapro Unair</p>
                     </div>
                 </div>
