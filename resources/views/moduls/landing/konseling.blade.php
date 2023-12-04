@@ -101,7 +101,7 @@
                 </div>
                 <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px]">
                     <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                        src="{{ asset('assets/images/konseling/putu-yoga.jpeg') }}">
+                        src="{{ asset('assets/images/konseling/psikolog/putu-yoga.jpeg') }}">
                     <div class="flex flex-col items-center">
                         <a target="_blank"
                             href="https://drive.google.com/file/d/1fSXvXB4hjSpPJNny6rOOZmxgqwuWqEWM/view?usp=share_link"
