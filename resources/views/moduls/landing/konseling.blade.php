@@ -91,7 +91,7 @@
             <div class="flex flex-col md:flex-row gap-16 mt-10 w-full items-center justify-center">
                 <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px]">
                     <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                        src="{{ asset('assets/images/konseling/psikolog/istna.jpeg') }}">
+                        src="{{ asset('assets/images/konseling/psikolog/istna-anisatul.jpeg') }}">
                     <div class="flex flex-col items-center">
                         <a target="_blank"
                             href="https://drive.google.com/file/d/1A8UBHm58SeRO0p0Erk9_B37Fyfv50xf4/view?usp=share_link"
@@ -176,16 +176,7 @@
             <p class="text-lg text-disabled text-center md:w-1/2">Tim kami terdiri dari peer counselor berpengalaman,
                 membantu Anda menavigasi hidup dengan bijaksana, memberikan dukungan emosional</p>
 
-            <div class="flex flex-col md:grid w-full grid-cols-1 gap-x-6 gap-y-12  lg:grid-cols-4 items-center mt-10">
-                <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-                    <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                        src="{{ asset('assets/images/konseling/peer1.PNG') }}">
-                    <div class="flex flex-col items-center">
-                        <a target="_blank" href="#" class="text-xl font-medium text-center">Sarah Hasanah Delonix
-                            R</a>
-                        <p class="text-sm text-disabled">Universitas Negeri Surabaya</p>
-                    </div>
-                </div>
+            <div class="flex flex-col md:flex-row md:gap-6 items-center justify-center mt-10">
                 <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                     <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                         src="{{ asset('assets/images/konseling/peer3.jpeg') }}">
