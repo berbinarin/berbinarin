@@ -188,29 +188,29 @@
             </p>
         </div>
 
-        <div class="flex flex-row flex-wrap gap-5 md:gap-3 px-3 md:px-0">
+        <div class="flex flex-row flex-wrap gap-5 md:gap-3 items-center justify-center px-3 md:px-0">
             <div
-                class="flex items-center justify-center text-center rounded-md px-8 py-5 text-white text-xl flex-1 bg-primary font-medium">
+                class="flex items-center justify-center text-center rounded-md px-8 py-5 text-white text-xl w-[250px] h-[100px] bg-primary font-medium">
                 E-Sertifikat
             </div>
             <div
-                class="flex items-center justify-center text-center rounded-md px-10 py-5 text-white text-xl flex-1 bg-primary font-medium">
+                class="flex items-center justify-center text-center rounded-md px-10 py-5 text-white text-xl w-[250px] h-[100px] bg-primary font-medium">
                 Relasi
             </div>
             <div
-                class="flex items-center justify-center text-center rounded-md px-10 py-5 text-white text-xl flex-1 bg-primary font-medium">
+                class="flex items-center justify-center text-center rounded-md px-10 py-5 text-white text-xl w-[250px] h-[100px] bg-primary font-medium">
                 Psikotes
             </div>
             <div
-                class="flex items-center justify-center text-center rounded-md px-10 py-5 text-white text-xl flex-1 bg-primary font-medium">
+                class="flex items-center justify-center text-center rounded-md px-10 py-5 text-white text-xl w-[250px] h-[100px] bg-primary font-medium">
                 Ilmu Yang Bermanfaat
             </div>
             <div
-                class="flex items-center justify-center text-center rounded-md px-10 py-5 text-white text-xl flex-1 bg-primary font-medium">
+                class="flex items-center justify-center text-center rounded-md px-10 py-5 text-white text-xl w-[250px] h-[100px] bg-primary font-medium">
                 Konseling Materi
             </div>
             <div
-                class="flex items-center justify-center text-center rounded-md px-10 py-5 text-white text-xl flex-1 bg-primary font-medium">
+                class="flex items-center justify-center text-center rounded-md px-10 py-5 text-white text-xl w-[250px] h-[100px] bg-primary font-medium">
                 Video Pembelajaran
             </div>
         </div>
