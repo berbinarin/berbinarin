@@ -38,7 +38,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \RealRashid\SweetAlert\ToSweetAlert::class,
 
-            // \App\Http\Middleware\Role::class,
+            // \App\Http\Middleware\Role::class,    Letak Error 
         ],
 
         'api' => [

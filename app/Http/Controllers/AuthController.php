@@ -67,7 +67,7 @@ class AuthController extends Controller
         Auth::logout();
         Alert::toast('Logout Sucessfully!', 'success')->autoClose(5000);;
 
-        return redirect()->route('home');
+        return redirect()->route('dashboard.login');
     }
 
 }
