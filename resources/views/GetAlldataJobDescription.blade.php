@@ -51,7 +51,7 @@
               <br><br>
         </div>
         <br><br>
-        <a href="/JobDescription/create" class="btn btn-success">Tambah data</a>
+        <a href="/JobDecription/create" class="btn btn-success">Tambah data</a>
             <a href="/dashboard/admin" class="btn btn-success">Back</a>
     </div>
 </body>

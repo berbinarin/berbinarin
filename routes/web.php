@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HiringGeneralRequirementsController;
 use App\Http\Controllers\HiringPositionsController;
 use App\Http\Controllers\HiringPositionsJobDescriptionController;
 use App\Http\Controllers\HiringPositionsRequirementsController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\UserController;
 use App\Models\Hiring_Positions_Job_Descriptions;
+use App\Models\HiringGeneralRequirement;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,6 +54,7 @@ Route::resource('user', UserController::class);
 Route::resource('HiringPositions', HiringPositionsController::class);
 Route::resource('JobDecription',HiringPositionsJobDescriptionController::class);
 Route::resource('Position-Requirement', HiringPositionsRequirementsController::class);
+Route::resource('General-Requirement', HiringGeneralRequirementsController::class);
 
 
 Route::get('/dashboard/login', [DashboardController::class, 'login'])->name('dashboard.login');

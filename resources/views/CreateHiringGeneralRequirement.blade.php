@@ -25,7 +25,7 @@
         <h1>Register Hiring General Requirement</h1>
         <div class="card" style="margin-top: 40px">
 
-            <form method="POST" action="/HiringGeneralRequirement" style="padding: 50px">
+            <form method="POST" action="{{ route("General-Requirement.store") }}" style="padding: 50px">
                 @csrf
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Requirement</label>

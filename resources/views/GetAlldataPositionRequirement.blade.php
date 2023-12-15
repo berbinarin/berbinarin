@@ -47,6 +47,8 @@
                 </tbody>
               </table>
         </div>
+        <a href="/Position-Requirement/create" class="btn btn-success">Tambah data</a>
+            <a href="/dashboard/admin" class="btn btn-success">Back</a>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
