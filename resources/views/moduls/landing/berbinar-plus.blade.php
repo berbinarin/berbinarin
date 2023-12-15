@@ -44,7 +44,7 @@
             <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
                 Layanan Berbinar+
             </h1>
-            <p class="text-disabled text-lg text-center">Berikut adalah layanan yang kami sediakan pada Berbinar+ </p>
+            <p class="text-disabled text-lg">Berikut adalah layanan yang kami sediakan pada Berbinar+ </p>
         </div>
 
         <div class="flex flex-col md:flex-row gap-5 md:gap-3">
@@ -75,10 +75,11 @@
                 <div class="flex flex-col gap-1 text-center px-5 items-center justify-center">
                     <h3 class="text-black text-xl font-medium">Konseling Kelas</h3>
                     <p class="text-disabled text-base pb-12">
-                        Jika ingin memperluas perolehan informasi terkait kelas yang dipilih setelah menyelesaikan sesi
-                        kelas daring dan sesi personal mentoring bersama narasumber, maka peserta dapat memilih untuk
-                        meningkatkan pilihan layanan dengan menambahkan paket konseling kelas.
+                        Bersama : Danny Sanjaya Arfensia,
+                        S. Psi., M.Psi., Psikolog
                     </p>
+                    <a href="https://youtu.be/otURwfU7EiU?si=Xg5EuAQsrTKGS2Bv"
+                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 absolute bottom-5">Lihat</a>
                 </div>
             </div>
 
@@ -88,12 +89,13 @@
                 <img src="{{ asset('assets/images/products/berbinar-plus/layanan-3.png') }}" alt="Ilustrasi Kelas Berbinar"
                     title="Ilustrasi Kelas Berbinar" class="w-[300px] mx-auto rounded-tl-xl rounded-tr-xl p-4">
                 <div class="flex flex-col gap-1 text-center px-5 items-center justify-center">
-                    <h3 class="text-black text-xl font-medium">Psikotes</h3>
+                    <h3 class="text-black text-xl font-medium">BISIKAN "Eps 4"</h3>
                     <p class="text-disabled text-base pb-12">
-                        Psikotes adalah paket upgrade selanjutnya yang ditawarkan oleh Berbinar Insightful Indonesia apabila
-                        peserta memiliki keingin untuk mencari informasi terkait materi - materi yang telah diterima setelah
-                        melewati dua tahap sebelumnya.
+                        Bersama : Danny Sanjaya Arfensia,
+                        S. Psi., M.Psi., Psikolog
                     </p>
+                    <a href="https://youtu.be/6s0zmkefWkQ?si=9ssA783fAvBYyVmT"
+                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 absolute bottom-5">Lihat</a>
                 </div>
             </div>
         </div>
@@ -105,183 +107,60 @@
             <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
                 Daftar Kelas Berbinar+
             </h1>
-            <p class="text-disabled text-lg text-center">Berikut adalah daftar kelas yang ada pada Berbinar+</p>
+            <p class="text-disabled text-lg">Berikut adalah daftar kelas yang ada pada Berbinar+</p>
         </div>
 
         <div class="flex flex-col md:flex-row gap-5 md:gap-3">
-            <div class="flex flex-col gap-4 mx-8 md:mx-0  rounded-xl bg-white border border-gray-300 relative pb-6 flex-1"
+            <div class="flex flex-col gap-4 mx-8 md:mx-0  rounded-xl bg-white shadow-md relative pb-6 flex-1"
                 data-aos="fade-right" data-aos-duration="1500" data-aos-delay="500">
 
-                <img src="{{ asset('assets/images/products/berbinar-plus/kelas-1.png') }}"
+                <img src="{{ asset('assets/images/products/bisikan/bisikan-2.png') }}"
                     alt="Ilustrasi Peer Counselor Berbinar" title="Ilustrasi Peer Counselor Berbinar"
                     class="w-full rounded-tl-xl rounded-tr-xl p-4">
 
                 <div class="flex flex-col gap-1 text-center px-5 items-center justify-center">
-                    <h3 class="text-black text-xl font-medium">Jobseekers</h3>
-                    <p class="text-disabled text-base pb-12 text-left">
-                        Kelas yang ditawarkan untuk membantu para calon pencari kerja atau jobseekers meningkatkan
-                        keterampilan dan kemampuan yang dibutuhkan untuk mencari pekerjaan. Dengan sub tema: <br><br>
-
-                        • CV (Curriculum Vitae) <br>
-                        • Job Interview
+                    <h3 class="text-black text-xl font-medium">BISIKAN "Eps 2"</h3>
+                    <p class="text-disabled text-base pb-12">
+                        Bersama : Danny Sanjaya Arfensia,
+                        S. Psi., M.Psi., Psikolog
                     </p>
                     <a href="https://youtu.be/UlPJY2q4m1g?si=m9FKNUnrteU_EgZ0
                     "
-                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 absolute bottom-5">Daftar
-                        Kelas</a>
+                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 absolute bottom-5">Lihat</a>
                 </div>
             </div>
 
-            <div class="flex flex-col gap-4 mx-8 md:mx-0  rounded-xl bg-white border border-gray-300 relative pb-6 flex-1"
+            <div class="flex flex-col gap-4 mx-8 md:mx-0  rounded-xl bg-white shadow-md relative pb-6 flex-1"
                 data-aos="fade-right" data-aos-duration="1500" data-aos-delay="1000">
 
-                <img src="{{ asset('assets/images/products/berbinar-plus/kelas-2.png') }}"
+                <img src="{{ asset('assets/images/products/bisikan/bisikan-3.png') }}"
                     alt="Ilustrasi Asesmen Psikologi Berbinar" title="Ilustrasi Asesmen Psikologi Berbinar"
                     class="w-full rounded-tl-xl rounded-tr-xl p-4">
 
                 <div class="flex flex-col gap-1 text-center px-5 items-center justify-center">
-                    <h3 class="text-black text-xl font-medium">Product Management</h3>
-                    <p class="text-disabled text-base pb-12 text-left">
-                        Kelas yang ditawarkan untuk memberikan pemahaman lebih dalam untuk menentukan strategi perusahaan
-                        yang berhubungan dengan pengembangan & peluncuran suatu produk bisnis.Dengan sub tema: <br><br>
-
-                        • Pengenalan & strategi product management dalam dunia Kerja <br>
-                        • Pengembangan produk digital <br>
-                        • Proses bisnis dan perencanaan akselerasi karir
+                    <h3 class="text-black text-xl font-medium">BISIKAN "Eps 3"</h3>
+                    <p class="text-disabled text-base pb-12">
+                        Bersama : Danny Sanjaya Arfensia,
+                        S. Psi., M.Psi., Psikolog
                     </p>
                     <a href="https://youtu.be/otURwfU7EiU?si=Xg5EuAQsrTKGS2Bv"
-                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 absolute bottom-5">Daftar
-                        Kelas</a>
+                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 absolute bottom-5">Lihat</a>
                 </div>
             </div>
 
-            <div class="flex flex-col gap-4 mx-8 md:mx-0  rounded-xl bg-white border border-gray-300 relative pb-6 flex-1"
+            <div class="flex flex-col gap-4 mx-8 md:mx-0  rounded-xl bg-white shadow-md relative pb-6 flex-1"
                 data-aos="fade-right" data-aos-duration="1500" data-aos-delay="1500">
 
-                <img src="{{ asset('assets/images/products/berbinar-plus/kelas-3.png') }}" alt="Ilustrasi Kelas Berbinar"
+                <img src="{{ asset('assets/images/products/bisikan/bisikan-4.png') }}" alt="Ilustrasi Kelas Berbinar"
                     title="Ilustrasi Kelas Berbinar" class="w-full rounded-tl-xl rounded-tr-xl p-4">
                 <div class="flex flex-col gap-1 text-center px-5 items-center justify-center">
-                    <h3 class="text-black text-xl font-medium">Human Resource</h3>
-                    <p class="text-disabled text-base pb-12 text-left">
-                        Kelas yang ditawarkan untuk membantu individu atau tim dalam mempelajari dan meningkatkan
-                        keterampilan mengelola produk dan layanan. Dengan sub tema: <br><br>
-
-                        • Pengantar sumber daya manusia & mekanisme kerja <br>
-                        • Human resource recruitment process & struktur organisasi <br>
-                        • Career preparation
+                    <h3 class="text-black text-xl font-medium">BISIKAN "Eps 4"</h3>
+                    <p class="text-disabled text-base pb-12">
+                        Bersama : Danny Sanjaya Arfensia,
+                        S. Psi., M.Psi., Psikolog
                     </p>
                     <a href="https://youtu.be/6s0zmkefWkQ?si=9ssA783fAvBYyVmT"
-                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 absolute bottom-5">Daftar
-                        Kelas</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- BENEFIT BERBINAR+ SECTION --}}
-    <section class="max-w-6xl mx-auto flex flex-col gap-10 z-40 mt-10">
-        <div class="flex items-center justify-center flex-col gap-1">
-            <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
-                Benefit Berbinar+
-            </h1>
-            <p class="text-disabled text-lg text-center">Berikut adalah benefit yang didapatkan dari mengikuti Berbinar+
-            </p>
-        </div>
-
-        <div class="flex flex-row flex-wrap gap-5 md:gap-3 items-center justify-center px-3 md:px-0">
-            <div
-                class="flex items-center justify-center text-center rounded-md px-8 py-5 text-white text-xl w-[250px] h-[100px] bg-primary font-medium">
-                E-Sertifikat
-            </div>
-            <div
-                class="flex items-center justify-center text-center rounded-md px-10 py-5 text-white text-xl w-[250px] h-[100px] bg-primary font-medium">
-                Relasi
-            </div>
-            <div
-                class="flex items-center justify-center text-center rounded-md px-10 py-5 text-white text-xl w-[250px] h-[100px] bg-primary font-medium">
-                Psikotes
-            </div>
-            <div
-                class="flex items-center justify-center text-center rounded-md px-10 py-5 text-white text-xl w-[250px] h-[100px] bg-primary font-medium">
-                Ilmu Yang Bermanfaat
-            </div>
-            <div
-                class="flex items-center justify-center text-center rounded-md px-10 py-5 text-white text-xl w-[250px] h-[100px] bg-primary font-medium">
-                Konseling Materi
-            </div>
-            <div
-                class="flex items-center justify-center text-center rounded-md px-10 py-5 text-white text-xl w-[250px] h-[100px] bg-primary font-medium">
-                Video Pembelajaran
-            </div>
-        </div>
-    </section>
-
-    {{-- DAFTAR HARGA BERBINAR+ SECTION --}}
-    <section class="max-w-6xl mx-auto flex flex-col gap-10 z-40 mt-10">
-        <div class="flex items-center justify-center flex-col gap-1">
-            <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
-                Daftar Harga Berbinar+
-            </h1>
-            <p class="text-disabled text-lg">Berikut adalah daftar harga Berbinar+</p>
-        </div>
-
-        <div class="flex flex-col md:flex-row gap-5 md:gap-3 px-5 md:px-0">
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-4 flex-1 w-full md:w-[500px]"
-                data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
-                <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
-                    <h3 class="text-black text-3xl font-medium">INSIGHT+</h3>
-                    <div class="flex flex-col items-center justify-center">
-                        <p>Layanan Video</p>
-                        <p>Pembelajaran Daring dan Personal Mentoring</p>
-                    </div>
-                    <div class="flex flex-col gap-3 mb-20">
-                        <p class="text-black text-base">Harga Normal : </p>
-                        <h1 class="text-black text-4xl font-medium"
-                            style="text-decoration: line-through; text-decoration-color: red;">IDR 50.000</h1>
-                        <p class="text-black text-base">Sekarang Hanya : </p>
-                        <h1 class="text-black text-4xl font-medium">IDR 15.000</h1>
-                    </div>
-                    <a href="https://bit.ly/DaftarPsikotesBerbinar"
-                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 absolute bottom-7 ">Mulai
-                        Sekarang</a>
-                </div>
-            </div>
-
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-primary shadow-md relative pb-4 flex-1 w-full md:w-[500px]"
-                data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500">
-                <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
-                    <h3 class="text-white text-3xl font-medium">A+</h3>
-                    <div class="flex items-center justify-center text-white">
-                        <p>Konseling dengan Psikolog dan Peer Counselor</p>
-                    </div>
-                    <div class="flex flex-col gap-3 mb-20">
-                        <p class="text-white text-base">Mulai Dari : </p>
-                        <h1 class="text-white text-4xl font-medium">IDR 36.000</h1>
-                        <p class="text-white text-base">Hingga : </p>
-                        <h1 class="text-white text-4xl font-medium">IDR 180.000</h1>
-                    </div>
-                    <a href="https://bit.ly/DaftarPsikotesBerbinar"
-                        class="text-base text-primary bg-white rounded-md hover:bg-blur-bg duration-700 px-5 py-2 absolute bottom-7 ">Mulai
-                        Sekarang</a>
-                </div>
-            </div>
-
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-4 flex-1 w-full md:w-[500px]"
-                data-aos="fade-right" data-aos-duration="1500" data-aos-delay="1000">
-                <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
-                    <h3 class="text-black text-3xl font-medium">Complete</h3>
-                    <div class="flex items-center justify-center">
-                        <p>Tes Bakat Minat dan Tes Intelegensi</p>
-                    </div>
-                    <div class="flex flex-col gap-3 mb-20">
-                        <p class="text-black text-base">Mulai Dari : </p>
-                        <h1 class="text-black text-4xl font-medium">IDR 100.000</h1>
-                        <p class="text-black text-base">Hingga : </p>
-                        <h1 class="text-black text-4xl font-medium">IDR 180.000</h1>
-                    </div>
-                    <a href="https://bit.ly/DaftarPsikotesBerbinar"
-                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 absolute bottom-7 ">Mulai
-                        Sekarang</a>
+                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 absolute bottom-5">Lihat</a>
                 </div>
             </div>
         </div>

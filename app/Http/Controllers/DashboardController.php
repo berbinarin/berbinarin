@@ -31,4 +31,9 @@ class DashboardController extends Controller
     {
         return view('moduls.dashboard.positions');
     }
+
+    public function requirements()
+    {
+        return view('moduls.dashboard.requirements');
+    }
 }

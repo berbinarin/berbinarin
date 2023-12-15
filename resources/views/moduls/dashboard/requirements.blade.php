@@ -1,5 +1,5 @@
 @extends('moduls.dashboard.layouts.main', [
-    'title' => 'Positions Management',
+    'title' => 'Requirements Management',
     'active' => 'Dashboard',
 ])
 
@@ -9,13 +9,25 @@
             <div class="w-full">
                 <div class="py-4 md:pt-12 md:pb-7">
                     <div class="">
-                        <p tabindex="0"
-                            class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
-                            Hiring Position Management Data</p>
-                        <p class="w-2/4 text-disabled">Fitur ini digunakan untuk mengatur dan memanajemen data posisi hiring
-                            yang sedang
-                            atau akan
-                            dibukan atau telah dibuka yang ditampilkan pada website careers Berbinarin.</p>
+                        <div class="flex gap-3">
+                            <i class='bx bx-file text-gray-700 text-5xl'></i>
+                            <div class="flex flex-col gap-2">
+                                <div class="flex items-center">
+
+                                </div>
+                                <p tabindex="0"
+                                    class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
+                                    Hiring Position Requirements<br> Management Data</p>
+                                <p class="w-2/4 text-disabled">Fitur ini digunakan untuk mengatur dan memanajemen data
+                                    posisi hiring
+                                    yang sedang
+                                    atau akan
+                                    dibukan atau telah dibuka yang ditampilkan pada website careers Berbinarin.</p>
+                            </div>
+
+                        </div>
+
+
                     </div>
                 </div>
                 <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-m">
