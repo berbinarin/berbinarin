@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="{{ asset('assets/images/logo-berbinar.png') }}" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     @vite('resources/css/app.css')
-    <link rel="stylesheet" href="{{ asset('assets/css/dataTables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/dataTables.tailwindcss.min.css') }}">
 </head>
 
 <body class="font-plusJakartaSans">

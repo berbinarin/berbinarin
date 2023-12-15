@@ -28,6 +28,5 @@ class AdminSeeder extends Seeder
             'role' => 'HR'],
             
         ]);
-        
     }
 }

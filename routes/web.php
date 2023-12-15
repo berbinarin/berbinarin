@@ -63,6 +63,5 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/admin/faqs', [DashboardController::class, 'faqs'])->name('dashboard.faqs');
     Route::get('/dashboard/admin/positions', [DashboardController::class, 'positions'])->name('dashboard.positions');
-
+    Route::get('/dashboard/admin/requirements', [DashboardController::class, 'requirements'])->name('dashboard.requirements');
 });
-
