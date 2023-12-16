@@ -94,7 +94,7 @@
                         src="{{ asset('assets/images/konseling/psikolog/istna-anisatul.jpeg') }}">
                     <div class="flex flex-col items-center">
                         <a target="_blank"
-                            href="https://drive.google.com/file/d/1A8UBHm58SeRO0p0Erk9_B37Fyfv50xf4/view?usp=share_link"
+                            href="https://drive.google.com/file/d/1qc16eQOkHNw4tK0efUZcmhIk8HHkYt6H/view?usp=drive_link"
                             class="text-xl font-medium text-center">Istna Anisatul Fadillah, S.Psi., M.Psi. Psikolog</a>
                         <p class="text-sm text-disabled">S1 Uinsa, Mapro Unair</p>
                     </div>
@@ -104,7 +104,7 @@
                         src="{{ asset('assets/images/konseling/psikolog/putu-yoga.jpeg') }}">
                     <div class="flex flex-col items-center">
                         <a target="_blank"
-                            href="https://drive.google.com/file/d/1fSXvXB4hjSpPJNny6rOOZmxgqwuWqEWM/view?usp=share_link"
+                            href="https://drive.google.com/file/d/1VJ-0ggnyNgURuW0j2eMNFmpoDqrxkOUX/view?usp=drive_link"
                             class="text-xl font-medium text-center">Putu Yoga, S.Psi., M.Psi. Psikolog</a>
                         <p class="text-sm text-disabled">S1 Unair, Mapro Unair</p>
                     </div>
@@ -114,7 +114,7 @@
                         src="{{ asset('assets/images/konseling/psikolog/primandini.jpeg') }}">
                     <div class="flex flex-col items-center">
                         <a target="_blank"
-                            href="https://drive.google.com/file/d/1fSXvXB4hjSpPJNny6rOOZmxgqwuWqEWM/view?usp=share_link"
+                            href="https://drive.google.com/file/d/1JKD2sj5Bm_73OYU9aoTlWHWLdHXR24iY/view?usp=drive_link"
                             class="text-xl font-medium text-center">Primandini Yunanda Harumi, S. Psi., M. Psi. Psikolog</a>
                         <p class="text-sm text-disabled">S1 Unair, Mapro Unair</p>
                     </div>
