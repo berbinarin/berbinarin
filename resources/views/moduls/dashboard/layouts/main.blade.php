@@ -15,7 +15,7 @@
 <body class="font-plusJakartaSans">
 
     @if ($active === 'Dashboard')
-        <div class="h-screen w-full flex overflow-hidden select-none">
+        <div class="h-screen w-full flex select-none">
             @include('moduls.dashboard.layouts.sidebar')
             <main
                 class="my-1 pt-2 pb-2 px-10 flex-1 bg-gray-100 rounded-l-lg
