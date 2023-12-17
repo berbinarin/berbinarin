@@ -1,6 +1,7 @@
 @extends('moduls.dashboard.layouts.main', [
     'title' => 'Positions Management',
     'active' => 'Dashboard',
+    'modul' => 'Positions',
 ])
 
 @section('content-dashboard')
@@ -11,7 +12,7 @@
                     <div class="">
                         <p tabindex="0"
                             class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
-                            Hiring Position Management Data</p>
+                            Position Management Data</p>
                         <p class="w-2/4 text-disabled">Fitur ini digunakan untuk mengatur dan memanajemen data posisi hiring
                             yang sedang
                             atau akan
@@ -47,7 +48,7 @@
                                         <a href="https://linkRecruitmentBerbinar.ly">https://linkRecruitmentBerbinar.ly</a>
                                     </td>
                                     <td class="flex gap-2">
-                                        <a href="/dashboard/consume/edit/"
+                                        <a href="/dashboard/admin/positions/edit/1"
                                             class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-500 focus:outline-none rounded"><i
                                                 class='bx bxs-edit-alt text-dark'></i>
                                         </a>
@@ -72,7 +73,7 @@
                                         <a href="https://linkRecruitmentBerbinar.ly">https://linkRecruitmentBerbinar.ly</a>
                                     </td>
                                     <td class="flex gap-2">
-                                        <a href="/dashboard/consume/edit/"
+                                        <a href="/dashboard/admin/positions/edit/1"
                                             class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-500 focus:outline-none rounded"><i
                                                 class='bx bxs-edit-alt text-dark'></i>
                                         </a>
@@ -97,7 +98,7 @@
                                         <a href="https://linkRecruitmentBerbinar.ly">https://linkRecruitmentBerbinar.ly</a>
                                     </td>
                                     <td class="flex gap-2">
-                                        <a href="/dashboard/consume/edit/"
+                                        <a href="/dashboard/admin/positions/edit/1"
                                             class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-500 focus:outline-none rounded"><i
                                                 class='bx bxs-edit-alt text-dark'></i>
                                         </a>
@@ -122,7 +123,7 @@
                                         <a href="https://linkRecruitmentBerbinar.ly">https://linkRecruitmentBerbinar.ly</a>
                                     </td>
                                     <td class="flex gap-2">
-                                        <a href="/dashboard/consume/edit/"
+                                        <a href="/dashboard/admin/positions/edit/1"
                                             class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-500 focus:outline-none rounded"><i
                                                 class='bx bxs-edit-alt text-dark'></i>
                                         </a>
@@ -165,7 +166,7 @@
                 <!--header-->
                 <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
                     <h3 class="text-3xl font-semibold">
-                        Input Data Hiring Position
+                        Input Data Position
                     </h3>
                     <button
                         class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -238,7 +239,7 @@
                                 type="button" onclick="toggleModal('modal-id')">
                                 Close
                             </button>
-                            <button type="submit"
+                            <button type="submit" name="submit"
                                 class="focus:ring-2  mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-primary hover:bg-primary focus:outline-none rounded">
                                 <p class="text-base font-semibold leading-none text-white">Simpan Data</p>
                             </button>

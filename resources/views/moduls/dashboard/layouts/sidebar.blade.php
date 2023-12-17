@@ -44,8 +44,9 @@
         @if (auth()->user()->role == 'HR')
             <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
-                <a href="{{ route('dashboard.positions') }}" class=" flex flex-col items-center">
-                    <i class='bx bx-briefcase-alt-2 text-gray-700 text-lg'></i>
+                <a href="{{ route('dashboard.positions') }}"
+                    class=" flex flex-col items-center @if ($modul === 'Positions') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                    <i class='bx bx-briefcase-alt-2  text-lg'></i>
                     <span class="text-base mt-2">Positions</span>
                 </a>
 
@@ -53,8 +54,9 @@
 
             <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
-                <a href="{{ route('JobDecription.index') }}" class=" flex flex-col items-center">
-                    <i class='bx bxl-upwork text-gray-700 text-lg'></i>
+                <a href="{{ route('dashboard.positions.descriptions') }}"
+                    class=" flex flex-col items-center @if ($modul === 'Positions Descriptions') text-primary @else text-gray-700 @endif">
+                    <i class='bx bxl-upwork  text-lg'></i>
                     <span class="text-base mt-2 text-center">Position Descriptions</span>
                 </a>
 
@@ -62,8 +64,9 @@
 
             <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
-                <a href="{{ route('dashboard.requirements') }}" class=" flex flex-col items-center">
-                    <i class='bx bx-file text-gray-700 text-lg'></i>
+                <a href="{{ route('dashboard.positions.requirements') }}"
+                    class=" flex flex-col items-center @if ($modul === 'Positions Requirements') text-primary @else text-gray-700 @endif">
+                    <i class='bx bx-file text-lg'></i>
                     <span class="text-base mt-2 text-center">Position Requirements</span>
                 </a>
 

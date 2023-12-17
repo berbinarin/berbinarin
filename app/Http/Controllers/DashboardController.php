@@ -29,11 +29,30 @@ class DashboardController extends Controller
 
     public function positions()
     {
-        return view('moduls.dashboard.positions');
+        return view('moduls.dashboard.hr.positions.positions');
+    }
+
+    public function editPositions()
+    {
+        return view('moduls.dashboard.hr.positions.edit-positions');
+    }
+
+    public function jobDescriptions()
+    {
+        return view('moduls.dashboard.hr.job-descriptions.job-descriptions');
+    }
+
+    public function editJobDescriptions() {
+        return view('moduls.dashboard.hr.job-descriptions/edit-job-descriptions');
     }
 
     public function requirements()
     {
-        return view('moduls.dashboard.requirements');
+        return view('moduls.dashboard.hr.requirements.requirements');
+    }
+
+    public function editRequirements()
+    {
+        return view('moduls.dashboard.hr.requirements.edit-requirements');
     }
 }
