@@ -33,14 +33,16 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @forelse ($HiringPosisitons as $item)
+                                    
                                 <tr class="data-consume">
-                                    <td>1</td>
-                                    <td>Human Resource Management</td>
-                                    <td>Internship</td>
-                                    <td>Manager</td>
-                                    <td>Remote</td>
+                                     <td>{{ $item->id }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->type }}</td>
+                                    <td>{{ $item->positions}}</td>
+                                    <td>{{ $item->location }}</td>
                                     <td>
-                                        <a href="https://linkRecruitmentBerbinar.ly">https://linkRecruitmentBerbinar.ly</a>
+                                        <a href="https://linkRecruitmentBerbinar.ly">{{ $item->link }}</a>
                                     </td>
                                     <td class="flex gap-2">
                                         <a href="/dashboard/consume/edit/"
@@ -58,7 +60,10 @@
 
                                     </td>
                                 </tr>
-                                <tr class="data-consume">
+                                @empty
+                                    
+                                @endforelse
+                                {{-- <tr class="data-consume">
                                     <td>2</td>
                                     <td>UI/UX Designer</td>
                                     <td>Internship</td>
@@ -132,7 +137,7 @@
                                         </form>
 
                                     </td>
-                                </tr>
+                                </tr> --}}
                             </tbody>
                             <tfoot>
                                 <tr>

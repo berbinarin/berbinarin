@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Hiring_Positions;
+
 
 class DashboardController extends Controller
 {
@@ -29,7 +31,8 @@ class DashboardController extends Controller
 
     public function positions()
     {
-        return view('moduls.dashboard.positions');
+        $HiringPosisitons = Hiring_Positions::all();
+        return view('moduls.dashboard.positions',['HiringPosisitons'=>$HiringPosisitons]);
     }
 
     public function requirements()
