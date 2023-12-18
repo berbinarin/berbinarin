@@ -34,7 +34,7 @@ class AuthController extends Controller
             Alert::toast('Formulir Pendaftaran Berhasil', 'success')->autoClose(5000);;
             return redirect()->back();
         } catch (\Exception $e) {
-            Alert::toast('Terjadi kesalahan saat menyimpan data', 'error')->autoClose(5000);;
+            Alert::toast('Terjadi kesalahan saat menyimpan data' .$e->getMessage(), 'error')->autoClose(5000);
             return redirect()->back();
         }
     }

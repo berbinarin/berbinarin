@@ -62,6 +62,16 @@ Route::get('/dashboard/login', [DashboardController::class, 'login'])->name('das
 Route::group(['middleware'=>['auth']],function(){
     Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/admin/faqs', [DashboardController::class, 'faqs'])->name('dashboard.faqs');
+
+    // MODUL POSITIONS
     Route::get('/dashboard/admin/positions', [DashboardController::class, 'positions'])->name('dashboard.positions');
-    Route::get('/dashboard/admin/requirements', [DashboardController::class, 'requirements'])->name('dashboard.requirements');
+    Route::get('/dashboard/admin/positions/edit/{id}', [DashboardController::class, 'editPositions']);
+
+    // MODUL POSITIONS JOB DESCRIPTION
+    Route::get('/dashboard/admin/positions/descriptions', [DashboardController::class, 'jobDescriptions'])->name('dashboard.positions.descriptions');
+    Route::get('/dashboard/admin/positions/descriptions/edit/{id}', [DashboardController::class, 'editJobDescriptions']);
+
+    // MODUL POSITIONS REQUIREMENTS
+    Route::get('/dashboard/admin/positions/requirements', [DashboardController::class, 'requirements'])->name('dashboard.positions.requirements');
+    Route::get('/dashboard/admin/positions/requirements/edit/{id}', [DashboardController::class, 'editRequirements']);
 });

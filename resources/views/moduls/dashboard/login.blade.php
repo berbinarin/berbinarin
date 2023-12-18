@@ -4,24 +4,25 @@
 ])
 
 @section('content')
-    <section class="mx-auto max-w-screen-xl px-4  sm:px-6 lg:px-8 h-screen">
-        <div class="mx-auto max-w-lg text-center flex items-center justify-center flex-col">
+    <section class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 h-screen">
+        <div class="mx-auto max-w-2xl text-center flex items-center justify-center flex-col">
             <img src="{{ asset('assets/images/logo-berbinar.png') }}" alt="Logo Berbinar Insightful Indonesia"
                 title="Logo Berbinar Insightful Indonesia" class="w-24">
-            <h1 class="text-4xl text-dark font-bold mt-2">Welcome to Website Admin Berbinarin</h1>
+            <h1 class="text-4xl text-dark font-bold mt-2">Welcome to Dashboard <br> Admin Berbinarin</h1>
             <p class="mt-4 text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero nulla
-                eaque error neque ipsa culpa autem, at itaque nostrum!
+                Masuk ke dashboard dan lakukan manajemen data mulai dari sisi admin dan HR
+                untuk konten dan informasi pada website Berbinarin
             </p>
         </div>
 
-        <form action="/login" method="POST"  class="mx-auto mb-0 mt-5 max-w-md space-y-4">
+        <form action="/login" method="POST" class="mx-auto mb-0 mt-5 max-w-md space-y-4">
             @csrf
             <div>
                 <label for="username" class="sr-only">Username</label>
 
                 <div class="relative">
-                    <input type="text" name="username" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-base shadow-sm"
+                    <input type="text" name="username"
+                        class="w-full rounded-lg border-gray-200 p-4 pe-12 text-base shadow-sm"
                         placeholder="Enter username" />
 
                     <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -38,7 +39,8 @@
                 <label for="password" class="sr-only">Password</label>
 
                 <div class="relative">
-                    <input type="password" name="password" class="w-full rounded-lg border-gray-200 p-4 pe-12 text-base shadow-sm"
+                    <input type="password" name="password"
+                        class="w-full rounded-lg border-gray-200 p-4 pe-12 text-base shadow-sm"
                         placeholder="Enter password" />
 
                     <span class="absolute inset-y-0 end-0 grid place-content-center px-4">

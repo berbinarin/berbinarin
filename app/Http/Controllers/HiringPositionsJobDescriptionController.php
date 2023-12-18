@@ -6,6 +6,7 @@ use App\Http\Requests\HiringPositionsJobDescriptionsRequest;
 use App\Models\Hiring_Positions;
 use App\Models\Hiring_Positions_Job_Descriptions;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HiringPositionsJobDescriptionController extends Controller
 {
@@ -44,10 +45,12 @@ class HiringPositionsJobDescriptionController extends Controller
                 'job_description'=>$validated["job_description"]
             ]);
     
-            session()->flash('success', 'Data Berhasil Masuk');
+            Alert::toast('Data Berhasil Masuk', 'success')->autoClose(5000);
+
             return redirect()->back();
         }catch(\Exception $e){
-            session()->flash('error', 'Terjadi kesalahan saat menyimpan data.');
+            Alert::toast('Terjadi kesalahan saat menyimpan data' .$e->getMessage(), 'error')->autoClose(5000);
+
             return redirect()->back();
         }
 
@@ -79,9 +82,10 @@ class HiringPositionsJobDescriptionController extends Controller
             }
             return view("UpdateJobDescription", ["hiring_position_job_descriptions"=>$hiring_position_job_descriptions,"HiringPositions"=>$HiringPositions]);
         }catch(\Exception $e){
-            session()->flash('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            Alert::toast('Terjadi kesalahan ' .$e->getMessage(), 'error')->autoClose(5000);
+            
     
-            return redirect("/JobDecription"); 
+            return redirect("/dashboard/admin/positions/descriptions"); 
         }
     }
 
@@ -98,11 +102,13 @@ class HiringPositionsJobDescriptionController extends Controller
             $hiring_position_job_descriptions->job_description = $request->job_description;
             $hiring_position_job_descriptions->save();
     
-            session()->flash('success', 'Data Berhasil Update');
+            Alert::toast('Data Berhasil Update', 'success')->autoClose(5000);
+
     
-            return redirect()->back();
+            return redirect("/dashboard/admin/positions/descriptions");
         }catch(\Exception $e){
-            session()->flash('error', 'Terjadi kesalahan saat Update data.');
+            Alert::toast('Terjadi kesalahan saat Update data.' .$e->getMessage(), 'error')->autoClose(5000);
+
             return redirect()->back();
         }
     }
@@ -122,13 +128,15 @@ class HiringPositionsJobDescriptionController extends Controller
             $hiring_position_job_descriptions->delete();
     
     
-            session()->flash('success', 'Data Berhasil Delete');
-    
-            return redirect("/JobDecription/create");
-        }catch(\Exception $e){
-            session()->flash('error', 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage());
+            Alert::toast('Data Berhasil Delete', 'success')->autoClose(5000);
 
-            return redirect("/JobDecription/create");
+    
+            return redirect("/dashboard/admin/positions/descriptions");
+        }catch(\Exception $e){
+            Alert::toast('Terjadi kesalahan saat menghapus data.' .$e->getMessage(), 'error')->autoClose(5000);
+
+
+            return redirect("/dashboard/admin/positions/descriptions");
         }
     }
 }

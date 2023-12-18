@@ -6,6 +6,8 @@ use App\Http\Requests\HiringPositionsRequirementsRequest;
 use App\Models\Hiring_Positions;
 use App\Models\Hiring_Positions_Requirements;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class HiringPositionsRequirementsController extends Controller
 {
@@ -45,10 +47,12 @@ class HiringPositionsRequirementsController extends Controller
                 'requirement'=>$validated["requirement"]
             ]);
     
-            session()->flash('success', 'Data Berhasil Masuk');
+            Alert::toast('Data Berhasil Masuk', 'success')->autoClose(5000);
+
             return redirect()->back();
         }catch(\Exception $e){
-            session()->flash('error', 'Terjadi kesalahan saat menyimpan data.');
+            Alert::toast('Terjadi kesalahan saat menyimpan data' .$e->getMessage(), 'error')->autoClose(5000);
+
             return redirect()->back();
         }
     }
@@ -81,9 +85,10 @@ class HiringPositionsRequirementsController extends Controller
                 "HiringPositions" => $HiringPositions
             ]);
         } catch (\Exception $e) {
-            session()->flash('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            Alert::toast('Terjadi kesalahan ' .$e->getMessage(), 'error')->autoClose(5000);
+
     
-            return redirect("/Position-Requirement"); 
+            return redirect("/dashboard/admin/positions/requirements"); 
         }
     }
 
@@ -100,11 +105,13 @@ class HiringPositionsRequirementsController extends Controller
             $hiring_position_requirements->requirement = $request->requirement;
             $hiring_position_requirements->save();
     
-            session()->flash('success', 'Data Berhasil Update');
+            Alert::toast('Data Berhasil Update', 'success')->autoClose(5000);
+
     
-            return redirect()->back();
+            return redirect("/dashboard/admin/positions/requirements");
         }catch(\Exception $e){
-            session()->flash('error', 'Terjadi kesalahan saat Update data.');
+            Alert::toast('Terjadi kesalahan saat Update data ' .$e->getMessage(), 'error')->autoClose(5000);
+
             return redirect()->back();
         }
     }
@@ -125,13 +132,16 @@ class HiringPositionsRequirementsController extends Controller
             $hiring_position_requirements->delete();
     
     
-            session()->flash('success', 'Data Berhasil Delete');
+            Alert::toast('Data Berhasil Delete', 'success')->autoClose(5000);
+
+            
     
-            return redirect("/Position-Requirement/create");
+            return redirect("/dashboard/admin/positions/requirements");
         }catch(\Exception $e){
-            session()->flash('error', 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage());
+            Alert::toast('Terjadi kesalahan saat menghapus data ' .$e->getMessage(), 'error')->autoClose(5000);
+
     
-            return redirect('/Position-Requirement/create');
+            return redirect('/dashboard/admin/positions/requirements');
         }
         
     }

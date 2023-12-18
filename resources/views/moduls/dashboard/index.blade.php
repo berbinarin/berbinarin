@@ -1,74 +1,66 @@
 @extends('moduls.dashboard.layouts.main', [
     'title' => 'Dashboard',
     'active' => 'Dashboard',
+    'modul' => 'Dashboard',
 ])
 
 @section('content-dashboard')
-    <section class="flex w-full fixed">
+    <section class="flex w-full">
         <div class="flex flex-col">
             <div class="w-full">
                 <div class="py-4 md:pt-12 md:pb-7">
                     <div class="">
                         <p tabindex="0"
-                            class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-3xl font-bold leading-normal text-gray-800">
-                            Dashboard Rekapitulasi <br>Tagihan Konsumsi UPDK Keramasan </p>
+                            class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
+                            Dashboard {{ Auth()->user()->role }}</p>
+                        @if (Auth::user()->role == 'HR')
+                            <p class="w-2/4 text-disabled">Fitur ini digunakan untuk menampilkan jumlah data posisi hiring,
+                                job
+                                description, serta requirments
+                                yang sedang
+                                atau akan
+                                dibukan atau telah dibuka yang ditampilkan pada website careers Berbinarin.</p>
+                        @else
+                            <p class="w-2/4 text-disabled"></p>
+                        @endif
                     </div>
                 </div>
-                <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10">
-                    <div class="mt-10 overflow-x-auto">
-                        <table id="example" class="display" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Nama Posisi</th>
-                                    <th>Tipe</th>
-                                    <th>Jabatan</th>
-                                    <th>Lokasi</th>
-                                    <th>Link Registrasi</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="data-consume">
-                                    <td>1</td>
-                                    <td>Human Resource Management</td>
-                                    <td>Internship</td>
-                                    <td>Manager</td>
-                                    <td>Remote</td>
-                                    <td>
-                                        <a href="https://linkRecruitmentBerbinar.ly">https://linkRecruitmentBerbinar.ly</a>
-                                    </td>
-                                    <td class="flex gap-2">
-                                        <a href="/dashboard/consume/edit/"
-                                            class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-500 focus:outline-none rounded"><i
-                                                class='bx bxs-edit-alt text-dark'></i>
-                                        </a>
-                                        <form action="" method="post">
-                                            @csrf
-                                            <input type="hidden" name="id">
-                                            <button type="submit"
-                                                class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-red-500 hover:bg-red-500 focus:outline-none rounded">
-                                                <i class='bx bxs-trash-alt text-white'></i>
-                                            </button>
-                                        </form>
+            </div>
+            <div class="flex flex-wrap w-full gap-6">
+                @if (Auth::user()->role == 'HR')
+                    <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                        <div
+                            class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                            <i class='bx bx-briefcase-alt-2  text-2xl'></i>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold">{{ $HiringPosisitons }}</span>
+                            <span class="block text-gray-500">Positions</span>
+                        </div>
+                    </div>
 
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Nama Posisi</th>
-                                    <th>Tipe</th>
-                                    <th>Jabatan</th>
-                                    <th>Lokasi</th>
-                                    <th>Link Registrasi</th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfoot>
-                        </table>
+                    <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                        <div
+                            class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                            <i class='bx bxl-upwork  text-2xl'></i>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold">{{ $HiringPosisitonsJobDescriptionment }}</span>
+                            <span class="block text-gray-500">Job Descriptions</span>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                        <div
+                            class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                            <i class='bx bx-file text-2xl'></i>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold">{{ $HiringPosisitonsRequirement }}</span>
+                            <span class="block text-gray-500">Requirements</span>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </section>

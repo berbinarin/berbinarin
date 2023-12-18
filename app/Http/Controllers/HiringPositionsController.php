@@ -6,6 +6,8 @@ use App\Http\Requests\Hiring_PositionsRequest;
 use App\Models\Hiring_Positions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class HiringPositionsController extends Controller
 {
@@ -47,11 +49,14 @@ class HiringPositionsController extends Controller
                 "link"=>$validated["link"]
             ]);
     
-            session()->flash('success', 'Data Berhasil Masuk');
+            Alert::success('Success ', 'Data Berhasil Masuk');
+
     
             return redirect()->back();
         }catch(\Exception $e){
-            session()->flash('error', 'Terjadi kesalahan saat menyimpan data.');
+            Alert::error('Error', 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage());
+
+
             return redirect()->back();
         }
     }
@@ -93,11 +98,13 @@ class HiringPositionsController extends Controller
     
             $HiringPositions->save();
     
-            session()->flash('success', 'Data Berhasil Update');
+            Alert::success('Success ', 'Data Berhasil Update');
+            
     
-            return redirect()->back();
+            return redirect("/dashboard/admin/positions");
         }catch(\Exception $e){
-            session()->flash('error', 'Terjadi kesalahan saat Update data.');
+            Alert::error('Error', 'Terjadi kesalahan saat Update data: ' . $e->getMessage());
+
             return redirect()->back();
         }
 
@@ -117,13 +124,15 @@ class HiringPositionsController extends Controller
             }
             $HiringPositions->delete();
     
-            session()->flash('success', 'Data Berhasil Delete');
-    
-            return redirect("/HiringPositions/create");
-        }catch(\Exception $e){
-            session()->flash('error', 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage());
+            Alert::success('Success ', 'Data Berhasil Delete');
 
-            return redirect("/HiringPositions/create");
+    
+            return redirect("/dashboard/admin/positions");
+        }catch(\Exception $e){
+            Alert::error('Error', 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage());
+
+
+            return redirect("/dashboard/admin/positions");
         }
     }
 }
