@@ -13,11 +13,16 @@
                         <p tabindex="0"
                             class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
                             Dashboard {{ Auth()->user()->role }}</p>
-                        <p class="w-2/4 text-disabled">Fitur ini digunakan untuk menampilkan jumlah data posisi hiring, job
-                            description, serta requirments
-                            yang sedang
-                            atau akan
-                            dibukan atau telah dibuka yang ditampilkan pada website careers Berbinarin.</p>
+                        @if (Auth::user()->role == 'HR')
+                            <p class="w-2/4 text-disabled">Fitur ini digunakan untuk menampilkan jumlah data posisi hiring,
+                                job
+                                description, serta requirments
+                                yang sedang
+                                atau akan
+                                dibukan atau telah dibuka yang ditampilkan pada website careers Berbinarin.</p>
+                        @else
+                            <p class="w-2/4 text-disabled"></p>
+                        @endif
                     </div>
                 </div>
             </div>
