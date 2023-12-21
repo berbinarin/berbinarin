@@ -50,13 +50,10 @@ class HiringPositionsController extends Controller
             ]);
     
             Alert::success('Success ', 'Data Berhasil Masuk');
-
     
             return redirect()->back();
         }catch(\Exception $e){
             Alert::error('Error', 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage());
-
-
             return redirect()->back();
         }
     }
