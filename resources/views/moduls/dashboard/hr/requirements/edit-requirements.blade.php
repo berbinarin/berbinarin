@@ -18,7 +18,8 @@
                             > Edit</p>
                     </div>
                 </div>
-                <form action="{{ route('Position-Requirement.update', $HiringPosisitonsRequirement->id) }}" class="flex flex-col gap-1" method="post">
+                <form action="{{ route('Position-Requirement.update', $HiringPosisitonsRequirement->id) }}"
+                    class="flex flex-col gap-1" method="post">
                     @csrf
                     @method('PUT')
                     <div class="flex gap-1">
@@ -28,14 +29,14 @@
                                 class="px-3 py-3 appearance-none placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
                                 <option value="Default">Pilih Posisi</option>
                                 @forelse ($HiringPosisitons as $item)
-                                @if($item ->id === $HiringPosisitonsRequirement->position_id)
-                                <option value="{{ $item ->id }}" selected>{{ $item ->name }}</option>
-                                @else
-                                <option value="{{ $item ->id }}">{{ $item ->name }}</option>
-                                @endif
+                                    @if ($item->id === $HiringPosisitonsRequirement->position_id)
+                                        <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
+                                    @else
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @endif
                                 @empty
-                                <option>Tidak ada position lain di table  </option>
-                                 @endforelse
+                                    <option>Tidak ada position lain di table </option>
+                                @endforelse
                             </select>
                         </div>
 
@@ -43,7 +44,8 @@
 
                     <div class="mb-1 pt-0 w-full">
                         <label for="requirement" class="text-blueGray-600 text-base">Requirement</label>
-                        <input id="requirement" name="requirement" type="text" placeholder="Requirement" value="{{ $HiringPosisitonsRequirement->requirement }}"
+                        <input id="requirement" name="requirement" type="text" placeholder="Requirement"
+                            value="{{ $HiringPosisitonsRequirement->requirement }}"
                             class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full" />
                     </div>
 
