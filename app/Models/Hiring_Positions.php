@@ -14,10 +14,10 @@ class Hiring_Positions extends Model
     protected $fillable =["name","type","positions","location","link"];
 
     public function HiringPositionsJobDescription(){
-        return $this->hasOne(Hiring_Positions_Job_Descriptions::class);
+        return $this->hasMany(Hiring_Positions_Job_Descriptions::class,'position_id');
     }
 
     public function Hiring_Positions_Requirement(){
-        return $this->hasOne(Hiring_Positions_Requirements::class);
+        return $this->hasMany(Hiring_Positions_Requirements::class,'position_id');
     }
 }

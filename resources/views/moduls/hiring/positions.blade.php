@@ -21,33 +21,42 @@
         </div>
 
         <div class="flex flex-row flex-wrap items-center justify-center gap-5 mx-5 md:mx-0">
-            @for ($i = 0; $i < sizeof($positions); $i++)
-                <div class="flex flex-col bg-white shadow-md rounded-md gap-5 px-5 py-5 w-full md:w-[250px]">
-                    <div class="flex flex-col gap-1">
-                        <h5 class="text-black text-lg">{{ $positions[$i]['name'] }}</h5>
-                        <div class="flex flex-row items-center gap-2 text-base">
-                            <span
-                                class="text-primary bg-blur-bg px-2 py-1 rounded-md uppercase">{{ $positions[$i]['type'] }}</span>
-                            <span class="text-disabled">{{ $positions[$i]['positions'] }}</span>
+            @forelse ($positions->chunk(ceil($positions->count() / 2)) as $chunk)
+                @foreach ($chunk as $position)
+
+                    <div class="flex flex-col bg-white shadow-md rounded-md gap-5 px-5 py-5 w-full md:w-[250px]">
+                        <div class="flex flex-col gap-1">
+                            <h5 class="text-black text-lg">{{ $position->name }}</h5>
+                            <div class="flex flex-row items-center gap-2 text-base">
+                                <span
+                                    class="text-primary bg-blur-bg px-2 py-1 rounded-md uppercase">{{ $position->type }}</span>
+                                <span class="text-disabled">{{ $position->positions }}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex flex-row gap-2">
-                        <img src="{{ asset('assets/images/logo-berbinar.png') }}" alt="Logo Berbinar Insightful Indonesia"
-                            title="Logo Berbinar Insightful Indonesia" class="w-[50px] block">
-                        <div class="flex flex-col">
-                            <h6 class="text-black text-base">Berbinar</h6>
-                            <p class="text-disabled text-sm">{{ $positions[$i]['location'] }}</p>
+                        <div class="flex flex-row gap-2">
+                            <img src="{{ asset('assets/images/logo-berbinar.png') }}" alt="Logo Berbinar Insightful Indonesia"
+                                title="Logo Berbinar Insightful Indonesia" class="w-[50px] block">
+                            <div class="flex flex-col">
+                                <h6 class="text-black text-base">Berbinar</h6>
+                                <p class="text-disabled text-sm">{{ $position->location }}</p>
+                            </div>
                         </div>
+                        <button
+                            class="text-center text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-full showModal"
+                            data-name="{{ $position->name }}" data-type="{{ $position->type }}"
+                            data-positions="{{ $position->positions }}" data-location="{{ $position->location }}"
+                            @if($position->HiringPositionsJobDescription->isNotEmpty())
+                            data-jobDescription="{{$position->HiringPositionsJobDescription->pluck('job_description')->toJson()}}"
+                            @endif
+                            @if($position->Hiring_Positions_Requirement->isNotEmpty())
+                            data-requirements="{{ $position->Hiring_Positions_Requirement->pluck('requirement')->toJson() }}"\
+                            @endif>Lihat
+                            Selengkapnya</button>
                     </div>
-                    <button
-                        class="text-center text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-full showModal"
-                        data-name="{{ $positions[$i]['name'] }}" data-type="{{ $positions[$i]['type'] }}"
-                        data-positions="{{ $positions[$i]['positions'] }}" data-location="{{ $positions[$i]['location'] }}"
-                        data-jobDescription="{{ json_encode($positions[$i]['job_description']) }}"
-                        data-requirements="{{ json_encode($positions[$i]['requirements']) }}">Lihat
-                        Selengkapnya</button>
-                </div>
-            @endfor
+                    
+                @endforeach
+                @empty
+            @endforelse
         </div>
     </section>
 
@@ -113,57 +122,57 @@
     </div>
 
     <script>
-        // JavaScript to show and hide the modal
         const showModalButtons = document.querySelectorAll('.showModal');
         const closeModalButtons = document.querySelectorAll('.closeModal');
         const modal = document.getElementById('modal');
-
+    
         showModalButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Get data attributes
                 const name = button.getAttribute('data-name');
                 const type = button.getAttribute('data-type');
                 const positions = button.getAttribute('data-positions');
                 const location = button.getAttribute('data-location');
-                const jobDescription = JSON.parse(button.getAttribute('data-jobDescription'));
-                const requirements = JSON.parse(button.getAttribute('data-requirements'));
-
-                // Set modal content
+                const jobDescription = button.getAttribute('data-jobDescription');
+                const requirements = button.getAttribute('data-requirements');
+    
                 document.getElementById('modal-name').textContent = name;
                 document.getElementById('modal-type').textContent = type;
                 document.getElementById('modal-positions').textContent = positions;
-                // document.getElementById('modal-location').textContent = location;
+    
                 const jobDescriptionContainer = document.getElementById('modal-jobDescriptions');
                 jobDescriptionContainer.innerHTML = '';
-
+                if (jobDescription) {
+                    const parsedJobDescription = JSON.parse(jobDescription);
+                    parsedJobDescription.forEach((job, index) => {
+                        const jobElement = document.createElement('p');
+                        let number = index + 1;
+                        jobElement.textContent = number + '. ' + job;
+                        jobDescriptionContainer.appendChild(jobElement);
+                    });
+                }
+    
                 const requirementsContainer = document.getElementById('modal-requirements');
                 requirementsContainer.innerHTML = '';
-
-                jobDescription.forEach((job, index) => {
-                    const jobElement = document.createElement('p');
-                    let number = index + 1;
-                    jobElement.textContent = number + '. ' + job;
-                    jobDescriptionContainer.appendChild(jobElement);
-                });
-
-                requirements.forEach((job, index) => {
-                    const jobElement = document.createElement('p');
-                    let number = index + 1;
-                    jobElement.textContent = number + '. ' + job;
-                    requirementsContainer.appendChild(jobElement);
-                });
-
+                if (requirements) {
+                    const parsedRequirements = JSON.parse(requirements);
+                    parsedRequirements.forEach((requirement, index) => {
+                        const requirementElement = document.createElement('p');
+                        let number = index + 1;
+                        requirementElement.textContent = number + '. ' + requirement;
+                        requirementsContainer.appendChild(requirementElement);
+                    });
+                }
+    
                 modal.style.display = 'flex';
             });
         });
-
+    
         closeModalButtons.forEach(button => {
             button.addEventListener('click', () => {
                 modal.style.display = 'none';
             });
         });
     </script>
-
 
     <script>
         document.addEventListener('alpine:init', () => {
