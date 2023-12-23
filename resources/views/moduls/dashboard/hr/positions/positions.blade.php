@@ -38,10 +38,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($HiringPosisitons as $item)
+                                @forelse ($HiringPosisitons as $key=>$item)
                                     
                                 <tr class="data-consume">
-                                     <td>{{ $item->id }}</td>
+                                     <td>{{ $key+1 }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->type }}</td>
                                     <td>{{ $item->positions}}</td>

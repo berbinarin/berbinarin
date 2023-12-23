@@ -45,11 +45,11 @@
 
                     <div class="mb-1 pt-0 w-full">
                         <label for="job_description" class="text-blueGray-600 text-base">Job Description</label>
-                        <input id="job_description" name="job_description" type="text" placeholder="Job Description"
-                            value="{{ $HiringPosisitonsJobDescriptionment->job_description }}"
-                            class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full" />
+                        <textarea id="job_description" name="job_description" placeholder="Job Description"
+                                  class="px-3 py-12 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">{{ $HiringPosisitonsJobDescriptionment->job_description }}</textarea>
                     </div>
-
+                    
+                    
                     <!--footer-->
                     <div class="flex items-center justify-end pt-3 border-t border-solid border-blueGray-200 rounded-b">
 

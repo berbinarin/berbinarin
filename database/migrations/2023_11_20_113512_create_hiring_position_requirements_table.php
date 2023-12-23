@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('hiring_position_requirements', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('position_id');
-            $table->string('requirement');
+            $table->text('requirement');
             $table->foreign('position_id')->references('id')->on('hiring_positions')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();

@@ -36,33 +36,33 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($HiringPosisitonsRequirement as $item)
-                                    
+                                @forelse ($HiringPosisitonsRequirement as $key=>$item)
                                 <tr class="data-consume">
-                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $key+1 }}</td>
                                     <td>{{ $item->HiringPositions->name}}</td>
-                                    <td>{{ $item->requirement }}</td>
+                                    <td>{{ Str::limit($item->requirement, 25) }}</td>
+                                    <!-- Adjust the limit (50 in this example) to your preferred word limit -->
                                     <td class="flex gap-2">
                                         <a href="/dashboard/admin/positions/requirements/edit/{{ $item->id }}"
-                                            class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-500 focus:outline-none rounded"><i
-                                                class='bx bxs-edit-alt text-dark'></i>
+                                            class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-500 focus:outline-none rounded">
+                                            <i class='bx bxs-edit-alt text-dark'></i>
                                         </a>
                                         <form action="{{ route('Position-Requirement.destroy', $item->id) }}" method="post">
                                             @csrf
                                             @method("Delete")
                                             <input type="hidden" name="id">
                                             <button type="submit"
-                                                class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-red-500 hover:bg-red-500 focus:outline-none rounded">
+                                                class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-red-500 hover:bg-red-500 focus:outline-none rounded">
                                                 <i class='bx bxs-trash-alt text-white'></i>
                                             </button>
                                         </form>
-
                                     </td>
                                 </tr>
                                 @empty
-                                    
+                                    <!-- Handle empty case if needed -->
                                 @endforelse
                             </tbody>
+                            
                             <tfoot>
                                 <tr>
                                     <th>No</th>
@@ -121,8 +121,8 @@
 
                         <div class="mb-1 pt-0 w-full">
                             <label for="requirement" class="text-blueGray-600 text-base">Requirement</label>
-                            <input id="requirement" name="requirement" type="text" placeholder="Requirement" required
-                                class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full" />
+                            <textarea id="requirement" name="requirement" placeholder="Requirement" required
+                                      class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full"></textarea>
                         </div>
 
                         <!--footer-->

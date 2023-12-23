@@ -373,7 +373,7 @@
                     parsedJobDescription.forEach((job, index) => {
                         const jobElement = document.createElement('p');
                         let number = index + 1;
-                        jobElement.textContent = number + '. ' + job;
+                        jobElement.innerHTML = job.replace(/\n/g, '<br>');
                         jobDescriptionContainer.appendChild(jobElement);
                     });
                 }
@@ -385,7 +385,7 @@
                     parsedRequirements.forEach((requirement, index) => {
                         const requirementElement = document.createElement('p');
                         let number = index + 1;
-                        requirementElement.textContent = number + '. ' + requirement;
+                        requirementElement.innerHTML = requirement.replace(/\n/g, '<br>');
                         requirementsContainer.appendChild(requirementElement);
                     });
                 }

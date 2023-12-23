@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('hiring_positions', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->enum("type",["Internship","Fulltime","Part Time","Contract","Freelance"]);
-            $table->enum("positions",["Staff","Manajer","Researcher"]);
+            $table->enum("type",["Internship","Fulltime","Part Time","Contract","Freelancer"]);
+            $table->enum("positions",["Staff","Manager","Researcher"]);
             $table->enum("location",["Remote","Surabaya"]);
             $table->string("link");
 

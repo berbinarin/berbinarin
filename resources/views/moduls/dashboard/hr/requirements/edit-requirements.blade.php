@@ -44,9 +44,8 @@
 
                     <div class="mb-1 pt-0 w-full">
                         <label for="requirement" class="text-blueGray-600 text-base">Requirement</label>
-                        <input id="requirement" name="requirement" type="text" placeholder="Requirement"
-                            value="{{ $HiringPosisitonsRequirement->requirement }}"
-                            class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full" />
+                        <textarea id="requirement" name="requirement" placeholder="Requirement" required
+                                  class="px-3 py-12 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">{{ $HiringPosisitonsRequirement->requirement }}</textarea>
                     </div>
 
                     <!--footer-->
