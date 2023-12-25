@@ -114,7 +114,7 @@
                 </div>
             </div>
 
-            <a href="#"
+            <a href="{{ $position->link }}"
                 class="text-center text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 closeModal mt-5">Daftar</a>
             <button
                 class="text-center text-base text-white bg-disabled rounded-md duration-700 px-5 py-2 closeModal">Close</button>

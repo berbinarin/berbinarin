@@ -47,7 +47,7 @@
                                     <td>{{ $item->positions}}</td>
                                     <td>{{ $item->location }}</td>
                                     <td>
-                                        <a href="https://linkRecruitmentBerbinar.ly">{{ $item->link }}</a>
+                                        <a href="{{ $item->link }}">{{ $item->link }}</a>
                                     </td>
                                     <td class="flex gap-2">
                                         <a href="/dashboard/admin/positions/edit/{{ $item->id}}"
