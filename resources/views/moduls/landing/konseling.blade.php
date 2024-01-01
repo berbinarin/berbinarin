@@ -274,10 +274,9 @@
                                 class="max-w-lg text-lg italic text-center border-b-2 pb-5 text-black border-b-[#70787D]">
                                 "{{ $testimonial['testimonial'] }}"</blockquote>
                             <div class="text-center dark:text-gray-400 flex flex-col items-center">
-                                <img src="https://www.sussexcharter.org/wp-content/uploads/2023/02/StaffPlaceholder-girl.jpg"
+                                <img src="{{ $testimonial['image'] }}"
                                     alt="" class="w-20 h-20 rounded-full dark:bg-gray-500 object-cover">
                                 <p class="text-black text-lg font-medium mt-2">{{ $testimonial['name'] }}</p>
-                                <p>{{ $testimonial['divisi'] }}</p>
                             </div>
                         </div>
                     </div>

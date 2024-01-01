@@ -96,7 +96,7 @@ class LandingController extends Controller
                 "name" => "Zalfa Qanita",
                 "jabatan" => "Manager",
                 "divisi" => "PTPM",
-                "testimonial" => "Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya yang baru pertama kali melakukan psikotes sangat bagus dan mudah dipahami. Dan mengikuti layanan psikotes di Berbinar seras santai dan tidak tertekan.",
+                "testimonial" => "Produk dan layanan di Berbinar itu lengkap banget mulai dari konseling, asesmen psikologi, sampai kelas-kelas yang bisa nambah skill dan pengetahuan. Selain itu, produk dan layanan di Berbinar juga punya harga relatif terjangkau dan berkualitas.",
                 "image" => "https://i.ibb.co/Qjnwc0q/Zalfa.png"
             ],
             [
@@ -105,6 +105,27 @@ class LandingController extends Controller
                 "divisi" => "Class Product Management",
                 "testimonial" => "Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya yang baru pertama kali melakukan psikotes sangat bagus dan mudah dipahami. Dan mengikuti layanan psikotes di Berbinar seras santai dan tidak tertekan.",
                 "image" => "https://i.ibb.co/CKzPsdN/Ghina.png"
+            ],
+            [
+                "name" => "Dhila Aprilianti ",
+                "jabatan" => "Staff",
+                "divisi" => "Graphic Designer ",
+                "testimonial" => "Layanan konseling yang diadakan berbinar juga sangat membantu untuk menyelesaikan masalah mental dan kesehatan pikiran, dengan harga yang terjangkau kita bisa mendapatkan konselor dan bisa juga mendapatkan solusi dari permasalahan yang dihadapi.",
+                "image" => "https://i.ibb.co/tm7DtP1/Dhila-Aprilianti.jpg"
+            ],
+            [
+                "name" => "Fransiska Dian Nurfala",
+                "jabatan" => "Staff",
+                "divisi" => "Graphic Designer",
+                "testimonial" => "Produk Berbinar menarik dan bermanfaat bagi yang membutuhkan layanan psikologi serta konten-konten yang disajikan memberikan insight bagi pembacanya.",
+                "image" => "https://i.ibb.co/Y0pJwN4/Fransiska.jpg"
+            ],
+            [
+                "name" => "Ananda Deshinta Rasyid",
+                "jabatan" => "Staff",
+                "divisi" => "Class Product Management",
+                "testimonial" => "Berbinar salah satu layanan edukasi psikologi yang dibilang cukup lengkap, dan produk produknya sangat dibutuhkan oleh anak remaja jaman sekarang.",
+                "image" => "https://i.ibb.co/Tb4fqBW/Deshinta.jpg"
             ],
         ];
 
@@ -177,22 +198,21 @@ class LandingController extends Controller
                 "jabatan" => "-",
                 "divisi" => "-",
                 "testimonial" => "Sesi konseling merubah pandang: tak masalah berubah demi orang lain. Dorongan jadi lebih baik. Lakukan yang diinginkan, tetap aman. Belajarlah. Lampiaskan sakit, geser ke positif, hargai diri dan peduli orang.",
-                "image" => ""
+                "image" => "https://i.ibb.co/Sf0SCXs/Anonim-Pria.png"
             ],
             [
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
                 "testimonial" => "Konseling sangat membantu, konselor ramah. Pertama kali cerita, terbantu menceritakan masalah yang selama ini takut dibagikan sebelumnya. Rasanya lega, tanpa beban dan validasi. Kakak konselor memberi waktu dan kenyamanan.",
-                "image" => ""
+                "image" => "https://i.ibb.co/j6Mm7ww/Anomim-Wanita.png"
             ],
             [
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
-                "testimonial" => "Konselor mendengarkan dan memerhatikan dengan seksama, memberi saran dan bimbingan spesifik. Dituntun dengan pertanyaan terkait permasalahan, sangat terbantu. Akan segera menyelesaikan tugas setelah konseling hari ini.
-                ",
-                "image" => ""
+                "testimonial" => "Konselor mendengarkan dan memerhatikan dengan seksama, memberi saran dan bimbingan spesifik. Dituntun dengan pertanyaan terkait permasalahan, sangat terbantu. Akan segera menyelesaikan tugas setelah konseling hari ini.",
+                "image" => "https://i.ibb.co/Sf0SCXs/Anonim-Pria.png"
             ],
         ];
         
