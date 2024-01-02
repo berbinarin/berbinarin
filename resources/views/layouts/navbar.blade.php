@@ -33,7 +33,9 @@
         </div>
 
         <div class="flex md:hidden items-center justify-center p-4" onclick="Open()">
-            <i class='bx bx-menu text-[35px] text-disabled'></i>
+            <i class='bx bx-menu text-[35px] text-disabled'>
+                
+            </i>
             
         </div>
         <div class="sidebar text-center justify-center items-center fixed top-0 bottom-0 w-screen lg-right-0 p-2 overflow-y-auto right-full bg-white">

@@ -51,7 +51,7 @@
                     <div class="flex flex-col items-center">
                         <a target="_blank"
                             href="https://drive.google.com/file/d/1mHcJvLoqeISx6GO1Qr8bhUQYd9Watwxm/view?usp=share_link"
-                            class="text-xl font-medium text-center">Daniel Reyonald Bungaran, S.Psi., M.Psi.</a>
+                            class="text-xl font-medium text-center">Daniel Reyonald Bungaran, S.Psi., M.Psi. Psikolog</a>
                         <p class="text-sm text-disabled">S1 Unair, Mapro Unair</p>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                     <div class="flex flex-col items-center">
                         <a target="_blank"
                             href="https://drive.google.com/file/d/1eSV7AxbEgG92eMrp4SVErcKJ8uacoahP/view?usp=share_link"
-                            class="text-xl font-medium text-center">Danny Sanjaya Arfensia, S.Psi., M.Psi.</a>
+                            class="text-xl font-medium text-center">Danny Sanjaya Arfensia, S.Psi., M.Psi. Psikolog</a>
                         <p class="text-sm text-disabled">S1 Unair, Mapro Unair</p>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                     <div class="flex flex-col items-center">
                         <a target="_blank"
                             href="https://drive.google.com/file/d/19kMsZlPTv8e-5z9SbpuwcFVOJLtfqtUg/view?usp=share_link"
-                            class="text-xl font-medium text-center">Yeni Rahma Dwijayanti, S.Psi., M.Psi.</a>
+                            class="text-xl font-medium text-center">Yeni Rahma Dwijayanti, S.Psi., M.Psi. Psikolog</a>
                         <p class="text-sm text-disabled"> S1 Unair, Mapro Unair</p>
                     </div>
                 </div>
@@ -81,15 +81,12 @@
                     <div class="flex flex-col items-center">
                         <a target="_blank"
                             href="https://drive.google.com/file/d/1VCDlpDB3DHXiYJQfKCcEadqi8BmvbJ5y/view?usp=share_link"
-                            class="text-xl font-medium text-center">Putu Diana Wulandari, S.Psi., M.Psi.</a>
+                            class="text-xl font-medium text-center">Putu Diana Wulandari, S.Psi., M.Psi. Psikolog</a>
                         <p class="text-sm text-disabled">S1 Udayana, Mapro Unair
                         </p>
                     </div>
                 </div>
-            </div>
-
-            <div class="flex flex-col md:flex-row gap-16 mt-10 w-full items-center justify-center">
-                <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px]">
+                <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                     <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                         src="{{ asset('assets/images/konseling/psikolog/istna-anisatul.jpeg') }}">
                     <div class="flex flex-col items-center">
@@ -99,27 +96,45 @@
                         <p class="text-sm text-disabled">S1 Uinsa, Mapro Unair</p>
                     </div>
                 </div>
-                <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px]">
+                <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                     <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                         src="{{ asset('assets/images/konseling/psikolog/putu-yoga.jpeg') }}">
                     <div class="flex flex-col items-center">
                         <a target="_blank"
                             href="https://drive.google.com/file/d/1VJ-0ggnyNgURuW0j2eMNFmpoDqrxkOUX/view?usp=drive_link"
                             class="text-xl font-medium text-center">Putu Yoga, S.Psi., M.Psi. Psikolog</a>
-                        <p class="text-sm text-disabled">S1 Unair, Mapro Unair</p>
+                        <p class="text-sm text-disabled">S1 Udayana, Mapro Unair</p>
                     </div>
                 </div>
-                <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px]">
+                <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                     <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                         src="{{ asset('assets/images/konseling/psikolog/primandini.jpeg') }}">
                     <div class="flex flex-col items-center">
                         <a target="_blank"
                             href="https://drive.google.com/file/d/1JKD2sj5Bm_73OYU9aoTlWHWLdHXR24iY/view?usp=drive_link"
                             class="text-xl font-medium text-center">Primandini Yunanda Harumi, S. Psi., M. Psi. Psikolog</a>
+                        <p class="text-sm text-disabled">S1 Udayana, Mapro Unair</p>
+                    </div>
+                </div>
+                <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+                    <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
+                        src="{{ asset('assets/images/konseling/psikolog/yusandi.png') }}">
+                    <div class="flex flex-col items-center">
+                        <a class="text-xl font-medium text-center">Yusandi Rezki Fadhli, S.Psi., M.Psi., Psikolog</a>
+                        <p class="text-sm text-disabled">S1 Tarumanegara, Mapro Unair</p>
+                    </div>
+                </div>
+                <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+                    <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
+                        src="{{ asset('assets/images/konseling/psikolog/satria.jpeg') }}">
+                    <div class="flex flex-col items-center">
+                        <a class="text-xl font-medium text-center">Satria Kamal Agassi, S.Psi., M.Psi., Psikolog</a>
                         <p class="text-sm text-disabled">S1 Unair, Mapro Unair</p>
                     </div>
                 </div>
             </div>
+
+            
         </div>
     </section>
 
