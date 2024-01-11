@@ -308,6 +308,11 @@ img{
   color: var(--first-color-alt);
 }
 
+.button-con-reg{
+  background: linear-gradient(180deg, #3986A3 0%, #0087C9 100%);
+  box-shadow: 0px 12.117px 24.233px 0px #A2D7F0;
+}
+
 /*========== SHARE ==========*/
 .share__data{
   text-align: center;
@@ -346,6 +351,15 @@ img{
 .decoration__title{
   font-size: var(--h3-font-size);
   margin-bottom: var(--mb-1);
+}
+
+.decoration__img__conreg{
+  background: linear-gradient(135deg, #FFF 0%, rgba(255, 255, 255, 0.00) 100%);
+  backdrop-filter: blur(2px);
+}
+
+.decoration__conreg{
+  background: linear-gradient(233deg, #3986A3 0%, #0087C9 75.06%);
 }
 
 /*========== ACCESSORIES ==========*/
