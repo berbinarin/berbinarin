@@ -6,35 +6,35 @@
 @section('content')
     <div class="flex w-screen mt-10">   
         <div class="w-2/5 mx-auto items-center">
-            <a href="{{ route('regData1') }}">
+            <a href="{{ route('jadwal') }}">
                 <i class='bx bx-arrow-back text-[35px] text-primary ml-6 mt-8 text-left'></i>
             </a>
             <h2 class="text-black text-center mt-4 text-4xl font-semibold">Data Diri</h2>
             <p class="text-center mt-2">Isilah formulir berikut ini dengan benar dan lengkap</p>
             <div class="mt-6">
                 <div class="placebirth mt-4 text-center">
-                    <p class="text-left ml-24 text-[#555555]">Tempat Lahir</p>
-                    <input type="text" placeholder="Masukkan Tempat Lahir" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
+                    <p class="text-left ml-24 text-[#555555]">Nama Lengkap</p>
+                    <input type="text" placeholder="Masukkan Nama" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
                 </div>
                 <div class="datebirth mt-4 text-center">
-                    <p class="text-left ml-24 text-[#555555]">Tanggal Lahir</p>
-                    <input type="datetime-local" placeholder="" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
+                    <p class="text-left ml-24 text-[#555555]">Nomor WhatsApp</p>
+                    <input type="number" placeholder="Masukkan Nomor WhatsApp" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
                 </div>
                 <div class="suku mt-4 text-center">
-                    <p class="text-left ml-24 text-[#555555]">Suku Bangsa</p>
-                    <input type="text" placeholder="Jawa" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
+                    <p class="text-left ml-24 text-[#555555]">Email</p>
+                    <input type="email" placeholder="Masukkan Alamat Email" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
                 </div>
                 <div class="maritalstat mt-4 text-center">
-                    <p class="text-left ml-24 text-[#555555]">Status Pernikahan</p>
-                    <input type="text" placeholder="Belum Menikah" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
+                    <p class="text-left ml-24 text-[#555555]">Jenis Kelamin</p>
+                    <input type="text" placeholder="Laki - Laki" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
                 </div>
                 <div class="dom mt-4 text-center">
-                    <p class="text-left ml-24 text-[#555555]">Alamat Domisili</p>
-                    <input type="text" placeholder="Masukkan Alamat Domisili" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
+                    <p class="text-left ml-24 text-[#555555]">Agama</p>
+                    <input type="text" placeholder="Islam" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
                 </div>
             </div>     
             <div class="text-center">
-                <button onclick="window.location.href='{{ route('regData3') }}'" class="button-con-reg inline-block rounded-lg w-[420px] my-6 px-5 py-3 text-base font-medium text-white">
+                <button onclick="window.location.href='{{ route('regData2') }}'" class="button-con-reg inline-block rounded-lg w-[420px] my-6 px-5 py-3 text-base font-medium text-white">
                     Selanjutnya
                 </button>  
             </div>     

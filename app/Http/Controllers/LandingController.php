@@ -631,6 +631,21 @@ class LandingController extends Controller
         ]);
     }
 
+    public function layanan()
+    {
+        return view('moduls.konseling.layanan');
+    }
+
+    public function pilihJadwal()
+    {
+        return view('moduls.konseling.jadwal');
+    }
+
+    public function regData1()
+    {
+        return view('moduls.konseling.regdata1');
+    }
+
     public function regData2()
     {
         return view('moduls.konseling.regdata2');
