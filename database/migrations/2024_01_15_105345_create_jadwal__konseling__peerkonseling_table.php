@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('jadwal_konseling_peerkonseling', function (Blueprint $table) {
             $table->id();
-            $table->string('username');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->enum("role",["Super Admin","Admin","HR"]);
-            $table->string("no_Whatsapp")->nullable();
-            $table->rememberToken();
+            $table->date("tanggal_jadwal_konseling");
+            $table->string("jam");            
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('jadwal__konseling__peerkonseling');
     }
 };
