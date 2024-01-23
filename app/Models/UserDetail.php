@@ -22,4 +22,12 @@ class UserDetail extends Model
         return $this->hasMany(RiwayatPekerjaan::class,'riwayat_pekerjaan_id');
     }
 
+    public function KonselingPsikolog(){
+        return $this->hasMany(konseling_Psikolog::class);
+    }
+
+    public function KonselingPeerKonseling(){
+        return $this->hasMany(konseling_PeerKonselor::class);
+    }
+
 }

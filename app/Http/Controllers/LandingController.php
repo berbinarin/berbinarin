@@ -630,4 +630,34 @@ class LandingController extends Controller
             'Hiring_Positions_Requirement' => $Hiring_Positions_Requirement,
         ]);
     }
+
+    public function layanan()
+    {
+        return view('moduls.konseling.layanan');
+    }
+
+    public function pilihJadwal()
+    {
+        return view('moduls.konseling.jadwal');
+    }
+
+    public function regData1()
+    {
+        return view('moduls.konseling.regdata1');
+    }
+
+    public function regData2()
+    {
+        return view('moduls.konseling.regdata2');
+    }
+
+    public function regData3()
+    {
+        return view('moduls.konseling.regdata3');
+    }
+
+    public function regData4()
+    {
+        return view('moduls.konseling.regdata4');
+    }
 }

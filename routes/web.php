@@ -43,6 +43,13 @@ Route::get('/class/webinar', [LandingController::class, 'classWebinar'])->name('
 Route::get('/class/bisikan', [LandingController::class, 'classBisikan'])->name('bisikan');
 Route::get('/class/berbinar+', [LandingController::class, 'classBerbinarPlus'])->name('berbinarPlus');
 
+Route::get('/counseling/reg/layanan', [LandingController::class, 'layanan'])->name('layanan');
+Route::get('/counseling/reg/pilihjadwal', [LandingController::class, 'pilihJadwal'])->name('jadwal');
+Route::get('/counseling/reg/data', [LandingController::class, 'regData1'])->name('regData1');
+Route::get('/counseling/reg/data2', [LandingController::class, 'regData2'])->name('regData2');
+Route::get('/counseling/reg/data3', [LandingController::class, 'regData3'])->name('regData3');
+Route::get('/counseling/reg/data4', [LandingController::class, 'regData4'])->name('regData4');
+
 Route::get('/careers', [LandingController::class, 'hiring'])->name('hiring');
 Route::get('/careers/positions', [LandingController::class, 'hiringPositions'])->name('hiringPositions');
 
