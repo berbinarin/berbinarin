@@ -39,10 +39,9 @@
     <section class="py-6 z-40 -mt-32">
         <div class="container flex flex-col items-center justify-center p-4 mx-auto  sm:p-10">
             <h1 class="text-black fomt-semibold text-3xl md:px-0 mb-3">Psikolog Kami</h1>
-            <p class="text-lg text-disabled text-center md:w-1/2">Tim kami terdiri dari psikolog berpengalaman, membantu
-                Anda menavigasi
-                hidup
-                dengan bijaksana, memberikan dukungan emosional</p>
+            <p class="text-lg text-disabled text-center md:w-1/2">
+                Tim kami terdiri dari psikolog berpengalaman, membantu Anda menavigasi hidup dengan bijaksana, memberikan dukungan emosional
+            </p>
 
             <div class="flex flex-col md:grid w-full grid-cols-1 gap-x-6 gap-y-12  lg:grid-cols-4 items-center mt-10">
                 <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
@@ -153,8 +152,9 @@
                         <h1 class="text-black text-4xl font-medium">IDR 150k/jam</h1>
                         <p class="text-lg text-disabled">Lakukan dimana saja</p>
                         <a href="https://bit.ly/CounselingWithBerbinar"
-                            class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0">Mulai
-                            Sekarang</a>
+                            class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0">
+                            Mulai Sekarang
+                        </a>
                     </div>
                 </div>
                 <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px] "
@@ -164,8 +164,9 @@
                         <h1 class="text-black text-4xl font-medium">IDR 200k/jam</h1>
                         <p class="text-lg text-disabled">Lakukan dimana saja</p>
                         <a href="https://bit.ly/CounselingWithBerbinar"
-                            class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0">Mulai
-                            Sekarang</a>
+                            class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0">
+                            Mulai Sekarang
+                        </a>
                     </div>
                 </div>
                 <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px] "
@@ -175,8 +176,9 @@
                         <h1 class="text-black text-4xl font-medium">IDR 175k/jam</h1>
                         <p class="text-lg text-disabled">Khusus wilayah Surabaya</p>
                         <a href="https://bit.ly/CounselingWithBerbinar"
-                            class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0">Mulai
-                            Sekarang</a>
+                            class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0">
+                            Mulai Sekarang
+                        </a>
                     </div>
                 </div>
                 <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px] "
@@ -186,8 +188,9 @@
                         <h1 class="text-black text-4xl font-medium">IDR 225k/jam</h1>
                         <p class="text-lg text-disabled">Khusus wilayah Surabaya</p>
                         <a href="https://bit.ly/CounselingWithBerbinar"
-                            class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0">Mulai
-                            Sekarang</a>
+                            class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0">
+                            Mulai Sekarang
+                        </a>
                     </div>
                 </div>
             </div>
@@ -268,7 +271,7 @@
     </section>
 
     {{-- TESTIMONIALS SECTION --}}
-    <section class="max-w-6xl mx-auto flex flex-col gap-10 z-40 hidden md:flex">
+    <section class="max-w-6xl mx-auto flex flex-col gap-10 z-40 md:flex">
         <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
             Testimonial Konseling <span class="text-primary font-bold">Berbinar</span>
         </h1>
