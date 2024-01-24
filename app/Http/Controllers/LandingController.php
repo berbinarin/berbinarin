@@ -660,4 +660,19 @@ class LandingController extends Controller
     {
         return view('moduls.konseling.regdata4');
     }
+
+    public function psikotestHome()
+    {
+        return view('moduls.psikotes.homepage');
+    }
+
+    public function psikotestFreeStart()
+    {
+        return view('moduls.psikotes.start');
+    }
+
+    public function psikotestFreeTest()
+    {
+        return view('moduls.psikotes.freetest');
+    }
 }

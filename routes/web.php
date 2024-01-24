@@ -50,6 +50,10 @@ Route::get('/counseling/reg/data2', [LandingController::class, 'regData2'])->nam
 Route::get('/counseling/reg/data3', [LandingController::class, 'regData3'])->name('regData3');
 Route::get('/counseling/reg/data4', [LandingController::class, 'regData4'])->name('regData4');
 
+Route::get('/psikotest/home', [LandingController::class, 'psikotestHome'])->name('psikotestHome');
+Route::get('/psikotest/free/start', [LandingController::class, 'psikotestFreeStart'])->name('psikotestFreeStart');
+Route::get('/psikotest/free/test', [LandingController::class, 'psikotestFreeTest'])->name('psikotestFreeTest');
+
 Route::get('/careers', [LandingController::class, 'hiring'])->name('hiring');
 Route::get('/careers/positions', [LandingController::class, 'hiringPositions'])->name('hiringPositions');
 
