@@ -60,8 +60,7 @@
                     <div x-ref="tab" :style="handleToggle()"
                         class="border-l-2 border-[#3986a3] overflow-hidden max-h-0 duration-500 transition-all">
                         <p class="p-3 text-gray-900">
-                            Terdepan dalam menyediakan fasilitas psikologi yang berkualitas, berintegritas, dan mudah
-                            diakses oleh seluruh kalangan masyarakat.
+                            Terdepan dalam menyediakan layanan psikologi yang berkualitas, berintegritas, dan mudah diakses oleh seluruh kalangan masyarakat.
                         </p>
                     </div>
                 </li>
@@ -80,13 +79,9 @@
                     <div class="border-l-2 border-[#3986a3] overflow-hidden max-h-0 duration-500 transition-all"
                         x-ref="tab" :style="handleToggle()">
                         <p class="p-3 text-gray-900">
-                            • Memberikan layanan terstandar dan berkualitas tinggi yang sesuai dengan kebutuhan customer<br>
-                            • Mengembangkan produk psikologi yang berlandaskan Kode Etik Psikologi Indonesia dan
-                            dijalankan<br>
-                            oleh sumber daya manusia yang berintegritas<br>
-                            • Menciptakan akses layanan yang mudah dijangkau oleh seluruh lapisan masyarakat dengan harga
-                            yang
-                            bersaing
+                            • Memberikan layanan terstandar berkualitas tinggi yang sesuai dengan kebutuhan customer.<br>
+                            • Mengembangkan produk psikologi yang berlandaskan Kode Etik Psikologi Indonesia dan dijalankan oleh sumber daya manusia yang berintegritas.<br>
+                            • Menciptakan akses layanan yang mudah dijangkau oleh seluruh lapisan masyarakat dengan harga yang bersaing.
                         </p>
                     </div>
                 </li>

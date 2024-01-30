@@ -1,5 +1,5 @@
 @extends('layouts.main', [
-    'title' => 'Asesmen Psikologi - Berbinar Insightful Indonesia',
+    'title' => 'Tes Psikotest - Berbinar Insightful Indonesia',
     'active' => 'Produk Berbinar',
     'page' => 'Psikotes',
 ])
@@ -9,8 +9,8 @@
     <section
         class="max-w-6xl mx-auto h-screen flex flex-col md:flex-row items-center justify-center relative px-5 md:px-0 mt-32 md:mt-10">
         {{-- HERO IMG MOBILE --}}
-        <img src="https://i.ibb.co/Sw0B8Vz/asesmen-psikologi.png" alt="Ilustrasi Asesmen Psikologi Berbinar"
-            title="Ilustrasi Asesmen Psikologi Berbinar" class="w-full block md:hidden" data-aos="fade-up"
+        <img src="https://i.ibb.co/Sw0B8Vz/asesmen-psikologi.png" alt="Ilustrasi Psikotest Berbinar"
+            title="Ilustrasi Psikotest Berbinar" class="w-full block md:hidden" data-aos="fade-up"
             data-aos-duration="1500">
 
         {{-- HERO CONTENT --}}
@@ -19,51 +19,51 @@
             </div>
             <div class="flex flex-col gap-5 z-40 relative">
                 <h1 class="font-semibold text-black text-[40px] md:text-[64px] leading-[100%] md:leading-[120%]">
-                    Asesmen Psikologi<span class="text-primary font-bold"> Berbinar</span>
+                    Tes Psikotest<span class="text-primary font-bold"> Berbinar</span>
                 </h1>
-                <p class="text-lg text-disabled">Asesmen psikologi berbinar Insightful Indonesia merupakan solusi unggul
+                <p class="text-lg text-disabled">Tes Psikotest berbinar Insightful Indonesia merupakan solusi unggul
                     untuk perusahaan dan individu dalam pengembangan karier dan penilaian potensi. Memberikan wawasan
                     mendalam tentang kepribadian, keterampilan, dan kemampuan, untuk membantu pengambilan keputusan yang
                     tepat dalam mengoptimalkan potensi karier.</p>
                 <a href="{{ route('psikotest') }}"
                     class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Lakukan
-                    Asesmen Psikologi</a>
+                    Tes Psikotest</a>
             </div>
         </div>
 
         {{-- HERO IMG DESKTOP --}}
-        <img src="https://i.ibb.co/Sw0B8Vz/asesmen-psikologi.png" alt="Ilustrasi Asesmen Psikologi Berbinar"
-            title="Ilustrasi Asesmen Psikologi Berbinar" class="w-1/2 hidden md:block" data-aos="fade-left"
+        <img src="https://i.ibb.co/Sw0B8Vz/asesmen-psikologi.png" alt="Ilustrasi Tes Psikotest Berbinar"
+            title="Ilustrasi Tes Psikotest Berbinar" class="w-1/2 hidden md:block" data-aos="fade-left"
             data-aos-duration="1500">
     </section>
 
-    {{-- ASESMEN PSIKOLOGI INDIVIDU SECTION --}}
+    {{-- TES PSIKOTEST INDIVIDU SECTION --}}
     <section
         class="max-w-6xl mx-auto flex flex-col md:flex-row-reverse items-center justify-center relative px-5 md:px-0 md:-mt-20">
-        {{-- ASESMEN PSIKOLOGI INDIVIDU IMG MOBILE --}}
+        {{-- TES PSIKOTEST INDIVIDU IMG MOBILE --}}
         <img src="{{ asset('assets/images/ilustrasi-asesmen-psikologi-indivdu.png') }}"
-            alt="Ilustrasi Asesmen Psikologi Berbinar" title="Ilustrasi Asesmen Psikologi Berbinar"
+            alt="Ilustrasi Tes Psikotest Berbinar" title="Ilustrasi Tes Psikotest Berbinar"
             class="w-full block md:hidden" data-aos="fade-up" data-aos-duration="1500">
 
-        {{-- ASESMEN PSIKOLOGI INDIVIDU CONTENT --}}
+        {{-- TES PSIKOTEST INDIVIDU CONTENT --}}
         <div class="relative flex items-center">
             <div class="bg-blur-bg rounded-[700px] blur-[55px] w-[300px] md:w-[600px] h-[250px] md:h-[600px] absolute">
             </div>
             <div class="flex flex-col gap-5 z-40 relative">
                 <h2 class="text-black fomt-semibold text-3xl md:px-0">
-                    Asesmen Psikologi Individu<span class="text-primary font-bold"> Berbinar</span>
+                    Tes Psikotest Individu<span class="text-primary font-bold"> Berbinar</span>
                 </h2>
                 <p class="text-lg text-disabled">Assessmen psikologi individu dapat memprediksi potensi yang dimiliki dalam
                     kaitannya dengan pencapaian hasil belajar atau kemampuan di masa yang akan datang.</p>
                 <a href="https://bit.ly/DaftarPsikotesBerbinar"
                     class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Lakukan
-                    Asesmen Individu</a>
+                    Tes Psikotest Individu</a>
             </div>
         </div>
 
-        {{-- ASESMEN PSIKOLOGI INDIVIDU IMG DESKTOP --}}
+        {{-- TES PSIKOTEST INDIVIDU IMG DESKTOP --}}
         <img src="{{ asset('assets/images/ilustrasi-asesmen-psikologi-indivdu.png') }}"
-            alt="Ilustrasi Asesmen Psikologi Berbinar" title="Ilustrasi Asesmen Psikologi Berbinar"
+            alt="Ilustrasi Tes Psikotest Berbinar" title="Ilustrasi Tes Psikotest Berbinar"
             class="w-[45%] hidden md:block" data-aos="fade-right" data-aos-duration="1500">
     </section>
 
@@ -71,7 +71,7 @@
     <section class="max-w-6xl mx-5 md:mx-auto flex flex-col gap-10 z-40">
         <div class="flex flex-col gap-1">
             <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
-                Asesmen Psikologi Individu
+                Tes Psikotest Individu
             </h1>
 
             <p class="text-lg text-disabled text-center">Pilih layanan yang ingin anda ikuti</p>
@@ -244,33 +244,33 @@
         </div>
     </section>
 
-    {{-- ASESMEN PSIKOLOGI PERUSAHAAN SECTION --}}
+    {{-- TES PSIKOTEST PERUSAHAAN SECTION --}}
     <section class="max-w-6xl mx-auto flex flex-col md:flex-row-reverse items-center justify-center relative px-5 md:px-0">
-        {{-- ASESMEN PSIKOLOGI PERUSAHAAN IMG MOBILE --}}
+        {{-- TES PSIKOTEST PERUSAHAAN IMG MOBILE --}}
         <img src="{{ asset('assets/images/ilustrasi-asesmen-psikologi-perusahaan.png') }}"
-            alt="Ilustrasi Asesmen Psikologi Berbinar" title="Ilustrasi Asesmen Psikologi Berbinar"
+            alt="Ilustrasi Tes Psikotest Berbinar" title="Ilustrasi Tes Psikotest Berbinar"
             class="w-full block md:hidden" data-aos="fade-up" data-aos-duration="1500">
 
-        {{-- ASESMEN PSIKOLOGI PERUSAHAAN CONTENT --}}
+        {{-- TES PSIKOTEST PERUSAHAAN CONTENT --}}
         <div class="relative flex items-center">
             <div class="bg-blur-bg rounded-[700px] blur-[55px] w-[300px] md:w-[600px] h-[250px] md:h-[600px] absolute">
             </div>
             <div class="flex flex-col gap-5 z-40 relative">
                 <h2 class="text-black fomt-semibold text-3xl">
-                    Asesmen Psikologi Perusahaan<span class="text-primary font-bold"> Berbinar</span>
+                    Tes Psikotest Perusahaan<span class="text-primary font-bold"> Berbinar</span>
                 </h2>
                 <p class="text-lg text-disabled">Assesmen Psikologi untuk Perusahaan digunakan untuk melihat potensi,
                     kelebihan dan kekurangan, serta kecenderungan kepribadian seorang kandidat dan melihat apakah kandidat
                     tersebut cocok ditempatkan di suatu posisi pekerjaan.</p>
                 <a href="https://bit.ly/DaftarPsikotesBerbinar"
                     class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Lakukan
-                    Asesmen Perusahaan</a>
+                    Tes Psikotest Perusahaan</a>
             </div>
         </div>
 
-        {{-- ASESMEN PSIKOLOGI PERUSAHAAN IMG DESKTOP --}}
+        {{-- TES PSIKOTEST PERUSAHAAN IMG DESKTOP --}}
         <img src="{{ asset('assets/images/ilustrasi-asesmen-psikologi-perusahaan.png') }}"
-            alt="Ilustrasi Asesmen Psikologi Berbinar" title="Ilustrasi Asesmen Psikologi Berbinar"
+            alt="Ilustrasi Tes Psikotest Berbinar" title="Ilustrasi Tes Psikotest Berbinar"
             class="w-[45%] hidden md:block" data-aos="fade-right" data-aos-duration="1500">
     </section>
 
@@ -278,7 +278,7 @@
     <section class="max-w-6xl mx-5 md:mx-auto flex flex-col gap-10 z-40">
         <div class="flex flex-col gap-1">
             <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
-                Asesmen Psikologi Perusahaan
+                Tes Psikotest Perusahaan
             </h1>
 
             <p class="text-lg text-disabled text-center">Pilih layanan yang ingin anda ikuti</p>
@@ -607,9 +607,9 @@
                                 fill="none">
                                 <path
                                     d="M13 26C20.1799 26 26 20.1799 26 13C26 5.8201 20.1799 0 13 0C5.8201 0 0 5.8201 0 13C0 20.1799 5.8201 26 13 26Z"
-                                    fill="white" />
-                                <path d="M7.1167 13.8406L10.4785 17.2024L18.8831 8.79785" stroke="3986a3" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
+                                    fill="#FFF" />
+                                <path d="M7.1167 13.8406L10.4785 17.2024L18.8831 8.79785" stroke="#3986a3"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg> <span>Wawancara</span>
                         </span><br>
                         <span class="flex flex-row gap-1 -mt-6">
@@ -747,17 +747,17 @@
                 kami lakukan</p>
         </div>
         <div class="flex flex-col md:flex-row md:flex-wrap gap-5 md:gap-3 w-full items-center justify-center">
-            <img src="{{ asset('assets/images/documentation/ap1.png') }}" alt="Dokumentasi Asesmen Psikologi"
+            <img src="{{ asset('assets/images/documentation/ap1.png') }}" alt="Dokumentasi Tes Psikotest"
                 class="w-[350px] rounded-lg object-cover h-[300px]">
-            <img src="{{ asset('assets/images/documentation/ap2.png') }}" alt="Dokumentasi Asesmen Psikologi"
+            <img src="{{ asset('assets/images/documentation/ap2.png') }}" alt="Dokumentasi Tes Psikotest"
                 class="w-[350px] rounded-lg object-cover h-[300px]">
-            <img src="{{ asset('assets/images/documentation/ap3.png') }}" alt="Dokumentasi Asesmen Psikologi"
+            <img src="{{ asset('assets/images/documentation/ap3.png') }}" alt="Dokumentasi Tes Psikotest"
                 class="w-[350px] rounded-lg object-cover h-[300px]">
-            <img src="{{ asset('assets/images/documentation/online-ap1.jpeg') }}" alt="Dokumentasi Asesmen Psikologi"
+            <img src="{{ asset('assets/images/documentation/online-ap1.jpeg') }}" alt="Dokumentasi Tes Psikotest"
                 class="w-[350px] rounded-lg object-cover h-[300px]">
-            <img src="{{ asset('assets/images/documentation/online-ap2.jpeg') }}" alt="Dokumentasi Asesmen Psikologi"
+            <img src="{{ asset('assets/images/documentation/online-ap2.jpeg') }}" alt="Dokumentasi Tes Psikotest"
                 class="w-[350px] rounded-lg object-cover h-[300px]">
-            <img src="{{ asset('assets/images/documentation/online-ap4.jpeg') }}" alt="Dokumentasi Asesmen Psikologi"
+            <img src="{{ asset('assets/images/documentation/online-ap4.jpeg') }}" alt="Dokumentasi Tes Psikotest"
                 class="w-[350px] rounded-lg object-cover h-[300px]">
         </div>
     </section>

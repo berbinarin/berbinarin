@@ -36,9 +36,9 @@
                 <div class="swiper-slide relative">
                     <picture>
                         <!-- view mobile -->
-                        <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Asesmen-Psikologi.png') }}" class="description absolute top-0 flex flex-col items-start">
+                        <source media="(max-width: 767px)" srcset="https://i.ibb.co/6bWH19S/psiko-mobile.jpg" class="description absolute top-0 flex flex-col items-start">
                         <!-- view desktop -->
-                        <source media="(min-width: 768px)" srcset="https://i.ibb.co/cg7DxZZ/2.png" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                        <source media="(min-width: 768px)" srcset="https://i.ibb.co/p16hD6Z/tes-psikotes.png" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
                         <img src="https://i.ibb.co/cg7DxZZ/2.png" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                     </picture>
                 </div>
