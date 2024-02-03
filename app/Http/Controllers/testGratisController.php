@@ -11,6 +11,9 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class testGratisController extends Controller
 {
+    public function CreateSoal (){
+        return view("");
+    }
      public function simpanSoal ( SoalRequest $request){
         try {
            
