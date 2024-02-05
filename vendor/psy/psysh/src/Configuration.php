@@ -67,6 +67,7 @@ class Configuration
         'requireSemicolons',
         'runtimeDir',
         'startupMessage',
+        'strictTypes',
         'theme',
         'updateCheck',
         'useBracketedPaste',
@@ -99,6 +100,7 @@ class Configuration
     private $pipedOutput;
     private $rawOutput = false;
     private $requireSemicolons = false;
+    private $strictTypes = false;
     private $useUnicode;
     private $useTabCompletion;
     private $newMatchers = [];
@@ -963,6 +965,22 @@ class Configuration
     }
 
     /**
+     * Enable or disable strict types enforcement.
+     */
+    public function setStrictTypes($strictTypes)
+    {
+        $this->strictTypes = (bool) $strictTypes;
+    }
+
+    /**
+     * Check whether to enforce strict types.
+     */
+    public function strictTypes(): bool
+    {
+        return $this->strictTypes;
+    }
+
+    /**
      * Enable or disable Unicode in PsySH specific output.
      *
      * Note that this does not disable Unicode output in general, it just makes
@@ -1038,7 +1056,7 @@ class Configuration
     public function getCodeCleaner(): CodeCleaner
     {
         if (!isset($this->cleaner)) {
-            $this->cleaner = new CodeCleaner(null, null, null, $this->yolo());
+            $this->cleaner = new CodeCleaner(null, null, null, $this->yolo(), $this->strictTypes());
         }
 
         return $this->cleaner;
@@ -1079,6 +1097,8 @@ class Configuration
      */
     public function setTabCompletion(bool $useTabCompletion)
     {
+        @\trigger_error('`setTabCompletion` is deprecated; call `setUseTabCompletion` instead.', \E_USER_DEPRECATED);
+
         $this->setUseTabCompletion($useTabCompletion);
     }
 
@@ -1100,6 +1120,8 @@ class Configuration
      */
     public function getTabCompletion(): bool
     {
+        @\trigger_error('`getTabCompletion` is deprecated; call `useTabCompletion` instead.', \E_USER_DEPRECATED);
+
         return $this->useTabCompletion();
     }
 
@@ -1265,6 +1287,8 @@ class Configuration
      */
     public function getTabCompletionMatchers(): array
     {
+        @\trigger_error('`getTabCompletionMatchers` is no longer used.', \E_USER_DEPRECATED);
+
         return [];
     }
 
@@ -1305,6 +1329,8 @@ class Configuration
      */
     public function addTabCompletionMatchers(array $matchers)
     {
+        @\trigger_error('`addTabCompletionMatchers` is deprecated; call `addMatchers` instead.', \E_USER_DEPRECATED);
+
         $this->addMatchers($matchers);
     }
 

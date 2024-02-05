@@ -13,6 +13,7 @@ use const PHP_EOL;
 use function assert;
 use function class_exists;
 use function defined;
+use function error_clear_last;
 use function extension_loaded;
 use function get_include_path;
 use function hrtime;
@@ -26,7 +27,6 @@ use AssertionError;
 use PHPUnit\Event;
 use PHPUnit\Event\NoPreviousThrowableException;
 use PHPUnit\Event\TestData\MoreThanOneDataSetFromDataProviderException;
-use PHPUnit\Event\TestData\NoDataSetFromDataProviderException;
 use PHPUnit\Metadata\Api\CodeCoverage as CodeCoverageMetadataApi;
 use PHPUnit\Metadata\Parser\Registry as MetadataRegistry;
 use PHPUnit\Runner\CodeCoverage;
@@ -62,7 +62,6 @@ final class TestRunner
      * @throws \SebastianBergmann\CodeCoverage\InvalidArgumentException
      * @throws CodeCoverageException
      * @throws MoreThanOneDataSetFromDataProviderException
-     * @throws NoDataSetFromDataProviderException
      * @throws UnintentionallyCoveredCodeException
      */
     public function run(TestCase $test): void
@@ -84,7 +83,11 @@ final class TestRunner
         $risky      = false;
         $skipped    = false;
 
-        ErrorHandler::instance()->enable();
+        error_clear_last();
+
+        if ($this->shouldErrorHandlerBeUsed($test)) {
+            ErrorHandler::instance()->enable();
+        }
 
         $collectCodeCoverage = CodeCoverage::instance()->isActive() &&
                                $shouldCodeCoverageBeCollected;
@@ -194,7 +197,8 @@ final class TestRunner
 
         ErrorHandler::instance()->disable();
 
-        if (!$incomplete &&
+        if (!$error &&
+            !$incomplete &&
             !$skipped &&
             $this->configuration->reportUselessTests() &&
             !$test->doesNotPerformAssertions() &&
@@ -280,6 +284,7 @@ final class TestRunner
             $iniSettings   = GlobalState::getIniSettingsAsString();
         }
 
+        $exportObjects    = Event\Facade::emitter()->exportsObjects() ? 'true' : 'false';
         $coverage         = CodeCoverage::instance()->isActive() ? 'true' : 'false';
         $linesToBeIgnored = var_export(CodeCoverage::instance()->linesToBeIgnored(), true);
 
@@ -307,6 +312,7 @@ final class TestRunner
         $includePath             = "'." . $includePath . ".'";
         $offset                  = hrtime();
         $serializedConfiguration = $this->saveConfigurationForChildProcess();
+        $processResultFile       = tempnam(sys_get_temp_dir(), 'phpunit_');
 
         $var = [
             'bootstrap'                      => $bootstrap,
@@ -328,6 +334,8 @@ final class TestRunner
             'offsetSeconds'                  => $offset[0],
             'offsetNanoseconds'              => $offset[1],
             'serializedConfiguration'        => $serializedConfiguration,
+            'processResultFile'              => $processResultFile,
+            'exportObjects'                  => $exportObjects,
         ];
 
         if (!$runEntireClass) {
@@ -337,7 +345,7 @@ final class TestRunner
         $template->setVar($var);
 
         $php = AbstractPhpProcess::factory();
-        $php->runTestJob($template->render(), $test);
+        $php->runTestJob($template->render(), $test, $processResultFile);
 
         @unlink($serializedConfiguration);
     }
@@ -443,7 +451,7 @@ final class TestRunner
     {
         $path = tempnam(sys_get_temp_dir(), 'phpunit_');
 
-        if (!$path) {
+        if ($path === false) {
             throw new ProcessIsolationException;
         }
 
@@ -452,5 +460,14 @@ final class TestRunner
         }
 
         return $path;
+    }
+
+    private function shouldErrorHandlerBeUsed(TestCase $test): bool
+    {
+        if (MetadataRegistry::parser()->forMethod($test::class, $test->name())->isWithoutErrorHandler()->isNotEmpty()) {
+            return false;
+        }
+
+        return true;
     }
 }

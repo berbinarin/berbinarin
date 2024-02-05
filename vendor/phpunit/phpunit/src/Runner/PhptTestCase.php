@@ -70,12 +70,17 @@ use Throwable;
  */
 final class PhptTestCase implements Reorderable, SelfDescribing, Test
 {
+    /**
+     * @psalm-var non-empty-string
+     */
     private readonly string $filename;
     private readonly AbstractPhpProcess $phpUtil;
     private string $output = '';
 
     /**
      * Constructs a test case with the given filename.
+     *
+     * @psalm-param non-empty-string $filename
      *
      * @throws Exception
      */
@@ -147,10 +152,6 @@ final class PhptTestCase implements Reorderable, SelfDescribing, Test
 
         $this->phpUtil->setUseStderrRedirection(true);
 
-        if (ConfigurationRegistry::get()->enforceTimeLimit()) {
-            $this->phpUtil->setTimeout(ConfigurationRegistry::get()->timeoutForLargeTests());
-        }
-
         if ($this->shouldTestBeSkipped($sections, $settings)) {
             return;
         }
@@ -192,8 +193,6 @@ final class PhptTestCase implements Reorderable, SelfDescribing, Test
                 $this->filename,
                 true,
                 TestStatus::unknown(),
-                [],
-                [],
             );
         }
 
@@ -218,8 +217,8 @@ final class PhptTestCase implements Reorderable, SelfDescribing, Test
                 $failure = new PhptAssertionFailedError(
                     $e->getMessage(),
                     0,
-                    $trace[0]['file'],
-                    $trace[0]['line'],
+                    (string) $trace[0]['file'],
+                    (int) $trace[0]['line'],
                     $trace,
                     $comparisonFailure ? $diff : '',
                 );

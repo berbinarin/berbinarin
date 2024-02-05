@@ -20,11 +20,7 @@
                 <h1 class="font-semibold text-black text-[40px] md:text-[64px] leading-[100%] md:leading-[120%]">
                     Tentang <span class="text-primary font-bold">Berbinar</span>
                 </h1>
-                <p class="text-lg text-disabled">Setiap individu mengalami episode yang sama di tahap kehidupannya. Inilah
-                    pentingnya seseorang memiliki pengetahuan seputar psikologi dan memahami dirinya sendiri. Berbinar hadir
-                    menawarkan layanan konseling bersama psikolog partner dan peer counselor untuk setiap individu yang
-                    sedang berjuang. Kami juga memiliki layanan online yang bisa diakses dengan fleksibel, di mana pun Anda
-                    berada, karena apa yang Anda rasakan dan alami itu penting dan Anda berhak menjadi lebih baik lagi.</p>
+                <p class="text-lg text-disabled">Berbinar bergerak dalam edukasi dan layanan psikologi yang memberikan jasa dalam kelas seminar, workshop, training secara daring, serta konseling, dan psikotes.</p>
                 <a href="#visiMisi"
                     class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Kenali
                     Kami Lebih Lanjut</a>

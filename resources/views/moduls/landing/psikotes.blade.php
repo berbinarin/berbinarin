@@ -1,5 +1,5 @@
 @extends('layouts.main', [
-    'title' => 'Tes Psikotest - Berbinar Insightful Indonesia',
+    'title' => 'Tes Psikotes - Berbinar Insightful Indonesia',
     'active' => 'Produk Berbinar',
     'page' => 'Psikotes',
 ])
@@ -19,15 +19,15 @@
             </div>
             <div class="flex flex-col gap-5 z-40 relative">
                 <h1 class="font-semibold text-black text-[40px] md:text-[64px] leading-[100%] md:leading-[120%]">
-                    Tes Psikotest<span class="text-primary font-bold"> Berbinar</span>
+                    Tes Psikotes<span class="text-primary font-bold"> Berbinar</span>
                 </h1>
-                <p class="text-lg text-disabled">Tes Psikotest berbinar Insightful Indonesia merupakan solusi unggul
+                <p class="text-lg text-disabled">Tes Psikotes berbinar Insightful Indonesia merupakan solusi unggul
                     untuk perusahaan dan individu dalam pengembangan karier dan penilaian potensi. Memberikan wawasan
                     mendalam tentang kepribadian, keterampilan, dan kemampuan, untuk membantu pengambilan keputusan yang
                     tepat dalam mengoptimalkan potensi karier.</p>
                 <a href="{{ route('psikotest') }}"
                     class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Lakukan
-                    Tes Psikotest</a>
+                    Tes Psikotes</a>
             </div>
         </div>
 
@@ -51,13 +51,13 @@
             </div>
             <div class="flex flex-col gap-5 z-40 relative">
                 <h2 class="text-black fomt-semibold text-3xl md:px-0">
-                    Tes Psikotest Individu<span class="text-primary font-bold"> Berbinar</span>
+                    Tes Psikotes Individu<span class="text-primary font-bold"> Berbinar</span>
                 </h2>
                 <p class="text-lg text-disabled">Assessmen psikologi individu dapat memprediksi potensi yang dimiliki dalam
                     kaitannya dengan pencapaian hasil belajar atau kemampuan di masa yang akan datang.</p>
                 <a href="https://bit.ly/DaftarPsikotesBerbinar"
                     class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Lakukan
-                    Tes Psikotest Individu</a>
+                    Tes Psikotes Individu</a>
             </div>
         </div>
 
@@ -71,7 +71,7 @@
     <section class="max-w-6xl mx-5 md:mx-auto flex flex-col gap-10 z-40">
         <div class="flex flex-col gap-1">
             <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
-                Tes Psikotest Individu
+                Tes Psikotes Individu
             </h1>
 
             <p class="text-lg text-disabled text-center">Pilih layanan yang ingin anda ikuti</p>
@@ -257,14 +257,14 @@
             </div>
             <div class="flex flex-col gap-5 z-40 relative">
                 <h2 class="text-black fomt-semibold text-3xl">
-                    Tes Psikotest Perusahaan<span class="text-primary font-bold"> Berbinar</span>
+                    Tes Psikotes Perusahaan<span class="text-primary font-bold"> Berbinar</span>
                 </h2>
                 <p class="text-lg text-disabled">Assesmen Psikologi untuk Perusahaan digunakan untuk melihat potensi,
                     kelebihan dan kekurangan, serta kecenderungan kepribadian seorang kandidat dan melihat apakah kandidat
                     tersebut cocok ditempatkan di suatu posisi pekerjaan.</p>
                 <a href="https://bit.ly/DaftarPsikotesBerbinar"
                     class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Lakukan
-                    Tes Psikotest Perusahaan</a>
+                    Tes Psikotes Perusahaan</a>
             </div>
         </div>
 
@@ -278,7 +278,7 @@
     <section class="max-w-6xl mx-5 md:mx-auto flex flex-col gap-10 z-40">
         <div class="flex flex-col gap-1">
             <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
-                Tes Psikotest Perusahaan
+                Tes Psikotes Perusahaan
             </h1>
 
             <p class="text-lg text-disabled text-center">Pilih layanan yang ingin anda ikuti</p>
