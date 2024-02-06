@@ -560,7 +560,8 @@ class LandingController extends Controller
         ];
 
         $generalRequirements = [
-            "Terbuka untuk mahasiswa aktif semester 1-6",
+            "Terbuka untuk mahasiswa aktif atau fresh graduate max. 1 tahun",
+            "Memiliki kemampuan manajemen waktu yang baik",
             "Memiliki ketertarikan pada kepemimpinan dan pengembangan skill",
             "Mampu bekerja secara mandiri maupun bekerja secara tim",
             "Memiliki keterampilan komunikasi yang kuat",
