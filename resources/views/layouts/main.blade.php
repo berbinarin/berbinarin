@@ -17,7 +17,7 @@
 
     <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
     @vite('resources/css/app.css')
-    @if ($page === 'Tentang Kami' || $active === 'Hiring')
+    @if ($page === 'Tentang Kami' || $active === 'Hiring' || $page === 'Konseling')
         <link rel="stylesheet" href="{{ asset('assets/css/about.css') }}">
     @endif
 </head>
@@ -78,7 +78,7 @@
         <script src="{{ asset('assets/js/products.js') }}"></script>
     @endif
 
-    @if ($page === 'Tentang Kami' || $page === 'Hiring')
+    @if ($page === 'Tentang Kami' || $page === 'Hiring' || $page === 'Konseling')
         <script src="{{ asset('assets/js/about.js') }}"></script>
     @endif
     @include('sweetalert::alert')

@@ -214,6 +214,27 @@ class LandingController extends Controller
                 "testimonial" => "Konselor mendengarkan dan memerhatikan dengan seksama, memberi saran dan bimbingan spesifik. Dituntun dengan pertanyaan terkait permasalahan, sangat terbantu. Akan segera menyelesaikan tugas setelah konseling hari ini.",
                 "image" => "https://i.ibb.co/Sf0SCXs/Anonim-Pria.png"
             ],
+            [
+                "name" => "Anonim",
+                "jabatan" => "-",
+                "divisi" => "-",
+                "testimonial" => "Konselor mendengarkan dan memerhatikan dengan seksama, memberi saran dan bimbingan spesifik. Dituntun dengan pertanyaan terkait permasalahan, sangat terbantu. Akan segera menyelesaikan tugas setelah konseling hari ini.",
+                "image" => "https://i.ibb.co/Sf0SCXs/Anonim-Pria.png"
+            ],
+            [
+                "name" => "Anonim",
+                "jabatan" => "-",
+                "divisi" => "-",
+                "testimonial" => "Konselor mendengarkan dan memerhatikan dengan seksama, memberi saran dan bimbingan spesifik. Dituntun dengan pertanyaan terkait permasalahan, sangat terbantu. Akan segera menyelesaikan tugas setelah konseling hari ini.",
+                "image" => "https://i.ibb.co/Sf0SCXs/Anonim-Pria.png"
+            ],
+            [
+                "name" => "Anonim",
+                "jabatan" => "-",
+                "divisi" => "-",
+                "testimonial" => "Konselor mendengarkan dan memerhatikan dengan seksama, memberi saran dan bimbingan spesifik. Dituntun dengan pertanyaan terkait permasalahan, sangat terbantu. Akan segera menyelesaikan tugas setelah konseling hari ini.",
+                "image" => "https://i.ibb.co/Sf0SCXs/Anonim-Pria.png"
+            ],
         ];
         
         $faqs = [
@@ -638,7 +659,57 @@ class LandingController extends Controller
 
     public function pilihJadwal()
     {
-        return view('moduls.konseling.jadwal');
+        $senin = [
+            "18.30 - 19.30",
+            "19.20 - 20.30",
+        ];
+
+        $selasa = [
+            "17.00 - 18.00",
+            "19.00 - 20.00",
+            "19.30 - 20.30",
+        ];
+        $rabu = [
+            "08.00 - 09.00",
+            "14.00 - 15.00",
+            "14.30 - 15.30",
+            "15.30 - 16.30",
+            "16.00 - 17.00",
+            "19.00 - 20.00",
+            "19.30 - 20.30"
+        ];
+        $kamis = [
+            "08.00 - 09.00",
+            "14.30 - 15.30",
+            "15.30 - 16.30",
+            "18.00 - 19.00",
+            "19.00 - 20.00",
+        ];
+        $jumat = [
+            "10.30 - 11.30",
+            "11.30 - 12.30",
+            "14.00 - 15.00",
+            "16.00 - 17.00",
+            "16.30 - 17.30",
+            "18.00 - 19.00",
+        ];
+        $sabtu = [
+            "09.00 - 10.00",
+            "10.00 - 11.00",
+            "13.30 - 14.30",
+            "15.00 - 16.00",
+            "16.00 - 17.00",
+            "19.00 - 20.00",
+        ];
+        
+        return view('moduls.konseling.jadwal', [
+            'senin' => $senin,
+            'selasa' => $selasa,
+            'rabu' => $rabu,
+            'kamis' => $kamis,
+            'jumat' => $jumat,
+            'sabtu' => $sabtu,
+        ]);
     }
 
     public function regData1()

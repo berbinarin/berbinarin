@@ -271,35 +271,40 @@
     </section>
 
     {{-- TESTIMONIALS SECTION --}}
-    <section class="max-w-6xl mx-auto flex flex-col gap-10 z-40 md:flex">
+    <section class="max-w-6xl mx-auto flex-col gap-10 z-40 mt-12 hidden md:flex">
         <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
-            Testimonial Konseling <span class="text-primary font-bold">Berbinar</span>
+            Apa Yang Mereka Katakan Tentang <span class="text-primary font-bold">Berbinar</span>
         </h1>
 
-        <div class="flex flex-row gap-3">
-            @foreach ($testimonials as $testimonial)
-                <div class="p-6 w-full md:w-full h-full">
-                    <div class="max-w-xl mx-auto w-[350px]">
-                        <div
-                            class="flex flex-col items-center w-full p-6 space-y-8  lg:h-full lg:p-8 shadow-lg rounded-xl pb-8">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="38" viewBox="0 0 50 38"
-                                fill="none">
-                                <path
-                                    d="M15.625 6.25L18.75 0H12.5C5.59375 0 0 8.71875 0 15.625V37.5H21.875V15.625H9.375C9.375 6.25 15.625 6.25 15.625 6.25ZM37.5 15.625C37.5 6.25 43.75 6.25 43.75 6.25L46.875 0H40.625C33.7188 0 28.125 8.71875 28.125 15.625V37.5H50V15.625H37.5Z"
-                                    fill="#3986A3" />
-                            </svg>
-                            <blockquote
-                                class="max-w-lg text-lg italic text-center border-b-2 pb-5 text-black border-b-[#70787D]">
-                                "{{ $testimonial['testimonial'] }}"</blockquote>
-                            <div class="text-center dark:text-gray-400 flex flex-col items-center">
-                                <img src="{{ $testimonial['image'] }}"
-                                    alt="" class="w-20 h-20 rounded-full dark:bg-gray-500 object-cover">
-                                <p class="text-black text-lg font-medium mt-2">{{ $testimonial['name'] }}</p>
+        <div
+            class="flex-1 xl:mx-8 swiper mySwiper max-w-7xl md:w-full w-full mx-auto flex items-center justify-center -mt-7 z-40 pb-12">
+            <div class="swiper-wrapper w-full">
+                @foreach ($testimonials as $testimonial)
+                    <div class="p-6 swiper-slide w-full md:w-full h-full">
+                        <div class="container max-w-xl mx-auto w-[350px]">
+                            <div
+                                class="flex flex-col items-center w-full p-6 space-y-8  lg:h-full lg:p-8 shadow-lg rounded-xl pb-8">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="38" viewBox="0 0 50 38"
+                                    fill="none">
+                                    <path
+                                        d="M15.625 6.25L18.75 0H12.5C5.59375 0 0 8.71875 0 15.625V37.5H21.875V15.625H9.375C9.375 6.25 15.625 6.25 15.625 6.25ZM37.5 15.625C37.5 6.25 43.75 6.25 43.75 6.25L46.875 0H40.625C33.7188 0 28.125 8.71875 28.125 15.625V37.5H50V15.625H37.5Z"
+                                        fill="#3986A3" />
+                                </svg>
+                                <blockquote
+                                    class="max-w-lg text-lg italic text-center border-b-2 pb-5 text-black border-b-[#70787D]">
+                                    "{{ $testimonial['testimonial'] }}"</blockquote>
+                                <div class="text-center dark:text-gray-400 flex flex-col items-center">
+                                    <img src="{{ $testimonial['image'] }}" alt=""
+                                        class="w-20 h-20 rounded-full dark:bg-gray-500 object-cover">
+                                    <p class="text-black text-lg font-medium mt-2">{{ $testimonial['name'] }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
     </section>
 

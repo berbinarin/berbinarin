@@ -4,6 +4,7 @@
 ])
 
 @section('content')
+    <section>
     <div class="flex w-screen mt-10">   
         <div class="w-2/5 mx-auto items-center">
             <a href="{{ route('layanan') }}">
@@ -16,10 +17,30 @@
                     <p class="text-left ml-24 text-[#555555]">Tanggal Konseling</p>
                     <input type="date" placeholder="" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
                 </div>
+
                 <div class="datebirth mt-4 text-center">
-                    <p class="text-left ml-24 text-[#555555]">Waktu Konseling</p>
-                    <input type="time" placeholder="Masukkan Nomor WhatsApp" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
+                    <p class="text-left ml-24 text-[#555555]">Pilih Hari Konseling</p>
+                    <select name="hari" id="hari" class="bg-[#F1F3F6] text-[#555555] border-2 h-14 w-[420px] rounded-lg p-4 mt-3">
+                        <option value="default">Pilih Hari</option>
+                        <option value="senin">Senin</option>
+                        <option value="selasa">Selasa</option>
+                        <option value="rabu">Rabu</option>
+                        <option value="kamis">Kamis</option>
+                        <option value="jumat">Jumat</option>
+                        <option value="sabtu">Sabtu</option>
+                    </select>
                 </div>
+
+                <div class="datebirth mt-4 text-center">
+                <p for="jadwal" class="text-left ml-24 text-[#555555]">Pilih Jam Konseling</p>
+                    <select name="jadwal" id="jadwal" class="bg-[#F1F3F6] text-[#555555] border-2 h-14 w-[420px] rounded-lg p-4 mt-3">
+                        <option value="">Pilih Jam</option>
+                            @foreach ($senin as $jadwal)
+                        <option value="{{ $jadwal }}">{{ $jadwal }}</option>
+                            @endforeach
+                    </select>
+                </div>
+
                 <div class="suku mt-4 text-center">
                     <p class="text-left ml-24 text-[#555555]">Metode Konseling</p>          
                     <input type="text" placeholder="Online/Offline" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
@@ -40,4 +61,44 @@
             <p class="text-center mt-12 mb-6 text-white">Copyright © PT Berbinar Insightful Indonesia. 2023</p>
         </div>
     </div>
+    </section>
+
+    <script>
+        document.getElementById('hari').addEventListener('change', function() {
+            var jadwalSelect = document.getElementById('jadwal');
+            jadwalSelect.innerHTML = '<option value="">Pilih Jadwal</option>';
+            switch (this.value) {
+                case 'senin':
+                    @foreach ($senin as $jadwal)
+                        jadwalSelect.innerHTML += '<option value="{{ $jadwal }}">{{ $jadwal }}</option>';
+                    @endforeach
+                    break;
+                case 'selasa':
+                    @foreach ($selasa as $jadwal)
+                        jadwalSelect.innerHTML += '<option value="{{ $jadwal }}">{{ $jadwal }}</option>';
+                    @endforeach
+                    break;
+                case 'rabu':
+                    @foreach ($rabu as $jadwal)
+                        jadwalSelect.innerHTML += '<option value="{{ $jadwal }}">{{ $jadwal }}</option>';
+                    @endforeach
+                    break;
+                case 'kamis':
+                    @foreach ($kamis as $jadwal)
+                        jadwalSelect.innerHTML += '<option value="{{ $jadwal }}">{{ $jadwal }}</option>';
+                    @endforeach
+                    break;
+                case 'jumat':
+                    @foreach ($jumat as $jadwal)
+                        jadwalSelect.innerHTML += '<option value="{{ $jadwal }}">{{ $jadwal }}</option>';
+                    @endforeach
+                    break;
+                case 'sabtu':
+                    @foreach ($sabtu as $jadwal)
+                        jadwalSelect.innerHTML += '<option value="{{ $jadwal }}">{{ $jadwal }}</option>';
+                    @endforeach
+                    break;
+            }
+        });
+    </script>
 @endsection
