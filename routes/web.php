@@ -7,6 +7,7 @@ use App\Http\Controllers\HiringPositionsController;
 use App\Http\Controllers\HiringPositionsJobDescriptionController;
 use App\Http\Controllers\HiringPositionsRequirementsController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\testGratisController;
 use App\Http\Controllers\UserController;
 use App\Models\Hiring_Positions_Job_Descriptions;
 use App\Models\HiringGeneralRequirement;
@@ -85,4 +86,7 @@ Route::group(['middleware'=>['auth']],function(){
     // MODUL POSITIONS REQUIREMENTS
     Route::get('/dashboard/admin/positions/requirements', [DashboardController::class, 'requirements'])->name('dashboard.positions.requirements');
     Route::get('/dashboard/admin/positions/requirements/edit/{id}', [DashboardController::class, 'editRequirements']);
+    Route::get('/psikotes', [testGratisController::class, 'hitungPoint'])->name('psikotes.testGratis');
+    Route::get('/createSoalpsikotes', [testGratisController::class, 'simpanSoal'])->name('psikote.soal');
+
 });

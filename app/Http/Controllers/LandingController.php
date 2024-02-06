@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Hiring_Positions;
 use App\Models\Hiring_Positions_Job_Descriptions;
 use App\Models\Hiring_Positions_Requirements;
+use App\Models\Soal;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
@@ -744,6 +745,7 @@ class LandingController extends Controller
 
     public function psikotestFreeTest()
     {
-        return view('moduls.psikotes.freetest');
+        $soal =Soal::all();
+        return view('moduls.psikotes.freetest',["soal"=>$soal]);
     }
 }

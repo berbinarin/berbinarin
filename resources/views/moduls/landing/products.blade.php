@@ -145,10 +145,10 @@
             <div class="flex flex-col items-center justify-center w-full">
                 <div class="text-center flex flex-col items-center -mb-10">
                     <h2 class="text-black font-semibold text-3xl px-5 md:px-0">
-                        Asesmen Psikologi
+                        Tes Psikotes
                     </h2>
                     <p class="text-disabled text-lg text-center px-5 md:px-0 md:w-2/3">
-                        Terdapat dua jenis asesmen psikologi yang terdapat pada
+                        Terdapat dua jenis tes psikotes yang terdapat pada
                         Berbinar Insightful Indonesia, Asesmen Individu dan Asesmen Perusahaan
                     </p>
                 </div>
@@ -174,7 +174,7 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="text-xl font-semibold">Fokus Asesmen Individu</h4>
-                                    <p class="text-disabled text-lg">Assessmen psikologi individu dapat memprediksi potensi
+                                    <p class="text-disabled text-lg">Tes psikotes individu dapat memprediksi potensi
                                         yang dimiliki dalam kaitannya dengan pencapaian hasil belajar atau kemampuan di masa
                                         yang akan datang.</p>
                                 </div>
@@ -194,7 +194,7 @@
                                 </div>
                                 <div class="ml-4">
                                     <h4 class="text-xl font-semibold">Fokus Asesmen Perusahaan</h4>
-                                    <p class="text-disabled text-lg mb-8">Assesmen Psikologi untuk Perusahaan digunakan
+                                    <p class="text-disabled text-lg mb-8">Tes psikotes untuk Perusahaan digunakan
                                         untuk melihat potensi, kelebihan dan kekurangan, serta kecenderungan kepribadian
                                         seorang kandidat dan melihat apakah kandidat tersebut cocok ditempatkan di suatu
                                         posisi pekerjaan.</p>
