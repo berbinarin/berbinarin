@@ -6,7 +6,7 @@
 @section('content')
     <div class="flex w-screen mt-10">   
         <div class="w-2/5 mx-auto items-center">
-            <a href="{{ route('regData1') }}">
+            <a href="{{ route('peer-regData1') }}">
                 <i class='bx bx-arrow-back text-[35px] text-primary ml-6 mt-8 text-left'></i>
             </a>
             <h2 class="text-black text-center mt-4 text-4xl font-semibold">Data Diri</h2>
@@ -34,7 +34,7 @@
                 </div>
             </div>     
             <div class="text-center">
-                <button onclick="window.location.href='{{ route('regData3') }}'" class="button-con-reg inline-block rounded-lg w-[420px] my-6 px-5 py-3 text-base font-medium text-white">
+                <button onclick="window.location.href='{{ route('peer-regData3') }}'" class="button-con-reg inline-block rounded-lg w-[420px] my-6 px-5 py-3 text-base font-medium text-white">
                     Selanjutnya
                 </button>  
             </div>     

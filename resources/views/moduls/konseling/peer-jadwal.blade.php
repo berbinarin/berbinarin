@@ -13,12 +13,12 @@
             <h2 class="text-black text-center mt-4 text-4xl font-semibold">Tentukan Jadwal</h2>
             <p class="text-center mt-2">Isilah formulir berikut ini untuk menentukan jadwal</p>
             <div class="mt-6">
-                <div class="placebirth mt-4 text-center">
+                <div class="datekons mt-4 text-center">
                     <p class="text-left ml-24 text-[#555555]">Tanggal Konseling</p>
                     <input type="date" placeholder="" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
                 </div>
 
-                <div class="datebirth mt-4 text-center">
+                <div class="daykons mt-4 text-center">
                     <p class="text-left ml-24 text-[#555555]">Pilih Hari Konseling</p>
                     <select name="hari" id="hari" class="bg-[#F1F3F6] text-[#555555] border-2 h-14 w-[420px] rounded-lg p-4 mt-3">
                         <option value="default">Pilih Hari</option>
@@ -31,7 +31,7 @@
                     </select>
                 </div>
 
-                <div class="datebirth mt-4 text-center">
+                <div class="timekons mt-4 text-center">
                 <p for="jadwal" class="text-left ml-24 text-[#555555]">Pilih Jam Konseling</p>
                     <select name="jadwal" id="jadwal" class="bg-[#F1F3F6] text-[#555555] border-2 h-14 w-[420px] rounded-lg p-4 mt-3">
                         <option value="">Pilih Jam</option>
@@ -47,7 +47,7 @@
                 </div>
             </div>     
             <div class="text-center">
-                <button onclick="window.location.href='{{ route('regData1') }}'" class="button-con-reg inline-block rounded-lg w-[420px] my-6 px-5 py-3 text-base font-medium text-white">
+                <button onclick="window.location.href='{{ route('peer-regData1') }}'" class="button-con-reg inline-block rounded-lg w-[420px] my-6 px-5 py-3 text-base font-medium text-white">
                     Selanjutnya
                 </button>  
             </div>     

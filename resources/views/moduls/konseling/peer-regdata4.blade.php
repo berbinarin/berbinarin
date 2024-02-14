@@ -6,7 +6,7 @@
 @section('content')
     <div class="flex w-screen mt-10">   
         <div class="w-2/5 mx-auto items-center">
-            <a href="{{ route('regData3') }}">
+            <a href="{{ route('peer-regData3') }}">
                 <i class='bx bx-arrow-back text-[35px] text-primary ml-6 mt-8 text-left'></i>
             </a>
             <h2 class="text-black text-center mt-4 text-4xl font-semibold">Mari Cerita</h2>

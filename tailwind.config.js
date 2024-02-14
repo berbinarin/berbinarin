@@ -11,6 +11,9 @@ export default {
         "poppins": ["Poppins", "sans-serif"],
         "plusJakartaSans": ["Plus Jakarta Sans", "sans-serif"],
       },
+      backgroundImage: {
+        'primary-linear': 'linear-gradient(249deg, #3986A3 0%, #0087C9 100%)',
+      },
       colors: {
         "primary": "#3986a3",
         "primary-alt": "#75badb",

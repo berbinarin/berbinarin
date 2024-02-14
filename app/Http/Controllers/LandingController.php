@@ -659,7 +659,7 @@ class LandingController extends Controller
         return view('moduls.konseling.layanan');
     }
 
-    public function pilihJadwal()
+    public function peerPilihJadwal()
     {
         $senin = [
             "18.30 - 19.30",
@@ -704,7 +704,7 @@ class LandingController extends Controller
             "19.00 - 20.00",
         ];
         
-        return view('moduls.konseling.jadwal', [
+        return view('moduls.konseling.peer-jadwal', [
             'senin' => $senin,
             'selasa' => $selasa,
             'rabu' => $rabu,
@@ -714,24 +714,49 @@ class LandingController extends Controller
         ]);
     }
 
-    public function regData1()
+    public function peerRegData1()
     {
-        return view('moduls.konseling.regdata1');
+        return view('moduls.konseling.peer-regdata1');
     }
 
-    public function regData2()
+    public function peerRegData2()
     {
-        return view('moduls.konseling.regdata2');
+        return view('moduls.konseling.peer-regdata2');
     }
 
-    public function regData3()
+    public function peerRegData3()
     {
-        return view('moduls.konseling.regdata3');
+        return view('moduls.konseling.peer-regdata3');
     }
 
-    public function regData4()
+    public function peerRegData4()
     {
-        return view('moduls.konseling.regdata4');
+        return view('moduls.konseling.peer-regdata4');
+    }
+
+    public function psiPilihJadwal()
+    {
+        return view('moduls.konseling.psi-jadwal');
+    }
+
+    public function psiRegData1()
+    {
+        return view('moduls.konseling.psi-regdata1');
+    }
+
+    public function psiRegData2()
+    {
+        return view('moduls.konseling.psi-regdata2');
+    }
+
+    public function psiRegData3()
+    {
+        return view('moduls.konseling.psi-regdata3');
+    }
+
+    public function psiRegData4()
+    {
+        return view('moduls.konseling.psi-regdata4');
     }
 
     public function psikotestHome()

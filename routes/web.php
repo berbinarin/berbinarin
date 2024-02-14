@@ -45,11 +45,16 @@ Route::get('/class/bisikan', [LandingController::class, 'classBisikan'])->name('
 Route::get('/class/berbinar+', [LandingController::class, 'classBerbinarPlus'])->name('berbinarPlus');
 
 Route::get('/counseling/reg/layanan', [LandingController::class, 'layanan'])->name('layanan');
-Route::get('/counseling/reg/pilihjadwal', [LandingController::class, 'pilihJadwal'])->name('jadwal');
-Route::get('/counseling/reg/data', [LandingController::class, 'regData1'])->name('regData1');
-Route::get('/counseling/reg/data2', [LandingController::class, 'regData2'])->name('regData2');
-Route::get('/counseling/reg/data3', [LandingController::class, 'regData3'])->name('regData3');
-Route::get('/counseling/reg/data4', [LandingController::class, 'regData4'])->name('regData4');
+Route::get('/counseling/reg/peer/pilihjadwal', [LandingController::class, 'peerPilihJadwal'])->name('peer-jadwal');
+Route::get('/counseling/reg/peer/data', [LandingController::class, 'peerRegData1'])->name('peer-regData1');
+Route::get('/counseling/reg/peer/data2', [LandingController::class, 'peerRegData2'])->name('peer-regData2');
+Route::get('/counseling/reg/peer/data3', [LandingController::class, 'peerRegData3'])->name('peer-regData3');
+Route::get('/counseling/reg/peer/data4', [LandingController::class, 'peerRegData4'])->name('peer-regData4');
+Route::get('/counseling/reg/psikolog/pilihjadwal', [LandingController::class, 'psiPilihJadwal'])->name('psi-jadwal');
+Route::get('/counseling/reg/psikolog/data', [LandingController::class, 'psiRegData1'])->name('psi-regData1');
+Route::get('/counseling/reg/psikolog/data2', [LandingController::class, 'psiRegData2'])->name('psi-regData2');
+Route::get('/counseling/reg/psikolog/data3', [LandingController::class, 'psiRegData3'])->name('psi-regData3');
+Route::get('/counseling/reg/psikolog/data4', [LandingController::class, 'psiRegData4'])->name('psi-regData4');
 
 Route::get('/psikotest/home', [LandingController::class, 'psikotestHome'])->name('psikotestHome');
 Route::get('/psikotest/free/start', [LandingController::class, 'psikotestFreeStart'])->name('psikotestFreeStart');

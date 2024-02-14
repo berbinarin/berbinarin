@@ -50,6 +50,7 @@
         </div>
     </section>
 
+    {{-- POP UP --}}
     <section>
         <div class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 z-40 hidden">
             <div class="bg-white rounded-xl shadow-lg w-[560px]">

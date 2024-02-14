@@ -7,7 +7,7 @@
     <section>
         <div class="flex w-screen mt-10">   
             <div class="w-2/5 mx-auto items-center">
-                <a href="">
+                <a href="{{ route('counseling') }}">
                     <i class='bx bx-arrow-back text-[35px] text-primary ml-6 mt-8 text-left'></i>
                 </a>
                 <img src="{{ asset('assets/images/logo-berbinar.png') }}" alt="Logo Berbinar Insightful Indonesia" title="Logo Berbinar Insightful Indonesia" class="w-16 mx-auto mt-20">
@@ -51,9 +51,9 @@
 
         function redirect() {
             if (selectedOption === 'psikolog') {
-                window.location.href = "/counseling/reg/pilihjadwal";
+                window.location.href = "/counseling/reg/psikolog/pilihjadwal";
             } else if (selectedOption === 'peer') {
-                window.location.href = "/counseling/reg/data";
+                window.location.href = "/counseling/reg/peer/pilihjadwal";
             }
     }
     </script>

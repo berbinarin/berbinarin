@@ -23,11 +23,40 @@
                 <p class="text-lg text-disabled">Dapatkan konseling yang mengubah hidup dari para psikolog dan peer
                     counselor untuk mencapai pertumbuhan pribadi yang luar biasa. Segera temukan solusi yang tepat untuk
                     masalah yang Anda hadapi dan mulai menapaki jalan menuju hidup yang lebih baik.</p>
-                <a href="https://bit.ly/CounselingWithBerbinar"
-                    class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Lakukan
-                    Konseling</a>
+                <button class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit showModal">Lakukan
+                    Konseling</button>
             </div>
         </div>
+
+        {{-- POP UP LAKUKAN KONSELING BUTTON--}}
+        <section>
+            <div class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 z-50 hidden">
+                <div class="bg-primary-linear rounded-xl shadow-lg w-[1000px] h-[600px] p-12">
+                    <div class="text-right p-3 closeModal">
+                        <i class='bx bxs-x-circle text-[48px] text-white'></i>
+                    </div>
+                    <div class="text-center">
+                        <h1 class="text-white text-center text-5xl mb-8 -mt-12">Syarat & Ketentuan</h1>
+                        <div class="text-justify font-light text-white px-12 mt-14">
+                            <li> Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n. Berbinar Insightful Indonesia dengan aturan transfer 1x24 jam.</li>
+                            <li>Tidak membalas pesan admin dalam 1x24 jam, pendaftaran oleh klien secara otomatis dibatalkan. </li>
+                            <li>Tidak membalas pesan admin dalam 1x24 jam, jadwal yang sudah ditentukan oleh klien berhak untuk dirubah oleh Tim Berbinar dan kesepakatan dari klien </li>
+                            <li>Tidak membalas pesan admin dalam 2x24 jam setelah melakukan pembayaran, pembayaran dianggap hangus </li>
+                            <li>Pengajuan proses pembatalan layanan konseling dapat dilakukan dalam kurun waktu 1x24 jam setelah proses admnistrasi dan dana yang telah dibayarkan akan dikembalikan 100%</li>
+                        </div>
+                    </div>
+                    <div class="flex w-100 p-3 my-4 mx-8 gap-4">
+                        <a href="https://bit.ly/CounselingWithBerbinar"
+                            class="text-lg font-light text-white bg-green-500 rounded-md hover:bg-white hover:text-primary duration-700 mt-4 px-5 py-2 w-fit">Daftar Melalui Google Form</a>
+                        <a href="{{ route('layanan') }}"
+                            class="text-lg font-light text-white bg-green-500 rounded-md hover:bg-white hover:text-primary duration-700 mt-4 px-5 py-2 w-fit">Daftar Melalui Website</a>
+                        <a href="{{ route('counseling') }}"
+                            class="text-lg font-light text-white bg-primarylinear border-white border-2 rounded-md hover:bg-white hover:text-primary duration-700 mt-4 px-5 py-2 w-fit">Kembali</a>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
 
         {{-- HERO IMG DESKTOP --}}
         <img src="https://i.ibb.co/CwyfsBG/konseling.png" alt="Ilustrasi Konseling Berbinar"
@@ -364,5 +393,20 @@
                 }
             }));
         })
+    </script>
+
+    <script>
+        const modal = document.querySelector('.modal');
+
+        const showModal = document.querySelector('.showModal');
+        const closeModal = document.querySelector('.closeModal');
+
+        showModal.addEventListener('click', function(){
+            modal.classList.remove('hidden')
+        });
+
+        closeModal.addEventListener('click', function(){
+            modal.classList.add('hidden')
+        });
     </script>
 @endsection
