@@ -206,35 +206,35 @@ class LandingController extends Controller
                 "jabatan" => "-",
                 "divisi" => "-",
                 "testimonial" => "Konseling sangat membantu, konselor ramah. Pertama kali cerita, terbantu menceritakan masalah yang selama ini takut dibagikan sebelumnya. Rasanya lega, tanpa beban dan validasi. Kakak konselor memberi waktu dan kenyamanan.",
+                "image" => "https://i.ibb.co/Sf0SCXs/Anonim-Pria.png"
+            ],
+            [
+                "name" => "Anonim",
+                "jabatan" => "-",
+                "divisi" => "-",
+                "testimonial" => "Konselor mendengarkan dan memerhatikan dengan seksama, memberi saran dan bimbingan spesifik. Dituntun dengan pertanyaan terkait permasalahan, sangat terbantu. Akan segera menyelesaikan tugas setelah konseling hari ini.",
                 "image" => "https://i.ibb.co/j6Mm7ww/Anomim-Wanita.png"
             ],
             [
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
-                "testimonial" => "Konselor mendengarkan dan memerhatikan dengan seksama, memberi saran dan bimbingan spesifik. Dituntun dengan pertanyaan terkait permasalahan, sangat terbantu. Akan segera menyelesaikan tugas setelah konseling hari ini.",
+                "testimonial" => "Psikolognya mendengar dan menyimak cerita saya selama proses konseling dan juga menjelaskan masalah saya dengan cara yang mudah dipahami. Saya merasa nyaman dan tidak merasa dihakimi ketika saya menceritakan semua masalah saya.",
                 "image" => "https://i.ibb.co/Sf0SCXs/Anonim-Pria.png"
             ],
             [
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
-                "testimonial" => "Konselor mendengarkan dan memerhatikan dengan seksama, memberi saran dan bimbingan spesifik. Dituntun dengan pertanyaan terkait permasalahan, sangat terbantu. Akan segera menyelesaikan tugas setelah konseling hari ini.",
-                "image" => "https://i.ibb.co/Sf0SCXs/Anonim-Pria.png"
+                "testimonial" => "Psikolog mendengarkan semua cerita dengan baik, bisa leluasa cerita dan mengungkapkan perasaan jadi lebih tenang, psikolog memperhatikan detail cerita sehingga bisa membantu menemukan akar permasalahannya",
+                "image" => "https://i.ibb.co/j6Mm7ww/Anomim-Wanita.png"
             ],
             [
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
-                "testimonial" => "Konselor mendengarkan dan memerhatikan dengan seksama, memberi saran dan bimbingan spesifik. Dituntun dengan pertanyaan terkait permasalahan, sangat terbantu. Akan segera menyelesaikan tugas setelah konseling hari ini.",
-                "image" => "https://i.ibb.co/Sf0SCXs/Anonim-Pria.png"
-            ],
-            [
-                "name" => "Anonim",
-                "jabatan" => "-",
-                "divisi" => "-",
-                "testimonial" => "Konselor mendengarkan dan memerhatikan dengan seksama, memberi saran dan bimbingan spesifik. Dituntun dengan pertanyaan terkait permasalahan, sangat terbantu. Akan segera menyelesaikan tugas setelah konseling hari ini.",
-                "image" => "https://i.ibb.co/Sf0SCXs/Anonim-Pria.png"
+                "testimonial" => "Saya sangat senang dan terbantu, konselor ramah, ini pertama kali saya berkonsultasi dan berani cerita permasalahan yang saya alami. Sebelumnya saya takut untuk cerita permasalahan. Disini rasanya bisa cerita tanpa ada beban. Konselor memberi waktu kita untuk bercerita dan membuat kita nyaman selama sesi konseling.",
+                "image" => "https://i.ibb.co/j6Mm7ww/Anomim-Wanita.png"
             ],
         ];
         
