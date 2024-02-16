@@ -53,7 +53,7 @@
                 <h2 class="text-black fomt-semibold text-3xl md:px-0">
                     Tes Psikotes Individu<span class="text-primary font-bold"> Berbinar</span>
                 </h2>
-                <p class="text-lg text-disabled">Assessmen psikologi individu dapat memprediksi potensi yang dimiliki dalam
+                <p class="text-lg text-disabled">Tes Psikotes individu dapat memprediksi potensi yang dimiliki dalam
                     kaitannya dengan pencapaian hasil belajar atau kemampuan di masa yang akan datang.</p>
                 <a href="https://bit.ly/DaftarPsikotesBerbinar"
                     class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Lakukan
@@ -259,7 +259,7 @@
                 <h2 class="text-black fomt-semibold text-3xl">
                     Tes Psikotes Perusahaan<span class="text-primary font-bold"> Berbinar</span>
                 </h2>
-                <p class="text-lg text-disabled">Assesmen Psikologi untuk Perusahaan digunakan untuk melihat potensi,
+                <p class="text-lg text-disabled">Tes Psikotes untuk Perusahaan digunakan untuk melihat potensi,
                     kelebihan dan kekurangan, serta kecenderungan kepribadian seorang kandidat dan melihat apakah kandidat
                     tersebut cocok ditempatkan di suatu posisi pekerjaan.</p>
                 <a href="https://bit.ly/DaftarPsikotesBerbinar"
@@ -743,7 +743,7 @@
                 Dokumentasi
             </h1>
 
-            <p class="text-lg text-disabled text-center">Berikut beberapa dokumentasi dari aksesmen konseling yang telah
+            <p class="text-lg text-disabled text-center">Berikut beberapa dokumentasi dari Tes Psikotes yang telah
                 kami lakukan</p>
         </div>
         <div class="flex flex-col md:flex-row md:flex-wrap gap-5 md:gap-3 w-full items-center justify-center">

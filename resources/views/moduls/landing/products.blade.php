@@ -56,8 +56,8 @@
                         <!-- view mobile -->
                         <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Webinar.png') }}" class="description absolute top-0 flex flex-col items-start">
                         <!-- view desktop -->
-                        <source media="(min-width: 768px)" srcset="https://i.ibb.co/Q9z9F1t/3.png" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
-                        <img src="https://i.ibb.co/Q9z9F1t/3.png" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
+                        <source media="(min-width: 768px)" srcset="https://i.ibb.co/6Jwpb3f/4.png" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                        <img src="https://i.ibb.co/6Jwpb3f/4.png" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                     </picture>
                 </div>
             </div>
@@ -141,7 +141,7 @@
                 </div>
             </div>
 
-            {{-- ASESMEN PSIKOLOGI --}}
+            {{-- TES PSIKOTES --}}
             <div class="flex flex-col items-center justify-center w-full">
                 <div class="text-center flex flex-col items-center -mb-10">
                     <h2 class="text-black font-semibold text-3xl px-5 md:px-0">
@@ -173,7 +173,7 @@
                                     </div>
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="text-xl font-semibold">Fokus Asesmen Individu</h4>
+                                    <h4 class="text-xl font-semibold">Fokus Tes psikotes Individu</h4>
                                     <p class="text-disabled text-lg">Tes psikotes individu dapat memprediksi potensi
                                         yang dimiliki dalam kaitannya dengan pencapaian hasil belajar atau kemampuan di masa
                                         yang akan datang.</p>
@@ -193,7 +193,7 @@
                                     </div>
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="text-xl font-semibold">Fokus Asesmen Perusahaan</h4>
+                                    <h4 class="text-xl font-semibold">Fokus Tes psikotes Perusahaan</h4>
                                     <p class="text-disabled text-lg mb-8">Tes psikotes untuk Perusahaan digunakan
                                         untuk melihat potensi, kelebihan dan kekurangan, serta kecenderungan kepribadian
                                         seorang kandidat dan melihat apakah kandidat tersebut cocok ditempatkan di suatu
