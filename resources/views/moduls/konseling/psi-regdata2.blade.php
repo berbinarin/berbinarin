@@ -18,7 +18,7 @@
                 </div>
                 <div class="datebirth mt-4 text-center">
                     <p class="text-left ml-24 text-[#555555]">Tanggal Lahir</p>
-                    <input type="datetime-local" placeholder="" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
+                    <input type="date" placeholder="" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
                 </div>
                 <div class="suku mt-4 text-center">
                     <p class="text-left ml-24 text-[#555555]">Suku Bangsa</p>

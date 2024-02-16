@@ -23,9 +23,13 @@
                     <input type="time" placeholder="" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
                 </div>
 
-                <div class="suku mt-4 text-center">
-                    <p class="text-left ml-24 text-[#555555]">Metode Konseling</p>          
-                    <input type="text" placeholder="Online/Offline" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
+                <div class="metodekons mt-4 text-center">
+                    <p class="text-left ml-24 text-[#555555]">Metode Konseling</p>
+                    <select name="metode" id="metode" class="bg-[#F1F3F6] text-[#555555] border-2 h-14 w-[420px] rounded-lg p-4 mt-3">
+                        <option value="default">Pilih Metode Konseling</option>
+                        <option value="senin">Online</option>
+                        <option value="selasa">Offline</option>
+                    </select>
                 </div>
             </div>     
             <div class="text-center">

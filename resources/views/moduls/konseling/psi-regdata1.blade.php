@@ -24,9 +24,13 @@
                     <p class="text-left ml-24 text-[#555555]">Email</p>
                     <input type="email" placeholder="Masukkan Alamat Email" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
                 </div>
-                <div class="maritalstat mt-4 text-center">
+                <div class="gender mt-4 text-center">
                     <p class="text-left ml-24 text-[#555555]">Jenis Kelamin</p>
-                    <input type="text" placeholder="Laki - Laki" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-[420px] rounded-lg p-4 mt-3">
+                    <select name="metode" id="metode" class="bg-[#F1F3F6] text-[#555555] border-2 h-14 w-[420px] rounded-lg p-4 mt-3">
+                        <option value="default">Pilih Jenis Kelamin</option>
+                        <option value="senin">Laki-laki</option>
+                        <option value="selasa">Perempuan</option>
+                    </select>
                 </div>
                 <div class="dom mt-4 text-center">
                     <p class="text-left ml-24 text-[#555555]">Agama</p>
