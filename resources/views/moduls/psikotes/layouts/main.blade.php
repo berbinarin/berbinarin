@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
 </head>
 
-<body class="font-plusJakartaSans">
+<body class="font-plusJakartaSans relative overflow-x-hidden w-full">
     @if ($active === 'Home')
     <div class="h-screen w-full flex">
         @include('moduls.psikotes.layouts.navbar')
