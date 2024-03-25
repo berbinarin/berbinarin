@@ -4,7 +4,7 @@
 ])
 
 @section('content')
-
+{{-- 
     <section class="intro_container">
         <div class="flex flex-col items-center">
             <h2 class="intro_title md:w-full w-[90%] text-center font-medium text-6xl m-12 leading-tight ">Free Tes Psikotes Berbinar</h2>
@@ -19,11 +19,11 @@
             </div>
         </div>
     </div>
-    </section>
+    </section> --}}
 
     <!--========== POP UP ==========-->
     <section>
-        <div class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 z-40 hidden">
+        {{-- <div class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 z-40 hidden">
             <div class="bg-white rounded-xl shadow-lg w-[560px]">
                 <div class="text-right p-3 closeModal">
                     <i class='bx bxs-x-circle text-[48px] text-[#F34949]'></i>
@@ -48,12 +48,11 @@
                         class="text-lg text-white bg-green-500 rounded-md hover:bg-primary duration-700 px-8 mt-0 mb-4 py-2 w-fit">Mulai</a>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </section>
 
-    <script>
+    {{-- <script>
         const modal = document.querySelector('.modal');
-
         const showModal = document.querySelector('.showModal');
         const closeModal = document.querySelector('.closeModal');
 
@@ -64,6 +63,6 @@
         closeModal.addEventListener('click', function(){
             modal.classList.add('hidden')
         });
-    </script>
+    </script> --}}
 
 @endsection

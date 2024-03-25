@@ -1,31 +1,16 @@
 @extends('moduls.psikotes.layouts.main', [
     'title' => 'Psikotest Berbinar',
     'active' => 'Home',
+    'page' => 'Homepage',
 ])
 
 @section('content')
-<style>
-#notificationPopup {
-    background-color: #2686AE;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 40;
-    padding: 30px 60px; /* Meningkatkan padding */
-    width: 90%; /* Menambahkan lebar */
-    max-width: 95vw; /* Batasi lebar maksimum */
-    max-height: 95%; /* Sesuaikan tinggi maksimum sesuai kebutuhan */
-    overflow-y: hidden; /* Menyembunyikan scrollbar vertikal */
-    text-align: center; /* Pusatkan konten */
-    font-size: 16px; /* Mengurangi ukuran teks */
-    border-radius: 20px; /* Menambahkan sudut yang lebih bulat */
-}
-</style>
-    <section class="max-w-6xl mx-auto h-screen flex flex-col gap-8 md:flex-row items-center justify-center relative px-5 md:px-0 mt-12 md:mt-0">
+  
+    <section class="max-w-6xl mx-auto h-screen flex flex-col md:flex-row items-center justify-center relative px-5 md:px-0 mt-12 md:mt-10">
         {{-- HERO IMG MOBILE --}}
-        <img src="{{ asset('assets/images/ilustrasi-logo-berbinar.png') }}" alt="Ilustrasi Logo Berbinar"
-            title="Ilustrasi Logo Berbinar" class="w-full block md:hidden" data-aos="fade-up" data-aos-duration="1500">
+        <img src="{{ asset('assets/images/konseling/regist/Ilustrasi1.png') }}" alt="Ilustrasi Logo Berbinar"
+            title="Ilustrasi Logo Berbinar" class="w-full block md:hidden" data-aos="fade-up" 
+            data-aos-duration="1500">
 
         {{-- HERO CONTENT --}}
         <div class="relative flex items-center">
@@ -46,39 +31,23 @@
         </div>
 
         {{-- HERO IMG DESKTOP --}}
-        <div class="flex mx-auto justify-center align-items-center w-1/2 md:block" data-aos="fade-left" data-aos-duration="1500">
-            <img src="{{ asset('assets/images/konseling/regist/Ilustrasi1.png') }}" alt="Ilustrasi-Test" class=" absolute m-auto mt-20 w-[540px] z-10">
-            <div class="decoration__psiko mx-auto rounded-2xl mt-[400px] w-[540px] h-[200px] z-0"></div>
-        </div>
-    </section>
-
-    <section class="max-w-6xl mx-auto">
-        <div class="items-center align-items-center justify-center text-center mx-auto">
-            <p class="-mt-10 text-lg">Telah dipercaya oleh : </p>
-            <div class="flex mx-auto justify-center align-items-center gap-10 mt-6">
-                <img src="{{ asset('assets/images/Microsoft.png') }}" alt="Company1" class=" m-auto w-[150px]">
-                <img src="{{ asset('assets/images/Google.png') }}" alt="Company2" class="m-auto w-[110px]">
-                <img src="{{ asset('assets/images/Stripe.png') }}" alt="Company3" class="m-auto w-[100px]">
-                <img src="{{ asset('assets/images/Entrepreneur.png') }}" alt="Company4" class="m-auto w-[180px]">
-                <img src="{{ asset('assets/images/Uber.png') }}" alt="Company5" class=" m-auto w-[80px]">
-                <img src="{{ asset('assets/images/Forbes.png') }}" alt="Company6" class="m-auto w-[110px]">
-            </div>
-        </div>
+            <img src="{{ asset('assets/images/konseling/regist/Ilustrasi1.png') }}" alt="Ilustrasi-Test" class="w-1/2 hidden md:block" data-aos="fade-left"
+            data-aos-duration="1500">
     </section>
 
     {{-- POP UP --}}
     <section>
-        <div class="modalTes h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 z-40 hidden">
+        <div class="modalTes h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 z-50 hidden">
             <div class="bg-white rounded-xl shadow-lg w-[560px]">
                 <div class="text-right p-3 closemodalTes">
                     <i class='bx bxs-x-circle text-[48px] text-[#F34949]'></i>
                 </div>
                 <div class="text-center">
-                    <h1 class="text-primary text-center text-3xl mb-8 -mt-10">Isi Data Diri</h1>
+                    <h1 class="text-primary text-center text-3xl mb-8 mt-8">Isi Data Diri</h1>
                     <input type="text" placeholder="Nama Lengkap" class="items-center justify-center rounded-md bg-[#F3F4F6] text-[#9B9B9B] w-[480px] h-12 p-4 my-1">
                     <input type="email" placeholder="Email" class="items-center justify-center rounded-md bg-[#F3F4F6] text-[#9B9B9B] w-[480px] h-12 p-4 my-1">
                     <input type="number" placeholder="Umur" class="items-center justify-center rounded-md bg-[#F3F4F6] text-[#9B9B9B] w-[480px] h-12 p-4 my-1">
-                    <textarea name="alasan" placeholder="Alasan Mengikuti Tes" cols="30" rows="10" class="items-center justify-center rounded-md bg-[#F3F4F6] text-[#9B9B9B] w-[480px] h-60 p-4 my-1"></textarea>
+                    <textarea name="alasan" placeholder="Alasan Mengikuti Tes" cols="30" rows="5" class="items-center justify-center rounded-md bg-[#F3F4F6] text-[#9B9B9B] w-[480px] h-30 p-4 my-1"></textarea>
                 </div>
                 <div class="flex justify-center items-center w-100 p-3 my-4 ">
                     <button class="text-lg text-white bg-green-500 rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit" id="saveButton">Simpan</button>
@@ -87,14 +56,21 @@
         </div>
     </section>
 
-
-    <div id="notificationPopup" class="hidden">
-            <h2 class="intro_title text-center font-medium text-6xl m-12 leading-tight text-black">Penjelasan Psikotes</h2>
-            <p class="intro_description font-normal m-4 text-justify text-black">Apa itu Tes Kepribadian Big 5 OCEAN? <br>
-            Tes ini merupakan model dari tes lima dimensi kepribadian yang dapat mengungkapkan potensi karir yang sesuai dengan kepribadian Anda. Tes Lima Dimensi Kepribadian secara luas dianggap sebagai cara paling kuat untuk menggambarkan perbedaan kepribadian yang Anda miliki.
-            <br><br> Tes Lima Dimensi Kepribadian adalah salah satu alat tes untuk mengungkap kepribadian berdasarkan teori Big Five Personality yang dikemukakan oleh seorang psikolog terkenal, yaitu Lewis Goldberg. Dalam teori sifat kepribadian "The Big Five Personality Traits Model" tersebut terdiri dari lima dimensi kunci diantaranya seperti, Openness (O), Conscientiousness (C), Extraversion (E), Agreeableness (A) dan Neuroticism (N).
-        <br>Ikuti kuis ini untuk mengeksplorasi kepribadian Anda dengan Tes Lima Kepribadian, Anda akan melihat bagaimana lima dimensi kepribadian utama: Openness (O), Conscientiousness (C), Extraversion (E), Agreeableness (A) dan Neuroticism (N).</p>    
-            <div class="flex justify-start gap-4 my-12">
+    <!-- Notifikasi Popup -->
+    <div id="notificationPopup" class="notificationPopup h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-opacity-50 z-50 hidden">
+        <div class="bg-primary rounded-xl shadow-lg max-w-3xl w-full">
+            <div class="text-right p-3 closeNotification">
+                <i class='bx bxs-x-circle text-[48px] text-[#F34949]'></i>
+            </div>
+            <div class="text-center">
+                <h2 class="font-medium text-4xl mb-8 -mt-8 leading-tight text-white">Penjelasan Psikotes</h2>
+                <p class="font-normal m-12 text-justify text-white">Apa itu Tes Kepribadian Big 5 OCEAN? <br>
+                    Tes ini merupakan model dari tes lima dimensi kepribadian yang dapat mengungkapkan potensi karir yang sesuai dengan kepribadian Anda. Tes Lima Dimensi Kepribadian secara luas dianggap sebagai cara paling kuat untuk menggambarkan perbedaan kepribadian yang Anda miliki.
+                    <br><br> Tes Lima Dimensi Kepribadian adalah salah satu alat tes untuk mengungkap kepribadian berdasarkan teori Big Five Personality yang dikemukakan oleh seorang psikolog terkenal, yaitu Lewis Goldberg. Dalam teori sifat kepribadian "The Big Five Personality Traits Model" tersebut terdiri dari lima dimensi kunci diantaranya seperti, Openness (O), Conscientiousness (C), Extraversion (E), Agreeableness (A) dan Neuroticism (N).
+                    <br>Ikuti kuis ini untuk mengeksplorasi kepribadian Anda dengan Tes Lima Kepribadian, Anda akan melihat bagaimana lima dimensi kepribadian utama: Openness (O), Conscientiousness (C), Extraversion (E), Agreeableness (A) dan Neuroticism (N).</p>
+               
+            </div>
+             <div class="flex justify-start gap-4 m-12">
                 <button class="text-lg text-white bg-green-500 rounded-md hover:bg-white hover:text-primary duration-700 px-6 py-2 w-fit showModal">
                     Mulai Tes
                 </button>
@@ -102,7 +78,9 @@
                     Kembali ke Beranda
                 </a>
             </div>
-    </div>    
+        </div>
+    </div>
+    <!-- Akhir Notifikasi Popup -->
 
     <div class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 z-50 hidden">
         <div class="bg-white rounded-xl shadow-lg w-[560px]">
@@ -111,7 +89,7 @@
             </div>
             <div>
                 <div class="text-center">
-                    <h1 class="text-primary text-center text-3xl mb-4 -mt-10">Instruksi Pengisian</h1>
+                    <h1 class="text-primary text-center text-3xl mb-8 -mt-8">Instruksi Pengisian</h1>
                     <p class="font-bold px-24">Perhatikan dengan seksama instruksi pengisian berikut untuk mengisi free tes psikotes berbinar</p>
                 </div>
                 <div class="px-16 py-10">
@@ -131,7 +109,11 @@
         </div>
     </div>
 
-    <script>
+   <!-- Your HTML content -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // JavaScript code here
         const modalTes = document.querySelector('.modalTes');
         const notificationPopup = document.getElementById('notificationPopup');
         const modal = document.querySelector('.modal');
@@ -166,6 +148,8 @@
         closeNotificationBtn.addEventListener('click', function() {
             notificationPopup.classList.add('hidden');
         });
-    </script>
-    
+    });
+</script>
+
+    
 @endsection
