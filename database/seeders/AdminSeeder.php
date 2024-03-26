@@ -27,6 +27,11 @@ class AdminSeeder extends Seeder
             'password' => Hash::make('Hr123'),
             'role' => 'HR'],
             
+            [ 'id' => 3,
+            'username' => 'Konselling',
+            'email' => 'Konselling@gmail.com',
+            'password' => Hash::make('Konselling123'),
+            'role' => 'Konselling'],
         ]);
     }
 }

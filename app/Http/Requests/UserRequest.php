@@ -28,7 +28,7 @@ class UserRequest extends FormRequest
             'username' => "required |string",
             'email' => "required |string|email|unique:users,email",
             'password' => "required |string|regex:/[a-zA-Z]/|regex:/[0-9]/|regex:/[@$!%*#?&]/",
-            'role' => "required|in:Super Admin,Admin,HR'",
+            'role' => "required|in:Super Admin,Admin,HR,Konselling'",
         ];
     }
 

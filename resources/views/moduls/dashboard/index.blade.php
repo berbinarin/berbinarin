@@ -20,8 +20,12 @@
                                 yang sedang
                                 atau akan
                                 dibukan atau telah dibuka yang ditampilkan pada website careers Berbinarin.</p>
-                        @else
-                            <p class="w-2/4 text-disabled"></p>
+                        @else 
+                            @if (Auth::user()-> role == 'Konselling')
+                                <p class="w-2/4 text-disabled">Fitur ini digunakan untuk menampilkan data pendaftar konseling yang mendaftar melalui situs web Berbinar</p>
+                            @else
+                                <p class="w-2/4 text-disabled"></p>
+                            @endif
                         @endif
                     </div>
                 </div>
@@ -60,6 +64,41 @@
                             <span class="block text-gray-500">Requirements</span>
                         </div>
                     </div>
+                @else
+                    @if (Auth::user()->role == 'Konselling')
+                        <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                            <div
+                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                                <i class='bx bx-calendar text-2xl'></i>
+                            </div>
+                            <div>
+                                <span class="block text-2xl font-bold">{{ $PeerConsellorSchedule }}</span>
+                                <span class="block text-gray-500">Peer Counselor Schedule</span>
+                            </div>
+                        </div>
+                    
+                        <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                            <div
+                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                                <i class='bx bx-user text-2xl'></i>
+                            </div>
+                            <div>
+                                <span class="block text-2xl font-bold">{{ $PeerConsellorData }}</span>
+                                <span class="block text-gray-500">Peer Counselor Data</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                            <div
+                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                                <i class='bx bx-user text-2xl'></i>
+                            </div>
+                            <div>
+                                <span class="block text-2xl font-bold">{{ $PsikologData }}</span>
+                                <span class="block text-gray-500">Psikolog Data</span>
+                            </div>
+                        </div>
+                    @endif
                 @endif
             </div>
         </div>

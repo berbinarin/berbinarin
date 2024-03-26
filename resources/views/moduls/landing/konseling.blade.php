@@ -7,7 +7,7 @@
 @section('content')
 {{-- HERO SECTION --}}
 <section
-    class="max-w-6xl mx-auto h-screen flex flex-col md:flex-row items-center justify-center relative px-5 md:px-0 mt-28 md:mt-10">
+    class="hero max-w-6xl mx-auto h-screen flex flex-col md:flex-row items-center justify-center relative px-5 md:px-0 mt-28 md:mt-10">
     {{-- HERO IMG MOBILE --}}
     <img src="https://i.ibb.co/CwyfsBG/konseling.png" alt="Ilustrasi Konseling Berbinar"
         title="Ilustrasi Konseling Berbinar" class="w-full block md:hidden" data-aos="fade-up" data-aos-duration="1500">
@@ -31,10 +31,8 @@
 
     {{-- POP UP LAKUKAN KONSELING BUTTON--}}
     <section>
-        <div
-            class="modal fixed top-0 left-0 right-0 z-50 hidden w-full p-7 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-            <div
-                class="modal-dialog modal-xl bg-primary-linear w-full lg:w-4/6 mt-2 mx-auto rounded-xl shadow-lg pb-4 ">
+        <div class="modal fixed top-0 left-0 right-0 z-50 hidden flex justify-center items-center w-full h-full">
+            <div class="modal-dialog modal-xl bg-primary-linear w-full lg:w-4/6 rounded-xl shadow-lg pb-4">
                 <div class="modal">
                     <div>
                         <div class="text-right p-3 closeModal">
@@ -69,16 +67,16 @@
                         <div class="modal-footer flex w-100 p-5 my-4 mx-8 gap-4">
                             <div class="row justify-items-center">
                                 <div
-                                    class="col-6 col-md-4 align-items-center justify-content-center text-center text-md-end ">
-                                    <a href="https://bit.ly/CounselingWithBerbinar"
+                                    class="flex col-6 col-md-4 align-items-center justify-content-center text-center text-md-end ">
+                                    <!--<a href="https://bit.ly/CounselingWithBerbinar"
                                         class="button px-4 py-2 font-light text-white bg-green-500 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Daftar
-                                        Melalui Google Form</a>
+                                        Melalui Google Form</a>-->
                                     <a href="{{ route('layanan') }}"
                                         class="button px-4 py-2 font-light text-white bg-green-500 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Daftar
                                         Melalui Website</a>
                                     <a href="{{ route('counseling') }}"
-                                        class="button px-4 py-2 font-light text-white bg-primarylinear border-white border-2 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Kembali</a>
-                                </div>
+    class="button hidden md:block px-4 py-2 font-light text-white bg-primarylinear border-white border-2 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Kembali</a>
+</div>
                             </div>
                         </div>
                     </div>
@@ -87,6 +85,7 @@
         </div>
 
     </section>
+    
 
     {{-- HERO IMG DESKTOP --}}
     <img src="https://i.ibb.co/CwyfsBG/konseling.png" alt="Ilustrasi Konseling Berbinar"
@@ -400,6 +399,8 @@
     </ul>
 </section>
 
+<div class="modalin hidden opacity-25 fixed inset-0 z-40 bg-black "></div>
+
 <script>
 document.addEventListener('alpine:init', () => {
     Alpine.store('accordion', {
@@ -427,16 +428,26 @@ document.addEventListener('alpine:init', () => {
 
 <script>
 const modal = document.querySelector('.modal');
+const modalin = document.querySelector('.modalin');
+const header = document.querySelector('.header');
+const hero = document.querySelector('.hero');
 
 const showModal = document.querySelector('.showModal');
 const closeModal = document.querySelector('.closeModal');
 
 showModal.addEventListener('click', function() {
-    modal.classList.remove('hidden')
+    modal.classList.remove('hidden');
+    modalin.classList.remove('hidden');
+    header.classList.remove('fixed');
+    hero.style.height = '33rem';
 });
 
 closeModal.addEventListener('click', function() {
-    modal.classList.add('hidden')
+    modal.classList.add('hidden');
+    modalin.classList.add('hidden');
+    header.classList.add('fixed');
+    hero.style.height = ''; // Menghapus pengaturan tinggi khusus
 });
+
 </script>
 @endsection

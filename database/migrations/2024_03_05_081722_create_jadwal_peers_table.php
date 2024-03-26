@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jadwal_konseling_peerkonseling', function (Blueprint $table) {
-            $table->id();
-            $table->date("tanggal_jadwal_konseling");
-            $table->string("jam");            
+        Schema::create('jadwal_peers', function (Blueprint $table) {
+            $table->increments('id');
+            $table->enum("hari" ,['Senin','Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']);
+            $table->time("pukul_mulai");
+            $table->time("pukul_selesai");
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('jadwal__konseling__peerkonseling');
+        Schema::dropIfExists('jadwal_peers');
     }
 };

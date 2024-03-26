@@ -5,8 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Hiring_Positions;
 use App\Models\Hiring_Positions_Job_Descriptions;
 use App\Models\Hiring_Positions_Requirements;
+use App\Models\KonsellingPeer;
+use App\Models\KonsellingPsikolog;
+use App\Models\jadwalPeer;
 use App\Models\Soal;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
+
 
 class LandingController extends Controller
 {
@@ -659,104 +664,252 @@ class LandingController extends Controller
         return view('moduls.konseling.layanan');
     }
 
-    public function peerPilihJadwal()
-    {
-        $senin = [
-            "18.30 - 19.30",
-            "19.20 - 20.30",
-        ];
+   public function peerPilihJadwal(Request $request)
+{
+    $senin = jadwalPeer::where('hari', 'Senin')->orderBy('pukul_mulai')->get();
+    $selasa = jadwalPeer::where('hari', 'Selasa')->orderBy('pukul_mulai')->get();
+    $rabu = jadwalPeer::where('hari', 'Rabu')->orderBy('pukul_mulai')->get();
+    $kamis = jadwalPeer::where('hari', 'Kamis')->orderBy('pukul_mulai')->get();
+    $jumat = jadwalPeer::where('hari', 'Jumat')->orderBy('pukul_mulai')->get();
+    $sabtu = jadwalPeer::where('hari', 'Sabtu')->orderBy('pukul_mulai')->get();
+    $minggu = jadwalPeer::where('hari', 'Minggu')->orderBy('pukul_mulai')->get();
 
-        $selasa = [
-            "17.00 - 18.00",
-            "19.00 - 20.00",
-            "19.30 - 20.30",
-        ];
-        $rabu = [
-            "08.00 - 09.00",
-            "14.00 - 15.00",
-            "14.30 - 15.30",
-            "15.30 - 16.30",
-            "16.00 - 17.00",
-            "19.00 - 20.00",
-            "19.30 - 20.30"
-        ];
-        $kamis = [
-            "08.00 - 09.00",
-            "14.30 - 15.30",
-            "15.30 - 16.30",
-            "18.00 - 19.00",
-            "19.00 - 20.00",
-        ];
-        $jumat = [
-            "10.30 - 11.30",
-            "11.30 - 12.30",
-            "14.00 - 15.00",
-            "16.00 - 17.00",
-            "16.30 - 17.30",
-            "18.00 - 19.00",
-        ];
-        $sabtu = [
-            "09.00 - 10.00",
-            "10.00 - 11.00",
-            "13.30 - 14.30",
-            "15.00 - 16.00",
-            "16.00 - 17.00",
-            "19.00 - 20.00",
-        ];
-        
-        return view('moduls.konseling.peer-jadwal', [
-            'senin' => $senin,
-            'selasa' => $selasa,
-            'rabu' => $rabu,
-            'kamis' => $kamis,
-            'jumat' => $jumat,
-            'sabtu' => $sabtu,
+    $konselling = $request->session()->get('konselling');
+    
+    return view('moduls.konseling.peer-jadwal', compact('senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu', 'konselling'));
+}
+
+    public function postPeerPilihJadwal(Request $request)
+    {
+        $validatedData = $request->validate([
+            'jadwal_tanggal' => 'required',
+            'jadwal_pukul' => 'required',
+            'metode' => 'required|not_in:default_value',
         ]);
+  
+        if(empty($request->session()->get('konselling'))){
+            $konselling = new KonsellingPeer();
+            $konselling->fill($validatedData);
+            $request->session()->put('konselling', $konselling);
+        }else{
+            $konselling = $request->session()->get('konselling');
+            $konselling->fill($validatedData);
+            $request->session()->put('konselling', $konselling);
+        }
+  
+        return redirect()->route('peer-regData1');
     }
 
-    public function peerRegData1()
+    public function peerRegData1(Request $request)
     {
-        return view('moduls.konseling.peer-regdata1');
+        $konselling = $request->session()->get('konselling');
+        return view('moduls.konseling.peer-regdata1', compact('konselling'));
     }
 
-    public function peerRegData2()
+    public function postPeerRegData1(Request $request)
     {
-        return view('moduls.konseling.peer-regdata2');
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'no_wa' => 'required',
+            'email' => 'required',
+            'jenis_kelamin' => 'required|not_in:default',
+            'agama' => 'required',
+        ]);
+
+        $konselling = $request->session()->get('konselling');
+        $konselling->fill($validatedData);
+        $request->session()->put('konselling', $konselling);
+
+        return redirect()->route('peer-regData2');
     }
 
-    public function peerRegData3()
+    public function peerRegData2(Request $request)
     {
-        return view('moduls.konseling.peer-regdata3');
+        $konselling = $request->session()->get('konselling');
+        return view('moduls.konseling.peer-regdata2',compact('konselling'));
     }
 
-    public function peerRegData4()
+    public function postPeerRegData2(Request $request)
     {
-        return view('moduls.konseling.peer-regdata4');
+        $validatedData = $request->validate([
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'suku' => 'required',
+            'status_pernikahan' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        $konselling = $request->session()->get('konselling');
+        $konselling->fill($validatedData);
+        $request->session()->put('konselling', $konselling);
+
+        return redirect()->route('peer-regData3');
     }
 
-    public function psiPilihJadwal()
+    public function peerRegData3(Request $request)
     {
-        return view('moduls.konseling.psi-jadwal');
+        $konselling = $request->session()->get('konselling');
+        return view('moduls.konseling.peer-regdata3',compact('konselling'));
     }
 
-    public function psiRegData1()
+    public function postPeerRegData3(Request $request)
     {
-        return view('moduls.konseling.psi-regdata1');
+        $validatedData = $request->validate([
+            'posisi_anak' => 'required',
+            'pendidikan' => 'required',
+            'riwayat_pekerjaan' => 'required',
+            'hobi' => 'required',
+            'kegiatan_sosial' => 'required',
+        ]);
+
+        $konselling = $request->session()->get('konselling');
+        $konselling->fill($validatedData);
+        $request->session()->put('konselling', $konselling);
+
+        return redirect()->route('peer-regData4');
     }
 
-    public function psiRegData2()
+    public function peerRegData4(Request $request)
     {
-        return view('moduls.konseling.psi-regdata2');
+        $konselling = $request->session()->get('konselling');
+        return view('moduls.konseling.peer-regdata4',compact('konselling'));
     }
 
-    public function psiRegData3()
+    public function postPeerRegData4(Request $request)
     {
-        return view('moduls.konseling.psi-regdata3');
+        $validatedData = $request->validate([
+            'cerita' => 'required',
+        ]);
+
+        $konselling = $request->session()->get('konselling');
+        $konselling->fill($validatedData);
+        $konselling->save();
+  
+        $request->session()->forget('konselling');
+  
+        Alert::toast('Pendaftaran Konseling Berhasil!', 'success')->autoClose(5000);;
+        return redirect()->route('home');
     }
 
-    public function psiRegData4()
+    public function psiPilihJadwal(Request $request)
     {
-        return view('moduls.konseling.psi-regdata4');
+        $konselling = $request->session()->get('konselling');
+        return view('moduls.konseling.psi-jadwal',compact('konselling'));
+    }
+
+    public function postPsiPilihJadwal(Request $request)
+    {
+        $validatedData = $request->validate([
+            'jadwal_tanggal' => 'required',
+            'jadwal_pukul' => 'required',
+            'metode' => 'required|not_in:default_value',
+        ]);
+
+        $jamMenit = substr($validatedData['jadwal_pukul'], 0, 5);
+        $validatedData['jadwal_pukul'] = $jamMenit;
+  
+        if(empty($request->session()->get('konselling'))){
+            $konselling = new KonsellingPsikolog();
+            $konselling->fill($validatedData);
+            $request->session()->put('konselling', $konselling);
+        }else{
+            $konselling = $request->session()->get('konselling');
+            $konselling->fill($validatedData);
+            $request->session()->put('konselling', $konselling);
+        }
+  
+        return redirect()->route('psi-regData1');
+    }
+
+    public function psiRegData1(Request $request)
+    {
+        $konselling = $request->session()->get('konselling');
+        return view('moduls.konseling.psi-regdata1',compact('konselling'));
+    }
+
+    public function postPsiRegData1(Request $request)
+    {
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'no_wa' => 'required',
+            'email' => 'required',
+            'jenis_kelamin' => 'required|not_in:default',
+            'agama' => 'required',
+        ]);
+
+        $konselling = $request->session()->get('konselling');
+        $konselling->fill($validatedData);
+        $request->session()->put('konselling', $konselling);
+
+        return redirect()->route('psi-regData2');
+    }
+
+    public function psiRegData2(Request $request)
+    {
+        $konselling = $request->session()->get('konselling');
+        return view('moduls.konseling.psi-regdata2',compact('konselling'));
+    }
+
+    public function postPsiRegData2(Request $request)
+    {
+        $validatedData = $request->validate([
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'suku' => 'required',
+            'status_pernikahan' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        $konselling = $request->session()->get('konselling');
+        $konselling->fill($validatedData);
+        $request->session()->put('konselling', $konselling);
+
+        return redirect()->route('psi-regData3');
+    }
+
+    public function psiRegData3(Request $request)
+    {
+        $konselling = $request->session()->get('konselling');
+        return view('moduls.konseling.psi-regdata3',compact('konselling'));
+    }
+    
+    public function postPsiRegData3(Request $request)
+    {
+        $validatedData = $request->validate([
+            'posisi_anak' => 'required',
+            'pendidikan' => 'required',
+            'riwayat_pekerjaan' => 'required',
+            'hobi' => 'required',
+            'kegiatan_sosial' => 'required',
+        ]);
+
+        $konselling = $request->session()->get('konselling');
+        $konselling->fill($validatedData);
+        $request->session()->put('konselling', $konselling);
+
+        return redirect()->route('psi-regData4');
+    }
+
+    public function psiRegData4(Request $request)
+    {
+        $konselling = $request->session()->get('konselling');
+        return view('moduls.konseling.psi-regdata4',compact('konselling'));
+    }
+
+    public function postPsiRegData4(Request $request)
+    {
+        $validatedData = $request->validate([
+            'cerita' => 'required',
+        ]);
+
+        $konselling = $request->session()->get('konselling');
+        $konselling->fill($validatedData);
+        $konselling->save();
+  
+        $request->session()->forget('konselling');
+  
+        Alert::toast('Pendaftaran Konseling Berhasil!', 'success')->autoClose(5000);;
+        return redirect()->route('home');
     }
 
     public function psikotestHome()

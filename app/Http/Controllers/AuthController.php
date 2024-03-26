@@ -44,7 +44,7 @@ class AuthController extends Controller
     
         if (Auth::attempt($credentials) ) {
             // Authenticated and role matches
-              if (auth()->user()->role == 'Admin' || auth()->user()->role == 'HR') {
+              if (auth()->user()->role == 'Admin' || auth()->user()->role == 'HR' || auth()->user()->role == 'Konselling') {
 
                 Alert::toast('Login Sucessfully!', 'success')->autoClose(5000);;
                 return redirect()->route('dashboard');

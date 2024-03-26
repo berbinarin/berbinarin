@@ -1,5 +1,5 @@
 {{-- NAVBAR --}}
-<header class="w-full font-plusJakartaSans bg-white border-b-2 border-b-[#dedede] py-5 fixed z-50 top-0">
+<header class="header w-full font-plusJakartaSans bg-white border-b-2 border-b-[#dedede] py-5 fixed z-50 top-0">
     <nav class="max-w-6xl mx-auto px-5 md:px-0 items-center flex justify-between">
         <a href="/">
             <img src="{{ asset('assets/images/logo-berbinar.png') }}" alt="Logo Berbinar Insightful Indonesia"

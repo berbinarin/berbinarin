@@ -16,7 +16,7 @@ class Role
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->role == 'Admin'||Auth::user()->role == 'HR'){
+        if(Auth::user()->role == 'Admin'||Auth::user()->role == 'HR' ||Auth::user()->role == 'Konselling'){
             return $next($request);
         }else{
 
