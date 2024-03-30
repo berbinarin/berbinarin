@@ -26,7 +26,7 @@
                                 <input required name="jadwal_tanggal" id="jadwal_tanggal" value="{{ old('jadwal_tanggal', $konselling->jadwal_tanggal ?? '') }}" type="date" placeholder="" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg p-4 mt-3">
                             </div>
                             <div class="daykons mt-4">
-                                <p class="text-left ml-24 text-[#555555]">Pilih Hari Konseling</p>
+                                <p class="text-left text-[#555555]">Pilih Hari Konseling</p>
                                 <select disabled name="hari" id="hari" class="appearance-none bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1">
                                     <option value="default">Pilih Hari</option>
                                     <option value="senin">Senin</option>
@@ -54,7 +54,7 @@
                                     @endif
                             </div>
                             <div class="metodekons mt-4">
-                                <p class="text-left ml-24 text-[#555555]">Metode Konseling</p>
+                                <p class="text-left text-[#555555]">Metode Konseling</p>
                                 @if(!is_null($konselling))
                                     <select name="metode" id="metode" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1">
                                         <option value="default" {{ $konselling->metode == 'default' ? 'selected' : '' }} selected disabled>Pilih Metode Konseling</option>
