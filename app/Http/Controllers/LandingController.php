@@ -927,4 +927,9 @@ class LandingController extends Controller
         $soal =Soal::all();
         return view('moduls.psikotes.freetest',["soal"=>$soal]);
     }
+    
+    public function psikotestHasilTest()
+    {
+        return view('moduls.psikotes.hasiltes');
+    }
 }

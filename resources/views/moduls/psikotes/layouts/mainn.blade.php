@@ -17,23 +17,15 @@
 
 </head>
 
+
 {{-- Menghapus dib class --}}
 <body class="relative overflow-x-hidden w-full">
     @if ($active === 'Home')
-        <main class="w-full bg-white font-plusJakartaSans gap-8 flex flex-col relative">
-            @yield('content')
-        </main>
+    <main class="w-full bg-white font-plusJakartaSans gap-8 flex flex-col relative">
+        @yield('content')
+    </main>
     @endif
 
-    @include('moduls.psikotes.layouts.navbar')
-
-    @if ($active === 'Intro')
-    <div class="h-screen w-full flex">
-        <main class="bg-white w-full flex items-center justify-center">
-            @yield('content')
-        </main>
-    </div>
-    @endif
 
     {{-- Menambahkan script AOS --}}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -42,10 +34,10 @@
         AOS.init();
     </script>
 
-    {{-- menonaktifkan ml dan mt menjadi auto --}}
-    @if ($active === 'Test')
+
+    @if ($active === 'HasilTes')
     <div class="h-screen w-full flex">
-        <main class="bg-primary t-container ml-auto mt-0 z-38 w-full mx-auto"> {{-- mengubah mt-auto mt-0 --}}
+        <main class="bg-primary t-container z-38 w-full">
             @yield('content')
         </main>
     </div>

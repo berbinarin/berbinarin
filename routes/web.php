@@ -29,6 +29,7 @@ Route::get('/about-us', [LandingController::class, 'tentangKami'])->name('about'
 Route::get('/products', [LandingController::class, 'products'])->name('products');
 Route::get('/counseling', [LandingController::class, 'konseling'])->name('counseling');
 Route::get('/psikotest', [LandingController::class, 'psikotest'])->name('psikotest');
+Route::get('/psikotest/homepage', [LandingController::class, 'homepage'])->name('homepage');
 
 Route::get('/artikel', [LandingController::class, 'artikel'])->name('artikel');
 
@@ -70,6 +71,7 @@ Route::post('/counseling/reg/psikolog/data4', [LandingController::class, 'postPs
 Route::get('/psikotest/home', [LandingController::class, 'psikotestHome'])->name('psikotestHome');
 Route::get('/psikotest/free/start', [LandingController::class, 'psikotestFreeStart'])->name('psikotestFreeStart');
 Route::get('/psikotest/free/test', [LandingController::class, 'psikotestFreeTest'])->name('psikotestFreeTest');
+Route::get('/psikotest/hasiltes', [LandingController::class, 'psikotestHasilTest'])->name('psikotestHasilTest');
 
 Route::get('/careers', [LandingController::class, 'hiring'])->name('hiring');
 Route::get('/careers/positions', [LandingController::class, 'hiringPositions'])->name('hiringPositions');
