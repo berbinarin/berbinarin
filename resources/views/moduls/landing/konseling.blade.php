@@ -28,8 +28,8 @@
 
     {{-- POP UP LAKUKAN KONSELING BUTTON--}}
     <section>
-        <div class="modal fixed size-full start-0 overflow-x-hidden overflow-y-auto top-0 left-0 right-0 z-50 hidden justify-center items-center">
-            <div class="modal-dialog max-w-lg w-full m-5 mx-auto bg-primary-linear rounded-xl shadow-lg pb-4">
+        <div class="modal px-4 fixed size-full start-0 overflow-x-hidden overflow-y-auto top-0 left-0 right-0 z-50 hidden justify-center items-center">
+            <div style="min-width: 20rem; max-width: 40rem;" class="modal-dialog max-w-lg w-full m-5 mx-auto bg-primary-linear rounded-xl shadow-lg pb-4">
                 <div class="modal flex flex-col h-fit">
                     <div class="text-right p-3 closeModal">
                         <i class='bx bxs-x-circle text-[38px] text-white'></i>
@@ -72,8 +72,7 @@
                                 <!--<a href="https://bit.ly/CounselingWithBerbinar"
                                         class="button px-4 py-2 font-light text-white bg-green-500 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Daftar
                                         Melalui Google Form</a>-->
-                                <a href="{{ route('layanan') }}" class="button px-4 py-2 font-light text-white bg-green-500 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Daftar
-                                    Melalui Website</a>
+                                <a href="{{ route('layanan') }}" class="button px-4 py-2 font-light text-white bg-green-500 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Daftar</a>
                                 <a href="{{ route('counseling') }}" class="button hidden md:block px-4 py-2 font-light text-white bg-primarylinear border-white border-2 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Kembali</a>
                             </div>
                         </div>
