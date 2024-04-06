@@ -11,11 +11,6 @@
     <img src="{{ asset('assets/images/konseling/regist/ilustrasi1.png') }}" alt="Ilustrasi Logo Berbinar"
         title="Ilustrasi Logo Berbinar" class="w-full block md:hidden " data-aos="fade-up" 
         data-aos-duration="1500">
-<section class="max-w-6xl mx-auto h-screen flex flex-col md:flex-row items-center justify-center relative px-5 md:px-0 mt-0 md:mt-0">
-    {{-- HERO IMG MOBILE --}}
-    <img src="{{ asset('assets/images/konseling/regist/ilustrasi1.png') }}" alt="Ilustrasi Logo Berbinar"
-        title="Ilustrasi Logo Berbinar" class="w-full block md:hidden " data-aos="fade-up" 
-        data-aos-duration="1500">
 
     {{-- HERO CONTENT --}}
     <div class="relative flex items-center ">
@@ -34,28 +29,7 @@
             </div>
         </div>
     </div>
-    {{-- HERO CONTENT --}}
-    <div class="relative flex items-center ">
-        <div class="rounded-[700px] blur-[55px] w-[300px] md:w-[600px] h-[250px] md:h-[600px] absolute">
-        </div>
-        <div class="flex flex-col gap-5 z-40 relative">
-            <h1 class="font-medium text-black text-[40px] md:text-[64px] leading-[100%] md:leading-[120%]">
-                Tingkatkan <br> potensi dengan <br> psikotes <span class="text-primary font-semibold">Berbinar</span>
-            </h1>
-            <p class="text-lg text-disabled ">Berbinar hadir untuk kamu yang ingin meningkatkan potensi diri melalui layanan tes psikotes individu dan perusahaan.</p>
-            <div class="flex gap-4">
-                <button
-                    class="text-lg text-[#70787D] bg-[#C1C1C1] rounded-md hover:bg-primary hover:text-white duration-700 px-5 py-2 w-fit showmodalTes">Ikuti Tes Gratis</button>
-                <a href=""
-                    class="text-lg text-white bg-primary rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Daftar Tes Berbayar</a>
-            </div>
-        </div>
-    </div>
 
-    {{-- HERO IMG DESKTOP --}}
-    <img src="{{ asset('assets/images/konseling/regist/ilustrasi1.png') }}" alt="Ilustrasi-Test" class="w-1/2 hidden md:block " data-aos="fade-left"
-        data-aos-duration="1500">
-</section>
     {{-- HERO IMG DESKTOP --}}
     <img src="{{ asset('assets/images/konseling/regist/ilustrasi1.png') }}" alt="Ilustrasi-Test" class="w-1/2 hidden md:block " data-aos="fade-left"
         data-aos-duration="1500">
@@ -95,7 +69,6 @@
   
             <div class="text-right p-3 closeNotification">
                 <i class='bx bxs-x-circle text-[40px] text-[#F34949]'></i>
-                <i class='bx bxs-x-circle text-[40px] text-[#F34949]'></i>
             </div>
             <div class="text-center px-6 md:px-0">
     <h2 class="font-medium text-3xl mb-6 -mt-8 leading-tight text-white">Penjelasan Psikotes</h2>
@@ -107,12 +80,7 @@
                     <br>Ikuti kuis ini untuk mengeksplorasi kepribadian Anda dengan Tes Lima Kepribadian, Anda akan melihat bagaimana lima dimensi kepribadian utama: Openness (O), Conscientiousness (C), Extraversion (E), Agreeableness (A) dan Neuroticism (N).
                 </p>
                 
-                    <br><br>Tes Lima Dimensi Kepribadian adalah salah satu alat tes untuk mengungkap kepribadian berdasarkan teori Big Five Personality yang dikemukakan oleh seorang psikolog terkenal, yaitu Lewis Goldberg. Dalam teori sifat kepribadian "The Big Five Personality Traits Model" tersebut terdiri dari lima dimensi kunci diantaranya seperti, Openness (O), Conscientiousness (C), Extraversion (E), Agreeableness (A) dan Neuroticism (N).
-                    <br>Ikuti kuis ini untuk mengeksplorasi kepribadian Anda dengan Tes Lima Kepribadian, Anda akan melihat bagaimana lima dimensi kepribadian utama: Openness (O), Conscientiousness (C), Extraversion (E), Agreeableness (A) dan Neuroticism (N).
-                </p>
-                
             </div>
-            <div class="flex justify-center md:justify-start gap-4 m-12"> 
             <div class="flex justify-center md:justify-start gap-4 m-12"> 
                 <button class="text-lg text-white bg-green-500 rounded-md hover:bg-white hover:text-primary duration-700 px-6 py-2 w-fit showModal">
                     Mulai Tes
