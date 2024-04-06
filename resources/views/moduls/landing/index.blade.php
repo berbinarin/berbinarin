@@ -181,7 +181,8 @@
                                     <div class="flex-1">
                                         <h1 class="text-left text-3xl font-semibold mb-5 -mt-1">Terima Kasih</h1>
                                         <div class="text-justify text-pretty font-light">
-                                            atas ketersediannya dalam mengisi form data intake dan informasi konsultasi. Setelah ini kamu akan dihubungi oleh staf konseling Berbinar 1x24 jam untuk langkah lebih lanjut. Terima kasih dan semoga harimu menyenangkan! <br><br> Jika ada hal yang ingin disampaikan, kamu bisa menghubungi nomor di bawah: <br><br> <span class="font-semibold text-left">082141869800 (Berbinar Insightful Indonesia)</span>
+                                            atas ketersediannya dalam mengisi form data intake dan informasi konsultasi. Setelah ini kamu akan dihubungi oleh staf konseling Berbinar 1x24 jam untuk langkah lebih lanjut. Terima kasih dan semoga harimu menyenangkan! <br><br> Jika ada hal yang ingin disampaikan, kamu bisa menghubungi nomor di bawah: <br>
+                                            <div class="font-semibold text-left">082141869800 (Berbinar Insightful Indonesia)</div>
                                         </div>
                                         <div class="ml-auto my-4 rounded-md px-4 py-2 w-fit duration-300 cursor-pointer bg-primary hover:bg-sky-950 text-white" onclick="closeModal('close-konseling')">
                                             <span >Tutup</span>

@@ -67,7 +67,7 @@
                             </div>
                             <div class="text-right">
                                 <button type="submit"
-                                    class="button-nect inline-block rounded-lg w-fit my-6 px-5 py-3 text-base font-medium text-white">
+                                    class="button-next inline-block rounded-lg w-fit my-6 px-5 py-3 text-base font-medium text-white">
                                     Selanjutnya
                                 </button>
                             </div>
