@@ -23,26 +23,42 @@
                         <div class="mt-6 mx-0 sm:mx-20 md:mx-30 lg:mx-0 justify-items-start">
                             <div class="placebirth mt-4">
                                 <p class="text-left text-[#555555]">Tempat Lahir</p>
-                                <input type="text" placeholder="Masukkan Tempat Lahir" name="tempat_lahir" value="{{ old('tempat_lahir', $konselling->tempat_lahir ?? '') }}" class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1" required>
+                                <input type="text" placeholder="Masukkan Tempat Lahir" name="tempat_lahir"
+                                    value="{{ old('tempat_lahir', $konselling->tempat_lahir ?? '') }}"
+                                    class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
+                                    required>
                             </div>
                             <div class="datebirth mt-4">
                                 <p class="text-left text-[#555555]">Tanggal Lahir</p>
-                                <input type="date" placeholder="" name="tanggal_lahir" value="{{ old('tanggal_lahir', $konselling->tanggal_lahir ?? '') }}" class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1" required>
+                                <input type="date" placeholder="" name="tanggal_lahir"
+                                    value="{{ old('tanggal_lahir', $konselling->tanggal_lahir ?? '') }}"
+                                    class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
+                                    required>
                             </div>
                             <div class="suku mt-4">
                                 <p class="text-left text-[#555555]">Suku Bangsa</p>
-                                <input type="text" placeholder="Jawa" name="suku" value="{{ old('suku', $konselling->suku ?? '') }}" class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1" required>
+                                <input type="text" placeholder="Jawa" name="suku"
+                                    value="{{ old('suku', $konselling->suku ?? '') }}"
+                                    class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
+                                    required>
                             </div>
                             <div class="maritalstat mt-4">
                                 <p class="text-left text-[#555555]">Status Pernikahan</p>
-                                <input type="text" placeholder="Belum Menikah" name="status_pernikahan" value="{{ old('status_pernikahan', $konselling->status_pernikahan ?? '') }}" class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1" required>
+                                <input type="text" placeholder="Belum Menikah" name="status_pernikahan"
+                                    value="{{ old('status_pernikahan', $konselling->status_pernikahan ?? '') }}"
+                                    class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
+                                    required>
                             </div>
                             <div class="dom mt-4">
                                 <p class="text-left text-[#555555]">Alamat Domisili</p>
-                                <input type="text" placeholder="Masukkan Alamat Domisili" name="alamat" value="{{ old('alamat', $konselling->alamat ?? '') }}" class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1" required>
+                                <input type="text" placeholder="Masukkan Alamat Domisili" name="alamat"
+                                    value="{{ old('alamat', $konselling->alamat ?? '') }}"
+                                    class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
+                                    required>
                             </div>
                             <div class="text-right">
-                                <button type="submit" class="button-con-reg inline-block rounded-lg w-fit my-6 px-5 py-3 text-base font-medium text-white">
+                                <button type="submit"
+                                    class="button-nect inline-block rounded-lg w-fit my-6 px-5 py-3 text-base font-medium text-white">
                                     Selanjutnya
                                 </button>
                             </div>
@@ -51,8 +67,10 @@
                 </div>
                 <div class="w-screen hidden lg:block decoration__conreg">
                     <div class="flex mx-auto justify-center align-items-center">
-                        <img src="{{ asset('assets/images/konseling/regist/Ilustrasi1.png') }}" alt="Ilustrasi-Test" class="absolute mx-auto mt-14 w-[550px] z-10">
-                        <div class="decoration__img__conreg mx-auto rounded-3xl mt-[24rem] w-[500px] h-[200px] border-4 bg-white z-0">
+                        <img src="{{ asset('assets/images/konseling/regist/Ilustrasi1.png') }}" alt="Ilustrasi-Test"
+                            class="absolute mx-auto mt-14 w-[550px] z-10">
+                        <div
+                            class="decoration__img__conreg mx-auto rounded-3xl mt-[24rem] w-[500px] h-[200px] border-4 bg-white z-0">
                         </div>
                     </div>
                     <p class="text-center mt-12 text-white">Copyright © PT Berbinar Insightful Indonesia. 2023</p>

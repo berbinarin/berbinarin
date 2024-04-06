@@ -23,37 +23,42 @@
                         <div class="mt-6 mx-0 sm:mx-20 md:mx-30 lg:mx-0 justify-items-start">
                             <div class="datekons mt-4">
                                 <p class="text-left text-[#555555]">Tanggal Konseling</p>
-                                <input type="date" placeholder=""
-                                    name="jadwal_tanggal" value="{{ old('jadwal_tanggal', $konselling->jadwal_tanggal ?? '') }}"
+                                <input type="date" placeholder="" name="jadwal_tanggal"
+                                    value="{{ old('jadwal_tanggal', $konselling->jadwal_tanggal ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>
                             <div class="timekons mt-4">
                                 <p class="text-left text-[#555555]">Waktu Konseling</p>
-                                <input type="time" placeholder=""
-                                    name="jadwal_pukul" value="{{ old('jadwal_pukul', $konselling->jadwal_pukul ?? '') }}"
+                                <input type="time" placeholder="" name="jadwal_pukul"
+                                    value="{{ old('jadwal_pukul', $konselling->jadwal_pukul ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>
                             <div class="metodekons mt-4">
                                 <p class="text-left text-[#555555]">Metode Konseling</p>
                                 @if(!is_null($konselling))
-                                    <select name="metode" id="metode" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1">
-                                        <option value="default" {{ $konselling->metode == 'default' ? 'selected' : '' }} selected disabled>Pilih Metode Konseling</option>
-                                        <option value="online" {{ $konselling->metode == 'online' ? 'selected' : '' }}>Online</option>
-                                        <option value="offline" {{ $konselling->metode == 'offline' ? 'selected' : '' }}>Offline</option>
-                                    </select>
+                                <select name="metode" id="metode"
+                                    class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1">
+                                    <option value="default" {{ $konselling->metode == 'default' ? 'selected' : '' }}
+                                        selected disabled>Pilih Metode Konseling</option>
+                                    <option value="online" {{ $konselling->metode == 'online' ? 'selected' : '' }}>
+                                        Online</option>
+                                    <option value="offline" {{ $konselling->metode == 'offline' ? 'selected' : '' }}>
+                                        Offline</option>
+                                </select>
                                 @else
-                                    <select name="metode" id="metode" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1">
-                                        <option value="default" selected disabled >Pilih Metode Konseling</option>
-                                        <option value="online">Online</option>
-                                        <option value="offline">Offline</option>
-                                    </select>
+                                <select name="metode" id="metode"
+                                    class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1">
+                                    <option value="default" selected disabled>Pilih Metode Konseling</option>
+                                    <option value="online">Online</option>
+                                    <option value="offline">Offline</option>
+                                </select>
                                 @endif
                             </div>
                             <div class="text-right">
                                 <button type="submit"
-                                    class="button-con-reg inline-block rounded-lg w-fit my-6 px-5 py-3 text-base font-medium text-white">
+                                    class="button-next inline-block rounded-lg w-fit my-6 px-5 py-3 text-base font-medium text-white">
                                     Selanjutnya
                                 </button>
                             </div>

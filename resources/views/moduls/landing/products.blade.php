@@ -7,8 +7,7 @@
 @section('content')
 {{-- HERO SECTION --}}
 <section class="max-w-6xl mx-auto mt-40 z-40 flex flex-col gap-5 px-5 relative items-center">
-    <div
-        class="bg-blur-bg-2 rounded-[700px] blur-[85px] w-[300px] md:w-[600px] h-[250px] md:h-[600px] absolute top-56 md:top-20">
+    <div class="bg-blur-bg-2 rounded-[700px] blur-[85px] w-[300px] md:w-[600px] h-[250px] md:h-[600px] absolute top-56 md:top-20">
     </div>
     <h1 class="font-semibold text-black text-[40px] md:text-[64px] leading-[100%] md:leading-[120%] text-center z-40">
         Produk <span class="text-primary font-bold">Berbinar</span>
@@ -28,49 +27,37 @@
             <div class="swiper-slide relative">
                 <picture>
                     <!-- view mobile -->
-                    <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Konseling.png') }}"
-                        class="description absolute top-0 flex flex-col items-start">
+                    <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Konseling.png') }}" class="description absolute top-0 flex flex-col items-start">
                     <!-- view desktop -->
-                    <source media="(min-width: 768px)" srcset="https://i.ibb.co/zrWwWmr/1.png"
-                        class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
-                    <img src="https://i.ibb.co/zrWwWmr/1.png" title="Slider's Image" alt="Slider's Image"
-                        class="-z-50 absolute" />
+                    <source media="(min-width: 768px)" srcset="https://i.ibb.co/zrWwWmr/1.png" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                    <img src="https://i.ibb.co/zrWwWmr/1.png" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                 </picture>
             </div>
             <div class="swiper-slide relative">
                 <picture>
                     <!-- view mobile -->
-                    <source media="(max-width: 767px)" srcset="https://i.ibb.co/6bWH19S/psiko-mobile.jpg"
-                        class="description absolute top-0 flex flex-col items-start">
+                    <source media="(max-width: 767px)" srcset="https://i.ibb.co/6bWH19S/psiko-mobile.jpg" class="description absolute top-0 flex flex-col items-start">
                     <!-- view desktop -->
-                    <source media="(min-width: 768px)" srcset="https://i.ibb.co/p16hD6Z/tes-psikotes.png"
-                        class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
-                    <img src="https://i.ibb.co/cg7DxZZ/2.png" title="Slider's Image" alt="Slider's Image"
-                        class="-z-50 absolute" />
+                    <source media="(min-width: 768px)" srcset="https://i.ibb.co/p16hD6Z/tes-psikotes.png" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                    <img src="https://i.ibb.co/cg7DxZZ/2.png" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                 </picture>
             </div>
             <div class="swiper-slide relative">
                 <picture>
                     <!-- view mobile -->
-                    <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Kelas.png') }}"
-                        class="description absolute top-0 flex flex-col items-start">
+                    <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Kelas.png') }}" class="description absolute top-0 flex flex-col items-start">
                     <!-- view desktop -->
-                    <source media="(min-width: 768px)" srcset="https://i.ibb.co/Q9z9F1t/3.png"
-                        class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
-                    <img src="https://i.ibb.co/Q9z9F1t/3.png" title="Slider's Image" alt="Slider's Image"
-                        class="-z-50 absolute" />
+                    <source media="(min-width: 768px)" srcset="https://i.ibb.co/Q9z9F1t/3.png" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                    <img src="https://i.ibb.co/Q9z9F1t/3.png" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                 </picture>
             </div>
             <div class="swiper-slide relative">
                 <picture>
                     <!-- view mobile -->
-                    <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Webinar.png') }}"
-                        class="description absolute top-0 flex flex-col items-start">
+                    <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Webinar.png') }}" class="description absolute top-0 flex flex-col items-start">
                     <!-- view desktop -->
-                    <source media="(min-width: 768px)" srcset="https://i.ibb.co/6Jwpb3f/4.png"
-                        class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
-                    <img src="https://i.ibb.co/6Jwpb3f/4.png" title="Slider's Image" alt="Slider's Image"
-                        class="-z-50 absolute" />
+                    <source media="(min-width: 768px)" srcset="https://i.ibb.co/6Jwpb3f/4.png" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                    <img src="https://i.ibb.co/6Jwpb3f/4.png" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                 </picture>
             </div>
         </div>
@@ -93,8 +80,7 @@
             </div>
 
             <div aria-hidden="true" class="mt-0 lg:mt-0">
-                <img src="https://i.ibb.co/CwyfsBG/konseling.png" alt=""
-                    class="mx-auto w-[120rem] block md:hidden -mb-16" data-aos="fade-up" data-aos-duration="1500">
+                <img src="https://i.ibb.co/CwyfsBG/konseling.png" alt="" class="mx-auto w-[120rem] block md:hidden -mb-16" data-aos="fade-up" data-aos-duration="1500">
             </div>
 
             <div class="flex flex-col md:flex-row items-center">
@@ -103,11 +89,8 @@
                         <div class="flex">
                             <div class="flex-shrink-0">
                                 <div class="flex items-center justify-center w-12 h-12 rounded-md dark:text-gray-900">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32" viewBox="0 0 27 32"
-                                        fill="none">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M24.9827 24.4093C25.5368 23.9934 25.9865 23.4541 26.2962 22.8341C26.6059 22.2141 26.7672 21.5304 26.7672 20.8372V4.46512C26.7672 3.28089 26.2972 2.14517 25.4605 1.3078C24.6239 0.470431 23.4892 0 22.306 0H4.4612C3.27802 0 2.14329 0.470431 1.30666 1.3078C0.470018 2.14517 0 3.28089 0 4.46512V20.8372C0 21.5304 0.16125 22.2141 0.470981 22.8341C0.780712 23.4541 1.23042 23.9934 1.78448 24.4093L10.7069 31.107C11.4791 31.6866 12.4183 32 13.3836 32C14.3489 32 15.2881 31.6866 16.0603 31.107L24.9827 24.4093Z"
-                                            fill="#3986A3" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32" viewBox="0 0 27 32" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.9827 24.4093C25.5368 23.9934 25.9865 23.4541 26.2962 22.8341C26.6059 22.2141 26.7672 21.5304 26.7672 20.8372V4.46512C26.7672 3.28089 26.2972 2.14517 25.4605 1.3078C24.6239 0.470431 23.4892 0 22.306 0H4.4612C3.27802 0 2.14329 0.470431 1.30666 1.3078C0.470018 2.14517 0 3.28089 0 4.46512V20.8372C0 21.5304 0.16125 22.2141 0.470981 22.8341C0.780712 23.4541 1.23042 23.9934 1.78448 24.4093L10.7069 31.107C11.4791 31.6866 12.4183 32 13.3836 32C14.3489 32 15.2881 31.6866 16.0603 31.107L24.9827 24.4093Z" fill="#3986A3" />
                                     </svg>
                                 </div>
                             </div>
@@ -122,11 +105,8 @@
                             <div class="">
                                 <div class="flex
                                     items-center justify-center w-12 h-12 rounded-md dark:text-gray-900">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32" viewBox="0 0 27 32"
-                                        fill="none">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M24.9827 24.4093C25.5368 23.9934 25.9865 23.4541 26.2962 22.8341C26.6059 22.2141 26.7672 21.5304 26.7672 20.8372V4.46512C26.7672 3.28089 26.2972 2.14517 25.4605 1.3078C24.6239 0.470431 23.4892 0 22.306 0H4.4612C3.27802 0 2.14329 0.470431 1.30666 1.3078C0.470018 2.14517 0 3.28089 0 4.46512V20.8372C0 21.5304 0.16125 22.2141 0.470981 22.8341C0.780712 23.4541 1.23042 23.9934 1.78448 24.4093L10.7069 31.107C11.4791 31.6866 12.4183 32 13.3836 32C14.3489 32 15.2881 31.6866 16.0603 31.107L24.9827 24.4093Z"
-                                            fill="#3986A3" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32" viewBox="0 0 27 32" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.9827 24.4093C25.5368 23.9934 25.9865 23.4541 26.2962 22.8341C26.6059 22.2141 26.7672 21.5304 26.7672 20.8372V4.46512C26.7672 3.28089 26.2972 2.14517 25.4605 1.3078C24.6239 0.470431 23.4892 0 22.306 0H4.4612C3.27802 0 2.14329 0.470431 1.30666 1.3078C0.470018 2.14517 0 3.28089 0 4.46512V20.8372C0 21.5304 0.16125 22.2141 0.470981 22.8341C0.780712 23.4541 1.23042 23.9934 1.78448 24.4093L10.7069 31.107C11.4791 31.6866 12.4183 32 13.3836 32C14.3489 32 15.2881 31.6866 16.0603 31.107L24.9827 24.4093Z" fill="#3986A3" />
                                     </svg>
                                 </div>
                             </div>
@@ -138,8 +118,7 @@
                                     berbinar sesuai kebutuhan dan kenyamanan sobat, diantara lain ada Konseling with
                                     Psikolog dan Konseling with Peer Counselor.</p>
 
-                                <a href="{{ route('counseling') }}"
-                                    class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-3 w-fit md:mx-0 mt-5">Lihat
+                                <a href="{{ route('counseling') }}" class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-3 w-fit md:mx-0 mt-5">Lihat
                                     Selengkapnya</a>
                             </div>
                         </div>
@@ -147,8 +126,7 @@
                 </div>
 
                 <div aria-hidden="true" class="mt-0 lg:mt-0">
-                    <img src="https://i.ibb.co/CwyfsBG/konseling.png" alt="" class="mx-auto w-[120rem] hidden md:block"
-                        data-aos="fade-left" data-aos-duration="1500">
+                    <img src="https://i.ibb.co/CwyfsBG/konseling.png" alt="" class="mx-auto w-[120rem] hidden md:block" data-aos="fade-left" data-aos-duration="1500">
                 </div>
             </div>
         </div>
@@ -166,8 +144,7 @@
             </div>
 
             <div aria-hidden="true" class="mt-0 lg:mt-0">
-                <img src="https://i.ibb.co/Sw0B8Vz/asesmen-psikologi.png" alt=""
-                    class="mx-auto w-[120rem] -mb-8 mt-10 block md:hidden" data-aos="fade-up" data-aos-duration="1500">
+                <img src="https://i.ibb.co/Sw0B8Vz/asesmen-psikologi.png" alt="" class="mx-auto w-[120rem] -mb-8 mt-10 block md:hidden" data-aos="fade-up" data-aos-duration="1500">
             </div>
 
             <div class="flex flex-col md:flex-row-reverse items-center">
@@ -176,11 +153,8 @@
                         <div class="flex">
                             <div class="flex-shrink-0">
                                 <div class="flex items-center justify-center w-12 h-12 rounded-md dark:text-gray-900">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32" viewBox="0 0 27 32"
-                                        fill="none">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M24.9827 24.4093C25.5368 23.9934 25.9865 23.4541 26.2962 22.8341C26.6059 22.2141 26.7672 21.5304 26.7672 20.8372V4.46512C26.7672 3.28089 26.2972 2.14517 25.4605 1.3078C24.6239 0.470431 23.4892 0 22.306 0H4.4612C3.27802 0 2.14329 0.470431 1.30666 1.3078C0.470018 2.14517 0 3.28089 0 4.46512V20.8372C0 21.5304 0.16125 22.2141 0.470981 22.8341C0.780712 23.4541 1.23042 23.9934 1.78448 24.4093L10.7069 31.107C11.4791 31.6866 12.4183 32 13.3836 32C14.3489 32 15.2881 31.6866 16.0603 31.107L24.9827 24.4093Z"
-                                            fill="#3986A3" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32" viewBox="0 0 27 32" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.9827 24.4093C25.5368 23.9934 25.9865 23.4541 26.2962 22.8341C26.6059 22.2141 26.7672 21.5304 26.7672 20.8372V4.46512C26.7672 3.28089 26.2972 2.14517 25.4605 1.3078C24.6239 0.470431 23.4892 0 22.306 0H4.4612C3.27802 0 2.14329 0.470431 1.30666 1.3078C0.470018 2.14517 0 3.28089 0 4.46512V20.8372C0 21.5304 0.16125 22.2141 0.470981 22.8341C0.780712 23.4541 1.23042 23.9934 1.78448 24.4093L10.7069 31.107C11.4791 31.6866 12.4183 32 13.3836 32C14.3489 32 15.2881 31.6866 16.0603 31.107L24.9827 24.4093Z" fill="#3986A3" />
                                     </svg>
                                 </div>
                             </div>
@@ -195,11 +169,8 @@
                             <div class="">
                                 <div class="flex
                                     items-center justify-center w-12 h-12 rounded-md dark:text-gray-900">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32" viewBox="0 0 27 32"
-                                        fill="none">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M24.9827 24.4093C25.5368 23.9934 25.9865 23.4541 26.2962 22.8341C26.6059 22.2141 26.7672 21.5304 26.7672 20.8372V4.46512C26.7672 3.28089 26.2972 2.14517 25.4605 1.3078C24.6239 0.470431 23.4892 0 22.306 0H4.4612C3.27802 0 2.14329 0.470431 1.30666 1.3078C0.470018 2.14517 0 3.28089 0 4.46512V20.8372C0 21.5304 0.16125 22.2141 0.470981 22.8341C0.780712 23.4541 1.23042 23.9934 1.78448 24.4093L10.7069 31.107C11.4791 31.6866 12.4183 32 13.3836 32C14.3489 32 15.2881 31.6866 16.0603 31.107L24.9827 24.4093Z"
-                                            fill="#3986A3" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32" viewBox="0 0 27 32" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.9827 24.4093C25.5368 23.9934 25.9865 23.4541 26.2962 22.8341C26.6059 22.2141 26.7672 21.5304 26.7672 20.8372V4.46512C26.7672 3.28089 26.2972 2.14517 25.4605 1.3078C24.6239 0.470431 23.4892 0 22.306 0H4.4612C3.27802 0 2.14329 0.470431 1.30666 1.3078C0.470018 2.14517 0 3.28089 0 4.46512V20.8372C0 21.5304 0.16125 22.2141 0.470981 22.8341C0.780712 23.4541 1.23042 23.9934 1.78448 24.4093L10.7069 31.107C11.4791 31.6866 12.4183 32 13.3836 32C14.3489 32 15.2881 31.6866 16.0603 31.107L24.9827 24.4093Z" fill="#3986A3" />
                                     </svg>
                                 </div>
                             </div>
@@ -210,8 +181,7 @@
                                     seorang kandidat dan melihat apakah kandidat tersebut cocok ditempatkan di suatu
                                     posisi pekerjaan.</p>
 
-                                <a href="{{ route('psikotest') }}"
-                                    class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-3 w-fit md:mx-0 mt-5">Lihat
+                                <a href="{{ route('psikotest') }}" class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-3 w-fit md:mx-0 mt-5">Lihat
                                     Selengkapnya</a>
                             </div>
                         </div>
@@ -219,8 +189,7 @@
                 </div>
 
                 <div aria-hidden="true" class="mt-0 lg:mt-0">
-                    <img src="https://i.ibb.co/Sw0B8Vz/asesmen-psikologi.png" alt=""
-                        class="mx-auto w-[120rem] hidden md:block" data-aos="fade-right" data-aos-duration="1500">
+                    <img src="https://i.ibb.co/Sw0B8Vz/asesmen-psikologi.png" alt="" class="mx-auto w-[120rem] hidden md:block" data-aos="fade-right" data-aos-duration="1500">
                 </div>
             </div>
         </div>
@@ -238,8 +207,7 @@
             </div>
 
             <div aria-hidden="true" class="mt-0 lg:mt-0">
-                <img src="https://i.ibb.co/PDBMx5m/webinar.png" alt="" class="mx-auto w-[50rem] block md:hidden mt-10"
-                    data-aos="fade-up" data-aos-duration="1500">
+                <img src="https://i.ibb.co/PDBMx5m/webinar.png" alt="" class="mx-auto w-[50rem] block md:hidden mt-10" data-aos="fade-up" data-aos-duration="1500">
             </div>
 
             <div class="flex flex-col md:flex-row items-center mt-4">
@@ -248,18 +216,14 @@
                         <div class="flex">
                             <div class="flex-shrink-0">
                                 <div class="flex items-center justify-center w-12 h-12 rounded-md dark:text-gray-900">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32" viewBox="0 0 27 32"
-                                        fill="none">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M24.9827 24.4093C25.5368 23.9934 25.9865 23.4541 26.2962 22.8341C26.6059 22.2141 26.7672 21.5304 26.7672 20.8372V4.46512C26.7672 3.28089 26.2972 2.14517 25.4605 1.3078C24.6239 0.470431 23.4892 0 22.306 0H4.4612C3.27802 0 2.14329 0.470431 1.30666 1.3078C0.470018 2.14517 0 3.28089 0 4.46512V20.8372C0 21.5304 0.16125 22.2141 0.470981 22.8341C0.780712 23.4541 1.23042 23.9934 1.78448 24.4093L10.7069 31.107C11.4791 31.6866 12.4183 32 13.3836 32C14.3489 32 15.2881 31.6866 16.0603 31.107L24.9827 24.4093Z"
-                                            fill="#3986A3" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32" viewBox="0 0 27 32" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.9827 24.4093C25.5368 23.9934 25.9865 23.4541 26.2962 22.8341C26.6059 22.2141 26.7672 21.5304 26.7672 20.8372V4.46512C26.7672 3.28089 26.2972 2.14517 25.4605 1.3078C24.6239 0.470431 23.4892 0 22.306 0H4.4612C3.27802 0 2.14329 0.470431 1.30666 1.3078C0.470018 2.14517 0 3.28089 0 4.46512V20.8372C0 21.5304 0.16125 22.2141 0.470981 22.8341C0.780712 23.4541 1.23042 23.9934 1.78448 24.4093L10.7069 31.107C11.4791 31.6866 12.4183 32 13.3836 32C14.3489 32 15.2881 31.6866 16.0603 31.107L24.9827 24.4093Z" fill="#3986A3" />
                                     </svg>
                                 </div>
                             </div>
                             <div class="ml-4">
                                 <h4 class="text-xl font-semibold">Fokus</h4>
-                                <p class="text-disabled text-lg">ikuti kelas <span
-                                        class="text-primary font-semibold">Berbinar</span> untuk mempersiapkan karir
+                                <p class="text-disabled text-lg">ikuti kelas <span class="text-primary font-semibold">Berbinar</span> untuk mempersiapkan karir
                                     dan juga
                                     meningkatkan skill dan kemampuan diri.</p>
                             </div>
@@ -268,11 +232,8 @@
                             <div class="">
                                 <div class="flex
                                     items-center justify-center w-12 h-12 rounded-md dark:text-gray-900">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32" viewBox="0 0 27 32"
-                                        fill="none">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M24.9827 24.4093C25.5368 23.9934 25.9865 23.4541 26.2962 22.8341C26.6059 22.2141 26.7672 21.5304 26.7672 20.8372V4.46512C26.7672 3.28089 26.2972 2.14517 25.4605 1.3078C24.6239 0.470431 23.4892 0 22.306 0H4.4612C3.27802 0 2.14329 0.470431 1.30666 1.3078C0.470018 2.14517 0 3.28089 0 4.46512V20.8372C0 21.5304 0.16125 22.2141 0.470981 22.8341C0.780712 23.4541 1.23042 23.9934 1.78448 24.4093L10.7069 31.107C11.4791 31.6866 12.4183 32 13.3836 32C14.3489 32 15.2881 31.6866 16.0603 31.107L24.9827 24.4093Z"
-                                            fill="#3986A3" />
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32" viewBox="0 0 27 32" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.9827 24.4093C25.5368 23.9934 25.9865 23.4541 26.2962 22.8341C26.6059 22.2141 26.7672 21.5304 26.7672 20.8372V4.46512C26.7672 3.28089 26.2972 2.14517 25.4605 1.3078C24.6239 0.470431 23.4892 0 22.306 0H4.4612C3.27802 0 2.14329 0.470431 1.30666 1.3078C0.470018 2.14517 0 3.28089 0 4.46512V20.8372C0 21.5304 0.16125 22.2141 0.470981 22.8341C0.780712 23.4541 1.23042 23.9934 1.78448 24.4093L10.7069 31.107C11.4791 31.6866 12.4183 32 13.3836 32C14.3489 32 15.2881 31.6866 16.0603 31.107L24.9827 24.4093Z" fill="#3986A3" />
                                     </svg>
                                 </div>
                             </div>
@@ -289,8 +250,7 @@
                                     Untuk kelas - kelas dengan topik yang lain akan diinfokan melalui instagram Berbinar
                                 </p>
 
-                                <a href="{{ route('class') }}"
-                                    class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-3 w-fit md:mx-0 mt-5">Lihat
+                                <a href="{{ route('class') }}" class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-3 w-fit md:mx-0 mt-5">Lihat
                                     Selengkapnya</a>
                             </div>
                         </div>
@@ -298,8 +258,7 @@
                 </div>
 
                 <div aria-hidden="true" class="mt-0 lg:mt-0">
-                    <img src="https://i.ibb.co/PDBMx5m/webinar.png" alt="" class="mx-auto w-[50rem] hidden md:block"
-                        data-aos="fade-left" data-aos-duration="1500">
+                    <img src="https://i.ibb.co/PDBMx5m/webinar.png" alt="" class="mx-auto w-[50rem] hidden md:block" data-aos="fade-left" data-aos-duration="1500">
                 </div>
             </div>
         </div>

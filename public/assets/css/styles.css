@@ -313,6 +313,16 @@ img{
   box-shadow: 0px 12.117px 24.233px 0px #A2D7F0;
 }
 
+.button-next{
+  background-color: rgb(117 186 219 / var(--tw-bg-opacity));
+  
+}
+
+.button-next:hover{
+  background: linear-gradient(180deg, #3986A3 0%, #0087C9 100%);
+  box-shadow: 0px 12.117px 24.233px 0px #A2D7F0;
+}
+
 .selected{
   background: linear-gradient(180deg, #3986A3 0%, #0087C9 100%);
   filter: drop-shadow(0px 12px 24px #3986A3);

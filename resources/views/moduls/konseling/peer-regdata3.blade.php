@@ -4,7 +4,7 @@
 ])
 
 @section('content')
-    <section>
+<section>
     <div id="data3">
         <div class="flex items-center justify-center w-screen lg:w-screen h-full">
             <div class="flex flex-col w-full h-screen sm:flex-row">
@@ -23,47 +23,49 @@
                         <div class="mt-6 mx-0 sm:mx-20 md:mx-30 lg:mx-0 justify-items-start">
                             <div class="anak-ke mt-4">
                                 <p class="text-left text-[#555555]">Anak Ke- Dari Berapa Bersaudara</p>
-                                <input type="text" placeholder="Anak ke 2 dari 3 bersaudara"
-                                name="posisi_anak" value="{{ old('posisi_anak', $konselling->posisi_anak ?? '') }}"
+                                <input type="text" placeholder="Anak ke 2 dari 3 bersaudara" name="posisi_anak"
+                                    value="{{ old('posisi_anak', $konselling->posisi_anak ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>
                             <div class="pendidikan mt-4">
                                 <p class="text-left text-[#555555]">Pendidikan Saat Ini</p>
-                                <input type="text" placeholder="S1 Universitas Airlangga (semester 2)"
-                                    name="pendidikan" value="{{ old('pendidikan', $konselling->pendidikan ?? '') }}"
+                                <input type="text" placeholder="S1 Universitas Airlangga (semester 2)" name="pendidikan"
+                                    value="{{ old('pendidikan', $konselling->pendidikan ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>
                             <div class="workex mt-4">
                                 <p class="text-left text-[#555555]">Riwayat Pekerjaan</p>
                                 <input type="text" placeholder="Sales - PT. Berbinar Insightful Indonesia (2022)"
-                                    name="riwayat_pekerjaan" value="{{ old('riwayat_pekerjaan', $konselling->riwayat_pekerjaan ?? '') }}"
+                                    name="riwayat_pekerjaan"
+                                    value="{{ old('riwayat_pekerjaan', $konselling->riwayat_pekerjaan ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>
                             <div class="hobby mt-4">
                                 <p class="text-left text-[#555555]">Hobi</p>
-                                <input type="text" placeholder="Masukkan Hobi Anda"
-                                    name="hobi" value="{{ old('hobi', $konselling->hobi ?? '') }}"
+                                <input type="text" placeholder="Masukkan Hobi Anda" name="hobi"
+                                    value="{{ old('hobi', $konselling->hobi ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>
                             <div class="sosact mt-4">
                                 <p class="text-left text-[#555555]">Kegiatan Sosial Yang diikuti</p>
                                 <input type="text" placeholder="Pengabdian Pemuda Masa Kini (2023)"
-                                    name="kegiatan_sosial" value="{{ old('kegiatan_sosial', $konselling->kegiatan_sosial ?? '') }}"
+                                    name="kegiatan_sosial"
+                                    value="{{ old('kegiatan_sosial', $konselling->kegiatan_sosial ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>
                             <div class="text-right">
                                 <button type="submit"
-                                    class="button-con-reg inline-block rounded-lg w-fit my-6 px-5 py-3 text-base font-medium text-white">
+                                    class="button-next inline-block rounded-lg w-fit my-6 px-5 py-3 text-base font-medium text-white">
                                     Selanjutnya
                                 </button>
                             </div>
                         </div>
-                    </form> 
+                    </form>
                 </div>
                 <div class="w-screen hidden lg:block decoration__conreg">
                     <div class="flex mx-auto justify-center align-items-center">

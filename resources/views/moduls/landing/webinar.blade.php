@@ -60,7 +60,7 @@
 </section>
 
 {{-- PILIHAN WEBINAR SECTION --}}
-<section class="max-w-6xl mx-auto flex flex-col gap-10 z-40 mt-5">
+<section class="max-w-6xl mx-auto flex flex-col gap-10 z-40 mt-10">
     <div class="flex items-center justify-center flex-col gap-1">
         <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
             Konten - Konten Webinar <span class="text-primary font-bold">Berbinar</span>
