@@ -23,7 +23,7 @@
                         <div class="mt-6 mx-0 sm:mx-20 md:mx-30 lg:mx-0 justify-items-start">
                             <div class="datekons mt-4">
                                 <p class="text-left text-[#555555]">Tanggal Konseling</p>
-                                <input required name="jadwal_tanggal" id="jadwal_tanggal" value="{{ old('jadwal_tanggal', $konselling->jadwal_tanggal ?? '') }}" type="date" placeholder="" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg p-4 mt-3">
+                                <input required name="jadwal_tanggal" id="jadwal_tanggal" value="{{ old('jadwal_tanggal', $konseling->jadwal_tanggal ?? '') }}" type="date" placeholder="" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg p-4 mt-3">
                             </div>
                             <div class="daykons mt-4">
                                 <p class="text-left text-[#555555]">Pilih Hari Konseling</p>
@@ -40,11 +40,11 @@
                             </div>
                             <div class="timekons mt-4">
                                 <p for="jadwal" class="text-left text-[#555555]">Pilih Jam Konseling</p>
-                                @if(!is_null($konselling))
+                                @if(!is_null($konseling))
                                 <select name="jadwal_pukul" id="jadwal_pukul" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1">
-                                    <option value="default" {{ $konselling->jadwal_pukul == 'default' ? 'selected' : '' }} selected disabled>Pilih Jam</option>
+                                    <option value="default" {{ $konseling->jadwal_pukul == 'default' ? 'selected' : '' }} selected disabled>Pilih Jam</option>
                                     @foreach ($senin as $jadwal)
-                                    <option value="{{ $jadwal }}" {{ $konselling->jadwal_pukul == $jadwal ? 'selected' : '' }}>{{ $jadwal }}
+                                    <option value="{{ $jadwal }}" {{ $konseling->jadwal_pukul == $jadwal ? 'selected' : '' }}>{{ $jadwal }}
                                     </option>
                                     @endforeach
                                 </select>
@@ -56,12 +56,12 @@
                             </div>
                             <div class="metodekons mt-4">
                                 <p class="text-left text-[#555555]">Metode Konseling</p>
-                                @if(!is_null($konselling))
+                                @if(!is_null($konseling))
                                 <select name="metode" id="metode" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1">
-                                    <option value="default" {{ $konselling->metode == 'default' ? 'selected' : '' }} selected disabled>Pilih Metode Konseling</option>
-                                    <option value="online" {{ $konselling->metode == 'online' ? 'selected' : '' }}>
+                                    <option value="default" {{ $konseling->metode == 'default' ? 'selected' : '' }} selected disabled>Pilih Metode Konseling</option>
+                                    <option value="online" {{ $konseling->metode == 'online' ? 'selected' : '' }}>
                                         Online</option>
-                                    <option value="offline" {{ $konselling->metode == 'offline' ? 'selected' : '' }}>
+                                    <option value="offline" {{ $konseling->metode == 'offline' ? 'selected' : '' }}>
                                         Offline</option>
                                 </select>
                                 @else

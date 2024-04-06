@@ -24,7 +24,7 @@
                             <div class="placebirth mt-4">
                                 <p class="text-left text-[#555555]">Tempat Lahir</p>
                                 <input type="text" name="tempat_lahir"
-                                    value="{{ old('tempat_lahir', $konselling->tempat_lahir ?? '') }}"
+                                    value="{{ old('tempat_lahir', $konseling->tempat_lahir ?? '') }}"
                                     placeholder="Masukkan Tempat Lahir"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
                                     required>
@@ -32,24 +32,24 @@
                             <div class="datebirth mt-4">
                                 <p class="text-left text-[#555555]">Tanggal Lahir</p>
                                 <input type="date" placeholder="" name="tanggal_lahir"
-                                    value="{{ old('tanggal_lahir', $konselling->tanggal_lahir ?? '') }}"
+                                    value="{{ old('tanggal_lahir', $konseling->tanggal_lahir ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>
                             <div class="suku mt-4">
                                 <p class="text-left text-[#555555]">Suku Bangsa</p>
                                 <input type="text" placeholder="Jawa" name="suku"
-                                    value="{{ old('suku', $konselling->suku ?? '') }}"
+                                    value="{{ old('suku', $konseling->suku ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>
                             <div class="maritalstat mt-4">
                                 <p class="text-left text-[#555555]">Status Pernikahan</p>
-                                @if(!is_null($konselling))
+                                @if(!is_null($konseling))
                                     <select name="status_pernikahan" id="status_pernikahan" class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1">
-                                        <option value="default" {{ $konselling->status_pernikahan == 'default' ? 'selected' : '' }} selected disabled>Pilih Status Pernikahan</option>
-                                        <option value="Belum Menikah" {{ $konselling->status_pernikahan == 'Belum Menikah' ? 'selected' : '' }}>Belum Menikah</option>
-                                        <option value="Sudah Menikah" {{ $konselling->status_pernikahan == 'Sudah Menikah' ? 'selected' : '' }}>Sudah Menikah</option>
+                                        <option value="default" {{ $konseling->status_pernikahan == 'default' ? 'selected' : '' }} selected disabled>Pilih Status Pernikahan</option>
+                                        <option value="Belum Menikah" {{ $konseling->status_pernikahan == 'Belum Menikah' ? 'selected' : '' }}>Belum Menikah</option>
+                                        <option value="Sudah Menikah" {{ $konseling->status_pernikahan == 'Sudah Menikah' ? 'selected' : '' }}>Sudah Menikah</option>
                                     </select>
                                 @else
                                     <select name="status_pernikahan" id="status_pernikahan" class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1">
@@ -62,7 +62,7 @@
                             <div class="dom mt-4">
                                 <p class="text-left text-[#555555]">Alamat Domisili</p>
                                 <input type="text" placeholder="Masukkan Alamat Domisili" name="alamat"
-                                    value="{{ old('alamat', $konselling->alamat ?? '') }}"
+                                    value="{{ old('alamat', $konseling->alamat ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>

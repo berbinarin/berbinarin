@@ -678,9 +678,9 @@ class LandingController extends Controller
     $sabtu = jadwalPeer::where('hari', 'Sabtu')->orderBy('pukul_mulai')->get();
     $minggu = jadwalPeer::where('hari', 'Minggu')->orderBy('pukul_mulai')->get();
 
-    $konselling = $request->session()->get('konselling');
+    $konseling = $request->session()->get('konseling');
     
-    return view('moduls.konseling.peer-jadwal', compact('senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu', 'konselling'));
+    return view('moduls.konseling.peer-jadwal', compact('senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu', 'konseling'));
 }
 
     public function postPeerPilihJadwal(Request $request)
@@ -691,14 +691,14 @@ class LandingController extends Controller
             'metode' => 'required|not_in:default_value',
         ]);
   
-        if(empty($request->session()->get('konselling'))){
-            $konselling = new KonsellingPeer();
-            $konselling->fill($validatedData);
-            $request->session()->put('konselling', $konselling);
+        if(empty($request->session()->get('konseling'))){
+            $konseling = new KonsellingPeer();
+            $konseling->fill($validatedData);
+            $request->session()->put('konseling', $konseling);
         }else{
-            $konselling = $request->session()->get('konselling');
-            $konselling->fill($validatedData);
-            $request->session()->put('konselling', $konselling);
+            $konseling = $request->session()->get('konseling');
+            $konseling->fill($validatedData);
+            $request->session()->put('konseling', $konseling);
         }
   
         return redirect()->route('peer-regData1');
@@ -706,8 +706,8 @@ class LandingController extends Controller
 
     public function peerRegData1(Request $request)
     {
-        $konselling = $request->session()->get('konselling');
-        return view('moduls.konseling.peer-regdata1', compact('konselling'));
+        $konseling = $request->session()->get('konseling');
+        return view('moduls.konseling.peer-regdata1', compact('konseling'));
     }
 
     public function postPeerRegData1(Request $request)
@@ -720,17 +720,17 @@ class LandingController extends Controller
             'agama' => 'required',
         ]);
 
-        $konselling = $request->session()->get('konselling');
-        $konselling->fill($validatedData);
-        $request->session()->put('konselling', $konselling);
+        $konseling = $request->session()->get('konseling');
+        $konseling->fill($validatedData);
+        $request->session()->put('konseling', $konseling);
 
         return redirect()->route('peer-regData2');
     }
 
     public function peerRegData2(Request $request)
     {
-        $konselling = $request->session()->get('konselling');
-        return view('moduls.konseling.peer-regdata2',compact('konselling'));
+        $konseling = $request->session()->get('konseling');
+        return view('moduls.konseling.peer-regdata2',compact('konseling'));
     }
 
     public function postPeerRegData2(Request $request)
@@ -743,17 +743,17 @@ class LandingController extends Controller
             'alamat' => 'required',
         ]);
 
-        $konselling = $request->session()->get('konselling');
-        $konselling->fill($validatedData);
-        $request->session()->put('konselling', $konselling);
+        $konseling = $request->session()->get('konseling');
+        $konseling->fill($validatedData);
+        $request->session()->put('konseling', $konseling);
 
         return redirect()->route('peer-regData3');
     }
 
     public function peerRegData3(Request $request)
     {
-        $konselling = $request->session()->get('konselling');
-        return view('moduls.konseling.peer-regdata3',compact('konselling'));
+        $konseling = $request->session()->get('konseling');
+        return view('moduls.konseling.peer-regdata3',compact('konseling'));
     }
 
     public function postPeerRegData3(Request $request)
@@ -766,17 +766,17 @@ class LandingController extends Controller
             'kegiatan_sosial' => 'required',
         ]);
 
-        $konselling = $request->session()->get('konselling');
-        $konselling->fill($validatedData);
-        $request->session()->put('konselling', $konselling);
+        $konseling = $request->session()->get('konseling');
+        $konseling->fill($validatedData);
+        $request->session()->put('konseling', $konseling);
 
         return redirect()->route('peer-regData4');
     }
 
     public function peerRegData4(Request $request)
     {
-        $konselling = $request->session()->get('konselling');
-        return view('moduls.konseling.peer-regdata4',compact('konselling'));
+        $konseling = $request->session()->get('konseling');
+        return view('moduls.konseling.peer-regdata4',compact('konseling'));
     }
 
     public function postPeerRegData4(Request $request)
@@ -785,11 +785,11 @@ class LandingController extends Controller
             'cerita' => 'required',
         ]);
 
-        $konselling = $request->session()->get('konselling');
-        $konselling->fill($validatedData);
-        $konselling->save();
+        $konseling = $request->session()->get('konseling');
+        $konseling->fill($validatedData);
+        $konseling->save();
   
-        $request->session()->forget('konselling');
+        $request->session()->forget('konseling');
         $request->session()->put('notif', 'VerifKonseling');
         return redirect()->route('home');
     }

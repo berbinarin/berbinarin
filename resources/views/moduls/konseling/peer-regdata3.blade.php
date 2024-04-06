@@ -24,14 +24,14 @@
                             <div class="anak-ke mt-4">
                                 <p class="text-left text-[#555555]">Anak Ke- Dari Berapa Bersaudara</p>
                                 <input type="text" placeholder="Anak ke 2 dari 3 bersaudara" name="posisi_anak"
-                                    value="{{ old('posisi_anak', $konselling->posisi_anak ?? '') }}"
+                                    value="{{ old('posisi_anak', $konseling->posisi_anak ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>
                             <div class="pendidikan mt-4">
                                 <p class="text-left text-[#555555]">Pendidikan Saat Ini</p>
                                 <input type="text" placeholder="S1 Universitas Airlangga (semester 2)" name="pendidikan"
-                                    value="{{ old('pendidikan', $konselling->pendidikan ?? '') }}"
+                                    value="{{ old('pendidikan', $konseling->pendidikan ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>
@@ -39,14 +39,14 @@
                                 <p class="text-left text-[#555555]">Riwayat Pekerjaan</p>
                                 <input type="text" placeholder="Sales - PT. Berbinar Insightful Indonesia (2022)"
                                     name="riwayat_pekerjaan"
-                                    value="{{ old('riwayat_pekerjaan', $konselling->riwayat_pekerjaan ?? '') }}"
+                                    value="{{ old('riwayat_pekerjaan', $konseling->riwayat_pekerjaan ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>
                             <div class="hobby mt-4">
                                 <p class="text-left text-[#555555]">Hobi</p>
                                 <input type="text" placeholder="Masukkan Hobi Anda" name="hobi"
-                                    value="{{ old('hobi', $konselling->hobi ?? '') }}"
+                                    value="{{ old('hobi', $konseling->hobi ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>
@@ -54,7 +54,7 @@
                                 <p class="text-left text-[#555555]">Kegiatan Sosial Yang diikuti</p>
                                 <input type="text" placeholder="Pengabdian Pemuda Masa Kini (2023)"
                                     name="kegiatan_sosial"
-                                    value="{{ old('kegiatan_sosial', $konselling->kegiatan_sosial ?? '') }}"
+                                    value="{{ old('kegiatan_sosial', $konseling->kegiatan_sosial ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>

@@ -24,31 +24,31 @@
                             <div class="placebirth mt-4">
                                 <p class="text-left text-[#555555]">Nama Lengkap</p>
                                 <input type="text" placeholder="Masukkan Nama" name="nama"
-                                    value="{{ old('nama', $konselling->nama ?? '') }}"
+                                    value="{{ old('nama', $konseling->nama ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>
                             <div class="datebirth mt-4">
                                 <p class="text-left text-[#555555]">Nomor WhatsApp</p>
                                 <input type="number" placeholder="Masukkan Nomor WhatsApp" name="no_wa"
-                                    value="{{ old('no_wa', $konselling->no_wa ?? '') }}"
+                                    value="{{ old('no_wa', $konseling->no_wa ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>
                             <div class="suku mt-4">
                                 <p class="text-left text-[#555555]">Email</p>
                                 <input type="email" placeholder="Masukkan Alamat Email" name="email"
-                                    value="{{ old('email', $konselling->email ?? '') }}"
+                                    value="{{ old('email', $konseling->email ?? '') }}"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
                                     required>
                             </div>
                             <div class="gender mt-4">
                                 <p class="text-left text-[#555555]">Jenis Kelamin</p>
-                                @if(!is_null($konselling))
+                                @if(!is_null($konseling))
                                     <select name="jenis_kelamin" id="jenis_kelamin" class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1">
-                                        <option value="default" {{ $konselling->jenis_kelamin == 'default' ? 'selected' : '' }} selected disabled>Pilih Jenis Kelamin</option>
-                                        <option value="laki-laki" {{ $konselling->jenis_kelamin == 'laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-                                        <option value="perempuan" {{ $konselling->jenis_kelamin == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                        <option value="default" {{ $konseling->jenis_kelamin == 'default' ? 'selected' : '' }} selected disabled>Pilih Jenis Kelamin</option>
+                                        <option value="laki-laki" {{ $konseling->jenis_kelamin == 'laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                                        <option value="perempuan" {{ $konseling->jenis_kelamin == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
                                     </select>
                                 @else
                                 <select name="jenis_kelamin" id="jenis_kelamin"
@@ -61,15 +61,15 @@
                             </div>
                             <div class="dom mt-4">
                                 <p class="text-left text-[#555555]">Agama</p>
-                                @if(!is_null($konselling))
+                                @if(!is_null($konseling))
                                     <select name="agama" id="agama" class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1">
-                                        <option value="default" {{ $konselling->agama == 'default' ? 'selected' : '' }} selected disabled>Pilih Agama</option>
-                                        <option value="Islam" {{ $konselling->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
-                                        <option value="Kristen" {{ $konselling->agama == 'Kristen' ? 'selected' : '' }}>Kristen</option>
-                                        <option value="Katolik" {{ $konselling->agama == 'Katolik' ? 'selected' : '' }}>Katolik</option>
-                                        <option value="Hindu" {{ $konselling->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
-                                        <option value="Budha" {{ $konselling->agama == 'Budha' ? 'selected' : '' }}>Budha</option>
-                                        <option value="Khonghucu" {{ $konselling->agama == 'Khonghucu' ? 'selected' : '' }}>Khonghucu</option>
+                                        <option value="default" {{ $konseling->agama == 'default' ? 'selected' : '' }} selected disabled>Pilih Agama</option>
+                                        <option value="Islam" {{ $konseling->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
+                                        <option value="Kristen" {{ $konseling->agama == 'Kristen' ? 'selected' : '' }}>Kristen</option>
+                                        <option value="Katolik" {{ $konseling->agama == 'Katolik' ? 'selected' : '' }}>Katolik</option>
+                                        <option value="Hindu" {{ $konseling->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                                        <option value="Budha" {{ $konseling->agama == 'Budha' ? 'selected' : '' }}>Budha</option>
+                                        <option value="Khonghucu" {{ $konseling->agama == 'Khonghucu' ? 'selected' : '' }}>Khonghucu</option>
                                     </select>
                                 @else
                                     <select name="agama" id="agama" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1">
