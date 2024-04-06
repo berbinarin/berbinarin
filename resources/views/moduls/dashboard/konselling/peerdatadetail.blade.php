@@ -197,7 +197,15 @@
                         <div class="flex gap-1">
                             <div class="mb-1 pt-0 flex-1">
                                 <label for="agama" class="text-blueGray-600 text-base">Agama</label>
-                                <input required type="text" placeholder="Islam" name="agama" value="{{ $PeerConsellorDataDetails[0]->agama }}"class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                                <select name="agama" id="agama" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                                    <option value="default" {{ $PeerConsellorDataDetails[0]->agama == 'default' ? 'selected' : '' }} selected disabled>Pilih Agama</option>
+                                    <option value="Islam" {{ $PeerConsellorDataDetails[0]->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
+                                    <option value="Kristen" {{ $PeerConsellorDataDetails[0]->agama == 'Kristen' ? 'selected' : '' }}>Kristen</option>
+                                    <option value="Katolik" {{ $PeerConsellorDataDetails[0]->agama == 'Katolik' ? 'selected' : '' }}>Katolik</option>
+                                    <option value="Hindu" {{ $PeerConsellorDataDetails[0]->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                                    <option value="Budha" {{ $PeerConsellorDataDetails[0]->agama == 'Budha' ? 'selected' : '' }}>Budha</option>
+                                    <option value="Khonghucu" {{ $PeerConsellorDataDetails[0]->agama == 'Khonghucu' ? 'selected' : '' }}>Khonghucu</option>
+                                </select>
                             </div>
                             <div class="mb-1 pt-0 flex-1">
                                 <label for="tempat_lahir" class="text-blueGray-600 text-base">Tempat Lahir</label>
@@ -215,7 +223,11 @@
                         <div class="flex gap-1">
                             <div class="mb-1 pt-0 flex-1">
                                 <label for="status_pernikahan" class="text-blueGray-600 text-base">Status Pernikahan</label>
-                                <input required name="status_pernikahan" value="{{ $PeerConsellorDataDetails[0]->status_pernikahan }}" type="text" placeholder="Belum Menikah" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                                <select name="status_pernikahan" id="status_pernikahan" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                                    <option value="default" {{ $PeerConsellorDataDetails[0]->status_pernikahan == 'default' ? 'selected' : '' }} selected disabled>Pilih Status Pernikahan</option>
+                                    <option value="Belum Menikah" {{ $PeerConsellorDataDetails[0]->status_pernikahan == 'Belum Menikah' ? 'selected' : '' }}>Belum Menikah</option>
+                                    <option value="Sudah Menikah" {{ $PeerConsellorDataDetails[0]->status_pernikahan == 'Sudah Menikah' ? 'selected' : '' }}>Sudah Menikah</option>
+                                </select>
                             </div>
                             <div class="mb-1 pt-0 flex-1">
                                 <label for="alamat" class="text-blueGray-600 text-base">Alamat Domisili</label>

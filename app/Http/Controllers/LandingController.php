@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 
 class LandingController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $products = [
             [
@@ -54,9 +54,13 @@ class LandingController extends Controller
             ],
         ];
 
+        $notif = $request->session()->get('notif');
+        $request->session()->put('notif', '0');
+
         return view('moduls.landing.index', [
             'products' => $products,
             'whySection' => $whySection,
+            'notif' => $notif,
         ]);
     }
 
@@ -786,8 +790,7 @@ class LandingController extends Controller
         $konselling->save();
   
         $request->session()->forget('konselling');
-  
-        Alert::toast('Pendaftaran Konseling Berhasil!', 'success')->autoClose(5000);;
+        $request->session()->put('notif', 'VerifKonseling');
         return redirect()->route('home');
     }
 
@@ -905,10 +908,10 @@ class LandingController extends Controller
         $konselling = $request->session()->get('konselling');
         $konselling->fill($validatedData);
         $konselling->save();
-  
+
         $request->session()->forget('konselling');
-  
-        Alert::toast('Pendaftaran Konseling Berhasil!', 'success')->autoClose(5000);;
+
+        $request->session()->put('notif', 'VerifKonseling');
         return redirect()->route('home');
     }
 

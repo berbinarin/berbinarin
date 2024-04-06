@@ -1,5 +1,5 @@
 {{-- FOOTER --}}
-<footer class="w-full font-plusJakartaSans mt-16 px-10 py-16 bg-blur-bg rounded-tl-3xl rounded-tr-3xl z-40 relative">
+<footer class="w-full font-plusJakartaSans mt-16 px-10 py-16 bg-blur-bg rounded-tl-3xl rounded-tr-3xl z-40">
     <div class="flex flex-col md:flex-row gap-4 border-b-primary border-b-2 pb-5 max-w-6xl mx-auto">
         <div class="flex-1 flex flex-col gap-5">
             <div class="flex gap-2 items-center">

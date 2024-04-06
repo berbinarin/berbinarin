@@ -7,7 +7,7 @@
 @section('content')
     {{-- HERO SECTION --}}
     <section
-        class="max-w-6xl mx-auto h-screen flex flex-col md:flex-row items-center justify-center relative px-5 md:px-0 mt-28 md:mt-10">
+        class="hero max-w-6xl mx-auto h-screen flex flex-col md:flex-row items-center justify-center relative px-5 md:px-0 mt-28 md:mt-10">
         {{-- HERO IMG MOBILE --}}
         <img src="{{ asset('assets/images/ilustrasi-logo-berbinar.png') }}" alt="Ilustrasi Logo Berbinar"
             title="Ilustrasi Logo Berbinar" class="w-full block md:hidden" data-aos="fade-up" data-aos-duration="1500">
@@ -164,5 +164,58 @@
                 </div>
             </div>
         </div>
+
+        @if ($notif === 'VerifKonseling')
+        {{-- POP UP FEEDBACK KONSELING --}}
+        <section>
+            <div class="modal fixed top-0 left-0 right-0 z-50 flex justify-center items-center w-full h-full" id="close-konseling">
+                <div class="modal-dialog m-4 modal-xl bg-linear rounded-xl shadow-lg p-4" style="background-color: white">
+                    <div class="modal">
+                        <div style="max-width: 40rem">
+                            <div class="text-right p-3 cursor-pointer " onclick="closeModal('close-konseling')"></div>
+                            <div class="px-4">
+                                <div class="flex">
+                                    <div class="flex-none mr-6 mb-4 hidden md:block">
+                                        <img src="{{ asset('assets/images/logo-berbinar-text.png') }}" alt="Logo Berbinar Insightful Indonesia" title="Logo Berbinar Insightful Indonesia" style="width: 8rem">
+                                    </div>
+                                    <div class="flex-1">
+                                        <h1 class="text-left text-3xl font-semibold mb-5 -mt-1">Terima Kasih</h1>
+                                        <div class="text-justify text-pretty font-light">
+                                            atas ketersediannya dalam mengisi form data intake dan informasi konsultasi. Setelah ini kamu akan dihubungi oleh staf konseling Berbinar 1x24 jam untuk langkah lebih lanjut. Terima kasih dan semoga harimu menyenangkan! <br><br> Jika ada hal yang ingin disampaikan, kamu bisa menghubungi nomor di bawah: <br><br> <span class="font-semibold text-left">082141869800 (Berbinar Insightful Indonesia)</span>
+                                        </div>
+                                        <div class="ml-auto my-4 rounded-md px-4 py-2 w-fit duration-300 cursor-pointer bg-primary hover:bg-sky-950 text-white" onclick="closeModal('close-konseling')">
+                                            <span >Tutup</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <div class="modalin opacity-25 fixed inset-0 z-40 bg-black" id="close-konseling-backdrop"></div>
+        @endif
     </section>
+    <script>
+        const hero = document.querySelector('.hero');
+        const header = document.querySelector('#header');
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            @if($notif === 'VerifKonseling')
+                header.classList.remove('fixed');
+                hero.style.height = '33rem';
+            @endif
+        });
+
+        function closeModal(modalID) {
+            const modal = document.getElementById(modalID);
+            modal.classList.add("hidden");
+            document.getElementById(modalID + "-backdrop").classList.add("hidden");
+            header.classList.add('fixed'); 
+            hero.style.height = '';
+        }
+    </script>
+
 @endsection

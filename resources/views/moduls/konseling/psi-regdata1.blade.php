@@ -45,15 +45,11 @@
                             <div class="gender mt-4">
                                 <p class="text-left text-[#555555]">Jenis Kelamin</p>
                                 @if(!is_null($konselling))
-                                <select name="jenis_kelamin" id="jenis_kelamin"
-                                    class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1">
-                                    <option value="default" {{ $konselling->metode == 'default' ? 'selected' : '' }}
-                                        selected disabled>Pilih Jenis Kelamin</option>
-                                    <option value="laki-laki"
-                                        {{ $konselling->metode == 'laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-                                    <option value="perempuan"
-                                        {{ $konselling->metode == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
-                                </select>
+                                    <select name="jenis_kelamin" id="jenis_kelamin" class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1">
+                                        <option value="default" {{ $konselling->jenis_kelamin == 'default' ? 'selected' : '' }} selected disabled>Pilih Jenis Kelamin</option>
+                                        <option value="laki-laki" {{ $konselling->jenis_kelamin == 'laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                                        <option value="perempuan" {{ $konselling->jenis_kelamin == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                    </select>
                                 @else
                                 <select name="jenis_kelamin" id="jenis_kelamin"
                                     class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1">
@@ -65,10 +61,27 @@
                             </div>
                             <div class="dom mt-4">
                                 <p class="text-left text-[#555555]">Agama</p>
-                                <input type="text" placeholder="Islam" name="agama"
-                                    value="{{ old('agama', $konselling->agama ?? '') }}"
-                                    class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
-                                    required>
+                                @if(!is_null($konselling))
+                                    <select name="agama" id="agama" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1">
+                                        <option value="default" {{ $konselling->agama == 'default' ? 'selected' : '' }} selected disabled>Pilih Agama</option>
+                                        <option value="Islam" {{ $konselling->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
+                                        <option value="Kristen" {{ $konselling->agama == 'Kristen' ? 'selected' : '' }}>Kristen</option>
+                                        <option value="Katolik" {{ $konselling->agama == 'Katolik' ? 'selected' : '' }}>Katolik</option>
+                                        <option value="Hindu" {{ $konselling->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                                        <option value="Budha" {{ $konselling->agama == 'Budha' ? 'selected' : '' }}>Budha</option>
+                                        <option value="Khonghucu" {{ $konselling->agama == 'Khonghucu' ? 'selected' : '' }}>Khonghucu</option>
+                                    </select>
+                                @else
+                                    <select name="agama" id="agama" class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1">
+                                        <option value="default" selected disabled>Pilih Agama</option>
+                                        <option value="Islam">Islam</option>
+                                        <option value="Kristen">Kristen</option>
+                                        <option value="Katolik">Katolik</option>
+                                        <option value="Hindu">Hindu</option>
+                                        <option value="Budha">Budha</option>
+                                        <option value="Khonghucu">Khonghucu</option>
+                                    </select>
+                                @endif
                             </div>
                             <div class="text-right">
                                 <button type="submit"

@@ -138,9 +138,9 @@
                                 <label for="jenis_kelamin" class="text-blueGray-600 text-base">Jenis Kelamin</label>
                                 @if(!is_null($konselling))
                                     <select name="jenis_kelamin" id="jenis_kelamin" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
-                                        <option value="default" {{ $konselling->metode == 'default' ? 'selected' : '' }} selected disabled>Pilih Jenis Kelamin</option>
-                                        <option value="laki-laki" {{ $konselling->metode == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-                                        <option value="perempuan" {{ $konselling->metode == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                        <option value="default" {{ $konselling->jenis_kelamin == 'default' ? 'selected' : '' }} selected disabled>Pilih Jenis Kelamin</option>
+                                        <option value="laki-laki" {{ $konselling->jenis_kelamin == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                                        <option value="perempuan" {{ $konselling->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                                     </select>
                                 @else
                                     <select name="jenis_kelamin" id="jenis_kelamin" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
@@ -154,7 +154,27 @@
                         <div class="flex gap-1">
                             <div class="mb-1 pt-0 flex-1">
                                 <label for="agama" class="text-blueGray-600 text-base">Agama</label>
-                                <input required type="text" placeholder="Islam" name="agama" value="{{ old('agama', $konselling->agama ?? '') }}"class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                                @if(!is_null($konselling))
+                                    <select name="agama" id="agama" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                                        <option value="default" {{ $konselling->agama == 'default' ? 'selected' : '' }} selected disabled>Pilih Agama</option>
+                                        <option value="Islam" {{ $konselling->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
+                                        <option value="Kristen" {{ $konselling->agama == 'Kristen' ? 'selected' : '' }}>Kristen</option>
+                                        <option value="Katolik" {{ $konselling->agama == 'Katolik' ? 'selected' : '' }}>Katolik</option>
+                                        <option value="Hindu" {{ $konselling->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                                        <option value="Budha" {{ $konselling->agama == 'Budha' ? 'selected' : '' }}>Budha</option>
+                                        <option value="Khonghucu" {{ $konselling->agama == 'Khonghucu' ? 'selected' : '' }}>Khonghucu</option>
+                                    </select>
+                                @else
+                                    <select name="agama" id="agama" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                                        <option value="default" selected disabled>Pilih Agama</option>
+                                        <option value="Islam">Islam</option>
+                                        <option value="Kristen">Kristen</option>
+                                        <option value="Katolik">Katolik</option>
+                                        <option value="Hindu">Hindu</option>
+                                        <option value="Budha">Budha</option>
+                                        <option value="Khonghucu">Khonghucu</option>
+                                    </select>
+                                @endif
                             </div>
                             <div class="mb-1 pt-0 flex-1">
                                 <label for="tempat_lahir" class="text-blueGray-600 text-base">Tempat Lahir</label>
@@ -172,7 +192,19 @@
                         <div class="flex gap-1">
                             <div class="mb-1 pt-0 flex-1">
                                 <label for="status_pernikahan" class="text-blueGray-600 text-base">Status Pernikahan</label>
-                                <input required name="status_pernikahan" value="{{ old('status_pernikahan', $konselling->status_pernikahan ?? '') }}" type="text" placeholder="Belum Menikah" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                                @if(!is_null($konselling))
+                                    <select name="status_pernikahan" id="status_pernikahan" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                                        <option value="default" {{ $konselling->status_pernikahan == 'default' ? 'selected' : '' }} selected disabled>Pilih Status Pernikahan</option>
+                                        <option value="Belum Menikah" {{ $konselling->status_pernikahan == 'Belum Menikah' ? 'selected' : '' }}>Belum Menikah</option>
+                                        <option value="Sudah Menikah" {{ $konselling->status_pernikahan == 'Sudah Menikah' ? 'selected' : '' }}>Sudah Menikah</option>
+                                    </select>
+                                @else
+                                    <select name="status_pernikahan" id="status_pernikahan" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                                        <option value="default" selected disabled>Pilih Status Pernikahan</option>
+                                        <option value="Belum Menikah">Belum Menikah</option>
+                                        <option value="Sudah Menikah">Sudah Menikah</option>
+                                    </select>
+                                @endif
                             </div>
                             <div class="mb-1 pt-0 flex-1">
                                 <label for="alamat" class="text-blueGray-600 text-base">Alamat Domisili</label>

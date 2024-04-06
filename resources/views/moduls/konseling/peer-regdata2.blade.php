@@ -45,10 +45,19 @@
                             </div>
                             <div class="maritalstat mt-4">
                                 <p class="text-left text-[#555555]">Status Pernikahan</p>
-                                <input type="text" placeholder="Belum Menikah" name="status_pernikahan"
-                                    value="{{ old('status_pernikahan', $konselling->status_pernikahan ?? '') }}"
-                                    class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1"
-                                    required>
+                                @if(!is_null($konselling))
+                                    <select name="status_pernikahan" id="status_pernikahan" class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1">
+                                        <option value="default" {{ $konselling->status_pernikahan == 'default' ? 'selected' : '' }} selected disabled>Pilih Status Pernikahan</option>
+                                        <option value="Belum Menikah" {{ $konselling->status_pernikahan == 'Belum Menikah' ? 'selected' : '' }}>Belum Menikah</option>
+                                        <option value="Sudah Menikah" {{ $konselling->status_pernikahan == 'Sudah Menikah' ? 'selected' : '' }}>Sudah Menikah</option>
+                                    </select>
+                                @else
+                                    <select name="status_pernikahan" id="status_pernikahan" class="bg-[#F1F3F6] text-[#555555] border-2 h-11 w-full rounded-lg px-3 mt-1">
+                                        <option value="default" selected disabled>Pilih Status Pernikahan</option>
+                                        <option value="Belum Menikah">Belum Menikah</option>
+                                        <option value="Sudah Menikah">Sudah Menikah</option>
+                                    </select>
+                                @endif
                             </div>
                             <div class="dom mt-4">
                                 <p class="text-left text-[#555555]">Alamat Domisili</p>
