@@ -182,7 +182,7 @@
                                         <h1 class="text-left text-3xl font-semibold mb-5 -mt-1">Terima Kasih</h1>
                                         <div class="text-justify text-pretty font-light">
                                             atas kesediaannya dalam mengisi form data intake dan informasi untuk kebutuhan konseling. Setelah ini SobatBinar akan dihubungi oleh staff Konseling Berbinar maksimal dalam 1x24 jam untuk langkah lebih lanjut. <br>Terima kasih, semoga harimu menyenangkan!
-                                            <br><br>Jika ada hal yang ingin disampaikan, SobatBinar dapat menghubungi narahubung di bawah ini:
+                                            <br><br>Jika ada hal yang ingin disampaikan, SobatBinar dapat menghubungi narahubung di bawah ini:<br>
                                             <div class="font-semibold text-left">082166046676 (Sofia)</div>
                                         </div>
                                         <div class="ml-auto my-4 rounded-md px-4 py-2 w-fit duration-300 cursor-pointer bg-primary hover:bg-sky-950 text-white" onclick="closeModal('close-konseling')">
