@@ -28,8 +28,8 @@
 
     {{-- POP UP LAKUKAN KONSELING BUTTON--}}
     <section>
-        <div class="modal px-4 fixed size-full start-0 overflow-x-hidden overflow-y-auto top-0 left-0 right-0 z-50 hidden justify-center items-center">
-            <div style="min-width: 20rem; max-width: 40rem;" class="modal-dialog max-w-lg w-full m-5 mx-auto bg-primary-linear rounded-xl shadow-lg pb-4">
+        <div class="modal fixed size-full start-0 overflow-x-hidden overflow-y-auto top-0 left-0 right-0 z-50 hidden justify-center items-center">
+            <div class="modal-dialog max-w-lg w-full m-5 mx-auto bg-primary-linear rounded-xl shadow-lg pb-4">
                 <div class="modal flex flex-col h-fit">
                     <div class="text-right p-3 closeModal">
                         <i class='bx bxs-x-circle text-[38px] text-white'></i>
@@ -103,64 +103,71 @@
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog1.jpg') }}">
                 <div class="flex flex-col items-center">
                     <a target="_blank" href="https://drive.google.com/file/d/1mHcJvLoqeISx6GO1Qr8bhUQYd9Watwxm/view?usp=share_link" class="text-xl font-medium text-center">Daniel Reyonald Bungaran, S.Psi., M.Psi. Psikolog</a>
-                    <p class="text-sm text-disabled">S1 Unair, Mapro Unair</p>
+
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog2.jpg') }}">
                 <div class="flex flex-col items-center">
                     <a target="_blank" href="https://drive.google.com/file/d/1eSV7AxbEgG92eMrp4SVErcKJ8uacoahP/view?usp=share_link" class="text-xl font-medium text-center">Danny Sanjaya Arfensia, S.Psi., M.Psi. Psikolog</a>
-                    <p class="text-sm text-disabled">S1 Unair, Mapro Unair</p>
+
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog7.jpg') }}">
                 <div class="flex flex-col items-center">
                     <a target="_blank" href="https://drive.google.com/file/d/19kMsZlPTv8e-5z9SbpuwcFVOJLtfqtUg/view?usp=share_link" class="text-xl font-medium text-center">Yeni Rahma Dwijayanti, S.Psi., M.Psi. Psikolog</a>
-                    <p class="text-sm text-disabled"> S1 Unair, Mapro Unair</p>
+
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog6.jpg') }}">
                 <div class="flex flex-col items-center">
                     <a target="_blank" href="https://drive.google.com/file/d/1VCDlpDB3DHXiYJQfKCcEadqi8BmvbJ5y/view?usp=share_link" class="text-xl font-medium text-center">Putu Diana Wulandari, S.Psi., M.Psi. Psikolog</a>
-                    <p class="text-sm text-disabled">S1 Udayana, Mapro Unair
+
                     </p>
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/istna-anisatul.jpeg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" href="https://drive.google.com/file/d/1qc16eQOkHNw4tK0efUZcmhIk8HHkYt6H/view?usp=drive_link" class="text-xl font-medium text-center">Istna Anisatul Fadillah, S.Psi., M.Psi. Psikolog</a>
-                    <p class="text-sm text-disabled">S1 Uinsa, Mapro Unair</p>
+                    <a target="_blank" href="https://drive.google.com/file/d/1qc16eQOkHNw4tK0efUZcmhIk8HHkYt6H/view?usp=drive_link" class="text-xl font-medium text-center">Istna Anisatul Fadlilah, S.Psi., M.Psi., Psikolog</a>
+
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/putu-yoga.jpeg') }}">
                 <div class="flex flex-col items-center">
                     <a target="_blank" href="https://drive.google.com/file/d/1VJ-0ggnyNgURuW0j2eMNFmpoDqrxkOUX/view?usp=drive_link" class="text-xl font-medium text-center">Putu Yoga, S.Psi., M.Psi. Psikolog</a>
-                    <p class="text-sm text-disabled">S1 Udayana, Mapro Unair</p>
+
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/primandini.jpeg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" href="https://drive.google.com/file/d/1JKD2sj5Bm_73OYU9aoTlWHWLdHXR24iY/view?usp=drive_link" class="text-xl font-medium text-center">Primandini Yunanda Harumi, S. Psi., M. Psi. Psikolog</a>
-                    <p class="text-sm text-disabled">S1 Udayana, Mapro Unair</p>
+                    <a target="_blank" href="https://drive.google.com/file/d/1JKD2sj5Bm_73OYU9aoTlWHWLdHXR24iY/view?usp=drive_link" class="text-xl font-medium text-center">B. Primandini Yunanda Harumi, S.Psi., M.Psi.,
+                        Psikolog</a>
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/yusandi.png') }}">
                 <div class="flex flex-col items-center">
                     <a class="text-xl font-medium text-center">Yusandi Rezki Fadhli, S.Psi., M.Psi., Psikolog</a>
-                    <p class="text-sm text-disabled">S1 Tarumanegara, Mapro Unair</p>
+
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/satria.jpeg') }}">
                 <div class="flex flex-col items-center">
                     <a class="text-xl font-medium text-center">Satria Kamal Agassi, S.Psi., M.Psi., Psikolog</a>
-                    <p class="text-sm text-disabled">S1 Unair, Mapro Unair</p>
+
+                </div>
+            </div>
+            <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/virginia.jpeg') }}">
+                <div class="flex flex-col items-center">
+                    <a class="text-xl font-medium text-center">Virginia Sukma Dewi, S. Psi., M. Psi., Psikolog</a>
+
                 </div>
             </div>
         </div>
@@ -235,23 +242,20 @@
                     <a target="_blank" href="#" class="text-xl font-medium text-center">Sofia Zulaikha
                         Salsabila
                     </a>
-                    <p class="text-sm text-disabled">Universitas Sumatera Utara</p>
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/peer4.jpeg') }}">
                 <div class="flex flex-col items-center">
                     <a target="_blank" href="#" class="text-xl font-medium text-center">Rahmadea An Nariya</a>
-                    <p class="text-sm text-disabled">Universitas Brawijaya</p>
+
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/peer5.jpg') }}">
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/alya.jpg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" href="#" class="text-xl font-medium text-center">Greis Meita Pardede
+                    <a target="_blank" href="#" class="text-xl font-medium text-center">Alya Rachmasari
                     </a>
-                    <p class="text-sm text-disabled">Universitas Sumatera Utara
-                    </p>
                 </div>
             </div>
         </div>
