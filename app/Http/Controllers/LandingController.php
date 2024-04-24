@@ -489,6 +489,12 @@ class LandingController extends Controller
         return view('coming-soon');
     }
 
+    public function creditWeb()
+    {
+        
+        return view('credit-web');
+    }
+
     public function hiring()
     {
         $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->get();

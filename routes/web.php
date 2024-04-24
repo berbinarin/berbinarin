@@ -37,6 +37,7 @@ Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
 
 Route::get('/term-condition', [LandingController::class, 'termCondition'])->name('toc');
 Route::get('/privacy-policy', [LandingController::class, 'privacyPolicy'])->name('pp');
+Route::get('/credit-web', [LandingController::class, 'creditWeb'])->name('cw');
 
 Route::get('/work-with-us', [LandingController::class, 'workWithUs'])->name('workWithUs');
 
