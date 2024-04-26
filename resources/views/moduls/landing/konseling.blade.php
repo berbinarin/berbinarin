@@ -21,67 +21,66 @@
             <p class="text-lg text-disabled">Dapatkan konseling yang mengubah hidup dari para psikolog dan peer
                 counselor untuk mencapai pertumbuhan pribadi yang luar biasa. Segera temukan solusi yang tepat untuk
                 masalah yang Anda hadapi dan mulai menapaki jalan menuju hidup yang lebih baik.</p>
-            <button class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit showModal">Lakukan
+            <button class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit openModal" data-modal-index="0">Lakukan
                 Konseling</button>
         </div>
     </div>
 
     {{-- POP UP LAKUKAN KONSELING BUTTON--}}
     <section>
-        <div class="modal fixed size-full start-0 overflow-x-hidden overflow-y-auto top-0 left-0 right-0 z-50 hidden justify-center items-center">
-            <div class="modal-dialog max-w-lg w-full m-5 mx-auto bg-primary-linear rounded-xl shadow-lg pb-4">
+        <div class="modal1 modal fixed size-full start-0 overflow-x-hidden overflow-y-auto top-0 left-0 right-0 z-50 hidden justify-center items-center">
+            <div class="modal-dialog max-w-lg md:max-w-2xl m-5 mx-auto bg-primary-linear rounded-xl shadow-lg pb-4">
                 <div class="modal flex flex-col h-fit">
-                    <div class="text-right p-3 closeModal">
-                        <i class='bx bxs-x-circle text-[38px] text-white'></i>
-                    </div>
-                    <div class="text-center">
-                        <h1 class="text-white text-center text-3xl font-semibold mb-5 -mt-1">Syarat & Ketentuan</h1>
-                        <div class="text-justify text-pretty font-light text-white px-16">
-                            <ul class="list-disc list-outside leading-relaxed mt-10">
-                                <li class="font-semibold">Lokasi offline Konseling
-                                    <ul class="list-decimal list-outside leading-relaxed pl-4">
-                                        <li>Psikolog : Surabaya</li>
-                                        <li>Peer Counselor : Malang, Bandung, Tangerang</li>
-                                    </ul>
-                                </li>
-                                <li>Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n.
-                                    Berbinar
-                                    Insightful Indonesia dengan aturan transfer 1x24 jam.</li>
-                                <li>Tidak membalas pesan admin dalam 1x24 jam, pendaftaran oleh klien secara
-                                    otomatis
-                                    dibatalkan. </li>
-                                <li>Tidak membalas pesan admin dalam 1x24 jam, jadwal yang sudah ditentukan oleh
-                                    klien
-                                    berhak
-                                    untuk dirubah oleh Tim Berbinar dan kesepakatan dari klien </li>
-                                <li>Tidak membalas pesan admin dalam 2x24 jam setelah melakukan pembayaran,
-                                    pembayaran
-                                    dianggap
-                                    hangus </li>
-                                <li>Pengajuan proses pembatalan layanan konseling dapat dilakukan dalam kurun waktu
-                                    1x24 jam
-                                    setelah proses admnistrasi dan dana yang telah dibayarkan akan dikembalikan 100%
-                                </li>
-                            </ul>
+                    <button class="text-right p-3 closeModal" data-modal-index="0">
+                        <i class="bx bxs-x-circle text-[38px] text-white closeModal" data-modal-index="1"></i>
+                    </button>
+                </div>
+                <div class="text-center">
+                    <h1 class="text-white text-center text-3xl font-semibold mb-5 -mt-1">Syarat & Ketentuan</h1>
+                    <div class="text-justify text-pretty font-light text-white px-16">
+                        <ul class="list-disc list-outside leading-relaxed mt-10">
+                            <li class="font-semibold">Lokasi offline Konseling
+                                <ul class="list-decimal list-outside leading-relaxed pl-4">
+                                    <li>Psikolog : Surabaya</li>
+                                    <li>Peer Counselor : Malang, Bandung, Tangerang</li>
+                                </ul>
+                            </li>
+                            <li>Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n.
+                                Berbinar
+                                Insightful Indonesia dengan aturan transfer 1x24 jam.</li>
+                            <li>Tidak membalas pesan admin dalam 1x24 jam, pendaftaran oleh klien secara
+                                otomatis
+                                dibatalkan. </li>
+                            <li>Tidak membalas pesan admin dalam 1x24 jam, jadwal yang sudah ditentukan oleh
+                                klien
+                                berhak
+                                untuk dirubah oleh Tim Berbinar dan kesepakatan dari klien </li>
+                            <li>Tidak membalas pesan admin dalam 2x24 jam setelah melakukan pembayaran,
+                                pembayaran
+                                dianggap
+                                hangus </li>
+                            <li>Pengajuan proses pembatalan layanan konseling dapat dilakukan dalam kurun waktu
+                                1x24 jam
+                                setelah proses admnistrasi dan dana yang telah dibayarkan akan dikembalikan 100%
+                            </li>
+                        </ul>
 
-                        </div>
                     </div>
-                    <div class="modal-footer flex w-100 p-5 mt-4 mx-8 gap-4">
-                        <div class="row justify-items-center">
-                            <div class="flex col-6 col-md-4 align-items-center justify-content-center text-center text-md-end ">
-                                <!--<a href="https://bit.ly/CounselingWithBerbinar"
+                </div>
+                <div class="modal-footer flex w-100 p-5 mt-4 mx-8 gap-4">
+                    <div class="row justify-items-center">
+                        <div class="flex col-6 col-md-4 align-items-center justify-content-center text-center text-md-end ">
+                            <!--<a href="https://bit.ly/CounselingWithBerbinar"
                                         class="button px-4 py-2 font-light text-white bg-green-500 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Daftar
                                         Melalui Google Form</a>-->
-                                <a href="{{ route('layanan') }}" class="button px-4 py-2 font-light text-white bg-green-500 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Daftar</a>
-                                <a href="{{ route('counseling') }}" class="button hidden md:block px-4 py-2 font-light text-white bg-primarylinear border-white border-2 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Kembali</a>
-                            </div>
+                            <a href="{{ route('layanan') }}" class="button px-4 py-2 font-light text-white bg-green-500 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Daftar</a>
+                            <a href="{{ route('counseling') }}" class="button hidden md:block px-4 py-2 font-light text-white bg-primarylinear border-white border-2 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Kembali</a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-
+        </div>
     </section>
 
 
@@ -171,8 +170,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </section>
 
@@ -184,14 +181,13 @@
         </p>
 
         <div class="flex flex-col md:flex-row flex-wrap items-center justify-center gap-5 mt-10">
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px] " data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
+            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px]" data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
                 <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
                     <h3 class="text-black text-xl font-medium">Online Weekday</h3>
                     <h1 class="text-black text-4xl font-medium">IDR 150k/jam</h1>
                     <p class="text-lg text-disabled">Lakukan dimana saja</p>
-                    <a href="https://bit.ly/CounselingWithBerbinar" class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0">
-                        Mulai Sekarang
-                    </a>
+                    <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="1">
+                        Mulai Sekarang</button>
                 </div>
             </div>
             <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px] " data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
@@ -199,9 +195,9 @@
                     <h3 class="text-black text-xl font-medium">Online Weekend</h3>
                     <h1 class="text-black text-4xl font-medium">IDR 200k/jam</h1>
                     <p class="text-lg text-disabled">Lakukan dimana saja</p>
-                    <a href="https://bit.ly/CounselingWithBerbinar" class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0">
+                    <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="1">
                         Mulai Sekarang
-                    </a>
+                    </button>
                 </div>
             </div>
             <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px] " data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
@@ -209,9 +205,9 @@
                     <h3 class="text-black text-xl font-medium">Offline Weekday</h3>
                     <h1 class="text-black text-4xl font-medium">IDR 175k/jam</h1>
                     <p class="text-lg text-disabled">Khusus wilayah Surabaya</p>
-                    <a href="https://bit.ly/CounselingWithBerbinar" class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0">
+                    <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="0">
                         Mulai Sekarang
-                    </a>
+                    </button>
                 </div>
             </div>
             <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px] " data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
@@ -219,14 +215,72 @@
                     <h3 class="text-black text-xl font-medium">Offline Weekend</h3>
                     <h1 class="text-black text-4xl font-medium">IDR 225k/jam</h1>
                     <p class="text-lg text-disabled">Khusus wilayah Surabaya</p>
-                    <a href="https://bit.ly/CounselingWithBerbinar" class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0">
+                    <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="0">
                         Mulai Sekarang
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+{{-- POP UP VER 2 SECTION --}}
+<section>
+    <div class="modal2 modal fixed size-full start-0 overflow-x-hidden overflow-y-auto top-0 left-0 right-0 z-50 hidden justify-center items-center">
+        <div class="modal-dialog max-w-xl md:max-w-2xl m-5 mx-auto bg-primary-linear rounded-xl shadow-lg pb-4">
+            <div class="modal flex flex-col h-fit">
+                <button class="text-right p-3 closeModal" data-modal-index="1">
+                    <i class='bx bxs-x-circle text-[38px] text-white'></i>
+                </button>
+                <div class="text-center">
+                    <h1 class="text-white text-center text-3xl font-semibold mb-5 -mt-1">Syarat & Ketentuan</h1>
+                    <div class="text-justify text-pretty font-light text-white px-16">
+                        <ul class="list-disc list-outside leading-relaxed mt-10">
+                            <li class="font-semibold">Lokasi offline Konseling
+                                <ul class="list-decimal list-outside leading-relaxed pl-4">
+                                    <li>Psikolog : Surabaya</li>
+                                    <li>Peer Counselor : Malang, Bandung, Tangerang</li>
+                                </ul>
+                            </li>
+                            <li>Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n.
+                                Berbinar
+                                Insightful Indonesia dengan aturan transfer 1x24 jam.</li>
+                            <li>Tidak membalas pesan admin dalam 1x24 jam, pendaftaran oleh klien secara
+                                otomatis
+                                dibatalkan. </li>
+                            <li>Tidak membalas pesan admin dalam 1x24 jam, jadwal yang sudah ditentukan oleh
+                                klien
+                                berhak
+                                untuk dirubah oleh Tim Berbinar dan kesepakatan dari klien </li>
+                            <li>Tidak membalas pesan admin dalam 2x24 jam setelah melakukan pembayaran,
+                                pembayaran
+                                dianggap
+                                hangus </li>
+                            <li>Pengajuan proses pembatalan layanan konseling dapat dilakukan dalam kurun waktu
+                                1x24 jam
+                                setelah proses admnistrasi dan dana yang telah dibayarkan akan dikembalikan 100%
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="modal-footer flex w-100 p-5 mt-4 mx-8 gap-4">
+                    <div class="row justify-items-center">
+                        <div class="flex col-6 col-md-4 align-items-center justify-content-center text-center text-md-end ">
+                            <!--<a href="https://bit.ly/CounselingWithBerbinar"
+                                        class="button px-4 py-2 font-light text-white bg-green-500 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Daftar
+                                        Melalui Google Form</a>-->
+                            <a href="{{ route('layanan') }}" class="button px-4 py-2 font-light text-white bg-green-500 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Daftar</a>
+                            <a href="{{ route('counseling') }}" class="button hidden md:block px-4 py-2 font-light text-white bg-primarylinear border-white border-2 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Kembali</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 {{-- OUR PEER COUNSELOR SECTION --}}
 <section class="py-6 z-40 md:-mt-20">
@@ -378,26 +432,40 @@
 </script>
 
 <script>
-    const modal = document.querySelector('.modal');
+    allModals = ['.modal1', '.modal2', '.modal3'];
     const modalin = document.querySelector('.modalin');
     const header = document.querySelector('.header');
     const hero = document.querySelector('.hero');
 
-    const showModal = document.querySelector('.showModal');
-    const closeModal = document.querySelector('.closeModal');
-
-    showModal.addEventListener('click', function() {
-        modal.classList.remove('hidden');
+    const openModal = (modal) => {
+        const modalOpen = document.querySelector(modal);
+        modalOpen.classList.remove('hidden');
         modalin.classList.remove('hidden');
         header.classList.remove('fixed');
         hero.style.height = '33rem';
-    });
+    }
 
-    closeModal.addEventListener('click', function() {
-        modal.classList.add('hidden');
+    const closeModal = (modal) => {
+        const modalClose = document.querySelector(modal);
+        modalClose.classList.add('hidden');
         modalin.classList.add('hidden');
         header.classList.add('fixed');
-        hero.style.height = ''; // Menghapus pengaturan tinggi khusus
+        hero.style.height = '';
+    }
+
+    document.querySelectorAll('.openModal').forEach(button => {
+        button.addEventListener('click', () => {
+            const modalIndex = button.dataset.modalIndex;
+            openModal(allModals[modalIndex]);
+        });
+    });
+
+
+    document.querySelectorAll('.closeModal').forEach(button => {
+        button.addEventListener('click', () => {
+            const modalIndex = button.dataset.modalIndex;
+            closeModal(allModals[modalIndex]);
+        });
     });
 </script>
 @endsection
