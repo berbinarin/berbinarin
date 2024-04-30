@@ -48,9 +48,9 @@ class LandingController extends Controller
             "description" => 'Kesehatan mental sering timbul di kalangan masyarakat. Namun, masih banyak dari kita yang merasa ragu untuk mencari bantuan. Mahalnya biaya konsultasi dan jasa psikotes menjadi penghalang utama untuk mencari pertolongan lebih lanjut. Permasalahan ini menjadi alasan berdirinya Berbinar Insightful Indonesia. Berbinar memberikan layanan psikotes, konseling, dan kelas, yang fleksibel dan sesuai kebutuhan customer, namun tetap kredibel.',
             "image" => '',
             "achievements" => [
-                [ "name" => 'Media Partner', "count" => 12 ],
-                [ "name" => 'Jumlah Produk', "count" => 3 ],
-                [ "name" => 'Jumlah Sub Produk', "count" => 8 ],
+                ["name" => 'Media Partner', "count" => 12],
+                ["name" => 'Jumlah Produk', "count" => 3],
+                ["name" => 'Jumlah Sub Produk', "count" => 8],
             ],
         ];
 
@@ -172,7 +172,7 @@ class LandingController extends Controller
                 "name" => "Customer Oriented",
                 "desc" => "Menjadikan kebutuhan konsumen sebagai dasar untuk merencanakan dan mendesain strategi bisnis.",
             ],
-            ];
+        ];
 
         return view('moduls.landing.about', [
             'testimonials' => $testimonials,
@@ -246,34 +246,34 @@ class LandingController extends Controller
                 "image" => "https://i.ibb.co/j6Mm7ww/Anomim-Wanita.png"
             ],
         ];
-        
+
         $faqs = [
-        [
-            'question' => 'Apa perbedaan Psikolog dan Peer Counselor?',
-            'answer' => 'Psikolog merupakan tenaga profesional yang telah menyelesaikan pendidikan S1 Psikologi dan melanjutkan kuliah di program studi profesi untuk mendapatkan gelar Psikolog dan M.Psi. Sedangkan Peer Counselor merupakan individu yang telah mendapatkan pelatihan dari psikolog sehingga mempunyai kemampuan dasar untuk melakukan konseling termasuk dalam mengidentifikasi permasalahan dengan usia sebaya.
+            [
+                'question' => 'Apa perbedaan Psikolog dan Peer Counselor?',
+                'answer' => 'Psikolog merupakan tenaga profesional yang telah menyelesaikan pendidikan S1 Psikologi dan melanjutkan kuliah di program studi profesi untuk mendapatkan gelar Psikolog dan M.Psi. Sedangkan Peer Counselor merupakan individu yang telah mendapatkan pelatihan dari psikolog sehingga mempunyai kemampuan dasar untuk melakukan konseling termasuk dalam mengidentifikasi permasalahan dengan usia sebaya.
             '
-        ],
-        [
-            'question' => 'Apabila sesi konseling telah berakhir, dan saya ingin menambah durasi sesi konseling apalah boleh?',
-            'answer' => 'Menambah durasi konseling sangat diperbolehkan. Namun, durasi konseling ditentukan berdasarkan kebutuhan dalam penanganan suatu masalah. Sehingga, yang dapat merekomendasikan adalah psikolog dan keputusan dibuat bersama antara klien dengan psikolog atau peer counselor. Jika klien bersedia, maka durasi konseling akan dilanjutkan.
+            ],
+            [
+                'question' => 'Apabila sesi konseling telah berakhir, dan saya ingin menambah durasi sesi konseling apalah boleh?',
+                'answer' => 'Menambah durasi konseling sangat diperbolehkan. Namun, durasi konseling ditentukan berdasarkan kebutuhan dalam penanganan suatu masalah. Sehingga, yang dapat merekomendasikan adalah psikolog dan keputusan dibuat bersama antara klien dengan psikolog atau peer counselor. Jika klien bersedia, maka durasi konseling akan dilanjutkan.
             '
-        ],
-        [
-            'question' => 'Apakah privasi saya akan terjamin?',
-            'answer' => 'Tentu saja, seluruh hal yang akan kamu sampaikan saat sesi konseling akan dijaga kerahasiaannya oleh psikolog/peer counsellor kami. Selain itu, psikolog serta peer counsellor kami sangat menjunjung tinggi kode etik psikologi, sehingga kamu dapat bebas dalam menyampaikan sesuatu saat sesi konseling berlangsung.
+            ],
+            [
+                'question' => 'Apakah privasi saya akan terjamin?',
+                'answer' => 'Tentu saja, seluruh hal yang akan kamu sampaikan saat sesi konseling akan dijaga kerahasiaannya oleh psikolog/peer counsellor kami. Selain itu, psikolog serta peer counsellor kami sangat menjunjung tinggi kode etik psikologi, sehingga kamu dapat bebas dalam menyampaikan sesuatu saat sesi konseling berlangsung.
             '
-        ],
-        [
-            'question' => 'Apakah ada batasan usia untuk konseling?',
-            'answer' => 'Tidak ada batasan usia dalam konseling, sehingga konseling bisa digunakan untuk berbagai usia.
+            ],
+            [
+                'question' => 'Apakah ada batasan usia untuk konseling?',
+                'answer' => 'Tidak ada batasan usia dalam konseling, sehingga konseling bisa digunakan untuk berbagai usia.
             '
-        ],
-        [
-            'question' => 'Apakah saya bisa memilih psikolog yang menangani?',
-            'answer' => "SobatBinar tidak dapat memilih psikolog dengan nama tertentu. Namun demi kenyamanan SobatBinar, SobatBinar diperbolehkan mengajukan karakter psikolog yang diinginkan (Seperti: Jenis kelamin tertentu, agama tertentu, usia tertentu, maupun psikolog yang sudah menikah ataupun belum)
+            ],
+            [
+                'question' => 'Apakah saya bisa memilih psikolog yang menangani?',
+                'answer' => "SobatBinar tidak dapat memilih psikolog dengan nama tertentu. Namun demi kenyamanan SobatBinar, SobatBinar diperbolehkan mengajukan karakter psikolog yang diinginkan (Seperti: Jenis kelamin tertentu, agama tertentu, usia tertentu, maupun psikolog yang sudah menikah ataupun belum)
             "
-        ],
-    ];
+            ],
+        ];
         return view('moduls.landing.konseling', [
             'faqs' => $faqs,
             'testimonials' => $testimonials,
@@ -283,45 +283,45 @@ class LandingController extends Controller
     public function psikotest()
     {
         $faqs = [
-        [
-            'question' => 'Apa yang dimaksud dengan ‘Psikotes’?',
-            'answer' => 'Kegiatan psikotes merupakan suatu bentuk asesmen psikologi yang digunakan untuk mengukur aspek-aspek psikologi dari seorang individu, seperti kemampuan kognitif, kepribadian, keadaan emosional, dan lainnya.
+            [
+                'question' => 'Apa yang dimaksud dengan ‘Psikotes’?',
+                'answer' => 'Kegiatan psikotes merupakan suatu bentuk asesmen psikologi yang digunakan untuk mengukur aspek-aspek psikologi dari seorang individu, seperti kemampuan kognitif, kepribadian, keadaan emosional, dan lainnya.
             '
-        ],
-        [
-            'question' => 'Apa manfaat dari mengikuti kegiatan psikotes?',
-            'answer' => 'Tes psikologi dapat memberikan informasi mengenai kemampuan kognitif, kepribadian, keadaan emosional, dan kesehatan mental dari seorang individu. Hasil psikotes juga dapat membantu dalam mengidentifikasi potensi diri yang dapat digunakan untuk membantu dalam membuat keputusan tentang masalah pribadi atau profesional.
+            ],
+            [
+                'question' => 'Apa manfaat dari mengikuti kegiatan psikotes?',
+                'answer' => 'Tes psikologi dapat memberikan informasi mengenai kemampuan kognitif, kepribadian, keadaan emosional, dan kesehatan mental dari seorang individu. Hasil psikotes juga dapat membantu dalam mengidentifikasi potensi diri yang dapat digunakan untuk membantu dalam membuat keputusan tentang masalah pribadi atau profesional.
             '
-        ],
-        [
-            'question' => 'Apa saja jenis layanan psikotes pada Berbinar?',
-            'answer' => 'PT. Berbinar Insightful Indonesia menyediakan dua kategori layanan psikotes, yaitu psikotes individual dan psikotes perusahaan. Psikotes individual termasuk di dalamnya adalah tes bakat-minat dan tes intelegensi. Lalu untuk, psikotes perusahaan, kami menyediakan psikotes untuk level staff dan supervisor.
+            ],
+            [
+                'question' => 'Apa saja jenis layanan psikotes pada Berbinar?',
+                'answer' => 'PT. Berbinar Insightful Indonesia menyediakan dua kategori layanan psikotes, yaitu psikotes individual dan psikotes perusahaan. Psikotes individual termasuk di dalamnya adalah tes bakat-minat dan tes intelegensi. Lalu untuk, psikotes perusahaan, kami menyediakan psikotes untuk level staff dan supervisor.
             '
-        ],
-        [
-            'question' => 'Berapa harga layanan psikotes Berbinar?',
-            'answer' => 'Untuk informasi mengenai harga layanan psikotes Berbinar, silakan klik link berikut ini Pricelist atau pricelist yang tertera pada halaman ini
+            ],
+            [
+                'question' => 'Berapa harga layanan psikotes Berbinar?',
+                'answer' => 'Untuk informasi mengenai harga layanan psikotes Berbinar, silakan klik link berikut ini Pricelist atau pricelist yang tertera pada halaman ini
             '
-        ],
-        [
-            'question' => 'Apakah tes dilaksanakan secara individual atau kelompok?',
-            'answer' => "Kegiatan psikotes dapat dilaksanakan secara individual maupun kelompok, tergantung dari layanan psikotes yang diambil. Sebagai contoh, untuk tes minat bakat, pada umumnya dilaksanakan secara individual, sedangkan
+            ],
+            [
+                'question' => 'Apakah tes dilaksanakan secara individual atau kelompok?',
+                'answer' => "Kegiatan psikotes dapat dilaksanakan secara individual maupun kelompok, tergantung dari layanan psikotes yang diambil. Sebagai contoh, untuk tes minat bakat, pada umumnya dilaksanakan secara individual, sedangkan
             "
-        ],
-        [
-            'question' => 'Apakah tes dilaksanakan secara Online atau Offline?',
-            'answer' => 'Kegiatan psikotes dari PT. Berbinar Insightful Indonesia dapat dilaksanakan secara Online maupun Offline.
+            ],
+            [
+                'question' => 'Apakah tes dilaksanakan secara Online atau Offline?',
+                'answer' => 'Kegiatan psikotes dari PT. Berbinar Insightful Indonesia dapat dilaksanakan secara Online maupun Offline.
             '
-        ],
-        [
-            'question' => 'Apa saja yang perlu dipersiapkan dalam pelaksanaan psikotes Online?',
-            'answer' => 'Bagi peserta psikotes yang melaksanakan secara Online, peserta wajib menyiapkan jaringan internet yang kuat, laptop yang stabil, dan baterai yang penuh. Jika peserta tidak menyiapkan ketiga hal tersebut, dapat mempengaruhi dalam keoptimalan pelaksanaan dan hasil psikotes tersebut.'
-        ],
-        [
-            'question' => 'Bagaimana cara mendaftar?',
-            'answer' => 'Untuk mendaftar psikotes, silahkan mengisi data diri Anda di Google Form pada link berikut: bit.ly/DaftarPsikotesBerbinar'
-        ],
-    ];
+            ],
+            [
+                'question' => 'Apa saja yang perlu dipersiapkan dalam pelaksanaan psikotes Online?',
+                'answer' => 'Bagi peserta psikotes yang melaksanakan secara Online, peserta wajib menyiapkan jaringan internet yang kuat, laptop yang stabil, dan baterai yang penuh. Jika peserta tidak menyiapkan ketiga hal tersebut, dapat mempengaruhi dalam keoptimalan pelaksanaan dan hasil psikotes tersebut.'
+            ],
+            [
+                'question' => 'Bagaimana cara mendaftar?',
+                'answer' => 'Untuk mendaftar psikotes, silahkan mengisi data diri Anda di Google Form pada link berikut: bit.ly/DaftarPsikotesBerbinar'
+            ],
+        ];
         return view('moduls.landing.psikotes', [
             'faqs' => $faqs
         ]);
@@ -366,7 +366,7 @@ class LandingController extends Controller
                 'answer' => 'Peserta dapat mengunjungi linktr.ee/BerbinarPlus atau menghubungi narahubung melalui whatsapp dengan nomor 0813-1435-4623 (Wulan).'
             ],
         ];
-        
+
         return view('moduls.landing.class', [
             'faqs' => $faqs
         ]);
@@ -401,7 +401,7 @@ class LandingController extends Controller
                 "
             ],
         ];
-        
+
         return view('moduls.landing.webinar', [
             'faqs' => $faqs,
         ]);
@@ -436,7 +436,7 @@ class LandingController extends Controller
                 "
             ],
         ];
-        
+
         return view('moduls.landing.bisikan', [
             'faqs' => $faqs,
         ]);
@@ -471,7 +471,7 @@ class LandingController extends Controller
                 "
             ],
         ];
-        
+
         return view('moduls.landing.berbinar-plus', [
             'faqs' => $faqs,
         ]);
@@ -479,19 +479,19 @@ class LandingController extends Controller
 
     public function termCondition()
     {
-        
+
         return view('coming-soon');
     }
 
     public function privacyPolicy()
     {
-        
+
         return view('coming-soon');
     }
 
     public function creditWeb()
     {
-        
+
         return view('credit-web');
     }
 
@@ -501,7 +501,7 @@ class LandingController extends Controller
         $HiringPositionsJobDescription = Hiring_Positions_Job_Descriptions::all();
         $Hiring_Positions_Requirement = Hiring_Positions_Requirements::all();
 
-        
+
         $testimonials = [
             [
                 "name" => "Oktaviani Dwi Wulansari",
@@ -528,71 +528,62 @@ class LandingController extends Controller
 
         $faqs = [
             [
-                'question' => 'Apakah bisa di konversi ke SKS?',
-                'answer' => 'Apabila nantinya menghendaki untuk mengkonversikan magang di Berbinar ke SKS atau KRS, Kandidat bisa mengajukan MoU atau MoA kerjasama antara pihak kampus dengan Berbinar. 
+                'question' => 'Apakah Internship Berbinar dapat dikonversi ke SKS perkuliahan?',
+                'answer' => 'Apabila SobatBinar nantinya menghendaki untuk mengkonversikan internship Berbinar ke SKS atau KRS perkuliahan, SobatBinar bisa mengajukan proposal kerjasama, seperti MoU atau MoA kepada Berbinar. 
                 '
             ],
             [
-                'question' => 'Apakah jika Fresh Graduate atau semester 7 boleh mendaftar?',
-                'answer' => 'Tentunya kami akan mengutamakan kandidat yang sesuai dengan kualifikasi yang sudah ditetapkan. Namun tidak menutup kemungkinan kami mengambil kandidat semester akhir atau fresh graduate, jadi silahkan mendaftar saja.
-                '
-            ],
-            [
-                'question' => 'Pengumumannya kapan dan lewat apa?',
-                'answer' => 'Untuk tahapan selanjutnya dari proses rekrutmen akan dikabarkan secara berkala pada kandidat yang lolos tahap screening melalui WA.
-                '
+                'question' => 'Pengumuman kelulusan internship diberitahukan kapan dan lewat apa?',
+                'answer' => 'Untuk tahapan kelulusan dari proses rekrutmen akan dikabarkan secara talent pool, dimana SobatBinar akan dihubungi oleh tim rekruter saat posisi pekerjaan sedang kosong melalui email atau whatsapp'
             ],
             [
                 'question' => 'Apakah bisa melamar satu posisi saja?',
-                'answer' => 'Apabila kandidat menghendaki mendaftar satu posisi saja, silahkan memilih posisi yang sama pada pilihan satu dan dua di google form. 
-                '
+                'answer' => 'Apabila SobatBinar menghendaki mendaftar satu posisi saja, silahkan memilih posisi yang sama pada pilihan satu dan dua di google formulir pendaftaran.'
             ],
             [
-                'question' => 'Jam kerja?',
-                'answer' => 'PT. Berbinar Insightful indonesia tidak memiliki jam kerja tetap , jam kerja kami fleksibel. 
-                '
+                'question' => 'Apakah ada peraturan perusahaan mengenai jam kerja internship?',
+                'answer' => 'Sesuai peraturan perusahaan, staf Berbinar bekerja minimal 16 jam/minggu dan maksimal 21 jam/minggu, namun akan disesuaikan kembali jam kerja secara fleksibel apabila terdapat pekerjaan yang bersifat urgent.'
             ],
             [
-                'question' => 'Unpaid / Paid?',
-                'answer' => 'Untuk sistem internship di berbinar unpaid atau tidak di bayar.
-                '
+                'question' => 'Sistem internship Berbinar bersifat paid / unpaid?',
+                'answer' => 'Untuk sistem internship di Berbinar saat ini masih bersifat unpaid (tidak dibayar).'
             ],
             [
-                'question' => 'Durasi Internship?',
-                'answer' => 'Durasi Internship di Berbinar adalah 6 bulan atau 1 tahun. 
-                '
+                'question' => 'Berapa lama durasi internship di Berbinar?',
+                'answer' => 'Terdapat 2 pilihan durasi internship di Berbinar, di antaranya 6 bulan atau 1 tahun.'
             ],
             [
-                'question' => 'Dimana saya bisa mengetahui informasi lebih jelas terkait jobdesk dan requirement posisi yang dibuka?',
-                'answer' => 'bisa menjelajahi laman web kami di bagian careers -> posisi yang di buka
-                '
+                'question' => 'Sistem kerja internship di Berbinar?',
+                'answer' => 'Saat ini internship Berbinar masih bersifat work from home.'
             ],
             [
-                'question' => 'Apabila ada yang saya bingungkan terkait recruitment kemana saya harus bertanya?',
-                'answer' => 'Teman-teman bisa menghubungi CP yang tersedia atau menghubungi kami melalui sosial media Berbinar. 
-                '
+                'question' => 'Apakah Berbinar menyediakan event offline?',
+                'answer' => 'Selain event online, Berbinar juga menyediakan event offline pada SobatBinar yang saat ini berdomisili di Surabaya.'
+            ],
+            [
+                'question' => 'Cara mengetahui informasi lebih jelas terkait jobdesc dan requirement posisi yang dibuka?',
+                'answer' => 'SobatBinar bisa menjelajahi laman website berbinar pada bagian careers dan memilih “posisi yang dibuka”.'
+            ],
+            [
+                'question' => 'Apabila terdapat informasi yang dibingungkan terkait rekrutmen, kemana harus bertanya?',
+                'answer' => 'SobatBinar bisa menghubungi CP yang tersedia atau menghubungi MinNar melalui sosial media Berbinar.'
             ],
         ];
 
         $generalRequirements = [
-            "Terbuka untuk mahasiswa aktif atau fresh graduate max. 1 tahun",
-            "Memiliki kemampuan manajemen waktu yang baik",
-            "Memiliki ketertarikan pada kepemimpinan dan pengembangan skill",
-            "Mampu bekerja secara mandiri maupun bekerja secara tim",
-            "Memiliki keterampilan komunikasi yang kuat",
-            "Tertarik untuk mempelajari hal baru",
-            "Mampu berkomitmen tinggi untuk berkontribusi di Berbinar selama 6 bulan/ 1 tahun",
-            "Tertarik pada bidang psikologi/ kesehatan mental",
-            "Mampu bekerja dibawah tekanan dan deadline",
+            "Terbuka untuk siswa/siswi SMA, SMK, MA, atau yang Sederajat; mahasiswa/mahasiswi aktif; dan fresh-graduate dengan kelulusan maksimal 1 tahun.",
+            "Mampu berkomitmen tinggi untuk berkontribusi di Berbinar selama 6 bulan/1 tahun.",
+            "Mampu bekerja secara mandiri maupun bekerja secara tim.",
+            "Mampu bekerja di bawah tekanan dan deadline.",
+
         ];
 
         $benefits = [
-            "Sertifikat Elektronik : Staf akan mendapatkan e-certificate di akhir masa jabatan sesuai dengan kontrak kerja yang berlaku",
-            "Relasi : Staf dapat memperluas network dan membangun lingkungan yang positif dengan praktisi psikologi dan mahasiswa dari berbagai universitas",
-            "Wawasan : Staf dapat menambah wawasan baik pada bidang psikologi maupun pelaksanaan operasional perusahaan",
-            "Konseling Gratis : Mendapatkan sesi konseling gratis sebulan sekali",
-            "Rekomendasi Linkedin : Staf akan mendapatkan rekomendasi kerja dari CEO Berbinar apabila dalam masa kerjanya mampu menunjukkan kinerja yang baik melalui Linkedin maupun tertulis",
-            "Pengalaman : Staf akan mendapatkan pengalaman internship dibawah naungan perusahaan yang andal di bidang Psikologi",
+            "Memiliki kemampuan manajemen waktu yang baik.",
+            "Tertarik untuk mempelajari hal baru.",
+            "Tertarik pada bidang psikologi / kesehatan mental.",
+            "Memiliki keterampilan komunikasi yang kuat",
+            "Memiliki ketertarikan pada kepemimpinan dan pengembangan skill.",
         ];
 
         return view('moduls.hiring.hiring', [
@@ -602,7 +593,7 @@ class LandingController extends Controller
             'HiringPositionsJobDescription' => $HiringPositionsJobDescription,
             'Hiring_Positions_Requirement' => $Hiring_Positions_Requirement,
             'generalRequirements' => $generalRequirements,
-            'benefits' => $benefits,
+            'benefits' => $benefits
         ]);
     }
 
@@ -612,52 +603,48 @@ class LandingController extends Controller
         $HiringPositionsJobDescription = Hiring_Positions_Job_Descriptions::all();
         $Hiring_Positions_Requirement = Hiring_Positions_Requirements::all();
 
-        
+
         $faqs = [
             [
-                'question' => 'Apakah bisa di konversi ke SKS?',
-                'answer' => 'Apabila nantinya menghendaki untuk mengkonversikan magang di Berbinar ke SKS atau KRS, Kandidat bisa mengajukan MoU atau MoA kerjasama antara pihak kampus dengan Berbinar. 
+                'question' => 'Apakah Internship Berbinar dapat dikonversi ke SKS perkuliahan?',
+                'answer' => 'Apabila SobatBinar nantinya menghendaki untuk mengkonversikan internship Berbinar ke SKS atau KRS perkuliahan, SobatBinar bisa mengajukan proposal kerjasama, seperti MoU atau MoA kepada Berbinar. 
                 '
             ],
             [
-                'question' => 'Apakah jika Fresh Graduate atau semester 7 boleh mendaftar?',
-                'answer' => 'Tentunya kami akan mengutamakan kandidat yang sesuai dengan kualifikasi yang sudah ditetapkan. Namun tidak menutup kemungkinan kami mengambil kandidat semester akhir atau fresh graduate, jadi silahkan mendaftar saja.
-                '
-            ],
-            [
-                'question' => 'Pengumumannya kapan dan lewat apa?',
-                'answer' => 'Untuk tahapan selanjutnya dari proses rekrutmen akan dikabarkan secara berkala pada kandidat yang lolos tahap screening melalui WA.
-                '
+                'question' => 'Pengumuman kelulusan internship diberitahukan kapan dan lewat apa?',
+                'answer' => 'Untuk tahapan kelulusan dari proses rekrutmen akan dikabarkan secara talent pool, dimana SobatBinar akan dihubungi oleh tim rekruter saat posisi pekerjaan sedang kosong melalui email atau whatsapp'
             ],
             [
                 'question' => 'Apakah bisa melamar satu posisi saja?',
-                'answer' => 'Apabila kandidat menghendaki mendaftar satu posisi saja, silahkan memilih posisi yang sama pada pilihan satu dan dua di google form. 
-                '
+                'answer' => 'Apabila SobatBinar menghendaki mendaftar satu posisi saja, silahkan memilih posisi yang sama pada pilihan satu dan dua di google formulir pendaftaran.'
             ],
             [
-                'question' => 'Jam kerja?',
-                'answer' => 'Apabila nantinya menghendaki untuk mengkonversikan magang di Berbinar ke SKS atau KRS, Kandidat bisa mengajukan MoU atau MoA kerjasama antara pihak kampus dengan Berbinar. 
-                '
+                'question' => 'Apakah ada peraturan perusahaan mengenai jam kerja internship?',
+                'answer' => 'Sesuai peraturan perusahaan, staf Berbinar bekerja minimal 16 jam/minggu dan maksimal 21 jam/minggu, namun akan disesuaikan kembali jam kerja secara fleksibel apabila terdapat pekerjaan yang bersifat urgent.'
             ],
             [
-                'question' => 'Unpaid / Paid?',
-                'answer' => 'Berbinar memiliki waktu kerja yang fleksibel sehingga tidak mengganggu proses perkuliahan. Namun kandidat perlu memiliki perencanaan waktu yang baik sehingga tugas magang dan kuliah bisa diselesaikan dengan baik.
-                '
+                'question' => 'Sistem internship Berbinar bersifat paid / unpaid?',
+                'answer' => 'Untuk sistem internship di Berbinar saat ini masih bersifat unpaid (tidak dibayar).'
             ],
             [
-                'question' => 'Durasi Internship?',
-                'answer' => 'Apabila nantinya menghendaki untuk mengkonversikan magang di Berbinar ke SKS atau KRS, Kandidat bisa mengajukan MoU atau MoA kerjasama antara pihak kampus dengan Berbinar. 
-                '
+                'question' => 'Berapa lama durasi internship di Berbinar?',
+                'answer' => 'Terdapat 2 pilihan durasi internship di Berbinar, di antaranya 6 bulan atau 1 tahun.'
             ],
             [
-                'question' => 'Dimana saya bisa mengetahui informasi lebih jelas terkait jobdesk dan requirement posisi yang dibuka?',
-                'answer' => 'Durasi Internship di Berbinar adalah 6 bulan / 1 tahun 
-                '
+                'question' => 'Sistem kerja internship di Berbinar?',
+                'answer' => 'Saat ini internship Berbinar masih bersifat work from home.'
             ],
             [
-                'question' => 'Apabila ada yang saya bingungkan terkait recruitment kemana saya harus bertanya?',
-                'answer' => 'Teman-teman bisa menghubungi CP yang tersedia atau menghubungi kami melalui sosial media Berbinar. 
-                '
+                'question' => 'Apakah Berbinar menyediakan event offline?',
+                'answer' => 'Selain event online, Berbinar juga menyediakan event offline pada SobatBinar yang saat ini berdomisili di Surabaya.'
+            ],
+            [
+                'question' => 'Cara mengetahui informasi lebih jelas terkait jobdesc dan requirement posisi yang dibuka?',
+                'answer' => 'SobatBinar bisa menjelajahi laman website berbinar pada bagian careers dan memilih “posisi yang dibuka”.'
+            ],
+            [
+                'question' => 'Apabila terdapat informasi yang dibingungkan terkait rekrutmen, kemana harus bertanya?',
+                'answer' => 'SobatBinar bisa menghubungi CP yang tersedia atau menghubungi MinNar melalui sosial media Berbinar.'
             ],
         ];
 
@@ -674,20 +661,20 @@ class LandingController extends Controller
         return view('moduls.konseling.layanan');
     }
 
-   public function peerPilihJadwal(Request $request)
-{
-    $senin = jadwalPeer::where('hari', 'Senin')->orderBy('pukul_mulai')->get();
-    $selasa = jadwalPeer::where('hari', 'Selasa')->orderBy('pukul_mulai')->get();
-    $rabu = jadwalPeer::where('hari', 'Rabu')->orderBy('pukul_mulai')->get();
-    $kamis = jadwalPeer::where('hari', 'Kamis')->orderBy('pukul_mulai')->get();
-    $jumat = jadwalPeer::where('hari', 'Jumat')->orderBy('pukul_mulai')->get();
-    $sabtu = jadwalPeer::where('hari', 'Sabtu')->orderBy('pukul_mulai')->get();
-    $minggu = jadwalPeer::where('hari', 'Minggu')->orderBy('pukul_mulai')->get();
+    public function peerPilihJadwal(Request $request)
+    {
+        $senin = jadwalPeer::where('hari', 'Senin')->orderBy('pukul_mulai')->get();
+        $selasa = jadwalPeer::where('hari', 'Selasa')->orderBy('pukul_mulai')->get();
+        $rabu = jadwalPeer::where('hari', 'Rabu')->orderBy('pukul_mulai')->get();
+        $kamis = jadwalPeer::where('hari', 'Kamis')->orderBy('pukul_mulai')->get();
+        $jumat = jadwalPeer::where('hari', 'Jumat')->orderBy('pukul_mulai')->get();
+        $sabtu = jadwalPeer::where('hari', 'Sabtu')->orderBy('pukul_mulai')->get();
+        $minggu = jadwalPeer::where('hari', 'Minggu')->orderBy('pukul_mulai')->get();
 
-    $konseling = $request->session()->get('konseling');
-    
-    return view('moduls.konseling.peer-jadwal', compact('senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu', 'konseling'));
-}
+        $konseling = $request->session()->get('konseling');
+
+        return view('moduls.konseling.peer-jadwal', compact('senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu', 'konseling'));
+    }
 
     public function postPeerPilihJadwal(Request $request)
     {
@@ -696,17 +683,17 @@ class LandingController extends Controller
             'jadwal_pukul' => 'required',
             'metode' => 'required|not_in:default_value',
         ]);
-  
-        if(empty($request->session()->get('konseling'))){
+
+        if (empty($request->session()->get('konseling'))) {
             $konseling = new KonsellingPeer();
             $konseling->fill($validatedData);
             $request->session()->put('konseling', $konseling);
-        }else{
+        } else {
             $konseling = $request->session()->get('konseling');
             $konseling->fill($validatedData);
             $request->session()->put('konseling', $konseling);
         }
-  
+
         return redirect()->route('peer-regData1');
     }
 
@@ -736,7 +723,7 @@ class LandingController extends Controller
     public function peerRegData2(Request $request)
     {
         $konseling = $request->session()->get('konseling');
-        return view('moduls.konseling.peer-regdata2',compact('konseling'));
+        return view('moduls.konseling.peer-regdata2', compact('konseling'));
     }
 
     public function postPeerRegData2(Request $request)
@@ -759,7 +746,7 @@ class LandingController extends Controller
     public function peerRegData3(Request $request)
     {
         $konseling = $request->session()->get('konseling');
-        return view('moduls.konseling.peer-regdata3',compact('konseling'));
+        return view('moduls.konseling.peer-regdata3', compact('konseling'));
     }
 
     public function postPeerRegData3(Request $request)
@@ -782,7 +769,7 @@ class LandingController extends Controller
     public function peerRegData4(Request $request)
     {
         $konseling = $request->session()->get('konseling');
-        return view('moduls.konseling.peer-regdata4',compact('konseling'));
+        return view('moduls.konseling.peer-regdata4', compact('konseling'));
     }
 
     public function postPeerRegData4(Request $request)
@@ -794,7 +781,7 @@ class LandingController extends Controller
         $konseling = $request->session()->get('konseling');
         $konseling->fill($validatedData);
         $konseling->save();
-  
+
         $request->session()->forget('konseling');
         $request->session()->put('notif', 'VerifKonseling');
         return redirect()->route('home');
@@ -803,7 +790,7 @@ class LandingController extends Controller
     public function psiPilihJadwal(Request $request)
     {
         $konselling = $request->session()->get('konselling');
-        return view('moduls.konseling.psi-jadwal',compact('konselling'));
+        return view('moduls.konseling.psi-jadwal', compact('konselling'));
     }
 
     public function postPsiPilihJadwal(Request $request)
@@ -816,24 +803,24 @@ class LandingController extends Controller
 
         $jamMenit = substr($validatedData['jadwal_pukul'], 0, 5);
         $validatedData['jadwal_pukul'] = $jamMenit;
-  
-        if(empty($request->session()->get('konselling'))){
+
+        if (empty($request->session()->get('konselling'))) {
             $konselling = new KonsellingPsikolog();
             $konselling->fill($validatedData);
             $request->session()->put('konselling', $konselling);
-        }else{
+        } else {
             $konselling = $request->session()->get('konselling');
             $konselling->fill($validatedData);
             $request->session()->put('konselling', $konselling);
         }
-  
+
         return redirect()->route('psi-regData1');
     }
 
     public function psiRegData1(Request $request)
     {
         $konselling = $request->session()->get('konselling');
-        return view('moduls.konseling.psi-regdata1',compact('konselling'));
+        return view('moduls.konseling.psi-regdata1', compact('konselling'));
     }
 
     public function postPsiRegData1(Request $request)
@@ -856,7 +843,7 @@ class LandingController extends Controller
     public function psiRegData2(Request $request)
     {
         $konselling = $request->session()->get('konselling');
-        return view('moduls.konseling.psi-regdata2',compact('konselling'));
+        return view('moduls.konseling.psi-regdata2', compact('konselling'));
     }
 
     public function postPsiRegData2(Request $request)
@@ -879,9 +866,9 @@ class LandingController extends Controller
     public function psiRegData3(Request $request)
     {
         $konselling = $request->session()->get('konselling');
-        return view('moduls.konseling.psi-regdata3',compact('konselling'));
+        return view('moduls.konseling.psi-regdata3', compact('konselling'));
     }
-    
+
     public function postPsiRegData3(Request $request)
     {
         $validatedData = $request->validate([
@@ -902,7 +889,7 @@ class LandingController extends Controller
     public function psiRegData4(Request $request)
     {
         $konselling = $request->session()->get('konselling');
-        return view('moduls.konseling.psi-regdata4',compact('konselling'));
+        return view('moduls.konseling.psi-regdata4', compact('konselling'));
     }
 
     public function postPsiRegData4(Request $request)
@@ -933,10 +920,10 @@ class LandingController extends Controller
 
     public function psikotestFreeTest()
     {
-        $soal =Soal::all();
-        return view('moduls.psikotes.freetest',["soal"=>$soal]);
+        $soal = Soal::all();
+        return view('moduls.psikotes.freetest', ["soal" => $soal]);
     }
-    
+
     public function psikotestHasilTest()
     {
         return view('moduls.psikotes.hasiltes');
