@@ -43,7 +43,7 @@
                                 <ul class="list-decimal list-outside leading-relaxed pl-4">
                                     <li>Psikolog : Surabaya, Denpasar, Kalimantan Utara (Tarakan), Kediri, dan Sidoarjo
                                     </li>
-                                    <li>Peer Counselor : Malang, Bandung, dan Tangerang</li>
+                                    <li>Peer Counselor : Bandung, Tangerang, dan Malang</li>
                                 </ul>
                             </li>
                             <li>Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n.
@@ -102,16 +102,17 @@
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog1.jpg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" href="https://drive.google.com/file/d/1mHcJvLoqeISx6GO1Qr8bhUQYd9Watwxm/view?usp=share_link" class="text-lg font-medium text-center">Daniel Regonald Bungaran, S.Psi., M.Psi., Psikolog</a>
+                    <a target="_blank" href="https://drive.google.com/file/d/1mHcJvLoqeISx6GO1Qr8bhUQYd9Watwxm/view?usp=share_link" class="text-lg font-medium text-center">Daniel Reyonald Bungaran, S.Psi., M.Psi., Psikolog</a>
                 </div>
             </div>
-            {{--
+            
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog2.jpg') }}">
             <div class="flex flex-col items-center">
                 <a target="_blank" href="https://drive.google.com/file/d/1eSV7AxbEgG92eMrp4SVErcKJ8uacoahP/view?usp=share_link" class="text-lg font-medium text-center">Danny Sanjaya Arfensia, S.Psi., M.Psi. Psikolog</a>
             </div>
         </div>
+        {{--
         <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog7.jpg') }}">
             <div class="flex flex-col items-center">
@@ -332,8 +333,9 @@
                     <h3 class="text-black text-xl font-medium">Online</h3>
                     <h1 class="text-black text-4xl font-medium">IDR 45k/jam</h1>
                     <p class="text-lg text-disabled">Lakukan dimana saja</p>
-                    <a href="https://bit.ly/CounselingWithBerbinar" class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0">Mulai
-                        Sekarang</a>
+                    <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="0">
+                        Mulai Sekarang
+                    </button>
                 </div>
             </div>
             <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[300px]" data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
@@ -341,8 +343,9 @@
                     <h3 class="text-black text-xl font-medium">Offline</h3>
                     <h1 class="text-black text-4xl font-medium">IDR 55k/jam</h1>
                     <p class="text-lg text-disabled">Wilayah Medan & Malang</p>
-                    <a href="https://bit.ly/CounselingWithBerbinar" class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0">Mulai
-                        Sekarang</a>
+                    <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="0">
+                        Mulai Sekarang
+                    </button>
                 </div>
             </div>
         </div>
