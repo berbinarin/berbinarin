@@ -609,7 +609,7 @@ class LandingController extends Controller
 
     public function hiringPositions()
     {
-        $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->get();
+        $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->where('is_active', true)->get();
         $HiringPositionsJobDescription = Hiring_Positions_Job_Descriptions::all();
         $Hiring_Positions_Requirement = Hiring_Positions_Requirements::all();
 
