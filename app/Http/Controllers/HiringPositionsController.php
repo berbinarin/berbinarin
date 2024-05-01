@@ -133,4 +133,36 @@ class HiringPositionsController extends Controller
             return redirect("/dashboard/admin/positions");
         }
     }
+
+    /**
+     * Set activation status.
+     */
+    public function setActivation(string $id)
+    {
+        //
+        try{
+
+            $HiringPositions = Hiring_Positions::find($id);
+            if (!$HiringPositions) {
+                throw new \Exception('Data tidak ditemukan.'); // Atau gunakan jenis Exception yang sesuai
+            }
+
+            $HiringPositions->is_active = !($HiringPositions->is_active);
+            $HiringPositions->save();
+
+            if($HiringPositions->is_active){
+                Alert::success('Success ', 'Posisi berhasil diaktifkan!');
+            }else{
+                Alert::success('Success ', 'Posisi berhasil dinonaktifkan!');
+            }
+
+    
+            return redirect("/dashboard/admin/positions");
+        }catch(\Exception $e){
+            Alert::error('Error', 'Terjadi kesalahan saat mengubah data: ' . $e->getMessage());
+
+
+            return redirect("/dashboard/admin/positions");
+        }
+    }
 }
