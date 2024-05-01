@@ -46,7 +46,8 @@ class HiringPositionsController extends Controller
                 "type"=>$validated["type"],
                 "positions"=>$validated["positions"],
                 "location"=>$validated["location"],
-                "link"=>$validated["link"]
+                "link"=>$validated["link"],
+                "is_active" => true
             ]);
     
             Alert::success('Success ', 'Data Berhasil Masuk');
