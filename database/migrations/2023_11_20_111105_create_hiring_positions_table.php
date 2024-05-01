@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum("positions",["Staff","Manager","Researcher"]);
             $table->enum("location",["Remote","Surabaya"]);
             $table->string("link");
+            $table->boolean("is_active")->default(true);
 
             $table->timestamps();
         });
