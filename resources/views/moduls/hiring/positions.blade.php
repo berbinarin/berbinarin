@@ -82,7 +82,7 @@
 </section>
 
 <div id="modal" class="modal hidden">
-    <div class="modal-content m-10 md:max-w-5xl flex flex-col gap-5">
+    <div class="modal-content mt-10 mx-5 md:max-w-5xl flex flex-col gap-5">
         <div class="flex flex-col gap-1">
             <h5 class="text-black text-2xl" id="modal-name"></h5>
             <div class="flex flex-row items-center gap-2 text-base">
