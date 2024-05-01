@@ -20,9 +20,7 @@
                 <h1 class="font-semibold text-black text-[40px] md:text-[64px] leading-[100%] md:leading-[120%]">
                     Temukan Potensi <br> Anda di <span class="text-primary font-bold">Berbinar Careers !!</span>
                 </h1>
-                <p class="text-lg text-disabled">Berbinar careers hadir untuk memberikan informasi mengenai lowongan
-                    pekerjaan yang tersedia untuk anda tempati. Pilih posisi yang anda inginkan dan bergabung untuk menjadi
-                    bagian dari kami.</p>
+                <p class="text-lg text-disabled">Berbinar Careers hadir sebagai jawaban untuk anda yang ingin mencoba bekerja di dunia professional, mengembangkan kompetensi yang dimiliki, dan membangun relasi untuk modal di masa depan. Pilih posisi yang anda inginkan dan bergabung untuk menjadi bagian dari Berbinar.</p>
                 <a href="{{ route('hiringPositions') }}"
                     class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 mb-10 w-fit">Lihat
                     Posisi Tersedia</a>
