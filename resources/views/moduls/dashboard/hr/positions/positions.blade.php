@@ -63,7 +63,15 @@
                                                 <i class='bx bxs-trash-alt text-white'></i>
                                             </button>
                                         </form>
-
+                                        <form action="{{ route('HiringPositions.setActivation', $item->id) }}"  method="post">
+                                            @csrf
+                                            @method("PATCH")
+                                            <input type="hidden" name="id">
+                                            <button type="submit"
+                                                class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-gray-500 hover:bg-gray-600 focus:outline-none rounded">
+                                                <i class='bx bx-show text-white'></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @empty
