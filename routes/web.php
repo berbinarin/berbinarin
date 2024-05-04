@@ -83,6 +83,7 @@ Route::post("/login", [AuthController::class, 'Login']);
 Route::post("/logout", [AuthController::class, 'Logout']);
 Route::resource('user', UserController::class);
 Route::resource('HiringPositions', HiringPositionsController::class);
+Route::patch('/dashboard/admin/positions/activate/{id}', [HiringPositionsController::class, 'setActivation'])->name('HiringPositions.setActivation');
 Route::resource('JobDecription',HiringPositionsJobDescriptionController::class);
 Route::resource('Position-Requirement', HiringPositionsRequirementsController::class);
 Route::resource('General-Requirement', HiringGeneralRequirementsController::class);
