@@ -12,17 +12,17 @@ class Question extends Model
     use HasFactory;
     protected $table = 'questions';
 
-    protected $fillable = ['question_text', 'dimension_id'];
+    protected $fillable = ['rn', 'question_text', 'dimension_id'];
 
     // Relasi dengan Dimension
     public function dimension()
     {
-        return $this->belongsTo(Dimension::class);
+        return $this->belongsTo(Dimension::class, 'dimension_id');
     }
 
     // Relasi One-to-Many dengan TestQuestion
     public function testQuestions()
     {
-        return $this->hasMany(TestQuestion::class);
+        return $this->hasMany(TestQuestion::class, 'question_id');
     }
 }

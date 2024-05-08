@@ -15,14 +15,14 @@ class Feedback extends Model
     protected $fillable = [
         'user_id',
         'experience',
-        'suggestions',
         'opinion',
+        'suggestions',
         'social_share',
     ];
 
     // Relasi dengan User
     public function user()
     {
-        return $this->belongsTo(UserPiskotest::class);
+        return $this->belongsTo(UserPiskotest::class, 'user_id');
     }
 }

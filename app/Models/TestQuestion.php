@@ -22,18 +22,18 @@ class TestQuestion extends Model
     // Relasi dengan Test
     public function test()
     {
-        return $this->belongsTo(Test::class);
+        return $this->belongsTo(Test::class, 'test_id');
     }
 
     // Relasi dengan Question
     public function question()
     {
-        return $this->belongsTo(Question::class);
+        return $this->belongsTo(Question::class, 'question_id');
     }
 
     // Relasi One-to-Many dengan Answer
     public function answers()
     {
-        return $this->hasMany(Answer::class);
+        return $this->hasMany(Answer::class, 'test_question_id');
     }
 }

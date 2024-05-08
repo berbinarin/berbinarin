@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users_psikotest');
-            $table->text('experience');
-            $table->text('opinion');
-            $table->text('suggestion');
-            $table->text('social_share');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('experience')->nullable();
+            $table->string('opinion')->nullable();
+            $table->string('suggestion')->nullable();
+            $table->string('social_share')->nullable();
             $table->timestamps();
         });
     }

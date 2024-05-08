@@ -23,18 +23,24 @@ class Test extends Model
     // Relasi dengan User
     public function user()
     {
-        return $this->belongsTo(UserPiskotest::class);
+        return $this->belongsTo(UserPiskotest::class, 'user_id');
     }
 
     // Relasi One-to-Many dengan Test_Question
     public function testQuestions()
     {
-        return $this->hasMany(TestQuestion::class);
+        return $this->hasMany(TestQuestion::class, 'test_id');
     }
 
     // Relasi One-to-One dengan Result
-    public function result()
+    public function results()
     {
-        return $this->hasOne(Result::class);
+        return $this->hasOne(Result::class, 'test_id');
+    }
+
+    // Relasi One-to-Many dengan Dimension_Scores
+    public function dimensionScores()
+    {
+        return $this->hasMany(DimensionScore::class, 'test_id');
     }
 }

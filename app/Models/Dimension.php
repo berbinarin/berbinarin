@@ -18,12 +18,12 @@ class Dimension extends Model
     // Relasi One-to-Many dengan Question
     public function questions()
     {
-        return $this->hasMany(Question::class);
+        return $this->hasMany(Question::class, 'dimension_id');
     }
 
     // Relasi One-to-Many dengan Dimension_Scores
     public function dimensionScores()
     {
-        return $this->hasMany(DimensionScore::class);
+        return $this->hasMany(DimensionScore::class, 'dimension_id');
     }
 }

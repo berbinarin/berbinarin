@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->text('question_text');
-            $table->foreignId('dimension_id')->constrained('dimensions');
+            $table->string('rn');
+            $table->string('question_text');
+            $table->foreignId('dimension_id')->constrained('dimensions')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -22,12 +22,12 @@ class Answer extends Model
     // Relasi dengan User
     public function user()
     {
-        return $this->belongsTo(UserPiskotest::class);
+        return $this->belongsTo(UserPiskotest::class, 'user_id');
     }
 
     // Relasi dengan TestQuestion
     public function testQuestion()
     {
-        return $this->belongsTo(TestQuestion::class);
+        return $this->belongsTo(TestQuestion::class, 'test_question_id');
     }
 }

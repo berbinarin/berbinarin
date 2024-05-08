@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users_psikotest');
-            $table->foreignId('test_id')->constrained('tests');
+            $table->foreignId('test_id')->constrained('tests')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('result_score');
-            $table->text('result_summary');
+            $table->string('result_summary')->nullable();
             $table->timestamps();
         });
     }

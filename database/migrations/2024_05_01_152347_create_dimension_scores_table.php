@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('dimension_scores', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users_psikotest');
-            $table->foreignId('dimension_id')->constrained('dimensions');
+            $table->foreignId('test_id')->constrained('tests')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('dimension_id')->constrained('dimensions')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('score');
             $table->timestamps();
         });

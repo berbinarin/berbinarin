@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('dimensions', function (Blueprint $table) {
             $table->id();
-            $table->enum('name', ['extraversion', 'agreeableness', 'conscientiousness', 'neuroticism', 'openness']);
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }
