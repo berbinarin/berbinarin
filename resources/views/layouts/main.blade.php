@@ -37,18 +37,14 @@
 
 <body class="relative overflow-x-hidden w-full">
     @if ($page != 'Kontak' && $page != 'Work With Us' && $page != 'Coming Soon')
-        <img src="{{ asset('assets/images/elipse-berbinar-1.png') }}" title="Decoration" alt="Decoration"
-            class="w-full absolute top-[70vh] md:-top-16" />
     @endif
 
     @if ($page == 'Konseling' && $page != 'Work With Us' && $page != 'Coming Soon')
-        <img src="{{ asset('assets/images/elipse-berbinar-1.png') }}" title="Decoration" alt="Decoration"
-            class="w-full absolute top-[270vh]" />
     @endif
 
     @include('layouts.navbar')
 
-    <main class="w-full bg-white font-plusJakartaSans gap-12 flex flex-col relative">
+    <main class="w-full bg-white font-plusJakartaSans flex flex-col relative">
         @yield('content')
     </main>
 
@@ -59,13 +55,9 @@
     @include('layouts.footer')
 
     @if ($page != 'Kontak' && $page != 'Work With Us' && $page != 'Coming Soon')
-        <img src="{{ asset('assets/images/elipse-berbinar-2.png') }}" title="Decoration" alt="Decoration"
-            class="w-[500px] absolute top-[200vh] @if ($page == 'Produk Berbinar') top-[300vh] @endif @if ($page === 'Hiring') top-[320vh] @endif object-fill" />
     @endif
 
     @if ($page == 'Work With Us' || $page == 'Coming Soon')
-        <img src="{{ asset('assets/images/elipse-berbinar-4.png') }}" title="Decoration" alt="Decoration"
-            class="w-[1100px] object-fill absolute bottom-0 right-0 z-20" />
     @endif
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
