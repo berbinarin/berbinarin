@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     @if ($page === 'Produk Berbinar')
-        <link rel="stylesheet" href="{{ asset('assets/css/products.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/products.css') }}">
     @endif
 
     <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
     @vite('resources/css/app.css')
     @if ($page === 'Tentang Kami' || $active === 'Hiring' || $page === 'Konseling')
-        <link rel="stylesheet" href="{{ asset('assets/css/about.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/about.css') }}">
     @endif
 </head>
 
@@ -37,35 +37,27 @@
 
 <body class="relative overflow-x-hidden w-full">
     @if ($page != 'Kontak' && $page != 'Work With Us' && $page != 'Coming Soon')
-        <img src="{{ asset('assets/images/elipse-berbinar-1.png') }}" title="Decoration" alt="Decoration"
-            class="w-full absolute top-[70vh] md:-top-16" />
     @endif
 
     @if ($page == 'Konseling' && $page != 'Work With Us' && $page != 'Coming Soon')
-        <img src="{{ asset('assets/images/elipse-berbinar-1.png') }}" title="Decoration" alt="Decoration"
-            class="w-full absolute top-[270vh]" />
     @endif
 
     @include('layouts.navbar')
 
-    <main class="w-full bg-white font-plusJakartaSans gap-12 flex flex-col relative">
+    <main class="w-full bg-white font-plusJakartaSans flex flex-col relative">
         @yield('content')
     </main>
 
     @if ($page != 'Work With Us' && $page != 'Coming Soon')
-        @include('layouts.cta')
+    @include('layouts.cta')
     @endif
 
     @include('layouts.footer')
 
     @if ($page != 'Kontak' && $page != 'Work With Us' && $page != 'Coming Soon')
-        <img src="{{ asset('assets/images/elipse-berbinar-2.png') }}" title="Decoration" alt="Decoration"
-            class="w-[500px] absolute top-[200vh] @if ($page == 'Produk Berbinar') top-[300vh] @endif @if ($page === 'Hiring') top-[320vh] @endif object-fill" />
     @endif
 
     @if ($page == 'Work With Us' || $page == 'Coming Soon')
-        <img src="{{ asset('assets/images/elipse-berbinar-4.png') }}" title="Decoration" alt="Decoration"
-            class="w-[1100px] object-fill absolute bottom-0 right-0 z-20" />
     @endif
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -75,11 +67,11 @@
     </script>
 
     @if ($page === 'Produk Berbinar')
-        <script src="{{ asset('assets/js/products.js') }}"></script>
+    <script src="{{ asset('assets/js/products.js') }}"></script>
     @endif
 
     @if ($page === 'Tentang Kami' || $page === 'Hiring' || $page === 'Konseling')
-        <script src="{{ asset('assets/js/about.js') }}"></script>
+    <script src="{{ asset('assets/js/about.js') }}"></script>
     @endif
     @include('sweetalert::alert')
 

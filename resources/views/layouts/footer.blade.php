@@ -62,10 +62,11 @@
         </div>
     </div>
     <div class="flex gap-5 items-center justify-between mt-5 max-w-6xl mx-auto">
-        <p class="text-base text-disabled"> <a href="{{ route('cw') }}">Copyright © 2024 Berbinar Insightful Indonesia</a></p> 
+        <p class="text-base text-disabled"> Copyright © 2024 Berbinar Insightful Indonesia</p>
         <p class="text-disabled">
-            All Rights Reserved | <a href="{{ route('toc') }}">Terms and Conditions</a> | <a
-                href="{{ route('pp') }}">Privacy Policy</a>
+            <a href="https://berbinar.in/credit-web">Behind The Web</a> | All Rights Reserved | <a
+                href="https://berbinar.in/term-condition">Terms and Conditions</a> | <a
+                href="https://berbinar.in/privacy-policy">Privacy Policy</a>
         </p>
     </div>
 </footer>
