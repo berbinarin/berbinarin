@@ -10,7 +10,7 @@ class konseling_PeerKonselor extends Model
     use HasFactory;
     protected $table = 'konseling_peer_konseling';
 
-    protected $fillable = ['jadwal_peer_konseling_id','pelaksanaan','persetujuan-pengisian-data','user_detail_id','hal-yang-dikonsultasikan','hobi/kegemaran','kegiatan-luar-rumah/kegiatan-sosial'];
+    protected $fillable = ['jadwal_peer_konseling_id', 'pelaksanaan', 'persetujuan-pengisian-data', 'user_detail_id', 'hal-yang-dikonsultasikan', 'hobi/kegemaran', 'kegiatan-luar-rumah/kegiatan-sosial'];
 
     public function userDetail()
     {
@@ -19,7 +19,6 @@ class konseling_PeerKonselor extends Model
 
     public function JadwalPeerKonseling()
     {
-        return $this->belongsTo(JadwalPeerKonseling::class,'jadwal_peer_konseling_id');
+        return $this->belongsTo(JadwalPeerKonseling::class, 'jadwal_peer_konseling_id');
     }
-  
 }
