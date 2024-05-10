@@ -7,7 +7,7 @@
 @section('content')
     {{-- HERO SECTION --}}
         <div class="new-div flex items-start justify-star" style="margin-top: 125px; margin-bottom: 25px; margin-left: 20px;">
-            <h2 class="text-4xl font-bold text-primary">Web Developer Staff</h2>
+            <h2 class="text-4xl font-bold text-primary">Web & Mobile Apps Developer Staff</h2>
         </div>
 
     {{-- <div class="max-w-6xl mx-auto md:h-screen flex flex-col md:flex-row items-center justify-center relative px-5 md:px-0" style="margin-top: 50px; "> --}}
