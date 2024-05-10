@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\TestQuestion;
-use App\Models\UserPiskotest;
+use App\Models\Test;
+use App\Models\Question;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -12,22 +12,15 @@ class Answer extends Model
     use HasFactory;
 
     protected $table = 'answers';
+    protected $fillable = ['answer', 'question_id', 'test_id'];
 
-    protected $fillable = [
-        'test_question_id',
-        'user_id',
-        'answer_text',
-    ];
-
-    // Relasi dengan User
-    public function user()
+    public function question()
     {
-        return $this->belongsTo(UserPiskotest::class, 'user_id');
+        return $this->belongsTo(Question::class, 'question_id'); // Relasi ke questions
     }
 
-    // Relasi dengan TestQuestion
-    public function testQuestion()
+    public function test()
     {
-        return $this->belongsTo(TestQuestion::class, 'test_question_id');
+        return $this->belongsTo(Test::class, 'test_id'); // Relasi ke tests
     }
 }

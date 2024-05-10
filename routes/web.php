@@ -7,8 +7,11 @@ use App\Http\Controllers\HiringPositionsController;
 use App\Http\Controllers\HiringPositionsJobDescriptionController;
 use App\Http\Controllers\HiringPositionsRequirementsController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\testGratisController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserPsikotestController;
 use App\Models\Hiring_Positions_Job_Descriptions;
 use App\Models\HiringGeneralRequirement;
 use Illuminate\Support\Facades\Route;
@@ -77,21 +80,21 @@ Route::get('/psikotest/hasiltes', [LandingController::class, 'psikotestHasilTest
 Route::get('/careers', [LandingController::class, 'hiring'])->name('hiring');
 Route::get('/careers/positions', [LandingController::class, 'hiringPositions'])->name('hiringPositions');
 
-Route::get('/HalamanRegister',[AuthController::class, 'HalamanRegister']);
+Route::get('/HalamanRegister', [AuthController::class, 'HalamanRegister']);
 Route::post("/register", [AuthController::class, 'Register']);
 Route::post("/login", [AuthController::class, 'Login']);
 Route::post("/logout", [AuthController::class, 'Logout']);
 Route::resource('user', UserController::class);
 Route::resource('HiringPositions', HiringPositionsController::class);
 Route::patch('/dashboard/admin/positions/activate/{id}', [HiringPositionsController::class, 'setActivation'])->name('HiringPositions.setActivation');
-Route::resource('JobDecription',HiringPositionsJobDescriptionController::class);
+Route::resource('JobDecription', HiringPositionsJobDescriptionController::class);
 Route::resource('Position-Requirement', HiringPositionsRequirementsController::class);
 Route::resource('General-Requirement', HiringGeneralRequirementsController::class);
 
 
 Route::get('/dashboard/login', [DashboardController::class, 'login'])->name('dashboard.login');
 
-Route::group(['middleware'=>['auth']],function(){
+Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/admin/faqs', [DashboardController::class, 'faqs'])->name('dashboard.faqs');
 
@@ -124,5 +127,22 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/dashboard/admin/positions/requirements/edit/{id}', [DashboardController::class, 'editRequirements']);
     Route::get('/psikotes', [testGratisController::class, 'hitungPoint'])->name('psikotes.testGratis');
     Route::get('/createSoalpsikotes', [testGratisController::class, 'simpanSoal'])->name('psikote.soal');
-
 });
+
+// Rute untuk menampilkan daftar tes
+Route::get('/tests', [TestController::class, 'index'])->name('test.index');
+
+// Rute untuk memulai tes dan mengarahkan ke soal pertama
+Route::post('/tests', [TestController::class, 'store'])->name('test.store');
+
+// Rute untuk menampilkan pertanyaan berdasarkan urutan
+Route::get('/tests/{test_id}/questions/{question_order}', [QuestionController::class, 'show'])->name('question.show');
+
+// Rute untuk menyimpan jawaban dari pertanyaan
+Route::post('/tests/{test_id}/questions/{question_order}', [QuestionController::class, 'storeAnswer'])->name('question.storeAnswer');
+
+// Rute untuk menampilkan formulir biodata
+Route::get('/tests/{test_id}/biodata', [UserPsikotestController::class, 'show'])->name('biodata.show');
+
+// Rute untuk menyimpan biodata ke database
+Route::post('/tests/{test_id}/biodata', [UserPsikotestController::class, 'store'])->name('biodata.store');

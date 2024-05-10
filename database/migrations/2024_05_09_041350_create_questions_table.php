@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->string('rn');
+            $table->enum('rn', ['R', 'N']);
             $table->string('question_text');
-            $table->foreignId('dimension_id')->constrained('dimensions')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('dimension_id')->constrained('dimensions')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

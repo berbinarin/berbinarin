@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Answer;
 use App\Models\Result;
-use App\Models\TestQuestion;
-use App\Models\UserPiskotest;
+use App\Models\Question;
+use App\Models\UserPsikotest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -13,34 +14,25 @@ class Test extends Model
     use HasFactory;
 
     protected $table = 'tests';
+    protected $fillable = ['test_date'];
 
-    protected $fillable = [
-        'test_date',
-        'user_id',
-    ];
-
-
-    // Relasi dengan User
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(UserPiskotest::class, 'user_id');
+        return $this->hasMany(UserPsikotest::class, 'test_id'); // Relasi dengan users
     }
 
-    // Relasi One-to-Many dengan Test_Question
-    public function testQuestions()
+    public function questions()
     {
-        return $this->hasMany(TestQuestion::class, 'test_id');
+        return $this->hasMany(Question::class, 'test_id'); // Relasi dengan questions
     }
 
-    // Relasi One-to-One dengan Result
+    public function answers()
+    {
+        return $this->hasMany(Answer::class, 'test_id'); // Relasi dengan answer
+    }
+
     public function results()
     {
-        return $this->hasOne(Result::class, 'test_id');
-    }
-
-    // Relasi One-to-Many dengan Dimension_Scores
-    public function dimensionScores()
-    {
-        return $this->hasMany(DimensionScore::class, 'test_id');
+        return $this->hasOne(Result::class, 'test_id'); // Relasi dengan results
     }
 }

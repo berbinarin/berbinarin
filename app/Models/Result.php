@@ -11,17 +11,10 @@ class Result extends Model
     use HasFactory;
 
     protected $table = 'results';
+    protected $fillable = ['test_id', 'result_score', 'result_summary'];
 
-    protected $fillable = [
-        'test_id',
-        'user_id',
-        'result_score',
-        'result_summary',
-    ];
-
-    // Relasi dengan Test
     public function test()
     {
-        return $this->belongsTo(Test::class, 'test_id');
+        return $this->belongsTo(Test::class, 'test_id'); // Relasi ke tests
     }
 }
