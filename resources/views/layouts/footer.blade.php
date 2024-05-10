@@ -66,6 +66,7 @@
         <p class="text-disabled">
         <a href="{{ route('cw') }}">Behind The Web</a> | All Rights Reserved | <a href="{{ route('toc') }}">Terms and Conditions</a> | <a
                 href="{{ route('pp') }}">Privacy Policy</a>
+
         </p>
     </div>
 </footer>

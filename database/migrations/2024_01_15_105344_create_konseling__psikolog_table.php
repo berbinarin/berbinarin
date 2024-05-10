@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('konseling_psikolog', function (Blueprint $table) {
             $table->id();
             $table->date("jadwal_konseling");
-            $table->enum("pelaksanaan" ,['online','offline( layanan untuk Kota Surabaya )']);
-            $table->enum("persetujuan_pengisian_data" ,['setuju','tidak setuju']);
+            $table->enum("pelaksanaan", ['online', 'offline( layanan untuk Kota Surabaya )']);
+            $table->enum("persetujuan_pengisian_data", ['setuju', 'tidak setuju']);
             $table->unsignedBigInteger("user_detail_id");
             $table->string("hal_yang_dikonsultasikan");
             $table->string("hobi_kegemaran");

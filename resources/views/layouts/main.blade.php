@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     @if ($page === 'Produk Berbinar')
-        <link rel="stylesheet" href="{{ asset('assets/css/products.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/products.css') }}">
     @endif
 
     <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
     @vite('resources/css/app.css')
     @if ($page === 'Tentang Kami' || $active === 'Hiring' || $page === 'Konseling')
-        <link rel="stylesheet" href="{{ asset('assets/css/about.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/about.css') }}">
     @endif
 </head>
 
@@ -49,7 +49,7 @@
     </main>
 
     @if ($page != 'Work With Us' && $page != 'Coming Soon')
-        @include('layouts.cta')
+    @include('layouts.cta')
     @endif
 
     @include('layouts.footer')
@@ -67,11 +67,11 @@
     </script>
 
     @if ($page === 'Produk Berbinar')
-        <script src="{{ asset('assets/js/products.js') }}"></script>
+    <script src="{{ asset('assets/js/products.js') }}"></script>
     @endif
 
     @if ($page === 'Tentang Kami' || $page === 'Hiring' || $page === 'Konseling')
-        <script src="{{ asset('assets/js/about.js') }}"></script>
+    <script src="{{ asset('assets/js/about.js') }}"></script>
     @endif
     @include('sweetalert::alert')
 
