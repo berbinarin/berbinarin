@@ -49,11 +49,6 @@
             {{ round($result->openness) }}%
         </div>
     </div>
-    {{-- <p>Agreeableness: {{ $result->agreeableness }} %</p>
-    <p>Conscientiousness: {{ $result->conscientiousness }} %</p>
-    <p>Extraversion: {{ $result->extraversion }} %</p>
-    <p>Neuroticism: {{ $result->neuroticism }} %</p>
-    <p>Openness: {{ $result->openness }} %</p> --}}
 
     <form action="{{ route('feedback.show', ['test_id' => $test->id, 'user_id' => $user->id]) }}" method="GET">
         @csrf
