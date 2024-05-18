@@ -9,7 +9,7 @@
     <section
         class="max-w-6xl mx-auto h-screen flex flex-col md:flex-row items-center justify-center relative px-5 md:px-0 mt-28 md:mt-10">
         {{-- HERO IMG MOBILE --}}
-        <img src="https://i.ibb.co/PDBMx5m/webinar.png" alt="Ilustrasi Kelas Berbinar" title="Ilustrasi Kelas Berbinar"
+        <img src="{{ asset('assets/images/product-berbinar/webinar.png') }}" alt="Ilustrasi Kelas Berbinar" title="Ilustrasi Kelas Berbinar"
             class="w-full block md:hidden" data-aos="fade-up" data-aos-duration="1500">
 
         {{-- HERO CONTENT --}}
@@ -30,7 +30,7 @@
         </div>
 
         {{-- HERO IMG DESKTOP --}}
-        <img src="https://i.ibb.co/PDBMx5m/webinar.png" alt="Ilustrasi Kelas Berbinar" title="Ilustrasi Kelas Berbinar"
+        <img src="{{ asset('assets/images/product-berbinar/webinar.png') }}" alt="Ilustrasi Kelas Berbinar" title="Ilustrasi Kelas Berbinar"
             class="w-1/2 hidden md:block" data-aos="fade-left" data-aos-duration="1500">
     </section>
 
@@ -149,7 +149,7 @@
                 },
                 handleToggle() {
                     return this.$store.accordion.tab === this.idx ?
-                        `max-height: ${this.$refs.tab.scrollHeight}px` : '';
+                        max-height: ${this.$refs.tab.scrollHeight}px : '';
                 }
             }));
         })
