@@ -107,13 +107,12 @@ class QuestionController extends Controller
         $presentageAgreeableness = $averageAgreeableness * 100 / 5;
         $presentageConscientiousness = $averageConscientiousness * 100 / 5;
         $presentageExtraversion = $averageExtraversion * 100 / 5;
-        $presentageNeuroticism = $averageExtraversion * 100 / 5;
+        $presentageNeuroticism = $averageNeuroticism * 100 / 5;
         $presentageOpenness = $averageOpenness * 100 / 5;
 
         // Simpan hasil ke dalam database
         Result::create([
             'test_id' => $test_id,
-            // 'user_id' => auth()->id(),
             'agreeableness' => $presentageAgreeableness,
             'conscientiousness' => $presentageConscientiousness,
             'extraversion' => $presentageExtraversion,
@@ -132,7 +131,6 @@ class QuestionController extends Controller
     // Method untuk menghitung nilai terbalik
     private function reverseScore($score)
     {
-        // Rumus nilai terbalik
         switch ($score) {
             case 1:
                 return 5;
@@ -145,7 +143,7 @@ class QuestionController extends Controller
             case 5:
                 return 1;
             default:
-                return 0; // Penanganan untuk nilai yang tidak valid
+                return 0;
         }
     }
 }

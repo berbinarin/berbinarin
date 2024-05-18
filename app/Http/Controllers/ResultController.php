@@ -17,9 +17,7 @@ class ResultController extends Controller
         $user = UserPsikotest::findOrFail($user_id);
 
         // Ambil hasil tes berdasarkan test_id dan user_id
-        $result = Result::where('test_id', $test_id)
-            // ->where('user_id', $user_id)
-            ->firstOrFail();
+        $result = Result::where('test_id', $test_id)->firstOrFail();
 
         // Tampilkan view result/show.blade.php dengan data yang diperlukan
         return view('result.show', compact('test', 'user', 'result'));

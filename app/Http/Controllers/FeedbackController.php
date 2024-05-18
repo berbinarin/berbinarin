@@ -38,6 +38,6 @@ class FeedbackController extends Controller
         ]);
 
         // Redirect ke halaman hasil dengan menyertakan ID tes dan ID user
-        return redirect()->route('test.index', ['test_id' => $test_id, 'user_id' => $user_id]);
+        return redirect()->route('test.index');
     }
 }
