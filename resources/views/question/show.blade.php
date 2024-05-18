@@ -5,10 +5,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
     <title>Pertanyaan</title>
 </head>
 
 <body>
+    <div class="progress mb-4">
+        <div class="progress-bar" role="progressbar" style="width: {{ $progress }}%;"
+            aria-valuenow="{{ $progress }}" aria-valuemin="0" aria-valuemax="100">
+            {{ round($progress) }}%
+        </div>
+    </div>
+
     <h1>Pertanyaan {{ $question_order }}</h1>
 
     <p>{{ $question->question_text }}</p>

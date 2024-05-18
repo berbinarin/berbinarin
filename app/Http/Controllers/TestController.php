@@ -22,6 +22,7 @@ class TestController extends Controller
         $test->save();
 
         // Arahkan ke halaman soal pertama (misalkan /tests/{id}/questions/1)
-        return redirect()->route('question.show', ['test_id' => $test->id, 'question_order' => 1]);
+        // return redirect()->route('biodata.show', ['test_id' => $test->id, 'question_order' => 1]);
+        return redirect()->route('biodata.show', ['test_id' => $test->id]);
     }
 }

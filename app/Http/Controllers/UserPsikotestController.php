@@ -30,7 +30,7 @@ class UserPsikotestController extends Controller
         ]);
 
         // Simpan biodata
-        UserPsikotest::create([
+        $userPsikotest = UserPsikotest::create([
             'name' => $request->input('name'),
             'gender' => $request->input('gender'),
             'date_of_birth' => $request->input('date_of_birth'),
@@ -38,7 +38,10 @@ class UserPsikotestController extends Controller
             'test_id' => $test_id,
         ]);
 
-        // Arahkan ke halaman lain setelah biodata disimpan
-        return redirect()->route('test.index'); // Atau ke halaman lain yang sesuai
+        // Ambil ID user yang baru saja dibuat
+        $user_id = $userPsikotest->id;
+
+        // Arahkan ke halaman hasil dengan menyertakan ID tes dan ID user
+        return redirect()->route('question.show', ['test_id' => $test_id, 'user_id' => $user_id, 'question_order' => 1]);
     }
 }

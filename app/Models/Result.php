@@ -11,7 +11,7 @@ class Result extends Model
     use HasFactory;
 
     protected $table = 'results';
-    protected $fillable = ['test_id', 'result_score', 'result_summary'];
+    protected $fillable = ['test_id', 'agreeableness', 'conscientiousness', 'extraversion', 'neuroticism', 'openness'];
 
     public function test()
     {

@@ -1,20 +1,22 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HiringGeneralRequirementsController;
-use App\Http\Controllers\HiringPositionsController;
-use App\Http\Controllers\HiringPositionsJobDescriptionController;
-use App\Http\Controllers\HiringPositionsRequirementsController;
-use App\Http\Controllers\LandingController;
-use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\TestController;
-use App\Http\Controllers\testGratisController;
 use App\Http\Controllers\UserController;
+use App\Models\HiringGeneralRequirement;
+use App\Http\Controllers\ResultController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\testGratisController;
 use App\Http\Controllers\UserPsikotestController;
 use App\Models\Hiring_Positions_Job_Descriptions;
-use App\Models\HiringGeneralRequirement;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HiringPositionsController;
+use App\Http\Controllers\HiringGeneralRequirementsController;
+use App\Http\Controllers\HiringPositionsRequirementsController;
+use App\Http\Controllers\HiringPositionsJobDescriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -129,20 +131,18 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/createSoalpsikotes', [testGratisController::class, 'simpanSoal'])->name('psikote.soal');
 });
 
-// Rute untuk menampilkan daftar tes
+// MODUL PSIKOTEST FREE
 Route::get('/tests', [TestController::class, 'index'])->name('test.index');
-
-// Rute untuk memulai tes dan mengarahkan ke soal pertama
 Route::post('/tests', [TestController::class, 'store'])->name('test.store');
 
-// Rute untuk menampilkan pertanyaan berdasarkan urutan
 Route::get('/tests/{test_id}/questions/{question_order}', [QuestionController::class, 'show'])->name('question.show');
-
-// Rute untuk menyimpan jawaban dari pertanyaan
 Route::post('/tests/{test_id}/questions/{question_order}', [QuestionController::class, 'storeAnswer'])->name('question.storeAnswer');
 
-// Rute untuk menampilkan formulir biodata
 Route::get('/tests/{test_id}/biodata', [UserPsikotestController::class, 'show'])->name('biodata.show');
-
-// Rute untuk menyimpan biodata ke database
 Route::post('/tests/{test_id}/biodata', [UserPsikotestController::class, 'store'])->name('biodata.store');
+
+Route::get('/results/{test_id}/{user_id}', [ResultController::class, 'show'])->name('result.show');
+Route::get('/results/{test_id}/{user_id}/feedback', [ResultController::class, 'redirectToFeedback'])->name('result.toFeedback');
+
+Route::get('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'show'])->name('feedback.show');
+Route::post('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'store'])->name('feedback.store');

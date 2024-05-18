@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('results', function (Blueprint $table) {
             $table->id();
             $table->foreignId('test_id')->constrained('tests')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('result_score');
-            $table->string('result_summary')->nullable();
+            $table->integer('agreeableness');
+            $table->integer('conscientiousness');
+            $table->integer('extraversion');
+            $table->integer('neuroticism');
+            $table->integer('openness');
             $table->timestamps();
         });
     }
