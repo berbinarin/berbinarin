@@ -135,11 +135,11 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/tests', [TestController::class, 'index'])->name('test.index');
 Route::post('/tests', [TestController::class, 'store'])->name('test.store');
 
-Route::get('/tests/{test_id}/questions/{question_order}', [QuestionController::class, 'show'])->name('question.show');
-Route::post('/tests/{test_id}/questions/{question_order}', [QuestionController::class, 'storeAnswer'])->name('question.storeAnswer');
-
 Route::get('/tests/{test_id}/biodata', [UserPsikotestController::class, 'show'])->name('biodata.show');
 Route::post('/tests/{test_id}/biodata', [UserPsikotestController::class, 'store'])->name('biodata.store');
+
+Route::get('/tests/{test_id}/questions/{question_order}', [QuestionController::class, 'show'])->name('question.show');
+Route::post('/tests/{test_id}/questions/{question_order}', [QuestionController::class, 'storeAnswer'])->name('question.storeAnswer');
 
 Route::get('/results/{test_id}/{user_id}', [ResultController::class, 'show'])->name('result.show');
 Route::get('/results/{test_id}/{user_id}/feedback', [ResultController::class, 'redirectToFeedback'])->name('result.toFeedback');

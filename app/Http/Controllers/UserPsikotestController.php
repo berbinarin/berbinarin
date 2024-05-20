@@ -11,6 +11,11 @@ class UserPsikotestController extends Controller
     // Menampilkan formulir untuk mengisi biodata
     public function show($test_id)
     {
+        // Verifikasi sesi untuk test_id
+        if (!session()->has('test_id') || session('test_id') != $test_id) {
+            return redirect()->route('test.index');
+        }
+
         // Ambil data tes berdasarkan `test_id`
         $test = Test::findOrFail($test_id);
 
@@ -40,6 +45,9 @@ class UserPsikotestController extends Controller
 
         // Ambil ID user yang baru saja dibuat
         $user_id = $userPsikotest->id;
+
+        // Simpan user_id ke dalam session
+        session()->put('user_id', $user_id);
 
         // Arahkan ke halaman hasil dengan menyertakan ID tes dan ID user
         return redirect()->route('question.show', ['test_id' => $test_id, 'user_id' => $user_id, 'question_order' => 1]);

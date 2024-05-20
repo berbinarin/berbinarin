@@ -13,6 +13,7 @@
     <h1>Test Result</h1>
     <p>Test ID: {{ $test->id }}</p>
     <p>User ID: {{ $user->id }}</p>
+    <p>User Name: {{ $user->name }}</p>
 
     <div class="progress mb-4">
         Agreeableness:

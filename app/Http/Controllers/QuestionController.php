@@ -11,13 +11,16 @@ use Illuminate\Http\Request;
 
 class QuestionController extends Controller
 {
-    // Menampilkan pertanyaan berdasarkan urutan dan ID tes
     public function show($test_id, $question_order)
     {
-        // Ambil pertanyaan berdasarkan urutan
+        // Verifikasi sesi untuk test_id
+        if (!session()->has('test_id') || session('test_id') != $test_id) {
+            return redirect()->route('test.index');
+        }
+
         $question = Question::where('id', $question_order)->firstOrFail();
 
-        // Hitung progress
+        // Hitung progressbar soal
         $totalQuestions = 44;
         $progress = ($question_order / $totalQuestions) * 100;
 
@@ -27,12 +30,10 @@ class QuestionController extends Controller
     // Menyimpan jawaban dan mengarahkan ke pertanyaan berikutnya
     public function storeAnswer(Request $request, $test_id, $question_order)
     {
-        // Validasi jawaban (antara 1 dan 5)
         $request->validate([
             'answer' => 'required|integer|min:1|max:5',
         ]);
 
-        // Simpan jawaban ke dalam database
         $question = Question::where('id', $question_order)->firstOrFail();
         Answer::create([
             'answer' => $request->input('answer'),
@@ -43,13 +44,12 @@ class QuestionController extends Controller
         // Arahkan ke pertanyaan berikutnya atau halaman lain
         $next_question_order = $question_order + 1;
 
-        if ($next_question_order > 44) { // Jika sudah pertanyaan terakhir
+        if ($next_question_order > 44) {
             // Hitung hasil tes dan simpan ke dalam tabel results
             $this->calculateAndStoreResult($test_id);
 
             $user_id = UserPsikotest::where('test_id', $test_id)->firstOrFail()->id;
 
-            // Arahkan ke halaman hasil atau halaman lain yang sesuai
             return redirect()->route('result.show', ['test_id' => $test_id, 'user_id' => $user_id]);
         }
 
@@ -60,10 +60,8 @@ class QuestionController extends Controller
     // Method untuk menghitung hasil dan menyimpan ke dalam tabel results
     private function calculateAndStoreResult($test_id)
     {
-        // Ambil semua jawaban untuk test_id tertentu
         $answers = Answer::where('test_id', $test_id)->get();
 
-        // Inisialisasi variabel untuk menyimpan hasil perhitungan
         $agreeablenessScore = 0;
         $conscientiousnessScore = 0;
         $extraversionScore = 0;
@@ -73,12 +71,10 @@ class QuestionController extends Controller
         foreach ($answers as $answer) {
             $question = Question::find($answer->question_id);
 
-            // Tentukan skor jawaban, dengan mempertimbangkan apakah pertanyaannya terbalik
             $score = $this->isReversedQuestion($question->id)
                 ? $this->reverseScore($answer->answer)
                 : $answer->answer;
 
-            // Tambahkan skor ke dimensi yang sesuai berdasarkan kategori pertanyaan
             switch ($question->dimension_id) {
                 case 1:
                     $agreeablenessScore += $score;
@@ -98,26 +94,27 @@ class QuestionController extends Controller
             }
         }
 
+        // Hitung rata-rata skor
         $averageAgreeableness = $agreeablenessScore / 9;
         $averageConscientiousness = $conscientiousnessScore / 9;
         $averageExtraversion = $extraversionScore / 8;
         $averageNeuroticism = $neuroticismScore / 8;
         $averageOpenness = $opennessScore / 10;
 
-        $presentageAgreeableness = $averageAgreeableness * 100 / 5;
-        $presentageConscientiousness = $averageConscientiousness * 100 / 5;
-        $presentageExtraversion = $averageExtraversion * 100 / 5;
-        $presentageNeuroticism = $averageNeuroticism * 100 / 5;
-        $presentageOpenness = $averageOpenness * 100 / 5;
+        // Hitung persentase
+        $percentageAgreeableness = $averageAgreeableness * 100 / 5;
+        $percentageConscientiousness = $averageConscientiousness * 100 / 5;
+        $percentageExtraversion = $averageExtraversion * 100 / 5;
+        $percentageNeuroticism = $averageNeuroticism * 100 / 5;
+        $percentageOpenness = $averageOpenness * 100 / 5;
 
-        // Simpan hasil ke dalam database
         Result::create([
             'test_id' => $test_id,
-            'agreeableness' => $presentageAgreeableness,
-            'conscientiousness' => $presentageConscientiousness,
-            'extraversion' => $presentageExtraversion,
-            'neuroticism' => $presentageNeuroticism,
-            'openness' => $presentageOpenness,
+            'agreeableness' => $percentageAgreeableness,
+            'conscientiousness' => $percentageConscientiousness,
+            'extraversion' => $percentageExtraversion,
+            'neuroticism' => $percentageNeuroticism,
+            'openness' => $percentageOpenness,
         ]);
     }
 
