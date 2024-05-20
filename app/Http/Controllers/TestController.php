@@ -8,21 +8,21 @@ use Illuminate\Support\Carbon;
 
 class TestController extends Controller
 {
-    // Menampilkan halaman daftar tes
     public function index()
     {
-        return view('test.index'); // Pastikan file view ini ada
+        return view('test.index');
     }
 
     // Membuat entri tes baru dengan tanggal saat ini dan mengarahkan ke halaman soal pertama
     public function store(Request $request)
     {
         $test = new Test();
-        $test->test_date = Carbon::now(); // Menggunakan Carbon untuk waktu sekarang
+        $test->test_date = Carbon::now();
         $test->save();
 
-        // Arahkan ke halaman soal pertama (misalkan /tests/{id}/questions/1)
-        // return redirect()->route('biodata.show', ['test_id' => $test->id, 'question_order' => 1]);
+        // buatkan session untuk menyimpan ID tes
+        $request->session()->put('test_id', $test->id);
+
         return redirect()->route('biodata.show', ['test_id' => $test->id]);
     }
 }
