@@ -8,19 +8,24 @@ use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
 {
+    // Menampilkan formulir untuk mengisi feedback
     public function show($test_id, $user_id)
     {
+        // Verifikasi session untuk test_id
         if (!session()->has('test_id') || session('test_id') != $test_id) {
             return redirect()->route('test.index');
         }
 
+        // Ambil data user berdasarkan `user_id`
         $user = UserPsikotest::findOrFail($user_id);
 
         return view('feedback.show', compact('test_id', 'user_id', 'user'));
     }
 
+    // Menyimpan feedback ke dalam database dan mengarahkan ke halaman hasil
     public function store(Request $request, $test_id, $user_id)
     {
+        // Verifikasi session untuk test_id
         if (!session()->has('test_id') || session('test_id') != $test_id) {
             return redirect()->route('test.index');
         }
@@ -40,10 +45,6 @@ class FeedbackController extends Controller
             'social_share' => $request->input('social_share'),
         ]);
 
-        // Hapus session
-        session()->forget('test_id');
-        session()->forget('user_id');
-
-        return redirect()->route('test.index');
+        return redirect()->route('result.show', ['test_id' => $test_id, 'user_id' => $user_id]);
     }
 }

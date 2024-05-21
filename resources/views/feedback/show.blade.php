@@ -1,32 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- resources/views/feedback/show.blade.php -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Form</title>
-</head>
+@extends('layouts.app')
 
-<body>
-    <h2>Feedback Form</h2>
-
-    <form action="{{ route('feedback.store', ['user_id' => $user_id, 'test_id' => $test_id]) }}" method="POST">
-        @csrf
-
-        <label for="experience">Pengalaman:</label><br>
-        <textarea name="experience" id="experience" rows="3"></textarea><br><br>
-
-        <label for="opinion">Opini:</label><br>
-        <textarea name="opinion" id="opinion" rows="3"></textarea><br><br>
-
-        <label for="suggestion">Saran:</label><br>
-        <textarea name="suggestion" id="suggestion" rows="3"></textarea><br><br>
-
-        <label for="social_share">Berbagi di Media Sosial:</label><br>
-        <textarea name="social_share" id="social_share" rows="3"></textarea><br><br>
-
-        <button type="submit">Kirim</button>
-    </form>
-</body>
-
-</html>
+@section('content')
+    <div class="container">
+        <h2>Feedback</h2>
+        <form action="{{ route('feedback.store', ['test_id' => $test_id, 'user_id' => $user_id]) }}" method="POST">
+            @csrf
+            <div class="form-group">
+                <label for="experience">Pengalaman Anda:</label>
+                <textarea id="experience" name="experience" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="opinion">Pendapat Anda:</label>
+                <textarea id="opinion" name="opinion" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="suggestion">Saran Anda:</label>
+                <textarea id="suggestion" name="suggestion" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="social_share">Bagikan di Media Sosial:</label>
+                <textarea id="social_share" name="social_share" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Kirim Feedback</button>
+        </form>
+    </div>
+@endsection
