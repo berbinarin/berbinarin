@@ -17,18 +17,22 @@ class ResultController extends Controller
 
         $test = Test::findOrFail($test_id);
         $user = UserPsikotest::findOrFail($user_id);
-
         $result = Result::where('test_id', $test_id)->firstOrFail();
 
         return view('result.show', compact('test', 'user', 'result'));
     }
 
-    public function redirectToFeedback($test_id, $user_id)
+    public function finishTest($test_id, $user_id)
     {
         if (!session()->has('test_id') || session('test_id') != $test_id) {
             return redirect()->route('test.index');
         }
 
+        // Hapus session
+        session()->forget('test_id');
+        session()->forget('user_id');
+
+        // Redirect ke halaman feedback
         return redirect()->route('feedback.show', ['test_id' => $test_id, 'user_id' => $user_id]);
     }
 }

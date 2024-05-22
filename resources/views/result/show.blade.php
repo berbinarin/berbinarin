@@ -50,10 +50,10 @@
             {{ round($result->openness) }}%
         </div>
     </div>
-
-    <form action="{{ route('feedback.show', ['test_id' => $test->id, 'user_id' => $user->id]) }}" method="GET">
+    <!-- Tombol Finish Test -->
+    <form action="{{ route('result.finishTest', ['test_id' => $test->id, 'user_id' => $user->id]) }}" method="POST">
         @csrf
-        <button type="submit">Proceed to Feedback</button>
+        <button type="submit" class="btn btn-primary">Finish Test</button>
     </form>
 </body>
 

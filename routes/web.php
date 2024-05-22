@@ -141,8 +141,8 @@ Route::post('/tests/{test_id}/biodata', [UserPsikotestController::class, 'store'
 Route::get('/tests/{test_id}/questions/{question_order}', [QuestionController::class, 'show'])->name('question.show');
 Route::post('/tests/{test_id}/questions/{question_order}', [QuestionController::class, 'storeAnswer'])->name('question.storeAnswer');
 
-Route::get('/results/{test_id}/{user_id}', [ResultController::class, 'show'])->name('result.show');
-Route::get('/results/{test_id}/{user_id}/feedback', [ResultController::class, 'redirectToFeedback'])->name('result.toFeedback');
-
 Route::get('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'show'])->name('feedback.show');
 Route::post('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'store'])->name('feedback.store');
+
+Route::get('/results/{test_id}/{user_id}', [ResultController::class, 'show'])->name('result.show');
+Route::post('/finish-test/{test_id}/{user_id}', [ResultController::class, 'finishTest'])->name('result.finishTest');
