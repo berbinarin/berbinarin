@@ -20,7 +20,8 @@ class UserPsikotestController extends Controller
         $test = Test::findOrFail($test_id);
 
         // Kirimkan `test_date` ke view
-        return view('biodata.show', compact('test', 'test_id'));
+        // return view('biodata.show', compact('test', 'test_id'));
+        return view('moduls.psikotes.biodata', compact('test', 'test_id'));
     }
 
     // Menyimpan biodata ke dalam database

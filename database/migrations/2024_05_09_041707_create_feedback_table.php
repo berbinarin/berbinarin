@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('user_psikotests')->onUpdate('cascade')->onDelete('cascade');
+            $table->integer('rating');
             $table->string('experience');
-            $table->string('opinion');
-            $table->string('suggestion');
-            $table->string('social_share');
+            // $table->string('suggestion');
+            // $table->string('social_share');
             $table->timestamps();
         });
     }

@@ -74,11 +74,6 @@ Route::post('/counseling/reg/psikolog/data2', [LandingController::class, 'postPs
 Route::post('/counseling/reg/psikolog/data3', [LandingController::class, 'postPsiRegData3'])->name('post-psi-regData3');
 Route::post('/counseling/reg/psikolog/data4', [LandingController::class, 'postPsiRegData4'])->name('post-psi-regData4');
 
-Route::get('/psikotest/home', [LandingController::class, 'psikotestHome'])->name('psikotestHome');
-Route::get('/psikotest/free/start', [LandingController::class, 'psikotestFreeStart'])->name('psikotestFreeStart');
-Route::get('/psikotest/free/test', [LandingController::class, 'psikotestFreeTest'])->name('psikotestFreeTest');
-Route::get('/psikotest/hasiltes', [LandingController::class, 'psikotestHasilTest'])->name('psikotestHasilTest');
-
 Route::get('/careers', [LandingController::class, 'hiring'])->name('hiring');
 Route::get('/careers/positions', [LandingController::class, 'hiringPositions'])->name('hiringPositions');
 
@@ -92,7 +87,6 @@ Route::patch('/dashboard/admin/positions/activate/{id}', [HiringPositionsControl
 Route::resource('JobDecription', HiringPositionsJobDescriptionController::class);
 Route::resource('Position-Requirement', HiringPositionsRequirementsController::class);
 Route::resource('General-Requirement', HiringGeneralRequirementsController::class);
-
 
 Route::get('/dashboard/login', [DashboardController::class, 'login'])->name('dashboard.login');
 
@@ -146,3 +140,13 @@ Route::post('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'store'
 
 Route::get('/results/{test_id}/{user_id}', [ResultController::class, 'show'])->name('result.show');
 Route::post('/finish-test/{test_id}/{user_id}', [ResultController::class, 'finishTest'])->name('result.finishTest');
+
+Route::get('/psikotest/home', [LandingController::class, 'psikotestHome'])->name('psikotestHome');
+Route::get('/psikotest/free/start', [LandingController::class, 'psikotestFreeStart'])->name('psikotestFreeStart');
+Route::get('/psikotest/free/test', [LandingController::class, 'psikotestFreeTest'])->name('psikotestFreeTest');
+Route::get('/psikotest/free/biodata', [LandingController::class, 'psikotestBiodata'])->name('psikotestBiodata');
+Route::get('/psikotest/free/feedback', [LandingController::class, 'psikotestFeedback'])->name('psikotestFeedback');
+Route::get('/psikotest/free/hasiltes', [LandingController::class, 'psikotestHasilTest'])->name('psikotestHasilTest');
+Route::get('/psikotest/login', [LandingController::class, 'psikotestLogin'])->name('psikotestLogin');
+Route::get('/psikotest/register', [LandingController::class, 'psikotestRegister'])->name('psikotestRegister');
+

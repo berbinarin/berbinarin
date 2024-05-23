@@ -9,6 +9,7 @@ use App\Models\KonsellingPeer;
 use App\Models\KonsellingPsikolog;
 use App\Models\jadwalPeer;
 use App\Models\Soal;
+use App\Models\Question;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 
@@ -920,8 +921,18 @@ class LandingController extends Controller
 
     public function psikotestFreeTest()
     {
-        $soal = Soal::all();
-        return view('moduls.psikotes.freetest', ["soal" => $soal]);
+        $questions = Question::all();
+        return view('moduls.psikotes.freetest', ["question" => $questions]);
+    }
+
+    public function psikotestBiodata()
+    {
+        return view('moduls.psikotes.biodata');
+    }
+
+    public function psikotestFeedback()
+    {
+        return view('moduls.psikotes.feedback');
     }
 
     public function psikotestHasilTest()
