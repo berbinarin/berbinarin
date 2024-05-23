@@ -18,6 +18,8 @@ use App\Http\Controllers\HiringGeneralRequirementsController;
 use App\Http\Controllers\HiringPositionsRequirementsController;
 use App\Http\Controllers\HiringPositionsJobDescriptionController;
 
+use App\Http\Controllers\AuthBerbinarpUsersController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -146,3 +148,8 @@ Route::post('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'store'
 
 Route::get('/results/{test_id}/{user_id}', [ResultController::class, 'show'])->name('result.show');
 Route::post('/finish-test/{test_id}/{user_id}', [ResultController::class, 'finishTest'])->name('result.finishTest');
+
+// MODUL BERBINAR PLUS
+Route::get('/berbinarplus/login', [AuthBerbinarpUsersController::class, 'index'])->name('berbinarp.login');
+Route::get('/berbinarplus/register', [AuthBerbinarpUsersController::class, 'registerView'])->name('berbinarp.register');
+Route::post('/berbinarplus/post-register', [AuthBerbinarpUsersController::class, 'registerPost'])->name('berbinar.register.post');
