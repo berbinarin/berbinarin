@@ -57,6 +57,7 @@ class QuestionController extends Controller
         // Arahkan ke pertanyaan berikutnya
         return redirect()->route('question.show', ['test_id' => $test_id, 'question_order' => $next_question_order]);
         // return redirect()->route('moduls.psikotes.freetest', ['test_id' => $test_id, 'question_order' => $next_question_order]);
+
     }
 
     // Method untuk menghitung hasil dan menyimpan ke dalam tabel results

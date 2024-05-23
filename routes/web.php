@@ -1,22 +1,22 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HiringGeneralRequirementsController;
-use App\Http\Controllers\HiringPositionsController;
-use App\Http\Controllers\HiringPositionsJobDescriptionController;
-use App\Http\Controllers\HiringPositionsRequirementsController;
-use App\Http\Controllers\LandingController;
-use App\Http\Controllers\testGratisController;
-use App\Http\Controllers\UserController;
-use App\Models\Hiring_Positions_Job_Descriptions;
-use App\Models\HiringGeneralRequirement;
-use App\Http\Controllers\TestController;
-use App\Http\Controllers\UserPsikotestController;
-use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\FeedbackController;
-use App\Http\Controllers\ResultController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\UserController;
+use App\Models\HiringGeneralRequirement;
+use App\Http\Controllers\ResultController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\testGratisController;
+use App\Http\Controllers\UserPsikotestController;
+use App\Models\Hiring_Positions_Job_Descriptions;
+use App\Http\Controllers\HiringPositionsController;
+use App\Http\Controllers\HiringGeneralRequirementsController;
+use App\Http\Controllers\HiringPositionsRequirementsController;
+use App\Http\Controllers\HiringPositionsJobDescriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,7 +78,6 @@ Route::get('/careers', [LandingController::class, 'hiring'])->name('hiring');
 Route::get('/careers/positions', [LandingController::class, 'hiringPositions'])->name('hiringPositions');
 
 Route::get('/HalamanRegister', [AuthController::class, 'HalamanRegister']);
-Route::get('/HalamanRegister', [AuthController::class, 'HalamanRegister']);
 Route::post("/register", [AuthController::class, 'Register']);
 Route::post("/login", [AuthController::class, 'Login']);
 Route::post("/logout", [AuthController::class, 'Logout']);
@@ -86,47 +85,44 @@ Route::resource('user', UserController::class);
 Route::resource('HiringPositions', HiringPositionsController::class);
 Route::patch('/dashboard/admin/positions/activate/{id}', [HiringPositionsController::class, 'setActivation'])->name('HiringPositions.setActivation');
 Route::resource('JobDecription', HiringPositionsJobDescriptionController::class);
-Route::resource('JobDecription', HiringPositionsJobDescriptionController::class);
 Route::resource('Position-Requirement', HiringPositionsRequirementsController::class);
 Route::resource('General-Requirement', HiringGeneralRequirementsController::class);
 
 Route::get('/dashboard/login', [DashboardController::class, 'login'])->name('dashboard.login');
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::group(['middleware' => ['auth']], function () {
-        Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
-        Route::get('/dashboard/admin/faqs', [DashboardController::class, 'faqs'])->name('dashboard.faqs');
+    Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard/admin/faqs', [DashboardController::class, 'faqs'])->name('dashboard.faqs');
 
-        // MODUL KONSELLING PSIKOLOG
-        Route::get('/dashboard/admin/psikologData', [DashboardController::class, 'PsikologData'])->name('dashboard.PsikologData');
-        Route::post('/dashboard/admin/psikologData/add', [DashboardController::class, 'addPsikologData'])->name('dashboard.add.PsikologData');
-        Route::get('/dashboard/admin/psikologDataDetails/{id}', [DashboardController::class, 'PsikologDataDetails'])->name('dashboard.PsikologDataDetails');
-        Route::put('/dashboard/admin/psikologDataDetails/edit/{id}', [DashboardController::class, 'editPsikologDataDetails'])->name('dashboard.edit.PsikologDataDetails');
-        Route::get('/dashboard/admin/psikologDataDetails/delete/{id}', [DashboardController::class, 'deletePsikologDataDetails'])->name('dashboard.delete.PsikologDataDetails');
-        Route::get('/dashboard/admin/counselorData', [DashboardController::class, 'PeerConsellorData'])->name('dashboard.PeerConsellorData');
-        Route::post('/dashboard/admin/counselorData/add', [DashboardController::class, 'addPeerConsellorData'])->name('dashboard.add.PeerConsellorData');
-        Route::get('/dashboard/admin/counselorDataDetails/{id}', [DashboardController::class, 'PeerConsellorDataDetails'])->name('dashboard.PeerConsellorDataDetails');
-        Route::put('/dashboard/admin/counselorDataDetails/edit/{id}', [DashboardController::class, 'editPeerConsellorDataDetails'])->name('dashboard.edit.PeerConsellorDataDetails');
-        Route::get('/dashboard/admin/counselorDataDetails/delete/{id}', [DashboardController::class, 'deletePeerConsellorDataDetails'])->name('dashboard.delete.PeerConsellorDataDetails');
-        Route::get('/dashboard/admin/counselorSchedule', [DashboardController::class, 'PeerConsellorSchedule'])->name('dashboard.PeerConsellorSchedule');
-        Route::post('/dashboard/admin/counselorSchedule/add', [DashboardController::class, 'addPeerConsellorSchedule'])->name('dashboard.add.PeerConsellorSchedule');
-        Route::put('/dashboard/admin/counselorSchedule/edit/{id}', [DashboardController::class, 'editPeerConsellorSchedule'])->name('dashboard.edit.PeerConsellorSchedule');
-        Route::get('/dashboard/admin/counselorSchedule/delete/{id}', [DashboardController::class, 'deletePeerConsellorSchedule'])->name('dashboard.delete.PeerConsellorSchedule');
+    // MODUL KONSELLING PSIKOLOG
+    Route::get('/dashboard/admin/psikologData', [DashboardController::class, 'PsikologData'])->name('dashboard.PsikologData');
+    Route::post('/dashboard/admin/psikologData/add', [DashboardController::class, 'addPsikologData'])->name('dashboard.add.PsikologData');
+    Route::get('/dashboard/admin/psikologDataDetails/{id}', [DashboardController::class, 'PsikologDataDetails'])->name('dashboard.PsikologDataDetails');
+    Route::put('/dashboard/admin/psikologDataDetails/edit/{id}', [DashboardController::class, 'editPsikologDataDetails'])->name('dashboard.edit.PsikologDataDetails');
+    Route::get('/dashboard/admin/psikologDataDetails/delete/{id}', [DashboardController::class, 'deletePsikologDataDetails'])->name('dashboard.delete.PsikologDataDetails');
+    Route::get('/dashboard/admin/counselorData', [DashboardController::class, 'PeerConsellorData'])->name('dashboard.PeerConsellorData');
+    Route::post('/dashboard/admin/counselorData/add', [DashboardController::class, 'addPeerConsellorData'])->name('dashboard.add.PeerConsellorData');
+    Route::get('/dashboard/admin/counselorDataDetails/{id}', [DashboardController::class, 'PeerConsellorDataDetails'])->name('dashboard.PeerConsellorDataDetails');
+    Route::put('/dashboard/admin/counselorDataDetails/edit/{id}', [DashboardController::class, 'editPeerConsellorDataDetails'])->name('dashboard.edit.PeerConsellorDataDetails');
+    Route::get('/dashboard/admin/counselorDataDetails/delete/{id}', [DashboardController::class, 'deletePeerConsellorDataDetails'])->name('dashboard.delete.PeerConsellorDataDetails');
+    Route::get('/dashboard/admin/counselorSchedule', [DashboardController::class, 'PeerConsellorSchedule'])->name('dashboard.PeerConsellorSchedule');
+    Route::post('/dashboard/admin/counselorSchedule/add', [DashboardController::class, 'addPeerConsellorSchedule'])->name('dashboard.add.PeerConsellorSchedule');
+    Route::put('/dashboard/admin/counselorSchedule/edit/{id}', [DashboardController::class, 'editPeerConsellorSchedule'])->name('dashboard.edit.PeerConsellorSchedule');
+    Route::get('/dashboard/admin/counselorSchedule/delete/{id}', [DashboardController::class, 'deletePeerConsellorSchedule'])->name('dashboard.delete.PeerConsellorSchedule');
 
-        // MODUL POSITIONS
-        Route::get('/dashboard/admin/positions', [DashboardController::class, 'positions'])->name('dashboard.positions');
-        Route::get('/dashboard/admin/positions/edit/{id}', [DashboardController::class, 'editPositions']);
+    // MODUL POSITIONS
+    Route::get('/dashboard/admin/positions', [DashboardController::class, 'positions'])->name('dashboard.positions');
+    Route::get('/dashboard/admin/positions/edit/{id}', [DashboardController::class, 'editPositions']);
 
-        // MODUL POSITIONS JOB DESCRIPTION
-        Route::get('/dashboard/admin/positions/descriptions', [DashboardController::class, 'jobDescriptions'])->name('dashboard.positions.descriptions');
-        Route::get('/dashboard/admin/positions/descriptions/edit/{id}', [DashboardController::class, 'editJobDescriptions']);
+    // MODUL POSITIONS JOB DESCRIPTION
+    Route::get('/dashboard/admin/positions/descriptions', [DashboardController::class, 'jobDescriptions'])->name('dashboard.positions.descriptions');
+    Route::get('/dashboard/admin/positions/descriptions/edit/{id}', [DashboardController::class, 'editJobDescriptions']);
 
-        // MODUL POSITIONS REQUIREMENTS
-        Route::get('/dashboard/admin/positions/requirements', [DashboardController::class, 'requirements'])->name('dashboard.positions.requirements');
-        Route::get('/dashboard/admin/positions/requirements/edit/{id}', [DashboardController::class, 'editRequirements']);
-        Route::get('/psikotes', [testGratisController::class, 'hitungPoint'])->name('psikotes.testGratis');
-        Route::get('/createSoalpsikotes', [testGratisController::class, 'simpanSoal'])->name('psikote.soal');
-    });
+    // MODUL POSITIONS REQUIREMENTS
+    Route::get('/dashboard/admin/positions/requirements', [DashboardController::class, 'requirements'])->name('dashboard.positions.requirements');
+    Route::get('/dashboard/admin/positions/requirements/edit/{id}', [DashboardController::class, 'editRequirements']);
+    Route::get('/psikotes', [testGratisController::class, 'hitungPoint'])->name('psikotes.testGratis');
+    Route::get('/createSoalpsikotes', [testGratisController::class, 'simpanSoal'])->name('psikote.soal');
 });
 
 // MODUL PSIKOTEST FREE
@@ -153,3 +149,4 @@ Route::get('/psikotest/free/feedback', [LandingController::class, 'psikotestFeed
 Route::get('/psikotest/free/hasiltes', [LandingController::class, 'psikotestHasilTest'])->name('psikotestHasilTest');
 Route::get('/psikotest/login', [LandingController::class, 'psikotestLogin'])->name('psikotestLogin');
 Route::get('/psikotest/register', [LandingController::class, 'psikotestRegister'])->name('psikotestRegister');
+

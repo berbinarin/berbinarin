@@ -8,7 +8,7 @@
 {{-- HERO SECTION --}}
 <section class="max-w-6xl mx-auto h-screen flex flex-col md:flex-row items-center justify-center relative px-5 md:px-0 mt-32 md:mt-10">
     {{-- HERO IMG MOBILE --}}
-    <img src="https://i.ibb.co/Sw0B8Vz/asesmen-psikologi.png" alt="Ilustrasi Psikotest Berbinar" title="Ilustrasi Psikotest Berbinar" class="w-full block md:hidden" data-aos="fade-up" data-aos-duration="1500">
+    <img src="{{ asset('assets/images/product-berbinar/asesmen-psikologi.png') }}" alt="Ilustrasi Psikotest Berbinar" title="Ilustrasi Psikotest Berbinar" class="w-full block md:hidden" data-aos="fade-up" data-aos-duration="1500">
 
     {{-- HERO CONTENT --}}
     <div class="relative flex items-center">
@@ -28,7 +28,7 @@
     </div>
 
     {{-- HERO IMG DESKTOP --}}
-    <img src="https://i.ibb.co/Sw0B8Vz/asesmen-psikologi.png" alt="Ilustrasi Tes Psikotest Berbinar" title="Ilustrasi Tes Psikotest Berbinar" class="w-1/2 hidden md:block" data-aos="fade-left" data-aos-duration="1500">
+    <img src="{{ asset('assets/images/product-berbinar/asesmen-psikologi.png') }}" alt="Ilustrasi Tes Psikotest Berbinar" title="Ilustrasi Tes Psikotest Berbinar" class="w-1/2 hidden md:block" data-aos="fade-left" data-aos-duration="1500">
 </section>
 
 {{-- TES PSIKOTEST INDIVIDU SECTION --}}
@@ -570,10 +570,8 @@
             },
             handleToggle() {
                 return this.$store.accordion.tab === this.idx ?
-                    max - height : $ {
-                        this.$refs.tab.scrollHeight
-                    }
-                px: '';
+                    max-height: ${this.$refs.tab.scrollHeight}px : '';
+
             }
         }));
     })

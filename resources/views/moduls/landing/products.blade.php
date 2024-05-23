@@ -29,17 +29,17 @@
                     <!-- view mobile -->
                     <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Konseling.png') }}" class="description absolute top-0 flex flex-col items-start">
                     <!-- view desktop -->
-                    <source media="(min-width: 768px)" srcset="https://i.ibb.co/zrWwWmr/1.png" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
-                    <img src="https://i.ibb.co/zrWwWmr/1.png" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
+                    <source media="(min-width: 768px)" srcset="{{ asset('assets/images/product-berbinar/1.png') }}" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                    <img src="{{ asset('assets/images/product-berbinar/1.png') }}" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                 </picture>
             </div>
             <div class="swiper-slide relative">
                 <picture>
                     <!-- view mobile -->
-                    <source media="(max-width: 767px)" srcset="https://i.ibb.co/6bWH19S/psiko-mobile.jpg" class="description absolute top-0 flex flex-col items-start">
+                    <source media="(max-width: 767px)" srcset="{{ asset('assets/images/product-berbinar/psiko-mobile.jpg') }}" class="description absolute top-0 flex flex-col items-start">
                     <!-- view desktop -->
-                    <source media="(min-width: 768px)" srcset="https://i.ibb.co/p16hD6Z/tes-psikotes.png" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
-                    <img src="https://i.ibb.co/cg7DxZZ/2.png" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
+                    <source media="(min-width: 768px)" srcset="{{ asset('assets/images/product-berbinar/tes-psikotes.png') }}" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                    <img src="{{ asset('assets/images/product-berbinar/2.png') }}" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                 </picture>
             </div>
             <div class="swiper-slide relative">
@@ -47,8 +47,8 @@
                     <!-- view mobile -->
                     <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Kelas.png') }}" class="description absolute top-0 flex flex-col items-start">
                     <!-- view desktop -->
-                    <source media="(min-width: 768px)" srcset="https://i.ibb.co/Q9z9F1t/3.png" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
-                    <img src="https://i.ibb.co/Q9z9F1t/3.png" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
+                    <source media="(min-width: 768px)" srcset="{{ asset('assets/images/product-berbinar/3.png') }}" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                    <img src="{{ asset('assets/images/product-berbinar/3.png') }}" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                 </picture>
             </div>
             <div class="swiper-slide relative">
@@ -56,8 +56,8 @@
                     <!-- view mobile -->
                     <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Webinar.png') }}" class="description absolute top-0 flex flex-col items-start">
                     <!-- view desktop -->
-                    <source media="(min-width: 768px)" srcset="https://i.ibb.co/6Jwpb3f/4.png" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
-                    <img src="https://i.ibb.co/6Jwpb3f/4.png" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
+                    <source media="(min-width: 768px)" srcset="{{ asset('assets/images/product-berbinar/4.png') }}" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                    <img src="{{ asset('assets/images/product-berbinar/4.png') }}" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                 </picture>
             </div>
         </div>
@@ -80,7 +80,7 @@
             </div>
 
             <div aria-hidden="true" class="mt-0 lg:mt-0">
-                <img src="https://i.ibb.co/CwyfsBG/konseling.png" alt="" class="mx-auto w-[120rem] block md:hidden -mb-16" data-aos="fade-up" data-aos-duration="1500">
+                <img src="{{ asset('assets/images/product-berbinar/konseling.png') }}" alt="" class="mx-auto w-[120rem] block md:hidden -mb-16" data-aos="fade-up" data-aos-duration="1500">
             </div>
 
             <div class="flex flex-col md:flex-row items-center">
@@ -126,7 +126,7 @@
                 </div>
 
                 <div aria-hidden="true" class="mt-0 lg:mt-0">
-                    <img src="https://i.ibb.co/CwyfsBG/konseling.png" alt="" class="mx-auto w-[120rem] hidden md:block" data-aos="fade-left" data-aos-duration="1500">
+                    <img src="{{ asset('assets/images/product-berbinar/konseling.png') }}" alt="" class="mx-auto w-[120rem] hidden md:block" data-aos="fade-left" data-aos-duration="1500">
                 </div>
             </div>
         </div>
@@ -144,7 +144,7 @@
             </div>
 
             <div aria-hidden="true" class="mt-0 lg:mt-0">
-                <img src="https://i.ibb.co/Sw0B8Vz/asesmen-psikologi.png" alt="" class="mx-auto w-[120rem] -mb-8 mt-10 block md:hidden" data-aos="fade-up" data-aos-duration="1500">
+                <img src="{{ asset('assets/images/product-berbinar/asesmen-psikologi.png') }}" alt="" class="mx-auto w-[120rem] -mb-8 mt-10 block md:hidden" data-aos="fade-up" data-aos-duration="1500">
             </div>
 
             <div class="flex flex-col md:flex-row-reverse items-center">
@@ -189,7 +189,7 @@
                 </div>
 
                 <div aria-hidden="true" class="mt-0 lg:mt-0">
-                    <img src="https://i.ibb.co/Sw0B8Vz/asesmen-psikologi.png" alt="" class="mx-auto w-[120rem] hidden md:block" data-aos="fade-right" data-aos-duration="1500">
+                    <img src="{{ asset('assets/images/product-berbinar/asesmen-psikologi.png') }}" alt="" class="mx-auto w-[120rem] hidden md:block" data-aos="fade-right" data-aos-duration="1500">
                 </div>
             </div>
         </div>
@@ -207,7 +207,7 @@
             </div>
 
             <div aria-hidden="true" class="mt-0 lg:mt-0">
-                <img src="https://i.ibb.co/PDBMx5m/webinar.png" alt="" class="mx-auto w-[50rem] block md:hidden mt-10" data-aos="fade-up" data-aos-duration="1500">
+                <img src="{{ asset('assets/images/product-berbinar/webinar.png') }}" alt="" class="mx-auto w-[50rem] block md:hidden mt-10" data-aos="fade-up" data-aos-duration="1500">
             </div>
 
             <div class="flex flex-col md:flex-row items-center mt-4">
@@ -258,7 +258,7 @@
                 </div>
 
                 <div aria-hidden="true" class="mt-0 lg:mt-0">
-                    <img src="https://i.ibb.co/PDBMx5m/webinar.png" alt="" class="mx-auto w-[50rem] hidden md:block" data-aos="fade-left" data-aos-duration="1500">
+                    <img src="{{ asset('assets/images/product-berbinar/webinar.png') }}" alt="" class="mx-auto w-[50rem] hidden md:block" data-aos="fade-left" data-aos-duration="1500">
                 </div>
             </div>
         </div>

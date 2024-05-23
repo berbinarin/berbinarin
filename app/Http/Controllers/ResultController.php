@@ -25,6 +25,7 @@ class ResultController extends Controller
     public function finishTest($test_id, $user_id)
     {
         if (!session()->has('test_id') || session('test_id') != $test_id) {
+
             // return redirect()->route('test.index');
             // Menampilkan notifikasi penyelesaian psikotes & mengarahkan ke halaman psikotes home
             // Simpan notifikasi ke dalam sesi
@@ -40,5 +41,6 @@ class ResultController extends Controller
 
         // Redirect ke halaman feedback
         // return redirect()->route('feedback.show', ['test_id' => $test_id, 'user_id' => $user_id]);
+
     }
 }

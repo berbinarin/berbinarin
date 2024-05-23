@@ -73,70 +73,70 @@ class LandingController extends Controller
                 "jabatan" => "Manager",
                 "divisi" => "Tiktok Creator",
                 "testimonial" => "Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya sangat bagus.",
-                "image" => "https://i.ibb.co/rQydWQt/Ace-Pebri.png"
+                "image" => "assets/images/ImgLandingController/Ace-Pebri.png"
             ],
             [
                 "name" => "Mellynda Silanur Rohmah",
                 "jabatan" => "Manager",
                 "divisi" => "Human Resource",
                 "testimonial" => "Tentunya produk dari berbinar itu memiliki kualitas unggul karena ditangani langsung oleh seorang psikolog, tetapi dengan harga yang terjangkau.",
-                "image" => "https://i.ibb.co/wyvBGh6/Mellynda.png"
+                "image" => "assets/images/ImgLandingController/Mellynda.png"
             ],
             [
                 "name" => "Caroline Athalia Rianda",
                 "jabatan" => "Manager",
                 "divisi" => "Graphic Designer",
                 "testimonial" => "Sejauh yang aku tau di berbinar sendiri itu udah nyediain beragam banget layanan psikologi  untuk sobat binar semua ",
-                "image" => "https://i.ibb.co/rym84ky/Caroline.png"
+                "image" => "assets/images/ImgLandingController/Caroline.png"
             ],
             [
                 "name" => "Mawaliatul Khasanah",
                 "jabatan" => "Manager",
                 "divisi" => "IG Creator",
                 "testimonial" => "Produknya keren, kualitas dan kuantitas bisa di tingkatkan",
-                "image" => "https://i.ibb.co/s9dPkbj/Mawaliatul.png"
+                "image" => "assets/images/ImgLandingController/Mawaliatul.png"
             ],
             [
                 "name" => "Regina Amanda Sharen",
                 "jabatan" => "Manager",
                 "divisi" => "Secretary & Finance",
                 "testimonial" => "Produk Berbinar pun sgt beragam dan pastiny ramah di kantong. Menurut saya produk-produk Berbinar telah sesuai dengan kebutuhan masyarakat skrng ini. Selain itu dengan harga yg affordable sehingga dapat dibeli oleh semua kalangan usia.",
-                "image" => "https://i.ibb.co/9YckWd6/Regina.png"
+                "image" => "assets/images/ImgLandingController/Regina.png"
             ],
             [
                 "name" => "Zalfa Qanita",
                 "jabatan" => "Manager",
                 "divisi" => "PTPM",
                 "testimonial" => "Produk dan layanan di Berbinar itu lengkap banget mulai dari konseling, asesmen psikologi, sampai kelas-kelas yang bisa nambah skill dan pengetahuan. Selain itu, produk dan layanan di Berbinar juga punya harga relatif terjangkau dan berkualitas.",
-                "image" => "https://i.ibb.co/Qjnwc0q/Zalfa.png"
+                "image" => "assets/images/ImgLandingController/Zalfa.png"
             ],
             [
                 "name" => "Ghina",
                 "jabatan" => "Manager",
                 "divisi" => "Class Product Management",
                 "testimonial" => "Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya yang baru pertama kali melakukan psikotes sangat bagus dan mudah dipahami. Dan mengikuti layanan psikotes di Berbinar seras santai dan tidak tertekan.",
-                "image" => "https://i.ibb.co/CKzPsdN/Ghina.png"
+                "image" => "assets/images/ImgLandingController/Ghina.png"
             ],
             [
                 "name" => "Dhila Aprilianti ",
                 "jabatan" => "Staff",
                 "divisi" => "Graphic Designer ",
                 "testimonial" => "Layanan konseling yang diadakan berbinar juga sangat membantu untuk menyelesaikan masalah mental dan kesehatan pikiran, dengan harga yang terjangkau kita bisa mendapatkan konselor dan bisa juga mendapatkan solusi dari permasalahan yang dihadapi.",
-                "image" => "https://i.ibb.co/tm7DtP1/Dhila-Aprilianti.jpg"
+                "image" => "assets/images/ImgLandingController/Dhila-Aprilianti.jpg"
             ],
             [
                 "name" => "Fransiska Dian Nurfala",
                 "jabatan" => "Staff",
                 "divisi" => "Graphic Designer",
                 "testimonial" => "Produk Berbinar menarik dan bermanfaat bagi yang membutuhkan layanan psikologi serta konten-konten yang disajikan memberikan insight bagi pembacanya.",
-                "image" => "https://i.ibb.co/Y0pJwN4/Fransiska.jpg"
+                "image" => "assets/images/ImgLandingController/Fransiska.jpg"
             ],
             [
                 "name" => "Ananda Deshinta Rasyid",
                 "jabatan" => "Staff",
                 "divisi" => "Class Product Management",
                 "testimonial" => "Berbinar salah satu layanan edukasi psikologi yang dibilang cukup lengkap, dan produk produknya sangat dibutuhkan oleh anak remaja jaman sekarang.",
-                "image" => "https://i.ibb.co/Tb4fqBW/Deshinta.jpg"
+                "image" => "assets/images/ImgLandingController/Deshinta.jpg"
             ],
         ];
 
@@ -209,42 +209,42 @@ class LandingController extends Controller
                 "jabatan" => "-",
                 "divisi" => "-",
                 "testimonial" => "Sesi konseling merubah pandang: tak masalah berubah demi orang lain. Dorongan jadi lebih baik. Lakukan yang diinginkan, tetap aman. Belajarlah. Lampiaskan sakit, geser ke positif, hargai diri dan peduli orang.",
-                "image" => "https://i.ibb.co/Sf0SCXs/Anonim-Pria.png"
+                "image" => "assets/images/ImgLandingController/Anonim-Pria.png"
             ],
             [
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
                 "testimonial" => "Konseling sangat membantu, konselor ramah. Pertama kali cerita, terbantu menceritakan masalah yang selama ini takut dibagikan sebelumnya. Rasanya lega, tanpa beban dan validasi. Kakak konselor memberi waktu dan kenyamanan.",
-                "image" => "https://i.ibb.co/Sf0SCXs/Anonim-Pria.png"
+                "image" => "assets/images/ImgLandingController/Anonim-Pria.png"
             ],
             [
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
                 "testimonial" => "Konselor mendengarkan dan memerhatikan dengan seksama, memberi saran dan bimbingan spesifik. Dituntun dengan pertanyaan terkait permasalahan, sangat terbantu. Akan segera menyelesaikan tugas setelah konseling hari ini.",
-                "image" => "https://i.ibb.co/j6Mm7ww/Anomim-Wanita.png"
+                "image" => "assets/images/ImgLandingController/Anomim-Wanita.png"
             ],
             [
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
                 "testimonial" => "Psikolognya mendengar dan menyimak cerita saya selama proses konseling dan juga menjelaskan masalah saya dengan cara yang mudah dipahami. Saya merasa nyaman dan tidak merasa dihakimi ketika saya menceritakan semua masalah saya.",
-                "image" => "https://i.ibb.co/Sf0SCXs/Anonim-Pria.png"
+                "image" => "assets/images/ImgLandingController/Anonim-Pria.png"
             ],
             [
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
                 "testimonial" => "Psikolog mendengarkan semua cerita dengan baik, bisa leluasa cerita dan mengungkapkan perasaan jadi lebih tenang, psikolog memperhatikan detail cerita sehingga bisa membantu menemukan akar permasalahannya",
-                "image" => "https://i.ibb.co/j6Mm7ww/Anomim-Wanita.png"
+                "image" => "assets/images/ImgLandingController/Anomim-Wanita.png"
             ],
             [
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
                 "testimonial" => "Saya sangat senang dan terbantu, konselor ramah, ini pertama kali saya berkonsultasi dan berani cerita permasalahan yang saya alami. Sebelumnya saya takut untuk cerita permasalahan. Disini rasanya bisa cerita tanpa ada beban. Konselor memberi waktu kita untuk bercerita dan membuat kita nyaman selama sesi konseling.",
-                "image" => "https://i.ibb.co/j6Mm7ww/Anomim-Wanita.png"
+                "image" => "assets/images/ImgLandingController/Anomim-Wanita.png"
             ],
         ];
 
@@ -509,21 +509,21 @@ class LandingController extends Controller
                 "jabatan" => "Staff",
                 "divisi" => "Marketing Strategist and Sales",
                 "testimonial" => "Selama bekerja di Berbinar, impact yang saya rasakan adalah skill time management, kolaborasi dan juga decision making yang semakin terasah. Meskipun dilaksanakan secara daring pun experience bekerja disini sangat terasa, banyak sekali yang saya pelajari.",
-                "image" => "https://i.ibb.co/XXRRSrz/Oktaviani.png"
+                "image" => "assets/images/testimoni/Oktaviani.png"
             ],
             [
                 "name" => "Zalfa Qanita",
                 "jabatan" => "Manager",
                 "divisi" => "PTPM",
                 "testimonial" => "Selama bekerja di Berbinar, saya selalu merasa tertantang keluar dari zona nyaman dan menjadi 'the best version of yourself'. Selain itu, banyak hal yang saya pelajari sebagai posisi manager yaitu task management, mengatur waktu, mengeluarkan ide baru dan pendapat.",
-                "image" => "https://i.ibb.co/Qjnwc0q/Zalfa.png"
+                "image" => "assets/images/testimoni/Zalfa.png"
             ],
             [
                 "name" => "Ghina",
                 "jabatan" => "Manager",
                 "divisi" => "Class Product Management",
                 "testimonial" => "Selama di berbinar, aku belajar banyak banget. mulai dari hal hal yang sebelumnya ada basic sampe hal hal yang baru dan belum pernah aku dapetin. berbinar punya banyak acara yang menarik yang bisa diikutin. temen temennya juga asik dan seru banget!",
-                "image" => "https://i.ibb.co/CKzPsdN/Ghina.png"
+                "image" => "assets/images/testimoni/Ghina.png"
             ],
         ];
 
