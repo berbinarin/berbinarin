@@ -570,7 +570,10 @@
             },
             handleToggle() {
                 return this.$store.accordion.tab === this.idx ?
-                    `max-height: ${this.$refs.tab.scrollHeight}px` : '';
+                    max - height : $ {
+                        this.$refs.tab.scrollHeight
+                    }
+                px: '';
             }
         }));
     })
