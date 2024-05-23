@@ -6,6 +6,15 @@ export default {
         "./resources/**/*.vue",
     ],
     theme: {
+        borderWidth: {
+            DEFAULT: "1px",
+            0: "0",
+            2: "2px",
+            3: "3px",
+            4: "4px",
+            6: "6px",
+            8: "8px",
+        },
         extend: {
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],
@@ -21,7 +30,11 @@ export default {
                 disabled: "#70787D",
                 "blur-bg": "#EAF8FF",
                 "blur-bg-2": "#C7F8FF",
+                "blur-black": "rgba(0, 0, 0, 0.54)",
                 "card-box": "#F7F7F7",
+            },
+            opacity: {
+                54: ".54",
             },
         },
     },

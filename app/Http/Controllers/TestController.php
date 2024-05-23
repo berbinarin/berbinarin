@@ -10,7 +10,8 @@ class TestController extends Controller
 {
     public function index()
     {
-        return view('test.index');
+        // return view('test.index');
+        return view('moduls.psikotes.start');
     }
 
     // Membuat entri tes baru dengan tanggal saat ini dan mengarahkan ke halaman soal pertama

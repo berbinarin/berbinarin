@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+
 use App\Models\Answer;
 use App\Models\Result;
 use App\Models\Question;
 use App\Models\UserPsikotest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class Test extends Model
 {

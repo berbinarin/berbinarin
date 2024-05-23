@@ -24,7 +24,8 @@ class QuestionController extends Controller
         $totalQuestions = 44;
         $progress = ($question_order / $totalQuestions) * 100;
 
-        return view('question.show', compact('question', 'test_id', 'question_order', 'progress'));
+        // return view('question.show', compact('question', 'test_id', 'question_order', 'progress'));
+        return view('moduls.psikotes.freetest', compact('question', 'test_id', 'question_order', 'progress'));
     }
 
     // Menyimpan jawaban dan mengarahkan ke pertanyaan berikutnya
@@ -55,6 +56,8 @@ class QuestionController extends Controller
 
         // Arahkan ke pertanyaan berikutnya
         return redirect()->route('question.show', ['test_id' => $test_id, 'question_order' => $next_question_order]);
+        // return redirect()->route('moduls.psikotes.freetest', ['test_id' => $test_id, 'question_order' => $next_question_order]);
+
     }
 
     // Method untuk menghitung hasil dan menyimpan ke dalam tabel results
