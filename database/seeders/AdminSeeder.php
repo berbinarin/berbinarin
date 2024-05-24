@@ -15,16 +15,16 @@ class AdminSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
-           [ 'id' => 1,
+            [ 'id' => 1,
             'username' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('Admin123'),
             'role' => 'Admin'],
             
             [ 'id' => 2,
-            'username' => 'HR',
+            'username' => 'hrberbinar2005',
             'email' => 'hr@gmail.com',
-            'password' => Hash::make('Hr123'),
+            'password' => Hash::make('berbinaradabuatkamu'),
             'role' => 'HR'],
             
             [ 'id' => 3,
