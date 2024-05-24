@@ -1,27 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Register Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BerbinarPlus Login</title>
 </head>
 <body>
-    <h2>Register</h2>
-    <form action="/register" method="post">
-        <!-- Assuming you are using Laravel, include CSRF token for security -->
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-
-        <label for="name">Nama:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
-
-        <label for="age">Usia:</label><br>
-        <input type="number" id="age" name="age" required><br><br>
-
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-
-        <button type="submit">Register</button>
+    <h1>Login</h1>
+    <form method="POST" action="{{ route('berbinarplus.login.post') }}">
+        @csrf
+        <div>
+            <label for="email">E-Mail Address:</label>
+            <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
+            @error('email')
+                <div>
+                    <strong>{{ $message }}</strong>
+                </div>
+            @enderror
+        </div>
+        
+        <div>
+            <label for="password">Password:</label>
+            <input id="password" type="password" name="password" required>
+            @error('password')
+                <div>
+                    <strong>{{ $message }}</strong>
+                </div>
+            @enderror
+        </div>
+        
+        <div>
+            <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+            <label for="remember">Remember Me</label>
+        </div>
+        
+        <div>
+            <button type="submit">Login</button>
+        </div>
+        
+        @if (Route::has('password.request'))
+            <div>
+                <a href="{{ route('password.request') }}">Forgot Your Password?</a>
+            </div>
+        @endif
     </form>
 </body>
 </html>

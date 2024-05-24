@@ -18,7 +18,9 @@ use App\Http\Controllers\HiringGeneralRequirementsController;
 use App\Http\Controllers\HiringPositionsRequirementsController;
 use App\Http\Controllers\HiringPositionsJobDescriptionController;
 
-use App\Http\Controllers\AuthBerbinarpUsersController;
+use App\Http\Controllers\Berbinarplus\Auth\LoginController;
+use App\Http\Controllers\Berbinarplus\Auth\RegisterController;
+use App\Http\Controllers\Berbinarplus\BerbinarPlusDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -150,6 +152,27 @@ Route::get('/results/{test_id}/{user_id}', [ResultController::class, 'show'])->n
 Route::post('/finish-test/{test_id}/{user_id}', [ResultController::class, 'finishTest'])->name('result.finishTest');
 
 // MODUL BERBINAR PLUS
-Route::get('/berbinarplus/login', [AuthBerbinarpUsersController::class, 'index'])->name('berbinarp.login');
-Route::get('/berbinarplus/register', [AuthBerbinarpUsersController::class, 'registerView'])->name('berbinarp.register');
-Route::post('/berbinarplus/post-register', [AuthBerbinarpUsersController::class, 'registerPost'])->name('berbinar.register.post');
+// Route::get('/berbinarplus/login', [LoginController::class, 'showLoginForm'])->name('berbinarplus.login');
+// Route::post('/berbinarplus/login', [LoginController::class, 'login'])->name(('berbinarplus.login.post'));
+// Route::post('/berbinarplus/logout', [LoginController::class, 'logout'])->name('berbinarplus.logout');
+
+// Route::get('/berbinarplus/register', [RegisterController::class, 'showRegistrationForm'])->name('berbinarplus.register');
+// Route::post('/berbinarplus/register', [RegisterController::class, 'register'])->name('berbinarplus.register.post');
+
+
+// Route::get('/berbinarplus/dashboard', [BerbinarPlusDashboardController::class, 'index'])->name('berbinarplus.dashboard')->middleware('auth::berbinarplus');;
+
+Route::prefix('berbinarplus')->group(function () {
+    Route::middleware('web')->group(function () {
+        Route::get('/login', [LoginController::class, 'showLoginForm'])->name('berbinarplus.login');
+        Route::post('/login', [LoginController::class, 'login'])->name('berbinarplus.login.post');
+        Route::post('/logout', [LoginController::class, 'logout'])->name('berbinarplus.logout');
+
+        Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('berbinarplus.register');
+        Route::post('/register', [RegisterController::class, 'register'])->name('berbinarplus.register.post');
+        
+        Route::middleware('auth:berbinarplus')->group(function () {
+            Route::get('/dashboard', [BerbinarPlusDashboardController::class, 'index'])->name('berbinarplus.dashboard');
+        });
+    });
+});
