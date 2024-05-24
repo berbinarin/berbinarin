@@ -24,7 +24,7 @@ class QuestionController extends Controller
         $totalQuestions = 44;
         $progress = ($question_order / $totalQuestions) * 100;
 
-        return view('question.show', compact('question', 'test_id', 'question_order', 'progress'));
+        return view('moduls.psikotes.freetest', compact('question', 'test_id', 'question_order', 'progress'));
     }
 
     // Menyimpan jawaban dan mengarahkan ke pertanyaan berikutnya
@@ -35,11 +35,25 @@ class QuestionController extends Controller
         ]);
 
         $question = Question::where('id', $question_order)->firstOrFail();
-        Answer::create([
-            'answer' => $request->input('answer'),
-            'question_id' => $question->id,
-            'test_id' => $test_id,
-        ]);
+
+        // Cek apakah jawaban untuk pertanyaan ini sudah ada
+        $existingAnswer = Answer::where('test_id', $test_id)
+            ->where('question_id', $question->id)
+            ->first();
+
+        if ($existingAnswer) {
+            // Update jawaban yang sudah ada
+            $existingAnswer->update([
+                'answer' => $request->input('answer'),
+            ]);
+        } else {
+            // Simpan jawaban baru
+            Answer::create([
+                'answer' => $request->input('answer'),
+                'question_id' => $question->id,
+                'test_id' => $test_id,
+            ]);
+        }
 
         // Arahkan ke pertanyaan berikutnya atau halaman lain
         $next_question_order = $question_order + 1;

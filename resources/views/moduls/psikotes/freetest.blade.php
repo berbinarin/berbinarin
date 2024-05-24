@@ -1,114 +1,85 @@
 @extends('moduls.psikotes.layouts.main', [
-    'title' => 'Psikotest Berbinar',
-    'active' => 'Test',
+'title' => 'Psikotest Berbinar',
+'active' => 'Test',
+'page' => 'Tes',
 ])
 
-{{-- Tambahan CSS Internal untuk garis biru dan orange --}}
-<style>
-    .quest-container {
-    position: relative;
-}
-
-.absolute-elements {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100%;
-}
-
-.orange-line {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 16.666666%; /* Persentase lebar garis */
-    height: 5px;
-    background-color: orange;
-    margin-top: -10px;
-    clip-path: inset(0px 0px 0px 65px); /* Pemangkasan kiri */
-}
-
-.blue-line {
-    position: absolute;
-    top: 50%;
-    left: 16.666666%;
-    width: 83.333333%;
-    height: 5px;
-    background-color: #3986A3;
-    margin-top: -10px;
-    clip-path: inset(0px 65px 0px 0px); /* Pemangkasan kanan */
-}
-
-
-
-@media screen and (max-width: 768px) {
-    .orange-line {
-        width: 16.666666%; /* Tetap menggunakan persentase yang sama pada layar kecil */
-        clip-path: inset(0px 0px 0px calc(100% - 16.666666%)); /* Tetap memotong panjang kiri */
-    }
-
-    .blue-line {
-        width: 83.333333%; /* Tetap menggunakan persentase yang sama pada layar kecil */
-        clip-path: inset(0px calc(100% - 83.333333%) 0px 0px); /* Tetap memotong panjang kanan */
-    }
-
-    /* Menambahkan responsive btn */
-    .button-test button {
-            width: 100%;
-            margin-bottom: 10px; /* Adjust as needed */
-        }
-
-    .helper-text {
-        gap: 0;
-        flex-direction: column;
-        align-items: left;
-    }
-    
-}
-
-/* menambahkan media query untuk bg-white responsive dan mobile*/
-@media only screen and (max-width: 600px) {
-        .quest-container {
-            height: 550px !important;
-        }
-    }
-</style>
-
 @section('content')
-    <section class="mt-16">
-        <div class="flex justify-start items-left">
-            <div class="bg-primary t-container ml-auto z-38 w-full max-w-[1000px] p-8" style="margin-top: 10px; margin-left: 0; @media (max-width: 768px) { margin-left: auto; margin-right: auto; margin-top: 1px; left: 0; right: 0; transform: translateX(-50%); }"> {{-- menambahkan max-w-[1000px] agar tidak menempel sisi kanan&kiri --}}
-                <h2 class="text-white text-5xl">Psikotes Berbinar</h2>
-                <p class="text-white font-light text-xl mt-3">Kerjakan soal dengan cermat dan teliti</p>
-                <div class="quest-container mt-6 w-full bg-white rounded-3xl p-16" style="height: 370px;"> 
-                    <div class="absolute-elements">
-                        <div class="orange-line"></div>
-                        <div class="blue-line"></div>
+<section>
+    <div class="bg-primary">
+        <div class="flex flex-col justify-start items-left mx-10 md:mx-20 mt-10">
+            <div class="mt-5">
+                <h2 class="text-white font-semibold text-5xl">Psikotes Berbinar</h2>
+                <p class="text-white font-normal text-xl mt-3">Kerjakan soal dengan cermat dan teliti</p>
+            </div>
+
+            <div class="progress w-full h-5 my-10 bg-blue-200 rounded-full">
+                <div class="progress-bar w-[20px] h-5 bg-amber-500 rounded-full text-[13px] text-end" role="progressbar" style="width: {{ $progress }}%;" aria-valuenow="{{ $progress }}" aria-valuemin="0" aria-valuemax="100"><span class="font-semibold mr-3 text-white">{{ round($progress) }}%</span></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-start items-left">
+                <div class="bg-primary t-container mr-5 mt-2.5 z-38 w-full max-w-3xl">
+
+                    <div class="quest-container w-full bg-white rounded-3xl p-10">
+
+
+                        <form action=" {{ route('question.storeAnswer', ['test_id' => $test_id, 'question_order' => $question_order]) }}" method="POST" class="flex flex-col">
+                            @csrf
+                            <p class="question text-lg md:text-2xl">
+                                {{ $question->question_text }}
+                            </p>
+
+                            <div class="flex flex-row sm:flex-col">
+                                <div class="radio flex flex-col sm:flex-row inline-box gap-5 sm:gap-16 mt-6">
+                                    <div class="radio-tab">
+                                        <label for="answer">
+                                            <input id="box-shadow" type="radio" name="answer" value="1" required class="radio-spot rounded-full mr-3"><span class="radio-txt">1</span></input>
+                                        </label>
+                                        </p>
+                                    </div>
+
+                                    <div class="radio-tab">
+                                        <label for="answer">
+                                            <input id="box-shadow" type="radio" name="answer" value="2" required class="radio-spot rounded-full mr-3"><span class="radio-txt">2</span></input>
+                                        </label>
+                                    </div>
+
+                                    <div class="radio-tab">
+                                        <label for="answer">
+                                            <input id="box-shadow" type="radio" name="answer" value="3" required class="radio-spot rounded-full mr-3"><span class="radio-txt">3</span></input>
+                                        </label>
+                                    </div>
+
+                                    <div class="radio-tab">
+                                        <label for="answer">
+                                            <input id="box-shadow" type="radio" name="answer" value="4" required class="radio-spot rounded-full mr-3"><span class="radio-txt">4</span></input>
+                                        </label>
+                                    </div>
+
+                                    <div class="radio-tab flex flex-row md:flex-col">
+                                        <label for="answer">
+                                            <input id="box-shadow" type="radio" name="answer" value="5" required class="radio-spot rounded-full mr-3"><span class="radio-txt">5</span></input>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col sm:flex-row justify-between mt-5 pl-10 sm:pl-0 md:max-w-[32rem]">
+                                    <p>Sangat <br>tidak sesuai </p>
+                                    <p>Sangat sesuai</p>
+                                </div>
+                            </div>
+                            <div class="button-test flex flex-col md:flex-row justify-between mt-10">
+                                <!-- <button class="px-3 md:px-10 py-3 text-primary font-medium bg-white rounded-full border-primary border-2 hover:bg-sky-950 hover:text-white">Kembali</button> -->
+                                <button type="submit" class="px-3 md:px-10 py-3 text-white font-medium bg-primary rounded-full hover:bg-amber-300 hover:text-primary md:w-auto mt-2 md:mt-0">Selanjutnya</button>
+                            </div>
+                        </form>
                     </div>
-                    <form action="{{ route('psikotestHasilTest') }}">
-                        {{-- Deactivate item and question variables --}}
-                        <br>
-                        <p class="question text-md md:text-2xl lg:text-3xl xl:text-2xl" style="font-size: 1.3em;">Saya mudah berteman dengan siapapun *</p>
-                        <div class="quest-choice flex flex-wrap md-justify-start  gap-4 md:gap-10 mt-6">
-                            <button class="opt1 rounded-full bg-slate-200 text-slate-700 hover:bg-slate-400 w-12 h-12">1</button>
-                            <button class="opt2 rounded-full bg-slate-200 text-slate-700 hover:bg-slate-400 w-12 h-12">2</button>
-                            <button class="opt3 rounded-full bg-slate-200 text-slate-700 hover:bg-slate-400 w-12 h-12">3</button>
-                            <button class="opt4 rounded-full bg-primary text-white hover:bg-slate-400 w-12 h-12">4</button>
-                            <button class="opt5 rounded-full bg-slate-200 text-slate-700 hover:bg-slate-400 w-12 h-12">5</button>
-                        </div>  
-                        <div class="helper-text flex text-slate-500 text-xs mt-2 gap-6 md:gap-[280px]"> {{-- mengurangi gap pada tampilan responsive dan mobile --}}
-                            <p class="text-sm md:text-base" style="margin-right: -5.5em;">Sangat tidak sesuai</p> {{-- menambahkan ml untuk posisi tepat dibawah angka 5 pada tampilan dkstp --}}
-                            <p class="text-sm md:text-base">Sangat sesuai</p>
-                        </div>
-                        <br>
-                        <div class="button-test flex justify-start"></div>
-                        <div class="button-test flex flex-col md:flex-row justify-between mt-3">
-                            <button class="px-6 md:px-10 py-3 text-primary bg-white border-primary border-[1px] rounded-2xl hover:bg-sky-950 hover:text-white">Kembali</button>
-                            <button class="px-6 md:px-10 py-3 text-white bg-primary rounded-2xl hover:bg-sky-950 md:w-auto mt-2 md:mt-0">Selanjutnya</button> {{-- menambahkan md:w-auto mt-2 md:mt-0 untuk responsive btn --}}
-                        </div>
-                    </form>
-                </div>   
-                <p class="mt-5 text-white text-lg font-light">Copyright © PT Berbinar Insightful Indonesia. 2023</p>
+                    <p class="my-7 text-white text-lg font-light">Copyright © PT Berbinar Insightful Indonesia. 2023</p>
+                </div>
+
+                {{-- HERO IMG DESKTOP --}}
+                <img src="{{ asset('assets/images/psikotes/value.png') }}" alt="Ilustrasi-Test" class="w-[500px] h-[530px] hidden lg:block -mt-20" data-aos="fade-left" data-aos-duration="1500">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 @endsection
