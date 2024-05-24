@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Models\HiringGeneralRequirement;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\DashboardController;
@@ -50,6 +51,12 @@ Route::get('/class', [LandingController::class, 'class'])->name('class');
 Route::get('/class/webinar', [LandingController::class, 'classWebinar'])->name('webinar');
 Route::get('/class/bisikan', [LandingController::class, 'classBisikan'])->name('bisikan');
 Route::get('/class/berbinar+', [LandingController::class, 'classBerbinarPlus'])->name('berbinarPlus');
+Route::get('/class/berbinar+/daftar', [RegistrationController::class, 'index'])->name('registrasi');
+Route::get('/class/berbinar+/success', [RegistrationController::class, 'success'])->name('success');
+Route::get('/class/berbinar+/html', [RegistrationController::class, 'html'])->name('berbinarPlusDaftar');
+// buat testing form selanjutnya tapi belum pakai tailwindcss
+Route::get('/class/berbinar+/daftarI', [RegistrationController::class, 'indexx'])->name('berbinarPlusDaftarI');
+Route::post('/class/berbinar+/daftar', [RegistrationController::class, 'store'])->name('register.store');
 
 Route::get('/counseling/reg/layanan', [LandingController::class, 'layanan'])->name('layanan');
 Route::get('/counseling/reg/peer/pilihjadwal', [LandingController::class, 'peerPilihJadwal'])->name('peer-jadwal');
@@ -125,28 +132,24 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/createSoalpsikotes', [testGratisController::class, 'simpanSoal'])->name('psikote.soal');
 });
 
-// MODUL PSIKOTEST FREE
-Route::get('/tests', [TestController::class, 'index'])->name('test.index');
-Route::post('/tests', [TestController::class, 'store'])->name('test.store');
-
-Route::get('/tests/{test_id}/biodata', [UserPsikotestController::class, 'show'])->name('biodata.show');
-Route::post('/tests/{test_id}/biodata', [UserPsikotestController::class, 'store'])->name('biodata.store');
-
-Route::get('/tests/{test_id}/questions/{question_order}', [QuestionController::class, 'show'])->name('question.show');
-Route::post('/tests/{test_id}/questions/{question_order}', [QuestionController::class, 'storeAnswer'])->name('question.storeAnswer');
-
-Route::get('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'show'])->name('feedback.show');
-Route::post('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'store'])->name('feedback.store');
-
-Route::get('/results/{test_id}/{user_id}', [ResultController::class, 'show'])->name('result.show');
-Route::post('/finish-test/{test_id}/{user_id}', [ResultController::class, 'finishTest'])->name('result.finishTest');
-
-Route::get('/psikotest/home', [LandingController::class, 'psikotestHome'])->name('psikotestHome');
+// // MODUL PSIKOTEST FREE
+Route::get('/psikotest/free', [TestController::class, 'index'])->name('test.index');
+Route::post('/psikotest/free', [TestController::class, 'store'])->name('test.store');
 Route::get('/psikotest/free/start', [LandingController::class, 'psikotestFreeStart'])->name('psikotestFreeStart');
-Route::get('/psikotest/free/test', [LandingController::class, 'psikotestFreeTest'])->name('psikotestFreeTest');
-Route::get('/psikotest/free/biodata', [LandingController::class, 'psikotestBiodata'])->name('psikotestBiodata');
-Route::get('/psikotest/free/feedback', [LandingController::class, 'psikotestFeedback'])->name('psikotestFeedback');
-Route::get('/psikotest/free/hasiltes', [LandingController::class, 'psikotestHasilTest'])->name('psikotestHasilTest');
+Route::get('/psikotest/free/{test_id}/biodata', [UserPsikotestController::class, 'show'])->name('biodata.show');
+Route::post('/psikotest/free/{test_id}/biodata', [UserPsikotestController::class, 'store'])->name('biodata.store');
+Route::get('/psikotest/free/{test_id}/questions/{question_order}', [QuestionController::class, 'show'])->name('question.show');
+Route::post('/psikotest/free/{test_id}/questions/{question_order}', [QuestionController::class, 'storeAnswer'])->name('question.storeAnswer');
+Route::get('/psikotest/free/{test_id}/{user_id}/feedback', [FeedbackController::class, 'show'])->name('feedback.show');
+Route::post('/psikotest/free/{test_id}/{user_id}/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+Route::get('/psikotest/free/{test_id}/{user_id}/results', [ResultController::class, 'show'])->name('result.show');
+Route::post('/psikotest/free/{test_id}/{user_id}/finish-test', [ResultController::class, 'finishTest'])->name('result.finishTest');
+
+// MODUL PSIKOTEST
+Route::get('/psikotest/home', [LandingController::class, 'psikotestHome'])->name('psikotestHome');
+// Route::get('/psikotest/free/test', [LandingController::class, 'psikotestFreeTest'])->name('psikotestFreeTest');
+// Route::get('/psikotest/free/biodata', [LandingController::class, 'psikotestBiodata'])->name('psikotestBiodata');
+// Route::get('/psikotest/free/feedback', [LandingController::class, 'psikotestFeedback'])->name('psikotestFeedback');
+// Route::get('/psikotest/free/hasiltes', [LandingController::class, 'psikotestHasilTest'])->name('psikotestHasilTest');
 Route::get('/psikotest/login', [LandingController::class, 'psikotestLogin'])->name('psikotestLogin');
 Route::get('/psikotest/register', [LandingController::class, 'psikotestRegister'])->name('psikotestRegister');
-

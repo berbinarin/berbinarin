@@ -16,8 +16,6 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('user_psikotests')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('rating');
             $table->string('experience');
-            // $table->string('suggestion');
-            // $table->string('social_share');
             $table->timestamps();
         });
     }
