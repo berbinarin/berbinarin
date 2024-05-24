@@ -29,7 +29,7 @@
             <div class="bg-white rounded-lg p-5 w-full" style="max-width: 80%; margin: auto;">
                     <h1 class="text-4xl font-bold text-center mb-4 mt-1">Join Berbinar Class!</h1>
                     <p class="text-center mb-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum <br>dolor Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime praesentium id dolorem itaque!</p>
-                    <form id="registrationForm1" class="registration-form">
+                    <form method="POST" action="{{ route('berbinarplus.register.post') }}" id="registrationForm1" class="registration-form">
                         @csrf
         
                         {{-- NAMA LENGKAP --}}

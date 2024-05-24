@@ -12,13 +12,14 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class RegisterController extends Controller
 {
-    public function showRegistrationForm()
+    public function index()
     {
-        return view('berbinar-plus.auth.register');
+        return view('moduls.berbinar-plus.auth.registrasi');
     }
 
     public function register(Request $request)
     {
+        
         $request->validate([
             'email' => 'required|string|email|max:255|unique:berbinarp_users',
             'password' => 'required|string|min:8|confirmed',
@@ -43,6 +44,8 @@ class RegisterController extends Controller
                 'last_education' => $request->last_education,
                 'knowing_source' => $request->knowing_source,
             ]);
+            var_dump($user);
+            die();
             Alert::toast('Formulir Pendaftaran Berhasil', 'success')->autoClose(5000);;
             //Auth::login($user);
             return redirect()->route('berbinarplus.login');

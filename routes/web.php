@@ -54,13 +54,33 @@ Route::get('/work-with-us', [LandingController::class, 'workWithUs'])->name('wor
 Route::get('/class', [LandingController::class, 'class'])->name('class');
 Route::get('/class/webinar', [LandingController::class, 'classWebinar'])->name('webinar');
 Route::get('/class/bisikan', [LandingController::class, 'classBisikan'])->name('bisikan');
+
+// MODULE BERBINAR PLUS
 Route::get('/class/berbinar+', [LandingController::class, 'classBerbinarPlus'])->name('berbinarPlus');
-Route::get('/class/berbinar+/daftar', [RegistrationController::class, 'index'])->name('registrasi');
+//Route::get('/class/berbinar+/daftar', [RegistrationController::class, 'index'])->name('registrasi');
 Route::get('/class/berbinar+/success', [RegistrationController::class, 'success'])->name('success');
-Route::get('/class/berbinar+/html', [RegistrationController::class, 'html'])->name('berbinarPlusDaftar');
+
+Route::prefix('/test/berbinarplus')->group(function () {
+    Route::middleware('web')->group(function () {
+        Route::get('/login', [LoginController::class, 'showLoginForm'])->name('berbinarplus.login');
+        Route::post('/login', [LoginController::class, 'login'])->name('berbinarplus.login.post');
+        Route::post('/logout', [LoginController::class, 'logout'])->name('berbinarplus.logout');
+
+        Route::get('/daftar', [RegisterController::class, 'index'])->name('berbinarplus.register');
+        Route::post('/register', [RegisterController::class, 'register'])->name('berbinarplus.register.post');
+        
+        Route::middleware('auth:berbinarplus')->group(function () {
+            Route::get('/dashboard', [BerbinarPlusDashboardController::class, 'index'])->name('berbinarplus.dashboard');
+        });
+    });
+});
+
 // buat testing form selanjutnya tapi belum pakai tailwindcss
+// punya ka anggi kalau masih testing taruh disini dulu
+Route::get('/class/berbinar+/html', [RegistrationController::class, 'html'])->name('berbinarPlusDaftar');
 Route::get('/class/berbinar+/daftarI', [RegistrationController::class, 'indexx'])->name('berbinarPlusDaftarI');
 Route::post('/class/berbinar+/daftar', [RegistrationController::class, 'store'])->name('register.store');
+
 
 Route::get('/counseling/reg/layanan', [LandingController::class, 'layanan'])->name('layanan');
 Route::get('/counseling/reg/peer/pilihjadwal', [LandingController::class, 'peerPilihJadwal'])->name('peer-jadwal');
@@ -165,17 +185,3 @@ Route::post('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'store'
 Route::get('/results/{test_id}/{user_id}', [ResultController::class, 'show'])->name('result.show');
 Route::post('/finish-test/{test_id}/{user_id}', [ResultController::class, 'finishTest'])->name('result.finishTest');
 
-Route::prefix('berbinarplus')->group(function () {
-    Route::middleware('web')->group(function () {
-        Route::get('/login', [LoginController::class, 'showLoginForm'])->name('berbinarplus.login');
-        Route::post('/login', [LoginController::class, 'login'])->name('berbinarplus.login.post');
-        Route::post('/logout', [LoginController::class, 'logout'])->name('berbinarplus.logout');
-
-        Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('berbinarplus.register');
-        Route::post('/register', [RegisterController::class, 'register'])->name('berbinarplus.register.post');
-        
-        Route::middleware('auth:berbinarplus')->group(function () {
-            Route::get('/dashboard', [BerbinarPlusDashboardController::class, 'index'])->name('berbinarplus.dashboard');
-        });
-    });
-});
