@@ -40,7 +40,7 @@ class ResultController extends Controller
         session()->forget('user_id');
 
         // Redirect ke halaman feedback
+        return redirect()->route('psikotestHome');
         // return redirect()->route('feedback.show', ['test_id' => $test_id, 'user_id' => $user_id]);
-
     }
 }
