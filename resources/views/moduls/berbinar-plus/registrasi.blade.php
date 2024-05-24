@@ -395,6 +395,7 @@
             // Lakukan validasi saat tombol "Next" ditekan
             if (validateFields()) {
                 // Jika form valid, lanjutkan ke form selanjutnya
+                document.getElementById('registrationForm1').classList.add('hidden');
                 document.getElementById('registrationForm2').classList.remove('hidden');
             } else {
                 // Jika form tidak valid, tampilkan modal peringatan
