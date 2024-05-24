@@ -72,24 +72,24 @@
                     </form>
 
                     <!-- <form action="" method="">
-                                                                    @csrf
-                                                                    <div class="feedback mt-3 mx-0 sm:mx-20 md:mx-30 lg:mx-0 justify-items-center">
-                                                                        <p class="text-center text-disabled text-base my-2">Apakah ada yang ingin SobatBinar bagikan?
-                                                                        </p>
-                                                                        <div class="text-center justify-items-center">
-                                                                            <textarea placeholder="Tulis disini" name="feedback" value=""
-                                                                                class="bg-[#F1F3F6] text-[#555555] border-2 w-5/6 h-48 rounded-lg p-4 mt-3 mr-0"></textarea>
-                                                                        </div>
-                                                                        <div id="submit-feedback" class="text-center pt-10">
+                                                                        @csrf
+                                                                        <div class="feedback mt-3 mx-0 sm:mx-20 md:mx-30 lg:mx-0 justify-items-center">
+                                                                            <p class="text-center text-disabled text-base my-2">Apakah ada yang ingin SobatBinar bagikan?
+                                                                            </p>
+                                                                            <div class="text-center justify-items-center">
+                                                                                <textarea placeholder="Tulis disini" name="feedback" value=""
+                                                                                    class="bg-[#F1F3F6] text-[#555555] border-2 w-5/6 h-48 rounded-lg p-4 mt-3 mr-0"></textarea>
+                                                                            </div>
+                                                                            <div id="submit-feedback" class="text-center pt-10">
 
-                                                                            {{-- <a href="{{ route('result.show') }}" type="submit" --}}
-                                                                                class="submit text-lg text-white bg-primary rounded-full font-semibold hover:bg-amber-300 hover:text-primary hover:font-semibold duration-500 px-10 py-2.5 w-auto">
-                                                                                Kirim
-                                                                            </a>
+                                                                                {{-- <a href="{{ route('result.show') }}" type="submit" --}}
+                                                                                    class="submit text-lg text-white bg-primary rounded-full font-semibold hover:bg-amber-300 hover:text-primary hover:font-semibold duration-500 px-10 py-2.5 w-auto">
+                                                                                    Kirim
+                                                                                </a>
 
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                </form> -->
+                                                                    </form> -->
                 </div>
             </div>
         </div>
