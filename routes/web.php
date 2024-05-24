@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Models\HiringGeneralRequirement;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\DashboardController;
@@ -50,6 +51,12 @@ Route::get('/class', [LandingController::class, 'class'])->name('class');
 Route::get('/class/webinar', [LandingController::class, 'classWebinar'])->name('webinar');
 Route::get('/class/bisikan', [LandingController::class, 'classBisikan'])->name('bisikan');
 Route::get('/class/berbinar+', [LandingController::class, 'classBerbinarPlus'])->name('berbinarPlus');
+Route::get('/class/berbinar+/daftar', [RegistrationController::class, 'index'])->name('registrasi');
+Route::get('/class/berbinar+/success', [RegistrationController::class, 'success'])->name('success');
+Route::get('/class/berbinar+/html', [RegistrationController::class, 'html'])->name('berbinarPlusDaftar');
+// buat testing form selanjutnya tapi belum pakai tailwindcss
+Route::get('/class/berbinar+/daftarI', [RegistrationController::class, 'indexx'])->name('berbinarPlusDaftarI');
+Route::post('/class/berbinar+/daftar', [RegistrationController::class, 'store'])->name('register.store');
 
 Route::get('/counseling/reg/layanan', [LandingController::class, 'layanan'])->name('layanan');
 Route::get('/counseling/reg/peer/pilihjadwal', [LandingController::class, 'peerPilihJadwal'])->name('peer-jadwal');
