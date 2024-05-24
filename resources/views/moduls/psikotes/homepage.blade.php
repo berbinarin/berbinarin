@@ -34,7 +34,7 @@
         </div>
 
         {{-- HERO IMG DESKTOP --}}
-        <img src="{{ asset('assets/images/konseling/regist/ilustrasi1.png') }}" alt="Ilustrasi-Test"
+        <img src="{{ asset('assets/images/konseling/regist/Ilustrasi1.png') }}" alt="Ilustrasi-Test"
             class="w-1/2 hidden sm:block" data-aos="fade-left" data-aos-duration="1500">
     </div>
 </section>
