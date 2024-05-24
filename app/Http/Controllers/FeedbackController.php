@@ -19,7 +19,6 @@ class FeedbackController extends Controller
         // Ambil data user berdasarkan `user_id`
         $user = UserPsikotest::findOrFail($user_id);
 
-        // return view('feedback.show', compact('test_id', 'user_id', 'user'));
         return view('moduls.psikotes.feedback', compact('test_id', 'user_id', 'user'));
     }
 
