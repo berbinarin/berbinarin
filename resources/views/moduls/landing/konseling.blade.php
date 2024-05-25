@@ -9,8 +9,7 @@
 <section
     class="hero max-w-6xl mx-auto h-screen flex flex-col md:flex-row items-center justify-center relative px-5 md:px-0 mt-28 md:mt-10">
     {{-- HERO IMG MOBILE --}}
-    <img src="{{ asset('assets/images/product-berbinar/asesmen-psikologi.png') }}" alt="Ilustrasi Konseling Berbinar"
-        title="Ilustrasi Konseling Berbinar" class="w-full block md:hidden" data-aos="fade-up" data-aos-duration="1500">
+    <img src="{{ asset('assets/images/product-berbinar/asesmen-psikologi.png') }}" alt="Ilustrasi Konseling Berbinar" title="Ilustrasi Konseling Berbinar" class="w-full block md:hidden" data-aos="fade-up" data-aos-duration="1500">
 
 
     {{-- HERO CONTENT --}}
@@ -96,9 +95,7 @@
 
     {{-- HERO IMG DESKTOP --}}
 
-    <img src="{{ asset('assets/images/product-berbinar/asesmen-psikologi.png') }}" alt="Ilustrasi Konseling Berbinar"
-        title="Ilustrasi Konseling Berbinar" class="w-1/2 hidden md:block" data-aos="fade-left"
-        data-aos-duration="1500">
+    <img src="{{ asset('assets/images/product-berbinar/asesmen-psikologi.png') }}" alt="Ilustrasi Konseling Berbinar" title="Ilustrasi Konseling Berbinar" class="w-1/2 hidden md:block" data-aos="fade-left" data-aos-duration="1500">
 
 </section>
 
@@ -117,21 +114,19 @@
                     src="{{ asset('assets/images/konseling/psikolog1.jpg') }}">
                 <div class="flex flex-col items-center">
                     <a target="_blank"
-                        href="https://drive.google.com/file/d/1mHcJvLoqeISx6GO1Qr8bhUQYd9Watwxm/view?usp=share_link"
+                        href="http://127.0.0.1:8000/counseling/pdf/DANIEL REYONALD BUNGARAN.pdf"
                         class="text-lg font-medium text-center">Daniel Reyonald Bungaran, S.Psi., M.Psi., Psikolog</a>
                 </div>
             </div> -->
-
+            
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                    src="{{ asset('assets/images/konseling/psikolog2.jpg') }}">
-                <div class="flex flex-col items-center">
-                    <a target="_blank"
-                        href="https://drive.google.com/file/d/1eSV7AxbEgG92eMrp4SVErcKJ8uacoahP/view?usp=share_link"
-                        class="text-lg font-medium text-center">Danny Sanjaya Arfensia, S.Psi., M.Psi. Psikolog</a>
-                </div>
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog2.jpg') }}">
+            <div class="flex flex-col items-center">
+                <a target="_blank" href="http://127.0.0.1:8000/counseling/pdf/DANNY SANJAYA ARFENSIA.pdf" 
+                class="text-lg font-medium text-center">Danny Sanjaya Arfensia, S.Psi., M.Psi., Psikolog</a>
             </div>
-            {{--
+        </div>
+        {{--
         <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog7.jpg') }}">
             <div class="flex flex-col items-center">
@@ -177,7 +172,7 @@
                 src="{{ asset('assets/images/konseling/psikolog/primandini.jpeg') }}">
             <div class="flex flex-col items-center">
                 <a target="_blank"
-                    href="https://drive.google.com/file/d/1JKD2sj5Bm_73OYU9aoTlWHWLdHXR24iY/view?usp=drive_link"
+                    href="http://127.0.0.1:8000/counseling/pdf/B. PRIMANDINI YUNANDA HARUMI.pdf"
                     class="text-lg font-medium text-center">B. Primandini Yunanda Harumi, S.Psi., M.Psi., Psikolog</a>
             </div>
         </div>
@@ -185,37 +180,52 @@
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                 src="{{ asset('assets/images/konseling/psikolog/yusandi.png') }}">
             <div class="flex flex-col items-center">
-                <a class="text-lg font-medium text-center">Yusandi Rezki Fadhli, S.Psi., M.Psi., Psikolog</a>
+                <a target="_blank" href="http://127.0.0.1:8000/counseling/pdf/YUSANDI REZKI FADHLI.pdf"
+                 class="text-lg font-medium text-center">Yusandi Rezki Fadhli, S.Psi., M.Psi., Psikolog</a>
             </div>
         </div>
         <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                 src="{{ asset('assets/images/konseling/psikolog/satria.jpeg') }}">
             <div class="flex flex-col items-center">
-                <a class="text-lg font-medium text-center">Satria Kamal Agassi, S.Psi., M.Psi., Psikolog</a>
+                <a target="_blank" href="http://127.0.0.1:8000/counseling/pdf/SATRIA KAMAL AGASSI.pdf"
+                class="text-lg font-medium text-center">Satria Kamal Agassi, S.Psi., M.Psi., Psikolog</a>
             </div>
         </div>
         <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                 src="{{ asset('assets/images/konseling/virginia.jpeg') }}">
             <div class="flex flex-col items-center">
-                <a class="text-lg font-medium text-center">Virginia Sukma Dewi, S. Psi., M. Psi., Psikolog</a>
+                <a target="_blank" href="http://127.0.0.1:8000/counseling/pdf/VIRGINIA SUKMA DEWI.pdf"
+                class="text-lg font-medium text-center">Virginia Sukma Dewi, S. Psi., M. Psi., Psikolog</a>
             </div>
         </div>
         <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                 src="{{ asset('assets/images/konseling/kasmayani.jpeg') }}">
             <div class="flex flex-col items-center">
-                <a class="text-lg font-medium text-center">Kasmayani Karim, M.Psi., </br> Psikolog</a>
+                <a target="_blank" href="http://127.0.0.1:8000/counseling/pdf/KASMAYANI KARIM.pdf"
+                class="text-lg font-medium text-center">Kasmayani Karim, M.Psi., </br> Psikolog</a>
             </div>
         </div>
-        <!-- <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+        <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+            <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
+                 src="{{ asset('assets/images/konseling/psikolog1.jpg') }}">
+            <div class="flex flex-col items-center">
+                <a target="_blank"
+                    class="text-lg font-medium text-center">Daniel Reyonald Bungaran, S.Psi., M.Psi., Psikolog</a>
+                    <!-- href="http://127.0.0.1:8000/counseling/pdf/DANIEL REYONALD BUNGARAN.pdf" -->
+            </div>
+        </div>
+        <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                 src="{{ asset('assets/images/konseling/ira.jpeg') }}">
             <div class="flex flex-col items-center">
-                <a class="text-lg font-medium text-center">Ira Mayang Sari, S. Psi., M. Psi., Psikolog</a>
+                <a target="_blank" 
+                class="text-lg font-medium text-center">Ira Mayang Sari, S. Psi., M. Psi., Psikolog</a>
+                <!-- href="http://127.0.0.1:8000/counseling/pdf/IRA MAYANG SARI.pdf" -->
             </div>
-        </div> -->
+        </div>
     </div>
     </div>
 </section>
@@ -451,7 +461,7 @@
                             class="max-w-lg text-lg italic text-center border-b-2 pb-5 text-black border-b-[#70787D]">
                             "{{ $testimonial['testimonial'] }}"</blockquote>
                         <div class="text-center dark:text-gray-400 flex flex-col items-center">
-                            <img src="{{ asset($testimonial['image']) }}" alt=""
+                            <img src="{{ $testimonial['image'] }}" alt=""
                                 class="w-20 h-20 rounded-full dark:bg-gray-500 object-cover">
                             <p class="text-black text-lg font-medium mt-2">{{ $testimonial['name'] }}</p>
                         </div>
@@ -501,28 +511,28 @@
 <div class="modalin hidden opacity-25 fixed inset-0 z-40 bg-black "></div>
 
 <script>
-document.addEventListener('alpine:init', () => {
-    Alpine.store('accordion', {
-        tab: 0
-    });
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('accordion', {
+            tab: 0
+        });
 
-    Alpine.data('accordion', (idx) => ({
-        init() {
-            this.idx = idx;
-        },
-        idx: -1,
-        handleClick() {
-            this.$store.accordion.tab = this.$store.accordion.tab === this.idx ? 0 : this.idx;
-        },
-        handleRotate() {
-            return this.$store.accordion.tab === this.idx ? 'rotate-180' : '';
-        },
-        handleToggle() {
-            return this.$store.accordion.tab === this.idx ?
-                `max-height: ${this.$refs.tab.scrollHeight}px` : '';
-        }
-    }));
-})
+        Alpine.data('accordion', (idx) => ({
+            init() {
+                this.idx = idx;
+            },
+            idx: -1,
+            handleClick() {
+                this.$store.accordion.tab = this.$store.accordion.tab === this.idx ? 0 : this.idx;
+            },
+            handleRotate() {
+                return this.$store.accordion.tab === this.idx ? 'rotate-180' : '';
+            },
+            handleToggle() {
+                return this.$store.accordion.tab === this.idx ?
+                    max-height: ${this.$refs.tab.scrollHeight}px : '';
+            }
+        }));
+    })
 </script>
 
 <script>
