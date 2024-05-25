@@ -151,5 +151,5 @@ Route::get('/psikotest/home', [LandingController::class, 'psikotestHome'])->name
 // Route::get('/psikotest/free/biodata', [LandingController::class, 'psikotestBiodata'])->name('psikotestBiodata');
 // Route::get('/psikotest/free/feedback', [LandingController::class, 'psikotestFeedback'])->name('psikotestFeedback');
 // Route::get('/psikotest/free/hasiltes', [LandingController::class, 'psikotestHasilTest'])->name('psikotestHasilTest');
-Route::get('/psikotest/login', [LandingController::class, 'psikotestLogin'])->name('psikotestLogin');
-Route::get('/psikotest/register', [LandingController::class, 'psikotestRegister'])->name('psikotestRegister');
+// Route::get('/psikotest/login', [LandingController::class, 'psikotestLogin'])->name('psikotestLogin');
+// Route::get('/psikotest/register', [LandingController::class, 'psikotestRegister'])->name('psikotestRegister');
