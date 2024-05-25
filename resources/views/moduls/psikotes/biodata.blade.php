@@ -7,7 +7,7 @@
 
 @section('content')
 <sections>
-    <div class="h-full flex justify-center">
+    <div class="h-screen flex justify-center">
         <div class="w-full md:max-w-3xl flex flex-col bg-primary items-center z-38 py-16 px-10">
             <div class="flex flex-col w-full justify-center bg-white rounded-3xl p-7 sm:p-10">
 

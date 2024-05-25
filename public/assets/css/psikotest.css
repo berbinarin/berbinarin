@@ -1,6 +1,27 @@
 [type="radio"]:checked {
     background-image: none !important;
 }
+/* button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: none;
+    background-color: none;
+} */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: none;
+    /* background-color: initial; */
+    background-image: initial;
+}
+
+.bg-white\/50 {
+    background-color: hsla(0, 0%, 100%, 0.5);
+}
+
 /* .radio {
     padding: 16px 0px;
     /* text-align: center; */
@@ -271,7 +292,7 @@ li::before {
 
 .rating {
     max-width: 400px;
-    margin: 10px auto;
+    margin: 5px auto;
     justify-content: center;
     background: #fff;
     border-radius: 3px;
