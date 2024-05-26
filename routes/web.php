@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Models\HiringGeneralRequirement;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\QuestionController;
@@ -34,6 +35,7 @@ Route::get('/', [LandingController::class, 'index'])->name('home');
 Route::get('/about-us', [LandingController::class, 'tentangKami'])->name('about');
 Route::get('/products', [LandingController::class, 'products'])->name('products');
 Route::get('/counseling', [LandingController::class, 'konseling'])->name('counseling');
+Route::get('/counseling/pdf/{filename}', [PDFController::class, 'show'])->name('pdf.show');
 Route::get('/psikotest', [LandingController::class, 'psikotest'])->name('psikotest');
 Route::get('/psikotest/homepage', [LandingController::class, 'homepage'])->name('homepage');
 
