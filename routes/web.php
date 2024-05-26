@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
-use App\Models\HiringGeneralRequirement;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\RegistrationController;
@@ -13,13 +12,11 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\testGratisController;
 use App\Http\Controllers\UserPsikotestController;
-use App\Models\Hiring_Positions_Job_Descriptions;
 use App\Http\Controllers\HiringPositionsController;
 use App\Http\Controllers\HiringGeneralRequirementsController;
 use App\Http\Controllers\HiringPositionsRequirementsController;
 use App\Http\Controllers\HiringPositionsJobDescriptionController;
 
-use App\Http\Controllers\Berbinarplus\BerbinarPlusDashboardController;
 use App\Http\Controllers\Berbinarplus\AuthUserController;
 
 /*
