@@ -10,7 +10,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-sZCGxb8q9nX7T3q1uCYkEly3E0m9UnnSkTP+Cpfz1pRY4Y6BZoZ6vFw8bCwS5oZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-sZCGxb8q9nX7T3q1uCYkEly3E0m9UnnSkTP+Cpfz1pRY4Y6BZoZ6vFw8bCwS5oZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="" />
 
     <link rel="canonical" href="https://codepen.io/ocxigin/pen/RwvBLKp" />
@@ -59,12 +60,12 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        AOS.init();
+    AOS.init();
     </script>
 
     {{-- menonaktifkan ml dan mt menjadi auto --}}
     @if ($active === 'Test')
-    <div class="h-full md:h-screen w-full flex">
+    <div class="h-screen md:h-full w-full flex">
         <main class="w-full bg-primary ml-auto mt-0 z-38 mx-auto">
             {{-- mengubah mt-auto mt-0 --}}
             @yield('content')
@@ -81,7 +82,7 @@
     @endif
 
     @if ($active === 'HasilTes')
-    <div class="h-screen w-full flex">
+    <div class="h-screen md:h-full w-full flex">
         <main class="w-full bg-primary t-container z-38">
             @yield('content')
         </main>

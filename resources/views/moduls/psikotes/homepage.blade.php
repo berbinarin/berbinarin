@@ -26,7 +26,7 @@
                     <a href="{{ route('psikotestFreeStart') }}"
                         class="text-lg text-[#70787D] bg-[#C1C1C1] rounded-full font-medium hover:bg-amber-300 hover:text-primary duration-700 px-5 py-2 w-fit">Ikuti
                         Tes Gratis</a>
-                    <a href=""
+                    <a href="https://forms.gle/aabDZ5DmmhJs8obk8" target="_blank" rel="noopener noreferrer"
                         class="text-lg text-white bg-primary rounded-full font-semibold hover:bg-amber-300 hover:text-primary hover:font-semibold duration-500 px-5 py-2 w-fit">Daftar
                         Tes Berbayar</a>
                 </div>
