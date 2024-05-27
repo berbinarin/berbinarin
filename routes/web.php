@@ -6,6 +6,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\QuestionController;
@@ -34,6 +35,7 @@ Route::get('/', [LandingController::class, 'index'])->name('home');
 Route::get('/about-us', [LandingController::class, 'tentangKami'])->name('about');
 Route::get('/products', [LandingController::class, 'products'])->name('products');
 Route::get('/counseling', [LandingController::class, 'konseling'])->name('counseling');
+Route::get('/counseling/pdf/{filename}', [PDFController::class, 'show'])->name('pdf.show');
 Route::get('/psikotest', [LandingController::class, 'psikotest'])->name('psikotest');
 Route::get('/psikotest/homepage', [LandingController::class, 'homepage'])->name('homepage');
 
@@ -176,3 +178,5 @@ Route::post('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'store'
 Route::get('/results/{test_id}/{user_id}', [ResultController::class, 'show'])->name('result.show');
 Route::post('/finish-test/{test_id}/{user_id}', [ResultController::class, 'finishTest'])->name('result.finishTest');
 
+// Route::get('/psikotest/login', [LandingController::class, 'psikotestLogin'])->name('psikotestLogin');
+// Route::get('/psikotest/register', [LandingController::class, 'psikotestRegister'])->name('psikotestRegister');
