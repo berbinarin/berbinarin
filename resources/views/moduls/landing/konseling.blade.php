@@ -120,14 +120,13 @@
             </div> -->
             
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" 
-                src="{{ asset('assets/images/konseling/psikolog2.jpg') }}">
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog2.jpg') }}">
             <div class="flex flex-col items-center">
-                <a target="_blank" 
+                <a target="_blank" href="http://127.0.0.1:8000/counseling/pdf/DANNY SANJAYA ARFENSIA.pdf" 
                 class="text-lg font-medium text-center">Danny Sanjaya Arfensia, S.Psi., M.Psi., Psikolog</a>
             </div>
         </div>
-        <!-- {{--
+        {{--
         <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog7.jpg') }}">
             <div class="flex flex-col items-center">
@@ -167,12 +166,13 @@
                     class="text-lg font-medium text-center">Putu Yoga, S.Psi., M.Psi. Psikolog</a>
             </div>
         </div>
-        --}} -->
+        --}}
         <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                 src="{{ asset('assets/images/konseling/psikolog/primandini.jpeg') }}">
             <div class="flex flex-col items-center">
-                <a target="_blank" 
+                <a target="_blank"
+                    href="http://127.0.0.1:8000/counseling/pdf/B. PRIMANDINI YUNANDA HARUMI.pdf"
                     class="text-lg font-medium text-center">B. Primandini Yunanda Harumi, S.Psi., M.Psi., Psikolog</a>
             </div>
         </div>
@@ -180,7 +180,7 @@
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                 src="{{ asset('assets/images/konseling/psikolog/yusandi.png') }}">
             <div class="flex flex-col items-center">
-                <a target="_blank" 
+                <a target="_blank" href="http://127.0.0.1:8000/counseling/pdf/YUSANDI REZKI FADHLI.pdf"
                  class="text-lg font-medium text-center">Yusandi Rezki Fadhli, S.Psi., M.Psi., Psikolog</a>
             </div>
         </div>
@@ -188,7 +188,7 @@
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                 src="{{ asset('assets/images/konseling/psikolog/satria.jpeg') }}">
             <div class="flex flex-col items-center">
-                <a target="_blank" 
+                <a target="_blank" href="http://127.0.0.1:8000/counseling/pdf/SATRIA KAMAL AGASSI.pdf"
                 class="text-lg font-medium text-center">Satria Kamal Agassi, S.Psi., M.Psi., Psikolog</a>
             </div>
         </div>
@@ -196,7 +196,7 @@
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                 src="{{ asset('assets/images/konseling/virginia.jpeg') }}">
             <div class="flex flex-col items-center">
-                <a target="_blank" 
+                <a target="_blank" href="http://127.0.0.1:8000/counseling/pdf/VIRGINIA SUKMA DEWI.pdf"
                 class="text-lg font-medium text-center">Virginia Sukma Dewi, S. Psi., M. Psi., Psikolog</a>
             </div>
         </div>
@@ -204,7 +204,7 @@
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                 src="{{ asset('assets/images/konseling/kasmayani.jpeg') }}">
             <div class="flex flex-col items-center">
-                <a target="_blank" 
+                <a target="_blank" href="http://127.0.0.1:8000/counseling/pdf/KASMAYANI KARIM.pdf"
                 class="text-lg font-medium text-center">Kasmayani Karim, M.Psi., </br> Psikolog</a>
             </div>
         </div>
@@ -290,6 +290,35 @@
                 </div>
             </div>
         </div>
+        <div class="flex flex-col md:flex-row flex-wrap items-center justify-center gap-5 mt-10">
+            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[300px] "
+                data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
+                <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
+                    <h3 class="text-black text-xl font-medium">Offline Weekday</h3>
+                    <h1 class="text-black text-4xl font-medium">IDR 175k/jam</h1>
+                    <p class="text-lg text-disabled">Khusus wilayah Samarinda</p>
+                    <button
+                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal"
+                        data-modal-index="0">
+                        Mulai Sekarang
+                    </button>
+                </div>
+            </div>
+            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[300px] "
+                data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
+                <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
+                    <h3 class="text-black text-xl font-medium">Offline Weekend</h3>
+                    <h1 class="text-black text-4xl font-medium">IDR 225k/jam</h1>
+                    <p class="text-lg text-disabled">Khusus wilayah Samarinda</p>
+                    <button
+                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal"
+                        data-modal-index="0">
+                        Mulai Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
