@@ -46,7 +46,7 @@
                         <ul class="list-disc list-outside leading-relaxed mt-10">
                             <li class="font-semibold">Lokasi offline Konseling
                                 <ul class="list-decimal list-outside leading-relaxed pl-4">
-                                    <li>Psikolog : Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, dan Kalimantan Utara (Tarakan),
+                                    <li>Psikolog : Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, dan Kalimantan Utara (Tarakan)
                                     </li>
                                     <li>Peer Counselor : Bandung, Tangerang, dan Malang</li>
                                 </ul>
@@ -332,7 +332,7 @@
                         <ul class="list-disc list-outside leading-relaxed mt-10">
                             <li class="font-semibold">Lokasi offline Konseling
                                 <ul class="list-decimal list-outside leading-relaxed pl-4">
-                                    <li>Psikolog : Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, dan Kalimantan Utara (Tarakan),
+                                    <li>Psikolog : Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, dan Kalimantan Utara (Tarakan)
                                     </li>
                                     <li>Peer Counselor : Malang, Bandung, dan Tangerang</li>
                                 </ul>
