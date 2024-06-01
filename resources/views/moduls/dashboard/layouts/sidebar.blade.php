@@ -85,26 +85,49 @@
         @if (auth()->user()->role == 'Konselling')
             <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
-                <a href="{{ route('dashboard.PeerConsellorSchedule') }}" class=" flex flex-col items-center @if ($modul === 'Peer Conselor Schedule') text-primary @else text-gray-700 @endif">
-                    <i class='bx bx-calendar @if ($modul === 'Peer Conselor Schedule') text-primary @else text-gray-700 @endif text-lg'></i>
+                <a href="{{ route('dashboard.PeerConsellorSchedule') }}"
+                    class=" flex flex-col items-center @if ($modul === 'Peer Conselor Schedule') text-primary @else text-gray-700 @endif">
+                    <i
+                        class='bx bx-calendar @if ($modul === 'Peer Conselor Schedule') text-primary @else text-gray-700 @endif text-lg'></i>
                     <span class="text-base mt-2 text-center">Peer Counselor Schedule</span>
                 </a>
             </li>
             <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
-                <a href="{{ route('dashboard.PeerConsellorData') }}" class=" flex flex-col items-center @if ($modul === 'Peer Conselor Data') text-primary @else text-gray-700 @endif">
-                    <i class='bx bx-user @if ($modul === 'Peer Conselor Data') text-primary @else text-gray-700 @endif text-lg'></i>
+                <a href="{{ route('dashboard.PeerConsellorData') }}"
+                    class=" flex flex-col items-center @if ($modul === 'Peer Conselor Data') text-primary @else text-gray-700 @endif">
+                    <i
+                        class='bx bx-user @if ($modul === 'Peer Conselor Data') text-primary @else text-gray-700 @endif text-lg'></i>
                     <span class="text-base mt-2 text-center">Peer Counselor Data</span>
                 </a>
             </li>
             <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
-                <a href="{{ route('dashboard.PsikologData') }}" class=" flex flex-col items-center @if ($modul === 'Psikolog Data') text-primary @else text-gray-700 @endif">
-                    <i class='bx bx-user @if ($modul === 'Psikolog Data') text-primary @else text-gray-700 @endif text-lg'></i>
+                <a href="{{ route('dashboard.PsikologData') }}"
+                    class=" flex flex-col items-center @if ($modul === 'Psikolog Data') text-primary @else text-gray-700 @endif">
+                    <i
+                        class='bx bx-user @if ($modul === 'Psikolog Data') text-primary @else text-gray-700 @endif text-lg'></i>
                     <span class="text-base mt-2 text-center">Psikolog Data</span>
                 </a>
             </li>
-            
+        @endif
+
+        @if (auth()->user()->role == 'PsikotestFree')
+            <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300  rounded-lg">
+                <a href="{{ route('dashboard.psikotestfree.data') }}"
+                    class=" flex flex-col items-center @if ($modul === 'Psikotest Free Data') text-primary @else text-gray-700 @endif">
+                    <i
+                        class='bx bx-user @if ($modul === 'Psikotest Free Data') text-primary @else text-gray-700 @endif text-lg'></i>
+                    <span class="text-base mt-2 text-center">Data</span>
+                </a>
+            </li>
+            <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300  rounded-lg">
+                <a href="{{ route('dashboard.psikotestfree.question.index') }}"
+                    class=" flex flex-col items-center @if ($modul === 'Psikotest Free Soal') text-primary @else text-gray-700 @endif">
+                    <i
+                        class='bx bx-calendar @if ($modul === 'Psikotest Free Soal') text-primary @else text-gray-700 @endif text-lg'></i>
+                    <span class="text-base mt-2 text-center">Edit Soal</span>
+                </a>
         @endif
 
         <li class="mt-20 p-2 hover:text-primary dark-hover:text-blue-300
