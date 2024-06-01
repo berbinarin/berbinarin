@@ -46,7 +46,7 @@
                         <ul class="list-disc list-outside leading-relaxed mt-10">
                             <li class="font-semibold">Lokasi offline Konseling
                                 <ul class="list-decimal list-outside leading-relaxed pl-4">
-                                    <li>Psikolog : Surabaya, Denpasar, Kalimantan Utara (Tarakan), Kediri, dan Sidoarjo
+                                    <li>Psikolog : Surabaya, Denpasar, Samarinda, Kalimantan Utara (Tarakan), Kediri, dan Sidoarjo
                                     </li>
                                     <li>Peer Counselor : Bandung, Tangerang, dan Malang</li>
                                 </ul>
@@ -122,11 +122,11 @@
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog2.jpg') }}">
             <div class="flex flex-col items-center">
-                <a target="_blank" href="http://127.0.0.1:8000/counseling/pdf/DANNY SANJAYA ARFENSIA.pdf" 
+                <a target="_blank" 
                 class="text-lg font-medium text-center">Danny Sanjaya Arfensia, S.Psi., M.Psi., Psikolog</a>
             </div>
         </div>
-        {{--
+        <!-- {{--
         <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog7.jpg') }}">
             <div class="flex flex-col items-center">
@@ -166,13 +166,12 @@
                     class="text-lg font-medium text-center">Putu Yoga, S.Psi., M.Psi. Psikolog</a>
             </div>
         </div>
-        --}}
+        --}} -->
         <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                 src="{{ asset('assets/images/konseling/psikolog/primandini.jpeg') }}">
             <div class="flex flex-col items-center">
-                <a target="_blank"
-                    href="http://127.0.0.1:8000/counseling/pdf/B. PRIMANDINI YUNANDA HARUMI.pdf"
+                <a target="_blank" 
                     class="text-lg font-medium text-center">B. Primandini Yunanda Harumi, S.Psi., M.Psi., Psikolog</a>
             </div>
         </div>
@@ -180,7 +179,7 @@
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                 src="{{ asset('assets/images/konseling/psikolog/yusandi.png') }}">
             <div class="flex flex-col items-center">
-                <a target="_blank" href="http://127.0.0.1:8000/counseling/pdf/YUSANDI REZKI FADHLI.pdf"
+                <a target="_blank" 
                  class="text-lg font-medium text-center">Yusandi Rezki Fadhli, S.Psi., M.Psi., Psikolog</a>
             </div>
         </div>
@@ -188,7 +187,7 @@
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                 src="{{ asset('assets/images/konseling/psikolog/satria.jpeg') }}">
             <div class="flex flex-col items-center">
-                <a target="_blank" href="http://127.0.0.1:8000/counseling/pdf/SATRIA KAMAL AGASSI.pdf"
+                <a target="_blank" 
                 class="text-lg font-medium text-center">Satria Kamal Agassi, S.Psi., M.Psi., Psikolog</a>
             </div>
         </div>
@@ -196,7 +195,7 @@
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                 src="{{ asset('assets/images/konseling/virginia.jpeg') }}">
             <div class="flex flex-col items-center">
-                <a target="_blank" href="http://127.0.0.1:8000/counseling/pdf/VIRGINIA SUKMA DEWI.pdf"
+                <a target="_blank" 
                 class="text-lg font-medium text-center">Virginia Sukma Dewi, S. Psi., M. Psi., Psikolog</a>
             </div>
         </div>
@@ -204,7 +203,7 @@
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
                 src="{{ asset('assets/images/konseling/kasmayani.jpeg') }}">
             <div class="flex flex-col items-center">
-                <a target="_blank" href="http://127.0.0.1:8000/counseling/pdf/KASMAYANI KARIM.pdf"
+                <a target="_blank" 
                 class="text-lg font-medium text-center">Kasmayani Karim, M.Psi., </br> Psikolog</a>
             </div>
         </div>
@@ -308,7 +307,7 @@
                         <ul class="list-disc list-outside leading-relaxed mt-10">
                             <li class="font-semibold">Lokasi offline Konseling
                                 <ul class="list-decimal list-outside leading-relaxed pl-4">
-                                    <li>Psikolog : Surabaya, Denpasar, Kalimantan Utara (Tarakan), Kediri, dan Sidoarjo
+                                    <li>Psikolog : Surabaya, Denpasar, Samarinda, Kalimantan Utara (Tarakan), Kediri, dan Sidoarjo
                                     </li>
                                     <li>Peer Counselor : Malang, Bandung, dan Tangerang</li>
                                 </ul>
