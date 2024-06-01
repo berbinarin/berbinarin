@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('username');
             $table->string('email')->unique();
             $table->string('password');
-            $table->enum("role",["Super Admin","Admin","HR", "Konselling"]);
+            $table->enum("role", ["Super Admin", "Admin", "HR", "Konselling", "PsikotestFree"]);
             $table->string("no_Whatsapp")->nullable();
             $table->rememberToken();
             $table->timestamps();
