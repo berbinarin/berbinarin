@@ -1,5 +1,5 @@
 {{-- NAVBAR --}}
-<header class="sticky top-0 z-40 w-full font-plusJakartaSans bg-white border-b-2 border-b-[#dedede] py-5">
+<header class="sticky top-0 z-50 w-full font-plusJakartaSans bg-white border-b-2 border-b-[#dedede] py-5">
     <nav class="max-w-6xl mx-auto px-5 md:px-0 items-center flex justify-between">
         <a href="/">
             <img src="{{ asset('assets/images/logo-berbinar.png') }}" alt="Logo Berbinar Insightful Indonesia"
@@ -11,50 +11,64 @@
                 class="@if ($active == 'Home') text-primary @else text-disabled @endif text-base font-medium hover:text-primary hover:border-b-4 hover:border-b-primary hover:cursor-pointer block">
                 About
             </a>
-            <a href=""
+            <a href="https://forms.gle/aabDZ5DmmhJs8obk8" target="_blank" rel="noopener noreferrer"
                 class="@if ($active == 'Tentang Kami') text-primary @else text-disabled @endif text-base font-medium hover:text-primary hover:border-b-4 hover:border-b-primary hover:cursor-pointer block">
-                Tes Psikotes Individu
+                Psikotes Individu
             </a>
-            <a href=""
+            <a href="https://forms.gle/aabDZ5DmmhJs8obk8" target="_blank" rel="noopener noreferrer"
                 class="@if ($active == 'Produk Berbinar') text-primary @else text-disabled @endif text-base font-medium hover:text-primary hover:border-b-4 hover:border-b-primary hover:cursor-pointer block">
-                Tes Psikotes Perusahaan
+                Psikotes Perusahaan
             </a>
-            <a href=""
-                class="@if ($active == 'Produk Berbinar') text-primary @else text-disabled @endif text-base font-semibold border-2 border-primary rounded-full px-5 py-1 hover:bg-primary hover:text-white hover:cursor-pointer block">
-                Masuk
-            </a>
-            <a href=""
-                class="@if ($active == 'Produk Berbinar') text-primary @else text-white @endif text-base font-semibold rounded-full px-5 py-1 border-2 border-primary bg-primary hover:text-primary hover:border-primary hover:border-2 hover:bg-amber-300 hover:cursor-pointer block">
-                Daftar
-            </a>
+        </div>
 
-            <script type="text/javascript">
-            function Open() {
-                document.querySelector('.sidebar').classList.toggle('right-full');
-            }
+        <div class="flex md:hidden items-center justify-center p-4" onclick="Open()">
+            <i class='bx bx-menu text-[35px] text-disabled'>
 
-            function navigateToPage(page) {
-                switch (page) {
-                    case 'home':
-                        window.location.href = '/';
-                        break;
-                    case 'about-us':
-                        window.location.href = '/about-us';
-                        break;
-                    case 'products':
-                        window.location.href = '/products';
-                        break;
-                    case 'contact':
-                        window.location.href = '/contact';
-                        break;
-                    case 'career':
-                        window.location.href = '/careers';
-                        break;
-                    case 'work-with-us':
-                        window.location.href = '/work-with-us';
-                        break;
-                }
+            </i>
+
+        </div>
+        <div
+            class="sidebar text-center justify-end items-center fixed md:hidden top-0 bottom-0 z-[70] right-0 w-screen lg-right-0 p-2 overflow-y-auto right-full bg-white">
+            <div class="p-2.5 mt-3 flex rounded-md px-4 duration-300 cursor-pointer text-gray-700">
+                <div class="flex ml-auto p-5">
+                    <i class="bx bx-x align-items-end text-[35px] text-disabled" onclick="Open()"></i>
+                </div>
+            </div>
+            <div>
+                <div class="m-auto text-lg flex items-center justify-center p-4 duration-300 cursor-pointer hover:text-primary text-gray-700"
+                    onclick="navigateToPage('psikotestHome')">
+                    About
+                </div>
+                <div class="m-auto text-lg flex items-center justify-center p-4 duration-300 cursor-pointer hover:text-primary text-gray-700"
+                    onclick="navigateToPage('psikotesIndividu')">
+                    Psikotes Individu
+                </div>
+
+                <div class="m-auto text-lg flex items-center justify-center p-4 duration-300 cursor-pointer hover:text-primary text-gray-700"
+                    onclick="navigateToPage('psikotesPerusahaan')">
+                    Psikotes Perusahaan
+                </div>
+
+            </div>
+        </div>
+        <script type="text/javascript">
+        function Open() {
+            document.querySelector('.sidebar').classList.toggle('right-full');
+        }
+
+        function navigateToPage(page) {
+            switch (page) {
+                case 'psikotestHome':
+                    window.location.href = '/psikotest/home';
+                    break;
+                case 'psikotesIndividu':
+                    window.open('https://forms.gle/aabDZ5DmmhJs8obk8', '_blank');
+                    break;
+                case 'psikotesPerusahaan':
+                    window.open('https://forms.gle/aabDZ5DmmhJs8obk8', '_blank');
+                    break;
             }
-            </script>
+        }
+        </script>
     </nav>
 </header>
