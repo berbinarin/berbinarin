@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Hiring_Positions;
-use App\Models\Hiring_Positions_Job_Descriptions;
-use App\Models\Hiring_Positions_Requirements;
-use App\Models\KonsellingPeer;
-use App\Models\KonsellingPsikolog;
-use App\Models\jadwalPeer;
 use App\Models\Soal;
+use App\Models\Test;
 use App\Models\Question;
-use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\Dimension;
+use App\Models\jadwalPeer;
 use Illuminate\Http\Request;
-
+use App\Models\UserPsikotest;
+use App\Models\KonsellingPeer;
+use App\Models\Hiring_Positions;
+use App\Models\KonsellingPsikolog;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\Hiring_Positions_Requirements;
+use App\Models\Hiring_Positions_Job_Descriptions;
 
 class LandingController extends Controller
 {
