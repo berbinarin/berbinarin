@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Hiring_Positions;
-use App\Models\Hiring_Positions_Job_Descriptions;
-use App\Models\Hiring_Positions_Requirements;
-use App\Models\KonsellingPeer;
-use App\Models\KonsellingPsikolog;
+use App\Models\Test;
+use App\Models\Question;
+use App\Models\Dimension;
 use App\Models\jadwalPeer;
+use Illuminate\Http\Request;
+use App\Models\UserPsikotest;
+use App\Models\KonsellingPeer;
+use App\Models\Hiring_Positions;
+use App\Models\KonsellingPsikolog;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\Hiring_Positions_Requirements;
+use App\Models\Hiring_Positions_Job_Descriptions;
 
 class DashboardController extends Controller
 {
@@ -17,7 +21,7 @@ class DashboardController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except(['login']);
-        $this->middleware('role:Admin,HR,Konselling')->except(['login']);
+        $this->middleware('role:Admin,HR,Konselling,PsikotestFree')->except(['login']);
     }
     public function index()
     {
@@ -28,8 +32,20 @@ class DashboardController extends Controller
         $PeerConsellorSchedule = jadwalPeer::count("id");
         $PeerConsellorData = KonsellingPeer::count("id");
         $PsikologData = KonsellingPsikolog::count("id");
-        
-        return view('moduls.dashboard.index',["PeerConsellorSchedule"=> $PeerConsellorSchedule, "PeerConsellorData"=> $PeerConsellorData,'PsikologData'=>$PsikologData, "HiringPosisitonsJobDescriptionment"=> $HiringPosisitonsJobDescriptionment,'HiringPosisitons'=>$HiringPosisitons,'HiringPosisitonsRequirement'=>$HiringPosisitonsRequirement]);
+
+        $totalUserPsikotest = UserPsikotest::count('id');
+        $totalQuestion = Question::count('id');
+
+        return view('moduls.dashboard.index', [
+            "PeerConsellorSchedule" => $PeerConsellorSchedule,
+            "PeerConsellorData" => $PeerConsellorData,
+            'PsikologData' => $PsikologData,
+            "HiringPosisitonsJobDescriptionment" => $HiringPosisitonsJobDescriptionment,
+            'HiringPosisitons' => $HiringPosisitons,
+            'HiringPosisitonsRequirement' => $HiringPosisitonsRequirement,
+            'totalUserPsikotest' => $totalUserPsikotest,
+            'totalQuestion' => $totalQuestion,
+        ]);
     }
 
     public function login()
@@ -45,13 +61,13 @@ class DashboardController extends Controller
     public function positions()
     {
         $HiringPosisitons = Hiring_Positions::all();
-        return view('moduls.dashboard.hr.positions.positions',['HiringPosisitons'=>$HiringPosisitons] );
+        return view('moduls.dashboard.hr.positions.positions', ['HiringPosisitons' => $HiringPosisitons]);
     }
 
     public function editPositions($id)
     {
         $HiringPosisitons = Hiring_Positions::find($id);
-        return view('moduls.dashboard.hr.positions.edit-positions', ['HiringPosisitons'=> $HiringPosisitons]);
+        return view('moduls.dashboard.hr.positions.edit-positions', ['HiringPosisitons' => $HiringPosisitons]);
     }
 
     public function jobDescriptions()
@@ -59,14 +75,15 @@ class DashboardController extends Controller
         $HiringPosisitonsJobDescriptionment = Hiring_Positions_Job_Descriptions::all();
         $HiringPosisitons = Hiring_Positions::all();
 
-        return view('moduls.dashboard.hr.job-descriptions.job-descriptions',["HiringPosisitonsJobDescriptionment"=> $HiringPosisitonsJobDescriptionment,'HiringPosisitons'=>$HiringPosisitons ]);
+        return view('moduls.dashboard.hr.job-descriptions.job-descriptions', ["HiringPosisitonsJobDescriptionment" => $HiringPosisitonsJobDescriptionment, 'HiringPosisitons' => $HiringPosisitons]);
     }
 
-    public function editJobDescriptions($id) {
+    public function editJobDescriptions($id)
+    {
         $HiringPosisitonsJobDescriptionment = Hiring_Positions_Job_Descriptions::find($id);
         $HiringPosisitons = Hiring_Positions::all();
 
-        return view('moduls.dashboard.hr.job-descriptions/edit-job-descriptions',['HiringPosisitonsJobDescriptionment'=>$HiringPosisitonsJobDescriptionment,'HiringPosisitons'=>$HiringPosisitons]);
+        return view('moduls.dashboard.hr.job-descriptions/edit-job-descriptions', ['HiringPosisitonsJobDescriptionment' => $HiringPosisitonsJobDescriptionment, 'HiringPosisitons' => $HiringPosisitons]);
     }
 
     public function requirements()
@@ -74,7 +91,7 @@ class DashboardController extends Controller
         $HiringPosisitonsRequirement = Hiring_Positions_Requirements::all();
         $HiringPosisitons = Hiring_Positions::all();
 
-        return view('moduls.dashboard.hr.requirements.requirements', ["HiringPosisitonsRequirement"=>$HiringPosisitonsRequirement,'HiringPosisitons'=>$HiringPosisitons]);
+        return view('moduls.dashboard.hr.requirements.requirements', ["HiringPosisitonsRequirement" => $HiringPosisitonsRequirement, 'HiringPosisitons' => $HiringPosisitons]);
     }
 
     public function editRequirements($id)
@@ -83,7 +100,7 @@ class DashboardController extends Controller
         $HiringPosisitons = Hiring_Positions::all();
 
 
-        return view('moduls.dashboard.hr.requirements.edit-requirements', ['HiringPosisitonsRequirement'=>$HiringPosisitonsRequirement,'HiringPosisitons'=>$HiringPosisitons]);
+        return view('moduls.dashboard.hr.requirements.edit-requirements', ['HiringPosisitonsRequirement' => $HiringPosisitonsRequirement, 'HiringPosisitons' => $HiringPosisitons]);
     }
 
     public function PeerConsellorSchedule()
@@ -108,7 +125,8 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.PeerConsellorSchedule');
     }
 
-    public function editPeerConsellorSchedule(Request $request, $id){
+    public function editPeerConsellorSchedule(Request $request, $id)
+    {
         $validatedData = $request->validate([
             'hari' => 'required|not_in:default_value',
             'pukul_mulai' => 'required',
@@ -129,10 +147,10 @@ class DashboardController extends Controller
         Alert::toast('A Peer Consellor Schedule Updated', 'success')->autoClose(5000);
         return redirect()->route('dashboard.PeerConsellorSchedule');
     }
-    
+
     public function deletePeerConsellorSchedule($id)
     {
-        jadwalPeer::where('id',$id)->delete();
+        jadwalPeer::where('id', $id)->delete();
         Alert::toast('A Peer Coonsellor Schedule Deleted', 'success')->autoClose(5000);
         return redirect()->route('dashboard.PeerConsellorSchedule');
     }
@@ -144,7 +162,7 @@ class DashboardController extends Controller
         return view('moduls.dashboard.konselling.psikologdata', ['PsikologData' => $PsikologData], compact('konselling'));
     }
 
-     public function addPsikologData(Request $request)
+    public function addPsikologData(Request $request)
     {
         $validatedData = $request->validate([
             'jadwal_tanggal' => 'required',
@@ -171,11 +189,11 @@ class DashboardController extends Controller
         $jamMenit = substr($validatedData['jadwal_pukul'], 0, 5);
         $validatedData['jadwal_pukul'] = $jamMenit;
 
-        if(empty($request->session()->get('konselling'))){
+        if (empty($request->session()->get('konselling'))) {
             $konselling = new KonsellingPsikolog();
             $konselling->fill($validatedData);
             $request->session()->put('konselling', $konselling);
-        }else{
+        } else {
             $konselling = $request->session()->get('konselling');
             $konselling->fill($validatedData);
             $request->session()->put('konselling', $konselling);
@@ -189,11 +207,12 @@ class DashboardController extends Controller
 
     public function PsikologDataDetails(Request $request, $id)
     {
-        $PsikologDataDetails = KonsellingPsikolog::where('id',$id)->get();
+        $PsikologDataDetails = KonsellingPsikolog::where('id', $id)->get();
         $konselling = $request->session()->get('konselling');
         return view('moduls.dashboard.konselling.psikologdatadetail', ['PsikologDataDetails' => $PsikologDataDetails], compact('konselling'));
     }
-    public function editPsikologDataDetails(Request $request, $id){
+    public function editPsikologDataDetails(Request $request, $id)
+    {
         $validatedData = $request->validate([
             'jadwal_tanggal' => 'required',
             'jadwal_pukul' => 'required',
@@ -244,7 +263,7 @@ class DashboardController extends Controller
 
     public function deletePsikologDataDetails($id)
     {
-        KonsellingPsikolog::where('id',$id)->delete();
+        KonsellingPsikolog::where('id', $id)->delete();
         Alert::toast('A Psikolog Appointment Data Deleted', 'success')->autoClose(5000);
         return redirect()->route('dashboard.PsikologData');
     }
@@ -287,11 +306,11 @@ class DashboardController extends Controller
             'cerita' => 'required',
         ]);
 
-        if(empty($request->session()->get('konselling'))){
+        if (empty($request->session()->get('konselling'))) {
             $konselling = new KonsellingPeer();
             $konselling->fill($validatedData);
             $request->session()->put('konselling', $konselling);
-        }else{
+        } else {
             $konselling = $request->session()->get('konselling');
             $konselling->fill($validatedData);
             $request->session()->put('konselling', $konselling);
@@ -305,7 +324,7 @@ class DashboardController extends Controller
 
     public function PeerConsellorDataDetails(Request $request, $id)
     {
-        $PeerConsellorDataDetails = KonsellingPeer::where('id',$id)->get();
+        $PeerConsellorDataDetails = KonsellingPeer::where('id', $id)->get();
         $konselling = $request->session()->get('konselling');
         $senin = jadwalPeer::where('hari', 'Senin')->orderBy('pukul_mulai')->get();
         $selasa = jadwalPeer::where('hari', 'Selasa')->orderBy('pukul_mulai')->get();
@@ -316,7 +335,8 @@ class DashboardController extends Controller
         $minggu = jadwalPeer::where('hari', 'Minggu')->orderBy('pukul_mulai')->get();
         return view('moduls.dashboard.konselling.peerdatadetail', ['PeerConsellorDataDetails' => $PeerConsellorDataDetails], compact('senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu', 'konselling'));
     }
-    public function editPeerConsellorDataDetails(Request $request, $id){
+    public function editPeerConsellorDataDetails(Request $request, $id)
+    {
         $validatedData = $request->validate([
             'jadwal_tanggal' => 'required',
             'jadwal_pukul' => 'required',
@@ -367,8 +387,138 @@ class DashboardController extends Controller
 
     public function deletePeerConsellorDataDetails($id)
     {
-        KonsellingPeer::where('id',$id)->delete();
+        KonsellingPeer::where('id', $id)->delete();
         Alert::toast('A Peer Coonsellor Appointment Data Deleted', 'success')->autoClose(5000);
         return redirect()->route('dashboard.PeerConsellorData');
+    }
+
+    // public function adminHomePsikotestFree()
+    // {
+
+    //     $totalUserPsikotest = UserPsikotest::count('id');
+    //     $totalQuestion = Question::count('id');
+
+    //     return view('moduls.psikotes.dashboard-dev.admin-home', [
+    //         'totalUserPsikotest' => $totalUserPsikotest,
+    //         'totalQuestion' => $totalQuestion,
+    //     ]);
+    // }
+
+    public function adminDataPsikotesFree()
+    {
+        $testData = Test::with('users', 'results')->orderBy('created_at', 'desc')->get();
+
+        return view('moduls.psikotes.dashboard-dev.admin-data', compact('testData'));
+    }
+
+
+    public function adminDataPsikotesFreeShow($test_id)
+    {
+        $testData = Test::with(['users', 'results', 'answers.question'])->findOrFail($test_id);
+
+        return view('moduls.psikotes.dashboard-dev.admin-data-detail', compact('testData'));
+    }
+
+    // Menampilkan form edit user
+    public function adminDataPsikotesFreeEdit($test_id)
+    {
+        $testData = Test::with('users', 'results')->findOrFail($test_id);
+
+        return view('moduls.psikotes.dashboard-dev.admin-data-edit', compact('testData'));
+    }
+
+    // Update data user
+    public function adminDataPsikotesFreeUpdate(Request $request, $test_id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'gender' => 'required|string|in:Male,Female',
+            'date_of_birth' => 'required|date',
+            'email' => 'required|email|max:255',
+            'test_date' => 'required|date',
+        ]);
+
+        $user = UserPsikotest::findOrFail($test_id);
+        $user->update($request->only('name', 'gender', 'date_of_birth', 'email'));
+
+        $user->test()->update(['test_date' => $request->input('test_date')]);
+
+        return redirect()->route('dashboard.psikotestfree.data')->with('success', 'User updated successfully');
+    }
+
+    // Menghapus data user
+    public function adminDataPsikotesFreeDestroy($test_id)
+    {
+        $user = UserPsikotest::findOrFail($test_id);
+        $user->delete();
+
+        return redirect()->route('dashboard.psikotestfree.data')->with('success', 'User deleted successfully');
+    }
+
+    public function adminEditSoalPsikotesFree()
+    {
+        $questions = Question::with('dimension')->get();
+        return view('moduls.psikotes.dashboard-dev.admin-question', compact('questions'));
+    }
+
+    // Menampilkan form tambah soal
+    public function adminEditSoalPsikotestFreeCreate()
+    {
+        $dimensions = Dimension::all(); // Mengambil semua dimensi untuk dropdown
+        return view('moduls.psikotes.dashboard-dev.admin-question-create', compact('dimensions'));
+    }
+
+    // Menyimpan soal baru
+    public function adminEditSoalPsikotestFreeStore(Request $request)
+    {
+        $request->validate([
+            'question_text' => 'required|string|max:255',
+            'dimension_id' => 'required|exists:dimensions,id',
+            'nr' => 'required|in:N,R',
+        ]);
+
+        Question::create([
+            'question_text' => $request->input('question_text'),
+            'dimension_id' => $request->input('dimension_id'),
+            'nr' => $request->input('nr'),
+        ]);
+
+        return redirect()->route('dashboard.psikotestfree.question.index')->with('success', 'Question created successfully');
+    }
+
+    // Menampilkan form edit soal
+    public function adminEditSoalPsikotestFreeEdit($id)
+    {
+        $question = Question::findOrFail($id);
+        $dimensions = Dimension::all();
+        return view('moduls.psikotes.dashboard-dev.admin-question-edit', compact('question', 'dimensions'));
+    }
+
+    // Memperbarui soal
+    public function adminEditSoalPsikotestFreeUpdate(Request $request, $id)
+    {
+        $request->validate([
+            'question_text' => 'required|string|max:255',
+            'dimension_id' => 'required|exists:dimensions,id',
+            'nr' => 'required|in:N,R',
+        ]);
+
+        $question = Question::findOrFail($id);
+        $question->update([
+            'question_text' => $request->input('question_text'),
+            'dimension_id' => $request->input('dimension_id'),
+            'nr' => $request->input('nr'),
+        ]);
+
+        return redirect()->route('dashboard.psikotestfree.question.index')->with('success', 'Question updated successfully');
+    }
+
+    // Menghapus soal
+    public function adminEditSoalPsikotestFreeDestroy($id)
+    {
+        $question = Question::findOrFail($id);
+        $question->delete();
+
+        return redirect()->route('dashboard.psikotestfree.question.index')->with('success', 'Question deleted successfully');
     }
 }

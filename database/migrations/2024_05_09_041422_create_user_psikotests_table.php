@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('user_psikotests', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('gender')->nullable();
-            $table->timestamp('date_of_birth')->nullable();
+            $table->string('gender');
+            $table->timestamp('date_of_birth');
             $table->string('email');
             $table->foreignId('test_id')->constrained('tests')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

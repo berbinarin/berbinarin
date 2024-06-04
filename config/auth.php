@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'berbinarplus' => [ // Guard baru untuk Berbinar+
+            'driver' => 'session',
+            'provider' => 'berbinarplus_users', // Sesuaikan dengan nama provider yang Anda tentukan
+        ],
     ],
 
     /*
@@ -65,10 +69,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'berbinarplus_users' => [ // Provider untuk Berbinarp_user
+            'driver' => 'eloquent',
+            'model' => App\Models\Berbinarp_user::class, // Sesuaikan dengan model Berbinarp_user Anda
+        ],
     ],
 
     /*

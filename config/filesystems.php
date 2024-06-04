@@ -44,6 +44,15 @@ return [
             'throw' => false,
         ],
 
+        'pdfs' => [
+            'driver' => 'local',
+            'root' => storage_path('app/pdfs'),
+            'url' => env('APP_URL') . '/storage/pdfs',
+            'visibility' => 'public',
+        ],
+
+
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
