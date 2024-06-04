@@ -8,7 +8,9 @@
 <section class="h-full">
     <div class="max-w-6xl mx-auto p-5 md:pt-0 h-fit flex flex-col sm:flex-row relative items-center">
         {{-- HERO IMG MOBILE --}}
+
         <img src="{{ asset('assets/images/konseling/regist/ilustrasi1.png') }}" alt="Ilustrasi Logo Berbinar" title="Ilustrasi Logo Berbinar" class="w-full block sm:hidden " data-aos="fade-up" data-aos-duration="1500">
+
 
         {{-- HERO CONTENT --}}
         <div class="relative flex items-center">
@@ -31,7 +33,9 @@
         </div>
 
         {{-- HERO IMG DESKTOP --}}
+
         <img src="{{ asset('assets/images/konseling/regist/ilustrasi1.png') }}" alt="Ilustrasi-Test" class="w-1/2 hidden sm:block" data-aos="fade-left" data-aos-duration="1500">
+
     </div>
 </section>
 
