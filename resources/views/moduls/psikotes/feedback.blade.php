@@ -5,15 +5,13 @@
 ])
 
 @section('content')
-<sections>
-    <div class="flex justify-center">
-        <div class="w-full md:max-w-3xl flex flex-col bg-primary items-center z-38 py-9 px-10">
+<sections class="h-screen bg-primary">
+    <div class="flex justify-center bg-primary">
+        <div class="w-full md:max-w-3xl flex flex-col bg-primary items-center z-38 py-8 px-10">
             <div class="quest-container w-full justify-center bg-white rounded-3xl p-7 sm:p-10">
                 <h2 class="text-center text-4xl font-bold mb-1">Feedback</h2>
                 <p class="text-center text-disabled text-base my-4">Ceritakan pengalaman SobatBinar <br>ketika
-                    mengisi
-                    tes
-                    psikotes ini</p>
+                    mengisi psikotes ini</p>
 
                 <form action="{{ route('feedback.store', ['user_id' => $user_id, 'test_id' => $test_id]) }}"
                     method="POST" class="rating">
