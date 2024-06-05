@@ -60,4 +60,10 @@ class AuthUserController extends Controller
     {
         return view('moduls.berbinar-plus.success');
     }
+
+    // SHOW LOGIN FORM
+    public function showLogin()
+    {
+        return view('moduls.berbinar-plus.login');
+    }
 }
