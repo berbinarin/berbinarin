@@ -56,15 +56,20 @@ Route::get('/class/bisikan', [LandingController::class, 'classBisikan'])->name('
 // MODULE BERBINAR PLUS
 Route::get('/class/berbinar+', [LandingController::class, 'classBerbinarPlus'])->name('berbinarPlus');
 Route::prefix('/class/berbinar+')->group(function () {
-    Route::middleware('web')->group(function () {
-        Route::get('/register', [AuthUserController::class, 'showRegister'])->name('berbinarplus.register');
-        Route::post('/register', [AuthUserController::class, 'register'])->name('berbinarplus.register.post');
-        Route::get('/success', [AuthUserController::class, 'success'])->name('berbinarplus.register.success');
-        
-        Route::middleware('auth:berbinarplus')->group(function () {
-            Route::get('/dashboard', [DashboardController::class, 'index'])->name('berbinarplus.dashboard');
-        });
+
+    Route::get('/register', [AuthUserController::class, 'showRegister'])->name('berbinarplus.register');
+    Route::post('/register', [AuthUserController::class, 'register'])->name('berbinarplus.register.post');
+    Route::get('/register/success', [AuthUserController::class, 'success'])->name('berbinarplus.register.success');
+    
+    Route::get('/login', [AuthUserController::class, 'showLogin'])->name('berbinarplus.login');
+    Route::post('/login', [AuthUserController::class, 'login'])->name('berbinarplus.login.post');
+    
+    Route::post('/logout', [AuthUserController::class, 'logout'])->name('berbinarplus.logout.post');
+    
+    Route::group(['middleware' => ['auth.berbinarplus:berbinarplus']], function () {
+        Route::get('/dashboard', [AuthUserController::class, 'dashboard'])->name('berbinarplus.dashboard');
     });
+
 });
 
 // buat testing form selanjutnya tapi belum pakai tailwindcss
