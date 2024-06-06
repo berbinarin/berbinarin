@@ -74,10 +74,11 @@ Route::prefix('/class/berbinar+')->group(function () {
 
 // buat testing form selanjutnya tapi belum pakai tailwindcss
 // punya ka anggi kalau masih testing taruh disini dulu
-// toling pindahain ke controller Berbinarplus/AuthUser ya kak 
+// tolong pindahain ke controller Berbinarplus/AuthUser ya kak 
 Route::get('/class/berbinar+/html', [RegistrationController::class, 'html'])->name('berbinarPlusDaftar');
 Route::get('/class/berbinar+/daftarI', [RegistrationController::class, 'indexx'])->name('berbinarPlusDaftarI');
 Route::post('/class/berbinar+/daftar', [RegistrationController::class, 'store'])->name('register.store');
+Route::get('/class/berbinar+/home', [RegistrationController::class, 'index'])->name('HomeBerbinarPlus'); //route home (dashboard)
 
 
 Route::get('/counseling/reg/layanan', [LandingController::class, 'layanan'])->name('layanan');
