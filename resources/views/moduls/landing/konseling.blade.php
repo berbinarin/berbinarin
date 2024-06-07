@@ -284,6 +284,35 @@
                 </div>
             </div>
         </div>
+        <div class="flex flex-col md:flex-row flex-wrap items-center justify-center gap-5 mt-10">
+            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[300px] "
+                data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
+                <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
+                    <h3 class="text-black text-xl font-medium">Offline Weekday</h3>
+                    <h1 class="text-black text-4xl font-medium">IDR 175k/jam</h1>
+                    <p class="text-lg text-disabled">Khusus wilayah Samarinda</p>
+                    <button
+                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal"
+                        data-modal-index="0">
+                        Mulai Sekarang
+                    </button>
+                </div>
+            </div>
+            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[300px] "
+                data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
+                <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
+                    <h3 class="text-black text-xl font-medium">Offline Weekend</h3>
+                    <h1 class="text-black text-4xl font-medium">IDR 225k/jam</h1>
+                    <p class="text-lg text-disabled">Khusus wilayah Samarinda</p>
+                    <button
+                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal"
+                        data-modal-index="0">
+                        Mulai Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 

@@ -60,4 +60,31 @@ class AuthUserController extends Controller
     {
         return view('moduls.berbinar-plus.success');
     }
+
+    // SHOW LOGIN FORM
+    public function showLogin()
+    {
+        return view('moduls.berbinar-plus.auth.login');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::guard('berbinarplus')->attempt($credentials)) {
+            return redirect()->route('berbinarplus.dashboard');
+        } else {
+            return redirect()->route('berbinarplus.login')->withErrors('Login details are not valid');
+        }
+    }
+
+    public function logout(){
+        Auth::guard('berbinarplus')->logout();
+        Alert::toast('Logout Sucessfully!', 'success')->autoClose(5000);;
+
+        return redirect()->route('berbinarplus.login');
+    }
+    public function dashboard(){
+        return view('moduls.berbinar-plus.dashboard');
+    }
 }
