@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class RegistrationController extends Controller
 {
     public function index(){
-        return view('moduls.berbinar-plus.auth.registrasi');
+        // return view('moduls.berbinar-plus.auth.registrasi');
+        return view('moduls.berbinar-plus.auth.HomeBerbinarPlus');
     }
     
     public function success(){
