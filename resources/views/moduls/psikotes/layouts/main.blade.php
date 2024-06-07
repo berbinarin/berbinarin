@@ -16,11 +16,11 @@
 
     <link rel="canonical" href="https://codepen.io/ocxigin/pen/RwvBLKp" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-
     <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="{{ asset('assets/js/psikotest.js') }}"></script>
@@ -65,8 +65,8 @@
 
     {{-- menonaktifkan ml dan mt menjadi auto --}}
     @if ($active === 'Test')
-    <div class="h-screen md:h-full w-full flex">
-        <main class="w-full bg-primary ml-auto mt-0 z-38 mx-auto">
+    <div class="h-screen w-full flex">
+        <main class="h-screen w-full bg-primary ml-auto mt-0 z-38 mx-auto">
             {{-- mengubah mt-auto mt-0 --}}
             @yield('content')
         </main>
@@ -106,10 +106,7 @@
     @endif
 
     @include('sweetalert::alert')
-    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-</body>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </html>

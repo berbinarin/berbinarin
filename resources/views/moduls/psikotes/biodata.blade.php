@@ -14,7 +14,7 @@
                 <div>
                     <h2 class="text-center text-4xl font-bold mb-1">Biodata</h2>
                     <p class="text-center text-disabled text-base mt-5 mb-5">Isi biodata dibawah ini dengan benar
-                        untuk melihat hasil tes</p>
+                        untuk melihat hasil psikotes</p>
                 </div>
                 <form action="{{ route('biodata.store', ['test_id' => $test_id]) }}" method="POST" class="w-full justify-center content-center">
                     @csrf
@@ -34,8 +34,8 @@
                                     <select required id="gender" name="gender" autocomplete="gender" class="block w-full h-11 rounded-full border-0 px-5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-base focus:ring-2 focus:ring-inset focus:ring-primary sm:leading-6">
                                         <option class="text-gray-400" value="default" selected disabled>Jenis Kelamin
                                         </option>
-                                        <option class="text-gray-400" value="Male">Laki-laki</option>
-                                        <option class="text-gray-400" value="Female">Perempuan</option>
+                                        <option class="text-black" value="Male">Laki-laki</option>
+                                        <option class="text-black" value="Female">Perempuan</option>
                                     </select>
                                 </div>
                             </div>

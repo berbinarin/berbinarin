@@ -6,8 +6,7 @@
 
 @section('content')
 {{-- HERO SECTION --}}
-<section
-    class="hero max-w-6xl mx-auto h-screen flex flex-col md:flex-row items-center justify-center relative px-5 md:px-0 mt-28 md:mt-10">
+<section class="hero max-w-6xl mx-auto h-screen flex flex-col md:flex-row items-center justify-center relative px-5 md:px-0 mt-28 md:mt-10">
     {{-- HERO IMG MOBILE --}}
     <img src="{{ asset('assets/images/product-berbinar/asesmen-psikologi.png') }}" alt="Ilustrasi Konseling Berbinar" title="Ilustrasi Konseling Berbinar" class="w-full block md:hidden" data-aos="fade-up" data-aos-duration="1500">
 
@@ -23,17 +22,14 @@
             <p class="text-lg text-disabled">Dapatkan konseling yang mengubah hidup dari para psikolog dan peer
                 counselor untuk mencapai pertumbuhan pribadi yang luar biasa. Segera temukan solusi yang tepat untuk
                 masalah yang Anda hadapi dan mulai menapaki jalan menuju hidup yang lebih baik.</p>
-            <button
-                class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit openModal"
-                data-modal-index="0">Lakukan
+            <button class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit openModal" data-modal-index="0">Lakukan
                 Konseling</button>
         </div>
     </div>
 
     {{-- POP UP LAKUKAN KONSELING BUTTON--}}
     <section>
-        <div
-            class="modal1 modal fixed size-full start-0 overflow-x-hidden overflow-y-auto top-0 left-0 right-0 z-50 hidden justify-center items-center">
+        <div class="modal1 modal fixed size-full start-0 overflow-x-hidden overflow-y-auto top-0 left-0 right-0 z-50 hidden justify-center items-center">
             <div class="modal-dialog max-w-lg md:max-w-2xl m-5 mx-auto bg-primary-linear rounded-xl shadow-lg pb-4">
                 <div class="modal flex flex-col h-fit">
                     <button class="text-right p-3 closeModal" data-modal-index="0">
@@ -46,9 +42,10 @@
                         <ul class="list-disc list-outside leading-relaxed mt-10">
                             <li class="font-semibold">Lokasi offline Konseling
                                 <ul class="list-decimal list-outside leading-relaxed pl-4">
-                                    <li>Psikolog : Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, dan Kalimantan Utara (Tarakan)
+                                    <li>Psikolog : Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, dan Kalimantan Utara
+                                        (Tarakan)
                                     </li>
-                                    <li>Peer Counselor : Bandung, Tangerang, dan Malang</li>
+                                    <li>Peer Counselor : Bekasi, Tangerang Selatan, dan Palembang</li>
                                 </ul>
                             </li>
                             <li>Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n.
@@ -75,15 +72,9 @@
                 </div>
                 <div class="modal-footer flex w-100 p-5 mt-4 mx-8 gap-4">
                     <div class="row justify-items-center">
-                        <div
-                            class="flex col-6 col-md-4 align-items-center justify-content-center text-center text-md-end ">
-                            <!--<a href="https://bit.ly/CounselingWithBerbinar"
-                                        class="button px-4 py-2 font-light text-white bg-green-500 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Daftar
-                                        Melalui Google Form</a>-->
-                            <a href="{{ route('layanan') }}"
-                                class="button px-4 py-2 font-light text-white bg-green-500 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Daftar</a>
-                            <a href="{{ route('counseling') }}"
-                                class="button hidden md:block px-4 py-2 font-light text-white bg-primarylinear border-white border-2 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Kembali</a>
+                        <div class="flex col-6 col-md-4 align-items-center justify-content-center text-center text-md-end ">
+                            <a href="{{ route('layanan') }}" class="button px-4 py-2 font-light text-white bg-green-500 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Daftar</a>
+                            <a href="{{ route('counseling') }}" class="button hidden md:block px-4 py-2 font-light text-white bg-primarylinear border-white border-2 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Kembali</a>
                         </div>
                     </div>
                 </div>
@@ -108,6 +99,7 @@
             dukungan emosional
         </p>
 
+
         <div class="flex-col md:grid w-full grid-cols-1 gap-x-6 gap-y-12  lg:grid-cols-4 items-center mt-10">
             <!-- <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
@@ -118,17 +110,16 @@
                         class="text-lg font-medium text-center">Daniel Reyonald Bungaran, S.Psi., M.Psi., Psikolog</a>
                 </div>
             </div> -->
-            
+
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" 
-                src="{{ asset('assets/images/konseling/psikolog/psikolog1.jpg') }}">
-            <div class="flex flex-col items-center">
-                <a target="_blank" 
-                class="text-lg font-medium text-center">Danny Sanjaya Arfensia, S.Psi., M.Psi., Psikolog</a>
-                <!-- href="http://127.0.0.1:8000/counseling/pdf/DANNY SANJAYA ARFENSIA.pdf"  -->
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog1.jpg') }}">
+                <div class="flex flex-col items-center">
+                    <a target="_blank" class="text-lg font-medium text-center">Danny Sanjaya Arfensia, S.Psi., M.Psi.,
+                        Psikolog</a>
+                    <!-- href="http://127.0.0.1:8000/counseling/pdf/DANNY SANJAYA ARFENSIA.pdf"  -->
+                </div>
             </div>
-        </div>
-        <!-- {{--
+            <!-- {{--
         <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
             <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog7.jpg') }}">
             <div class="flex flex-col items-center">
@@ -169,88 +160,79 @@
             </div>
         </div>
         --}} -->
-        <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-            <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                src="{{ asset('assets/images/konseling/psikolog/psikolog2.jpeg') }}">
-            <div class="flex flex-col items-center">
-                <a target="_blank"
-                    class="text-lg font-medium text-center">B. Primandini Yunanda Harumi, S.Psi., M.Psi., Psikolog</a>
+            <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog2.jpeg') }}">
+                <div class="flex flex-col items-center">
+                    <a target="_blank" class="text-lg font-medium text-center">B. Primandini Yunanda Harumi, S.Psi.,
+                        M.Psi., Psikolog</a>
                     <!-- href="http://127.0.0.1:8000/counseling/pdf/B. PRIMANDINI YUNANDA HARUMI.pdf" -->
+                </div>
             </div>
-        </div>
-        <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-            <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                src="{{ asset('assets/images/konseling/psikolog/psikolog3.png') }}">
-            <div class="flex flex-col items-center">
-                <a target="_blank" 
-                 class="text-lg font-medium text-center">Yusandi Rezki Fadhli, S.Psi., M.Psi., Psikolog</a>
-                 <!-- href="http://127.0.0.1:8000/counseling/pdf/YUSANDI REZKI FADHLI.pdf" -->
+            <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog3.png') }}">
+                <div class="flex flex-col items-center">
+                    <a target="_blank" class="text-lg font-medium text-center">Yusandi Rezki Fadhli, S.Psi., M.Psi.,
+                        Psikolog</a>
+                    <!-- href="http://127.0.0.1:8000/counseling/pdf/YUSANDI REZKI FADHLI.pdf" -->
+                </div>
             </div>
-        </div>
-        <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-            <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                src="{{ asset('assets/images/konseling/psikolog/psikolog4.jpeg') }}">
-            <div class="flex flex-col items-center">
-                <a target="_blank" 
-                class="text-lg font-medium text-center">Satria Kamal Agassi, S.Psi., M.Psi., Psikolog</a>
-                <!-- href="http://127.0.0.1:8000/counseling/pdf/SATRIA KAMAL AGASSI.pdf" -->
+            <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog4.jpeg') }}">
+                <div class="flex flex-col items-center">
+                    <a target="_blank" class="text-lg font-medium text-center">Satria Kamal Agassi, S.Psi., M.Psi.,
+                        Psikolog</a>
+                    <!-- href="http://127.0.0.1:8000/counseling/pdf/SATRIA KAMAL AGASSI.pdf" -->
+                </div>
             </div>
-        </div>
-        <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-            <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                src="{{ asset('assets/images/konseling/psikolog/psikolog5.jpeg') }}">
-            <div class="flex flex-col items-center">
-                <a target="_blank" 
-                class="text-lg font-medium text-center">Virginia Sukma Dewi, S. Psi., M. Psi., Psikolog</a>
-                <!-- href="http://127.0.0.1:8000/counseling/pdf/VIRGINIA SUKMA DEWI.pdf" -->
+            <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog5.jpeg') }}">
+                <div class="flex flex-col items-center">
+                    <a target="_blank" class="text-lg font-medium text-center">Virginia Sukma Dewi, S. Psi., M. Psi.,
+                        Psikolog</a>
+                    <!-- href="http://127.0.0.1:8000/counseling/pdf/VIRGINIA SUKMA DEWI.pdf" -->
+                </div>
             </div>
-        </div>
-        <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-            <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                src="{{ asset('assets/images/konseling/psikolog/psikolog6.jpeg') }}">
-            <div class="flex flex-col items-center">
-                <a target="_blank" 
-                class="text-lg font-medium text-center">Kasmayani Karim, M.Psi., </br> Psikolog</a>
-                <!-- href="http://127.0.0.1:8000/counseling/pdf/KASMAYANI KARIM.pdf" -->
+            <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog6.jpeg') }}">
+                <div class="flex flex-col items-center">
+                    <a target="_blank" class="text-lg font-medium text-center">Kasmayani Karim, M.Psi., </br>
+                        Psikolog</a>
+                    <!-- href="http://127.0.0.1:8000/counseling/pdf/KASMAYANI KARIM.pdf" -->
+                </div>
             </div>
-        </div>
-        <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-            <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                 src="{{ asset('assets/images/konseling/psikolog/psikolog7.jpg') }}">
-            <div class="flex flex-col items-center">
-                <a target="_blank"
-                    class="text-lg font-medium text-center">Daniel Reyonald Bungaran, S.Psi., M.Psi., Psikolog</a>
+            <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog7.jpg') }}">
+                <div class="flex flex-col items-center">
+                    <a target="_blank" class="text-lg font-medium text-center">Daniel Reyonald Bungaran, S.Psi., M.Psi.,
+                        Psikolog</a>
                     <!-- href="http://127.0.0.1:8000/counseling/pdf/DANIEL REYONALD BUNGARAN.pdf" -->
+                </div>
+            </div>
+            <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog8.jpeg') }}">
+                <div class="flex flex-col items-center">
+                    <a target="_blank" class="text-lg font-medium text-center">Ira Mayang Sari, S. Psi., M. Psi.,
+                        Psikolog</a>
+                    <!-- href="http://127.0.0.1:8000/counseling/pdf/IRA MAYANG SARI.pdf" -->
+                </div>
+            </div>
+            <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog9.jpg') }}">
+                <div class="flex flex-col items-center">
+                    <a target="_blank" class="text-lg font-medium text-center">Adismara Putri Pradiri, S.Psi., M.Psi.,
+                        Psikolog</a>
+                    <!-- href="#" -->
+                </div>
+            </div>
+            <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog10.jpg') }}">
+                <div class="flex flex-col items-center">
+                    <a target="_blank" class="text-lg font-medium text-center">Ramadhani Lucky Al Kahfi, S.Psi., M.Psi.,
+                        Psikolog</a>
+                    <!-- href="#" -->
+                </div>
             </div>
         </div>
-        <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-            <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                src="{{ asset('assets/images/konseling/psikolog/psikolog8.jpeg') }}">
-            <div class="flex flex-col items-center">
-                <a target="_blank" 
-                class="text-lg font-medium text-center">Ira Mayang Sari, S. Psi., M. Psi., Psikolog</a>
-                <!-- href="http://127.0.0.1:8000/counseling/pdf/IRA MAYANG SARI.pdf" -->
-            </div>
-        </div>
-        <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-            <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                src="{{ asset('assets/images/konseling/psikolog/psikolog9.jpg') }}">
-            <div class="flex flex-col items-center">
-                <a target="_blank" 
-                class="text-lg font-medium text-center">Adismara Putri Pradiri, S.Psi., M.Psi., Psikolog</a>
-                <!-- href="#" -->
-            </div>
-        </div>
-        <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-            <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                src="{{ asset('assets/images/konseling/psikolog/psikolog10.jpg') }}">
-            <div class="flex flex-col items-center">
-                <a target="_blank" 
-                class="text-lg font-medium text-center">Ramadhani Lucky Al Kahfi, S.Psi., M.Psi., Psikolog</a>
-                <!-- href="#" -->
-            </div>
-        </div>
-    </div>
     </div>
 </section>
 
@@ -262,37 +244,53 @@
         </p>
 
         <div class="flex flex-col md:flex-row flex-wrap items-center justify-center gap-5 mt-10">
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px]"
-                data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
+            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px]" data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
                 <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
                     <h3 class="text-black text-xl font-medium">Online Weekday</h3>
                     <h1 class="text-black text-4xl font-medium">IDR 150k/jam</h1>
                     <p class="text-lg text-disabled">Lakukan dimana saja</p>
-                    <button
-                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal"
-                        data-modal-index="1">
+                    <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="1">
                         Mulai Sekarang</button>
                 </div>
             </div>
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px] "
-                data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
+            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px] " data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
                 <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
                     <h3 class="text-black text-xl font-medium">Online Weekend</h3>
                     <h1 class="text-black text-4xl font-medium">IDR 200k/jam</h1>
                     <p class="text-lg text-disabled">Lakukan dimana saja</p>
-                    <button
-                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal"
-                        data-modal-index="1">
+                    <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="1">
                         Mulai Sekarang
                     </button>
                 </div>
             </div>
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px] "
-                data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
+            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px] " data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
                 <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
                     <h3 class="text-black text-xl font-medium">Offline Weekday</h3>
                     <h1 class="text-black text-4xl font-medium">IDR 175k/jam</h1>
                     <p class="text-lg text-disabled">Khusus wilayah Surabaya</p>
+                    <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="0">
+                        Mulai Sekarang
+                    </button>
+                </div>
+            </div>
+            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px] " data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
+                <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
+                    <h3 class="text-black text-xl font-medium">Offline Weekend</h3>
+                    <h1 class="text-black text-4xl font-medium">IDR 225k/jam</h1>
+                    <p class="text-lg text-disabled">Khusus wilayah Surabaya</p>
+                    <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="0">
+                        Mulai Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row flex-wrap items-center justify-center gap-5 mt-10">
+            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[300px] "
+                data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
+                <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
+                    <h3 class="text-black text-xl font-medium">Offline Weekday</h3>
+                    <h1 class="text-black text-4xl font-medium">IDR 175k/jam</h1>
+                    <p class="text-lg text-disabled">Khusus wilayah Samarinda</p>
                     <button
                         class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal"
                         data-modal-index="0">
@@ -300,12 +298,12 @@
                     </button>
                 </div>
             </div>
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px] "
+            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[300px] "
                 data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
                 <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
                     <h3 class="text-black text-xl font-medium">Offline Weekend</h3>
                     <h1 class="text-black text-4xl font-medium">IDR 225k/jam</h1>
-                    <p class="text-lg text-disabled">Khusus wilayah Surabaya</p>
+                    <p class="text-lg text-disabled">Khusus wilayah Samarinda</p>
                     <button
                         class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal"
                         data-modal-index="0">
@@ -314,13 +312,13 @@
                 </div>
             </div>
         </div>
+
     </div>
 </section>
 
 {{-- POP UP VER 2 SECTION --}}
 <section>
-    <div
-        class="modal2 modal fixed size-full start-0 overflow-x-hidden overflow-y-auto top-0 left-0 right-0 z-50 hidden justify-center items-center">
+    <div class="modal2 modal fixed size-full start-0 overflow-x-hidden overflow-y-auto top-0 left-0 right-0 z-50 hidden justify-center items-center">
         <div class="modal-dialog max-w-xl md:max-w-2xl m-5 mx-auto bg-primary-linear rounded-xl shadow-lg pb-4">
             <div class="modal flex flex-col h-fit">
                 <button class="text-right p-3 closeModal" data-modal-index="1">
@@ -332,9 +330,10 @@
                         <ul class="list-disc list-outside leading-relaxed mt-10">
                             <li class="font-semibold">Lokasi offline Konseling
                                 <ul class="list-decimal list-outside leading-relaxed pl-4">
-                                    <li>Psikolog : Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, dan Kalimantan Utara (Tarakan)
+                                    <li>Psikolog : Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, dan Kalimantan Utara
+                                        (Tarakan)
                                     </li>
-                                    <li>Peer Counselor : Malang, Bandung, dan Tangerang</li>
+                                    <li>Peer Counselor : Bekasi, Tangerang Selatan, dan Palembang</li>
                                 </ul>
                             </li>
                             <li>Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n.
@@ -361,15 +360,12 @@
                 </div>
                 <div class="modal-footer flex w-100 p-5 mt-4 mx-8 gap-4">
                     <div class="row justify-items-center">
-                        <div
-                            class="flex col-6 col-md-4 align-items-center justify-content-center text-center text-md-end ">
+                        <div class="flex col-6 col-md-4 align-items-center justify-content-center text-center text-md-end ">
                             <!--<a href="https://bit.ly/CounselingWithBerbinar"
                                         class="button px-4 py-2 font-light text-white bg-green-500 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Daftar
                                         Melalui Google Form</a>-->
-                            <a href="{{ route('layanan') }}"
-                                class="button px-4 py-2 font-light text-white bg-green-500 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Daftar</a>
-                            <a href="{{ route('counseling') }}"
-                                class="button hidden md:block px-4 py-2 font-light text-white bg-primarylinear border-white border-2 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Kembali</a>
+                            <a href="{{ route('layanan') }}" class="button px-4 py-2 font-light text-white bg-green-500 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Daftar</a>
+                            <a href="{{ route('counseling') }}" class="button hidden md:block px-4 py-2 font-light text-white bg-primarylinear border-white border-2 rounded-md mr-4 hover:bg-white hover:text-primary w-fit">Kembali</a>
                         </div>
                     </div>
                 </div>
@@ -389,39 +385,31 @@
 
         <div class="flex flex-col md:flex-row md:gap-6 items-center justify-center mt-10">
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                    src="{{ asset('assets/images/konseling/peer-counselor/peer1.jpeg') }}">
+
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/fairuzza.jpeg') }}">
+
                 <div class="flex flex-col items-center">
-                    <a target="_blank" href="#" class="text-xl font-medium text-center">Sofia Zulaikha
-                        Salsabila
+                    <a target="_blank" href="#" class="text-xl font-medium text-center">Fairuzza Nur Qibtiya
                     </a>
                 </div>
             </div>
-            <!-- {{--<div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                    src="{{ asset('assets/images/konseling/peer4.jpeg') }}">
-            <div class="flex flex-col items-center">
-                <a target="_blank" href="#" class="text-xl font-medium text-center">Rahmadea An Nariya</a>
 
+            <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/shafiyyah.jpeg') }}">
+                <div class="flex flex-col items-center">
+                    <a target="_blank" href="#" class="text-xl font-medium text-center">Shafiyyah Muthi'ah
+                    </a>
+                </div>
             </div>
-        </div>--}} -->
-        <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-            <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                src="{{ asset('assets/images/konseling/peer-counselor/peer2.jpg') }}">
-            <div class="flex flex-col items-center">
-                <a target="_blank" href="#" class="text-xl font-medium text-center">Alya Rachmasari
-                </a>
+            <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/nurul.jpeg') }}">
+                <div class="flex flex-col items-center">
+                    <a target="_blank" href="#" class="text-xl font-medium text-center">Nurul Asmaul Husna
+                    </a>
+                </div>
             </div>
+
         </div>
-        <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-            <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500"
-                src="{{ asset('assets/images/konseling/peer-counselor/peer3.jpeg') }}">
-            <div class="flex flex-col items-center">
-                <a target="_blank" href="#" class="text-xl font-medium text-center">Fairuzza Nur Qibtiya
-                </a>
-            </div>
-        </div>
-    </div>
     </div>
 </section>
 
@@ -433,28 +421,22 @@
         </p>
 
         <div class="flex flex-col md:flex-row flex-wrap items-center justify-center gap-5 mt-10">
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[300px]"
-                data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
+            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[300px]" data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
                 <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
                     <h3 class="text-black text-xl font-medium">Online</h3>
                     <h1 class="text-black text-4xl font-medium">IDR 45k/jam</h1>
                     <p class="text-lg text-disabled">Lakukan dimana saja</p>
-                    <button
-                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal"
-                        data-modal-index="0">
+                    <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="0">
                         Mulai Sekarang
                     </button>
                 </div>
             </div>
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[300px]"
-                data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
+            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[300px]" data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
                 <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
                     <h3 class="text-black text-xl font-medium">Offline</h3>
                     <h1 class="text-black text-4xl font-medium">IDR 55k/jam</h1>
                     <p class="text-lg text-disabled">Wilayah Medan & Malang</p>
-                    <button
-                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal"
-                        data-modal-index="0">
+                    <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="0">
                         Mulai Sekarang
                     </button>
                 </div>
@@ -468,25 +450,20 @@
         Apa Yang Mereka Katakan Tentang <span class="text-primary font-bold">Berbinar</span>
     </h1>
 
-    <div
-        class="flex-1 xl:mx-8 swiper mySwiper max-w-7xl md:w-full w-full mx-auto flex items-center justify-center -mt-7 z-40 pb-12">
+    <div class="flex-1 xl:mx-8 swiper mySwiper max-w-7xl md:w-full w-full mx-auto flex items-center justify-center -mt-7 z-40 pb-12">
         <div class="swiper-wrapper w-full">
             @foreach ($testimonials as $testimonial)
             <div class="p-6 swiper-slide w-full md:w-full h-full">
                 <div class="container max-w-xl mx-auto w-[350px]">
-                    <div
-                        class="flex flex-col items-center w-full p-6 space-y-8  lg:h-full lg:p-8 shadow-lg rounded-xl pb-8">
+                    <div class="flex flex-col items-center w-full p-6 space-y-8  lg:h-full lg:p-8 shadow-lg rounded-xl pb-8">
                         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="38" viewBox="0 0 50 38" fill="none">
-                            <path
-                                d="M15.625 6.25L18.75 0H12.5C5.59375 0 0 8.71875 0 15.625V37.5H21.875V15.625H9.375C9.375 6.25 15.625 6.25 15.625 6.25ZM37.5 15.625C37.5 6.25 43.75 6.25 43.75 6.25L46.875 0H40.625C33.7188 0 28.125 8.71875 28.125 15.625V37.5H50V15.625H37.5Z"
-                                fill="#3986A3" />
+                            <path d="M15.625 6.25L18.75 0H12.5C5.59375 0 0 8.71875 0 15.625V37.5H21.875V15.625H9.375C9.375 6.25 15.625 6.25 15.625 6.25ZM37.5 15.625C37.5 6.25 43.75 6.25 43.75 6.25L46.875 0H40.625C33.7188 0 28.125 8.71875 28.125 15.625V37.5H50V15.625H37.5Z" fill="#3986A3" />
                         </svg>
-                        <blockquote
-                            class="max-w-lg text-lg italic text-center border-b-2 pb-5 text-black border-b-[#70787D]">
+                        <blockquote class="max-w-lg text-lg italic text-center border-b-2 pb-5 text-black border-b-[#70787D]">
                             "{{ $testimonial['testimonial'] }}"</blockquote>
                         <div class="text-center dark:text-gray-400 flex flex-col items-center">
-                            <img src="{{ $testimonial['image'] }}" alt=""
-                                class="w-20 h-20 rounded-full dark:bg-gray-500 object-cover">
+
+                            <img src="{{ $testimonial['image'] }}" alt="" class="w-20 h-20 rounded-full dark:bg-gray-500 object-cover">
                             <p class="text-black text-lg font-medium mt-2">{{ $testimonial['name'] }}</p>
                         </div>
                     </div>
@@ -507,19 +484,14 @@
         @endphp
         @foreach ($faqs as $faq)
         <li class="border bg-white py-2 shadow-sm rounded-lg my-2" x-data="accordion({{ $index }})">
-            <h2 @click="handleClick()"
-                class="flex flex-row justify-between items-center font-medium p-3 cursor-pointer text-lg">
+            <h2 @click="handleClick()" class="flex flex-row justify-between items-center font-medium p-3 cursor-pointer text-lg">
                 <span>{{ $faq['question'] }}</span>
-                <svg :class="handleRotate()"
-                    class="fill-[#3986a3] text-[#3986a3] h-6 w-6 transform transition-transform duration-500"
-                    viewBox="0 0 20 20">
-                    <path
-                        d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10">
+                <svg :class="handleRotate()" class="fill-[#3986a3] text-[#3986a3] h-6 w-6 transform transition-transform duration-500" viewBox="0 0 20 20">
+                    <path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10">
                     </path>
                 </svg>
             </h2>
-            <div x-ref="tab" :style="handleToggle()"
-                class="border-l-2 border-[#3986a3] overflow-hidden max-h-0 duration-500 transition-all">
+            <div x-ref="tab" :style="handleToggle()" class="border-l-2 border-[#3986a3] overflow-hidden max-h-0 duration-500 transition-all">
                 <p class="p-3 text-gray-900">
                     {{ $faq['answer'] }}
                 </p>
@@ -553,47 +525,48 @@
             },
             handleToggle() {
                 return this.$store.accordion.tab === this.idx ?
-                    max-height: ${this.$refs.tab.scrollHeight}px : '';
+                    `max-height: ${this.$refs.tab.scrollHeight}px` : '';
+
             }
         }));
     })
 </script>
 
 <script>
-allModals = ['.modal1', '.modal2', '.modal3'];
-const modalin = document.querySelector('.modalin');
-const header = document.querySelector('.header');
-const hero = document.querySelector('.hero');
+    allModals = ['.modal1', '.modal2', '.modal3'];
+    const modalin = document.querySelector('.modalin');
+    const header = document.querySelector('.header');
+    const hero = document.querySelector('.hero');
 
-const openModal = (modal) => {
-    const modalOpen = document.querySelector(modal);
-    modalOpen.classList.remove('hidden');
-    modalin.classList.remove('hidden');
-    header.classList.remove('fixed');
-    hero.style.height = '33rem';
-}
+    const openModal = (modal) => {
+        const modalOpen = document.querySelector(modal);
+        modalOpen.classList.remove('hidden');
+        modalin.classList.remove('hidden');
+        header.classList.remove('fixed');
+        hero.style.height = '33rem';
+    }
 
-const closeModal = (modal) => {
-    const modalClose = document.querySelector(modal);
-    modalClose.classList.add('hidden');
-    modalin.classList.add('hidden');
-    header.classList.add('fixed');
-    hero.style.height = '';
-}
+    const closeModal = (modal) => {
+        const modalClose = document.querySelector(modal);
+        modalClose.classList.add('hidden');
+        modalin.classList.add('hidden');
+        header.classList.add('fixed');
+        hero.style.height = '';
+    }
 
-document.querySelectorAll('.openModal').forEach(button => {
-    button.addEventListener('click', () => {
-        const modalIndex = button.dataset.modalIndex;
-        openModal(allModals[modalIndex]);
+    document.querySelectorAll('.openModal').forEach(button => {
+        button.addEventListener('click', () => {
+            const modalIndex = button.dataset.modalIndex;
+            openModal(allModals[modalIndex]);
+        });
     });
-});
 
 
-document.querySelectorAll('.closeModal').forEach(button => {
-    button.addEventListener('click', () => {
-        const modalIndex = button.dataset.modalIndex;
-        closeModal(allModals[modalIndex]);
+    document.querySelectorAll('.closeModal').forEach(button => {
+        button.addEventListener('click', () => {
+            const modalIndex = button.dataset.modalIndex;
+            closeModal(allModals[modalIndex]);
+        });
     });
-});
 </script>
 @endsection

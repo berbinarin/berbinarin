@@ -1,20 +1,84 @@
-var swiper = new Swiper(".card-content", {
-    loop: true,
-    slidesPerView: 1,
-    spaceBetween: 32,
-    grabCursor: true,
+class Carousel {
+    constructor(element, items, options) {
+        this.element = element;
+        this.items = items;
+        this.options = options;
+    }
 
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        dynamicBullets: true,
-    },
+    init() {
+        // Initialize carousel with the given options
+        console.log("Carousel initialized with options:", this.options);
+    }
+}
 
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+const carouselElement = document.getElementById("carousel-example");
+
+const items = [
+    {
+        position: 0,
+        el: document.getElementById("carousel-item-1"),
     },
-});
+    {
+        position: 1,
+        el: document.getElementById("carousel-item-2"),
+    },
+    {
+        position: 2,
+        el: document.getElementById("carousel-item-3"),
+    },
+    {
+        position: 3,
+        el: document.getElementById("carousel-item-4"),
+    },
+    {
+        position: 4,
+        el: document.getElementById("carousel-item-5"),
+    },
+];
+
+const options = {
+    defaultPosition: 1,
+    interval: 3000,
+    indicators: {
+        activeClasses: "bg-white dark:bg-cyan-500",
+        inactiveClasses:
+            "bg-white/50 dark:bg-cyan-500/50 hover:bg-cyan-500 dark:hover:bg-cyan-500",
+        items: [
+            {
+                position: 0,
+                el: document.getElementById("carousel-indicator-1"),
+            },
+            {
+                position: 1,
+                el: document.getElementById("carousel-indicator-2"),
+            },
+            {
+                position: 2,
+                el: document.getElementById("carousel-indicator-3"),
+            },
+            {
+                position: 3,
+                el: document.getElementById("carousel-indicator-4"),
+            },
+            {
+                position: 4,
+                el: document.getElementById("carousel-indicator-5"),
+            },
+        ],
+    },
+    onNext: () => {
+        console.log("next slider item is shown");
+    },
+    onPrev: () => {
+        console.log("previous slider item is shown");
+    },
+    onChange: () => {
+        console.log("new slider item has been shown");
+    },
+};
+
+const carousel = new Carousel(carouselElement, items, options);
+carousel.init();
 
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 3,
