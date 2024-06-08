@@ -13,7 +13,9 @@
         <p class="text-center mb-4">Team Berbinar akan menghubungi kamu dalam waktu dekat. Stay Tune!</p>
         <div class="flex justify-center items-center">
             <button id="openModal" type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition duration-300 h-14 md:w-52 md:flex md:justify-center md:items-center">
-                <span class="mr-2">Back To Homepage</span>
+                <a href="{{ route('berbinarplus.login') }}">
+                    <span class="mr-2">Back To Homepage</span>
+                </a>    
             </button>
         </div>
     </div>

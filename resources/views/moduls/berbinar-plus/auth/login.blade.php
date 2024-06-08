@@ -35,13 +35,13 @@
 
                                    {{-- NEXT BUTTON --}}
                                    <div class="text-center">
-                                          <button type="button" id="login-button" class="bg-[#75C8EE] w-full text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">
+                                          <button type="submit" id="login-button" class="bg-[#75C8EE] w-full text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">
                                                  Login
                                           </button>
                                    </div>
                                    {{-- Sign Up --}}
                                    <div class="mt-4 text-center">
-                                          <span class="text-black text-sm font-bold">Don't have an account? </span><a href="#" class="text-blue-400">Sign Up</a>
+                                          <span class="text-black text-sm font-bold">Don't have an account? </span><a href="{{ route('berbinarplus.register') }}" class="text-blue-400">Sign Up</a>
                                    </div>
                             </div>
                      </form>
