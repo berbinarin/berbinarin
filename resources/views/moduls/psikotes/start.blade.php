@@ -9,10 +9,12 @@
         <div class="flex relative h-fit">
             <div class="flex relative bg-primary rounded-[30px] items-center mt-2">
                 <div class="relative flex flex-col items-center">
-                    <h2 class="intro_title md:w-full text-center text-white font-medium text-5xl my-7 mx-7 leading-tight ">
+                    <h2
+                        class="intro_title md:w-full text-center text-white font-medium text-5xl my-7 mx-7 leading-tight ">
                         Tes Kepribadian Gratis
                     </h2>
-                    <p class="intro_description md:w-[70%] w-[85%] text-white font-normal mt-2 m-4 text-justify leading-loose">
+                    <p
+                        class="intro_description md:w-[70%] w-[85%] text-white font-normal mt-2 m-4 text-justify leading-loose">
                         Tes ini merupakan model dari
                         tes kepribadian lima dimensi yang dapat mengungkapkan potensi karir yang sesuai dengan
                         kepribadian SobatBinar.
@@ -36,10 +38,12 @@
                             (N)</span>.
                     </p>
                     <div class="flex flex-col md:flex-row gap-4 my-5 items-center">
-                        <button class="text-base text-white font-bold bg-primary border-white border-2 rounded-full hover:bg-amber-300 hover:text-primary hover:border-amber-300 duration-700 px-6 py-2 w-fit showModal">
+                        <button
+                            class="text-base text-white font-bold bg-primary border-white border-2 rounded-full hover:bg-amber-300 hover:text-primary hover:border-amber-300 duration-700 px-6 py-2 w-fit showModal">
                             Mulai Tes
                         </button>
-                        <a href="{{ route('psikotestHome') }}" class="text-white font-medium bg-primary border-white border-2 rounded-full hover:bg-white hover:text-primary duration-700 hover:cursor-pointer px-6 py-2 w-fit block">
+                        <a href="{{ route('psikotestHome') }}"
+                            class="text-white font-medium bg-primary border-white border-2 rounded-full hover:bg-white hover:text-primary duration-700 hover:cursor-pointer px-6 py-2 w-fit block">
                             Kembali ke Beranda
                         </a>
                     </div>
@@ -47,15 +51,22 @@
             </div>
 
         </div>
-        <img src="{{ asset('assets/images/psikotes/singa1.png') }}" alt="Ilustrasi Singa" title="Ilustrasi Singa" class="w-48 h-48 absolute hidden lg:block top-0 left-0 z-20 -translate-y-6" data-aos="fade-up" data-aos-duration="1500">
-        <img src="{{ asset('assets/images/psikotes/singa2.png') }}" alt="Ilustrasi Singa" title="Ilustrasi Singa" class="w-48 h-48 absolute hidden lg:block bottom-0 left-0 z-20 translate-y-6" data-aos="fade-up" data-aos-duration="1500">
-        <img src="{{ asset('assets/images/psikotes/singa3.png') }}" alt="Ilustrasi Singa" title="Ilustrasi Singa" class="w-[190px] h-[216px] absolute hidden lg:block bottom-0 right-0 z-20" data-aos="fade-up" data-aos-duration="1500">
+        <img src="{{ asset('assets/images/psikotes/singa1.png') }}" alt="Ilustrasi Singa" title="Ilustrasi Singa"
+            class="w-48 h-48 absolute hidden lg:block top-0 left-0 z-20 -translate-y-6" data-aos="fade-up"
+            data-aos-duration="1500">
+        <img src="{{ asset('assets/images/psikotes/singa2.png') }}" alt="Ilustrasi Singa" title="Ilustrasi Singa"
+            class="w-48 h-48 absolute hidden lg:block bottom-0 left-0 z-30 translate-y-6" data-aos="fade-up"
+            data-aos-duration="1500">
+        <img src="{{ asset('assets/images/psikotes/singa3.png') }}" alt="Ilustrasi Singa" title="Ilustrasi Singa"
+            class="w-56 h-56 absolute hidden lg:block bottom-0 right-0 z-50 -mr-5" data-aos="fade-up"
+            data-aos-duration="1500">
     </div>
 </section>
 
 <!--========== POP UP ==========-->
 <section class="relactive flex">
-    <div class="modal fixed bg-black/54 size-full start-0 overflow-x-hidden overflow-y-auto top-0 left-0 right-0 z-50 hidden justify-center items-center">
+    <div
+        class="modal fixed bg-black/54 size-full start-0 overflow-x-hidden overflow-y-auto top-0 left-0 right-0 z-50 hidden justify-center items-center">
         <div class="modal-dialog max-w-lg m-7 mx-2 sm:mx-auto pb-4 bg-white rounded-xl shadow-lg">
             <div class="text-right p-3 closeModal">
                 <i class='bx bxs-x-circle text-[48px] text-[#F34949]'></i>
@@ -87,7 +98,8 @@
 
                 <form action="{{ route('test.store') }}" method="POST">
                     @csrf
-                    <button type="submit" class="text-lg text-white bg-primary font-medium rounded-full hover:text-primary hover:bg-amber-300 duration-700 px-8 mt-0 mb-4 py-2 w-fit">
+                    <button type="submit"
+                        class="text-lg text-white bg-primary font-medium rounded-full hover:text-primary hover:bg-amber-300 duration-700 px-8 mt-0 mb-4 py-2 w-fit">
                         Mulai</button>
                 </form>
             </div>
@@ -96,17 +108,17 @@
 </section>
 
 <script>
-    const modal = document.querySelector('.modal');
-    const showModal = document.querySelector('.showModal');
-    const closeModal = document.querySelector('.closeModal');
+const modal = document.querySelector('.modal');
+const showModal = document.querySelector('.showModal');
+const closeModal = document.querySelector('.closeModal');
 
-    showModal.addEventListener('click', function() {
-        modal.classList.remove('hidden')
-    });
+showModal.addEventListener('click', function() {
+    modal.classList.remove('hidden')
+});
 
-    closeModal.addEventListener('click', function() {
-        modal.classList.add('hidden')
-    });
+closeModal.addEventListener('click', function() {
+    modal.classList.add('hidden')
+});
 </script>
 
 @endsection
