@@ -24,7 +24,7 @@ class QuestionController extends Controller
         $question = Question::where('id', $question_order)->firstOrFail();
 
         // Hitung progressbar soal
-        $totalQuestions = 44;
+        $totalQuestions = Question::count();
         $progress = ($question_order / $totalQuestions) * 100;
 
         return view('moduls.psikotes.freetest', compact('question', 'test_id', 'question_order', 'progress'));

@@ -685,6 +685,10 @@ class LandingController extends Controller
             'jadwal_tanggal' => 'required',
             'jadwal_pukul' => 'required',
             'metode' => 'required|not_in:default_value',
+            'harga' => 'required|numeric',
+            'daerah' => 'required_if:metode,offline|nullable|string',
+        ], [
+            'daerah.required_if' => 'Daerah is required when the method is offline.',
         ]);
 
         if (empty($request->session()->get('konseling'))) {
@@ -790,6 +794,36 @@ class LandingController extends Controller
         return redirect()->route('home');
     }
 
+    // public function psiPilihJadwal(Request $request)
+    // {
+    //     $konselling = $request->session()->get('konselling');
+    //     return view('moduls.konseling.psi-jadwal', compact('konselling'));
+    // }
+
+    // public function postPsiPilihJadwal(Request $request)
+    // {
+    //     $validatedData = $request->validate([
+    //         'jadwal_tanggal' => 'required',
+    //         'jadwal_pukul' => 'required',
+    //         'metode' => 'required|not_in:default_value',
+    //     ]);
+
+    //     $jamMenit = substr($validatedData['jadwal_pukul'], 0, 5);
+    //     $validatedData['jadwal_pukul'] = $jamMenit;
+
+    //     if (empty($request->session()->get('konselling'))) {
+    //         $konselling = new KonsellingPsikolog();
+    //         $konselling->fill($validatedData);
+    //         $request->session()->put('konselling', $konselling);
+    //     } else {
+    //         $konselling = $request->session()->get('konselling');
+    //         $konselling->fill($validatedData);
+    //         $request->session()->put('konselling', $konselling);
+    //     }
+
+    //     return redirect()->route('psi-regData1');
+    // }
+
     public function psiPilihJadwal(Request $request)
     {
         $konselling = $request->session()->get('konselling');
@@ -802,10 +836,23 @@ class LandingController extends Controller
             'jadwal_tanggal' => 'required',
             'jadwal_pukul' => 'required',
             'metode' => 'required|not_in:default_value',
+            'daerah' => 'nullable|required_if:metode,offline|not_in:default_value'
         ]);
 
         $jamMenit = substr($validatedData['jadwal_pukul'], 0, 5);
         $validatedData['jadwal_pukul'] = $jamMenit;
+
+        // Calculate price
+        $date = new \DateTime($validatedData['jadwal_tanggal']);
+        $dayOfWeek = $date->format('N'); // 1 (for Monday) through 7 (for Sunday)
+        $isWeekend = ($dayOfWeek == 6 || $dayOfWeek == 7);
+        $isWeekday = !$isWeekend;
+
+        if ($validatedData['metode'] == 'online') {
+            $validatedData['harga'] = $isWeekday ? 150000 : 200000;
+        } else if ($validatedData['metode'] == 'offline') {
+            $validatedData['harga'] = $isWeekday ? 175000 : 225000;
+        }
 
         if (empty($request->session()->get('konselling'))) {
             $konselling = new KonsellingPsikolog();

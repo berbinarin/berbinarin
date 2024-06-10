@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Test;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
+// use Illuminate\Support\Carbon;
+use Carbon\Carbon;
 
 class TestController extends Controller
 {
@@ -14,16 +15,17 @@ class TestController extends Controller
         return view('moduls.psikotes.start');
     }
 
-    // Membuat entri tes baru dengan tanggal saat ini dan mengarahkan ke halaman soal pertama
     public function store(Request $request)
     {
+        // Buat entri tes baru dengan tanggal saat ini
         $test = new Test();
         $test->test_date = Carbon::now();
         $test->save();
 
-        // buatkan session untuk menyimpan ID tes
+        // Simpan ID tes ke dalam session
         $request->session()->put('test_id', $test->id);
 
+        // Arahkan ke halaman biodata dengan menyertakan ID tes
         return redirect()->route('biodata.show', ['test_id' => $test->id]);
     }
 }
