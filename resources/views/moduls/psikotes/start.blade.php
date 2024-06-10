@@ -5,7 +5,7 @@
 
 @section('content')
 <section>
-    <div class="max-w-6xl mx-auto my-0 md:mb-2 p-4 h-fit flex relative items-center overflow-x-hidden overflow-y-auto">
+    <div class="max-w-6xl mx-auto my-0 md:mb-2 p-4 h-fit flex relative items-center overflow-y-auto md:overflow-hidden">
         <div class="flex relative h-fit">
             <div class="flex relative bg-primary rounded-[30px] items-center mt-2">
                 <div class="relative flex flex-col items-center">
@@ -45,7 +45,11 @@
                     </div>
                 </div>
             </div>
+
         </div>
+        <img src="{{ asset('assets/images/psikotes/singa1.png') }}" alt="Ilustrasi Singa" title="Ilustrasi Singa" class="w-48 h-48 absolute hidden lg:block top-0 left-0 z-20 -translate-y-6" data-aos="fade-up" data-aos-duration="1500">
+        <img src="{{ asset('assets/images/psikotes/singa2.png') }}" alt="Ilustrasi Singa" title="Ilustrasi Singa" class="w-48 h-48 absolute hidden lg:block bottom-0 left-0 z-20 translate-y-6" data-aos="fade-up" data-aos-duration="1500">
+        <img src="{{ asset('assets/images/psikotes/singa3.png') }}" alt="Ilustrasi Singa" title="Ilustrasi Singa" class="w-[190px] h-[216px] absolute hidden lg:block bottom-0 right-0 z-20" data-aos="fade-up" data-aos-duration="1500">
     </div>
 </section>
 
