@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Answer;
 use App\Models\Question;
 use App\Models\Result;
+use App\Models\Dimension;
 use App\Models\Test;
 use App\Models\UserPsikotest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class QuestionController extends Controller
 {
@@ -155,6 +158,61 @@ class QuestionController extends Controller
                 return 1;
             default:
                 return 0;
+        }
+    }
+
+    public function destroy(string $id)
+    {
+        //
+        try {
+
+            $question = Question::find($id);
+            if (!$question) {
+                throw new \Exception('Data tidak ditemukan.'); // Atau gunakan jenis Exception yang sesuai
+            }
+            $question->delete();
+
+            Alert::success('Success ', 'Data Berhasil Delete');
+
+
+            return redirect("/dashboard/admin/question");
+        } catch (\Exception $e) {
+            Alert::error('Error', 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage());
+
+
+            return redirect("/dashboard/admin/question");
+        }
+    }
+
+    public function edit($id)
+    {
+        $question = Question::find($id);
+        if (!$question) {
+            return response()->json(['error' => 'Data tidak ditemukan.'], 404);
+        }
+        return response()->json($question);
+    }
+
+    // Method to update question data
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'question_text' => 'required|string',
+            'dimension_id' => 'required|integer',
+            // Add other validation rules as necessary
+        ]);
+
+        try {
+            $question = Question::find($id);
+            if (!$question) {
+                return response()->json(['error' => 'Data tidak ditemukan.'], 404);
+            }
+
+            $question->update($request->all());
+
+            return response()->json(['success' => 'Data berhasil diperbarui.']);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Terjadi kesalahan saat memperbarui data: ' . $e->getMessage()], 500);
         }
     }
 }

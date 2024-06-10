@@ -46,8 +46,8 @@ class User extends Authenticatable
     ];
 
 
-    public function userDetail(){
+    public function userDetail()
+    {
         return $this->hasMany(UserDetail::class);
     }
-    
 }
