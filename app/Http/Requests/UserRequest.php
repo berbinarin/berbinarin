@@ -6,6 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Response;
+
 class UserRequest extends FormRequest
 {
     /**
@@ -28,11 +29,11 @@ class UserRequest extends FormRequest
             'username' => "required |string",
             'email' => "required |string|email|unique:users,email",
             'password' => "required |string|regex:/[a-zA-Z]/|regex:/[0-9]/|regex:/[@$!%*#?&]/",
-            'role' => "required|in:Super Admin,Admin,HR,Konselling'",
+            'role' => "required|in:Super Admin,Admin,HR,Konselling,Psikotes",
         ];
     }
 
-    public function failedValidation(Validator $validator) 
+    public function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(
             response()->json([
@@ -43,4 +44,3 @@ class UserRequest extends FormRequest
         );
     }
 }
-

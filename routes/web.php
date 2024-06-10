@@ -60,16 +60,15 @@ Route::prefix('/class/berbinar+')->group(function () {
     Route::get('/register', [AuthUserController::class, 'showRegister'])->name('berbinarplus.register');
     Route::post('/register', [AuthUserController::class, 'register'])->name('berbinarplus.register.post');
     Route::get('/register/success', [AuthUserController::class, 'success'])->name('berbinarplus.register.success');
-    
+
     Route::get('/login', [AuthUserController::class, 'showLogin'])->name('berbinarplus.login');
     Route::post('/login', [AuthUserController::class, 'login'])->name('berbinarplus.login.post');
-    
+
     Route::post('/logout', [AuthUserController::class, 'logout'])->name('berbinarplus.logout.post');
-    
+
     Route::group(['middleware' => ['auth.berbinarplus:berbinarplus']], function () {
         Route::get('/dashboard', [AuthUserController::class, 'dashboard'])->name('berbinarplus.dashboard');
     });
-
 });
 
 // buat testing form selanjutnya tapi belum pakai tailwindcss
@@ -159,7 +158,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin/psikotest/free/data', [DashboardController::class, 'adminDataPsikotesFree'])->name('dashboard.psikotestfree.data');
     Route::get('/dashboard/admin/psikotest/free/data/{user_id}', [DashboardController::class, 'adminDataPsikotesFreeShow'])->name('dashboard.psikotestfree.data.show');
     Route::get('/dashboard/admin/psikotest/free/data/{user_id}/edit', [DashboardController::class, 'adminDataPsikotesFreeEdit'])->name('dashboard.psikotestfree.data.edit');
-    Route::put('/dashboard/admin/psikotest/free/data/{user_id}', [DashboardController::class, 'adminDataPsikotesFreeUpdate'])->name('dashboard.psikotestfree.data.update');
+    Route::put('/dashboard/admin/psikotest/free/data/{user_id}/edit', [DashboardController::class, 'adminDataPsikotesFreeUpdate'])->name('dashboard.psikotestfree.data.update');
     Route::delete('/dashboard/admin/psikotest/free/data/{user_id}', [DashboardController::class, 'adminDataPsikotesFreeDestroy'])->name('dashboard.psikotestfree.data.destroy');
     Route::get('/dashboard/admin/psikotest/free/questions', [DashboardController::class, 'adminEditSoalPsikotesFree'])->name('dashboard.psikotestfree.question.index');
     Route::get('/dashboard/admin/psikotest/free/question/create', [DashboardController::class, 'adminEditSoalPsikotestFreeCreate'])->name('dashboard.psikotestfree.question.create');
@@ -202,3 +201,7 @@ Route::post('/finish-test/{test_id}/{user_id}', [ResultController::class, 'finis
 
 // Route::get('/psikotest/login', [LandingController::class, 'psikotestLogin'])->name('psikotestLogin');
 // Route::get('/psikotest/register', [LandingController::class, 'psikotestRegister'])->name('psikotestRegister');
+
+// Route::get('/dashboard/admin/data', [DashboardController::class, 'data'])->name('dashboard.data');
+// Route::get('/dashboard/admin/question', [DashboardController::class, 'question'])->name('dashboard.question');
+// Route::resource('/posts', App\Http\Controllers\DashboardController::class);

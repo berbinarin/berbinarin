@@ -95,7 +95,14 @@
                 </div>
 
                 {{-- HERO IMG DESKTOP --}}
-                <img src="{{ asset('assets/images/psikotes/value.png') }}" alt="Ilustrasi-Test" class="w-[500px] h-[530px] hidden lg:block -mt-20" data-aos="fade-left" data-aos-duration="1500">
+                @if ($progress < 14) <img src="{{ asset('assets/images/psikotes/progress1.png') }}" alt="Ilustrasi-Test" class="w-[500px] h-[500px] hidden lg:block -mt-12" data-aos="fade-left" data-aos-duration="1500">
+                    @elseif ($progress >= 14 && $progress < 34) <img src="{{ asset('assets/images/psikotes/progress2.png') }}" alt="Ilustrasi-Test" class="w-[500px] h-[500px] hidden lg:block -mt-12" data-aos="fade-left" data-aos-duration="1500">
+                        @elseif ($progress >= 34 && $progress < 55) <img src="{{ asset('assets/images/psikotes/progress3.png') }}" alt="Ilustrasi-Test" class="w-[500px] h-[500px] hidden lg:block -mt-12" data-aos="fade-left" data-aos-duration="1500">
+                            @elseif ($progress >= 55 && $progress < 77) <img src="{{ asset('assets/images/psikotes/progress4.png') }}" alt="Ilustrasi-Test" class="w-[500px] h-[500px] hidden lg:block -mt-12" data-aos="fade-left" data-aos-duration="1500">
+                                @elseif ($progress >= 77 && $progress < 100) <img src="{{ asset('assets/images/psikotes/progress5.png') }}" alt="Ilustrasi-Test" class="w-[500px] h-[500px] hidden lg:block -mt-12" data-aos="fade-left" data-aos-duration="1500">
+                                    @else
+                                    <img src="{{ asset('assets/images/psikotes/progress6.png') }}" alt="Ilustrasi-Test" class="w-[500px] h-[500px] hidden lg:block -mt-12" data-aos="fade-left" data-aos-duration="1500">
+                                    @endif
             </div>
         </div>
     </div>

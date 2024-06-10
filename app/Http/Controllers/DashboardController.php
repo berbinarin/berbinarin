@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Post;
 use App\Models\Test;
 use App\Models\Question;
 use App\Models\Dimension;
@@ -14,6 +16,8 @@ use App\Models\KonsellingPsikolog;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Hiring_Positions_Requirements;
 use App\Models\Hiring_Positions_Job_Descriptions;
+use Illuminate\Support\Facades\Validator;
+
 
 class DashboardController extends Controller
 {
@@ -78,6 +82,7 @@ class DashboardController extends Controller
         return view('moduls.dashboard.hr.job-descriptions.job-descriptions', ["HiringPosisitonsJobDescriptionment" => $HiringPosisitonsJobDescriptionment, 'HiringPosisitons' => $HiringPosisitons]);
     }
 
+
     public function editJobDescriptions($id)
     {
         $HiringPosisitonsJobDescriptionment = Hiring_Positions_Job_Descriptions::find($id);
@@ -125,6 +130,7 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.PeerConsellorSchedule');
     }
 
+
     public function editPeerConsellorSchedule(Request $request, $id)
     {
         $validatedData = $request->validate([
@@ -148,8 +154,10 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.PeerConsellorSchedule');
     }
 
+
     public function deletePeerConsellorSchedule($id)
     {
+        jadwalPeer::where('id', $id)->delete();
         jadwalPeer::where('id', $id)->delete();
         Alert::toast('A Peer Coonsellor Schedule Deleted', 'success')->autoClose(5000);
         return redirect()->route('dashboard.PeerConsellorSchedule');
@@ -161,6 +169,7 @@ class DashboardController extends Controller
         $konselling = $request->session()->get('konselling');
         return view('moduls.dashboard.konselling.psikologdata', ['PsikologData' => $PsikologData], compact('konselling'));
     }
+
 
     public function addPsikologData(Request $request)
     {
@@ -189,6 +198,7 @@ class DashboardController extends Controller
         $jamMenit = substr($validatedData['jadwal_pukul'], 0, 5);
         $validatedData['jadwal_pukul'] = $jamMenit;
 
+
         if (empty($request->session()->get('konselling'))) {
             $konselling = new KonsellingPsikolog();
             $konselling->fill($validatedData);
@@ -205,12 +215,15 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.PsikologData');
     }
 
+
     public function PsikologDataDetails(Request $request, $id)
     {
+        $PsikologDataDetails = KonsellingPsikolog::where('id', $id)->get();
         $PsikologDataDetails = KonsellingPsikolog::where('id', $id)->get();
         $konselling = $request->session()->get('konselling');
         return view('moduls.dashboard.konselling.psikologdatadetail', ['PsikologDataDetails' => $PsikologDataDetails], compact('konselling'));
     }
+
     public function editPsikologDataDetails(Request $request, $id)
     {
         $validatedData = $request->validate([
@@ -264,6 +277,7 @@ class DashboardController extends Controller
     public function deletePsikologDataDetails($id)
     {
         KonsellingPsikolog::where('id', $id)->delete();
+        KonsellingPsikolog::where('id', $id)->delete();
         Alert::toast('A Psikolog Appointment Data Deleted', 'success')->autoClose(5000);
         return redirect()->route('dashboard.PsikologData');
     }
@@ -306,6 +320,7 @@ class DashboardController extends Controller
             'cerita' => 'required',
         ]);
 
+
         if (empty($request->session()->get('konselling'))) {
             $konselling = new KonsellingPeer();
             $konselling->fill($validatedData);
@@ -322,8 +337,10 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.PeerConsellorData');
     }
 
+
     public function PeerConsellorDataDetails(Request $request, $id)
     {
+        $PeerConsellorDataDetails = KonsellingPeer::where('id', $id)->get();
         $PeerConsellorDataDetails = KonsellingPeer::where('id', $id)->get();
         $konselling = $request->session()->get('konselling');
         $senin = jadwalPeer::where('hari', 'Senin')->orderBy('pukul_mulai')->get();
@@ -335,6 +352,7 @@ class DashboardController extends Controller
         $minggu = jadwalPeer::where('hari', 'Minggu')->orderBy('pukul_mulai')->get();
         return view('moduls.dashboard.konselling.peerdatadetail', ['PeerConsellorDataDetails' => $PeerConsellorDataDetails], compact('senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu', 'konselling'));
     }
+
     public function editPeerConsellorDataDetails(Request $request, $id)
     {
         $validatedData = $request->validate([
@@ -388,6 +406,7 @@ class DashboardController extends Controller
     public function deletePeerConsellorDataDetails($id)
     {
         KonsellingPeer::where('id', $id)->delete();
+        KonsellingPeer::where('id', $id)->delete();
         Alert::toast('A Peer Coonsellor Appointment Data Deleted', 'success')->autoClose(5000);
         return redirect()->route('dashboard.PeerConsellorData');
     }
@@ -408,7 +427,7 @@ class DashboardController extends Controller
     {
         $testData = Test::with('users', 'results')->orderBy('created_at', 'desc')->get();
 
-        return view('moduls.psikotes.dashboard-dev.admin-data', compact('testData'));
+        return view('moduls.dashboard.psikotes.data', compact('testData'));
     }
 
 
@@ -416,7 +435,7 @@ class DashboardController extends Controller
     {
         $testData = Test::with(['users', 'results', 'answers.question'])->findOrFail($test_id);
 
-        return view('moduls.psikotes.dashboard-dev.admin-data-detail', compact('testData'));
+        return view('moduls.dashboard.psikotes.data-detail', compact('testData'));
     }
 
     // Menampilkan form edit user
@@ -424,7 +443,7 @@ class DashboardController extends Controller
     {
         $testData = Test::with('users', 'results')->findOrFail($test_id);
 
-        return view('moduls.psikotes.dashboard-dev.admin-data-edit', compact('testData'));
+        return view('moduls.dashboard.psikotes.data-edit', compact('testData'));
     }
 
     // Update data user
@@ -458,7 +477,7 @@ class DashboardController extends Controller
     public function adminEditSoalPsikotesFree()
     {
         $questions = Question::with('dimension')->get();
-        return view('moduls.psikotes.dashboard-dev.admin-question', compact('questions'));
+        return view('moduls.dashboard.psikotes.question', compact('questions'));
     }
 
     // Menampilkan form tambah soal
@@ -499,15 +518,15 @@ class DashboardController extends Controller
     {
         $request->validate([
             'question_text' => 'required|string|max:255',
-            'dimension_id' => 'required|exists:dimensions,id',
-            'nr' => 'required|in:N,R',
+            // 'dimension_id' => 'required|exists:dimensions,id',
+            // 'nr' => 'required|in:N,R',
         ]);
 
         $question = Question::findOrFail($id);
         $question->update([
             'question_text' => $request->input('question_text'),
-            'dimension_id' => $request->input('dimension_id'),
-            'nr' => $request->input('nr'),
+            // 'dimension_id' => $request->input('dimension_id'),
+            // 'nr' => $request->input('nr'),
         ]);
 
         return redirect()->route('dashboard.psikotestfree.question.index')->with('success', 'Question updated successfully');
