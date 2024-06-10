@@ -25,9 +25,9 @@ class AdminSeeder extends Seeder
 
             [
                 'id' => 2,
-                'username' => 'HR',
+                'username' => 'hrberbinar2005',
                 'email' => 'hr@gmail.com',
-                'password' => Hash::make('Hr123'),
+                'password' => Hash::make('berbinaradabuatkamu'),
                 'role' => 'HR'
             ],
 

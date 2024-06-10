@@ -224,7 +224,7 @@
           <p class="font-bold italic">"How to generate new ideas"</p>
           <img src="{{ asset('assets/images/berbinar-plus-icon/vectordua.png') }}" class="w-20 px-2 py-1">
         </div>
-        <img src="{{ asset('assets/images/berbinar-plus-icon/vector.png') }}" class="w-10 px-2 py-1 ml-auto">
+        <img src="{{ asset('assets/images/berbinar-plus-icon/Vector.png') }}" class="w-10 px-2 py-1 ml-auto">
       </div>
       <div class="flex w-1/2 bg-white p-2 mt-4 rounded-lg shadow-md items-center">
         <img src="{{ asset('assets/images/berbinar-plus-icon/dua.png') }}" alt="" class="w-20 h-20 rounded-l mr-2">
@@ -232,7 +232,7 @@
           <p class="font-bold italic">"How to generate new ideas"</p>
           <img src="{{ asset('assets/images/berbinar-plus-icon/vectordua.png') }}" class="w-20 px-2 py-1">
         </div>
-        <img src="{{ asset('assets/images/berbinar-plus-icon/vector.png') }}" class="w-10 px-2 py-1 ml-auto">
+        <img src="{{ asset('assets/images/berbinar-plus-icon/Vector.png') }}" class="w-10 px-2 py-1 ml-auto">
       </div>
     </div>
 
@@ -244,7 +244,7 @@
           <p class="font-bold italic">"How to generate new ideas"</p>
           <img src="{{ asset('assets/images/berbinar-plus-icon/vectordua.png') }}" class="w-20 px-2 py-1">
         </div>
-        <img src="{{ asset('assets/images/berbinar-plus-icon/vector.png') }}" class="w-10 px-2 py-1 ml-auto">
+        <img src="{{ asset('assets/images/berbinar-plus-icon/Vector.png') }}" class="w-10 px-2 py-1 ml-auto">
       </div>
       <div class="flex w-1/2 bg-white p-2 mt-4 rounded-lg shadow-md items-center">
         <img src="{{ asset('assets/images/berbinar-plus-icon/empat.png') }}" alt="" class="w-20 h-20 rounded-l mr-2">
@@ -252,7 +252,7 @@
           <p class="font-bold italic">"How to generate new ideas"</p>
           <img src="{{ asset('assets/images/berbinar-plus-icon/vectordua.png') }}" class="w-20 px-2 py-1">
         </div>
-        <img src="{{ asset('assets/images/berbinar-plus-icon/vector.png') }}" class="w-10 px-2 py-1 ml-auto">
+        <img src="{{ asset('assets/images/berbinar-plus-icon/Vector.png') }}" class="w-10 px-2 py-1 ml-auto">
       </div>
     </div>
 
