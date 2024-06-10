@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Test;
 use App\Models\UserPsikotest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserPsikotestController extends Controller
 {
@@ -50,5 +52,63 @@ class UserPsikotestController extends Controller
 
         // Arahkan ke halaman hasil dengan menyertakan ID tes dan ID user
         return redirect()->route('question.show', ['test_id' => $test_id, 'user_id' => $user_id, 'question_order' => 1]);
+    }
+
+    public function destroy(string $id)
+    {
+        //
+        try {
+
+            $userPsikotes = UserPsikotest::find($id);
+            if (!$userPsikotes) {
+                throw new \Exception('Data tidak ditemukan.'); // Atau gunakan jenis Exception yang sesuai
+            }
+            $userPsikotes->delete();
+
+            Alert::success('Success ', 'Data Berhasil Delete');
+
+
+            return redirect("/dashboard/admin/data");
+        } catch (\Exception $e) {
+            Alert::error('Error', 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage());
+
+
+            return redirect("/dashboard/admin/data");
+        }
+    }
+
+    public function edit($id)
+    {
+        $userPsikotes = UserPsikotest::find($id);
+        if (!$userPsikotes) {
+            return response()->json(['error' => 'Data tidak ditemukan.'], 404);
+        }
+        return response()->json($userPsikotes);
+    }
+
+    // Method to update question data
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'gender' => 'required|string',
+            'date_of_birth' => 'required|timestamp',
+            'email' => 'required|string',
+            'test_date' => 'required|timestamp',
+            // Add other validation rules as necessary
+        ]);
+
+        try {
+            $userPsikotes = UserPsikotest::find($id);
+            if (!$userPsikotes) {
+                return response()->json(['error' => 'Data tidak ditemukan.'], 404);
+            }
+
+            $userPsikotes->update($request->all());
+
+            return response()->json(['success' => 'Data berhasil diperbarui.']);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Terjadi kesalahan saat memperbarui data: ' . $e->getMessage()], 500);
+        }
     }
 }

@@ -24,12 +24,14 @@ class AuthController extends Controller
         try {
             $validated = $request->validated();
 
+
             User::create([
                 'username' => $validated["username"],
                 'email' => $validated['email'],
                 'password' => bcrypt($validated['password']),
                 "role" => $validated["role"]
             ]);
+
 
             Alert::toast('Formulir Pendaftaran Berhasil', 'success')->autoClose(5000);;
             return redirect()->back();
@@ -39,9 +41,11 @@ class AuthController extends Controller
         }
     }
 
+
     public function Login(LoginRequest $request)
     {
         $credentials = $request->only('username', 'password');
+
 
         if (Auth::attempt($credentials)) {
             // Authenticated and role matches
@@ -56,11 +60,13 @@ class AuthController extends Controller
             }
         }
 
+
         // Authentication failed
         Alert::toast('Invalid Email-Address And Password', 'error')->autoClose(5000);;
 
         return redirect()->route('dashboard.login');
     }
+
     public function Logout()
     {
 
