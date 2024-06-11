@@ -268,8 +268,9 @@
                                     <p class="text-left text-[#555555]">Pilih Daerah</p>
                                     <select name="daerah" id="daerah"
                                         class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1">
-                                        <option value="Medan">Medan</option>
-                                        <option value="Malang">Malang</option>
+                                        <option value="Bekasi">Bekasi</option>
+                                        <option value="Tangerang Selatan">Tangerang Selatan</option>
+                                        <option value="Palembang">Palembang</option>
                                     </select>
                                 </div>
                                 <div class="hargakons mt-4">

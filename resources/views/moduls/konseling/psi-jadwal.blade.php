@@ -59,9 +59,21 @@
                                         <option value="Surabaya"
                                             {{ !empty($konselling) && $konselling->daerah == 'Surabaya' ? 'selected' : '' }}>
                                             Surabaya</option>
+                                        <option value="Kediri"
+                                            {{ !empty($konselling) && $konselling->daerah == 'Kediri' ? 'selected' : '' }}>
+                                            Kediri</option>
+                                        <option value="Sidoarjo"
+                                            {{ !empty($konselling) && $konselling->daerah == 'Sidoarjo' ? 'selected' : '' }}>
+                                            Sidoarjo</option>
+                                        <option value="Denpasar"
+                                            {{ !empty($konselling) && $konselling->daerah == 'Denpasar' ? 'selected' : '' }}>
+                                            Denpasar</option>
                                         <option value="Samarinda"
                                             {{ !empty($konselling) && $konselling->daerah == 'Samarinda' ? 'selected' : '' }}>
                                             Samarinda</option>
+                                        <option value="Kalimantan Utara (Tarakan)"
+                                            {{ !empty($konselling) && $konselling->daerah == 'Kalimantan Utara (Tarakan)' ? 'selected' : '' }}>
+                                            Kalimantan Utara (Tarakan)</option>
                                     </select>
                                 </div>
                                 <div class="hargakons mt-4">

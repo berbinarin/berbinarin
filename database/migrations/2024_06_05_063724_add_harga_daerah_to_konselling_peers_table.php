@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('konselling_peers', function (Blueprint $table) {
             $table->integer('harga');
-            $table->enum('daerah', ['Medan', 'Malang']);
+            $table->enum('daerah', ['Bekasi', 'Tangerang Selatan', 'Palembang']);
         });
     }
 
