@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('konselling_psikologs', function (Blueprint $table) {
             $table->integer('harga');
-            $table->enum('daerah', ['Surabaya', 'Samarinda']);
+            $table->enum('daerah', ['Surabaya', 'Kediri', 'Sidoarjo', 'Denpasar', 'Kalimantan Utara (Tarakan)', 'Samarinda']);
         });
     }
 
