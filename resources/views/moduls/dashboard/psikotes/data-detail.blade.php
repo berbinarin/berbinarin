@@ -66,9 +66,7 @@
                         <table class="w-full table table-striped table-hover">
                             <tr>
                                 <td class="py-2 font-semibold">Hasil Tes :
-
                                     @if ($testData->results)
-
                                     <div class="flex flex-row py-3">
                                         <p class="card-text"><strong>Agreeableness:</strong>
                                         <div class="progress-bar w-[20px] h-5 ml-5 my-1 bg-primary rounded-full text-[13px] text-end"
@@ -90,7 +88,6 @@
                                             <span class="mr-3"> {{ $testData->results->conscientiousness }}%</span>
                                         </div>
                                         </p>
-
                                     </div>
 
                                     <div class="flex flex-row py-3">
@@ -173,7 +170,6 @@
                 </div>
             </div>
             @endforeach
-
         </div>
     </div>
 </section>
