@@ -29,7 +29,7 @@
                     <!-- view mobile -->
                     <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Konseling.png') }}" class="description absolute top-0 flex flex-col items-start">
                     <!-- view desktop -->
-                    <source media="(min-width: 768px)" srcset="{{ asset('assets/images/product-berbinar/1.png') }}" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                    <source media="(min-width: 768px)" srcset="{{ asset('assets/images/product-berbinar/1-konseling.png') }}" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
                     <img src="{{ asset('assets/images/product-berbinar/1.png') }}" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                 </picture>
             </div>
@@ -38,7 +38,7 @@
                     <!-- view mobile -->
                     <source media="(max-width: 767px)" srcset="{{ asset('assets/images/product-berbinar/psiko-mobile.jpg') }}" class="description absolute top-0 flex flex-col items-start">
                     <!-- view desktop -->
-                    <source media="(min-width: 768px)" srcset="{{ asset('assets/images/product-berbinar/tes-psikotes.png') }}" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                    <source media="(min-width: 768px)" srcset="{{ asset('assets/images/product-berbinar/2-psikotes.png') }}" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
                     <img src="{{ asset('assets/images/product-berbinar/2.png') }}" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                 </picture>
             </div>
@@ -47,7 +47,7 @@
                     <!-- view mobile -->
                     <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Kelas.png') }}" class="description absolute top-0 flex flex-col items-start">
                     <!-- view desktop -->
-                    <source media="(min-width: 768px)" srcset="{{ asset('assets/images/product-berbinar/3.png') }}" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                    <source media="(min-width: 768px)" srcset="{{ asset('assets/images/product-berbinar/3-kelas.png') }}" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
                     <img src="{{ asset('assets/images/product-berbinar/3.png') }}" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                 </picture>
             </div>
@@ -56,7 +56,7 @@
                     <!-- view mobile -->
                     <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Webinar.png') }}" class="description absolute top-0 flex flex-col items-start">
                     <!-- view desktop -->
-                    <source media="(min-width: 768px)" srcset="{{ asset('assets/images/product-berbinar/4.png') }}" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
+                    <source media="(min-width: 768px)" srcset="{{ asset('assets/images/product-berbinar/4-webinar.png') }}" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
                     <img src="{{ asset('assets/images/product-berbinar/4.png') }}" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                 </picture>
             </div>

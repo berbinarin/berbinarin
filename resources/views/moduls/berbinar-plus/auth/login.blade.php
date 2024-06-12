@@ -9,8 +9,8 @@
 
 <div class="flex flex-wrap">
        <div class="hidden md:block md:w-1/3">
-       <div class="w-96" style="transform: scale(1.12);">
-              <img src="{{ asset('assets/images/berbinar-plus-icon/image-login.jpg') }}" alt="Berbinar+" style="width: 100%; height: auto;">
+       <div class="w-96" style="transform: scale(1.095);">
+              <img src="{{ asset('assets/images/berbinar-plus-icon/login-image.jpg') }}" alt="Berbinar+" style="width: 100%; height: auto;">
        </div>
        </div>
        <div class="w-full md:w-2/3 flex justify-center items-center">
