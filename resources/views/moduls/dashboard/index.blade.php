@@ -35,6 +35,14 @@
                         @else
                             <p class="w-2/4 text-disabled"></p>
                         @endif
+                        @if (Auth::user()->role == 'BerbinarPlus')
+                            <p class="w-2/4 text
+                            -disabled">
+                                Fitur ini menampilkan jumlah user yang sedang mendaftar pada Berbinar Plus
+                            </p>
+                        @else
+                            <p class="w-2/4 text-disabled"></p>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -125,6 +133,17 @@
                         <div>
                             <span class="block text-2xl font-bold">{{ $totalQuestion }}</span>
                             <span class="block text-gray-500">Total Questions</span>
+                        </div>
+                    </div>
+                @elseif (Auth::user()->role == 'BerbinarPlus')
+                    <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                        <div
+                            class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                            <i class='bx bx-user text-2xl'></i>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold">{{ $totalBerbinarPlusUser }}</span>
+                            <span class="block text-gray-500">Total Users</span>
                         </div>
                     </div>
                 @endif

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berbinarp_enrollment;
+use App\Models\Berbinarp_user;
 use App\Models\Test;
 use App\Models\Question;
 use App\Models\Dimension;
@@ -36,6 +38,8 @@ class DashboardController extends Controller
         $totalUserPsikotest = UserPsikotest::count('id');
         $totalQuestion = Question::count('id');
 
+        $totalBerbinarPlusUser = Berbinarp_user::count('id');
+
         return view('moduls.dashboard.index', [
             "PeerConsellorSchedule" => $PeerConsellorSchedule,
             "PeerConsellorData" => $PeerConsellorData,
@@ -45,6 +49,7 @@ class DashboardController extends Controller
             'HiringPosisitonsRequirement' => $HiringPosisitonsRequirement,
             'totalUserPsikotest' => $totalUserPsikotest,
             'totalQuestion' => $totalQuestion,
+            "totalBerbinarPlusUser" => $totalBerbinarPlusUser
         ]);
     }
 
@@ -520,5 +525,15 @@ class DashboardController extends Controller
         $question->delete();
 
         return redirect()->route('dashboard.psikotestfree.question.index')->with('success', 'Question deleted successfully');
+    }
+
+    // BERBINARPLUS
+    
+    public function berbinarplusUserData()
+    {
+        $berbinarpUser = Berbinarp_user::all();
+        $berbinarpEnrollments = Berbinarp_enrollment::all();
+
+        return view('moduls.dashboard.berbinar-plus.berbinarplususer', ["berbinarpUser" => $berbinarpUser, 'berbinarpEnrollments' => $berbinarpEnrollments]);
     }
 }
