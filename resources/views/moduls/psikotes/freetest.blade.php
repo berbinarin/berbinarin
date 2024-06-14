@@ -35,8 +35,10 @@
                                             <input type="radio" name="answer" value="1" id="answer1" class="answer_input" required></input>
                                             <label for="answer1" class="answer_label"><i class="fluent--number-circle-1-32-filled"></i></label>
                                         </div>
-                                        <div class="">
-                                            <p class="text-sm text-center">Sangat Tidak </br>Sesuai</p>
+                                        <div class="my-2 md:my-0">
+                                            <p class="text-sm text-center">Sangat Tidak <span class="md:hidden">Sesuai</span> </p>
+                                            <p class="text-sm text-center hidden md:block">Sesuai</p>
+
                                         </div>
                                     </div>
 
