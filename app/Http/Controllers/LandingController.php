@@ -794,11 +794,11 @@ class LandingController extends Controller
         return redirect()->route('home');
     }
 
-    // public function psiPilihJadwal(Request $request)
-    // {
-    //     $konselling = $request->session()->get('konselling');
-    //     return view('moduls.konseling.psi-jadwal', compact('konselling'));
-    // }
+    public function psiPilihJadwal(Request $request)
+    {
+        $konselling = $request->session()->get('konselling');
+        return view('moduls.konseling.psi-jadwal', compact('konselling'));
+    }
 
     // public function postPsiPilihJadwal(Request $request)
     // {
@@ -806,10 +806,24 @@ class LandingController extends Controller
     //         'jadwal_tanggal' => 'required',
     //         'jadwal_pukul' => 'required',
     //         'metode' => 'required|not_in:default_value',
+    //         'daerah' => 'nullable|required_if:metode,offline|not_in:default_value',
+    //         'sesi' => 'required|int|between:1,3',
     //     ]);
 
     //     $jamMenit = substr($validatedData['jadwal_pukul'], 0, 5);
     //     $validatedData['jadwal_pukul'] = $jamMenit;
+
+    //     // Calculate price
+    //     $date = new \DateTime($validatedData['jadwal_tanggal']);
+    //     $dayOfWeek = $date->format('N'); // 1 (for Monday) through 7 (for Sunday)
+    //     $isWeekend = ($dayOfWeek == 6 || $dayOfWeek == 7);
+    //     $isWeekday = !$isWeekend;
+
+    //     if ($validatedData['metode'] == 'online') {
+    //         $validatedData['harga'] = $isWeekday ? 150000 : 200000;
+    //     } else if ($validatedData['metode'] == 'offline') {
+    //         $validatedData['harga'] = $isWeekday ? 175000 : 225000;
+    //     }
 
     //     if (empty($request->session()->get('konselling'))) {
     //         $konselling = new KonsellingPsikolog();
@@ -824,19 +838,14 @@ class LandingController extends Controller
     //     return redirect()->route('psi-regData1');
     // }
 
-    public function psiPilihJadwal(Request $request)
-    {
-        $konselling = $request->session()->get('konselling');
-        return view('moduls.konseling.psi-jadwal', compact('konselling'));
-    }
-
     public function postPsiPilihJadwal(Request $request)
     {
         $validatedData = $request->validate([
             'jadwal_tanggal' => 'required',
             'jadwal_pukul' => 'required',
             'metode' => 'required|not_in:default_value',
-            'daerah' => 'nullable|required_if:metode,offline|not_in:default_value'
+            'daerah' => 'nullable|required_if:metode,offline|not_in:default_value',
+            'sesi' => 'required|int|between:1,3',
         ]);
 
         $jamMenit = substr($validatedData['jadwal_pukul'], 0, 5);
@@ -849,9 +858,41 @@ class LandingController extends Controller
         $isWeekday = !$isWeekend;
 
         if ($validatedData['metode'] == 'online') {
-            $validatedData['harga'] = $isWeekday ? 150000 : 200000;
-        } else if ($validatedData['metode'] == 'offline') {
-            $validatedData['harga'] = $isWeekday ? 175000 : 225000;
+            if ($isWeekday) {
+                if ($validatedData['sesi'] == 1) {
+                    $validatedData['harga'] = 150000;
+                } elseif ($validatedData['sesi'] == 2) {
+                    $validatedData['harga'] = 255000;
+                } elseif ($validatedData['sesi'] == 3) {
+                    $validatedData['harga'] = 360000;
+                }
+            } else {
+                if ($validatedData['sesi'] == 1) {
+                    $validatedData['harga'] = 200000;
+                } elseif ($validatedData['sesi'] == 2) {
+                    $validatedData['harga'] = 360000;
+                } elseif ($validatedData['sesi'] == 3) {
+                    $validatedData['harga'] = 520000;
+                }
+            }
+        } elseif ($validatedData['metode'] == 'offline') {
+            if ($isWeekday) {
+                if ($validatedData['sesi'] == 1) {
+                    $validatedData['harga'] = 175000;
+                } elseif ($validatedData['sesi'] == 2) {
+                    $validatedData['harga'] = 325000;
+                } elseif ($validatedData['sesi'] == 3) {
+                    $validatedData['harga'] = 475000;
+                }
+            } else {
+                if ($validatedData['sesi'] == 1) {
+                    $validatedData['harga'] = 225000;
+                } elseif ($validatedData['sesi'] == 2) {
+                    $validatedData['harga'] = 425000;
+                } elseif ($validatedData['sesi'] == 3) {
+                    $validatedData['harga'] = 625000;
+                }
+            }
         }
 
         if (empty($request->session()->get('konselling'))) {
@@ -866,6 +907,7 @@ class LandingController extends Controller
 
         return redirect()->route('psi-regData1');
     }
+
 
     public function psiRegData1(Request $request)
     {
