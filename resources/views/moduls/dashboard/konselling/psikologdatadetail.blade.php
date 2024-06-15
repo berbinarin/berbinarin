@@ -331,10 +331,11 @@
                             </div>
                             <div class="mb-1 pt-0 flex-1">
                                 <label for="jadwal" class="text-blueGray-600 text-base">Pilih Jam Konseling</label>
-                                <input type="text" name="jadwal_pukul" id="jadwal_pukul" style="height: 50px"
-                                    value=" {{ $PsikologDataDetails[0]->jadwal_pukul }}"
+                                <input type="time" name="jadwal_pukul" id="jadwal_pukul" style="height: 50px"
+                                    value="{{ isset($PsikologDataDetails[0]->jadwal_pukul) ? $PsikologDataDetails[0]->jadwal_pukul : '' }}"
                                     class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
                             </div>
+
                             <div class="mb-1 pt-0 flex-1">
                                 <label for="metode" class="text-blueGray-600 text-base">Metode Konseling</label>
                                 <select name="metode" id="metode" style="height: 50px"
