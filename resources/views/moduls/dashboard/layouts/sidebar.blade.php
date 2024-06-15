@@ -132,6 +132,17 @@
         </li>
         @endif
 
+        @if (auth()->user()->role == 'BerbinarPlus')
+            <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300  rounded-lg">
+                <a href="{{ route('dashboard.berbinarplus.data') }}"
+                    class=" flex flex-col items-center @if ($modul === 'Berbinar Plus User Data') text-primary @else text-gray-700 @endif">
+                    <i
+                        class='bx bx-user @if ($modul === 'Berbinar Plus User Data') text-primary @else text-gray-700 @endif text-lg'></i>
+                    <span class="text-base mt-2 text-center">User Data</span>
+                </a>
+            </li>
+        @endif
+
         <li class="mt-20 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
             <form action="/logout" method="POST">

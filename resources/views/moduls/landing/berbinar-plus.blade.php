@@ -24,7 +24,7 @@
                 dengan syarat dan ketentuan yang berlaku. Peserta bebas memilih kelas yang ditawarkan serta layanan apa
                 saja yang akan diambil.
             </p>
-            <a href="https://bit.ly/CounselingWithBerbinar" class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Ikuti
+            <a href="{{ route('berbinarplus.login') }}" class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Ikuti
                 <span class="font-semibold"> BERBINAR+</span></a>
         </div>
     </div>
