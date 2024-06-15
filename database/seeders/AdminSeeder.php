@@ -46,6 +46,15 @@ class AdminSeeder extends Seeder
                 'password' => Hash::make('PsikotestFree123'),
                 'role' => 'PsikotestFree'
             ],
+
+            [
+                'id' => 5,
+                'username' => 'BerbinarPlus',
+                'email' => 'berbinarplus@gmail.com',
+                'password' => Hash::make('BerbinarPlus123'),
+                'role' => 'BerbinarPlus'
+            ],
+
         ]);
     }
 }
