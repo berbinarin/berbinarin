@@ -329,12 +329,47 @@
                                     <option value="minggu">Minggu</option>
                                 </select>
                             </div>
-                            <div class="mb-1 pt-0 flex-1">
+                            {{-- <div class="mb-1 pt-0 flex-1">
                                 <label for="jadwal" class="text-blueGray-600 text-base">Pilih Jam Konseling</label>
                                 <input type="text" name="jadwal_pukul" id="jadwal_pukul" style="height: 50px"
                                     value=" {{ $PeerConsellorDataDetails[0]->jadwal_pukul }}"
                                     class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                            </div> --}}
+                            {{-- <div class="mb-1 pt-0 flex-1">
+                                <label for="jadwal" class="text-blueGray-600 text-base">Pilih Jam Konseling</label>
+                                @if (!is_null($PeerConsellorDataDetails) && count($PeerConsellorDataDetails) > 0)
+                                    <select name="jadwal_pukul" id="jadwal_pukul" style="height: 50px"
+                                        class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                                        <option value="default" selected disabled>Pilih Jam</option>
+                                        @foreach ($senin as $jadwal)
+                                            <option value="{{ $jadwal }}"
+                                                {{ $PeerConsellorDataDetails[0]->jadwal_pukul == $jadwal ? 'selected' : '' }}>
+                                                {{ $jadwal }}</option>
+                                        @endforeach
+                                    </select>
+                                @else
+                                    <select name="jadwal_pukul" id="jadwal_pukul" style="height: 50px"
+                                        class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                                        <option value="default" selected disabled>Pilih Jam</option>
+                                        @foreach ($senin as $jadwal)
+                                            <option value="{{ $jadwal }}">{{ $jadwal }}</option>
+                                        @endforeach
+                                    </select>
+                                @endif
+                            </div> --}}
+                            <div class="mb-1 pt-0 flex-1">
+                                <label for="jadwal" class="text-blueGray-600 text-base">Pilih Jam Konseling</label>
+                                <select name="jadwal_pukul" id="jadwal_pukul" style="height: 50px"
+                                    class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                                    <option value="default" disabled>Pilih Jam</option>
+                                    @foreach ($senin as $jadwal)
+                                        <option value="{{ $jadwal }}"
+                                            {{ !is_null($PeerConsellorDataDetails) && count($PeerConsellorDataDetails) > 0 && $PeerConsellorDataDetails[0]->jadwal_pukul == $jadwal ? 'selected' : '' }}>
+                                            {{ $jadwal }}</option>
+                                    @endforeach
+                                </select>
                             </div>
+
                             <div class="mb-1 pt-0 flex-1">
                                 <label for="metode" class="text-blueGray-600 text-base">Metode Konseling</label>
                                 <select name="metode" id="metode" style="height: 50px"

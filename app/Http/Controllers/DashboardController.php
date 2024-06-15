@@ -233,6 +233,9 @@ class DashboardController extends Controller
             'jadwal_tanggal' => 'required',
             'jadwal_pukul' => 'required',
             'metode' => 'required|not_in:default_value',
+            'sesi' => 'required',
+            'daerah' => 'required',
+            'harga' => 'required',
             'nama' => 'required',
             'no_wa' => 'required',
             'email' => 'required',
@@ -255,7 +258,10 @@ class DashboardController extends Controller
 
         $PsikologDataDetails->jadwal_tanggal = $validatedData['jadwal_tanggal'];
         $PsikologDataDetails->jadwal_pukul = $validatedData['jadwal_pukul'];
-        $PsikologDataDetails->nama = $validatedData['nama'];
+        $PsikologDataDetails->metode = $validatedData['metode'];
+        $PsikologDataDetails->sesi = $validatedData['sesi'];
+        $PsikologDataDetails->daerah = $validatedData['daerah'];
+        $PsikologDataDetails->harga = $validatedData['harga'];
         $PsikologDataDetails->no_wa = $validatedData['no_wa'];
         $PsikologDataDetails->email = $validatedData['email'];
         $PsikologDataDetails->jenis_kelamin = $validatedData['jenis_kelamin'];
@@ -364,6 +370,8 @@ class DashboardController extends Controller
             'jadwal_tanggal' => 'required',
             'jadwal_pukul' => 'required',
             'metode' => 'required|not_in:default_value',
+            'daerah' => 'required',
+            'harga' => 'required',
             'nama' => 'required',
             'no_wa' => 'required',
             'email' => 'required',
@@ -386,6 +394,9 @@ class DashboardController extends Controller
 
         $PeerConsellorDataDetails->jadwal_tanggal = $validatedData['jadwal_tanggal'];
         $PeerConsellorDataDetails->jadwal_pukul = $validatedData['jadwal_pukul'];
+        $PeerConsellorDataDetails->metode = $validatedData['metode'];
+        $PeerConsellorDataDetails->daerah = $validatedData['daerah'];
+        $PeerConsellorDataDetails->harga = $validatedData['harga'];
         $PeerConsellorDataDetails->nama = $validatedData['nama'];
         $PeerConsellorDataDetails->no_wa = $validatedData['no_wa'];
         $PeerConsellorDataDetails->email = $validatedData['email'];
