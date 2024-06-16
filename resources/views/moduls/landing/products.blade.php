@@ -36,7 +36,7 @@
             <div class="swiper-slide relative">
                 <picture>
                     <!-- view mobile -->
-                    <source media="(max-width: 767px)" srcset="{{ asset('assets/images/product-berbinar/psiko-mobile.jpg') }}" class="description absolute top-0 flex flex-col items-start">
+                    <source media="(max-width: 767px)" srcset="{{ asset('assets/images/product-berbinar/psikotest-mobile.png') }}" class="description absolute top-0 flex flex-col items-start">
                     <!-- view desktop -->
                     <source media="(min-width: 768px)" srcset="{{ asset('assets/images/product-berbinar/2-psikotes.png') }}" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
                     <img src="{{ asset('assets/images/product-berbinar/2.png') }}" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
