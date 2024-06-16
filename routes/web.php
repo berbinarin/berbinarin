@@ -17,7 +17,8 @@ use App\Http\Controllers\HiringPositionsController;
 use App\Http\Controllers\HiringGeneralRequirementsController;
 use App\Http\Controllers\HiringPositionsRequirementsController;
 use App\Http\Controllers\HiringPositionsJobDescriptionController;
-
+// use App\Http\Controllers\UserInternshipController;
+use App\Http\Controllers\Internship\UserInternshipController;
 use App\Http\Controllers\Berbinarplus\AuthUserController;
 use App\Http\Controllers\Internship\InternshipController;
 
@@ -211,3 +212,6 @@ Route::post('/finish-test/{test_id}/{user_id}', [ResultController::class, 'finis
 // Route::get('/dashboard/admin/data', [DashboardController::class, 'data'])->name('dashboard.data');
 // Route::get('/dashboard/admin/question', [DashboardController::class, 'question'])->name('dashboard.question');
 // Route::resource('/posts', App\Http\Controllers\DashboardController::class);
+
+// MODUL INTERSHIP
+Route::resource('/user_internships', UserInternshipController::class);
