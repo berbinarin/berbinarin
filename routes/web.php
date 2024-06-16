@@ -19,6 +19,7 @@ use App\Http\Controllers\HiringPositionsRequirementsController;
 use App\Http\Controllers\HiringPositionsJobDescriptionController;
 
 use App\Http\Controllers\Berbinarplus\AuthUserController;
+use App\Http\Controllers\Internship\InternshipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +79,8 @@ Route::get('/class/berbinar+/html', [RegistrationController::class, 'html'])->na
 Route::get('/class/berbinar+/daftarI', [RegistrationController::class, 'indexx'])->name('berbinarPlusDaftarI');
 Route::post('/class/berbinar+/daftar', [RegistrationController::class, 'store'])->name('register.store');
 Route::get('/class/berbinar+/home', [RegistrationController::class, 'index'])->name('HomeBerbinarPlus'); //route home (dashboard)
+// Rute pendaftaran internship berbinar
+Route::get('/internship/register', [InternshipController::class, 'register'])->name('RegistrasiInternshipBerbinar');
 
 
 Route::get('/counseling/reg/layanan', [LandingController::class, 'layanan'])->name('layanan');
