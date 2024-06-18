@@ -659,6 +659,32 @@ class LandingController extends Controller
         ]);
     }
 
+    //     public function positionsDetail($position_id)
+    //      {
+
+    //          $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->findOrFail($position_id);
+    //          $HiringPositionsJobDescription = Hiring_Positions_Job_Descriptions::all();
+    //         $Hiring_Positions_Requirement = Hiring_Positions_Requirements::all();
+
+    //          return view('moduls.hiring.positions-detail', compact('positions'));
+    //  }
+
+    public function positionsDetail()
+    {
+        $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->where('is_active', true)->get();
+        $HiringPositionsJobDescription = Hiring_Positions_Job_Descriptions::all();
+        $Hiring_Positions_Requirement = Hiring_Positions_Requirements::all();
+
+        return view(
+            'moduls.hiring.positions-detail',
+            [
+                'positions' => $positions,
+                'HiringPositionsJobDescription' => $HiringPositionsJobDescription,
+                'Hiring_Positions_Requirement' => $Hiring_Positions_Requirement,
+            ]
+        );
+    }
+
     public function layanan()
     {
         return view('moduls.konseling.layanan');

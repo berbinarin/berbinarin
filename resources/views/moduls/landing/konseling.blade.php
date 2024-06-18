@@ -237,83 +237,66 @@
 </section>
 
 {{-- PSIKOLOG PRICE SECTION --}}
-<section class="py-6 z-40 -mt-10 md:-mt-20">
-    <div class="container flex flex-col items-center justify-center p-4 mx-auto  sm:p-10">
+<section class="py-6 z-40 -mt-10">
+    <div class="container flex flex-col items-center justify-center p-4 mx-auto sm:p-10">
         <h1 class="text-black fomt-semibold text-center text-3xl md:px-0 mb-3">Konseling Bersama Psikolog</h1>
         <p class="text-lg text-disabled text-center md:w-1/2">Pilih jenis konseling yang sesuai dengan kebutuhan anda
         </p>
 
-        <div class="flex flex-col md:flex-row flex-wrap items-center justify-center gap-5 mt-10">
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px]" data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
-                <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
-                    <h3 class="text-black text-xl font-medium">Online Weekday</h3>
-                    <h1 class="text-black text-4xl font-medium">IDR 150k/jam</h1>
-                    <p class="text-lg text-disabled">Lakukan dimana saja</p>
-                    <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="1">
-                        Mulai Sekarang</button>
+        <div class="flex flex-col items-center justify-center gap-5 mt-10">
+            <div class="flex flex-col gap-2 md:mx-0 rounded-xl bg-white drop-shadow-lg relative pb-10 flex-1 w-full md:w-[800px]" data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
+                <div class="flex flex-col text-center items-center my-3">
+                    <h1 class="bg-primary-alt w-40 py-1 items-center justify-items-center rounded-full text-white text-2xl font-semibold">
+                        Weekdays
+                    </h1>
                 </div>
-            </div>
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px] " data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
-                <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
-                    <h3 class="text-black text-xl font-medium">Online Weekend</h3>
-                    <h1 class="text-black text-4xl font-medium">IDR 200k/jam</h1>
-                    <p class="text-lg text-disabled">Lakukan dimana saja</p>
-                    <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="1">
-                        Mulai Sekarang
-                    </button>
-                </div>
-            </div>
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px] " data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
-                <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
-                    <h3 class="text-black text-xl font-medium">Offline Weekday</h3>
-                    <h1 class="text-black text-4xl font-medium">IDR 175k/jam</h1>
-                    <p class="text-lg text-disabled">Khusus wilayah Surabaya</p>
-                    <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="0">
-                        Mulai Sekarang
-                    </button>
-                </div>
-            </div>
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[500px] " data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
-                <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
-                    <h3 class="text-black text-xl font-medium">Offline Weekend</h3>
-                    <h1 class="text-black text-4xl font-medium">IDR 225k/jam</h1>
-                    <p class="text-lg text-disabled">Khusus wilayah Surabaya</p>
-                    <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="0">
-                        Mulai Sekarang
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="flex flex-col md:flex-row flex-wrap items-center justify-center gap-5 mt-10">
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[300px] "
-                data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
-                <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
-                    <h3 class="text-black text-xl font-medium">Offline Weekday</h3>
-                    <h1 class="text-black text-4xl font-medium">IDR 175k/jam</h1>
-                    <p class="text-lg text-disabled">Khusus wilayah Samarinda</p>
-                    <button
-                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal"
-                        data-modal-index="0">
-                        Mulai Sekarang
-                    </button>
-                </div>
-            </div>
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[300px] "
-                data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
-                <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
-                    <h3 class="text-black text-xl font-medium">Offline Weekend</h3>
-                    <h1 class="text-black text-4xl font-medium">IDR 225k/jam</h1>
-                    <p class="text-lg text-disabled">Khusus wilayah Samarinda</p>
-                    <button
-                        class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal"
-                        data-modal-index="0">
-                        Mulai Sekarang
-                    </button>
+
+                <div class="grid grid-cols-2 items-center divide-x-3">
+                    <div class="flex flex-col gap-3 text-center items-center justify-items-center px-5 py-3">
+                        <p class="text-primary-alt text-lg font-semibold italic">Online</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">1 Sesi (1 Jam) 150k</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">2 Sesi (2 Jam) 255k</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">3 Sesi (3 Jam) 360k</p>
+                    </div>
+                    <!-- <div class="inline-block h-[250px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 dark:bg-white/10">
+                    </div> -->
+                    <div class="flex flex-col gap-2 text-center items-center justify-center px-5 py-3">
+                        <p class="text-primary-alt text-lg font-semibold italic">Offline</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">1 Sesi (1 Jam) 175k</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">2 Sesi (2 Jam) 298k</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">3 Sesi (3 Jam) 421k</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-    </div>
+
+        <div class="flex flex-col items-center justify-center gap-5 mt-10">
+            <div class="flex flex-col gap-2 md:mx-0 rounded-xl bg-white drop-shadow-lg relative pb-10 flex-1 w-full md:w-[800px]" data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
+                <div class="flex flex-col text-center items-center my-3">
+                    <h1 class="bg-primary-alt w-40 py-1 items-center justify-items-center rounded-full text-white text-2xl font-semibold">
+                        Weekend
+                    </h1>
+                </div>
+
+                <div class="grid grid-cols-2 items-center divide-x-3">
+                    <div class="flex flex-col gap-3 text-center items-center justify-items-center px-5 py-3">
+                        <p class="text-primary-alt text-lg font-semibold italic">Online</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">1 Sesi (1 Jam) 200k</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">2 Sesi (2 Jam) 340k</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">3 Sesi (3 Jam) 500k</p>
+                    </div>
+                    <!-- <div class="inline-block h-[250px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 dark:bg-white/10">
+                    </div> -->
+                    <div class="flex flex-col gap-2 text-center items-center justify-center px-5 py-3">
+                        <p class="text-primary-alt text-lg font-semibold italic">Offline</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">1 Sesi (1 Jam) 225k</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">2 Sesi (2 Jam) 340k</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">3 Sesi (3 Jam) 500k</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 </section>
 
 {{-- POP UP VER 2 SECTION --}}
@@ -377,7 +360,7 @@
 
 
 {{-- OUR PEER COUNSELOR SECTION --}}
-<section class="py-6 z-40 md:-mt-20">
+<section class="py-6 z-40 md:-mt-14">
     <div class="container flex flex-col items-center justify-center p-4 mx-auto  sm:p-10">
         <h1 class="text-black fomt-semibold text-3xl md:px-0 mb-3">Peer Counselor Kami</h1>
         <p class="text-lg text-disabled text-center md:w-1/2">Tim kami terdiri dari peer counselor berpengalaman,
@@ -413,8 +396,9 @@
     </div>
 </section>
 
+
 {{-- PEER COUNSELOR PRICE SECTION --}}
-<section class="py-6 z-40 -mt-10 md:-mt-20">
+<section class="py-6 z-40 -mt-10 md:-mt-12">
     <div class="container flex flex-col items-center justify-center p-4 mx-auto  sm:p-10">
         <h1 class="text-black fomt-semibold text-center text-3xl md:px-0 mb-3">Konseling Bersama Peer Counselor</h1>
         <p class="text-lg text-disabled text-center md:w-1/2">Pilih jenis konseling yang sesuai dengan kebutuhan anda
@@ -443,6 +427,7 @@
             </div>
         </div>
 </section>
+
 
 {{-- TESTIMONIALS SECTION --}}
 <section class="max-w-6xl mx-auto flex-col gap-10 z-40 mt-12 hidden md:flex">

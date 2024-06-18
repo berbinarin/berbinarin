@@ -109,6 +109,7 @@ Route::post('/counseling/reg/psikolog/data4', [LandingController::class, 'postPs
 
 Route::get('/careers', [LandingController::class, 'hiring'])->name('hiring');
 Route::get('/careers/positions', [LandingController::class, 'hiringPositions'])->name('hiringPositions');
+Route::get('/careers/positions/{id}', [LandingController::class, 'positionsDetail'])->name('hiring.positions.detail');
 
 Route::get('/HalamanRegister', [AuthController::class, 'HalamanRegister']);
 Route::post("/register", [AuthController::class, 'Register']);
