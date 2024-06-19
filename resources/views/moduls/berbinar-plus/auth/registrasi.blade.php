@@ -209,9 +209,9 @@
                         {{-- BUKTI PEMBAYARAN --}}
                         <div class="mb-4 border rounded-lg" style="background-color: white;">
                             <label class="block p-2"><strong>Bukti Pembayaran</strong></label>
-                            <input type="file"
-                                class="form-input block w-full h-10 pl-2 border-gray-300 rounded-md shadow-sm"
-                                id="uploadFile" name="uploadFile" required>
+                            <input type="link" 
+                            class="form-input mt-1 block w-full h-10 pl-2 border border-gray-300 rounded-md shadow-sm"
+                             id="bukti_transfer" name="bukti_transfer" placeholder="Link Bukti Pembayaran" required>
                         </div>
 
 

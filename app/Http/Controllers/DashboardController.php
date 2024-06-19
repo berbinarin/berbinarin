@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Models\Post;
+use App\Models\Berbinarp_enrollment;
+use App\Models\Berbinarp_user;
 use App\Models\Test;
 use App\Models\Question;
 use App\Models\Dimension;
@@ -40,6 +40,8 @@ class DashboardController extends Controller
         $totalUserPsikotest = UserPsikotest::count('id');
         $totalQuestion = Question::count('id');
 
+        $totalBerbinarPlusUser = Berbinarp_user::count('id');
+
         return view('moduls.dashboard.index', [
             "PeerConsellorSchedule" => $PeerConsellorSchedule,
             "PeerConsellorData" => $PeerConsellorData,
@@ -49,6 +51,7 @@ class DashboardController extends Controller
             'HiringPosisitonsRequirement' => $HiringPosisitonsRequirement,
             'totalUserPsikotest' => $totalUserPsikotest,
             'totalQuestion' => $totalQuestion,
+            "totalBerbinarPlusUser" => $totalBerbinarPlusUser
         ]);
     }
 
@@ -177,6 +180,9 @@ class DashboardController extends Controller
             'jadwal_tanggal' => 'required',
             'jadwal_pukul' => 'required',
             'metode' => 'required|not_in:default_value',
+            'sesi' => 'required',
+            'daerah' => 'required',
+            'harga' => 'required',
             'nama' => 'required',
             'no_wa' => 'required',
             'email' => 'required',
@@ -230,6 +236,9 @@ class DashboardController extends Controller
             'jadwal_tanggal' => 'required',
             'jadwal_pukul' => 'required',
             'metode' => 'required|not_in:default_value',
+            'sesi' => 'required',
+            'daerah' => 'required',
+            'harga' => 'required',
             'nama' => 'required',
             'no_wa' => 'required',
             'email' => 'required',
@@ -252,7 +261,10 @@ class DashboardController extends Controller
 
         $PsikologDataDetails->jadwal_tanggal = $validatedData['jadwal_tanggal'];
         $PsikologDataDetails->jadwal_pukul = $validatedData['jadwal_pukul'];
-        $PsikologDataDetails->nama = $validatedData['nama'];
+        $PsikologDataDetails->metode = $validatedData['metode'];
+        $PsikologDataDetails->sesi = $validatedData['sesi'];
+        $PsikologDataDetails->daerah = $validatedData['daerah'];
+        $PsikologDataDetails->harga = $validatedData['harga'];
         $PsikologDataDetails->no_wa = $validatedData['no_wa'];
         $PsikologDataDetails->email = $validatedData['email'];
         $PsikologDataDetails->jenis_kelamin = $validatedData['jenis_kelamin'];
@@ -302,6 +314,8 @@ class DashboardController extends Controller
             'jadwal_tanggal' => 'required',
             'jadwal_pukul' => 'required',
             'metode' => 'required|not_in:default_value',
+            'daerah' => 'required',
+            'harga' => 'required',
             'nama' => 'required',
             'no_wa' => 'required',
             'email' => 'required',
@@ -359,6 +373,8 @@ class DashboardController extends Controller
             'jadwal_tanggal' => 'required',
             'jadwal_pukul' => 'required',
             'metode' => 'required|not_in:default_value',
+            'daerah' => 'required',
+            'harga' => 'required',
             'nama' => 'required',
             'no_wa' => 'required',
             'email' => 'required',
@@ -381,6 +397,9 @@ class DashboardController extends Controller
 
         $PeerConsellorDataDetails->jadwal_tanggal = $validatedData['jadwal_tanggal'];
         $PeerConsellorDataDetails->jadwal_pukul = $validatedData['jadwal_pukul'];
+        $PeerConsellorDataDetails->metode = $validatedData['metode'];
+        $PeerConsellorDataDetails->daerah = $validatedData['daerah'];
+        $PeerConsellorDataDetails->harga = $validatedData['harga'];
         $PeerConsellorDataDetails->nama = $validatedData['nama'];
         $PeerConsellorDataDetails->no_wa = $validatedData['no_wa'];
         $PeerConsellorDataDetails->email = $validatedData['email'];
@@ -539,5 +558,15 @@ class DashboardController extends Controller
         $question->delete();
 
         return redirect()->route('dashboard.psikotestfree.question.index')->with('success', 'Question deleted successfully');
+    }
+
+    // BERBINARPLUS
+    
+    public function berbinarplusUserData()
+    {
+        $berbinarpUser = Berbinarp_user::all();
+        $berbinarpEnrollments = Berbinarp_enrollment::all();
+
+        return view('moduls.dashboard.berbinar-plus.berbinarplususer', ["berbinarpUser" => $berbinarpUser, 'berbinarpEnrollments' => $berbinarpEnrollments]);
     }
 }

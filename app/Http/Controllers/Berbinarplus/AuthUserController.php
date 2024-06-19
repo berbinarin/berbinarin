@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Berbinarp_user;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -21,7 +20,6 @@ class AuthUserController extends Controller
     // START REGISTERING
     public function register(Request $request)
     {
-
         $request->validate([
             'email' => 'required|string|email|max:255|unique:berbinarp_users',
             'first_name' => 'required|string|max:255',
@@ -34,7 +32,6 @@ class AuthUserController extends Controller
         ]);
 
         try {
-            
             $user = Berbinarp_user::create([
                 'email' => $request->email,
                 'password' => Hash::make('abcdefgh123'),
@@ -46,6 +43,10 @@ class AuthUserController extends Controller
                 'last_education' => $request->last_education,
                 'knowing_source' => $request->knowing_source,
             ]);
+            // Create Enrollment
+            $enrollmentsController = new EnrollmentController();
+            $className = $request->kelas; // Assuming class_id.
+            $enrollmentsController->createEnrollment($user->id, $className);
 
             Alert::toast('Formulir Pendaftaran Berhasil', 'success')->autoClose(5000);
             return redirect()->route('berbinarplus.register.success');
@@ -54,7 +55,7 @@ class AuthUserController extends Controller
             return redirect()->back();
         }
     }
-    
+
     // SHOW SUCCESS VIEW
     public function success()
     {
@@ -78,13 +79,16 @@ class AuthUserController extends Controller
         }
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::guard('berbinarplus')->logout();
-        Alert::toast('Logout Sucessfully!', 'success')->autoClose(5000);;
+        Alert::toast('Logout Sucessfully!', 'success')->autoClose(5000);
 
         return redirect()->route('berbinarplus.login');
     }
-    public function dashboard(){
+
+    public function dashboard()
+    {
         return view('moduls.berbinar-plus.dashboard');
     }
 }

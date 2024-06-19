@@ -17,8 +17,10 @@ use App\Http\Controllers\HiringPositionsController;
 use App\Http\Controllers\HiringGeneralRequirementsController;
 use App\Http\Controllers\HiringPositionsRequirementsController;
 use App\Http\Controllers\HiringPositionsJobDescriptionController;
-
+// use App\Http\Controllers\UserInternshipController;
+use App\Http\Controllers\Internship\UserInternshipController;
 use App\Http\Controllers\Berbinarplus\AuthUserController;
+use App\Http\Controllers\Internship\InternshipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +80,8 @@ Route::get('/class/berbinar+/html', [RegistrationController::class, 'html'])->na
 Route::get('/class/berbinar+/daftarI', [RegistrationController::class, 'indexx'])->name('berbinarPlusDaftarI');
 Route::post('/class/berbinar+/daftar', [RegistrationController::class, 'store'])->name('register.store');
 Route::get('/class/berbinar+/home', [RegistrationController::class, 'index'])->name('HomeBerbinarPlus'); //route home (dashboard)
+// Rute pendaftaran internship berbinar
+Route::get('/internship/register', [InternshipController::class, 'register'])->name('RegistrasiInternshipBerbinar');
 
 
 Route::get('/counseling/reg/layanan', [LandingController::class, 'layanan'])->name('layanan');
@@ -167,6 +171,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin/psikotest/free/question/edit/{id}', [DashboardController::class, 'adminEditSoalPsikotestFreeEdit'])->name('dashboard.psikotestfree.question.edit');
     Route::put('/dashboard/admin/psikotest/free/question/update/{id}', [DashboardController::class, 'adminEditSoalPsikotestFreeUpdate'])->name('dashboard.psikotestfree.question.update');
     Route::delete('/dashboard/admin/psikotest/free/question/delete/{id}', [DashboardController::class, 'adminEditSoalPsikotestFreeDestroy'])->name('dashboard.psikotestfree.question.destroy');
+
+    // MODUL ADMIN BERBINAR PLUS
+    Route::get('/dashboard/admin/berbinarplus/data', [DashboardController::class, 'berbinarplusUserData'])->name('dashboard.berbinarplus.data');
 });
 
 //MODUL PSIKOTEST FREE
@@ -206,3 +213,6 @@ Route::post('/finish-test/{test_id}/{user_id}', [ResultController::class, 'finis
 // Route::get('/dashboard/admin/data', [DashboardController::class, 'data'])->name('dashboard.data');
 // Route::get('/dashboard/admin/question', [DashboardController::class, 'question'])->name('dashboard.question');
 // Route::resource('/posts', App\Http\Controllers\DashboardController::class);
+
+// MODUL INTERSHIP
+Route::resource('/user_internships', UserInternshipController::class);
