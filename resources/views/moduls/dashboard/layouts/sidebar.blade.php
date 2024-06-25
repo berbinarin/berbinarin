@@ -74,6 +74,17 @@
             </a>
 
         </li>
+
+        <!-- sidebar intenship  -->
+        <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
+        rounded-lg">
+            <a href="{{ route('dashboard.internship') }}" class=" flex flex-col items-center @if ($modul === 'Internship') text-primary @else text-gray-700 @endif">
+                <i class='bx bx-book text-lg'></i>
+                <span class="text-base mt-2 text-center">Internship</span>
+            </a>
+
+        </li>
+
         @endif
 
         @if (auth()->user()->role == 'Konselling')
