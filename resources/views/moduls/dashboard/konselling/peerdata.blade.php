@@ -172,9 +172,9 @@
                                     <option value="Tangerang Selatan"
                                         {{ old('daerah', $konselling->daerah ?? '') == 'Tangerang Selatan' ? 'selected' : '' }}>
                                         Tangerang Selatan</option>
-                                    <option value="Palembang"
-                                        {{ old('daerah', $konselling->daerah ?? '') == 'Palembang' ? 'selected' : '' }}>
-                                        Palembang
+                                    <option value="Padang"
+                                        {{ old('daerah', $konselling->daerah ?? '') == 'Padang' ? 'selected' : '' }}>
+                                        Padang
                                     </option>
                                 </select>
                             </div>

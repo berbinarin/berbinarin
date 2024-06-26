@@ -383,6 +383,12 @@
                                     <option value="Kalimantan Utara (Tarakan)"
                                         {{ $PsikologDataDetails[0]->daerah == 'Kalimantan Utara (Tarakan)' ? 'selected' : '' }}>
                                         Kalimantan Utara (Tarakan)</option>
+                                    <option value="Jakarta"
+                                        {{ $PsikologDataDetails[0]->daerah == 'Jakarta' ? 'selected' : '' }}>
+                                        Jakarta</option>
+                                    <option value="Malang"
+                                        {{ $PsikologDataDetails[0]->daerah == 'Malang' ? 'selected' : '' }}>
+                                        Malang</option>
                                 </select>
                             </div>
                             <div class="mb-1 pt-0 flex-1">
