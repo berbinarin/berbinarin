@@ -31,6 +31,7 @@ class UserInternshipController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'position_id' => 'required|integer',
             'email' => 'required|email',
             'nama_lengkap' => 'required|string',
             'nama_panggilan' => 'required|string',
@@ -52,7 +53,7 @@ class UserInternshipController extends Controller
 
         UserInternship::create($request->all());
 
-        return redirect()->route('user_internships.index')
+        return redirect()->route('hiring')
                          ->with('success', 'User Internship created successfully.');
     }
 
@@ -99,7 +100,7 @@ class UserInternshipController extends Controller
 
         $userInternship->update($request->all());
 
-        return redirect()->route('user_internships.index')
+        return redirect()->route('hiring')
                          ->with('success', 'User Internship updated successfully.');
     }
 
@@ -110,7 +111,7 @@ class UserInternshipController extends Controller
     {
         $userInternship->delete();
 
-        return redirect()->route('user_internships.index')
+        return redirect()->route('dashboard.internship')
                          ->with('success', 'User Internship deleted successfully.');
     }
 }

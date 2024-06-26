@@ -9,7 +9,7 @@
     <div class="-pt-2 -mt-3 md:m-5 md:p-5">
 
         {{-- masih nampilin semua position --}}
-        @foreach ($positions as $position)
+        
         <div class="">
             {{-- header desktop --}}
             <div class="header hidden md:block rounded-lg z-0">
@@ -237,10 +237,11 @@
                                             </div>
                                         </div>
                                         <div class="text-center mt-10">
-                                            <button
-                                                class="bg-black text-center text-white font-semibold py-2 px-7 rounded-full">Apply
-                                                for this
-                                                job</button>
+                                            <a href="{{ route('hiring.position.detail', $position->id) }}">    
+                                                <button class="bg-black text-center text-white font-semibold py-2 px-7 rounded-full">
+                                                    Apply for this job
+                                                </button>
+                                            </a>
                                         </div>
 
                                     </div>
@@ -253,16 +254,11 @@
                                     for this
                                     job</button>
                             </div>
-
-
                         </div>
-
                     </div>
                 </div>
             </div>
-
         </div>
-        @endforeach
     </div>
 
 </section>

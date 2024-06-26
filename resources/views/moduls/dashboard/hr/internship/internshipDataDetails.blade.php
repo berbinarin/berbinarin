@@ -28,7 +28,7 @@
           <p class="font-medium leading-none text-dark">Edit</p>
           </button>
         </form>
-        <form action="{{ route('HiringPositions.destroy', $Internship->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
+        <form action="{{ route('user_internships.destroy', $Internship->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
           @csrf
           @method('DELETE')
           <button type="submit" class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center px-6 py-3 text-white bg-red-500 hover:bg-red-600 focus:outline-none rounded">
@@ -74,7 +74,7 @@
                   <label class="font-semibold text-gray-600">Posisi:</label>
                 </td>
                 <td class="py-2 border-l px-4">
-                  {{$Internship->posisi}}
+                  {{$position->name}}
                 </td>
               </tr>
               <tr class="border-b border-gray-200">
@@ -106,7 +106,7 @@
                   <label class="font-semibold text-gray-600">No. WA:</label>
                 </td>
                 <td class="py-2 border-l px-4">
-                  {{$Internship->nomor_wa}}
+                  {{$Internship->no_whatsapp}}
                 </td>
               </tr>
               <tr class="border-b border-gray-200">
@@ -114,7 +114,7 @@
                   <label class="font-semibold text-gray-600">Domisili:</label>
                 </td>
                 <td class="py-2 border-l px-4">
-                  {{$Internship->domisili}}
+                  {{$Internship->asal_kota}}
                 </td>
               </tr>
               <tr class="border-b border-gray-200">
@@ -122,7 +122,7 @@
                   <label class="font-semibold text-gray-600">Instansi:</label>
                 </td>
                 <td class="py-2 border-l px-4">
-                  {{$Internship->instansi}}
+                  {{$Internship->asal_pendidikan}}
                 </td>
               </tr>
               <tr class="border-b border-gray-200">
@@ -130,7 +130,7 @@
                   <label class="font-semibold text-gray-600">Status:</label>
                 </td>
                 <td class="py-2 border-l px-4">
-                  {{$Internship->status}}
+                  {{$Internship->status_kelas}}
                 </td>
               </tr>
               <tr class="border-b border-gray-200">
@@ -164,7 +164,7 @@
                   <label class="font-semibold text-gray-600">Tautan IG:</label>
                 </td>
                 <td class="py-2 border-l px-4">
-                  {{$Internship->tautan_ig}}
+                  {{$Internship->akun_instagram}}
                 </td>
               </tr>
               <tr class="border-b border-gray-200">
@@ -172,7 +172,7 @@
                   <label class="font-semibold text-gray-600">Tautan TikTok:</label>
                 </td>
                 <td class="py-2 border-l px-4">
-                  {{$Internship->tautan_tiktok}}
+                  {{$Internship->akun_tiktok}}
                 </td>
               </tr>
               <tr class="border-b border-gray-200">
@@ -180,7 +180,7 @@
                   <label class="font-semibold text-gray-600">Tautan LinkedIn:</label>
                 </td>
                 <td class="py-2 border-l px-4">
-                  {{$Internship->tautan_linkedin}}
+                  {{$Internship->akun_linkdin}}
                 </td>
               </tr>
               <tr class="border-b border-gray-200">
@@ -188,7 +188,7 @@
                   <label class="font-semibold text-gray-600">Informasi Rekrutmen:</label>
                 </td>
                 <td class="py-2 border-l px-4">
-                  {{$Internship->informasi_rekrutmen}}
+                  {{$Internship->sumber_informasi}}
                 </td>
               </tr>
               <tr class="border-b border-gray-200">
@@ -204,7 +204,7 @@
                   <label class="font-semibold text-gray-600">Tautan Portfolio:</label>
                 </td>
                 <td class="py-2 border-l px-4">
-                  {{$Internship->tautan_porto}}
+                  {{$Internship->tautan_portofolio}}
                 </td>
               </tr>
               <tr class="border-b border-gray-200">
@@ -212,7 +212,7 @@
                   <label class="font-semibold text-gray-600">Tautan Bukti Follow:</label>
                 </td>
                 <td class="py-2 border-l px-4">
-                  {{$Internship->tautan_bukti_follow}}
+                  {{$Internship->tautan_berkas_ss}}
                 </td>
               </tr>
               <tr class="border-b border-gray-200">
