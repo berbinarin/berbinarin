@@ -118,13 +118,15 @@
 
     </div>
 
+    <form action="{{ route('user_internships.store') }}" method="POST">
+    @csrf
     <!-- Halaman Pertama -->
     <h2 class="tittleOne text-xl font-bold text-bold text-center mt-4 md:-mt-10 mb-4">Biodata Diri</h2>
     <div id="pageOne" class="pageOne flex flex-col mx-auto md:flex-row">
       <!-- Card Kiri (Informasi) -->
       <div class="w-full md:w-1/2 py-2">
         <div class="px-4">
-          <form id="formPageOne" action="#" method="POST">
+          <!-- <form id="formPageOne" action="#" method="POST"> -->
             <div class="mb-4">
               <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
               <input type="email" id="email" name="email" placeholder="Masukkan Email Anda" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
@@ -142,8 +144,8 @@
               <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="mt-1 block w-full px-3 py-2 border bg-gray-200 border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
             </div>
             <div class="mb-4">
-              <label for="nomor_wa" class="block text-sm font-medium text-gray-700">Nomor WhatsApp</label>
-              <input type="text" id="nomor_wa" name="nomor_wa" placeholder="Masukkan Nomor WhatsApp Anda" class="mt-1 bg-gray-200 block w-full px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
+              <label for="no_wahtsapp" class="block text-sm font-medium text-gray-700">Nomor WhatsApp</label>
+              <input type="text" id="no_wahtsapp" name="no_wahtsapp" placeholder="Masukkan Nomor WhatsApp Anda" class="mt-1 bg-gray-200 block w-full px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
             </div>
             <!-- </form> -->
         </div>
@@ -152,16 +154,16 @@
       <div class="w-full md:w-1/2 py-2">
         <div class="px-4">
           <div class="mb-4">
-            <label for="domisili" class="block text-sm font-medium text-gray-700">Domisili (Kota saja)</label>
-            <input type="text" id="domisili" name="domisili" placeholder="Lorem Ipsum" class="mt-1 block w-full bg-gray-200 px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
+            <label for="asal_kota" class="block text-sm font-medium text-gray-700">Domisili (Kota saja)</label>
+            <input type="text" id="domisili" name="asal_kota" placeholder="Lorem Ipsum" class="mt-1 block w-full bg-gray-200 px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
           </div>
           <div class="mb-4">
-            <label for="sekolah" class="block text-sm font-medium text-gray-700">Sekolah/Instansi/Nama Perguruan Tinggi</label>
-            <input type="text" id="sekolah" name="sekolah" placeholder="Lorem Ipsum" class="mt-1 bg-gray-200 block w-full px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
+            <label for="asal_pendidikan" class="block text-sm font-medium text-gray-700">Sekolah/Instansi/Nama Perguruan Tinggi</label>
+            <input type="text" id="sekolah" name="asal_pendidikan" placeholder="Lorem Ipsum" class="mt-1 bg-gray-200 block w-full px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
           </div>
           <div class="mb-4">
-            <label for="status" class="block text-sm font-medium text-gray-700">Status (Kelas/Semester/Fresh Graduate)</label>
-            <input type="text" id="status" name="status" placeholder="Lorem Ipsum" class="mt-1 bg-gray-200 block w-full px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
+            <label for="status_kelas" class="block text-sm font-medium text-gray-700">Status (Kelas/Semester/Fresh Graduate)</label>
+            <input type="text" id="status" name="status_kelas" placeholder="Lorem Ipsum" class="mt-1 bg-gray-200 block w-full px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
           </div>
           <div class="mb-4">
             <label for="jurusan" class="block text-sm font-medium text-gray-700">Jurusan</label>
@@ -183,24 +185,24 @@
         <div class="px-4">
           <!-- <form id="formPageTwo" action="#" method="POST"> -->
           <div class="mb-3">
-            <label for="instagram" class="block text-base font-medium text-gray-700">Tautan akun Instagram</label>
+            <label for="akun_instagram" class="block text-base font-medium text-gray-700">Tautan akun Instagram</label>
             <p class="text-xs">(Disarankan mencantumkan akun Instagram yang tidak diprivate)</p>
-            <input type="text" id="instagram" name="instagram" placeholder="https://www.instagram.com/xxxx/" class="mt-1 block w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm">
+            <input type="text" id="instagram" name="akun_instagram" placeholder="https://www.instagram.com/xxxx/" class="mt-1 block w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm">
           </div>
           <div class="mb-3">
-            <label for="tiktok" class="block text-base font-medium text-gray-700">Tautan akun TikTok</label>
+            <label for="akun_tiktok" class="block text-base font-medium text-gray-700">Tautan akun TikTok</label>
             <p class="text-xs">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p>
-            <input type="text" id="tiktok" name="tiktok" placeholder="https://www.TikTok.com/xxxx/" class="mt-1 block w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm">
+            <input type="text" id="tiktok" name="akun_tiktok" placeholder="https://www.TikTok.com/xxxx/" class="mt-1 block w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm">
           </div>
           <div class="mb-3">
-            <label for="linkedin" class="block text-base font-medium text-gray-700">Tautan akun LinkedIn</label>
+            <label for="akun_ linkedin" class="block text-base font-medium text-gray-700">Tautan akun LinkedIn</label>
             <p class="text-xs">(Disarankan mencantumkan akun LinkedIn yang tidak diprivate)</p>
-            <input type="text" id="linkedin" name="linkedin" placeholder="https://www.LinkedIn.com/xxxx/" class="mt-1 block w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm">
+            <input type="text" id="linkedin" name="akun_ linkedin" placeholder="https://www.LinkedIn.com/xxxx/" class="mt-1 block w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm">
           </div>
           <div class="mb-0">
-            <label for="informasi_rekrutmen" class="block text-base font-medium text-gray-700">Dari mana kamu mendapatkan informasi rekrutmen ini?</label>
+            <label for="sumber_informasi" class="block text-base font-medium text-gray-700">Dari mana kamu mendapatkan informasi rekrutmen ini?</label>
             <p class="text-xs">(Jika mendapatkan info selain dari jawaban yang ada, tulis pada kolom other)</p>
-            <input type="text" id="informasi_rekrutmen" name="informasi_rekrutmen" placeholder="Lorem Ipsum" class="mt-1 block w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm">
+            <input type="text" id="informasi_rekrutmen" name="sumber_informasi" placeholder="Lorem Ipsum" class="mt-1 block w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm">
           </div>
 
           <div class="hidden md:flex justify-between items-center -mb-4 mt-8">
@@ -221,22 +223,22 @@
       <!-- Card Penuh (Informasi) -->
       <div class="w-full mx-auto md:w-full md:py-2 md:px-20">
         <div class="px-4">
-          <form id="formPageThree" action="#" method="POST"> <!-- Tambahkan form element -->
+          <!-- <form id="formPageThree" action="#" method="POST"> Tambahkan form element -->
             <div class="mb-4">
-              <label for="tiktokFour" class="block text-lg font-medium text-gray-700">Tautan CV</label>
+              <label for="tautan_cv" class="block text-lg font-medium text-gray-700">Tautan CV</label>
               <!-- <p class="text-sm">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p> -->
-              <input type="text" id="tiktokFour" name="tiktokFour" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
+              <input type="text" id="tautan_cv" name="tautan_cv" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
             </div>
             <div class="mb-4">
-              <label for="linkedinFour" class="block text-lg font-medium text-gray-700">Tautan Portofolio</label>
+              <label for="tautan_portofolio" class="block text-lg font-medium text-gray-700">Tautan Portofolio</label>
               <!-- <p class="text-sm">(Disarankan mencantumkan akun LinkedIn yang tidak diprivate)</p> -->
-              <input type="text" id="linkedinFour" name="linkedinFour" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
+              <input type="text" id="tautan_portofolio" name="tautan_portofolio" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
             </div>
             <div class="mb-0">
-              <label for="informasi_rekrutmenFour" class="block text-lg font-medium text-gray-700">Tautan Berkas Screenshot Bukti Follow Semua Media Sosial Berbinar</label>
+              <label for="tautan_berkas_ss" class="block text-lg font-medium text-gray-700">Tautan Berkas Screenshot Bukti Follow Semua Media Sosial Berbinar</label>
               <p class="text-sm">Link seluruh sosial media dapat diakses di sini:</p>
-              <a href="https://linktr.ee/berbinarinsight" id="informasi_rekrutmenFour" name="informasi_rekrutmenFour" class="text-sm text-blue-500 underline">https://linktr.ee/berbinarinsight</a>
-              <input type="text" id="linkedinFour" name="linkedinFour" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
+              <a href="https://linktr.ee/berbinarinsight" id="tautan_berkas_ss" name="tautan_berkas_ss" class="text-sm text-blue-500 underline">https://linktr.ee/berbinarinsight</a>
+              <input type="text" id="tautan_berkas_ss" name="tautan_berkas_ss" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
             </div>
 
             <div class="hidden md:flex justify-between items-center -mb-4 mt-8">
@@ -326,7 +328,7 @@
                   </div>
                 </div>
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                  <button id="closeModal" type="button" class="w-xl md:w-full md:w-auto bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm">
+                  <button id="closeModal" type="submit" class="w-xl md:w-full md:w-auto bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm">
                     Tutup
                   </button>
                 </div>
@@ -334,6 +336,7 @@
             </div>
           </div>
 
+    </form> 
 
           <script>
             document.addEventListener("DOMContentLoaded", function() {
@@ -458,7 +461,7 @@
   const nextButtonPageOne = document.getElementById('nextButtonPageOne');
   const previousButtonPageTwo = document.getElementById('previousButtonPageTwo');
   const nextButtonPageTwo = document.getElementById('nextButtonPageTwo');
-  const previousButtonPageThree = document.getElementById('previousButtonPageThree');
+  const previousButtonPageThree = document.getElementById('previosButtonPageThree');
   const nextButtonPageThree = document.getElementById('nextButtonPageThree');
   const previousButtonPageFour = document.getElementById('previousButtonPageFour');
   const nextButtonPageFour = document.getElementById('nextButtonPageFour');
