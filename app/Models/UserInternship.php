@@ -15,4 +15,9 @@ class UserInternship extends Model
         'akun_instagram', 'akun_tiktok', 'akun_linkdin', 'sumber_informasi',
         'tautan_cv', 'tautan_portofolio', 'tautan_berkas_ss', 'motivasi'
     ];
+
+    public function hiringPosition()
+    {
+        return $this->belongsTo(Hiring_Positions::class, 'position_id', 'id');
+    }
 }

@@ -111,7 +111,7 @@ class UserInternshipController extends Controller
     {
         $userInternship->delete();
 
-        return redirect()->route('user_internships.index')
+        return redirect()->route('dashboard.internship')
                          ->with('success', 'User Internship deleted successfully.');
     }
 }
