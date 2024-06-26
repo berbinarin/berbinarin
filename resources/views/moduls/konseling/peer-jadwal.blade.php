@@ -270,7 +270,7 @@
                                         class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1">
                                         <option value="Bekasi">Bekasi</option>
                                         <option value="Tangerang Selatan">Tangerang Selatan</option>
-                                        <option value="Palembang">Palembang</option>
+                                        <option value="Padang">Padang</option>
                                     </select>
                                 </div>
                                 <div class="hargakons mt-4">
