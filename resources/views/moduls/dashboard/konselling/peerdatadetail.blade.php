@@ -383,9 +383,9 @@
                                     <option value="Tangerang Selatan"
                                         {{ old('daerah', $PeerConsellorDataDetails[0]->daerah ?? '') == 'Tangerang Selatan' ? 'selected' : '' }}>
                                         Tangerang Selatan</option>
-                                    <option value="Palembang"
-                                        {{ old('daerah', $PeerConsellorDataDetails[0]->daerah ?? '') == 'Palembang' ? 'selected' : '' }}>
-                                        Palembang
+                                    <option value="Padang"
+                                        {{ old('daerah', $PeerConsellorDataDetails[0]->daerah ?? '') == 'Padang' ? 'selected' : '' }}>
+                                        Padang
                                     </option>
                                 </select>
                             </div>

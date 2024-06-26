@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('konselling_peers', function (Blueprint $table) {
-            $table->integer('harga');
-            $table->enum('daerah', ['Bekasi', 'Tangerang Selatan', 'Padang', 'Online']);
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -22,8 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('konselling_peers', function (Blueprint $table) {
-            $table->dropColumn(['harga', 'daerah']);
-        });
+        Schema::dropIfExists('users');
     }
 };

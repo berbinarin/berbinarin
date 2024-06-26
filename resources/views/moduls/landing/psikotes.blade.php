@@ -517,8 +517,8 @@
         <img src="{{ asset('assets/images/documentation/ap1.png') }}" alt="Dokumentasi Tes Psikotest" class="w-[350px] rounded-lg object-cover h-[300px]">
         <img src="{{ asset('assets/images/documentation/ap2.png') }}" alt="Dokumentasi Tes Psikotest" class="w-[350px] rounded-lg object-cover h-[300px]">
         <img src="{{ asset('assets/images/documentation/ap3.png') }}" alt="Dokumentasi Tes Psikotest" class="w-[350px] rounded-lg object-cover h-[300px]">
-        <img src="{{ asset('assets/images/documentation/online-ap1.jpeg') }}" alt="Dokumentasi Tes Psikotest" class="w-[350px] rounded-lg object-cover h-[300px]">
-        <img src="{{ asset('assets/images/documentation/online-ap2.jpeg') }}" alt="Dokumentasi Tes Psikotest" class="w-[350px] rounded-lg object-cover h-[300px]">
+        <img src="{{ asset('assets/images/documentation/online-ap1-new.jpg') }}" alt="Dokumentasi Tes Psikotest" class="w-[350px] rounded-lg object-cover h-[300px]">
+        <img src="{{ asset('assets/images/documentation/online-ap2-new.jpg') }}" alt="Dokumentasi Tes Psikotest" class="w-[350px] rounded-lg object-cover h-[300px]">
         <img src="{{ asset('assets/images/documentation/online-ap4.jpeg') }}" alt="Dokumentasi Tes Psikotest" class="w-[350px] rounded-lg object-cover h-[300px]">
     </div>
 </section>

@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('konselling_peers', function (Blueprint $table) {
-            $table->integer('harga');
-            $table->enum('daerah', ['Bekasi', 'Tangerang Selatan', 'Padang', 'Online']);
+        Schema::create('psikotest_types', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('description');
+            $table->timestamps();
         });
     }
 
@@ -22,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('konselling_peers', function (Blueprint $table) {
-            $table->dropColumn(['harga', 'daerah']);
-        });
+        Schema::dropIfExists('psikotest_types');
     }
 };

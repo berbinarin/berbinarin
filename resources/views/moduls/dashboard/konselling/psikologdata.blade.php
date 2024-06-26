@@ -183,6 +183,14 @@
                                         {{ old('daerah', $konselling->daerah ?? '') == 'Kalimantan Utara (Tarakan)' ? 'selected' : '' }}>
                                         Kalimantan Utara (Tarakan)
                                     </option>
+                                    <option value="Jakarta"
+                                        {{ old('daerah', $konselling->daerah ?? '') == 'Jakarta' ? 'selected' : '' }}>
+                                        Jakarta
+                                    </option>
+                                    <option value="Malang"
+                                        {{ old('daerah', $konselling->daerah ?? '') == 'Malang' ? 'selected' : '' }}>
+                                        Malang
+                                    </option>
                                 </select>
                             </div>
                             <div class="mb-1 pt-0 flex-1">

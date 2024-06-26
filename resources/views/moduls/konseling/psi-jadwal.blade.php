@@ -120,6 +120,12 @@
                                         <option value="Kalimantan Utara (Tarakan)"
                                             {{ !empty($konselling) && $konselling->daerah == 'Kalimantan Utara (Tarakan)' ? 'selected' : '' }}>
                                             Kalimantan Utara (Tarakan)</option>
+                                        <option value="Jakarta"
+                                            {{ !empty($konselling) && $konselling->daerah == 'Jakarta' ? 'selected' : '' }}>
+                                            Jakarta</option>
+                                        <option value="Malang"
+                                            {{ !empty($konselling) && $konselling->daerah == 'Malang' ? 'selected' : '' }}>
+                                            Malang</option>
                                     </select>
                                 </div>
 
