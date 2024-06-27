@@ -43,17 +43,6 @@
             <a href="{{ route('hiring.positions.detail', $position->id) }}"
                 class="text-center text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-full">Lihat
                 Selengkapnya</a>
-            <!-- <button
-                class="text-center text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-full showModal"
-                data-name="{{ $position->name }}" data-type="{{ $position->type }}"
-                data-positions="{{ $position->positions }}" data-location="{{ $position->location }}"
-                @if($position->HiringPositionsJobDescription->isNotEmpty())
-                data-jobDescription="{{$position->HiringPositionsJobDescription->pluck('job_description')->toJson()}}"
-                @endif
-                @if($position->Hiring_Positions_Requirement->isNotEmpty())
-                data-requirements="{{ $position->Hiring_Positions_Requirement->pluck('requirement')->toJson() }}"
-                @endif
-                >Lihat Selengkapnya</button> -->
         </div>
         @endforeach
         @empty
