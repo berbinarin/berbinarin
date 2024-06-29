@@ -24,7 +24,7 @@
   <!-- Text Container -->
   <div class="text-center mt-8 mb-10 relative z-40 md:mt-6 md:mb-4">
     <h2 class="text-md font-bold text-white md:text-3xl sm:text-base">Pendaftaran Internship Berbinar</h2>
-    <h2 class="text-md text-white md:mt-2 md:text-3xl sm:text-base">UI/UX Designer</h2>
+    <h2 class="text-md text-white md:mt-2 md:text-3xl sm:text-base">{{$position->name}}</h2>
   </div>
 
   <!-- Card Box -->
@@ -119,13 +119,16 @@
     </div>
 
     <!-- Halaman Pertama -->
+    <form action="{{ route('user_internships.store') }}" method="POST">
+      @csrf
     <h2 class="tittleOne text-xl font-bold text-bold text-center mt-4 md:-mt-10 mb-4">Biodata Diri</h2>
     <div id="pageOne" class="pageOne flex flex-col mx-auto md:flex-row">
       <!-- Card Kiri (Informasi) -->
       <div class="w-full md:w-1/2 py-2">
         <div class="px-4">
-          <form id="formPageOne" action="#" method="POST">
+          <!-- <form id="formPageOne" action="#" method="POST"> -->
             <div class="mb-4">
+              <input type="hidden" name="position_id" value={{$position->id}}>
               <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
               <input type="email" id="email" name="email" placeholder="Masukkan Email Anda" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required>
             </div>
@@ -142,8 +145,8 @@
               <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="mt-1 block w-full px-3 py-2 border bg-gray-200 border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required>
             </div>
             <div class="mb-4">
-              <label for="nomor_wa" class="block text-sm font-medium text-gray-700">Nomor WhatsApp</label>
-              <input type="text" id="nomor_wa" name="nomor_wa" placeholder="Masukkan Nomor WhatsApp Anda" class="mt-1 bg-gray-200 block w-full px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required>
+              <label for="no_whatsapp" class="block text-sm font-medium text-gray-700">Nomor WhatsApp</label>
+              <input type="text" id="no_whatsapp" name="no_whatsapp" placeholder="Masukkan Nomor WhatsApp Anda" class="mt-1 bg-gray-200 block w-full px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required>
             </div>
             <!-- </form> -->
         </div>
@@ -152,16 +155,16 @@
       <div class="w-full md:w-1/2 py-2">
         <div class="px-4">
           <div class="mb-4">
-            <label for="domisili" class="block text-sm font-medium text-gray-700">Domisili (Kota saja)</label>
-            <input type="text" id="domisili" name="domisili" placeholder="Masukkan Domisili Anda (Kota saja)" class="mt-1 block w-full bg-gray-200 px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required>
+            <label for="asal_kota" class="block text-sm font-medium text-gray-700">Domisili (Kota saja)</label>
+            <input type="text" id="asal_kota" name="asal_kota" placeholder="Masukkan Domisili Anda (Kota saja)" class="mt-1 block w-full bg-gray-200 px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required>
           </div>
           <div class="mb-4">
-            <label for="sekolah" class="block text-sm font-medium text-gray-700">Sekolah/Instansi/Nama Perguruan Tinggi</label>
-            <input type="text" id="sekolah" name="sekolah" placeholder="Masukkan Sekolah/Instansi/Nama Perguruan Tinggi Anda" class="mt-1 bg-gray-200 block w-full px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required>
+            <label for="asal_pendidikan" class="block text-sm font-medium text-gray-700">Sekolah/Instansi/Nama Perguruan Tinggi</label>
+            <input type="text" id="asal_pendidikan" name="asal_pendidikan" placeholder="Masukkan Sekolah/Instansi/Nama Perguruan Tinggi Anda" class="mt-1 bg-gray-200 block w-full px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required>
           </div>
           <div class="mb-4">
-            <label for="status" class="block text-sm font-medium text-gray-700">Status (Kelas/Semester/Fresh Graduate)</label>
-            <input type="text" id="status" name="status" placeholder="Masukkan Status Anda (Kelas/Semester/Frash Graduate)" class="mt-1 bg-gray-200 block w-full px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required>
+            <label for="status_kelas" class="block text-sm font-medium text-gray-700">Status (Kelas/Semester/Fresh Graduate)</label>
+            <input type="text" id="status_kelas" name="status_kelas" placeholder="Masukkan Status Anda (Kelas/Semester/Frash Graduate)" class="mt-1 bg-gray-200 block w-full px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required>
           </div>
           <div class="mb-4">
             <label for="jurusan" class="block text-sm font-medium text-gray-700">Jurusan</label>
@@ -172,7 +175,7 @@
     </div>
     <!-- Tombol untuk tampilan desktop -->
     <div id="buttonsPageOne" class="hidden md:flex justify-end md:-mt-8">
-      <button id="nextButtonPageOne" type="submit" class="w-full mr-4 md:w-auto bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary">Selanjutnya</button>
+      <button id="nextButtonPageOne" type="button" class="w-full mr-4 md:w-auto bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary">Selanjutnya</button>
     </div>
 
     <!-- Halaman Kedua -->
@@ -183,24 +186,24 @@
         <div class="px-4">
           <!-- <form id="formPageTwo" action="#" method="POST"> -->
           <div class="mb-3">
-            <label for="instagram" class="block text-base font-medium text-gray-700">Tautan akun Instagram</label>
+            <label for="akun_instagram" class="block text-base font-medium text-gray-700">Tautan akun Instagram</label>
             <p class="text-xs">(Disarankan mencantumkan akun Instagram yang tidak diprivate)</p>
-            <input type="text" id="instagram" name="instagram" placeholder="Masukkan Tautan Akun Instagram Anda (Contoh: https://www.instagram.com/xxxx/ )" class="mt-1 block w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm" required>
+            <input type="text" id="akun_instagram" name="akun_instagram" placeholder="Masukkan Tautan Akun Instagram Anda (Contoh: https://www.instagram.com/xxxx/ )" class="mt-1 block w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm" required>
           </div>
           <div class="mb-3">
-            <label for="tiktok" class="block text-base font-medium text-gray-700">Tautan akun TikTok</label>
+            <label for="akun_tiktok" class="block text-base font-medium text-gray-700">Tautan akun TikTok</label>
             <p class="text-xs">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p>
-            <input type="text" id="tiktok" name="tiktok" placeholder="Masukkan Tautan Akun Tiktok Anda (Contoh: https://www.TikTok.com/xxxx/ )" class="mt-1 block w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm" required>
+            <input type="text" id="akun_tiktok" name="akun_tiktok" placeholder="Masukkan Tautan Akun Tiktok Anda (Contoh: https://www.TikTok.com/xxxx/ )" class="mt-1 block w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm" required>
           </div>
           <div class="mb-3">
-            <label for="linkedin" class="block text-base font-medium text-gray-700">Tautan akun LinkedIn</label>
+            <label for="akun_linkdin" class="block text-base font-medium text-gray-700">Tautan akun LinkedIn</label>
             <p class="text-xs">(Disarankan mencantumkan akun LinkedIn yang tidak diprivate)</p>
-            <input type="text" id="linkedin" name="linkedin" placeholder="Masukkan Tautan Akun LinkedIn Anda (Contoh: https://www.LinkedIn.com/xxxx/ )" class="mt-1 block w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm" required>
+            <input type="text" id="akun_linkdin" name="akun_linkdin" placeholder="Masukkan Tautan Akun LinkedIn Anda (Contoh: https://www.LinkedIn.com/xxxx/ )" class="mt-1 block w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm" required>
           </div>
           <div class="mb-0">
-            <label for="informasi_rekrutmen" class="block text-base font-medium text-gray-700">Dari mana kamu mendapatkan informasi rekrutmen ini?</label>
+            <label for="sumber_informasi" class="block text-base font-medium text-gray-700">Dari mana kamu mendapatkan informasi rekrutmen ini?</label>
             <p class="text-xs">(Jika mendapatkan info selain dari jawaban yang ada, tulis pada kolom other)</p>
-            <input type="text" id="informasi_rekrutmen" name="informasi_rekrutmen" placeholder="Masukkan Informasi Rekrutmen Anda" class="mt-1 block w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm" required>
+            <input type="text" id="sumber_informasi" name="sumber_informasi" placeholder="Masukkan Informasi Rekrutmen Anda" class="mt-1 block w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm" required>
           </div>
 
           <div class="hidden md:flex justify-between items-center -mb-4 mt-8">
@@ -221,22 +224,22 @@
       <!-- Card Penuh (Informasi) -->
       <div class="w-full mx-auto md:w-full md:py-2 md:px-20">
         <div class="px-4">
-          <form id="formPageThree" action="#" method="POST"> <!-- Tambahkan form element -->
+          <!-- <form id="formPageThree" action="#" method="POST"> Tambahkan form element -->
             <div class="mb-4">
-              <label for="tiktokFour" class="block text-lg font-medium text-gray-700">Tautan CV</label>
+              <label for="tautan_cv" class="block text-lg font-medium text-gray-700">Tautan CV</label>
               <!-- <p class="text-sm">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p> -->
-              <input type="text" id="tiktokFour" name="tiktokFour" placeholder="Masukkan Tautan CV Anda (Contoh: https://www.drive.google.com/xxxx/ )" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required>
+              <input type="text" id="tautan_cv" name="tautan_cv" placeholder="Masukkan Tautan CV Anda (Contoh: https://www.drive.google.com/xxxx/ )" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required>
             </div>
             <div class="mb-4">
-              <label for="linkedinFour" class="block text-lg font-medium text-gray-700">Tautan Portofolio</label>
+              <label for="tautan_portofolio" class="block text-lg font-medium text-gray-700">Tautan Portofolio</label>
               <!-- <p class="text-sm">(Disarankan mencantumkan akun LinkedIn yang tidak diprivate)</p> -->
-              <input type="text" id="linkedinFour" name="linkedinFour" placeholder="Masukkan Tautan Portofolio Anda (Contoh: https://www.drive.google.com/xxxx/ )" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required>
+              <input type="text" id="tautan_portofolio" name="tautan_portofolio" placeholder="Masukkan Tautan Portofolio Anda (Contoh: https://www.drive.google.com/xxxx/ )" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required>
             </div>
             <div class="mb-0">
-              <label for="informasi_rekrutmenFour" class="block text-lg font-medium text-gray-700">Tautan Berkas Screenshot Bukti Follow Semua Media Sosial Berbinar</label>
+              <label for="tautan_berkas_ss" class="block text-lg font-medium text-gray-700">Tautan Berkas Screenshot Bukti Follow Semua Media Sosial Berbinar</label>
               <p class="text-sm">Link seluruh sosial media dapat diakses di sini:</p>
-              <a href="https://linktr.ee/berbinarinsight" id="informasi_rekrutmenFour" name="informasi_rekrutmenFour" class="text-sm text-blue-500 underline">https://linktr.ee/berbinarinsight</a>
-              <input type="text" id="linkedinFour" name="linkedinFour" placeholder="Masukkan Tautan Bekas Screenshot (Contoh: https://www.drive.google.com/xxxx/ )" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required>
+              <a href="https://linktr.ee/berbinarinsight" id="tautan_berkas_ss" name="tautan_berkas_ss" class="text-sm text-blue-500 underline">https://linktr.ee/berbinarinsight</a>
+              <input type="text" id="tautan_berkas_ss" name="tautan_berkas_ss" placeholder="Masukkan Tautan Bekas Screenshot (Contoh: https://www.drive.google.com/xxxx/ )" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required>
             </div>
 
             <div class="hidden md:flex justify-between items-center -mb-4 mt-8">
@@ -259,9 +262,9 @@
         <div class="px-4">
           <!-- <form id="formPageFour" action="#" method="POST"> Tambahkan form element -->
           <div class="mb-4">
-            <label for="tiktokFour" class="block text-lg font-medium text-gray-700">Motivasi Mendaftar Internship Berbinar</label>
+            <label for="motivasi" class="block text-lg font-medium text-gray-700">Motivasi Mendaftar Internship Berbinar</label>
             <!-- <p class="text-sm">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p> -->
-            <textarea type="textarea" id="tiktokFour" name="tiktokFour" placeholder="Masukkann Motivasi Anda Mendaftar Internship Berbinar" class="mt-1 h-[200px] block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required></textarea>
+            <textarea type="textarea" id="motivasi" name="motivasi" placeholder="Masukkann Motivasi Anda Mendaftar Internship Berbinar" class="mt-1 h-[200px] block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required></textarea>
           </div>
 
 
@@ -273,7 +276,7 @@
             <!-- Tombol Selanjutnya -->
             <button id="nextButtonPageFour" type="button" class="w-full md:w-auto bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary">Selanjutnya</button>
           </div>
-          </form>
+          <!-- </form> -->
         </div>
       </div>
     </div>
@@ -319,20 +322,21 @@
                       </div>
                       <div class="mt-2 text-center">
                         <p class="text-sm text-gray-500">
-                          Berhasil mendaftar pada posisi UI/UX Designer, silahkan cek Email/WhatsApp untuk informasi selanjutnya.
+                          Berhasil mendaftar pada posisi {{$position->name}}, silahkan cek Email/WhatsApp untuk informasi selanjutnya.
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                  <button id="closeModal" type="button" class="w-xl md:w-full md:w-auto bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm">
+                  <button id="closeModal" name="submit" type="submit" class="w-xl md:w-full md:w-auto bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary sm:text-sm">
                     Tutup
                   </button>
                 </div>
               </div>
             </div>
           </div>
+        </form>
 
 
           <script>
@@ -369,7 +373,7 @@
               }
             });
           </script>
-          </form>
+          <!-- </form> -->
         </div>
       </div>
     </div>
@@ -412,7 +416,7 @@
     <div class="mr-14 flex md:flex justify-end">
       <div class="flex justify-end md:hidden">
         <button id="previousMobileFive" type="button" class="previousMobileFive cursor-pointer bg-[#C7F8FF] text-gray-700 py-2 px-8 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 mr-24 mb-8 hidden">Previous</button>
-        <button id="nextMobileFive" type="submit" class="nextMobileFive cursor-pointer bg-black text-white py-2 px-8 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mb-8 hidden">Sent</button>
+        <button id="nextMobileFive" type="button" class="nextMobileFive cursor-pointer bg-black text-white py-2 px-8 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mb-8 hidden">Sent</button>
       </div>
     </div>
   </div>

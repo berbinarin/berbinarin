@@ -36,9 +36,9 @@
             <tr class="border-b border-gray-200 hover:bg-gray-100">
               <td class="px-6 py-4 whitespace-no-wrap">{{ $loop->iteration }}</td>
               <td class="px-6 py-4 whitespace-no-wrap">{{ $item->nama_lengkap }}</td>
-              <td class="px-6 py-4 whitespace-no-wrap text-blue-500"><a href="https://wa.me/{{ $item->nomor_wa }}">{{ $item->nomor_wa }}</a></td>
+              <td class="px-6 py-4 whitespace-no-wrap text-blue-500"><a href="https://wa.me/{{ $item->no_whatsapp }}">{{ $item->no_whatsapp }}</a></td>
               <td class="px-6 py-4 whitespace-no-wrap">{{ $item->created_at}}</td>
-              <td class="px-6 py-4 whitespace-no-wrap">{{ $item->posisi}}</td>
+              <td class="px-6 py-4 whitespace-no-wrap">{{ $item->hiringPosition->name}}</td>
               <td>
                 <a href="#" class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-3 border border-black hover:bg-gray-600 focus:outline-none rounded">
                   <span class="mx-0 -my-1 text-black text-xs">{{ $item->progress }}</span>
