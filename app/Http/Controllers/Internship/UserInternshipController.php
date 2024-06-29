@@ -57,8 +57,8 @@ class UserInternshipController extends Controller
     
         UserInternship::create($data);
 
-        return redirect()->route('hiring')
-                         ->with('success', 'User Internship created successfully.');
+        return redirect()->route('hiring');
+                        //  ->with('success', 'User Internship created successfully.');
     }
 
     /**
