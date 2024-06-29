@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('user_internships', function (Blueprint $table) {
             $table->id();
+            $table->integer('position_id');
 
             $table->string('email');
             $table->string('nama_lengkap');
@@ -34,7 +35,7 @@ return new class extends Migration
             $table->string('tautan_berkas_ss');
 
             $table->string('motivasi');
-            
+            $table->boolean("is_process")->default(true);
             $table->timestamps();
         });
     }

@@ -669,16 +669,21 @@ class LandingController extends Controller
     //          return view('moduls.hiring.positions-detail', compact('positions'));
     //  }
 
-    public function positionsDetail()
+    public function positionsDetail($id)
     {
-        $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->where('is_active', true)->get();
-        $HiringPositionsJobDescription = Hiring_Positions_Job_Descriptions::all();
-        $Hiring_Positions_Requirement = Hiring_Positions_Requirements::all();
+        $position = Hiring_Positions::where('id', $id)->first();
+
+        if (!$position) {
+            return redirect()->back()->with('error', 'Position not found or inactive');
+        }
+
+        $HiringPositionsJobDescription = Hiring_Positions_Job_Descriptions::where('position_id', $id)->get();
+        $Hiring_Positions_Requirement = Hiring_Positions_Requirements::where('position_id', $id)->get();
 
         return view(
             'moduls.hiring.positions-detail',
             [
-                'positions' => $positions,
+                'position' => $position,
                 'HiringPositionsJobDescription' => $HiringPositionsJobDescription,
                 'Hiring_Positions_Requirement' => $Hiring_Positions_Requirement,
             ]

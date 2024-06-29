@@ -201,14 +201,14 @@
                     <!-- href="http://127.0.0.1:8000/counseling/pdf/KASMAYANI KARIM.pdf" -->
                 </div>
             </div>
-            <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+            <!-- <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog7.jpg') }}">
                 <div class="flex flex-col items-center">
                     <a target="_blank" class="text-lg font-medium text-center">Daniel Reyonald Bungaran, S.Psi., M.Psi.,
                         Psikolog</a>
-                    <!-- href="http://127.0.0.1:8000/counseling/pdf/DANIEL REYONALD BUNGARAN.pdf" -->
+                    href="http://127.0.0.1:8000/counseling/pdf/DANIEL REYONALD BUNGARAN.pdf"
                 </div>
-            </div>
+            </div> -->
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog8.jpeg') }}">
                 <div class="flex flex-col items-center">
@@ -535,7 +535,7 @@
             },
             handleToggle() {
                 return this.$store.accordion.tab === this.idx ?
-                    `max-height: ${this.$refs.tab.scrollHeight}px` : '';
+                    max-height: ${this.$refs.tab.scrollHeight}px : '';
 
             }
         }));

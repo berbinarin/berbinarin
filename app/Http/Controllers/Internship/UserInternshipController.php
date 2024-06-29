@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Internship;
 use App\Http\Controllers\Controller;
 use App\Models\UserInternship;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserInternshipController extends Controller
 {
@@ -31,6 +32,7 @@ class UserInternshipController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'position_id' => 'required|integer',
             'email' => 'required|email',
             'nama_lengkap' => 'required|string',
             'nama_panggilan' => 'required|string',
@@ -52,7 +54,7 @@ class UserInternshipController extends Controller
 
         UserInternship::create($request->all());
 
-        return redirect()->route('user_internships.index')
+        return redirect()->route('hiring')
                          ->with('success', 'User Internship created successfully.');
     }
 
@@ -99,7 +101,7 @@ class UserInternshipController extends Controller
 
         $userInternship->update($request->all());
 
-        return redirect()->route('user_internships.index')
+        return redirect()->route('dashboard.internship')
                          ->with('success', 'User Internship updated successfully.');
     }
 
@@ -110,7 +112,30 @@ class UserInternshipController extends Controller
     {
         $userInternship->delete();
 
-        return redirect()->route('user_internships.index')
+        return redirect()->route('dashboard.internship')
                          ->with('success', 'User Internship deleted successfully.');
+    }
+
+    public function SetProcess($id)
+    {
+        try{
+            $userIntern = UserInternship::find($id);
+            if (!$userIntern) {
+                throw new \Exception('Data tidak ditemukan.'); // Atau gunakan jenis Exception yang sesuai
+            }
+
+            $userIntern->is_process = !($userIntern->is_process);
+            $userIntern->save();
+
+            if($userIntern->is_process){
+                Alert::success('Success ', 'Data berhasil diubah!');
+            }else{
+                Alert::success('Success ', 'Data berhasil diubah!');
+            }
+            return redirect("/dashboard/admin/internship");
+        }catch(\Exception $e){
+            Alert::error('Error', 'Terjadi kesalahan saat mengubah data: ' . $e->getMessage());
+            return redirect("/dashboard/admin/internship");
+        }
     }
 }

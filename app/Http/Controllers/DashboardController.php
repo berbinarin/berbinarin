@@ -17,7 +17,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Hiring_Positions_Requirements;
 use App\Models\Hiring_Positions_Job_Descriptions;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Internship;
+use App\Models\UserInternship;
 
 
 class DashboardController extends Controller
@@ -74,22 +74,23 @@ class DashboardController extends Controller
 
     public function internship()
     {
-        $Internship = internship::all();
-        return view('moduls.dashboard.hr.internship.internship', ['Internship' => $Internship]);
+        $internships = UserInternship::with('hiringPosition')->get();
+        return view('moduls.dashboard.hr.internship.internship', ['Internship' => $internships]);
     }
 
     public function internshipDataDetails($id)
     {
         // Menggunakan findOrFail untuk menangani kasus jika tidak ada data dengan ID yang sesuai
-        $Internship = Internship::findOrFail($id);
-
-        return view('moduls.dashboard.hr.internship.internshipDataDetails', compact('Internship'));
+        $Internship = UserInternship::findOrFail($id);
+        $postion = Hiring_Positions::find($Internship->position_id);
+        return view('moduls.dashboard.hr.internship.internshipDataDetails', ['Internship' => $Internship, 'position'=> $postion]);
     }
 
     public function editInternship($id)
     {
-        $Internship = Internship::findOrFail($id);
-        return view('moduls.dashboard.hr.internship.editInternship', compact('Internship'));
+        $Internship = UserInternship::findOrFail($id);
+        $postion = Hiring_Positions::find($Internship->position_id);
+        return view('moduls.dashboard.hr.internship.editInternship', ['Internship' => $Internship, 'position'=> $postion]);
     }
 
 

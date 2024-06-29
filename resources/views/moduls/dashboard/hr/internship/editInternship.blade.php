@@ -24,7 +24,7 @@
             </div>
           </div>
           <!-- Form untuk Value Table kiri -->
-          <form action="{{ route('dashboard.updateInternship', $Internship->id) }}" method="POST">
+          <form action="{{ route('user_internships.update', $Internship->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="flex flex-col mb-2">
@@ -50,7 +50,7 @@
                     <label for="posisi" class="font-semibold text-gray-600">Posisi:</label>
                   </td>
                   <td class="py-2 border-l px-4">
-                    <input type="text" id="posisi" name="posisi" value="{{ $Internship->posisi }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
+                    <input type="text" id="posisi" name="posisi" value="{{ $position->name }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
                   </td>
                 </tr>
                 <tr class="border-b border-gray-200">
@@ -82,7 +82,7 @@
                     <label for="nomor_wa" class="font-semibold text-gray-600">No. WA:</label>
                   </td>
                   <td class="py-2 border-l px-4">
-                    <input type="text" id="nomor_wa" name="nomor_wa" value="{{ $Internship->nomor_wa }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
+                    <input type="text" id="nomor_wa" name="no_whatsapp" value="{{ $Internship->no_whatsapp }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
                   </td>
                 </tr>
                 <tr class="border-b border-gray-200">
@@ -90,7 +90,7 @@
                     <label for="domisili" class="font-semibold text-gray-600">Domisili:</label>
                   </td>
                   <td class="py-2 border-l px-4">
-                    <input type="text" id="domisili" name="domisili" value="{{ $Internship->domisili }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
+                    <input type="text" id="domisili" name="asal_kota" value="{{ $Internship->asal_kota }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
                   </td>
                 </tr>
                 <tr class="border-b border-gray-200">
@@ -98,7 +98,7 @@
                     <label for="instansi" class="font-semibold text-gray-600">Instansi:</label>
                   </td>
                   <td class="py-2 border-l px-4">
-                    <input type="text" id="instansi" name="instansi" value="{{ $Internship->instansi }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
+                    <input type="text" id="instansi" name="asal_pendidikan" value="{{ $Internship->asal_pendidikan }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
                   </td>
                 </tr>
                 <tr class="border-b border-gray-200">
@@ -106,7 +106,7 @@
                     <label for="status" class="font-semibold text-gray-600">Status:</label>
                   </td>
                   <td class="py-2 border-l px-4">
-                    <input type="text" id="status" name="status" value="{{ $Internship->status }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
+                    <input type="text" id="status" name="status_kelas" value="{{ $Internship->status_kelas }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
                   </td>
                 </tr>
                 <tr class="border-b border-gray-200">
@@ -140,7 +140,7 @@
                   <label for="tautan_ig" class="font-semibold text-gray-600">Tautan IG:</label>
                 </td>
                 <td class="py-2 border-l px-4">
-                  <input type="text" id="tautan_ig" name="tautan_ig" value="{{ $Internship->tautan_ig }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
+                  <input type="text" id="tautan_ig" name="akun_instagram" value="{{ $Internship->akun_instagram }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
                 </td>
               </tr>
               <tr class="border-b border-gray-200">
@@ -148,7 +148,7 @@
                   <label for="tautan_tiktok" class="font-semibold text-gray-600">Tautan TikTok:</label>
                 </td>
                 <td class="py-2 border-l px-4">
-                  <input type="text" id="tautan_tiktok" name="tautan_tiktok" value="{{ $Internship->tautan_tiktok }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
+                  <input type="text" id="tautan_tiktok" name="akun_tiktok" value="{{ $Internship->akun_tiktok }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
                 </td>
               </tr>
               <tr class="border-b border-gray-200">
@@ -156,7 +156,7 @@
                   <label for="tautan_linkedin" class="font-semibold text-gray-600">Tautan LinkedIn:</label>
                 </td>
                 <td class="py-2 border-l px-4">
-                  <input type="text" id="tautan_linkedin" name="tautan_linkedin" value="{{ $Internship->tautan_linkedin }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
+                  <input type="text" id="tautan_linkedin" name="akun_linkdin" value="{{ $Internship->akun_linkdin }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
                 </td>
               </tr>
               <tr class="border-b border-gray-200">
@@ -164,7 +164,7 @@
                   <label for="informasi_rekrutmen" class="font-semibold text-gray-600">Informasi Rekrutmen:</label>
                 </td>
                 <td class="py-2 border-l px-4">
-                  <textarea id="informasi_rekrutmen" name="informasi_rekrutmen" class="border border-gray-300 px-2 py-1 rounded-lg w-full">{{ $Internship->informasi_rekrutmen }}</textarea>
+                  <textarea id="informasi_rekrutmen" name="sumber_informasi" class="border border-gray-300 px-2 py-1 rounded-lg w-full">{{ $Internship->sumber_informasi }}</textarea>
                 </td>
               </tr>
               <tr class="border-b border-gray-200">
@@ -180,7 +180,7 @@
                   <label for="tautan_porto" class="font-semibold text-gray-600">Tautan Portfolio:</label>
                 </td>
                 <td class="py-2 border-l px-4">
-                  <input type="text" id="tautan_porto" name="tautan_porto" value="{{ $Internship->tautan_porto }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
+                  <input type="text" id="tautan_porto" name="tautan_portofolio" value="{{ $Internship->tautan_portofolio }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
                 </td>
               </tr>
               <tr class="border-b border-gray-200">
@@ -188,7 +188,7 @@
                   <label for="tautan_bukti_follow" class="font-semibold text-gray-600">Tautan Bukti Follow:</label>
                 </td>
                 <td class="py-2 border-l px-4">
-                  <input type="text" id="tautan_bukti_follow" name="tautan_bukti_follow" value="{{ $Internship->tautan_bukti_follow }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
+                  <input type="text" id="tautan_bukti_follow" name="tautan_berkas_ss" value="{{ $Internship->tautan_berkas_ss }}" class="border border-gray-300 px-2 py-1 rounded-lg w-full">
                 </td>
               </tr>
               <tr class="border-b border-gray-200">
