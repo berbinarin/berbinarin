@@ -100,7 +100,7 @@ class UserInternshipController extends Controller
 
         $userInternship->update($request->all());
 
-        return redirect()->route('hiring')
+        return redirect()->route('dashboard.internship')
                          ->with('success', 'User Internship updated successfully.');
     }
 

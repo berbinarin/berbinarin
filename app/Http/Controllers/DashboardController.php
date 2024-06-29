@@ -88,8 +88,9 @@ class DashboardController extends Controller
 
     public function editInternship($id)
     {
-        $Internship = Internship::findOrFail($id);
-        return view('moduls.dashboard.hr.internship.editInternship', compact('Internship'));
+        $Internship = UserInternship::findOrFail($id);
+        $postion = Hiring_Positions::find($Internship->position_id);
+        return view('moduls.dashboard.hr.internship.editInternship', ['Internship' => $Internship, 'position'=> $postion]);
     }
 
 

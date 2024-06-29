@@ -13,7 +13,7 @@
         <div class="">
             {{-- header desktop --}}
             <div class="header hidden md:block rounded-lg z-0">
-                <img src="{{ asset('assets/images/internship/banner/instagram.png') }}" alt="Web and Mobile Apps Developer" title=""
+                <img src="{{ asset('assets/images/web.png') }}" alt="Web and Mobile Apps Developer" title=""
                     class="max-w-full md:h-[270px] md:w-[1100px] rounded-[20px] z-0">
                 <div class="relative">
                     <img src="{{ asset('assets/images/logo-bg.png') }}" alt="Web and Mobile Apps Developer" title=""
