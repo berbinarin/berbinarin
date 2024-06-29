@@ -29,8 +29,8 @@
                 Berbinar Careers
             </a>
             <a href="{{ route('workWithUs') }}"
-                class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit mx-5 md:mx-0">Work
-                With Us</a>
+                class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit mx-5 md:mx-0">Collaborate
+                with Us</a>
         </div>
 
         <div class="flex md:hidden items-center justify-center p-4" onclick="Open()">
@@ -69,7 +69,7 @@
                 </div>
                 <div class="m-auto flex items-center justify-center rounded-md p-4 w-44 duration-300 cursor-pointer bg-primary hover:bg-sky-950 text-white"
                     onclick="navigateToPage('work-with-us')">
-                    <span class="text-lg">Work With Us</span>
+                    <span class="text-lg">Collaborate with Us</span>
                 </div>
             </div>
         </div>

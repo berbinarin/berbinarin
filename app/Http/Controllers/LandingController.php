@@ -298,7 +298,7 @@ class LandingController extends Controller
             ],
             [
                 'question' => 'Apa saja jenis layanan psikotes pada Berbinar?',
-                'answer' => 'PT. Berbinar Insightful Indonesia menyediakan dua kategori layanan psikotes, yaitu psikotes individual dan psikotes perusahaan. Psikotes individual termasuk di dalamnya adalah tes bakat-minat dan tes intelegensi. Lalu untuk, psikotes perusahaan, kami menyediakan psikotes untuk level staff dan supervisor.
+                'answer' => 'PT. Berbinar Insightful Indonesia menyediakan 4 kategori layanan psikotes, yaitu asesmen psikologi individu, asesmen psikologi perusahaan, asesmen psikologi instansi pendidikan, dan asesmen psikologi komunitas. Asesmen psikologi individu tersedia 8 jenis tes, termasuk di dalamnya adalah tes memori dan tes kecemasan. Asesmen psikologi perusahaan, kami menyediakan 4 paket tes untuk level staff dan 2 paket tes untuk level supervisor. Asesmen psikologi instansi pendidikan tersedia 8 jenis tes, termasuk tes gaya belajar dan tes penjurusan. Lalu asesmen psikologi komunitas tersedia 8 jenis tes, termasuk tes kesiapan pernikahan dan tes kesiapan menjadi orang tua.
             '
             ],
             [
