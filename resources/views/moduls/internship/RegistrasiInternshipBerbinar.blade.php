@@ -260,7 +260,7 @@
       <!-- Card Penuh (Informasi) -->
       <div class="w-full mx-auto md:w-full md:py-2 md:px-20">
         <div class="px-4">
-          <!-- <is_process <form id="formPageFour" action="#" method="POST"> Tambahkan form element --> -->
+          <!-- <is_process <form id="formPageFour" action="#" method="POST"> Tambahkan form element -->
           <div class="mb-4">
             <label for="motivasi" class="block text-lg font-medium text-gray-700">Motivasi Mendaftar Internship Berbinar</label>
             <!-- <p class="text-sm">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p> -->
