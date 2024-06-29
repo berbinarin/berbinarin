@@ -50,9 +50,12 @@ class UserInternshipController extends Controller
             'tautan_portofolio' => 'required|url',
             'tautan_berkas_ss' => 'required|url',
             'motivasi' => 'required|string',
+            'is_process' => 'required|boolean'
         ]);
-
-        UserInternship::create($request->all());
+        $data = $request->all();
+        $data['is_process'] = false;
+    
+        UserInternship::create($data);
 
         return redirect()->route('hiring')
                          ->with('success', 'User Internship created successfully.');
