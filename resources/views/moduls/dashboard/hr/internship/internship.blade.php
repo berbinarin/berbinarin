@@ -40,9 +40,20 @@
               <td class="px-6 py-4 whitespace-no-wrap">{{ $item->created_at}}</td>
               <td class="px-6 py-4 whitespace-no-wrap">{{ $item->hiringPosition->name}}</td>
               <td>
-                <a href="#" class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-3 border border-black hover:bg-gray-600 focus:outline-none rounded">
-                  <span class="mx-0 -my-1 text-black text-xs">{{ $item->progress }}</span>
-                </a>
+              <form action="{{ route('dashboard.internship.setProcess', $item->id) }}" method="post">
+                  @csrf
+                  @method('PATCH')
+                  <button type="submit" class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-3 border border-black hover:bg-gray-600 focus:outline-none rounded">
+                      @if ($item->is_process)
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-black" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                          </svg>
+                          <span class="mx-0 -my-1 text-black text-xs ml-2">{{ $item->progress }}</span>
+                      @else
+                          <span class="mx-0 -my-1 text-black text-xs">{{ $item->progress }}</span>
+                      @endif
+                  </button>
+              </form>
               </td>
               <td>
                 <a href="/dashboard/admin/internshipDataDetails/{{ $item->id }}" class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-3 bg-gray-500 hover:bg-gray-600 focus:outline-none rounded">

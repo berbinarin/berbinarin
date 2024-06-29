@@ -155,13 +155,9 @@ class HiringPositionsController extends Controller
             }else{
                 Alert::success('Success ', 'Posisi berhasil dinonaktifkan!');
             }
-
-    
             return redirect("/dashboard/admin/positions");
         }catch(\Exception $e){
             Alert::error('Error', 'Terjadi kesalahan saat mengubah data: ' . $e->getMessage());
-
-
             return redirect("/dashboard/admin/positions");
         }
     }

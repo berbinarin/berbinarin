@@ -260,11 +260,12 @@
       <!-- Card Penuh (Informasi) -->
       <div class="w-full mx-auto md:w-full md:py-2 md:px-20">
         <div class="px-4">
-          <!-- <form id="formPageFour" action="#" method="POST"> Tambahkan form element -->
+          <is_process <form id="formPageFour" action="#" method="POST"> Tambahkan form element -->
           <div class="mb-4">
             <label for="motivasi" class="block text-lg font-medium text-gray-700">Motivasi Mendaftar Internship Berbinar</label>
             <!-- <p class="text-sm">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p> -->
             <textarea type="textarea" id="motivasi" name="motivasi" placeholder="Masukkann Motivasi Anda Mendaftar Internship Berbinar" class="mt-1 h-[200px] block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required></textarea>
+            <input type="hidden" name="is_process" value={{True}}>
           </div>
 
 

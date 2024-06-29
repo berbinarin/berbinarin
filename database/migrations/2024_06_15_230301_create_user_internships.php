@@ -35,6 +35,7 @@ return new class extends Migration
             $table->string('tautan_berkas_ss');
 
             $table->string('motivasi');
+            $table->boolean("is_process")->default(true);
             $table->timestamps();
         });
     }
