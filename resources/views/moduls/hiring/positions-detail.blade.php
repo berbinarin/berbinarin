@@ -79,7 +79,7 @@
                                                 <circle r="2" fill="white" transform="matrix(0 -1 -1 0 16 14)" />
                                             </g>
                                         </svg>
-                                        <h4 class="text-xs text-white rounded-full">Web and Mobile Apps Developer
+                                        <h4 class="text-xs text-white rounded-full">{{$position->name}}
                                         </h4>
                                     </div>
                                 </div>
@@ -211,7 +211,7 @@
 
                                                 <div>
                                                     <p class="text-base font-semibold">
-                                                        Website and Mobile Apps Developer
+                                                        {{$position->name}}
                                                     </p>
                                                     <p class="text-sm text-disabled">Job Division</p>
                                                 </div>
