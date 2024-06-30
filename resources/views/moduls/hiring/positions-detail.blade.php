@@ -75,7 +75,8 @@
                             </div>
 
 
-                            <div class="flex flex-row">
+                            <div class="flex flex-col md:flex-row">
+
                                 <div class="flex flex-col pt-0 md:pt-9">
                                     <div class="about-us py-5">
                                         <h4 class="text-xl md:text-2xl font-bold">About Us</h4>
@@ -88,8 +89,6 @@
                                     </div>
                                     <div class="responsibility py-5">
                                         <h4 class="text-xl md:text-2xl font-bold">Responsibilities</h4>
-
-
 
                                         <ul class="list-decimal mx-7 mt-3 font-medium">
                                             @foreach ($position -> HiringPositionsJobDescription as $responsibility)
@@ -105,13 +104,15 @@
                                             <li>{{ $requirement->requirement}}</li>
                                             @endforeach
                                         </ul>
-
                                     </div>
+
                                 </div>
+
+
                                 <div class="hidden md:flex card-right w-full h-full justify-center items-right pt-16 pl-10 my-5">
-                                    <div class="flex flex-col bg-gray-100 w-[400px] h-[650px] rounded-[20px] p-5">
+                                    <div class="flex flex-col bg-gray-100 w-[400px] h-[550px] rounded-[20px] p-5">
                                         <div clas="my-10">
-                                            <div class="flex flex-row">
+                                            <div class="flex flex-row mt-2">
                                                 <div class="mr-2">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
                                                         <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
@@ -207,24 +208,32 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="text-center mt-10">
+                                        <!-- <div class="text-center mt-10">
                                             <a href="{{ route('hiring.position.detail', $position->id) }}">
-                                                <button class="bg-black text-center text-white font-semibold py-2 px-7 rounded-full">
+                                                <button
+                                                    class="bg-black text-center text-white font-semibold py-2 px-7 rounded-full">
                                                     Apply for this job
                                                 </button>
                                             </a>
-                                        </div>
+                                        </div> -->
+
 
                                     </div>
+
                                 </div>
+
+
                             </div>
 
-                            {{-- button apply mobile --}}
-                            <div class="block md:hidden text-center mt-10 mb-5">
-                                <button class="bg-black text-center text-white font-semibold py-2 px-7 rounded-full">Apply
-                                    for this
-                                    job</button>
-                            </div>
+
+
+                        </div>
+                        <div class="text-center mt-10">
+                            <a href="{{ route('hiring.position.detail', $position->id) }}">
+                                <button class="bg-black text-center text-white font-semibold py-3 px-7 rounded-full">
+                                    Apply for this job
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
