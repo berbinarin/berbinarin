@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Berbinarp_enrollment;
 use App\Models\Berbinarp_user;
+use App\Models\Feedback;
 use App\Models\Test;
 use App\Models\Question;
 use App\Models\Dimension;
@@ -476,7 +477,7 @@ class DashboardController extends Controller
 
     public function adminDataPsikotesFreeShow($test_id)
     {
-        $testData = Test::with(['users', 'results', 'answers.question'])->findOrFail($test_id);
+        $testData = Test::with(['users.feedback', 'results', 'answers.question'])->findOrFail($test_id);
 
         return view('moduls.dashboard.psikotes.data-detail', compact('testData'));
     }
@@ -485,7 +486,6 @@ class DashboardController extends Controller
     public function adminDataPsikotesFreeEdit($test_id)
     {
         $testData = Test::with('users', 'results')->findOrFail($test_id);
-
         return view('moduls.dashboard.psikotes.data-edit', compact('testData'));
     }
 
