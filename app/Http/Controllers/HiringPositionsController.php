@@ -47,7 +47,8 @@ class HiringPositionsController extends Controller
                 "positions"=>$validated["positions"],
                 "location"=>$validated["location"],
                 "link"=>$validated["link"],
-                "is_active" => true
+                "is_active" => true,
+                "divisi" =>$validated["divisi"],
             ]);
     
             Alert::success('Success ', 'Data Berhasil Masuk');
@@ -93,7 +94,7 @@ class HiringPositionsController extends Controller
             $HiringPositions->positions = $request->positions;
             $HiringPositions->location = $request->location;
             $HiringPositions->link = $request->link;
-    
+            $HiringPositions->divisi = $request->divisi;
             $HiringPositions->save();
     
             Alert::success('Success ', 'Data Berhasil Update');

@@ -659,15 +659,38 @@ class LandingController extends Controller
         ]);
     }
 
-    //     public function positionsDetail($position_id)
-    //      {
-
-    //          $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->findOrFail($position_id);
-    //          $HiringPositionsJobDescription = Hiring_Positions_Job_Descriptions::all();
-    //         $Hiring_Positions_Requirement = Hiring_Positions_Requirements::all();
-
-    //          return view('moduls.hiring.positions-detail', compact('positions'));
-    //  }
+    public function getImagePath($position){
+        if ($position == 'Web and Mobile Apps Developer') {
+            return 'assets/images/internship/banner/web';
+        }
+        if ($position == 'TikTok Creator') {
+            return 'assets/images/internship/banner/tiktok';
+        }
+        if ($position == 'Secretary n Finance') {
+            return 'assets/images/internship/banner/secrefin';
+        }
+        if ($position == 'Psychological Testing Product Management') {
+            return 'assets/images/internship/banner/ptpm';
+        }
+        if ($position == 'Marketing Strategist dan Sales') {
+            return 'assets/images/internship/banner/msds';
+        }
+        if ($position == 'IG Creator') {
+            return 'assets/images/internship/banner/instagram';
+        }
+        if ($position == 'Human Resource') {
+            return 'assets/images/internship/banner/hr';
+        }
+        if ($position == 'Graphic Designer') {
+            return 'assets/images/internship/banner/graphic';
+        }
+        if ($position == 'Class Product Management') {
+            return 'assets/images/internship/banner/class';
+        }
+        if ($position == 'Counseling Product Management') {
+            return 'assets/images/internship/banner/counseling';
+        }
+    }
 
     public function positionsDetail($id)
     {
@@ -676,13 +699,17 @@ class LandingController extends Controller
         if (!$position) {
             return redirect()->back()->with('error', 'Position not found or inactive');
         }
-
+        $imagePath = $this->getImagePath($position->divisi);
+        $imagePathMobile = $imagePath . '-mobile.png';
+        $imagePath = $imagePath . '.png';
         $HiringPositionsJobDescription = Hiring_Positions_Job_Descriptions::where('position_id', $id)->get();
         $Hiring_Positions_Requirement = Hiring_Positions_Requirements::where('position_id', $id)->get();
 
         return view(
             'moduls.hiring.positions-detail',
             [
+                'imagePathMobile' => $imagePathMobile,
+                'imagePath' => $imagePath,
                 'position' => $position,
                 'HiringPositionsJobDescription' => $HiringPositionsJobDescription,
                 'Hiring_Positions_Requirement' => $Hiring_Positions_Requirement,
