@@ -69,7 +69,7 @@
 <section class="z-40 max-w-6xl mx-auto">
     <div class="flex flex-col gap-14">
         {{-- KONSELING --}}
-        <div class="flex flex-col items-center justify-center w-full">
+        <div class="flex flex-col items-center justify-center w-full mt-10">
             <div class="text-center flex flex-col items-center -mb-10">
                 <h2 class="text-black font-semibold text-3xl px-5 md:px-0">
                     Konseling
@@ -135,11 +135,11 @@
         <div class="flex flex-col items-center justify-center w-full">
             <div class="text-center flex flex-col items-center -mb-10">
                 <h2 class="text-black font-semibold text-3xl px-5 md:px-0">
-                    Psikotes
+                    Asesmen Psikologi
                 </h2>
                 <p class="text-disabled text-lg text-center px-5 md:px-0 md:w-2/3">
-                    Terdapat dua jenis psikotes yang terdapat pada
-                    Berbinar Insightful Indonesia, Psikotes Individu dan Psikotes Perusahaan
+                    Terdapat empat jenis asesmen psikologi yang ditawarkan oleh Berbinar Insightful Indonesia, Asesmen
+                    Individu, Asesmen Perusahaan, Asesmen Instansi Pendidikan, dan Asesmen Komunitas.
                 </p>
             </div>
 
@@ -147,39 +147,66 @@
                 <img src="{{ asset('assets/images/product-berbinar/asesmen-psikologi.png') }}" alt="" class="mx-auto w-[120rem] -mb-8 mt-10 block md:hidden" data-aos="fade-up" data-aos-duration="1500">
             </div>
 
-            <div class="flex flex-col md:flex-row-reverse items-center">
+            <div class="flex flex-col md:flex-row-reverse items-center mt-10">
                 <div>
                     <div class="mt-12 space-y-6">
                         <div class="flex">
                             <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center w-12 h-12 rounded-md dark:text-gray-900">
+                                <div class="flex items-center justify-center w-10 h-10 rounded-md dark:text-gray-900">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32" viewBox="0 0 27 32" fill="none">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M24.9827 24.4093C25.5368 23.9934 25.9865 23.4541 26.2962 22.8341C26.6059 22.2141 26.7672 21.5304 26.7672 20.8372V4.46512C26.7672 3.28089 26.2972 2.14517 25.4605 1.3078C24.6239 0.470431 23.4892 0 22.306 0H4.4612C3.27802 0 2.14329 0.470431 1.30666 1.3078C0.470018 2.14517 0 3.28089 0 4.46512V20.8372C0 21.5304 0.16125 22.2141 0.470981 22.8341C0.780712 23.4541 1.23042 23.9934 1.78448 24.4093L10.7069 31.107C11.4791 31.6866 12.4183 32 13.3836 32C14.3489 32 15.2881 31.6866 16.0603 31.107L24.9827 24.4093Z" fill="#3986A3" />
                                     </svg>
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h4 class="text-xl font-semibold">Fokus Psikotes Individu</h4>
-                                <p class="text-disabled text-lg">Psikotes individu dapat memprediksi potensi
-                                    yang dimiliki dalam kaitannya dengan pencapaian hasil belajar atau kemampuan di masa
-                                    yang akan datang.</p>
+                                <h4 class="text-xl font-semibold">Asesmen Psikologi Individu</h4>
+                                <p class="text-disabled text-lg">Asesmen ini dapat melihat potensi yang dimiliki dalam
+                                    pencapaian hasil belajar atau kemampuan di masa yang akan datang.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center w-10 h-10 rounded-md dark:text-gray-900">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32" viewBox="0 0 27 32" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.9827 24.4093C25.5368 23.9934 25.9865 23.4541 26.2962 22.8341C26.6059 22.2141 26.7672 21.5304 26.7672 20.8372V4.46512C26.7672 3.28089 26.2972 2.14517 25.4605 1.3078C24.6239 0.470431 23.4892 0 22.306 0H4.4612C3.27802 0 2.14329 0.470431 1.30666 1.3078C0.470018 2.14517 0 3.28089 0 4.46512V20.8372C0 21.5304 0.16125 22.2141 0.470981 22.8341C0.780712 23.4541 1.23042 23.9934 1.78448 24.4093L10.7069 31.107C11.4791 31.6866 12.4183 32 13.3836 32C14.3489 32 15.2881 31.6866 16.0603 31.107L24.9827 24.4093Z" fill="#3986A3" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-semibold">Asesmen Psikologi Perusahaan</h4>
+                                <p class="text-disabled text-lg">Asesmen ini digunakan untuk melihat potensi, kelebihan
+                                    dan kekurangan, kepribadian dan kecocokan posisi kandidat di suatu posisi pekerjaan.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center w-10 h-10 rounded-md dark:text-gray-900">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32" viewBox="0 0 27 32" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.9827 24.4093C25.5368 23.9934 25.9865 23.4541 26.2962 22.8341C26.6059 22.2141 26.7672 21.5304 26.7672 20.8372V4.46512C26.7672 3.28089 26.2972 2.14517 25.4605 1.3078C24.6239 0.470431 23.4892 0 22.306 0H4.4612C3.27802 0 2.14329 0.470431 1.30666 1.3078C0.470018 2.14517 0 3.28089 0 4.46512V20.8372C0 21.5304 0.16125 22.2141 0.470981 22.8341C0.780712 23.4541 1.23042 23.9934 1.78448 24.4093L10.7069 31.107C11.4791 31.6866 12.4183 32 13.3836 32C14.3489 32 15.2881 31.6866 16.0603 31.107L24.9827 24.4093Z" fill="#3986A3" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-semibold">Asesmen Psikologi Instansi Pendidikan</h4>
+                                <p class="text-disabled text-lg">Asesmen ini digunakan untuk mengenal gaya belajar,
+                                    cita-cita, jurusan, minat bakat yang sesuai dengan SobatBinar.</p>
                             </div>
                         </div>
                         <div class="flex">
                             <div class="">
                                 <div class="flex
-                                    items-center justify-center w-12 h-12 rounded-md dark:text-gray-900">
+                                    items-center justify-center w-10 h-10 rounded-md dark:text-gray-900">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="27" height="32" viewBox="0 0 27 32" fill="none">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M24.9827 24.4093C25.5368 23.9934 25.9865 23.4541 26.2962 22.8341C26.6059 22.2141 26.7672 21.5304 26.7672 20.8372V4.46512C26.7672 3.28089 26.2972 2.14517 25.4605 1.3078C24.6239 0.470431 23.4892 0 22.306 0H4.4612C3.27802 0 2.14329 0.470431 1.30666 1.3078C0.470018 2.14517 0 3.28089 0 4.46512V20.8372C0 21.5304 0.16125 22.2141 0.470981 22.8341C0.780712 23.4541 1.23042 23.9934 1.78448 24.4093L10.7069 31.107C11.4791 31.6866 12.4183 32 13.3836 32C14.3489 32 15.2881 31.6866 16.0603 31.107L24.9827 24.4093Z" fill="#3986A3" />
                                     </svg>
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h4 class="text-xl font-semibold">Fokus Psikotes Perusahaan</h4>
-                                <p class="text-disabled text-lg mb-8">Psikotes untuk Perusahaan digunakan
-                                    untuk melihat potensi, kelebihan dan kekurangan, serta kecenderungan kepribadian
-                                    seorang kandidat dan melihat apakah kandidat tersebut cocok ditempatkan di suatu
-                                    posisi pekerjaan.</p>
+                                <h4 class="text-xl font-semibold">Asesmen Psikologi Komunitas</h4>
+                                <p class="text-disabled text-lg mb-8">Asesmen ini bertujuan untuk mengetahui kesiapan
+                                    pernikahan, menjadi orang tua, kecocokan bersama pasangan, tingkat stress, depresi,
+                                    kecemasan, memori, dan dimensia.</p>
 
                                 <a href="{{ route('psikotest') }}" class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-3 w-fit md:mx-0 mt-5">Lihat
                                     Selengkapnya</a>
@@ -195,7 +222,7 @@
         </div>
 
         {{-- KELAS BERBINAR --}}
-        <div class="flex flex-col items-center justify-center w-full">
+        <div class="flex flex-col items-center justify-center w-full mt-10">
             <div class="text-center flex flex-col items-center -mb-10">
                 <h2 class="text-black font-semibold text-3xl px-5 md:px-0">
                     Kelas Berbinar
