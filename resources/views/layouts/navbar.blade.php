@@ -68,7 +68,7 @@
                 </div>
                 <div class="m-auto flex items-center justify-center rounded-md p-4 w-44 duration-300 cursor-pointer bg-primary hover:bg-sky-950 text-white"
                     onclick="navigateToPage('work-with-us')">
-                    <span class="text-lg">Work With Us</span>
+                    <span class="text-lg">Collaborate with Us</span>
                 </div>
             </div>
         </div>
