@@ -31,7 +31,7 @@
                                 <th>Tipe</th>
                                 <th>Jabatan</th>
                                 <th>Lokasi</th>
-                                <th>Link Registrasi</th>
+                                <th>Divisi</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -45,7 +45,8 @@
                                 <td>{{ $item->positions}}</td>
                                 <td>{{ $item->location }}</td>
                                 <td>
-                                    <a href="{{ $item->link }}">{{ $item->link }}</a>
+                                    <!-- <a href="{{ $item->link }}">{{ $item->link }}</a> -->
+                                     {{ $item->divisi }}
                                 </td>
                                 <td class="flex gap-2">
                                     <a href="/dashboard/admin/positions/edit/{{ $item->id}}" class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-500 focus:outline-none rounded"><i class='bx bxs-edit-alt text-dark'></i>
