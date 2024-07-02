@@ -47,14 +47,14 @@ class HiringPositionsController extends Controller
                 "positions"=>$validated["positions"],
                 "location"=>$validated["location"],
                 "link"=>$validated["link"],
-                "is_active" => true
+                "is_active" => true,
+                "divisi" =>$validated["divisi"],
             ]);
-    
-            Alert::success('Success ', 'Data Berhasil Masuk');
-    
+            Alert::toast('Posisi berhasil dibuat!', 'success')->autoClose(5000);
             return redirect()->back();
         }catch(\Exception $e){
-            Alert::error('Error', 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage());
+            // Alert::error('Error', 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage());
+            Alert::toast('Terjadi kesalahan saat menyimpan data: ' . $e->getMessage(), 'error')->autoClose(5000);
             return redirect()->back();
         }
     }
@@ -93,16 +93,14 @@ class HiringPositionsController extends Controller
             $HiringPositions->positions = $request->positions;
             $HiringPositions->location = $request->location;
             $HiringPositions->link = $request->link;
-    
+            $HiringPositions->divisi = $request->divisi;
             $HiringPositions->save();
-    
-            Alert::success('Success ', 'Data Berhasil Update');
-            
-    
+            // Alert::success('Success ', 'Data Berhasil Update');
+            Alert::toast('Posisi berhasil diubah!', 'success')->autoClose(5000);
             return redirect("/dashboard/admin/positions");
         }catch(\Exception $e){
-            Alert::error('Error', 'Terjadi kesalahan saat Update data: ' . $e->getMessage());
-
+            // Alert::error('Error', 'Terjadi kesalahan saat Update data: ' . $e->getMessage());
+            Alert::toast('Terjadi kesalahan saat mengubah data: ' . $e->getMessage(), 'error')->autoClose(5000);
             return redirect()->back();
         }
 
@@ -121,15 +119,12 @@ class HiringPositionsController extends Controller
                 throw new \Exception('Data tidak ditemukan.'); // Atau gunakan jenis Exception yang sesuai
             }
             $HiringPositions->delete();
-    
-            Alert::success('Success ', 'Data Berhasil Delete');
-
-    
+            // Alert::success('Success ', 'Data Berhasil Delete');
+            Alert::toast('Posisi berhasil dihapus!', 'success')->autoClose(5000);
             return redirect("/dashboard/admin/positions");
         }catch(\Exception $e){
-            Alert::error('Error', 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage());
-
-
+            // Alert::error('Error', 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage());
+            Alert::toast('Terjadi kesalahan saat menghapus data: ' . $e->getMessage(), 'error')->autoClose(5000);
             return redirect("/dashboard/admin/positions");
         }
     }
@@ -151,13 +146,13 @@ class HiringPositionsController extends Controller
             $HiringPositions->save();
 
             if($HiringPositions->is_active){
-                Alert::success('Success ', 'Posisi berhasil diaktifkan!');
+                Alert::toast('Posisi berhasil diaktifkan!', 'success')->autoClose(5000);
             }else{
-                Alert::success('Success ', 'Posisi berhasil dinonaktifkan!');
+                Alert::toast('Posisi berhasil dinonaktfikan!', 'success')->autoClose(5000);
             }
             return redirect("/dashboard/admin/positions");
         }catch(\Exception $e){
-            Alert::error('Error', 'Terjadi kesalahan saat mengubah data: ' . $e->getMessage());
+            Alert::toast('Terjadi kesalahan saat menghapus data: ' . $e->getMessage(), 'error')->autoClose(5000);
             return redirect("/dashboard/admin/positions");
         }
     }

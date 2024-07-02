@@ -13,7 +13,7 @@
         <div class="">
             {{-- header desktop --}}
             <div class="header hidden md:block rounded-lg z-0">
-                <img src="{{ asset('assets/images/internship/banner/web.png') }}" alt="Web and Mobile Apps Developer" title="" class="max-w-full md:h-[320px] md:w-[1280px] rounded-[20px] z-0">
+                <img src="{{ asset($imagePath) }}" alt="Web and Mobile Apps Developer" title="" class="max-w-full md:h-[320px] md:w-[1280px] rounded-[20px] z-0">
                 <div class="relative">
                     <img src="{{ asset('assets/images/logo-bg.png') }}" alt="Web and Mobile Apps Developer" title="" class="absolute -top-10 left-10 h-20 w-20 z-20">
                 </div>
@@ -21,7 +21,7 @@
 
             {{-- header mobile --}}
             <div class="header block md:hidden rounded-lg">
-                <img src="{{ asset('assets/images/internship/banner/web-mobile.png') }}" alt="Web and Mobile Apps Developer" title="" class="max-w-full md:h-[270px] md:w-[1100px]">
+                <img src="{{ asset($imagePathMobile) }}" alt="Web and Mobile Apps Developer" title="" class="max-w-full md:h-[270px] md:w-[1100px]">
                 <div class="relative flex justify-center items-center">
                     <img src="{{ asset('assets/images/logo-bg.png') }}" alt="Web and Mobile Apps Developer" title="" class="absolute -top-10 left-36 h-20 w-20 z-20 object-center">
                 </div>
@@ -68,7 +68,7 @@
                                                 <circle r="2" fill="white" transform="matrix(0 -1 -1 0 16 14)" />
                                             </g>
                                         </svg>
-                                        <h4 class="text-xs text-white rounded-full">Web and Mobile Apps Developer
+                                        <h4 class="text-xs text-white rounded-full">{{$position->name}}
                                         </h4>
                                     </div>
                                 </div>
@@ -185,7 +185,7 @@
 
                                                 <div>
                                                     <p class="text-base font-semibold">
-                                                        Website and Mobile Apps Developer
+                                                        {{$position->name}}
                                                     </p>
                                                     <p class="text-sm text-disabled">Job Division</p>
                                                 </div>

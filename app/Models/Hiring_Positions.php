@@ -11,7 +11,7 @@ class Hiring_Positions extends Model
 
     protected $table = "hiring_positions";
 
-    protected $fillable =["name","type","positions","location","link","is_active"];
+    protected $fillable =["name","type","positions","location","link","is_active","divisi"];
 
     public function HiringPositionsJobDescription(){
         return $this->hasMany(Hiring_Positions_Job_Descriptions::class,'position_id');
