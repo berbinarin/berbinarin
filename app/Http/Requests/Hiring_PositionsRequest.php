@@ -25,13 +25,12 @@ class Hiring_PositionsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
-
             "name" => "required|string" ,
             "type"=> "required",
             "positions"=> "required",
             "location"=> "required",
-            "link"=> "required|string"
+            "link"=> "required|string",
+            "divisi" => "required|string"
         ];
     }
 

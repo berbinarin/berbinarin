@@ -31,6 +31,7 @@ class UserInternshipController extends Controller
      */
     public function store(Request $request)
     {
+        try{
         $request->validate([
             'position_id' => 'required|integer',
             'email' => 'required|email',
@@ -50,12 +51,18 @@ class UserInternshipController extends Controller
             'tautan_portofolio' => 'required|url',
             'tautan_berkas_ss' => 'required|url',
             'motivasi' => 'required|string',
+            'is_process' => 'required|boolean'
         ]);
-
-        UserInternship::create($request->all());
-
-        return redirect()->route('hiring')
-                         ->with('success', 'User Internship created successfully.');
+        $data = $request->all();
+        $data['is_process'] = false;
+    
+        UserInternship::create($data);
+        
+        return redirect()->route('hiring');
+        }catch(\Exception $e){
+            Alert::toast('error', 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage());
+            return redirect()->back();
+        }
     }
 
     /**
@@ -101,8 +108,8 @@ class UserInternshipController extends Controller
 
         $userInternship->update($request->all());
 
-        return redirect()->route('dashboard.internship')
-                         ->with('success', 'User Internship updated successfully.');
+        Alert::toast('User Internship Changed Sucessfully', 'success')->autoClose(5000);
+        return redirect()->route('dashboard.internship');
     }
 
     /**
@@ -111,9 +118,8 @@ class UserInternshipController extends Controller
     public function destroy(UserInternship $userInternship)
     {
         $userInternship->delete();
-
-        return redirect()->route('dashboard.internship')
-                         ->with('success', 'User Internship deleted successfully.');
+        Alert::toast('User Internship Deleted Sucessfully', 'success')->autoClose(5000);
+        return redirect()->route('dashboard.internship');
     }
 
     public function SetProcess($id)
@@ -127,14 +133,10 @@ class UserInternshipController extends Controller
             $userIntern->is_process = !($userIntern->is_process);
             $userIntern->save();
 
-            if($userIntern->is_process){
-                Alert::success('Success ', 'Data berhasil diubah!');
-            }else{
-                Alert::success('Success ', 'Data berhasil diubah!');
-            }
+            Alert::toast('User Internship Changed Sucessfully', 'success')->autoClose(5000);
             return redirect("/dashboard/admin/internship");
         }catch(\Exception $e){
-            Alert::error('Error', 'Terjadi kesalahan saat mengubah data: ' . $e->getMessage());
+            Alert::toast('Terjadi kesalahan saat mengubah data', 'error')->autoClose(5000);
             return redirect("/dashboard/admin/internship");
         }
     }

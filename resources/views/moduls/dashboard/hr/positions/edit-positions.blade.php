@@ -52,17 +52,32 @@
                             </select>
                         </div>
                     </div>
-
-                    <div class="mb-1 pt-0">
-                        <label for="location" class="text-blueGray-600 text-base">Lokasi</label>
-                        <select id="location" name="location" placeholder="Placeholder"
-                            class="px-3 py-3 appearance-none mt-2  placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
-                            <option value="Default">Pilih Lokasi</option>
-                            <option value="Remote" @if(isset($HiringPosisitons) && $HiringPosisitons->location == "Remote") selected @endif>Remote</option>
-                            <option value="Surabaya" @if(isset($HiringPosisitons) && $HiringPosisitons->location == "Surabaya") selected @endif>Surabaya</option>
-                        </select>
+                    <div class="flex gap-1">
+                        <div class="mb-1 pt-0 flex-1">
+                            <label for="location" class="text-blueGray-600 text-base">Lokasi</label>
+                            <select id="location" name="location" placeholder="Placeholder"
+                                class="px-3 py-3 appearance-none mt-2  placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                                <option value="Default">Pilih Lokasi</option>
+                                <option value="Remote" @if(isset($HiringPosisitons) && $HiringPosisitons->location == "Remote") selected @endif>Remote</option>
+                                <option value="Surabaya" @if(isset($HiringPosisitons) && $HiringPosisitons->location == "Surabaya") selected @endif>Surabaya</option>
+                            </select>
+                        </div>
+                        <div class="mb-1 pt-0 flex-1">
+                            <label for="divisi" class="text-blueGray-600 text-base">Divisi</label>
+                            <select id="divisi" name="divisi" placeholder="Placeholder" required class="px-3 py-3 appearance-none mt-2  placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                                <option value="Web and Mobile Apps Developer" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "Web and Mobile Apps Developer") selected @endif>Web and Mobile Apps Developer</option>
+                                <option value="TikTok Creator" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "TikTok Creator") selected @endif>TikTok Creator</option>
+                                <option value="Secretary n Finance" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "Secretary n Finance") selected @endif>Secretary n Finance</option>
+                                <option value="Psychological Testing Product Management" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "Psychological Testing Product Management") selected @endif>Psychological Testing Product Management</option>
+                                <option value="Marketing Strategist dan Sales" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "Marketing Strategist dan Sales") selected @endif>Marketing Strategist dan Sales</option>
+                                <option value="IG Creator" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "IG Creator") selected @endif>IG Creator</option>
+                                <option value="Human Resource" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "Human Resource") selected @endif>Human Resource</option>
+                                <option value="Graphic Designer" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "Graphic Designer") selected @endif>Graphic Designer</option>
+                                <option value="Class Product Management" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "Class Product Management") selected @endif>Class Product Management</option>
+                                <option value="Counseling Product Management" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "Counseling Product Management") selected @endif>Counseling Product Management</option>
+                            </select>
+                        </div>
                     </div>
-
                     <div class="mb-1 pt-0 w-full">
                         <label for="link" class="text-blueGray-600 text-base">Link Registrasi</label>
                         <input id="link" name="link" type="text" placeholder="Link Registrasi" value="{{ $HiringPosisitons->link }}"
