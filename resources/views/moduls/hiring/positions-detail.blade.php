@@ -143,7 +143,7 @@
 
                                                 <div>
                                                     <p class="text-base font-semibold">
-                                                        webdev.berbinar.in@gmail.com
+                                                        humanresource2.berbinar.in@gmail.com
                                                     </p>
                                                     <p class="text-sm text-disabled">Contact Email</p>
                                                 </div>
