@@ -306,10 +306,10 @@
 {{-- TES PSIKOTEST PERUSAHAAN SECTION --}}
 <section class="max-w-6xl mx-auto flex flex-col md:flex-row-reverse items-center justify-center relative px-5 py-5 pt-0 md:pt-10 md:px-0">
     {{-- TES PSIKOTEST PERUSAHAAN IMG MOBILE --}}
-    <img src="{{ asset('assets/images/ilustrasi-asesmen-psikologi-perusahaan.png') }}" alt="Ilustrasi Tes Psikotest Berbinar" title="Ilustrasi Tes Psikotest Berbinar" class="w-full block md:hidden" data-aos="fade-up" data-aos-duration="1500">
+    <img src="{{ asset('assets/images/asesmen-perusahaan.png') }}" alt="Ilustrasi Tes Psikotest Berbinar" title="Ilustrasi Tes Psikotest Berbinar" class="w-full block md:hidden" data-aos="fade-up" data-aos-duration="1500">
 
     {{-- TES PSIKOTEST PERUSAHAAN IMG DESKTOP --}}
-    <img src="{{ asset('assets/images/ilustrasi-asesmen-psikologi-perusahaan.png') }}" alt="Ilustrasi Tes Psikotest Berbinar" title="Ilustrasi Tes Psikotest Berbinar" class="w-[45%] hidden md:block" data-aos="fade-left" data-aos-duration="1500">
+    <img src="{{ asset('assets/images/asesmen-perusahaan.png') }}" alt="Ilustrasi Tes Psikotest Berbinar" title="Ilustrasi Tes Psikotest Berbinar" class="w-[45%] hidden md:block" data-aos="fade-left" data-aos-duration="1500">
 
     {{-- TES PSIKOTEST PERUSAHAAN CONTENT --}}
     <div class="relative flex items-center">
