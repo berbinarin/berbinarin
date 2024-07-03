@@ -251,7 +251,7 @@
               <div class="mb-0">
                 <label for="tautan_berkas_ss" class="block text-sm font-medium text-gray-700">Tautan Berkas Screenshot Bukti Follow Semua Media Sosial Berbinar</label>
                 <p class="text-xs font-small">Link seluruh sosial media dapat diakses di sini:</p>
-                <a href="https://linktr.ee/berbinarinsight" id="tautan_berkas_ss" name="tautan_berkas_ss" class="text-xs text-blue-500 underline">https://linktr.ee/berbinarinsight</a>
+                <a href="https://linktr.ee/berbinarinsight" class="text-xs text-blue-500 underline">https://linktr.ee/berbinarinsight</a>
                 <input type="text" id="tautan_berkas_ss" name="tautan_berkas_ss" placeholder="Masukkan Tautan Bekas Screenshot (Contoh: https://www.drive.google.com/xxxx/ )" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" required>
               </div>
 
@@ -352,103 +352,69 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-                document.getElementById('nextButtonPageFive').addEventListener('click', function(event) {
-              event.preventDefault();
+    document.getElementById('nextButtonPageFive').addEventListener('click', function(event) {
+        event.preventDefault();
 
-              var hasError = false; // Assume no error initially
+        var hasError = false; // Assume no error initially
 
-              // Example error checking logic (replace with actual logic)
-              var requiredFields = [
-                  'email', 
-                  'nama_lengkap', 
-                  'nama_panggilan', 
-                  'tanggal_lahir',
-                  'no_whatsapp',
-                  'asal_kota',
-                  'asal_pendidikan',
-                  'status_kelas',
-                  'jurusan',
-                  'akun_instagram',
-                  'akun_tiktok',
-                  'akun_linkdin',
-                  'sumber_informasi',
-                  'tautan_cv',
-                  'tautan_portofolio',
-                  'tautan_berkas_ss',
-                  'motivasi'
-              ];
+        // Example error checking logic (replace with actual logic)
+        var requiredFields = [
+            'email', 
+            'nama_lengkap', 
+            'nama_panggilan', 
+            'tanggal_lahir',
+            'no_whatsapp',
+            'asal_kota',
+            'asal_pendidikan',
+            'status_kelas',
+            'jurusan',
+            'akun_instagram',
+            'akun_tiktok',
+            'akun_linkdin',
+            'sumber_informasi',
+            'tautan_cv',
+            'tautan_portofolio',
+            'tautan_berkas_ss',
+            'motivasi'
+        ];
 
-              requiredFields.forEach(function(fieldId) {
-                  var field = document.getElementById(fieldId);
-                  if (!field || field.value.trim() === '') {
-                      hasError = true;
-                      console.log("Missing or empty field: " + fieldId); // Log the missing field for debugging
-                      //break;
-                  }
-              });
-              console.log("HASERROR: " + hasError);
-
-              if (hasError) {
-                  const Toast = Swal.mixin({
-                      toast: true,
-                      position: "top-end",
-                      showConfirmButton: false,
-                      timer: 3000,
-                      timerProgressBar: true,
-                      didOpen: (toast) => {
-                          toast.onmouseenter = Swal.stopTimer;
-                          toast.onmouseleave = Swal.resumeTimer;
-                      }
-                  });
-                  Toast.fire({
-                      icon: "error",
-                      title: "Data yang anda masukan tidak lengkap atau salah"
-                  });
-              } else {
-                  // No error, show the modal
-                  document.getElementById('successModal').classList.remove('hidden');
-              }
-          });
-
-          document.getElementById('closeModal').addEventListener('click', function() {
-              document.getElementById('successModal').classList.add('hidden');
-      
-      
-      
-      document.addEventListener("DOMContentLoaded", function() {
-        const successModal = document.getElementById('successModal');
-        const previousButtonPageFive = document.getElementById('previousButtonPageFive');
-        const nextButtonPageFive = document.getElementById('nextButtonPageFive');
-        const closeModal = document.getElementById('closeModal');
-
-        if (nextButtonPageFive) {
-          nextButtonPageFive.addEventListener('click', function() {
-            // Tampilkan modal
-            successModal.classList.remove('hidden');
-            successModal.classList.add('flex');
-
-            // Optional: Anda bisa menyembunyikan tombol "Sebelumnya" di sini
-            if (previousButtonPageFive) {
-              previousButtonPageFive.style.display = 'none';
+        requiredFields.forEach(function(fieldId) {
+            var field = document.getElementById(fieldId);
+            if (!field || !field.value || typeof field.value.trim !== 'function' || field.value.trim() === '') {
+                hasError = true;
+                console.log("Missing or empty field: " + fieldId); // Log the missing field for debugging
+                // break; // `break` won't work inside forEach
             }
-          });
-        }
+        });
+        console.log("HASERROR: " + hasError);
 
-        if (closeModal) {
-          closeModal.addEventListener('click', function() {
-            // Sembunyikan modal
-            successModal.classList.remove('flex');
-            successModal.classList.add('hidden');
-
-            // Optional: Anda bisa menampilkan kembali tombol "Sebelumnya" di sini
-            if (previousButtonPageFive) {
-              previousButtonPageFive.style.display = 'block';
-            }
-          });
+        if (hasError) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
+                icon: "error",
+                title: "Data yang anda masukan tidak lengkap atau salah"
+            });
+        } else {
+            // No error, show the modal
+            document.getElementById('successModal').classList.remove('hidden');
         }
-      });
-    </script>
-    <!-- </form> -->
+    });
+
+    document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('successModal').classList.add('hidden');
+    });
+</script>
+
   </div>
 </div>
 </div>
