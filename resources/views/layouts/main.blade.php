@@ -11,8 +11,12 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    @if ($page === 'Produk Berbinar' || $page === 'Psikotes')
+    @if ($page === 'Produk Berbinar')
     <link rel="stylesheet" href="{{ asset('assets/css/products.css') }}">
+    @endif
+
+    @if ( $page === 'Psikotes')
+    <link rel="stylesheet" href="{{ asset('assets/css/psikotes.css') }}">
     @endif
 
     <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
@@ -68,6 +72,10 @@
 
     @if ($page === 'Produk Berbinar')
     <script src="{{ asset('assets/js/products.js') }}"></script>
+    @endif
+
+    @if ($page === 'Psikotes')
+    <script src="{{ asset('assets/js/psikotes.js') }}"></script>
     @endif
 
     @if ($page === 'Tentang Kami' || $page === 'Hiring' || $page === 'Konseling')
