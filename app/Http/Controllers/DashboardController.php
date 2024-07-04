@@ -75,7 +75,9 @@ class DashboardController extends Controller
 
     public function internship()
     {
-        $internships = UserInternship::with('hiringPosition')->get();
+        $internships = UserInternship::with('hiringPosition')
+                                     ->orderBy('created_at', 'desc')
+                                     ->get();
         return view('moduls.dashboard.hr.internship.internship', ['Internship' => $internships]);
     }
 
