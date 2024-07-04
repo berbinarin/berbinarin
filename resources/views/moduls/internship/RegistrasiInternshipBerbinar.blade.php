@@ -27,7 +27,7 @@
   </div>
 
   <!-- Card Box -->
-  <div id="formContainer" class="h-[680px] relative mx-8 my-4 md:my-1 md:h-[488px] md:max-h-[700px] md:mb-3 justify-end z-30 md:w-full md:max-w-4xl bg-white p-6 rounded-3xl shadow-lg mt-2 md:rounded-lg overflow-y-auto md:overflow-y-hidden">
+  <div id="formContainer" class="h-[680px] w-[350px] relative mx-8 my-4 md:my-1 md:h-[488px] md:max-h-[700px] md:mb-3 justify-end z-30 md:w-full md:max-w-4xl bg-white p-6 rounded-3xl shadow-lg mt-2 md:rounded-lg overflow-y-auto md:overflow-y-hidden">
     <div class="number flex space-x-2 py-6 md:px-1 md:-ml-5 -mt-12 hidden md:flex justify-end w-full" style="margin-left: -30px">
 
       <!-- Page Indicator 1 (pada form 1) -->
@@ -47,7 +47,7 @@
       <!-- Page Indicator 1 Alt -->
       <div class="w-1/5 py-2 relative flex items-center justify-center" id="pageIndicatorOneAlt">
         <div class="flex items-center justify-center">
-        <div class="h-16 bg-gray-400 rounded-xl w-2 transform rotate-90 mr-6 -ml-16" style="margin-right: 30px"></div>
+          <div class="h-16 bg-gray-400 rounded-xl w-2 transform rotate-90 mr-6 -ml-16" style="margin-right: 30px"></div>
           <div class="rounded-full bg-[#C7F8FF] w-10 h-10 flex items-center justify-center mx-auto ml-6" style="margin-right: -85px">
             <h1 class="text-lg text-black">2</h1>
           </div>
@@ -67,7 +67,7 @@
       <!-- Page Indicator 3 -->
       <div class="w-1/5 py-2 relative flex items-center justify-center hidden" id="pageIndicatorThree">
         <div class="flex items-center justify-center">
-        <div class="h-16 bg-gray-400 rounded-xl w-2 transform rotate-90 mr-6 -ml-16" style="margin-right: 30px"></div>
+          <div class="h-16 bg-gray-400 rounded-xl w-2 transform rotate-90 mr-6 -ml-16" style="margin-right: 30px"></div>
           <div class="rounded-full bg-primary w-10 h-10 flex items-center justify-center mx-auto ml-6" style="margin-right: -55px">
             <h1 class="text-lg text-white">3</h1>
           </div>
@@ -77,7 +77,7 @@
       <!-- Page Indicator 3 Alt -->
       <div class="w-1/5 py-2 relative flex items-center justify-center" id="pageIndicatorThreeAlt">
         <div class="flex items-center justify-center">
-        <div class="h-16 bg-gray-400 rounded-xl w-2 transform rotate-90 mr-6 -ml-16" style="margin-right: 30px"></div>
+          <div class="h-16 bg-gray-400 rounded-xl w-2 transform rotate-90 mr-6 -ml-16" style="margin-right: 30px"></div>
           <div class="rounded-full bg-[#C7F8FF] w-10 h-10 flex items-center justify-center mx-auto ml-6" style="margin-right: -55px">
             <h1 class="text-lg text-black">3</h1>
           </div>
@@ -87,7 +87,7 @@
       <!-- Page Indicator 4 Alt -->
       <div class="w-1/5 py-2 relative flex items-center justify-center" id="pageIndicatorFourAlt">
         <div class="flex items-center justify-center">
-        <div class="h-16 bg-gray-400 rounded-xl w-2 transform rotate-90 mr-6 -ml-16" style="margin-right: 30px;"></div>
+          <div class="h-16 bg-gray-400 rounded-xl w-2 transform rotate-90 mr-6 -ml-16" style="margin-right: 30px;"></div>
           <div class="rounded-full bg-[#C7F8FF] w-10 h-10 flex items-center justify-center mx-auto ml-6" style="margin-right: -30px;">
             <h1 class="text-lg text-black">4</h1>
           </div>
@@ -97,7 +97,7 @@
       <!-- Page Indicator 4 -->
       <div class="w-1/5 py-2 relative flex items-center justify-center hidden" id="pageIndicatorFour">
         <div class="flex items-center justify-center">
-        <div class="h-16 bg-gray-400 rounded-xl w-2 transform rotate-90 mr-6 -ml-16" style="margin-right: 30px;"></div>
+          <div class="h-16 bg-gray-400 rounded-xl w-2 transform rotate-90 mr-6 -ml-16" style="margin-right: 30px;"></div>
           <div class="rounded-full bg-primary w-10 h-10 flex items-center justify-center mx-auto ml-6" style="margin-right: -30px">
             <h1 class="text-lg text-white">4</h1>
           </div>
@@ -107,7 +107,7 @@
       <!-- Page Indicator 5 Alt -->
       <div class="w-1/5 py-2 relative flex items-center justify-center" id="pageIndicatorFiveAlt">
         <div class="flex items-center justify-center">
-        <div class="h-16 bg-gray-400 rounded-xl w-2 transform rotate-90 mr-6 -ml-16" style="margin-right: 30px;"></div>
+          <div class="h-16 bg-gray-400 rounded-xl w-2 transform rotate-90 mr-6 -ml-16" style="margin-right: 30px;"></div>
           <div class="rounded-full bg-[#C7F8FF] w-10 h-10 flex items-center justify-center mx-auto ml-6">
             <h1 class="text-lg text-black">5</h1>
           </div>
@@ -117,7 +117,7 @@
       <!-- Page Indicator 5 -->
       <div class="w-1/5 py-2 relative flex items-center justify-center hidden" id="pageIndicatorFive">
         <div class="flex items-center justify-center">
-        <div class="h-16 bg-gray-400 rounded-xl w-2 transform rotate-90 mr-6 -ml-16" style="margin-right: 30px;"></div>
+          <div class="h-16 bg-gray-400 rounded-xl w-2 transform rotate-90 mr-6 -ml-16" style="margin-right: 30px;"></div>
           <div class="rounded-full bg-primary w-10 h-10 flex items-center justify-center mx-auto ml-6">
             <h1 class="text-lg text-white">5</h1>
           </div>
@@ -125,7 +125,7 @@
       </div>
 
 
-      
+
 
     </div>
 
@@ -135,11 +135,11 @@
       <form action="{{ route('user_internships.store') }}" method="POST">
         @csrf
         <h2 class="tittleOne text-xl font-bold text-bold text-center mt-4 md:-mt-7 mb-5">Biodata Diri</h2>
-        <div id="pageOne" class="pageOne flex flex-col mx-auto md:flex-row">
+        <div id="pageOne" class="pageOne flex flex-col mx-auto md:flex-row ">
           <!-- <div id="pageTwo" class="pageTwo flex flex-col mx-auto md:flex-row mt-5 mx-2 hidden"> -->
 
           <!-- Card Kiri (Informasi) -->
-          <div class="w-full md:w-1/2 -py-6 md:flex md:justify-end">
+          <div class="w-full mx-auto md:w-1/2 -py-6 md:flex md:justify-end">
             <div class="px-4">
               <div class="mb-4">
                 <input type="hidden" name="position_id" value={{$position->id}}>
@@ -167,7 +167,7 @@
           </div>
 
           <!-- Card Kanan (Informasi) -->
-          <div class="w-full md:w-1/2 -py-6">
+          <div class="w-full mx-auto md:w-1/2 -py-6">
             <div class="px-4">
               <div class="mb-4">
                 <label for="asal_kota" class="block text-xs font-medium text-gray-700">Domisili (Kota saja)</label>
@@ -218,10 +218,13 @@
               <div class="mb-3">
                 <label for="sumber_informasi" class="block text-xs font-medium text-gray-700">Dari mana kamu mendapatkan informasi rekrutmen ini?</label>
                 <select id="sumber_informasi" name="sumber_informasi" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
-                    <option value="">Pilih Informasi</option>
-                    <option value="Teman">Teman</option>
-                    <option value="Sosial Media Berbinar">Sosial Media Berbinar</option>
-                    <option value="Website Berbinar">Website Berbinar</option>
+                  <option value="">Pilih Informasi</option>
+                  <option value="Instagram">Instagram</option>
+                  <option value="Telegram">Telegram</option>
+                  <option value="TikTok">TikTok</option>
+                  <option value="LinkedIn">LinkedIn</option>
+                  <option value="Teman">Teman</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
 
@@ -257,16 +260,17 @@
               <div class="mb-3">
                 <label for="tautan_berkas_ss" class="block text-xs font-medium text-gray-700">Tautan Berkas Screenshot Bukti Follow Semua Media Sosial Berbinar</label>
                 <p class="text-xs font-small">Link seluruh sosial media dapat diakses di sini:
-                <a href="https://linktr.ee/berbinarinsight" class="text-xs text-blue-500 underline">https://linktr.ee/berbinarinsight</a></p>
+                  <a href="https://linktr.ee/berbinarinsight" class="text-xs text-blue-500 underline">https://linktr.ee/berbinarinsight</a>
+                </p>
                 <input type="text" id="tautan_berkas_ss" name="tautan_berkas_ss" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs" required>
               </div>
 
               <div class="hidden md:flex justify-between items-center -mb-4 mt-20">
                 <!-- Tombol Sebelumnya -->
-                <button id="previousButtonPageThree" type="button" class="w-full md:w-auto bg-[#C7F8FF] text-gray-700 py-2 px-4 mt-2 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">Sebelumnya</button>
+                <button id="previousButtonPageThree" type="button" class="w-full md:w-auto bg-[#C7F8FF] text-gray-700 py-2 px-4 mt-4 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">Sebelumnya</button>
 
                 <!-- Tombol Selanjutnya -->
-                <button id="nextButtonPageThree" type="button" class="w-full md:w-auto bg-primary text-white py-2 px-4 mt-2 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary">Selanjutnya</button>
+                <button id="nextButtonPageThree" type="button" class="w-full md:w-auto bg-primary text-white py-2 px-4 mt-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary">Selanjutnya</button>
               </div>
               <!-- </form> -->
             </div>
@@ -288,10 +292,10 @@
               </div>
               <div class="hidden md:flex justify-between items-center -mb-4 mt-4">
                 <!-- Tombol Sebelumnya -->
-                <button id="previousButtonPageFour" type="button" class="w-full md:w-auto bg-[#C7F8FF] text-gray-700 py-2 px-4 md:mt-20 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">Sebelumnya</button>
+                <button id="previousButtonPageFour" type="button" class="w-full md:w-auto bg-[#C7F8FF] text-gray-700 py-2 px-4 md:mt-16 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">Sebelumnya</button>
 
                 <!-- Tombol Selanjutnya -->
-                <button id="nextButtonPageFour" type="button" class="w-full md:w-auto bg-primary text-white py-2 px-4  md:mt-20 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary">Selanjutnya</button>
+                <button id="nextButtonPageFour" type="button" class="w-full md:w-auto bg-primary text-white py-2 px-4  md:mt-16 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary">Selanjutnya</button>
               </div>
               <!-- </form> -->
             </div>
@@ -299,12 +303,16 @@
         </div>
 
         <!-- Halaman Kelima -->
-        <h2 id="pageTitleFive" class="tittleFive text-2xl font-bold text-bold text-center md:-mb-3 mt-8 hidden">Terimakasih</h2>
-        <div id="pageFive" class="pageFive flex flex-col justify-center items-center mx-auto md:flex-row mt-5 mx-2 hidden">
+        <h2 id="pageTitleFive" class="tittleFive text-2xl font-bold text-bold text-center md:-mb-3 mt-9 hidden">Terimakasih</h2>
+        <div id="pageFive" class="pageFive flex flex-col justify-center items-center mx-auto md:flex-row mt-2 mx-2 hidden">
           <div class="w-full mx-auto md:w-full md:py-2 md:px-6">
             <div class="px-4">
               <!-- <form id="formPageFive" action="#" method="POST"> Tambahkan form element -->
-              <div class="mb-4 px-8 text-center">
+              <div class="mb-3 px-8 -mt-2 text-center">
+                <div class="flex justify-center items-center">
+                  <img src="{{ asset('assets/images/psikotes/feedback/1-wahoo2.png') }}" alt="" class="w-[60px]">
+                </div>
+
                 <!-- <label for="tiktokFive" class="block text-lg font-medium text-gray-700">Motivasi Mendaftar Internship Berbinar</label> -->
                 <p class="text-xs">Terima kasih sudah mendaftar. Pastikan bahwa seluruh data <br> telah benar, link dapat diakses, dan jangan lupa tekan tombol <br> kirim di bawah ini 😆</p>
                 <p class="text-xs mt-4 mb-4">Jika ada pertanyaan lebih lanjut, bisa hubungi WA di bawah ini:<br>
@@ -314,7 +322,7 @@
                 <!-- <textarea type="textarea" id="tiktokFive" name="tiktokFive" placeholder="Lorem Ipsum" class="mt-1 h-[200px] block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs"></textarea> -->
               </div>
 
-              <div class="hidden md:flex justify-between items-center -mb-4 mt-12">
+              <div class="hidden md:flex justify-between items-center -mb-4 -mt-4">
                 <!-- Tombol Sebelumnya -->
                 <button id="previousButtonPageFive" type="button" class="w-full md:w-auto bg-[#C7F8FF] md:mt-36 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">Sebelumnya</button>
 
@@ -417,40 +425,40 @@
       });
 
       document.getElementById('closeModal').addEventListener('click', function() {
-            document.getElementById('successModal').classList.add('hidden');
-            document.addEventListener("DOMContentLoaded", function() {
-              const successModal = document.getElementById('successModal');
-              const previousButtonPageFive = document.getElementById('previousButtonPageFive');
-              const nextButtonPageFive = document.getElementById('nextButtonPageFive');
-              const closeModal = document.getElementById('closeModal');
+        document.getElementById('successModal').classList.add('hidden');
+        document.addEventListener("DOMContentLoaded", function() {
+          const successModal = document.getElementById('successModal');
+          const previousButtonPageFive = document.getElementById('previousButtonPageFive');
+          const nextButtonPageFive = document.getElementById('nextButtonPageFive');
+          const closeModal = document.getElementById('closeModal');
 
-              if (nextButtonPageFive) {
-                nextButtonPageFive.addEventListener('click', function() {
-                  // Tampilkan modal
-                  successModal.classList.remove('hidden');
-                  successModal.classList.add('flex');
+          if (nextButtonPageFive) {
+            nextButtonPageFive.addEventListener('click', function() {
+              // Tampilkan modal
+              successModal.classList.remove('hidden');
+              successModal.classList.add('flex');
 
-                  // Optional: Anda bisa menyembunyikan tombol "Sebelumnya" di sini
-                  if (previousButtonPageFive) {
-                    previousButtonPageFive.style.display = 'none';
-                  }
-                });
-              }
-
-              if (closeModal) {
-                closeModal.addEventListener('click', function() {
-                  // Sembunyikan modal
-                  successModal.classList.remove('flex');
-                  successModal.classList.add('hidden');
-
-                  // Optional: Anda bisa menampilkan kembali tombol "Sebelumnya" di sini
-                  if (previousButtonPageFive) {
-                    previousButtonPageFive.style.display = 'block';
-                  }
-                });
+              // Optional: Anda bisa menyembunyikan tombol "Sebelumnya" di sini
+              if (previousButtonPageFive) {
+                previousButtonPageFive.style.display = 'none';
               }
             });
-         });
+          }
+
+          if (closeModal) {
+            closeModal.addEventListener('click', function() {
+              // Sembunyikan modal
+              successModal.classList.remove('flex');
+              successModal.classList.add('hidden');
+
+              // Optional: Anda bisa menampilkan kembali tombol "Sebelumnya" di sini
+              if (previousButtonPageFive) {
+                previousButtonPageFive.style.display = 'block';
+              }
+            });
+          }
+        });
+      });
     </script>
     <!-- </form> -->
   </div>
