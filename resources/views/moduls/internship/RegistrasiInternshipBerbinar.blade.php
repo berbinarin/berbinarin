@@ -219,9 +219,9 @@
                 <label for="sumber_informasi" class="block text-xs font-medium text-gray-700">Dari mana kamu mendapatkan informasi rekrutmen ini?</label>
                 <select id="sumber_informasi" name="sumber_informasi" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
                     <option value="">Pilih Informasi</option>
-                    <option value="iklan_online">Teman</option>
-                    <option value="referensi">Sosial Media Berbinar</option>
-                    <option value="website_resmi">Website Berbinar</option>
+                    <option value="Teman">Teman</option>
+                    <option value="Sosial Media Berbinar">Sosial Media Berbinar</option>
+                    <option value="Website Berbinar">Website Berbinar</option>
                 </select>
               </div>
 
@@ -257,7 +257,7 @@
               <div class="mb-3">
                 <label for="tautan_berkas_ss" class="block text-xs font-medium text-gray-700">Tautan Berkas Screenshot Bukti Follow Semua Media Sosial Berbinar</label>
                 <p class="text-xs font-small">Link seluruh sosial media dapat diakses di sini:
-                <a href="https://linktr.ee/berbinarinsight" id="tautan_berkas_ss" name="tautan_berkas_ss" class="text-xs text-blue-500 underline">https://linktr.ee/berbinarinsight</a></p>
+                <a href="https://linktr.ee/berbinarinsight" class="text-xs text-blue-500 underline">https://linktr.ee/berbinarinsight</a></p>
                 <input type="text" id="tautan_berkas_ss" name="tautan_berkas_ss" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs" required>
               </div>
 
@@ -418,9 +418,6 @@
 
       document.getElementById('closeModal').addEventListener('click', function() {
             document.getElementById('successModal').classList.add('hidden');
-
-
-
             document.addEventListener("DOMContentLoaded", function() {
               const successModal = document.getElementById('successModal');
               const previousButtonPageFive = document.getElementById('previousButtonPageFive');
@@ -453,6 +450,7 @@
                 });
               }
             });
+         });
     </script>
     <!-- </form> -->
   </div>
