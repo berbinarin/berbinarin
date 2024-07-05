@@ -6,78 +6,61 @@
 
 @section('content')
 <section class="h-full">
-    <div class="max-w-6xl mx-auto p-5 md:pt-0 h-fit flex flex-col sm:flex-row relative items-center">
+    <div class="max-w-6xl mx-auto p-5 md:pt-0 h-fit flex flex-col relative justify-center items-center text-center">
         {{-- HERO IMG MOBILE --}}
 
         <img src="{{ asset('assets/images/konseling/regist/Ilustrasi1.png') }}" alt="Ilustrasi Logo Berbinar" title="Ilustrasi Logo Berbinar" class="w-full block sm:hidden " data-aos="fade-up" data-aos-duration="1500">
 
 
         {{-- HERO CONTENT --}}
-        <div class="relative flex items-center">
+        <div class="relative flex justify-center items-center">
             <div class="rounded-[700px] blur-[55px] w-[300px] md:w-[600px] h-[250px] md:h-fit absolute">
             </div>
-            <div class="flex flex-col gap-5 z-40 relative my-5">
-                <h1 class="font-semibold text-black text-[40px] md:text-[64px] leading-[120%]">
-                    Tingkatkan <br> Potensi dengan <br> Psikotes <span class="text-primary font-bold">Berbinar</span>
+            <div class="flex flex-col gap-5 z-40 relative my-5 justify-center items-center text-center object-center">
+                <h1 class="font-semibold text-black text-[40px] md:text-[60px] leading-[120%]">
+                    Tingkatkan Potensi dengan <br> Psikotes <span class="text-primary font-bold">Berbinar</span>
                 </h1>
+
+                {{-- HERO IMG DESKTOP --}}
+                <img src="{{ asset('assets/images/konseling/regist/Ilustrasi1.png') }}" alt="Ilustrasi-Test" class="w-[250px] hidden sm:block" data-aos="fade-down" data-aos-duration="1500">
+
                 <p class="text-lg text-disabled ">Berbinar hadir untuk SobatBinar yang ingin meningkatkan potensi diri
-                    melalui
-                    layanan psikotes individu dan perusahaan.</p>
+                    <br> melalui jenis layanan psikotes yang terdiri dari:
+                </p>
+                <div class="grid grid-cols-4 gap-14 mb-3">
+                    <div class="border-2 border-[#65696c] rounded-full py-2 px-4">
+                        <p class="text-[#65696c]">Psikotes Individu</p>
+                    </div>
+                    <div class="border-2 border-[#65696c] rounded-full py-2 px-4">
+                        <p class="text-[#65696c]">Psikotes Individu</p>
+                    </div>
+                    <div class="border-2 border-[#65696c] rounded-full py-2 px-4">
+                        <p class="text-[#65696c]">Psikotes Individu</p>
+                    </div>
+                    <div class="border-2 border-[#65696c] rounded-full py-2 px-4">
+                        <p class="text-[#65696c]">Psikotes Individu</p>
+                    </div>
+
+                </div>
+
+
                 <div class="flex flex-col lg:flex-row gap-4">
-                    <a href="{{ route('psikotestFreeStart') }}" class="text-lg text-[#70787D] bg-[#C1C1C1] rounded-full font-medium hover:bg-amber-300 hover:text-primary duration-700 px-5 py-2 w-fit">Ikuti
-                        Tes Gratis</a>
-                    <a href="https://forms.gle/aabDZ5DmmhJs8obk8" target="_blank" rel="noopener noreferrer" class="text-lg text-white bg-primary rounded-full font-semibold hover:bg-amber-300 hover:text-primary hover:font-semibold duration-500 px-5 py-2 w-fit">Daftar
+                    <a href="https://forms.gle/aabDZ5DmmhJs8obk8" target="_blank" rel="noopener noreferrer" class="text-lg text-white bg-primary rounded-full font-semibold hover:text-amber-400 hover:font-semibold duration-500 px-5 py-2 w-fit">Daftar
                         Tes Berbayar</a>
+                    <a href="{{ route('psikotestFreeStart') }}" class="text-lg text-white bg-amber-500 rounded-full font-semibold hover:bg-amber-400 hover:text-primary duration-700 px-5 py-2 w-fit">IKUTI
+                        TES KEPRIBADIAN GRATIS</a>
+
                 </div>
             </div>
         </div>
 
-        {{-- HERO IMG DESKTOP --}}
+        <!-- {{-- HERO IMG DESKTOP --}}
 
-        <img src="{{ asset('assets/images/konseling/regist/Ilustrasi1.png') }}" alt="Ilustrasi-Test" class="w-1/2 hidden sm:block" data-aos="fade-left" data-aos-duration="1500">
+        <img src="{{ asset('assets/images/konseling/regist/Ilustrasi1.png') }}" alt="Ilustrasi-Test" class="w-[290px] hidden sm:block" data-aos="fade-left" data-aos-duration="1500"> -->
 
     </div>
 </section>
 
-
-<!-- {{-- START INSTRUKSI PENGISIAN --}}
-            <div
-                class="modal h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 z-50 hidden overflow-y-auto p-4">
-                <div class="bg-white rounded-xl shadow-lg w-[560px]">
-                    <div class="text-right p-3 closeModal">
-                        <i class='bx bxs-x-circle text-[40px] text-[#F34949]'></i>
-                    </div>
-                    <div>
-                        <div class="text-center">
-                            <h1 class="text-primary text-center text-3xl mb-8 -mt-6">Instruksi Pengisian</h1>
-                            <p class="font-bold px-16" style="font-size: 16px; @media (min-width: 768px) { font-size: 18px; }">
-                                Perhatikan dengan seksama instruksi pengisian berikut untuk mengisi free tes psikotes berbinar</p>
-                        </div>
-                        <div class="px-10 py-10">
-                            <p class="text-justify" style="font-size: 14px; @media (min-width: 768px) { font-size: 16px; }">Pada tes
-                                ini, setiap nomor berisikan satu pernyataan beserta lima pilihan skor jawaban. Tugas SobatBinar
-                                adalah
-                                menentukan <span class="font-bold">skor kesesuaian</span> setiap pernyataan dengan keadaan diri Kamu
-                                yang sebenarnya. Tiap pilihan skor kesesuaian yang SobatBinar pilih memiliki kriterianya
-                                masing-masing.
-                            </p>
-                            <p class="font-bold" style="font-size: 14px; @media (min-width: 768px) { font-size: 16px; }">
-                                <br>Keterangan Skor:
-                            </p>
-                            <p style="font-size: 14px; @media (min-width: 768px) { font-size: 16px; }">1: Sangat tidak sesuai</p>
-                            <p style="font-size: 14px; @media (min-width: 768px) { font-size: 16px; }">2: Tidak sesuai</p>
-                            <p style="font-size: 14px; @media (min-width: 768px) { font-size: 16px; }">3: Ragu-ragu</p>
-                            <p style="font-size: 14px; @media (min-width: 768px) { font-size: 16px; }">4: Sesuai</p>
-                            <p style="font-size: 14px; @media (min-width: 768px) { font-size: 16px; }">5: Sangat sesuai</p>
-                        </div>
-                    </div>
-                    <div class="flex justify-center items-center w-100">
-                        <a href="{{ route('test.index') }}"
-                            class="text-lg text-white bg-green-500 rounded-md hover:bg-primary duration-700 px-8 mt-0 mb-2 py-2 w-fit">Mulai</a>
-                    </div>
-                </div>
-            </div>
-            {{-- END INSTRUKSI PENGISIAN --}} -->
 
 @if (session('notif') === 'VerifPsikotes')
 {{-- POP UP FEEDBACK PSIKOTES --}}
