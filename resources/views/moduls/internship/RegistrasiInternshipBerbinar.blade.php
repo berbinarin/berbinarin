@@ -160,7 +160,7 @@
               </div>
               <div class="mb-4">
                 <label for="no_whatsapp" class="block text-xs font-medium text-gray-700">Nomor WhatsApp</label>
-                <input type="text" id="no_whatsapp" name="no_whatsapp" placeholder="+628xxxxxxxxxx" class="mt-1 bg-gray-200 md:w-[370px] block w-full px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
+                <input type="text" id="no_whatsapp" name="no_whatsapp" placeholder="+628XXXXXXXXXX" class="mt-1 bg-gray-200 md:w-[370px] block w-full px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
               </div>
 
             </div>
@@ -287,7 +287,7 @@
               <div class="mb-4">
                 <label for="motivasi" class="block text-xs font-medium text-gray-700">Motivasi Mendaftar Internship Berbinar</label>
                 <!-- <p class="text-xs">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p> -->
-                <textarea type="textarea" id="motivasi" name="motivasi" placeholder="Motifasi saya untuk mendaftar internship di Berbinar Insightfull Indonesia adalah saya ingin mencari pengalaman, menambah wawasan dan membangun relasi dengan banyak orang" class="mt-1 h-[200px] block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required></textarea>
+                <textarea type="textarea" id="motivasi" name="motivasi" placeholder="Motivasi saya mendaftaran magang di Berbinar Insightful Indonesia adalah ..." class="mt-1 h-[200px] block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required></textarea>
                 <input type="hidden" name="is_process" value={{ true }}>
               </div>
               <div class="hidden md:flex justify-between items-center -mb-4 mt-4">
@@ -303,14 +303,14 @@
         </div>
 
         <!-- Halaman Kelima -->
-        <h2 id="pageTitleFive" class="tittleFive text-2xl font-bold text-bold text-center md:-mb-3 mt-9 hidden">Terimakasih</h2>
+        <h2 id="pageTitleFive" class="tittleFive text-2xl font-bold text-bold text-center md:-mb-3 mt-9 hidden">Terima kasih</h2>
         <div id="pageFive" class="pageFive flex flex-col justify-center items-center mx-auto md:flex-row mt-2 mx-2 hidden">
           <div class="w-full mx-auto md:w-full md:py-2 md:px-6">
             <div class="px-4">
               <!-- <form id="formPageFive" action="#" method="POST"> Tambahkan form element -->
               <div class="mb-3 px-8 -mt-2 text-center">
                 <div class="flex justify-center items-center">
-                  <img src="{{ asset('assets/images/psikotes/feedback/1-wahoo2.png') }}" alt="" class="w-[60px]">
+                  <img src="{{ asset('assets/images/psikotes/feedback/sangat-suka-hd.png') }}" alt="" class="w-[100px]">
                 </div>
 
                 <!-- <label for="tiktokFive" class="block text-lg font-medium text-gray-700">Motivasi Mendaftar Internship Berbinar</label> -->
@@ -322,7 +322,7 @@
                 <!-- <textarea type="textarea" id="tiktokFive" name="tiktokFive" placeholder="Lorem Ipsum" class="mt-1 h-[200px] block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs"></textarea> -->
               </div>
 
-              <div class="hidden md:flex justify-between items-center -mb-4 -mt-4">
+              <div class="hidden md:flex justify-between items-center -mb-4 -mt-14">
                 <!-- Tombol Sebelumnya -->
                 <button id="previousButtonPageFive" type="button" class="w-full md:w-auto bg-[#C7F8FF] md:mt-36 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">Sebelumnya</button>
 
