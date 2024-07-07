@@ -404,19 +404,22 @@
 
         if (hasError) {
           const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.onmouseenter = Swal.stopTimer;
-              toast.onmouseleave = Swal.resumeTimer;
-            }
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          // confirmButtonText: 'X',
+          showCloseButton: true,
+          timer: null,
+          timerProgressBar: false,
+              didOpen: (toast) => {
+                  toast.onmouseenter = null;
+                  toast.onmouseleave = null;
+              }
           });
+
           Toast.fire({
-            icon: "error",
-            title: "Data yang anda masukan tidak lengkap atau salah"
+              icon: "error",
+              title: "Data yang anda masukan tidak lengkap atau salah"
           });
         } else {
           // No error, show the modal
@@ -548,19 +551,22 @@
 
         if (hasError) {
           const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.onmouseenter = Swal.stopTimer;
-              toast.onmouseleave = Swal.resumeTimer;
-            }
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              // confirmButtonText: 'X',
+              showCloseButton: true,
+              timer: null,
+              timerProgressBar: false,
+              didOpen: (toast) => {
+                  toast.onmouseenter = null;
+                  toast.onmouseleave = null;
+              }
           });
+
           Toast.fire({
-            icon: "error",
-            title: "Data yang anda masukan tidak lengkap atau salah"
+              icon: "error",
+              title: "Data yang anda masukan tidak lengkap atau salah"
           });
         } else {
           // No error, show the modal
