@@ -508,20 +508,115 @@
   </div>
 </div>
 <!-- Button Mobile End -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      document.getElementById('nextMobileFive').addEventListener('click', function(event) {
+        event.preventDefault();
 
+        var hasError = false; // Assume no error initially
+
+        // Example error checking logic (replace with actual logic)
+        var requiredFields = [
+          'email',
+          'nama_lengkap',
+          'nama_panggilan',
+          'tanggal_lahir',
+          'no_whatsapp',
+          'asal_kota',
+          'asal_pendidikan',
+          'status_kelas',
+          'jurusan',
+          'akun_instagram',
+          'akun_tiktok',
+          'akun_linkdin',
+          'sumber_informasi',
+          'tautan_cv',
+          'tautan_portofolio',
+          'tautan_berkas_ss',
+          'motivasi'
+        ];
+
+        requiredFields.forEach(function(fieldId) {
+          var field = document.getElementById(fieldId);
+          if (!field || field.value.trim() === '') {
+            hasError = true;
+            console.log("Missing or empty field: " + fieldId); // Log the missing field for debugging
+            //break;
+          }
+        });
+        console.log("HASERROR: " + hasError);
+
+        if (hasError) {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "error",
+            title: "Data yang anda masukan tidak lengkap atau salah"
+          });
+        } else {
+          // No error, show the modal
+          document.getElementById('successModal').classList.remove('hidden');
+        }
+      });
+
+      document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('successModal').classList.add('hidden');
+        document.addEventListener("DOMContentLoaded", function() {
+          const successModal = document.getElementById('successModal');
+          const previousMobileFive = document.getElementById('previousMobileFive');
+          const nextMobileFive = document.getElementById('nextMobileFive');
+          const closeModal = document.getElementById('closeModal');
+
+          if (nextMobileFive) {
+            nextMobileFive.addEventListener('click', function() {
+              // Tampilkan modal
+              successModal.classList.remove('hidden');
+              successModal.classList.add('flex');
+
+              // Optional: Anda bisa menyembunyikan tombol "Sebelumnya" di sini
+              if (previousMobileFive) {
+                previousMobileFive.style.display = 'none';
+              }
+            });
+          }
+
+          if (closeModal) {
+            closeModal.addEventListener('click', function() {
+              // Sembunyikan modal
+              successModal.classList.remove('flex');
+              successModal.classList.add('hidden');
+
+              // Optional: Anda bisa menampilkan kembali tombol "Sebelumnya" di sini
+              if (previousMobileFive) {
+                previousMobileFive.style.display = 'block';
+              }
+            });
+          }
+        });
+      });
+    </script>
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const successModal = document.getElementById('successModal');
     const nextMobileFive = document.getElementById('nextMobileFive');
     const closeModal = document.getElementById('closeModal');
 
-    if (nextMobileFive) {
-      nextMobileFive.addEventListener('click', function() {
-        // Tampilkan modal
-        successModal.classList.remove('hidden');
-        successModal.classList.add('flex');
-      });
-    }
+    // if (nextMobileFive) {
+    //   nextMobileFive.addEventListener('click', function() {
+    //     // Tampilkan modal
+    //     successModal.classList.remove('hidden');
+    //     successModal.classList.add('flex');
+    //   });
+    // }
 
     if (closeModal) {
       closeModal.addEventListener('click', function() {
