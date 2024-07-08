@@ -31,7 +31,7 @@
                                 <th>Tipe</th>
                                 <th>Jabatan</th>
                                 <th>Lokasi</th>
-                                <th>Link Registrasi</th>
+                                <th>Divisi</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -45,7 +45,8 @@
                                 <td>{{ $item->positions}}</td>
                                 <td>{{ $item->location }}</td>
                                 <td>
-                                    <a href="{{ $item->link }}">{{ $item->link }}</a>
+                                    <!-- <a href="{{ $item->link }}">{{ $item->link }}</a> -->
+                                     {{ $item->divisi }}
                                 </td>
                                 <td class="flex gap-2">
                                     <a href="/dashboard/admin/positions/edit/{{ $item->id}}" class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-500 focus:outline-none rounded"><i class='bx bxs-edit-alt text-dark'></i>
@@ -194,7 +195,6 @@
                             <label for="name" class="text-blueGray-600 text-base">Nama Posisi</label>
                             <input id="name" name="name" type="text" placeholder="Human Resource Development" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full" required />
                         </div>
-
                     </div>
 
                     <div class="flex gap-1">
@@ -219,14 +219,31 @@
                             </select>
                         </div>
                     </div>
-
-                    <div class="mb-1 pt-0">
-                        <label for="location" class="text-blueGray-600 text-base">Lokasi</label>
-                        <select id="location" name="location" placeholder="Placeholder" required class="px-3 py-3 appearance-none placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
-                            <option value="Default">Pilih Lokasi</option>
-                            <option value="Remote">Remote</option>
-                            <option value="Surabaya">Surabaya</option>
-                        </select>
+                    <div class="flex gap-1">
+                        <div class="mb-1 pt-0 flex-1">
+                            <label for="location" class="text-blueGray-600 text-base">Lokasi</label>
+                            <select id="location" name="location" placeholder="Placeholder" required class="px-3 py-3 appearance-none placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                                <option value="Default">Pilih Lokasi</option>
+                                <option value="Remote">Remote</option>
+                                <option value="Surabaya">Surabaya</option>
+                            </select>
+                        </div>
+                        <div class="mb-1 pt-0 flex-1">
+                            <label for="divisi" class="text-blueGray-600 text-base">Divisi</label>
+                            <select id="divisi" name="divisi" placeholder="Placeholder" required class="px-3 py-3 appearance-none placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
+                                <option value="Default">Pilih Divisi</option>
+                                <option value="Web and Mobile Apps Developer">Web and Mobile Apps Developer</option>
+                                <option value="TikTok Creator">TikTok Creator</option>
+                                <option value="Secretary n Finance">Secretary n Finance</option>
+                                <option value="Psychological Testing Product Management">Psychological Testing Product Management</option>
+                                <option value="Marketing Strategist dan Sales">Marketing Strategist dan Sales</option>
+                                <option value="IG Creator">IG Creator</option>
+                                <option value="Human Resource">Human Resource</option>
+                                <option value="Graphic Designer">Graphic Designer</option>
+                                <option value="Class Product Management">Class Product Management</option>
+                                <option value="Counseling Product Management">Counseling Product Management</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="mb-1 pt-0 w-full">

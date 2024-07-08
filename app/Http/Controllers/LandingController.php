@@ -298,7 +298,7 @@ class LandingController extends Controller
             ],
             [
                 'question' => 'Apa saja jenis layanan psikotes pada Berbinar?',
-                'answer' => 'PT. Berbinar Insightful Indonesia menyediakan dua kategori layanan psikotes, yaitu psikotes individual dan psikotes perusahaan. Psikotes individual termasuk di dalamnya adalah tes bakat-minat dan tes intelegensi. Lalu untuk, psikotes perusahaan, kami menyediakan psikotes untuk level staff dan supervisor.
+                'answer' => 'PT. Berbinar Insightful Indonesia menyediakan 4 kategori layanan psikotes, yaitu asesmen psikologi individu, asesmen psikologi perusahaan, asesmen psikologi instansi pendidikan, dan asesmen psikologi komunitas. Asesmen psikologi individu tersedia 8 jenis tes, termasuk di dalamnya adalah tes memori dan tes kecemasan. Asesmen psikologi perusahaan, kami menyediakan 4 paket tes untuk level staff dan 2 paket tes untuk level supervisor. Asesmen psikologi instansi pendidikan tersedia 8 jenis tes, termasuk tes gaya belajar dan tes penjurusan. Lalu asesmen psikologi komunitas tersedia 8 jenis tes, termasuk tes kesiapan pernikahan dan tes kesiapan menjadi orang tua.
             '
             ],
             [
@@ -659,26 +659,58 @@ class LandingController extends Controller
         ]);
     }
 
-    //     public function positionsDetail($position_id)
-    //      {
+    public function getImagePath($position){
+        if ($position == 'Web and Mobile Apps Developer') {
+            return 'assets/images/internship/banner/web';
+        }
+        if ($position == 'TikTok Creator') {
+            return 'assets/images/internship/banner/tiktok';
+        }
+        if ($position == 'Secretary n Finance') {
+            return 'assets/images/internship/banner/secrefin';
+        }
+        if ($position == 'Psychological Testing Product Management') {
+            return 'assets/images/internship/banner/ptpm';
+        }
+        if ($position == 'Marketing Strategist dan Sales') {
+            return 'assets/images/internship/banner/msds';
+        }
+        if ($position == 'IG Creator') {
+            return 'assets/images/internship/banner/instagram';
+        }
+        if ($position == 'Human Resource') {
+            return 'assets/images/internship/banner/hr';
+        }
+        if ($position == 'Graphic Designer') {
+            return 'assets/images/internship/banner/graphic';
+        }
+        if ($position == 'Class Product Management') {
+            return 'assets/images/internship/banner/class';
+        }
+        if ($position == 'Counseling Product Management') {
+            return 'assets/images/internship/banner/counseling';
+        }
+    }
 
-    //          $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->findOrFail($position_id);
-    //          $HiringPositionsJobDescription = Hiring_Positions_Job_Descriptions::all();
-    //         $Hiring_Positions_Requirement = Hiring_Positions_Requirements::all();
-
-    //          return view('moduls.hiring.positions-detail', compact('positions'));
-    //  }
-
-    public function positionsDetail()
+    public function positionsDetail($id)
     {
-        $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->where('is_active', true)->get();
-        $HiringPositionsJobDescription = Hiring_Positions_Job_Descriptions::all();
-        $Hiring_Positions_Requirement = Hiring_Positions_Requirements::all();
+        $position = Hiring_Positions::where('id', $id)->first();
+
+        if (!$position) {
+            return redirect()->back()->with('error', 'Position not found or inactive');
+        }
+        $imagePath = $this->getImagePath($position->divisi);
+        $imagePathMobile = $imagePath . '-mobile.png';
+        $imagePath = $imagePath . '.png';
+        $HiringPositionsJobDescription = Hiring_Positions_Job_Descriptions::where('position_id', $id)->get();
+        $Hiring_Positions_Requirement = Hiring_Positions_Requirements::where('position_id', $id)->get();
 
         return view(
             'moduls.hiring.positions-detail',
             [
-                'positions' => $positions,
+                'imagePathMobile' => $imagePathMobile,
+                'imagePath' => $imagePath,
+                'position' => $position,
                 'HiringPositionsJobDescription' => $HiringPositionsJobDescription,
                 'Hiring_Positions_Requirement' => $Hiring_Positions_Requirement,
             ]

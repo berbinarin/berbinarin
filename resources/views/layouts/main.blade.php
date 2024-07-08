@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="{{ asset('assets/css/products.css') }}">
     @endif
 
+    @if ( $page === 'Psikotes')
+    <link rel="stylesheet" href="{{ asset('assets/css/psikotes.css') }}">
+    @endif
+
     <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
     @vite('resources/css/app.css')
     @if ($page === 'Tentang Kami' || $active === 'Hiring' || $page === 'Konseling')
@@ -25,14 +29,14 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-60HVW4DS4P"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
 
-function gtag() {
-    dataLayer.push(arguments);
-}
-gtag('js', new Date());
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-gtag('config', 'G-60HVW4DS4P');
+    gtag('config', 'G-60HVW4DS4P');
 </script>
 
 <body class="relative overflow-x-hidden w-full">
@@ -63,11 +67,15 @@ gtag('config', 'G-60HVW4DS4P');
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-    AOS.init();
+        AOS.init();
     </script>
 
     @if ($page === 'Produk Berbinar')
     <script src="{{ asset('assets/js/products.js') }}"></script>
+    @endif
+
+    @if ($page === 'Psikotes')
+    <script src="{{ asset('assets/js/psikotes.js') }}"></script>
     @endif
 
     @if ($page === 'Tentang Kami' || $page === 'Hiring' || $page === 'Konseling')

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Berbinarp_enrollment;
 use App\Models\Berbinarp_user;
+use App\Models\Feedback;
 use App\Models\Test;
 use App\Models\Question;
 use App\Models\Dimension;
@@ -17,7 +18,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Hiring_Positions_Requirements;
 use App\Models\Hiring_Positions_Job_Descriptions;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Internship;
+use App\Models\UserInternship;
 
 
 class DashboardController extends Controller
@@ -74,22 +75,25 @@ class DashboardController extends Controller
 
     public function internship()
     {
-        $Internship = internship::all();
-        return view('moduls.dashboard.hr.internship.internship', ['Internship' => $Internship]);
+        $internships = UserInternship::with('hiringPosition')
+                                     ->orderBy('created_at', 'desc')
+                                     ->get();
+        return view('moduls.dashboard.hr.internship.internship', ['Internship' => $internships]);
     }
 
     public function internshipDataDetails($id)
     {
         // Menggunakan findOrFail untuk menangani kasus jika tidak ada data dengan ID yang sesuai
-        $Internship = Internship::findOrFail($id);
-
-        return view('moduls.dashboard.hr.internship.internshipDataDetails', compact('Internship'));
+        $Internship = UserInternship::findOrFail($id);
+        $postion = Hiring_Positions::find($Internship->position_id);
+        return view('moduls.dashboard.hr.internship.internshipDataDetails', ['Internship' => $Internship, 'position'=> $postion]);
     }
 
     public function editInternship($id)
     {
-        $Internship = Internship::findOrFail($id);
-        return view('moduls.dashboard.hr.internship.editInternship', compact('Internship'));
+        $Internship = UserInternship::findOrFail($id);
+        $postion = Hiring_Positions::find($Internship->position_id);
+        return view('moduls.dashboard.hr.internship.editInternship', ['Internship' => $Internship, 'position'=> $postion]);
     }
 
 
@@ -475,7 +479,7 @@ class DashboardController extends Controller
 
     public function adminDataPsikotesFreeShow($test_id)
     {
-        $testData = Test::with(['users', 'results', 'answers.question'])->findOrFail($test_id);
+        $testData = Test::with(['users.feedback', 'results', 'answers.question'])->findOrFail($test_id);
 
         return view('moduls.dashboard.psikotes.data-detail', compact('testData'));
     }
@@ -484,7 +488,6 @@ class DashboardController extends Controller
     public function adminDataPsikotesFreeEdit($test_id)
     {
         $testData = Test::with('users', 'results')->findOrFail($test_id);
-
         return view('moduls.dashboard.psikotes.data-edit', compact('testData'));
     }
 

@@ -42,10 +42,11 @@
                         <ul class="list-disc list-outside leading-relaxed mt-10">
                             <li class="font-semibold">Lokasi offline Konseling
                                 <ul class="list-decimal list-outside leading-relaxed pl-4">
-                                    <li>Psikolog : Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, dan Kalimantan Utara
+                                    <li>Psikolog : Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, Jakarta, Malang, dan
+                                        Kalimantan Utara
                                         (Tarakan)
                                     </li>
-                                    <li>Peer Counselor : Bekasi, Tangerang Selatan, dan Palembang</li>
+                                    <li>Peer Counselor : Bekasi, Tangerang Selatan, dan Padang</li>
                                 </ul>
                             </li>
                             <li>Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n.
@@ -200,14 +201,14 @@
                     <!-- href="http://127.0.0.1:8000/counseling/pdf/KASMAYANI KARIM.pdf" -->
                 </div>
             </div>
-            <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+            <!-- <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog7.jpg') }}">
                 <div class="flex flex-col items-center">
                     <a target="_blank" class="text-lg font-medium text-center">Daniel Reyonald Bungaran, S.Psi., M.Psi.,
                         Psikolog</a>
-                    <!-- href="http://127.0.0.1:8000/counseling/pdf/DANIEL REYONALD BUNGARAN.pdf" -->
+                    href="http://127.0.0.1:8000/counseling/pdf/DANIEL REYONALD BUNGARAN.pdf"
                 </div>
-            </div>
+            </div> -->
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog8.jpeg') }}">
                 <div class="flex flex-col items-center">
@@ -265,6 +266,18 @@
                         <p class="text-primary-alt text-lg font-semibold italic">1 Sesi (1 Jam) 175k</p>
                         <p class="text-primary-alt text-lg font-semibold italic">2 Sesi (2 Jam) 298k</p>
                         <p class="text-primary-alt text-lg font-semibold italic">3 Sesi (3 Jam) 421k</p>
+
+
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 items-center">
+                    <div class="flex flex-col gap-3 text-center items-center justify-items-center px-5 py-3">
+                    </div>
+                    <!-- <div class="inline-block h-[250px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 dark:bg-white/10">
+                    </div> -->
+                    <div class="flex flex-col gap-2 text-center items-center justify-center px-16 py-3">
+                        <p class="text-disabled italic text-sm">*Wilayah Surabaya, Kediri, Sidoarjo, Denpasar,
+                            Kalimantan Utara (Tarakan), Samarinda, Jakarta, Malang</p>
                     </div>
                 </div>
             </div>
@@ -295,6 +308,17 @@
                         <p class="text-primary-alt text-lg font-semibold italic">3 Sesi (3 Jam) 500k</p>
                     </div>
                 </div>
+                <div class="grid grid-cols-2 items-center">
+                    <div class="flex flex-col gap-3 text-center items-center justify-items-center px-5 py-3">
+                    </div>
+                    <!-- <div class="inline-block h-[250px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 dark:bg-white/10">
+                    </div> -->
+                    <div class="flex flex-col gap-2 text-center items-center justify-center px-16 py-3">
+                        <p class="text-disabled italic text-sm">*Wilayah Surabaya, Kediri, Sidoarjo, Denpasar,
+                            Kalimantan Utara (Tarakan), Samarinda, Jakarta, Malang</p>
+                    </div>
+                </div>
+
             </div>
         </div>
 </section>
@@ -313,10 +337,11 @@
                         <ul class="list-disc list-outside leading-relaxed mt-10">
                             <li class="font-semibold">Lokasi offline Konseling
                                 <ul class="list-decimal list-outside leading-relaxed pl-4">
-                                    <li>Psikolog : Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, dan Kalimantan Utara
+                                    <li>Psikolog : Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, Jakarta, Malang, dan
+                                        Kalimantan Utara
                                         (Tarakan)
                                     </li>
-                                    <li>Peer Counselor : Bekasi, Tangerang Selatan, dan Palembang</li>
+                                    <li>Peer Counselor : Bekasi, Tangerang Selatan, dan Padang</li>
                                 </ul>
                             </li>
                             <li>Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n.
@@ -405,21 +430,21 @@
         </p>
 
         <div class="flex flex-col md:flex-row flex-wrap items-center justify-center gap-5 mt-10">
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[300px]" data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
+            <div class="flex flex-col gap-4 md:mx-0 rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[300px] md:h-[260px]" data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
                 <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
                     <h3 class="text-black text-xl font-medium">Online</h3>
                     <h1 class="text-black text-4xl font-medium">IDR 45k/jam</h1>
-                    <p class="text-lg text-disabled">Lakukan dimana saja</p>
+                    <p class="text-lg text-disabled my-3">Lakukan dimana saja</p>
                     <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="0">
                         Mulai Sekarang
                     </button>
                 </div>
             </div>
-            <div class="flex flex-col gap-4 md:mx-0  rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[300px]" data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
+            <div class="flex flex-col gap-4 md:mx-0 rounded-xl bg-white shadow-md relative pb-8 flex-1 w-full md:w-[300px] md:h-[260px]" data-aos="fade-right" data-aos-duration="500" data-aos-delay="0">
                 <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
                     <h3 class="text-black text-xl font-medium">Offline</h3>
                     <h1 class="text-black text-4xl font-medium">IDR 55k/jam</h1>
-                    <p class="text-lg text-disabled">Wilayah Medan & Malang</p>
+                    <p class="text-lg text-disabled">Wilayah Bekasi, Tangerang Selatan, Padang</p>
                     <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="0">
                         Mulai Sekarang
                     </button>
@@ -510,7 +535,7 @@
             },
             handleToggle() {
                 return this.$store.accordion.tab === this.idx ?
-                    `max-height: ${this.$refs.tab.scrollHeight}px` : '';
+                    max-height: ${this.$refs.tab.scrollHeight}px : '';
 
             }
         }));

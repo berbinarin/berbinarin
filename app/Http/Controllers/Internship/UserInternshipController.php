@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Internship;
 use App\Http\Controllers\Controller;
 use App\Models\UserInternship;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserInternshipController extends Controller
 {
@@ -30,7 +31,9 @@ class UserInternshipController extends Controller
      */
     public function store(Request $request)
     {
+        try{
         $request->validate([
+            'position_id' => 'required|integer',
             'email' => 'required|email',
             'nama_lengkap' => 'required|string',
             'nama_panggilan' => 'required|string',
@@ -48,12 +51,18 @@ class UserInternshipController extends Controller
             'tautan_portofolio' => 'required|url',
             'tautan_berkas_ss' => 'required|url',
             'motivasi' => 'required|string',
+            'is_process' => 'required|boolean'
         ]);
-
-        UserInternship::create($request->all());
-
-        return redirect()->route('user_internships.index')
-                         ->with('success', 'User Internship created successfully.');
+        $data = $request->all();
+        $data['is_process'] = false;
+    
+        UserInternship::create($data);
+        
+        return redirect()->route('hiring');
+        }catch(\Exception $e){
+            Alert::toast('error', 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage());
+            return redirect()->back();
+        }
     }
 
     /**
@@ -99,8 +108,8 @@ class UserInternshipController extends Controller
 
         $userInternship->update($request->all());
 
-        return redirect()->route('user_internships.index')
-                         ->with('success', 'User Internship updated successfully.');
+        Alert::toast('User Internship Changed Sucessfully', 'success')->autoClose(5000);
+        return redirect()->route('dashboard.internship');
     }
 
     /**
@@ -109,8 +118,26 @@ class UserInternshipController extends Controller
     public function destroy(UserInternship $userInternship)
     {
         $userInternship->delete();
+        Alert::toast('User Internship Deleted Sucessfully', 'success')->autoClose(5000);
+        return redirect()->route('dashboard.internship');
+    }
 
-        return redirect()->route('user_internships.index')
-                         ->with('success', 'User Internship deleted successfully.');
+    public function SetProcess($id)
+    {
+        try{
+            $userIntern = UserInternship::find($id);
+            if (!$userIntern) {
+                throw new \Exception('Data tidak ditemukan.'); // Atau gunakan jenis Exception yang sesuai
+            }
+
+            $userIntern->is_process = !($userIntern->is_process);
+            $userIntern->save();
+
+            Alert::toast('User Internship Changed Sucessfully', 'success')->autoClose(5000);
+            return redirect("/dashboard/admin/internship");
+        }catch(\Exception $e){
+            Alert::toast('Terjadi kesalahan saat mengubah data', 'error')->autoClose(5000);
+            return redirect("/dashboard/admin/internship");
+        }
     }
 }

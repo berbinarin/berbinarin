@@ -83,7 +83,7 @@ Route::get('/class/berbinar+/daftarI', [RegistrationController::class, 'indexx']
 Route::post('/class/berbinar+/daftar', [RegistrationController::class, 'store'])->name('register.store');
 Route::get('/class/berbinar+/home', [RegistrationController::class, 'index'])->name('HomeBerbinarPlus'); //route home (dashboard)
 // Rute pendaftaran internship berbinar
-Route::get('/internship/register', [InternshipController::class, 'register'])->name('RegistrasiInternshipBerbinar');
+// Route::get('/internship/register', [InternshipController::class, 'register'])->name('RegistrasiInternshipBerbinar');
 
 
 Route::get('/counseling/reg/layanan', [LandingController::class, 'layanan'])->name('layanan');
@@ -112,6 +112,8 @@ Route::post('/counseling/reg/psikolog/data4', [LandingController::class, 'postPs
 Route::get('/careers', [LandingController::class, 'hiring'])->name('hiring');
 Route::get('/careers/positions', [LandingController::class, 'hiringPositions'])->name('hiringPositions');
 Route::get('/careers/positions/{id}', [LandingController::class, 'positionsDetail'])->name('hiring.positions.detail');
+
+Route::get('/careers/positions/{id}/apply', [InternshipController::class, 'register'])->name('hiring.position.detail');
 
 Route::get('/HalamanRegister', [AuthController::class, 'HalamanRegister']);
 Route::post("/register", [AuthController::class, 'Register']);
@@ -152,6 +154,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     // MODUL INTERNSHIP
     Route::get('/dashboard/admin/internship', [DashboardController::class, 'internship'])->name('dashboard.internship');
+    Route::patch('/dashboard/admin/internship/setProcess/{id}', [UserInternshipController::class, 'SetProcess'])->name('dashboard.internship.setProcess');
     Route::get('/dashboard/admin/internshipDataDetails/{id}', [DashboardController::class, 'internshipDataDetails'])->name('dashboard.internshipDataDetails');
     Route::get('/dashboard/admin/internshipDataDetails/edit/{id}', [DashboardController::class, 'editInternship'])->name('dashboard.editInternship');
     Route::put('/dashboard/admin/internshipDataDetails/update/{id}', [DashboardController::class, 'updateInternship'])->name('dashboard.updateInternship');
