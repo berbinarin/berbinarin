@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('domicile');
             $table->string('phone_number');
             $table->string('service');
-            $table->foreignId('psikotest_type_id')->constrained('psikotest_types')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreignId('psikotest_type_id')->constrained('psikotest_types')->onUpdate('cascade')->onDelete('cascade');
             $table->text('reason');
             $table->dateTime('preference_schedule');
             $table->string('token')->nullable();
