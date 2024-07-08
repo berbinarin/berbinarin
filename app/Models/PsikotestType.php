@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\UserPsikotestPaid;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class PsikotestType extends Model
 {
@@ -11,4 +12,9 @@ class PsikotestType extends Model
 
     protected $table = 'psikotest_types';
     protected $fillable = ['name', 'description'];
+
+    public function userPsikotestPaids()
+    {
+        return $this->hasMany(UserPsikotestPaid::class);
+    }
 }

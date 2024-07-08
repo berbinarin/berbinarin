@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             DimensionSeeder::class,
             QuestionSeeder::class,
+            PsikotestTypeSeeder::class,
+            PapiKostickSeeder::class,
         ]);
     }
 }

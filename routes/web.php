@@ -2,17 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\PsikotestFree\UserPsikotestFreeController;
+use App\Http\Controllers\PsikotestFree\TestController;
+use App\Http\Controllers\PsikotestFree\QuestionController;
+use App\Http\Controllers\PsikotestFree\FeedbackController;
+use App\Http\Controllers\PsikotestFree\ResultController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ResultController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\RegistrationController;
-use App\Http\Controllers\FeedbackController;
-use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\testGratisController;
-use App\Http\Controllers\UserPsikotestController;
+// use App\Http\Controllers\UserPsikotestController;
 use App\Http\Controllers\HiringPositionsController;
 use App\Http\Controllers\HiringGeneralRequirementsController;
 use App\Http\Controllers\HiringPositionsRequirementsController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\HiringPositionsJobDescriptionController;
 use App\Http\Controllers\Internship\UserInternshipController;
 use App\Http\Controllers\Berbinarplus\AuthUserController;
 use App\Http\Controllers\Internship\InternshipController;
+use App\Http\Controllers\PsikotestPaid\UserPsikotestPaidController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,7 +77,7 @@ Route::prefix('/class/berbinar+')->group(function () {
 
 // buat testing form selanjutnya tapi belum pakai tailwindcss
 // punya ka anggi kalau masih testing taruh disini dulu
-// tolong pindahain ke controller Berbinarplus/AuthUser ya kak 
+// tolong pindahain ke controller Berbinarplus/AuthUser ya kak
 Route::get('/class/berbinar+/html', [RegistrationController::class, 'html'])->name('berbinarPlusDaftar');
 Route::get('/class/berbinar+/daftarI', [RegistrationController::class, 'indexx'])->name('berbinarPlusDaftarI');
 Route::post('/class/berbinar+/daftar', [RegistrationController::class, 'store'])->name('register.store');
@@ -186,8 +188,8 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/psikotest/free', [TestController::class, 'index'])->name('test.index');
 Route::post('/psikotest/free', [TestController::class, 'store'])->name('test.store');
 Route::get('/psikotest/free/start', [LandingController::class, 'psikotestFreeStart'])->name('psikotestFreeStart');
-Route::get('/psikotest/free/{test_id}/biodata', [UserPsikotestController::class, 'show'])->name('biodata.show');
-Route::post('/psikotest/free/{test_id}/biodata', [UserPsikotestController::class, 'store'])->name('biodata.store');
+Route::get('/psikotest/free/{test_id}/biodata', [UserPsikotestFreeController::class, 'show'])->name('biodata.show');
+Route::post('/psikotest/free/{test_id}/biodata', [UserPsikotestFreeController::class, 'store'])->name('biodata.store');
 Route::get('/psikotest/free/{test_id}/questions/{question_order}', [QuestionController::class, 'show'])->name('question.show');
 Route::post('/psikotest/free/{test_id}/questions/{question_order}', [QuestionController::class, 'storeAnswer'])->name('question.storeAnswer');
 Route::get('/psikotest/free/{test_id}/{user_id}/feedback', [FeedbackController::class, 'show'])->name('feedback.show');
@@ -222,3 +224,13 @@ Route::post('/finish-test/{test_id}/{user_id}', [ResultController::class, 'finis
 
 // MODUL INTERSHIP
 Route::resource('/user_internships', UserInternshipController::class);
+
+// DEV PSIKOTES PAID
+Route::get('/psikotest-paid', [UserPsikotestPaidController::class, 'regPage1'])->name('psikotest-paid.regPage1');
+Route::post('/psikotest-paid/reg-page-1', [UserPsikotestPaidController::class, 'postRegPage1'])->name('psikotest-paid.postRegPage1');
+
+Route::get('/psikotest-paid/reg-page-2', [UserPsikotestPaidController::class, 'regPage2'])->name('psikotest-paid.regPage2');
+Route::post('/psikotest-paid/reg-page-2', [UserPsikotestPaidController::class, 'postRegPage2'])->name('psikotest-paid.postRegPage2');
+
+Route::get('/psikotest-paid/reg-page-3', [UserPsikotestPaidController::class, 'regPage3'])->name('psikotest-paid.regPage3');
+Route::post('/psikotest-paid/reg-page-3', [UserPsikotestPaidController::class, 'postRegPage3'])->name('psikotest-paid.postRegPage3');

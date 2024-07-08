@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\PsikotestType;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class UserPsikotestPaid extends Model
 {
@@ -11,4 +12,9 @@ class UserPsikotestPaid extends Model
 
     protected $table = 'user_psikotest_paids';
     protected $fillable = ['fullname', 'email', 'password', 'gender', 'age', 'domicile', 'phone_number', 'service', 'psikotest_type_id', 'reason', 'preference_schedule'];
+
+    public function psikotestType()
+    {
+        return $this->belongsTo(PsikotestType::class);
+    }
 }

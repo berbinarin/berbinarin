@@ -24,6 +24,7 @@ return new class extends Migration
             $table->foreignId('psikotest_type_id')->constrained('psikotest_types')->onUpdate('cascade')->onDelete('cascade');
             $table->text('reason');
             $table->dateTime('preference_schedule');
+            $table->string('token')->nullable();
             $table->timestamps();
         });
     }

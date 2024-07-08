@@ -126,7 +126,7 @@ class PsikotestTypeSeeder extends Seeder
             ],
             [
 
-                'id' => 22,
+                'id' => 23,
                 'name' => 'Asesmen supervisor: Paket 2',
                 'description' => ''
             ]
