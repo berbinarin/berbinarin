@@ -254,6 +254,17 @@
                   {{$Internship->motivasi}}
                 </td>
               </tr>
+
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
+                  <label class="font-semibold text-gray-600">Keterangan:</label>
+                </td>
+                <td class="py-1 pl-4 pr-8 multi-line-ellipsis">
+                  {{$Internship->keterangan}}
+                </td>
+              </tr>
+
+              
             </table>
           </div>
 
