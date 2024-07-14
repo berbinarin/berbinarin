@@ -48,36 +48,36 @@
               <td class="px-6 py-4 whitespace-no-wrap">{{ $item->created_at}}</td>
               <td class="px-6 py-4 whitespace-no-wrap">{{ $item->hiringPosition->name}}</td>
               <td class="px-6 py-4 whitespace-no-wrap w-60">
-                <select name="tidak_dapat_diproses" class="form-select w-60">
-                  <option value="yes" {{ $item->tidak_dapat_diproses == 'yes' ? 'selected' : '' }}>Pilih</option>
-                  <option value="no" {{ $item->tidak_dapat_diproses == 'no' ? 'selected' : '' }}>Mengundurkan diri</option>
-                  <option value="no" {{ $item->tidak_dapat_diproses == 'no' ? 'selected' : '' }}>Menolak wawancara</option>
-                  <option value="no" {{ $item->tidak_dapat_diproses == 'no' ? 'selected' : '' }}>Tidak membalas chat undangan</option>
-                  <option value="no" {{ $item->tidak_dapat_diproses == 'no' ? 'selected' : '' }}>Tidak bisa dihubungi</option>
+                <select name="tidak_dapat_diproses" class="form-select w-60 statusSelect" data-id="{{ $item->id }}" nama-kolom="status_tidak_dapat_diproses">
+                  <option value="Pilih" @if($item->status_tidak_dapat_diproses == "Pilih") selected @endif>Pilih</option>
+                  <option value="Mengundurkan diri" @if($item->status_tidak_dapat_diproses == "Mengundurkan diri") selected @endif >Mengundurkan diri</option>
+                  <option value="Menolak wawancara" @if($item->status_tidak_dapat_diproses == "Menolak wawancara") selected @endif >Menolak wawancara</option>
+                  <option value="Tidak membalas chat undangan" @if($item->status_tidak_dapat_diproses == "Tidak membalas chat undangan") selected @endif >Tidak membalas chat undangan</option>
+                  <option value="Tidak bisa dihubungi" @if($item->status_tidak_dapat_diproses == "Tidak bisa dihubungi") selected @endif >Tidak bisa dihubungi</option>
                 </select>
               </td>
               <td class="px-6 py-4 whitespace-no-wrap w-80">
-                <select name="catatan" class="form-select w-60">
-                  <option value="note0" {{ $item->catatan == 'note1' ? 'selected' : '' }}>Pilih</option>
-                  <option value="note1" {{ $item->catatan == 'note1' ? 'selected' : '' }}>CV tidak bisa dibuka</option>
-                  <option value="note2" {{ $item->catatan == 'note2' ? 'selected' : '' }}>Jurusan tidak sesuai</option>
-                  <option value="note3" {{ $item->catatan == 'note3' ? 'selected' : '' }}>Tidak Follow sosmed Berbinar</option>
-                  <option value="note3" {{ $item->catatan == 'note3' ? 'selected' : '' }}>Akun sosmed diprivat</option>
-                  <option value="note3" {{ $item->catatan == 'note3' ? 'selected' : '' }}>Tidak ada portofolio</option>
-                  <option value="note3" {{ $item->catatan == 'note3' ? 'selected' : '' }}>Nomor WA tidak aktif</option>
-                  <option value="note3" {{ $item->catatan == 'note3' ? 'selected' : '' }}>Data tidak sinkron</option>
-                  <option value="note3" {{ $item->catatan == 'note3' ? 'selected' : '' }}>Tidak direkomendasikan</option>
+                <select name="catatan" class="form-select w-60 statusSelect" data-id="{{ $item->id }}" nama-kolom="status_catatan">
+                  <option value="Pilih" @if($item->status_catatan == "Pilih") selected @endif>Pilih</option>
+                  <option value="CV tidak bisa dibuka" @if($item->status_catatan == "CV tidak bisa dibuka") selected @endif>CV tidak bisa dibuka</option>
+                  <option value="Jurusan tidak sesuai" @if($item->status_catatan == "Jurusan tidak sesuai") selected @endif>Jurusan tidak sesuai</option>
+                  <option value="Tidak Follow sosmed Berbinar" @if($item->status_catatan == "Tidak Follow sosmed Berbinar") selected @endif>Tidak Follow sosmed Berbinar</option>
+                  <option value="Akun sosmed diprivat" @if($item->status_catatan == "Akun sosmed diprivat") selected @endif>Akun sosmed diprivat</option>
+                  <option value="Tidak ada portofolio" @if($item->status_catatan == "Tidak ada portofolio") selected @endif>Tidak ada portofolio</option>
+                  <option value="Nomor WA tidak aktif" @if($item->status_catatan == "Nomor WA tidak aktif") selected @endif>Nomor WA tidak aktif</option>
+                  <option value="Data tidak sinkron" @if($item->status_catatan == "Data tidak sinkron") selected @endif>Data tidak sinkron</option>
+                  <option value="Tidak direkomendasikan" @if($item->status_catatan == "Tidak direkomendasikan") selected @endif>Tidak direkomendasikan</option>
                 </select>
               </td>
               <td class="px-6 py-4 whitespace-no-wrap w-80">
-                <select name="progress" class="form-select w-60">
-                  <option value="progress0" {{ $item->progress == 'progress1' ? 'selected' : '' }}>Pilih</option>
-                  <option value="progress1" {{ $item->progress == 'progress1' ? 'selected' : '' }}>Screening</option>
-                  <option value="progress2" {{ $item->progress == 'progress2' ? 'selected' : '' }}>Sudah dichat</option>
-                  <option value="progress3" {{ $item->progress == 'progress3' ? 'selected' : '' }}>Sudah diwawancara</option>
-                  <option value="progress3" {{ $item->progress == 'progress3' ? 'selected' : '' }}>Tidak lolos wawancara</option>
-                  <option value="progress3" {{ $item->progress == 'progress3' ? 'selected' : '' }}>Zoom TTD KK</option>
-                  <option value="progress3" {{ $item->progress == 'progress3' ? 'selected' : '' }}>Onboarding</option>
+                <select name="progress" class="form-select w-60 statusSelect"  data-id="{{ $item->id }}" nama-kolom="status_progress"> 
+                  <option value="Pilih" @if($item->status_progress == "Pilih") selected @endif>Pilih</option>
+                  <option value="Screening" @if($item->status_progress == "Screening") selected @endif>Screening</option>
+                  <option value="Sudah dichat" @if($item->status_progress == "Sudah dichat") selected @endif>Sudah dichat</option>
+                  <option value="Sudah diwawancara" @if($item->status_progress == "Sudah diwawancara") selected @endif>Sudah diwawancara</option>
+                  <option value="Tidak lolos wawancara" @if($item->status_progress == "Tidak lolos wawancara") selected @endif>Tidak lolos wawancara</option>
+                  <option value="Zoom TTD KK" @if($item->status_progress == "Zoom TTD KK") selected @endif>Zoom TTD KK</option>
+                  <option value="Onboarding" @if($item->status_progress == "Onboarding") selected @endif>Onboarding</option>
                 </select>
               </td>
               <td class="px-6 py-4 whitespace-no-wrap">{{ $item->hiringPosition->keterangan}}</td>
@@ -102,3 +102,88 @@
   }
 </script>
 @endsection
+
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var selectElements = document.querySelectorAll('.statusSelect');
+
+        selectElements.forEach(function(selectElement) {
+            selectElement.addEventListener('change', function () {
+                var selectedValue = selectElement.value;
+                var recordId = selectElement.getAttribute('data-id');
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '{{ route("updateStatus") }}', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}');
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            console.log('Status updated successfully');
+                        } else {
+                            console.error('Error updating status:', xhr.statusText);
+                        }
+                    }
+                };
+
+                var data = JSON.stringify({ status: selectedValue, id: recordId });
+                xhr.send(data);
+            });
+        });
+    });
+</script> -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var selectElements = document.querySelectorAll('.statusSelect');
+
+        selectElements.forEach(function(selectElement) {
+            selectElement.addEventListener('change', function () {
+                var selectedValue = selectElement.value;
+                var recordId = selectElement.getAttribute('data-id');
+                var namaKolom = selectElement.getAttribute('nama-kolom');
+                // console.log(namaKolom);
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '{{ route("updateStatus") }}', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}');
+
+                xhr.onreadystatechange = function () {
+                  if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            Swal.fire({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                icon: 'success',
+                                title: 'Status updated successfully',
+                                customClass: {
+                                    container: 'my-swal-toast-container'
+                                }
+                            });
+                        } else {
+                            Swal.fire({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                icon: 'error',
+                                title: 'Error updating status',
+                                customClass: {
+                                    container: 'my-swal-toast-container'
+                                }
+                            });
+                        }
+                    }
+                };
+                var data = JSON.stringify({ status: selectedValue, id: recordId, coloumn: namaKolom });
+                console.log(data);
+                xhr.send(data);
+            });
+        });
+    });
+</script>
+
