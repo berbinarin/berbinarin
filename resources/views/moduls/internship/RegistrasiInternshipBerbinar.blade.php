@@ -203,17 +203,17 @@
               <div class="mb-3">
                 <label for="akun_instagram" class="block text-xs font-medium text-gray-700">Tautan akun Instagram</label>
                 <p class="text-xs font-small">(Disarankan mencantumkan akun Instagram yang tidak diprivate)</p>
-                <input type="text" id="akun_instagram" name="akun_instagram" placeholder="https://www.instagram.com/xxxx/" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
+                <input type="url" id="akun_instagram" name="akun_instagram" placeholder="https://www.instagram.com/xxxx/" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
               </div>
               <div class="mb-3">
                 <label for="akun_tiktok" class="block text-xs font-medium text-gray-700">Tautan akun TikTok</label>
                 <p class="text-xs font-small">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p>
-                <input type="text" id="akun_tiktok" name="akun_tiktok" placeholder="https://www.TikTok.com/xxxx/" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
+                <input type="url" id="akun_tiktok" name="akun_tiktok" placeholder="https://www.TikTok.com/xxxx/" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
               </div>
               <div class="mb-3">
                 <label for="akun_linkdin" class="block text-xs font-medium text-gray-700">Tautan akun LinkedIn</label>
                 <p class="text-xs font-small">(Disarankan mencantumkan akun LinkedIn yang tidak diprivate)</p>
-                <input type="text" id="akun_linkdin" name="akun_linkdin" placeholder="https://www.LinkedIn.com/xxxx/" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
+                <input type="url" id="akun_linkdin" name="akun_linkdin" placeholder="https://www.LinkedIn.com/xxxx/" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
               </div>
               <div class="mb-3">
                 <label for="sumber_informasi" class="block text-xs font-medium text-gray-700">Dari mana kamu mendapatkan informasi rekrutmen ini?</label>
@@ -250,19 +250,19 @@
               <div class="mb-3">
                 <label for="tautan_cv" class="block text-xs font-medium text-gray-700">Tautan CV</label>
                 <!-- <p class="text-xs">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p> -->
-                <input type="text" id="tautan_cv" name="tautan_cv" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs font-medium" required>
+                <input type="text" id="tautan_cv" name="tautan_cv" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs text-xs font-small" required>
               </div>
               <div class="mb-3">
                 <label for="tautan_portofolio" class="block text-xs font-medium text-gray-700">Tautan Portofolio</label>
                 <!-- <p class="text-xs">(Disarankan mencantumkan akun LinkedIn yang tidak diprivate)</p> -->
-                <input type="text" id="tautan_portofolio" name="tautan_portofolio" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs" required>
+                <input type="text" id="tautan_portofolio" name="tautan_portofolio" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs text-xs font-small" required>
               </div>
               <div class="mb-3">
                 <label for="tautan_berkas_ss" class="block text-xs font-medium text-gray-700">Tautan Berkas Screenshot Bukti Follow Semua Media Sosial Berbinar</label>
                 <p class="text-xs font-small">Link seluruh sosial media dapat diakses di sini:
                   <a href="https://linktr.ee/berbinarinsight" class="text-xs text-blue-500 underline">https://linktr.ee/berbinarinsight</a>
                 </p>
-                <input type="text" id="tautan_berkas_ss" name="tautan_berkas_ss" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs" required>
+                <input type="text" id="tautan_berkas_ss" name="tautan_berkas_ss" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs text-xs font-small" required>
               </div>
 
               <div class="hidden md:flex justify-between items-center -mb-4 mt-20">

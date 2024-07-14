@@ -7,8 +7,21 @@
 @section('content-dashboard')
  <style>
   .w-80 {
-  width: 20rem; /* Adjust as needed for your specific requirements */
-}
+    width: 20rem; /* Adjust as needed for your specific requirements */
+  }
+  .sticky-col {
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: white;
+    z-index: 1;
+  }
+  .sticky-col-1 {
+    left: 0;
+    width: 50px; /* Adjust width if necessary */
+  }
+  .sticky-col-2 {
+    left: 50px; /* Adjust this value to match the width of the first column */
+  }
  </style>
 
 <section class="flex w-full">
@@ -27,8 +40,8 @@
         <table id="example" class="min-w-full leading-normal">
           <thead>
             <tr class="mt-4">
-              <th class="px-6 py-3 bg-white text-left text-sm leading-4 font-bold text-black tracking-wider">No</th>
-              <th class="px-6 py-3 bg-white text-left text-sm leading-4 font-bold text-black tracking-wider">Nama Lengkap</th>
+              <th class="px-6 py-3 bg-white text-left text-sm leading-4 font-bold text-black tracking-wider sticky-col sticky-col-1">No</th>
+              <th class="px-6 py-3 bg-white text-left text-sm leading-4 font-bold text-black tracking-wider sticky-col sticky-col-2">Nama Lengkap</th>
               <th class="px-6 py-3 bg-white text-left text-sm leading-4 font-bold text-black tracking-wider">Link WA</th>
               <th class="px-6 py-3 bg-white text-left text-sm leading-4 font-bold text-black tracking-wider">Tanggal Pendaftaran</th>
               <th class="px-6 py-3 bg-white text-left text-sm leading-4 font-bold text-black tracking-wider">Nama Posisi</th>
@@ -42,8 +55,8 @@
           <tbody>
             @foreach($Internship as $item)
             <tr class="border-b border-gray-200 hover:bg-gray-100">
-              <td class="px-6 py-4 whitespace-no-wrap">{{ $loop->iteration }}</td>
-              <td class="px-6 py-4 whitespace-no-wrap">{{ $item->nama_lengkap }}</td>
+              <td class="px-6 py-4 whitespace-no-wrap sticky-col sticky-col-1">{{ $loop->iteration }}</td>
+              <td class="px-6 py-4 whitespace-no-wrap sticky-col sticky-col-2">{{ $item->nama_lengkap }}</td>
               <td class="px-6 py-4 whitespace-no-wrap text-blue-500"><a href="https://wa.me/{{ $item->no_whatsapp }}">{{ $item->no_whatsapp }}</a></td>
               <td class="px-6 py-4 whitespace-no-wrap">{{ $item->created_at}}</td>
               <td class="px-6 py-4 whitespace-no-wrap">{{ $item->hiringPosition->name}}</td>
