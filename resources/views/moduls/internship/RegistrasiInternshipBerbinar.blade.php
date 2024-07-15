@@ -289,6 +289,9 @@
                 <!-- <p class="text-xs">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p> -->
                 <textarea type="textarea" id="motivasi" name="motivasi" placeholder="Motivasi saya mendaftaran magang di Berbinar Insightful Indonesia adalah ..." class="mt-1 h-[200px] block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required></textarea>
                 <input type="hidden" name="is_process" value={{ true }}>
+                <input type="hidden" name="status_tidak_dapat_diproses" value={{ true }}>
+                <input type="hidden" name="status_catatan" value={{ true }}>
+                <input type="hidden" name="status_progress" value={{ true }}>
               </div>
               <div class="hidden md:flex justify-between items-center -mb-4 mt-4">
                 <!-- Tombol Sebelumnya -->
@@ -370,7 +373,7 @@
         event.preventDefault();
 
         var hasError = false; // Assume no error initially
-
+        var errorMessage;
         // Example error checking logic (replace with actual logic)
         var requiredFields = [
           'email',
@@ -396,11 +399,22 @@
           var field = document.getElementById(fieldId);
           if (!field || field.value.trim() === '') {
             hasError = true;
+            errorMessage = 'Field ' + fieldId + ' belum diisi nih :(';
             console.log("Missing or empty field: " + fieldId); // Log the missing field for debugging
             //break;
           }
+          if (fieldId === 'akun_instagram' || fieldId === 'akun_tiktok' || fieldId === 'akun_linkdin') {
+            if (!isValidURL(field.value)){
+             hasError = true;
+             errorMessage = 'Field ' + fieldId + ' kamu salah format :(';
+             console.log('salah format: ' + fieldId);
+            }
+          }
         });
-        console.log("HASERROR: " + hasError);
+
+        console.log("HASERROR: " + hasError
+
+        );
 
         if (hasError) {
           const Toast = Swal.mixin({
@@ -419,13 +433,24 @@
 
           Toast.fire({
               icon: "error",
-              title: "Data yang anda masukan tidak lengkap atau salah"
+              title: errorMessage
           });
         } else {
           // No error, show the modal
           document.getElementById('successModal').classList.remove('hidden');
         }
       });
+
+      function isValidURL(url) {
+          // Regular expression for basic URL validation
+          var urlPattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+                  '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+                  '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+                  '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+                  '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+                  '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+          return urlPattern.test(url);
+      }
 
       document.getElementById('closeModal').addEventListener('click', function() {
         document.getElementById('successModal').classList.add('hidden');
