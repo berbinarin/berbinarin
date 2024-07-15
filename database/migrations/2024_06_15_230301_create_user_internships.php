@@ -36,6 +36,9 @@ return new class extends Migration
 
             $table->string('motivasi');
             $table->boolean("is_process")->default(true);
+            $table->enum('status_tidak_dapat_diproses', ['Pilih', 'Mengundurkan diri', 'Menolak wawancara', 'Tidak membalas chat undangan', 'Tidak bisa dihubungi']);
+            $table->enum('status_catatan', ['Pilih', 'CV tidak bisa dibuka', 'Jurusan tidak sesuai', 'Tidak Follow sosmed Berbinar', 'Akun sosmed diprivat', 'Tidak ada portofolio', 'Nomor WA tidak aktif', 'Data tidak sinkron', 'Tidak direkomendasikan']);
+            $table->enum('status_progress', ['Pilih', 'Screening', 'Sudah dichat', 'Sudah diwawancara', 'Tidak lolos wawancara', 'Zoom TTD KK', 'Onboarding']);
             $table->timestamps();
         });
     }
