@@ -111,6 +111,7 @@ class UserInternshipController extends Controller
             'tautan_portofolio' => 'required|url',
             'tautan_berkas_ss' => 'required|url',
             'motivasi' => 'required|string',
+            'keterangan' => 'required|string'
         ]);
 
         $userInternship->update($request->all());
