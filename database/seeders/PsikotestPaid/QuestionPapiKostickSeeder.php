@@ -1,19 +1,19 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\PsikotestPaid;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class PapiKostickSeeder extends Seeder
+class QuestionPapiKostickSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('papi_kosticks')->insert([
+        DB::table('question_papi_kosticks')->insert([
             [
                 'id' => 1,
                 'a' => 'Saya seorang pekerja keras',

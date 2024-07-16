@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\PsikotestPaid;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -17,57 +17,79 @@ class PsikotestTypeSeeder extends Seeder
             [
                 'id' => 1,
                 'name' => 'Tes kesiapan pernikahan',
-                'description' => 'Tes ini bertujuan untuk mengevaluasi kesiapan SobatBinar dalam menjalani pernikahan dengan mengidentifikasi aspek-aspek psikologis dan kepribadian.'
+                'description' => 'Tes ini bertujuan untuk mengevaluasi kesiapan SobatBinar dalam menjalani pernikahan dengan mengidentifikasi aspek-aspek psikologis dan kepribadian.',
+                'price' => 299000,
+                'category_psikotest_type_id' => 1,
             ],
             [
                 'id' => 2,
                 'name' => 'Tes kesiapan menjadi orang tua',
-                'description' => 'Tes ini bertujuan untuk menilai kesiapan SobatBinar dalam menjalani peran sebagai orang tua dengan mengidentifikasi aspek kepribadian.'
+                'description' => 'Tes ini bertujuan untuk menilai kesiapan SobatBinar dalam menjalani peran sebagai orang tua dengan mengidentifikasi aspek kepribadian.',
+                'price' => 299000,
+                'category_psikotest_type_id' => 1,
             ],
             [
                 'id' => 3,
                 'name' => 'Tes kecocokan pasangan',
-                'description' => 'Tes ini membantu dalam menilai kesesuaian antara dua individu dalam sebuah hubungan dengan mengidentifikasi aspek kepribadian.'
+                'description' => 'Tes ini membantu dalam menilai kesesuaian antara dua individu dalam sebuah hubungan dengan mengidentifikasi aspek kepribadian.',
+                'price' => 299000,
+                'category_psikotest_type_id' => 1,
             ],
             [
                 'id' => 4,
                 'name' => 'Tes stress',
-                'description' => 'Membantu SobatBinar mengetahui gejala dan tingkat stres yang sedang dialami.'
+                'description' => 'Membantu SobatBinar mengetahui gejala dan tingkat stres yang sedang dialami.',
+                'price' => 159999,
+                'category_psikotest_type_id' => 1,
             ],
             [
                 'id' => 5,
                 'name' => 'Tes depresi',
-                'description' => 'Membantu SobatBinar untuk mengetahui gejala dan tingkat depresi yang dialami.'
+                'description' => 'Membantu SobatBinar untuk mengetahui gejala dan tingkat depresi yang dialami.',
+                'price' => 159999,
+                'category_psikotest_type_id' => 1,
             ],
             [
                 'id' => 6,
                 'name' => 'Tes kecemasan',
-                'description' => 'Membantu SobatBinar untuk mengetahui gejala dan tingkat kecemasan.'
+                'description' => 'Membantu SobatBinar untuk mengetahui gejala dan tingkat kecemasan.',
+                'price' => 159999,
+                'category_psikotest_type_id' => 1,
             ],
             [
                 'id' => 7,
                 'name' => 'Tes kecemasan +',
-                'description' => 'Membantu SobatBinar untuk mengetahui gejala dan tingkat kecemasan disertai dengan konseling bersama psikolog.'
+                'description' => 'Membantu SobatBinar untuk mengetahui gejala dan tingkat kecemasan disertai dengan konseling bersama psikolog.',
+                'price' => 299000,
+                'category_psikotest_type_id' => 1,
             ],
             [
                 'id' => 8,
                 'name' => 'Tes fungsi kognitif',
-                'description' => 'Tes ini bertujuan untuk mengevaluasi kemampuan kognitif seseorang, seperti kemampuan problem solving, pemahaman, dan proses berpikir.'
+                'description' => 'Tes ini bertujuan untuk mengevaluasi kemampuan kognitif seseorang, seperti kemampuan problem solving, pemahaman, dan proses berpikir.',
+                'price' => 129999,
+                'category_psikotest_type_id' => 1,
             ],
             [
                 'id' => 9,
                 'name' => 'Tes memori',
-                'description' => 'Membantu SobatBinar untuk menilai kemampuan memori, seperti daya ingat jangka pendek dan jangka panjang.'
+                'description' => 'Membantu SobatBinar untuk menilai kemampuan memori, seperti daya ingat jangka pendek dan jangka panjang.',
+                'price' => 129999,
+                'category_psikotest_type_id' => 1,
             ],
             [
                 'id' => 10,
                 'name' => 'Tes demensia',
-                'description' => 'Tes ini bertujuan untuk menilai kemungkinan adanya demensia.'
+                'description' => 'Tes ini bertujuan untuk menilai kemungkinan adanya demensia.',
+                'price' => 129999,
+                'category_psikotest_type_id' => 1,
             ],
             [
                 'id' => 11,
                 'name' => 'Tes Self-love',
-                'description' => 'Membantu SobatBinar memahami diri sendiri, khususnya dari aspek hubungan sosial, sikap, dan aktivitas.'
+                'description' => 'Membantu SobatBinar memahami diri sendiri, khususnya dari aspek hubungan sosial, sikap, dan aktivitas.',
+                'price' => 99000,
+                'category_psikotest_type_id' => 2,
             ],
             [
                 'id' => 12,
