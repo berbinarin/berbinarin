@@ -215,6 +215,22 @@
                   <input type="text" id="updated_at" name="updated_at" value="{{ $Internship->updated_at }}" readonly class="border border-gray-300 px-2 py-1 rounded-lg w-full bg-gray-100">
                 </td>
               </tr>
+
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
+                  <label class="font-semibold text-gray-600" for="keterangan">Keterangan:</label>
+                </td>
+                <td class="py-1 pl-4 pr-8">
+                  <input 
+                    type="text" 
+                    id="keterangan" 
+                    name="keterangan" 
+                    class="w-full border border-gray-300 rounded px-2 py-1" 
+                    value="{{$Internship->keterangan}}" 
+                  />
+                </td>
+              </tr>
+            
             </table>
           </div>
 
