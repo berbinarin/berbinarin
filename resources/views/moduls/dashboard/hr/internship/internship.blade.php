@@ -93,7 +93,7 @@
                   <option value="Onboarding" @if($item->status_progress == "Onboarding") selected @endif>Onboarding</option>
                 </select>
               </td>
-              <td class="px-6 py-4 whitespace-no-wrap">{{ $item->hiringPosition->keterangan}}</td>
+              <td class="px-6 py-4 whitespace-no-wrap">{{ $item->keterangan}}</td>
               <td>
                 <a href="/dashboard/admin/internshipDataDetails/{{ $item->id }}" class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-3 bg-gray-500 hover:bg-gray-600 focus:outline-none rounded">
                   <i class='bx bx-show text-white'></i>

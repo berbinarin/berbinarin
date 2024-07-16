@@ -14,7 +14,7 @@ class UserInternship extends Model
         'no_whatsapp', 'asal_kota', 'asal_pendidikan', 'status_kelas', 'jurusan',
         'akun_instagram', 'akun_tiktok', 'akun_linkdin', 'sumber_informasi',
         'tautan_cv', 'tautan_portofolio', 'tautan_berkas_ss', 'motivasi', 'is_process',
-        'status_tidak_dapat_diprogress', 'status_catatan', 'status_progress'
+        'status_tidak_dapat_diprogress', 'status_catatan', 'status_progress', 'keterangan'
     ];
 
     public function hiringPosition()
