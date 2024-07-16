@@ -263,7 +263,6 @@
                   {{$Internship->keterangan}}
                 </td>
               </tr>
-
               
             </table>
           </div>
