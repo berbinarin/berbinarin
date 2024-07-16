@@ -15,7 +15,7 @@
             </div>
             <div class="flex flex-col gap-2">
                 <a href="{{ route('counseling') }}" class="text-base text-disabled">Konseling</a>
-                <a href="{{ route('psikotest') }}" class="text-base text-disabled">Tes Psikotes</a>
+                <a href="{{ route('psikotest') }}" class="text-base text-disabled">Psikotes</a>
                 <a href="{{ route('class') }}" class="text-base text-disabled">Kelas Berbinar</a>
             </div>
         </div>

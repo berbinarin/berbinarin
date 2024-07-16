@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Internship\ajaxInternship;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PsikotestFree\UserPsikotestFreeController;
@@ -158,6 +159,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin/internshipDataDetails/{id}', [DashboardController::class, 'internshipDataDetails'])->name('dashboard.internshipDataDetails');
     Route::get('/dashboard/admin/internshipDataDetails/edit/{id}', [DashboardController::class, 'editInternship'])->name('dashboard.editInternship');
     Route::put('/dashboard/admin/internshipDataDetails/update/{id}', [DashboardController::class, 'updateInternship'])->name('dashboard.updateInternship');
+    // INTERN AJAX
+    Route::post('/dashboard/admin/internship/update-status', [ajaxInternship::class, 'updateStatus'])->name('updateStatus');
+
 
     // MODUL POSITIONS JOB DESCRIPTION
     Route::get('/dashboard/admin/positions/descriptions', [DashboardController::class, 'jobDescriptions'])->name('dashboard.positions.descriptions');

@@ -15,8 +15,7 @@
         <div class="bg-blur-bg rounded-[700px] blur-[55px] w-[300px] md:w-[600px] h-[250px] md:h-[600px] absolute">
         </div>
         <div class="flex flex-col gap-5 z-40 relative">
-            <h1 class="font-semibold text-black text-[40px] md:text-[64px] leading-[100%] md:leading-[120%]">Asesmen
-                Psikologi
+            <h1 class="font-semibold text-black text-[40px] md:text-[64px] leading-[100%] md:leading-[120%]">Psikotes
                 <!-- Psikotes<span class="text-primary font-bold"> Berbinar</span> -->
             </h1>
             <p class="text-lg text-disabled">Psikotes berbinar Insightful Indonesia merupakan solusi unggul
@@ -24,7 +23,7 @@
                 mendalam tentang kepribadian, keterampilan, dan kemampuan, untuk membantu pengambilan keputusan yang
                 tepat dalam mengoptimalkan potensi karier.</p>
             <a href="{{ route('psikotestHome') }}" class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Lakukan
-                Asesmen Psikologi</a>
+                Psikotes</a>
         </div>
     </div>
 
@@ -42,13 +41,13 @@
         <div class="bg-blur-bg rounded-[700px] blur-[55px] w-[300px] md:w-[600px] h-[250px] md:h-[600px] absolute">
         </div>
         <div class="flex flex-col gap-5 z-40 relative">
-            <h2 class="text-black fomt-semibold text-3xl md:px-0">Asesmen Psikologi Individu
+            <h2 class="text-black fomt-semibold text-3xl md:px-0">Psikotes Individu
                 <!-- Psikotes Individu<span class="text-primary font-bold"> Berbinar</span> -->
             </h2>
-            <p class="text-lg text-disabled">Assesmen Psikologi individu dapat memprediksi potensi yang dimiliki dalam
+            <p class="text-lg text-disabled">Psikotes individu dapat memprediksi potensi yang dimiliki dalam
                 kaitannya dengan pencapaian hasil belajar atau kemampuan di masa yang akan datang.</p>
             <a href="https://bit.ly/DaftarPsikotesBerbinar" class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Daftar
-                Asesmen Psikologi Individu Sekarang</a>
+                Psikotes Individu Sekarang</a>
         </div>
     </div>
 
@@ -60,7 +59,7 @@
 <section class="max-w-6xl mt-5 mx-5 md:mx-auto flex flex-col gap-10 z-40">
     <div class="flex flex-col gap-1">
         <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
-            Asesmen Psikologi Individu
+            Psikotes Individu
         </h1>
 
         <p class="text-lg text-disabled text-center">Pilih layanan yang ingin anda ikuti</p>
@@ -317,13 +316,13 @@
         </div>
         <div class="flex flex-col gap-5 z-40 relative">
             <h2 class="text-black fomt-semibold text-3xl">
-                Asesmen Psikologi Perusahaan
+                Psikotes Perusahaan
             </h2>
-            <p class="text-lg text-disabled">Assesmen Psikologi untuk Perusahaan digunakan untuk melihat potensi,
+            <p class="text-lg text-disabled">Psikotes untuk Perusahaan digunakan untuk melihat potensi,
                 kelebihan dan kekurangan, serta kecenderungan kepribadian seorang kandidat dan melihat apakah kandidat
                 tersebut cocok ditempatkan di suatu posisi pekerjaan.</p>
             <a href="https://bit.ly/DaftarPsikotesBerbinar" class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Daftar
-                Asesmen Psikologi Perusahaan Sekarang</a>
+                Psikotes Perusahaan Sekarang</a>
         </div>
     </div>
 
@@ -334,7 +333,7 @@
 <section class="max-w-6xl mx-5 md:mx-auto mt-5 md:mt-0 flex flex-col gap-10 z-40">
     <div class="flex flex-col gap-1">
         <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
-            Asesmen Psikologi Perusahaan - Staff
+            Psikotes Perusahaan - Staff
         </h1>
 
         <p class="text-lg text-disabled text-center">Pilih tes sesuai dengan kebutuhan perusahaan anda</p>
@@ -631,7 +630,7 @@
     <div class="pt-0 md:py-10">
         <div class="flex flex-col gap-1 pt-3 pb-10">
             <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
-                Asesmen Psikologi Perusahaan - Supervisor
+                Psikotes Perusahaan - Supervisor
             </h1>
 
             <p class="text-lg text-disabled text-center">Pilih tes sesuai dengan kebutuhan perusahaan anda</p>
@@ -801,13 +800,13 @@
         <div class="bg-blur-bg rounded-[700px] blur-[55px] w-[300px] md:w-[600px] h-[250px] md:h-[600px] absolute">
         </div>
         <div class="flex flex-col gap-5 z-40 relative">
-            <h2 class="text-black fomt-semibold text-3xl md:px-0">Asesmen Psikologi Instansi Pendidikan
+            <h2 class="text-black fomt-semibold text-3xl md:px-0">Psikotes Instansi Pendidikan
                 <!-- Psikotes Individu<span class="text-primary font-bold"> Berbinar</span> -->
             </h2>
-            <p class="text-lg text-disabled">Assesmen Psikologi untuk Instansi Pendidikan digunakan untuk mengenal gaya
+            <p class="text-lg text-disabled">Psikotes untuk Instansi Pendidikan digunakan untuk mengenal gaya
                 belajar, cita-cita, jurusan, minat bakat yang sesuai dengan SobatBinar.</p>
             <a href="https://bit.ly/DaftarPsikotesBerbinar" class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Daftar
-                Asesmen Instansi Pendidikan Sekarang</a>
+                Psikotes Instansi Pendidikan Sekarang</a>
         </div>
     </div>
 
@@ -819,7 +818,7 @@
 <section class="max-w-6xl mt-5 mx-5 md:mx-auto flex flex-col gap-10 z-40">
     <div class="flex flex-col gap-1">
         <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
-            Asesmen Psikologi Instansi Pendidikan
+            Psikotes Instansi Pendidikan
         </h1>
 
         <p class="text-lg text-disabled text-center">Pilih tes sesuai dengan kebutuhan pendidikan anda</p>
@@ -1147,14 +1146,14 @@
         <div class="bg-blur-bg rounded-[700px] blur-[55px] w-[300px] md:w-[600px] h-[250px] md:h-[600px] absolute">
         </div>
         <div class="flex flex-col gap-5 z-40 relative">
-            <h2 class="text-black fomt-semibold text-3xl md:px-0">Asesmen Psikologi Kategori Komunitas
+            <h2 class="text-black fomt-semibold text-3xl md:px-0">Psikotes Kategori Komunitas
                 <!-- Psikotes Individu<span class="text-primary font-bold"> Berbinar</span> -->
             </h2>
-            <p class="text-lg text-disabled">Assesmen Psikologi untuk Komunitas ini bertujuan untuk mengetahui kesiapan
+            <p class="text-lg text-disabled">Psikotes untuk Komunitas ini bertujuan untuk mengetahui kesiapan
                 pernikahan, menjadi orang tua, kecocokan bersama pasangan, tingkat stress, depresi, kecemasan, memori,
                 dan dimensia.</p>
             <a href="https://bit.ly/DaftarPsikotesBerbinar" class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Daftar
-                Asesmen Instansi Pendidikan Sekarang</a>
+                Psikotes Pendidikan Sekarang</a>
         </div>
     </div>
 
@@ -1165,7 +1164,7 @@
 <section class="max-w-6xl mt-5 mx-5 md:mx-auto flex flex-col gap-10 z-40">
     <div class="flex flex-col gap-1">
         <h1 class="text-black fomt-semibold text-3xl px-5 md:px-0 text-center">
-            Asesmen Psikologi Kategori Komunitas
+            Psikotest Kategori Komunitas
         </h1>
         <p class="text-lg text-disabled text-center">Pilih tes sesuai dengan kebutuhan anda</p>
     </div>

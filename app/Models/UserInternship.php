@@ -13,7 +13,8 @@ class UserInternship extends Model
         'position_id', 'email', 'nama_lengkap', 'nama_panggilan', 'tanggal_lahir',
         'no_whatsapp', 'asal_kota', 'asal_pendidikan', 'status_kelas', 'jurusan',
         'akun_instagram', 'akun_tiktok', 'akun_linkdin', 'sumber_informasi',
-        'tautan_cv', 'tautan_portofolio', 'tautan_berkas_ss', 'motivasi', 'is_process'
+        'tautan_cv', 'tautan_portofolio', 'tautan_berkas_ss', 'motivasi', 'is_process',
+        'status_tidak_dapat_diprogress', 'status_catatan', 'status_progress'
     ];
 
     public function hiringPosition()

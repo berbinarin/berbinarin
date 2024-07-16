@@ -203,17 +203,17 @@
               <div class="mb-3">
                 <label for="akun_instagram" class="block text-xs font-medium text-gray-700">Tautan akun Instagram</label>
                 <p class="text-xs font-small">(Disarankan mencantumkan akun Instagram yang tidak diprivate)</p>
-                <input type="text" id="akun_instagram" name="akun_instagram" placeholder="https://www.instagram.com/xxxx/" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
+                <input type="url" id="akun_instagram" name="akun_instagram" placeholder="https://www.instagram.com/xxxx/" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
               </div>
               <div class="mb-3">
                 <label for="akun_tiktok" class="block text-xs font-medium text-gray-700">Tautan akun TikTok</label>
                 <p class="text-xs font-small">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p>
-                <input type="text" id="akun_tiktok" name="akun_tiktok" placeholder="https://www.TikTok.com/xxxx/" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
+                <input type="url" id="akun_tiktok" name="akun_tiktok" placeholder="https://www.TikTok.com/xxxx/" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
               </div>
               <div class="mb-3">
                 <label for="akun_linkdin" class="block text-xs font-medium text-gray-700">Tautan akun LinkedIn</label>
                 <p class="text-xs font-small">(Disarankan mencantumkan akun LinkedIn yang tidak diprivate)</p>
-                <input type="text" id="akun_linkdin" name="akun_linkdin" placeholder="https://www.LinkedIn.com/xxxx/" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
+                <input type="url" id="akun_linkdin" name="akun_linkdin" placeholder="https://www.LinkedIn.com/xxxx/" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
               </div>
               <div class="mb-3">
                 <label for="sumber_informasi" class="block text-xs font-medium text-gray-700">Dari mana kamu mendapatkan informasi rekrutmen ini?</label>
@@ -250,19 +250,19 @@
               <div class="mb-3">
                 <label for="tautan_cv" class="block text-xs font-medium text-gray-700">Tautan CV</label>
                 <!-- <p class="text-xs">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p> -->
-                <input type="text" id="tautan_cv" name="tautan_cv" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs font-medium" required>
+                <input type="text" id="tautan_cv" name="tautan_cv" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs text-xs font-small" required>
               </div>
               <div class="mb-3">
                 <label for="tautan_portofolio" class="block text-xs font-medium text-gray-700">Tautan Portofolio</label>
                 <!-- <p class="text-xs">(Disarankan mencantumkan akun LinkedIn yang tidak diprivate)</p> -->
-                <input type="text" id="tautan_portofolio" name="tautan_portofolio" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs" required>
+                <input type="text" id="tautan_portofolio" name="tautan_portofolio" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs text-xs font-small" required>
               </div>
               <div class="mb-3">
                 <label for="tautan_berkas_ss" class="block text-xs font-medium text-gray-700">Tautan Berkas Screenshot Bukti Follow Semua Media Sosial Berbinar</label>
                 <p class="text-xs font-small">Link seluruh sosial media dapat diakses di sini:
                   <a href="https://linktr.ee/berbinarinsight" class="text-xs text-blue-500 underline">https://linktr.ee/berbinarinsight</a>
                 </p>
-                <input type="text" id="tautan_berkas_ss" name="tautan_berkas_ss" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs" required>
+                <input type="text" id="tautan_berkas_ss" name="tautan_berkas_ss" placeholder="https://www.drive.google.com/xxxx/" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs text-xs font-small" required>
               </div>
 
               <div class="hidden md:flex justify-between items-center -mb-4 mt-20">
@@ -289,6 +289,9 @@
                 <!-- <p class="text-xs">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p> -->
                 <textarea type="textarea" id="motivasi" name="motivasi" placeholder="Motivasi saya mendaftaran magang di Berbinar Insightful Indonesia adalah ..." class="mt-1 h-[200px] block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required></textarea>
                 <input type="hidden" name="is_process" value={{ true }}>
+                <input type="hidden" name="status_tidak_dapat_diproses" value={{ true }}>
+                <input type="hidden" name="status_catatan" value={{ true }}>
+                <input type="hidden" name="status_progress" value={{ true }}>
               </div>
               <div class="hidden md:flex justify-between items-center -mb-4 mt-4">
                 <!-- Tombol Sebelumnya -->
@@ -370,7 +373,7 @@
         event.preventDefault();
 
         var hasError = false; // Assume no error initially
-
+        var errorMessage;
         // Example error checking logic (replace with actual logic)
         var requiredFields = [
           'email',
@@ -396,11 +399,22 @@
           var field = document.getElementById(fieldId);
           if (!field || field.value.trim() === '') {
             hasError = true;
+            errorMessage = 'Field ' + fieldId + ' belum diisi nih :(';
             console.log("Missing or empty field: " + fieldId); // Log the missing field for debugging
             //break;
           }
+          if (fieldId === 'akun_instagram' || fieldId === 'akun_tiktok' || fieldId === 'akun_linkdin') {
+            if (!isValidURL(field.value)){
+             hasError = true;
+             errorMessage = 'Field ' + fieldId + ' kamu salah format :(';
+             console.log('salah format: ' + fieldId);
+            }
+          }
         });
-        console.log("HASERROR: " + hasError);
+
+        console.log("HASERROR: " + hasError
+
+        );
 
         if (hasError) {
           const Toast = Swal.mixin({
@@ -419,13 +433,24 @@
 
           Toast.fire({
               icon: "error",
-              title: "Data yang anda masukan tidak lengkap atau salah"
+              title: errorMessage
           });
         } else {
           // No error, show the modal
           document.getElementById('successModal').classList.remove('hidden');
         }
       });
+
+      function isValidURL(url) {
+          // Regular expression for basic URL validation
+          var urlPattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+                  '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+                  '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+                  '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+                  '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+                  '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+          return urlPattern.test(url);
+      }
 
       document.getElementById('closeModal').addEventListener('click', function() {
         document.getElementById('successModal').classList.add('hidden');

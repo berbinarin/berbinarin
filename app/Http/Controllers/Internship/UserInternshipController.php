@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\UserInternship;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Log;
 
 class UserInternshipController extends Controller
 {
@@ -51,15 +52,21 @@ class UserInternshipController extends Controller
             'tautan_portofolio' => 'required|url',
             'tautan_berkas_ss' => 'required|url',
             'motivasi' => 'required|string',
-            'is_process' => 'required|boolean'
+            'is_process' => 'required|boolean',
+            'status_tidak_dapat_diproses' => 'required|string',
+            'status_catatan' => 'required|string',
+            'status_progress' => 'required|string'
         ]);
-        $data = $request->all();
-        $data['is_process'] = false;
-    
-        UserInternship::create($data);
-        
-        return redirect()->route('hiring');
+            $data = $request->all();
+            $data['is_process'] = false;
+            $data['status_tidak_dapat_diproses'] = "Pilih";
+            $data['status_catatan'] = "Pilih";
+            $data['status_progress'] = "Pilih";
+            UserInternship::create($data);
+            
+            return redirect()->route('hiring');
         }catch(\Exception $e){
+            Log::error('Error storing user internship: ' . $e->getMessage());
             Alert::toast('error', 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage());
             return redirect()->back();
         }
