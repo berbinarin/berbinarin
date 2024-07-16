@@ -7,7 +7,7 @@
 @section('content')
 {{-- HERO SECTION --}}
 <section
-    class="max-w-6xl mx-auto h-screen flex flex-col md:flex-row items-center justify-center relative px-5 md:px-0 mt-28 md:mt-10">
+    class="max-w-6xl mx-auto h-screen flex flex-col md:flex-row items-center justify-center relative px-8 md:px-0 mt-28 md:mt-10">
     {{-- HERO IMG MOBILE --}}
     <img src="{{ asset('assets/images/ilustrasi-hiring.png') }}" alt="Ilustrasi Logo Berbinar"
         title="Ilustrasi Logo Berbinar" class="w-full block md:hidden" data-aos="fade-up" data-aos-duration="1500">
