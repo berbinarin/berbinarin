@@ -16,8 +16,13 @@ class PsikotestTool extends Model
         'token'
     ];
 
-    public function psikotestTypeTools()
+    // public function psikotestTypeTools()
+    // {
+    //     return $this->hasMany(PsikotestTypeTool::class);
+    // }
+
+    public function psikotestPaidTests()
     {
-        return $this->hasMany(PsikotestTypeTool::class);
+        return $this->hasMany(PsikotestPaidTest::class);
     }
 }

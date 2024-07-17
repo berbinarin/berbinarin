@@ -23,8 +23,8 @@ class PsikotestType extends Model
         return $this->belongsTo(CategoryPsikotestType::class);
     }
 
-    public function psikotestTypeTools()
+    public function userPsikotestPaid()
     {
-        return $this->hasMany(PsikotestTypeTool::class);
+        return $this->hasMany(UserPsikotestPaid::class);
     }
 }

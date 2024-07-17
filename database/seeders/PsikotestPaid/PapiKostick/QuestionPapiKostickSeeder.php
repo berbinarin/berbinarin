@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\PsikotestPaid;
+namespace Database\Seeders\PsikotestPaid\PapiKostick;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;

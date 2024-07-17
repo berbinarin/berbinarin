@@ -12,22 +12,22 @@ class PsikotestTypeTool extends Model
     protected $table = 'psikotest_type_tools';
 
     protected $fillable = [
-        'psikotest_type_id',
-        'psikotest_tool_id'
+        // 'psikotest_type_id',
+        // 'psikotest_tool_id'
     ];
 
-    public function psikotestType()
-    {
-        return $this->belongsTo(PsikotestType::class);
-    }
+    // public function psikotestType()
+    // {
+    //     return $this->belongsTo(PsikotestType::class);
+    // }
 
-    public function psikotestTool()
-    {
-        return $this->belongsTo(PsikotestTool::class);
-    }
+    // public function psikotestTool()
+    // {
+    //     return $this->belongsTo(PsikotestTool::class);
+    // }
 
-    public function userPsikotestPaids()
-    {
-        return $this->hasMany(UserPsikotestPaid::class);
-    }
+    // public function userPsikotestPaids()
+    // {
+    //     return $this->hasMany(UserPsikotestPaid::class);
+    // }
 }

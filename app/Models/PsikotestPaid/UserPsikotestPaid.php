@@ -25,9 +25,14 @@ class UserPsikotestPaid extends Model
         'psikotest_type_tool_id',
     ];
 
-    public function psikotestTypeTool()
+    // public function psikotestTypeTool()
+    // {
+    //     return $this->belongsTo(PsikotestTypeTool::class);
+    // }
+
+    public function psikotestType()
     {
-        return $this->belongsTo(PsikotestTypeTool::class);
+        return $this->belongsTo(PsikotestType::class);
     }
 
     public function psikotestPaidTestimonial()

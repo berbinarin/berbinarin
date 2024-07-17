@@ -14,11 +14,17 @@ class PsikotestPaidTest extends Model
 
     protected $fillable = [
         'user_psikotest_paid_id',
+        'psikotest_tool_id',
     ];
 
     public function userPsikotestPaid()
     {
         return $this->belongsTo(UserPsikotestPaid::class);
+    }
+
+    public function psikotestTool()
+    {
+        return $this->belongsTo(PsikotestTool::class);
     }
 
     public function testPapiKostick()
