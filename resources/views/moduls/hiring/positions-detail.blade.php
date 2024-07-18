@@ -13,17 +13,17 @@
         <div class="">
             {{-- header desktop --}}
             <div class="header hidden md:block rounded-lg z-0">
-                <img src="{{ asset($imagePath) }}" alt="Web and Mobile Apps Developer" title="" class="max-w-full md:h-[320px] md:w-[1280px] rounded-[20px] z-0">
+                <img src="{{ asset($imagePath) }}" alt="PT Berbinar Insightful Indonesia" title="" class="max-w-full md:h-[320px] md:w-[1280px] rounded-[20px] z-0">
                 <div class="relative">
-                    <img src="{{ asset('assets/images/logo-bg.png') }}" alt="Web and Mobile Apps Developer" title="" class="absolute -top-10 left-10 h-20 w-20 z-20">
+                    <img src="{{ asset('assets/images/logo-bg.png') }}" alt="PT Berbinar Insightful Indonesia" title="" class="absolute -top-10 left-10 h-20 w-20 z-20">
                 </div>
             </div>
 
             {{-- header mobile --}}
             <div class="header block md:hidden rounded-lg">
-                <img src="{{ asset($imagePathMobile) }}" alt="Web and Mobile Apps Developer" title="" class="max-w-full md:h-[270px] md:w-[1100px]">
+                <img src="{{ asset($imagePathMobile) }}" alt="PT Berbinar Insightful Indonesia" title="" class="max-w-full md:h-[270px] md:w-[1100px]">
                 <div class="relative flex justify-center items-center">
-                    <img src="{{ asset('assets/images/logo-bg.png') }}" alt="Web and Mobile Apps Developer" title="" class="absolute -top-10 left-36 h-20 w-20 z-20 object-center">
+                    <img src="{{ asset('assets/images/logo-bg.png') }}" alt="PT Berbinar Insightful Indonesia" title="" class="absolute -top-10 left-36 h-20 w-20 z-20 object-center">
                 </div>
             </div>
 
@@ -79,7 +79,7 @@
 
                                 <div class="flex flex-col pt-0 md:pt-9">
                                     <div class="about-us py-5">
-                                        <h4 class="text-xl md:text-2xl font-bold">About Us</h4>
+                                        <h4 class="text-xl md:text-2xl font-bold">Tentang Kami</h4>
                                         <p class="mr-5 mt-3 font-medium">Berbinar bergerak dalam edukasi dan layanan
                                             psikologi yang
                                             memberikan
@@ -88,7 +88,7 @@
                                             psikotes.</p>
                                     </div>
                                     <div class="responsibility py-5">
-                                        <h4 class="text-xl md:text-2xl font-bold">Responsibilities</h4>
+                                        <h4 class="text-xl md:text-2xl font-bold">Deskripsi Pekerjaan</h4>
 
                                         <ul class="list-decimal mx-7 mt-3 font-medium">
                                             @foreach ($position -> HiringPositionsJobDescription as $responsibility)
@@ -98,7 +98,7 @@
 
                                     </div>
                                     <div class="requirement  py-5">
-                                        <h4 class="text-xl md:text-2xl font-bold">Requirements</h4>
+                                        <h4 class="text-xl md:text-2xl font-bold">Persyaratan</h4>
                                         <ul class="list-decimal mx-7 mt-3 font-medium">
                                             @foreach ($position -> Hiring_Positions_Requirement as $requirement)
                                             <li>{{ $requirement->requirement}}</li>
@@ -110,8 +110,8 @@
 
 
                                 <div class="hidden md:flex card-right w-full h-full justify-center items-right pt-16 pl-10 my-5">
-                                    <div class="flex flex-col bg-gray-100 w-[400px] h-[550px] rounded-[20px] p-5">
-                                        <div clas="my-10">
+                                    <div class="flex flex-col bg-gray-100 w-[400px] h-[600px] rounded-[20px] px-5 pt-5 pb-10">
+                                        <div class="mt-2">
                                             <div class="flex flex-row mt-2">
                                                 <div class="mr-2">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
@@ -123,9 +123,8 @@
                                                 </div>
                                                 <p class="font-semibold pt-2">Surabaya, Indonesia</p>
                                             </div>
-                                            <p class="text-sm text-disabled mt-3">Please send us your detailed CV to
-                                                apply
-                                                for this role</p>
+                                            <p class="text-sm text-disabled mt-3">Silakan kirim CV lengkap anda
+                                                kepada kami untuk melamar posisi ini</p>
                                         </div>
                                         <div class="my-10">
                                             <h4 class="text-2xl font-bold">Unpaid</h4>
@@ -145,7 +144,7 @@
                                                     <p class="text-base font-semibold">
                                                         humanresource2.berbinar.in@gmail.com
                                                     </p>
-                                                    <p class="text-sm text-disabled">Contact Email</p>
+                                                    <p class="text-sm text-disabled">Kontak Email</p>
                                                 </div>
 
                                             </div>
@@ -164,7 +163,7 @@
 
                                                 <div>
                                                     <p class="text-base font-semibold">Remote</p>
-                                                    <p class="text-sm text-disabled">Job Type</p>
+                                                    <p class="text-sm text-disabled">Tipe Pekerjaan</p>
                                                 </div>
                                             </div>
 
@@ -187,7 +186,7 @@
                                                     <p class="text-base font-semibold">
                                                         {{$position->name}}
                                                     </p>
-                                                    <p class="text-sm text-disabled">Job Division</p>
+                                                    <p class="text-sm text-disabled">Posisi Pekerjaan</p>
                                                 </div>
                                             </div>
 
@@ -204,7 +203,7 @@
                                                     <p class="text-base font-semibold">
                                                         1 Juni 2024
                                                     </p>
-                                                    <p class="text-sm text-disabled">Posted</p>
+                                                    <p class="text-sm text-disabled">Tanggal Posting</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -231,7 +230,7 @@
                         <div class="text-center mt-10">
                             <a href="{{ route('hiring.position.detail', $position->id) }}">
                                 <button class="bg-black text-center text-white font-semibold py-3 px-7 rounded-full">
-                                    Apply for this job
+                                    Daftar Sekarang
                                 </button>
                             </a>
                         </div>
