@@ -18,9 +18,9 @@
           <!-- Judul Tabek kiri -->
           <div class="flex items-center mb-4">
             <div class="w-full flex justify-between">
-              <p class="text-xl font-semibold bg-gray-100 py-2 px-4 rounded-l-lg m-0 flex-grow text-start">Fields</p>
+              <p class="text-xl w-2/5 font-semibold bg-gray-100 py-1 px-4 rounded-l-lg m-0 flex-grow-0 text-start">Fields</p>
               <div class="w-1 bg-gray-300 h-full"></div>
-              <p class="text-xl font-semibold bg-gray-100 py-2 px-4 rounded-r-lg m-0 flex-grow text-start">Details</p>
+              <p class="text-xl w-3/5 font-semibold bg-gray-100 py-1 px-4 rounded-r-lg m-0 flex-grow-0 text-start">Details</p>
             </div>
           </div>
           <!-- Form untuk Value Table kiri -->
@@ -29,15 +29,15 @@
             @method('PUT')
             <div class="flex flex-col mb-2">
               <table class="w-full">
-                <tr class="border-b border-gray-200">
-                  <td class="py-2 px-4">
+                <tr class="border-b w-2/5 border-gray-200">
+                  <td class="py-1 border-r px-4 w-2/5">
                     <label for="id" class="font-semibold text-gray-600">ID:</label>
                   </td>
-                  <td class="py-2 border-l px-4">
+                  <td class="py-2 px-4">
                     <input type="text" id="id" name="id" value="{{ $Internship->id }}" readonly class="border border-gray-300 px-2 py-1 rounded-lg w-full bg-gray-100">
                   </td>
                 </tr>
-                <tr class="border-b border-gray-200">
+                <tr class="border-b w-3/5 border-gray-200">
                   <td class="py-2 px-4">
                     <label for="email" class="font-semibold text-gray-600">Email:</label>
                   </td>
@@ -127,16 +127,16 @@
           <!-- Judul table Kanan -->
           <div class="flex items-center mb-4">
             <div class="w-full flex justify-between">
-              <p class="text-xl font-semibold bg-gray-100 py-2 px-4 rounded-l-lg m-0 flex-grow text-start">Fields</p>
+              <p class="text-xl w-2/5 font-semibold bg-gray-100 py-2 px-4 rounded-l-lg m-0 flex-grow text-start">Fields</p>
               <div class="w-1 bg-gray-300 h-full"></div>
-              <p class="text-xl font-semibold bg-gray-100 py-2 px-4 rounded-r-lg m-0 flex-grow text-start">Details</p>
+              <p class="text-xl w-3/5 font-semibold bg-gray-100 py-2 px-4 rounded-r-lg m-0 flex-grow text-start">Details</p>
             </div>
           </div>
           <!-- Form untuk Values Table kanan -->
           <div class="flex flex-col mb-2">
             <table class="w-full">
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4">
+              <tr class="border-b w-2/5 border-gray-200">
+                <td class="py-1 border-r px-4 w-2/5">
                   <label for="tautan_ig" class="font-semibold text-gray-600">Tautan IG:</label>
                 </td>
                 <td class="py-2 border-l px-4">
@@ -215,6 +215,16 @@
                   <input type="text" id="updated_at" name="updated_at" value="{{ $Internship->updated_at }}" readonly class="border border-gray-300 px-2 py-1 rounded-lg w-full bg-gray-100">
                 </td>
               </tr>
+
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
+                  <label class="font-semibold text-gray-600" for="keterangan">Keterangan:</label>
+                </td>
+                <td class="py-1 pl-4 pr-8">
+                  <input type="text" id="keterangan" name="keterangan" class="w-full border border-gray-300 rounded px-2 py-1" value="{{$Internship->keterangan}}" />
+                </td>
+              </tr>
+
             </table>
           </div>
 

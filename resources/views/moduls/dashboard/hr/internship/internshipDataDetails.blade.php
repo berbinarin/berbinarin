@@ -17,7 +17,7 @@
       </p>
       <div class="flex gap-4 mt-8">
         <form action="{{ route('dashboard.internship') }}" method="get">
-          <button class="px-4 py-2">
+          <button class="px-4 py-1">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left text-gray-600 h-6 w-6" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M10.354 2.646a.5.5 0 0 1 0 .708L5.707 8l4.647 4.646a.5.5 0 1 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0z" />
             </svg>
@@ -43,94 +43,97 @@
     <div class="flex flex-row gap-4">
       <div class="w-full md:w-1/2">
         <div class="bg-white overflow-hidden shadow-sm rounded-lg p-4">
-          <!-- Judul table Kanan -->
+          <!-- Judul table Kiri -->
           <div class="flex items-center mb-4">
             <div class="w-full flex justify-between">
-              <p class="text-xl w-2/5 font-semibold bg-gray-100 py-2 px-4 rounded-l-lg m-0 flex-grow text-start">Fields</p>
+              <p class="text-xl w-2/6 font-semibold bg-gray-100 py-1 px-4 rounded-l-lg m-0 flex-grow text-start">Fields</p>
               <div class="w-1 bg-gray-300 h-full"></div>
-              <p class="text-xl w-3/5 font-semibold bg-gray-100 py-2 px-4 rounded-r-lg m-0 flex-grow text-start">Details</p>
+              <p class="text-xl w-4/6 font-semibold bg-gray-100 py-1 px-4 rounded-r-lg m-0 flex-grow text-start">Details</p>
             </div>
           </div>
           <!-- Value Table kiri -->
           <div class="flex flex-col mb-2">
             <table class="w-full">
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4 w-2/5">
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4 w-2/6"> <!-- Even more increased vertical padding -->
                   <label class="font-semibold text-gray-600">Email:</label>
                 </td>
-                <td class="py-2 border-l px-4">
+                <td class="py-1 px-4"> <!-- Even more increased vertical padding -->
                   {{$Internship->email}}
                 </td>
               </tr>
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4">
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Posisi:</label>
                 </td>
-                <td class="py-2 border-l px-4">
+                <td class="py-1 px-4">
                   {{$position->name}}
                 </td>
               </tr>
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4">
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Nama Lengkap:</label>
                 </td>
-                <td class="py-2 border-l px-4">
+                <td class="py-1 px-4">
                   {{$Internship->nama_lengkap}}
                 </td>
               </tr>
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4">
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Nama Panggilan:</label>
                 </td>
-                <td class="py-2 border-l px-4">
+                <td class="py-1 px-4">
                   {{$Internship->nama_panggilan}}
                 </td>
               </tr>
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4">
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Tanggal Lahir:</label>
                 </td>
-                <td class="py-2 border-l px-4">
+                <td class="py-1 px-4">
                   {{$Internship->tanggal_lahir}}
                 </td>
               </tr>
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4">
-                  <label class="font-semibold text-gray-600">No. WA:</label>
+
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
+                  <label class="font-semibold text-gray-600">Link. WA:</label>
                 </td>
-                <td class="py-2 border-l px-4">
-                  {{$Internship->no_whatsapp}}
+                <td class="py-1 pl-4 pr-8">
+                  <a href="https://wa.me/{{$Internship->no_whatsapp}}" target="_blank">https://wa.me/{{$Internship->no_whatsapp}}</a>
                 </td>
               </tr>
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4">
+
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Domisili:</label>
                 </td>
-                <td class="py-2 border-l px-4">
+                <td class="py-1 px-4">
                   {{$Internship->asal_kota}}
                 </td>
               </tr>
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4">
+              
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Instansi:</label>
                 </td>
-                <td class="py-2 border-l px-4">
+                <td class="py-1 px-4">
                   {{$Internship->asal_pendidikan}}
                 </td>
               </tr>
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4">
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Status:</label>
                 </td>
-                <td class="py-2 border-l px-4">
+                <td class="py-1 px-4">
                   {{$Internship->status_kelas}}
                 </td>
               </tr>
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4">
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Jurusan:</label>
                 </td>
-                <td class="py-2 border-l px-4">
+                <td class="py-1 px-4">
                   {{$Internship->jurusan}}
                 </td>
               </tr>
@@ -140,93 +143,143 @@
       </div>
       <!-- tabel kiri end -->
 
+
+      <style>
+        .fixed-height {
+          height: 90px;
+          /* Set your desired fixed height */
+        }
+      </style>
+
+
+
       <!-- tabel kanan start -->
       <div class="w-full md:w-1/2">
         <div class="bg-white overflow-hidden shadow-sm rounded-lg p-4">
           <!-- Judul table Kanan -->
           <div class="flex items-center mb-4">
             <div class="w-full flex justify-between">
-              <p class="text-xl w-2/5 font-semibold bg-gray-100 py-2 px-4 rounded-l-lg m-0 flex-grow text-start">Fields</p>
+              <p class="text-xl w-2/6 font-semibold bg-gray-100 py-1 px-4 rounded-l-lg m-0 flex-grow-0 text-start">Fields</p>
               <div class="w-1 bg-gray-300 h-full"></div>
-              <p class="text-xl w-3/5 font-semibold bg-gray-100 py-2 px-4 rounded-r-lg m-0 flex-grow text-start">Details</p>
+              <p class="text-xl w-4/6 font-semibold bg-gray-100 py-1 px-4 rounded-r-lg m-0 flex-grow-0 text-start">Details</p>
             </div>
           </div>
           <!-- Values Table kanan -->
-          <div class="flex flex-col mb-2">
+          <div class="flex flex-col mb-2" > 
+            <!-- style="margin-bottom: 168px;" -->
             <table class="w-full">
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4 w-2/5">
+              <colgroup>
+                <col class="w-2/6">
+                <col class="w-4/6">
+              </colgroup>
+              <style>
+                .multi-line-ellipsis {
+                  display: -webkit-box;
+                  -webkit-line-clamp: 3;
+                  /* Show up to 3 lines */
+                  -webkit-box-orient: vertical;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  line-height: 1.5;
+                  /* Adjust based on font size and row height */
+                }
+              </style>
+
+                <!-- <td class="py-1 pl-4 pr-8 multi-line-ellipsis">
+                  <a href="https://wa.me/{{$Internship->no_whatsapp}}" target="_blank">https://wa.me/{{$Internship->no_whatsapp}}</a>
+                </td> -->
+                
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4 w-2/6">
                   <label class="font-semibold text-gray-600">Tautan IG:</label>
                 </td>
-                <td class="py-2 border-l px-4">
-                  {{$Internship->akun_instagram}}
+                <td class="py-1 pl-4 pr-8"> <!-- multi-line-ellipsis -->
+                  <a href="{{$Internship->akun_instagram}}" target="_blank">{{$Internship->akun_instagram}}</a>
                 </td>
               </tr>
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4">
+
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Tautan TikTok:</label>
                 </td>
-                <td class="py-2 border-l px-4">
-                  {{$Internship->akun_tiktok}}
+                <td class="py-1 pl-4 pr-8">
+                  <a href="{{$Internship->akun_tiktok}}" target="_blank">{{$Internship->akun_tiktok}}</a>
                 </td>
               </tr>
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4">
+
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Tautan LinkedIn:</label>
                 </td>
-                <td class="py-2 border-l px-4">
-                  {{$Internship->akun_linkdin}}
+                <td class="py-1 pl-4 pr-8">
+                  <a href="{{$Internship->akun_linkdin }}" target="_blank">{{$Internship->akun_linkdin }}</a>
                 </td>
               </tr>
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4">
+
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Informasi Rekrutmen:</label>
                 </td>
-                <td class="py-2 border-l px-4">
+                <td class="py-1 pl-4 pr-8">
                   {{$Internship->sumber_informasi}}
                 </td>
               </tr>
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4">
+
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Tautan CV:</label>
                 </td>
-                <td class="py-2 border-l px-4">
-                  {{$Internship->tautan_cv}}
+                <td class="py-1 pl-4 pr-8">
+                  <a href="{{$Internship->tautan_cv}}" target="_blank">{{$Internship->tautan_cv}}</a>
                 </td>
               </tr>
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4">
+
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Tautan Portfolio:</label>
                 </td>
-                <td class="py-2 border-l px-4">
-                  {{$Internship->tautan_portofolio}}
+                <td class="py-1 pl-4 pr-8">
+                  <a href="{{$Internship->tautan_portofolio}}" target="_blank">{{$Internship->tautan_portofolio}}</a>
                 </td>
               </tr>
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4">
-                  <label class="font-semibold text-gray-600">Tautan Bukti Follow:</label>
+
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
+                  <label class="font-semibold text-gray-600" target="_blank">Tautan Bukti Follow:</label>
                 </td>
-                <td class="py-2 border-l px-4">
-                  {{$Internship->tautan_berkas_ss}}
+                <td class="py-1 pl-4 pr-8">
+                  <a href="{{$Internship->tautan_berkas_ss}}">{{$Internship->tautan_berkas_ss}}</a>
                 </td>
               </tr>
-              <tr class="border-b border-gray-200">
-                <td class="py-2 px-4">
+
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Motivasi:</label>
                 </td>
-                <td class="py-2 border-l px-4">
+                <td class="py-1 pl-4 pr-8">
                   {{$Internship->motivasi}}
                 </td>
               </tr>
+
+              <tr class="border-b border-gray-200" style="height: 80px;">
+                <td class="py-1 border-r px-4">
+                  <label class="font-semibold text-gray-600">Keterangan:</label>
+                </td>
+                <td class="py-1 pl-4 pr-8">
+                  {{$Internship->keterangan}}
+                </td>
+              </tr>
+              
             </table>
           </div>
+
           <div class="flex justify-end mt-4">
             <!-- <a href="/dashboard/admin/counselorDataDetails/{{ $Internship->id }}" class="text-blue-600 hover:text-blue-800">Lihat Detail</a> -->
           </div>
         </div>
       </div>
       <!-- tabel kanan end -->
-       
+
     </div>
 
   </div>

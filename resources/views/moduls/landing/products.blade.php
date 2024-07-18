@@ -135,11 +135,11 @@
         <div class="flex flex-col items-center justify-center w-full">
             <div class="text-center flex flex-col items-center -mb-10">
                 <h2 class="text-black font-semibold text-3xl px-5 md:px-0">
-                    Asesmen Psikologi
+                    Psikotes
                 </h2>
                 <p class="text-disabled text-lg text-center px-5 md:px-0 md:w-2/3">
-                    Terdapat empat jenis asesmen psikologi yang ditawarkan oleh Berbinar Insightful Indonesia, Asesmen
-                    Individu, Asesmen Perusahaan, Asesmen Instansi Pendidikan, dan Asesmen Komunitas.
+                    Terdapat empat jenis psikotes yang ditawarkan oleh Berbinar Insightful Indonesia, Psikotes
+                    Individu, Psikotes Perusahaan, Psikotes Instansi Pendidikan, dan Psikotes Komunitas.
                 </p>
             </div>
 
@@ -159,8 +159,8 @@
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h4 class="text-xl font-semibold">Asesmen Psikologi Individu</h4>
-                                <p class="text-disabled text-lg">Asesmen ini dapat melihat potensi yang dimiliki dalam
+                                <h4 class="text-xl font-semibold">Psikotes Individu</h4>
+                                <p class="text-disabled text-lg">Psikotes ini dapat melihat potensi yang dimiliki dalam
                                     pencapaian hasil belajar atau kemampuan di masa yang akan datang.</p>
                             </div>
                         </div>
@@ -173,8 +173,8 @@
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h4 class="text-xl font-semibold">Asesmen Psikologi Perusahaan</h4>
-                                <p class="text-disabled text-lg">Asesmen ini digunakan untuk melihat potensi, kelebihan
+                                <h4 class="text-xl font-semibold">Psikotes Perusahaan</h4>
+                                <p class="text-disabled text-lg">Psikotes ini digunakan untuk melihat potensi, kelebihan
                                     dan kekurangan, kepribadian dan kecocokan posisi kandidat di suatu posisi pekerjaan.
                                 </p>
                             </div>
@@ -188,8 +188,8 @@
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h4 class="text-xl font-semibold">Asesmen Psikologi Instansi Pendidikan</h4>
-                                <p class="text-disabled text-lg">Asesmen ini digunakan untuk mengenal gaya belajar,
+                                <h4 class="text-xl font-semibold">Psikotes Psikologi Instansi Pendidikan</h4>
+                                <p class="text-disabled text-lg">Psikotes ini digunakan untuk mengenal gaya belajar,
                                     cita-cita, jurusan, minat bakat yang sesuai dengan SobatBinar.</p>
                             </div>
                         </div>
@@ -203,8 +203,8 @@
                                 </div>
                             </div>
                             <div class="ml-4">
-                                <h4 class="text-xl font-semibold">Asesmen Psikologi Komunitas</h4>
-                                <p class="text-disabled text-lg mb-8">Asesmen ini bertujuan untuk mengetahui kesiapan
+                                <h4 class="text-xl font-semibold">Psikotes Komunitas</h4>
+                                <p class="text-disabled text-lg mb-8">Psikotes ini bertujuan untuk mengetahui kesiapan
                                     pernikahan, menjadi orang tua, kecocokan bersama pasangan, tingkat stress, depresi,
                                     kecemasan, memori, dan dimensia.</p>
 

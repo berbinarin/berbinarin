@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\PsikotestFree;
 
 use App\Models\Answer;
-use App\Models\Question;
 use App\Models\Result;
-use App\Models\Dimension;
-use App\Models\Test;
-use App\Models\UserPsikotest;
+use App\Models\Question;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
+use App\Models\UserPsikotest;
+use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class QuestionController extends Controller

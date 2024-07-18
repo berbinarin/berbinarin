@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\PsikotestFree;
 
 use App\Models\Test;
 use Illuminate\Http\Request;
-// use Illuminate\Support\Carbon;
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
+use App\Http\Controllers\Controller;
 
 class TestController extends Controller
 {
