@@ -9,7 +9,7 @@
     <div class="max-w-6xl mx-auto p-5 md:pt-0 h-fit flex flex-col relative justify-center items-center text-center">
         {{-- HERO IMG MOBILE --}}
 
-        <img src="{{ asset('assets/images/konseling/regist/Ilustrasi1.png') }}" alt="Ilustrasi Logo Berbinar" title="Ilustrasi Logo Berbinar" class="w-full block sm:hidden " data-aos="fade-up" data-aos-duration="1500">
+        <img src="{{ asset('assets/images/psikotes/singa-pensil.png') }}" alt="Ilustrasi Logo Berbinar" title="Ilustrasi Logo Berbinar" class="w-full block sm:hidden " data-aos="fade-up" data-aos-duration="1500">
 
 
         {{-- HERO CONTENT --}}
@@ -22,29 +22,29 @@
                 </h1>
 
                 {{-- HERO IMG DESKTOP --}}
-                <img src="{{ asset('assets/images/konseling/regist/Ilustrasi1.png') }}" alt="Ilustrasi-Test" class="w-[250px] hidden sm:block" data-aos="fade-down" data-aos-duration="1500">
+                <img src="{{ asset('assets/images/psikotes/singa-pensil.png') }}" alt="Ilustrasi-Test" class="w-[250px] hidden sm:block" data-aos="fade-down" data-aos-duration="1500">
 
                 <p class="text-lg text-disabled ">Berbinar hadir untuk SobatBinar yang ingin meningkatkan potensi diri
                     <br> melalui jenis layanan psikotes yang terdiri dari:
                 </p>
-                <div class="grid grid-cols-4 gap-14 mb-3">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-5 md:gap-14 mb-3">
                     <div class="border-2 border-[#65696c] rounded-full py-2 px-4">
                         <p class="text-[#65696c]">Psikotes Individu</p>
                     </div>
                     <div class="border-2 border-[#65696c] rounded-full py-2 px-4">
-                        <p class="text-[#65696c]">Psikotes Individu</p>
+                        <p class="text-[#65696c]">Psikotes Perusahaan</p>
                     </div>
                     <div class="border-2 border-[#65696c] rounded-full py-2 px-4">
-                        <p class="text-[#65696c]">Psikotes Individu</p>
+                        <p class="text-[#65696c]">Psikotes Komunitas</p>
                     </div>
                     <div class="border-2 border-[#65696c] rounded-full py-2 px-4">
-                        <p class="text-[#65696c]">Psikotes Individu</p>
+                        <p class="text-[#65696c]">Psikotes Pendidikan</p>
                     </div>
 
                 </div>
 
 
-                <div class="flex flex-col lg:flex-row gap-4">
+                <div class="flex flex-col lg:flex-row gap-4 items-center">
                     <a href="https://forms.gle/aabDZ5DmmhJs8obk8" target="_blank" rel="noopener noreferrer" class="text-lg text-white bg-primary rounded-full font-semibold hover:text-amber-400 hover:font-semibold duration-500 px-5 py-2 w-fit">Daftar
                         Tes Berbayar</a>
                     <a href="{{ route('psikotestFreeStart') }}" class="text-lg text-white bg-amber-500 rounded-full font-semibold hover:bg-amber-400 hover:text-primary duration-700 px-5 py-2 w-fit">IKUTI
