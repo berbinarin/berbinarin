@@ -9,8 +9,10 @@
 </head>
 
 <body>
-    <p>Registration Completed!</p>
-    <p>Your password: {{ $password }}</p>
+    <p>Terima kasih telah memilih Berbinar! Setelah Anda melakukan submit, Anda akan dihubungi oleh Admin terkait
+        pembayaran dan informasi lanjutan mengenai pelaksanaan psikotes.</p>
+    {{-- <p>Your password: {{ $password }}</p> --}}
+    <button onclick="window.location.href='/'">Kembali ke Beranda</button>
 </body>
 
 </html>

@@ -3,16 +3,30 @@
 namespace App\Http\Controllers\PsikotestPaid;
 
 use Illuminate\Http\Request;
-use App\Models\PsikotestType;
-use App\Models\UserPsikotestPaid;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+use App\Models\PsikotestPaid\CategoryPsikotestType;
+use App\Models\PsikotestPaid\PsikotestType;
+use App\Models\PsikotestPaid\UserPsikotestPaid;
 
 class UserPsikotestPaidController extends Controller
 {
-    public function regPage1()
+    public function showPage($page)
     {
-        return view('moduls.psikotes-paid.reg-page-1');
+        switch ($page) {
+            case '1':
+                return view('moduls.psikotes-paid.reg-page-1');
+            case '2':
+                $psikotestCategoryTypes = CategoryPsikotestType::all();
+                $psikotestTypes = PsikotestType::all();
+                return view('moduls.psikotes-paid.reg-page-2', compact('psikotestTypes', 'psikotestCategoryTypes'));
+            case '3':
+                return view('moduls.psikotes-paid.reg-page-3');
+            case '4':
+                return view('moduls.psikotes-paid.reg-page-4');
+            default:
+                abort(404);
+        }
     }
 
     public function postRegPage1(Request $request)
@@ -27,18 +41,9 @@ class UserPsikotestPaidController extends Controller
         ]);
 
         $data = $request->all();
+        $request->session()->put('psikotest-paid', $data);
 
-        $sessionData = $request->session()->get('psikotest-paid', []);
-        $sessionData = array_merge($sessionData, $data);
-        $request->session()->put('psikotest-paid', $sessionData);
-
-        return redirect()->route('psikotest-paid.regPage2');
-    }
-
-    public function regPage2()
-    {
-        $psikotestTypes = PsikotestType::all();
-        return view('moduls.psikotes-paid.reg-page-2', compact('psikotestTypes'));
+        return redirect()->route('psikotest-paid.showPage', ['page' => '2']);
     }
 
     public function postRegPage2(Request $request)
@@ -49,18 +54,11 @@ class UserPsikotestPaidController extends Controller
             'preference_schedule' => 'required',
         ]);
 
-        $data = $request->all();
-
-        $sessionData = $request->session()->get('psikotest-paid', []);
-        $sessionData = array_merge($sessionData, $data);
+        $data = $request->only('service', 'psikotest_type_id', 'preference_schedule');
+        $sessionData = array_merge($request->session()->get('psikotest-paid'), $data);
         $request->session()->put('psikotest-paid', $sessionData);
 
-        return redirect()->route('psikotest-paid.regPage3');
-    }
-
-    public function regPage3()
-    {
-        return view('moduls.psikotes-paid.reg-page-3');
+        return redirect()->route('psikotest-paid.showPage', ['page' => '3']);
     }
 
     public function postRegPage3(Request $request)
@@ -70,7 +68,6 @@ class UserPsikotestPaidController extends Controller
         ]);
 
         $data = $request->all();
-
         $sessionData = array_merge($request->session()->get('psikotest-paid'), $data);
 
         $password = $this->generatePassword($sessionData['fullname']);
@@ -80,7 +77,7 @@ class UserPsikotestPaidController extends Controller
 
         $request->session()->forget('psikotest-paid');
 
-        return view('moduls.psikotes-paid.reg-page-4', compact('data', 'password'));
+        return redirect()->route('psikotest-paid.showPage', ['page' => '4']);
     }
 
     private function generatePassword($fullname)

@@ -9,7 +9,7 @@ class UserPsikotestPaid extends Model
 {
     use HasFactory;
 
-    protected $table = 'user_psikotest_paid';
+    protected $table = 'user_psikotest_paids';
 
     protected $fillable = [
         'fullname',
@@ -22,7 +22,7 @@ class UserPsikotestPaid extends Model
         'service',
         'reason',
         'preference_schedule',
-        'psikotest_type_tool_id',
+        'psikotest_type_id',
     ];
 
     // public function psikotestTypeTool()

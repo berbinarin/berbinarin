@@ -20,10 +20,9 @@ return new class extends Migration
             $table->string('age');
             $table->string('domicile');
             $table->string('phone_number');
-            $table->string('service');
-            $table->string('reason');
+            $table->enum('service', ['offline', 'online']);
+            $table->text('reason');
             $table->date('preference_schedule');
-            // $table->foreignId('psikotest_type_tool_id')->constrained('psikotest_type_tools')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('psikotest_type_id')->constrained('psikotest_types')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

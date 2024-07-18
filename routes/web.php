@@ -233,11 +233,8 @@ Route::post('/finish-test/{test_id}/{user_id}', [ResultController::class, 'finis
 Route::resource('/user_internships', UserInternshipController::class);
 
 // DEV PSIKOTES PAID
-Route::get('/psikotest-paid', [UserPsikotestPaidController::class, 'regPage1'])->name('psikotest-paid.regPage1');
-Route::post('/psikotest-paid/reg-page-1', [UserPsikotestPaidController::class, 'postRegPage1'])->name('psikotest-paid.postRegPage1');
+Route::get('/psikotest/register/{page}', [UserPsikotestPaidController::class, 'showPage'])->name('psikotest-paid.showPage');
 
-Route::get('/psikotest-paid/reg-page-2', [UserPsikotestPaidController::class, 'regPage2'])->name('psikotest-paid.regPage2');
-Route::post('/psikotest-paid/reg-page-2', [UserPsikotestPaidController::class, 'postRegPage2'])->name('psikotest-paid.postRegPage2');
-
-Route::get('/psikotest-paid/reg-page-3', [UserPsikotestPaidController::class, 'regPage3'])->name('psikotest-paid.regPage3');
 Route::post('/psikotest-paid/reg-page-3', [UserPsikotestPaidController::class, 'postRegPage3'])->name('psikotest-paid.postRegPage3');
+Route::post('/psikotest-paid/reg-page-1', [UserPsikotestPaidController::class, 'postRegPage1'])->name('psikotest-paid.postRegPage1');
+Route::post('/psikotest-paid/reg-page-2', [UserPsikotestPaidController::class, 'postRegPage2'])->name('psikotest-paid.postRegPage2');
