@@ -43,7 +43,7 @@
     <div class="flex flex-row gap-4">
       <div class="w-full md:w-1/2">
         <div class="bg-white overflow-hidden shadow-sm rounded-lg p-4">
-          <!-- Judul table Kanan -->
+          <!-- Judul table Kiri -->
           <div class="flex items-center mb-4">
             <div class="w-full flex justify-between">
               <p class="text-xl w-2/6 font-semibold bg-gray-100 py-1 px-4 rounded-l-lg m-0 flex-grow text-start">Fields</p>
@@ -142,12 +142,17 @@
         </div>
       </div>
       <!-- tabel kiri end -->
+
+
       <style>
         .fixed-height {
           height: 90px;
           /* Set your desired fixed height */
         }
       </style>
+
+
+
       <!-- tabel kanan start -->
       <div class="w-full md:w-1/2">
         <div class="bg-white overflow-hidden shadow-sm rounded-lg p-4">
@@ -160,8 +165,9 @@
             </div>
           </div>
           <!-- Values Table kanan -->
-          <div class="flex flex-col" style="margin-bottom: 168px;">
-            <table class="w-full table-fixed">
+          <div class="flex flex-col mb-2" > 
+            <!-- style="margin-bottom: 168px;" -->
+            <table class="w-full">
               <colgroup>
                 <col class="w-2/6">
                 <col class="w-4/6">
@@ -187,7 +193,7 @@
                 <td class="py-1 border-r px-4 w-2/6">
                   <label class="font-semibold text-gray-600">Tautan IG:</label>
                 </td>
-                <td class="py-1 pl-4 pr-8 multi-line-ellipsis">
+                <td class="py-1 pl-4 pr-8"> <!-- multi-line-ellipsis -->
                   <a href="{{$Internship->akun_instagram}}" target="_blank">{{$Internship->akun_instagram}}</a>
                 </td>
               </tr>
@@ -196,7 +202,7 @@
                 <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Tautan TikTok:</label>
                 </td>
-                <td class="py-1 pl-4 pr-8 multi-line-ellipsis">
+                <td class="py-1 pl-4 pr-8">
                   <a href="{{$Internship->akun_tiktok}}" target="_blank">{{$Internship->akun_tiktok}}</a>
                 </td>
               </tr>
@@ -205,7 +211,7 @@
                 <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Tautan LinkedIn:</label>
                 </td>
-                <td class="py-1 pl-4 pr-8 multi-line-ellipsis">
+                <td class="py-1 pl-4 pr-8">
                   <a href="{{$Internship->akun_linkdin }}" target="_blank">{{$Internship->akun_linkdin }}</a>
                 </td>
               </tr>
@@ -223,7 +229,7 @@
                 <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Tautan CV:</label>
                 </td>
-                <td class="py-1 pl-4 pr-8 multi-line-ellipsis">
+                <td class="py-1 pl-4 pr-8">
                   <a href="{{$Internship->tautan_cv}}" target="_blank">{{$Internship->tautan_cv}}</a>
                 </td>
               </tr>
@@ -232,7 +238,7 @@
                 <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Tautan Portfolio:</label>
                 </td>
-                <td class="py-1 pl-4 pr-8 multi-line-ellipsis">
+                <td class="py-1 pl-4 pr-8">
                   <a href="{{$Internship->tautan_portofolio}}" target="_blank">{{$Internship->tautan_portofolio}}</a>
                 </td>
               </tr>
@@ -241,7 +247,7 @@
                 <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600" target="_blank">Tautan Bukti Follow:</label>
                 </td>
-                <td class="py-1 pl-4 pr-8 multi-line-ellipsis">
+                <td class="py-1 pl-4 pr-8">
                   <a href="{{$Internship->tautan_berkas_ss}}">{{$Internship->tautan_berkas_ss}}</a>
                 </td>
               </tr>
@@ -250,7 +256,7 @@
                 <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Motivasi:</label>
                 </td>
-                <td class="py-1 pl-4 pr-8 multi-line-ellipsis">
+                <td class="py-1 pl-4 pr-8">
                   {{$Internship->motivasi}}
                 </td>
               </tr>
@@ -259,7 +265,7 @@
                 <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Keterangan:</label>
                 </td>
-                <td class="py-1 pl-4 pr-8 multi-line-ellipsis">
+                <td class="py-1 pl-4 pr-8">
                   {{$Internship->keterangan}}
                 </td>
               </tr>
