@@ -16,14 +16,14 @@ return new class extends Migration
             $table->string('fullname');
             $table->string('email');
             $table->string('password')->nullable();
-            $table->enum('gender', ['laki-laki', 'perempuan']);
-            $table->integer('age');
+            $table->string('gender');
+            $table->string('age');
             $table->string('domicile');
             $table->string('phone_number');
-            $table->string('service');
-            $table->foreignId('psikotest_type_id')->constrained('psikotest_types')->onUpdate('cascade')->onDelete('cascade');
+            $table->enum('service', ['offline', 'online']);
             $table->text('reason');
-            $table->dateTime('preference_schedule');
+            $table->date('preference_schedule');
+            $table->foreignId('psikotest_type_id')->constrained('psikotest_types')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

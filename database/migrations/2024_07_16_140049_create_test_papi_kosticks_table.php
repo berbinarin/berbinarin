@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('psikotest_types', function (Blueprint $table) {
+        Schema::create('test_papi_kosticks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
+            $table->foreignId('psikotest_paid_test_id')->constrained('psikotest_paid_tests')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('psikotest_types');
+        Schema::dropIfExists('test_papi_kosticks');
     }
 };

@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('testimonial_psikotest_paids', function (Blueprint $table) {
+        Schema::create('psikotest_paid_testimonials', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('user_psikotest_paids')->onUpdate('cascade')->onDelete('cascade');
-            $table->enum('sharing_testimonial', ['setuju', 'tidak setuju']);
-            $table->text('experience_story');
+            $table->foreignId('user_psikotest_paid_id')->constrained('user_psikotest_paids')->onUpdate('cascade')->onDelete('cascade');
+            $table->text('sharing_testimonial');
+            $table->text('sharing_experience');
             $table->text('opinion_psikotest');
             $table->text('criticism_suggestion');
             $table->timestamps();
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('testimonial_psikotest_paids');
+        Schema::dropIfExists('psikotest_paid_testimonials');
     }
 };
