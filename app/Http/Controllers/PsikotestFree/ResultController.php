@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\PsikotestFree;
 
-use App\Models\Result;
 use App\Models\Test;
-use App\Models\UserPsikotest;
+use App\Models\Result;
 use Illuminate\Http\Request;
+use App\Models\UserPsikotest;
+use App\Http\Controllers\Controller;
 
 class ResultController extends Controller
 {

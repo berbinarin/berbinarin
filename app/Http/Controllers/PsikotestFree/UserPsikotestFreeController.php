@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\PsikotestFree;
 
 use App\Models\Test;
 use App\Models\UserPsikotest;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
+use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class UserPsikotestController extends Controller
+class UserPsikotestFreeController extends Controller
 {
     // Menampilkan formulir untuk mengisi biodata
     public function show($test_id)
