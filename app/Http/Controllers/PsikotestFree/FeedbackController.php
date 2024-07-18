@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\PsikotestFree;
 
 use App\Models\Feedback;
-use App\Models\UserPsikotest;
 use Illuminate\Http\Request;
+use App\Models\UserPsikotest;
+use App\Http\Controllers\Controller;
 
 class FeedbackController extends Controller
 {

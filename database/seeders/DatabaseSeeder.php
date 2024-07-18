@@ -5,6 +5,11 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use Illuminate\Database\Seeder;
+use App\Models\PsikotestPaid\CategoryPsikotestType;
+use Database\Seeders\PsikotestPaid\PsikotestToolSeeder;
+use Database\Seeders\PsikotestPaid\PsikotestTypeSeeder;
+use Database\Seeders\PsikotestPaid\CategoryPsikotestTypeSeeder;
+use Database\Seeders\PsikotestPaid\PapiKostick\QuestionPapiKostickSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,6 +28,10 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             DimensionSeeder::class,
             QuestionSeeder::class,
+            CategoryPsikotestTypeSeeder::class,
+            PsikotestTypeSeeder::class,
+            PsikotestToolSeeder::class,
+            QuestionPapiKostickSeeder::class,
         ]);
     }
 }
