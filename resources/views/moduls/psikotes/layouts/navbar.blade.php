@@ -25,7 +25,7 @@
             </i>
 
         </div>
-        <div class="sidebar text-center justify-end items-center fixed md:hidden top-0 bottom-0 z-[70] right-0 w-screen lg-right-0 p-2 overflow-y-auto right-full bg-white">
+        <div class="sidebar text-center justify-end items-center fixed md:hidden top-0 bottom-0 z-[70] w-screen lg-right-0 p-2 right-full overflow-y-auto bg-white">
             <div class="p-2.5 mt-3 flex rounded-md px-4 duration-300 cursor-pointer text-gray-700">
                 <div class="flex ml-auto p-5">
                     <i class="bx bx-x align-items-end text-[35px] text-disabled" onclick="Open()"></i>
@@ -49,7 +49,10 @@
         </div>
         <script type="text/javascript">
             function Open() {
-                document.querySelector('.sidebar').classList.toggle('right-full');
+                // document.querySelector('.sidebar').classList.toggle('right-full');
+                let sidebar = document.querySelector('.sidebar');
+                sidebar.classList.toggle('right-full');
+                sidebar.classList.toggle('right-0');
             }
 
             function navigateToPage(page) {
