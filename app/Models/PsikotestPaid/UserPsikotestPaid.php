@@ -4,8 +4,9 @@ namespace App\Models\PsikotestPaid;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class UserPsikotestPaid extends Model
+class UserPsikotestPaid extends Authenticatable
 {
     use HasFactory;
 
