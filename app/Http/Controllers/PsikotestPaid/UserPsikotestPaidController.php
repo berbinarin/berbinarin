@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\CategoryPsikotestType;
 use App\Models\PsikotestPaid\PsikotestType;
 use App\Models\PsikotestPaid\UserPsikotestPaid;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserPsikotestPaidController extends Controller
 {
@@ -80,6 +82,33 @@ class UserPsikotestPaidController extends Controller
         return redirect()->route('psikotest-paid.showPage', ['page' => '4']);
     }
 
+    public function showLogin()
+    {
+        return view('moduls.psikotes-paid.login');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::guard('psikotestpaid')->attempt($credentials)) {
+            Alert::toast('Login Sucessfully!', 'success')->autoClose(5000);
+            return redirect()->route('psikotest-paid.showLanding');
+        } else {
+            Alert::toast('Invalid Email-Address And Password', 'error')->autoClose(5000);;
+            return redirect()->route('psikotest-paid.login');
+        }
+    }
+
+    public function logout()
+    {
+        Auth::guard('psikotestpaid')->logout();
+        Alert::toast('Logout Sucessfully!', 'success')->autoClose(5000);
+
+        return redirect()->route('psikotest-paid.login');
+    }
+
+    
     private function generatePassword($fullname)
     {
         $firstName = explode(' ', trim($fullname))[0];
@@ -101,5 +130,11 @@ class UserPsikotestPaidController extends Controller
             'reason' => $data['reason'],
             'password' => $hashedPassword,
         ]);
+    }
+
+    // NANTI UNTUK LANDING/DASHBOARD PAKE FUNGSI DARI FILE LAIN AJA
+    public function showLanding(){
+        $user = Auth::guard('psikotestpaid')->user();
+        return view('moduls.psikotes-paid.landing', ['user' => $user]);
     }
 }
