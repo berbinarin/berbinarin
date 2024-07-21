@@ -20,7 +20,7 @@
                 <h1 class="font-semibold text-black text-[40px] md:text-[64px] leading-[100%] md:leading-[120%]">
                     Edukasi & Layanan<br>Psikologi <span class="text-primary font-bold">Berbinar</span>
                 </h1>
-                <p class="text-lg text-disabled">Berbinar bergerak dalam edukasi dan layanan psikologi yang memberikan jasa dalam kelas seminar, workshop, training secara daring, serta konseling, dan psikotes.</p>
+                <p class="text-lg text-disabled">Berbinar bergerak dalam edukasi dan layanan psikologi yang memberikan jasa dalam kelas seminar, workshop, training secara online, serta konseling, dan psikotes.</p>
                 <a href="{{ route('counseling') }}"
                     class="text-lg text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit">Lakukan
                     Konseling</a>
