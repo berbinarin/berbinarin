@@ -183,7 +183,7 @@
               </div>
               <div class="mb-4">
                 <label for="jurusan" class="block text-xs font-medium text-gray-700">Jurusan</label>
-                <input type="text" id="jurusan" name="jurusan" placeholder="Psikolog" class="mt-1 bg-gray-200 block w-full md:w-[370px] px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
+                <input type="text" id="jurusan" name="jurusan" placeholder="Psikologi" class="mt-1 bg-gray-200 block w-full md:w-[370px] px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
               </div>
             </div>
           </div>

@@ -256,7 +256,7 @@
                 <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Motivasi:</label>
                 </td>
-                <td class="py-1 pl-4 pr-8">
+                <td class="py-1 pl-4 pr-8" style="word-wrap: break-word; white-space: normal;">
                   {{$Internship->motivasi}}
                 </td>
               </tr>
@@ -265,7 +265,7 @@
                 <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Keterangan:</label>
                 </td>
-                <td class="py-1 pl-4 pr-8">
+                <td class="py-1 pl-4 pr-8" style="word-wrap: break-word; white-space: normal;"> 
                   {{$Internship->keterangan}}
                 </td>
               </tr>
