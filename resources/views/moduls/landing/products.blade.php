@@ -225,10 +225,10 @@
         <div class="flex flex-col items-center justify-center w-full mt-10">
             <div class="text-center flex flex-col items-center -mb-10">
                 <h2 class="text-black font-semibold text-3xl px-5 md:px-0">
-                    Kelas Berbinar
+                    Kelas
                 </h2>
                 <p class="text-disabled text-lg text-center px-5 md:px-0 md:w-2/3">
-                    Ikuti dan dapatkan insight serta ilmu baru dari Kelar Berbinar untuk mempersiapkan karir dan juga
+                    Ikuti dan dapatkan insight serta ilmu baru untuk mempersiapkan karir dan juga
                     meningkatkan skill dan kemampuan diri.
                 </p>
             </div>
@@ -250,7 +250,7 @@
                             </div>
                             <div class="ml-4">
                                 <h4 class="text-xl font-semibold">Fokus</h4>
-                                <p class="text-disabled text-lg">ikuti kelas <span class="text-primary font-semibold">Berbinar</span> untuk mempersiapkan karir
+                                <p class="text-disabled text-lg">ikuti kelas untuk mempersiapkan karir
                                     dan juga
                                     meningkatkan skill dan kemampuan diri.</p>
                             </div>
