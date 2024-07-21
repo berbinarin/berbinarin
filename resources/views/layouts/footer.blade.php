@@ -16,7 +16,7 @@
             <div class="flex flex-col gap-2">
                 <a href="{{ route('counseling') }}" class="text-base text-disabled">Konseling</a>
                 <a href="{{ route('psikotest') }}" class="text-base text-disabled">Psikotes</a>
-                <a href="{{ route('class') }}" class="text-base text-disabled">Kelas Berbinar</a>
+                <a href="{{ route('class') }}" class="text-base text-disabled">Kelas</a>
             </div>
         </div>
         <div class="flex-1 flex flex-col gap-5">
@@ -27,9 +27,8 @@
                 <a href="{{ route('home') }}" class="text-base text-disabled">Home</a>
                 <a href="{{ route('about') }}" class="text-base text-disabled">Tentang Kami</a>
                 <a href="{{ route('products') }}" class="text-base text-disabled">Produk Berbinar</a>
-                <a href="{{ route('contact') }}" class="text-base text-disabled">Kontak</a>
                 <a href="{{ route('hiring') }}" class="text-base text-disabled">Berbinar Careers</a>
-                <a href="{{ route('workWithUs') }}" class="text-base text-disabled">Work With Us</a>
+                <a href="{{ route('workWithUs') }}" class="text-base text-disabled">Collaborate with Us</a>
             </div>
         </div>
         <div class="flex-1 flex flex-col gap-5">
