@@ -214,6 +214,9 @@ Route::get('/psikotest/home', [LandingController::class, 'psikotestHome'])->name
 // Route::get('/psikotest/free/hasiltes', [LandingController::class, 'psikotestHasilTest'])->name('psikotestHasilTest');
 Route::get('/psikotest/login', [LandingController::class, 'psikotestLogin'])->name('psikotestLogin');
 Route::get('/psikotest/register', [LandingController::class, 'psikotestRegister'])->name('psikotestRegister');
+Route::get('/psikotest/instruksi', [LandingController::class, 'instruksi'])->name('instruksi');
+Route::get('/psikotest/soal', [LandingController::class, 'soal'])->name('soal');
+Route::get('/psikotest/end', [LandingController::class, 'end'])->name('end');
 
 
 Route::get('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'show'])->name('feedback.show');
