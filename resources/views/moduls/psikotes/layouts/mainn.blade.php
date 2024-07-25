@@ -22,7 +22,7 @@
 {{-- Menghapus dib class --}}
 
 <body class="relative overflow-x-hidden w-full">
-    @if ($active === 'Home')
+    @if ($active === 'Home' || $active === 'one psikotest')
     <main class="w-full bg-white font-plusJakartaSans gap-8 flex flex-col relative">
         @yield('content')
     </main>
