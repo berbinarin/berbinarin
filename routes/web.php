@@ -213,10 +213,19 @@ Route::get('/psikotest/home', [LandingController::class, 'psikotestHome'])->name
 // Route::get('/psikotest/free/feedback', [LandingController::class, 'psikotestFeedback'])->name('psikotestFeedback');
 // Route::get('/psikotest/free/hasiltes', [LandingController::class, 'psikotestHasilTest'])->name('psikotestHasilTest');
 Route::get('/psikotest/login', [LandingController::class, 'psikotestLogin'])->name('psikotestLogin');
+
 Route::get('/psikotest/register', [LandingController::class, 'psikotestRegister'])->name('psikotestRegister');
 Route::get('/psikotest/instruksi', [LandingController::class, 'instruksi'])->name('instruksi');
 Route::get('/psikotest/soal', [LandingController::class, 'soal'])->name('soal');
 Route::get('/psikotest/end', [LandingController::class, 'end'])->name('end');
+
+Route::get('/psikotest/signup', [LandingController::class, 'psikotestSignUp'])->name('psikotestSignUp');
+Route::get('/psikotest/schedule', [LandingController::class, 'psikotestSchedule'])->name('psikotestSchedule');
+Route::get('/psikotest/services', [LandingController::class, 'psikotestServices'])->name('psikotestServices');
+Route::get('/psikotest/motive', [LandingController::class, 'psikotestMotive'])->name('psikotestMotive');
+Route::get('/psikotest/signup-success', [LandingController::class, 'psikotestSignupSuccess'])->name('psikotestSignupSuccess');
+Route::get('/psikotest/individual', [LandingController::class, 'psikotestIndividual'])->name('psikotestIndividual');
+
 
 
 Route::get('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'show'])->name('feedback.show');
