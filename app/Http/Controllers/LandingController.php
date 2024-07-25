@@ -659,7 +659,8 @@ class LandingController extends Controller
         ]);
     }
 
-    public function getImagePath($position){
+    public function getImagePath($position)
+    {
         if ($position == 'Web and Mobile Apps Developer') {
             return 'assets/images/internship/banner/web';
         }
@@ -1087,5 +1088,40 @@ class LandingController extends Controller
     public function psikotestHasilTest()
     {
         return view('moduls.psikotes.hasiltes');
+    }
+
+    public function psikotestLogin()
+    {
+        return view('moduls.psikotes.login');
+    }
+
+    public function psikotestSignUp()
+    {
+        return view('moduls.psikotes.registrasi.signup');
+    }
+
+    public function psikotestSchedule()
+    {
+        return view('moduls.psikotes.registrasi.schedule');
+    }
+
+    public function psikotestMotive()
+    {
+        return view('moduls.psikotes.registrasi.motive');
+    }
+
+    public function psikotestSignupSuccess()
+    {
+        return view('moduls.psikotes.registrasi.signup-success');
+    }
+
+    public function psikotestServices()
+    {
+        return view('moduls.psikotes.services');
+    }
+
+    public function psikotestIndividual()
+    {
+        return view('moduls.psikotes.individual');
     }
 }
