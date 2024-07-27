@@ -10,6 +10,7 @@ use App\Models\PsikotestPaid\PsikotestType;
 use App\Models\PsikotestPaid\UserPsikotestPaid;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\PsikotestPaid\PsikotestTool;
 
 class UserPsikotestPaidController extends Controller
 {
@@ -134,10 +135,11 @@ class UserPsikotestPaidController extends Controller
         ]);
     }
 
-    // NANTI UNTUK LANDING/DASHBOARD PAKE FUNGSI DARI FILE LAIN AJA
+    // NANTI UNTUK LANDING/DASHBOARD BISA PAKE FUNGSI DARI FILE LAIN AJA, dibawah cuman contoh
     public function showLanding()
     {
         $user = Auth::guard('psikotestpaid')->user();
-        return view('moduls.psikotes-paid.landing', ['user' => $user]);
+        $tools = PsikotestTool::all();
+        return view('moduls.psikotes-paid.landing', ['user' => $user, 'tools' => $tools]);
     }
 }

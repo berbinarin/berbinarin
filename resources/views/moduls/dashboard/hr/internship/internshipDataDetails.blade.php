@@ -12,8 +12,7 @@
         Detail Data Internship
       </p>
       <p class="w-full md:w-2/4 text-gray-600">
-        Fitur ini digunakan untuk mengatur dan memanajemen data posisi hiring yang sedang atau akan dibuka atau telah
-        dibuka yang ditampilkan pada website careers Berbinarin.
+        Fitur ini digunakan untuk menampilkan detail data pendaftar yang telah melakukan pendaftaran internship di laman web Berbinar Career.
       </p>
       <div class="flex gap-4 mt-8">
         <form action="{{ route('dashboard.internship') }}" method="get">

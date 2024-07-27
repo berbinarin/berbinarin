@@ -350,7 +350,7 @@
                           </div>
                           <div class="mt-2 text-center">
                             <p class="text-xs text-gray-500">
-                              Berhasil mendaftar pada posisi {{$position->name}}, silahkan cek Email/WhatsApp untuk informasi selanjutnya.
+                              Berhasil mendaftar pada posisi {{$position->name}}, silahkan cek WhatsApp/Email untuk informasi selanjutnya.
                             </p>
                           </div>
                         </div>

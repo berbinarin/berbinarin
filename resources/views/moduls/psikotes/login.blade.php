@@ -21,8 +21,7 @@
 
                         </div>
                         <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
-                            <form class="space-y-6" action="#" method="POST" action="{{ route('psikotest-paid.login') }}">
-                                @csrf
+                            <form class="space-y-6" action="#" method="POST">
                                 <div>
                                     <label for="email" class="block text-base font-semibold leading-6 text-black">Email
                                         address</label>
@@ -32,7 +31,6 @@
                                 </div>
 
                                 <div>
-                                    
                                     <div class="flex items-center justify-between">
                                         <label for="password" class="block text-base font-semibold leading-6 text-black">Password</label>
                                         <div class="text-sm">
