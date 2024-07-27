@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\CategoryPsikotestType;
 use App\Models\PsikotestPaid\PsikotestType;
 use App\Models\PsikotestPaid\UserPsikotestPaid;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\PsikotestPaid\PsikotestTool;
 
 class UserPsikotestPaidController extends Controller
 {
@@ -99,8 +102,7 @@ class UserPsikotestPaidController extends Controller
 
     public function showLogin()
     {
-        // return view('moduls.psikotes-paid.login');
-        return view('moduls.psikotes-paid.registrasi.login');
+        return view('moduls.psikotes-paid.login');
     }
 
     public function login(Request $request)
@@ -112,8 +114,7 @@ class UserPsikotestPaidController extends Controller
             return redirect()->route('psikotest-paid.showLanding');
         } else {
             Alert::toast('Invalid Email-Address And Password', 'error')->autoClose(5000);;
-            // return redirect()->route('psikotest-paid.login');
-            return redirect()->route('psikotest-paid.registrasi.login');
+            return redirect()->route('psikotest-paid.login');
         }
     }
 
@@ -124,6 +125,7 @@ class UserPsikotestPaidController extends Controller
 
         return redirect()->route('psikotest-paid.login');
     }
+
 
     private function generatePassword($fullname)
     {
@@ -146,5 +148,13 @@ class UserPsikotestPaidController extends Controller
             'reason' => $data['reason'],
             'password' => $hashedPassword,
         ]);
+    }
+
+    // NANTI UNTUK LANDING/DASHBOARD BISA PAKE FUNGSI DARI FILE LAIN AJA, dibawah cuman contoh
+    public function showLanding()
+    {
+        $user = Auth::guard('psikotestpaid')->user();
+        $tools = PsikotestTool::all();
+        return view('moduls.psikotes-paid.landing', ['user' => $user, 'tools' => $tools]);
     }
 }

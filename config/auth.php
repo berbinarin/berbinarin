@@ -44,6 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'berbinarplus_users', // Sesuaikan dengan nama provider yang Anda tentukan
         ],
+        'psikotestpaid' => [
+            'driver' => 'session',
+            'provider' => 'psikotestpaid_users'
+        ]
     ],
 
     /*
@@ -73,6 +77,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Berbinarp_user::class, // Sesuaikan dengan model Berbinarp_user Anda
         ],
+
+        'psikotestpaid_users' => [
+            'driver' => 'eloquent',
+            'model'=> App\Models\PsikotestPaid\UserPsikotestPaid::class,
+        ]
     ],
 
     /*
