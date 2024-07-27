@@ -1,6 +1,12 @@
 <?php
 
 use App\Http\Controllers\Internship\ajaxInternship;
+use App\Http\Controllers\PsikotestPaid\RedirectToolController;
+use App\Http\Controllers\PsikotestPaid\Tools\BAUM\BAUMController;
+use App\Http\Controllers\PsikotestPaid\Tools\DAP\DAPController;
+use App\Http\Controllers\PsikotestPaid\Tools\HTP\HTPController;
+use App\Http\Controllers\PsikotestPaid\tools\PapiKostick\PapiKostickController;
+use App\Http\Controllers\PsikotestPaid\Tools\SSCT\SSCTController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PsikotestFree\UserPsikotestFreeController;
@@ -24,6 +30,7 @@ use App\Http\Controllers\Internship\UserInternshipController;
 use App\Http\Controllers\Berbinarplus\AuthUserController;
 use App\Http\Controllers\Internship\InternshipController;
 use App\Http\Controllers\PsikotestPaid\UserPsikotestPaidController;
+use App\Http\Controllers\PsikotestPaid\PsikotestToolController;
 
 /*
 |--------------------------------------------------------------------------
@@ -249,8 +256,21 @@ Route::prefix('/psikotest-paid')->group(function () {
     Route::get('/login', [UserPsikotestPaidController::class, 'showLogin'])->name('psikotest-paid.showLogin');
     Route::post('/login', [UserPsikotestPaidController::class, 'login'])->name('psikotest-paid.login');
     Route::post('/logout', [UserPsikotestPaidController::class, 'logout'])->name('psikotest-paid.logout');
+
+    // test for admin
+    Route::get('/admin', [PsikotestToolController::class, 'index'])->name('psikotest-tools.index');
+    Route::post('/admin/{id}/generate-token', [PsikotestToolController::class, 'generateToken'])->name('psikotest-tools.generate-token');
+    Route::post('/admin/{id}/delete-token', [PsikotestToolController::class, 'deleteToken'])->name('psikotest-tools.delete-token');
     
     Route::group(['middleware' => ['auth.psikotestpaid:psikotestpaid']], function () {
         Route::get('/landing', [UserPsikotestPaidController::class, 'showLanding'])->name('psikotest-paid.showLanding');
+        Route::post('/verify-token', [PsikotestToolController::class, 'verifyToken'])->name('psikotest-tools.verify-token');
+
+        // ROUTE UNTUK TIAP TOOLS!
+        Route::get('/tool/papi-kostick', [PapiKostickController::class, 'showLanding'])->name('psikotest-paid.tool.PAPI Kostick.showLanding');
+        Route::get('/tool/BAUM', [BAUMController::class, 'showLanding'])->name('psikotest-paid.tool.BAUM.showLanding');
+        Route::get('/tool/DAP', [DAPController::class, 'showLanding'])->name('psikotest-paid.tool.DAP.showLanding');
+        Route::get('/tool/HTP', [HTPController::class, 'showLanding'])->name('psikotest-paid.tool.HTP.showLanding');
+        Route::get('/tool/SSCT', [SSCTController::class, 'showLanding'])->name('psikotest-paid.tool.SSCT.showLanding');
     });
 });
