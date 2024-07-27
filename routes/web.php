@@ -24,6 +24,9 @@ use App\Http\Controllers\Internship\UserInternshipController;
 use App\Http\Controllers\Berbinarplus\AuthUserController;
 use App\Http\Controllers\Internship\InternshipController;
 use App\Http\Controllers\PsikotestPaid\UserPsikotestPaidController;
+use App\Http\Controllers\PsikotestPaid\PapiKostick\TestController as PapiKostickTestController;
+use App\Http\Controllers\PsikotestPaid\PapiKostick\QuestionController as PapiKostickQuestionController;
+use App\Http\Controllers\PsikotestPaid\PsikotestPaidTestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,7 +73,7 @@ Route::prefix('/class/berbinar+')->group(function () {
     Route::post('/login', [AuthUserController::class, 'login'])->name('berbinarplus.login.post');
 
     Route::post('/logout', [AuthUserController::class, 'logout'])->name('berbinarplus.logout.post');
-    
+
     Route::group(['middleware' => ['auth.berbinarplus:berbinarplus']], function () {
         Route::get('/dashboard', [AuthUserController::class, 'dashboard'])->name('berbinarplus.dashboard');
     });
@@ -132,7 +135,7 @@ Route::get('/dashboard/login', [DashboardController::class, 'login'])->name('das
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/admin/faqs', [DashboardController::class, 'faqs'])->name('dashboard.faqs');
-    
+
     // MODUL KONSELLING PSIKOLOG
     Route::get('/dashboard/admin/psikologData', [DashboardController::class, 'PsikologData'])->name('dashboard.PsikologData');
     Route::post('/dashboard/admin/psikologData/add', [DashboardController::class, 'addPsikologData'])->name('dashboard.add.PsikologData');
@@ -148,11 +151,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/dashboard/admin/counselorSchedule/add', [DashboardController::class, 'addPeerConsellorSchedule'])->name('dashboard.add.PeerConsellorSchedule');
     Route::put('/dashboard/admin/counselorSchedule/edit/{id}', [DashboardController::class, 'editPeerConsellorSchedule'])->name('dashboard.edit.PeerConsellorSchedule');
     Route::get('/dashboard/admin/counselorSchedule/delete/{id}', [DashboardController::class, 'deletePeerConsellorSchedule'])->name('dashboard.delete.PeerConsellorSchedule');
-    
+
     // MODUL POSITIONS
     Route::get('/dashboard/admin/positions', [DashboardController::class, 'positions'])->name('dashboard.positions');
     Route::get('/dashboard/admin/positions/edit/{id}', [DashboardController::class, 'editPositions']);
-    
+
     // MODUL INTERNSHIP
     Route::get('/dashboard/admin/internship', [DashboardController::class, 'internship'])->name('dashboard.internship');
     Route::patch('/dashboard/admin/internship/setProcess/{id}', [UserInternshipController::class, 'SetProcess'])->name('dashboard.internship.setProcess');
@@ -161,18 +164,18 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/dashboard/admin/internshipDataDetails/update/{id}', [DashboardController::class, 'updateInternship'])->name('dashboard.updateInternship');
     // INTERN AJAX
     Route::post('/dashboard/admin/internship/update-status', [ajaxInternship::class, 'updateStatus'])->name('updateStatus');
-    
+
 
     // MODUL POSITIONS JOB DESCRIPTION
     Route::get('/dashboard/admin/positions/descriptions', [DashboardController::class, 'jobDescriptions'])->name('dashboard.positions.descriptions');
     Route::get('/dashboard/admin/positions/descriptions/edit/{id}', [DashboardController::class, 'editJobDescriptions']);
-    
+
     // MODUL POSITIONS REQUIREMENTS
     Route::get('/dashboard/admin/positions/requirements', [DashboardController::class, 'requirements'])->name('dashboard.positions.requirements');
     Route::get('/dashboard/admin/positions/requirements/edit/{id}', [DashboardController::class, 'editRequirements']);
     Route::get('/psikotes', [testGratisController::class, 'hitungPoint'])->name('psikotes.testGratis');
     Route::get('/createSoalpsikotes', [testGratisController::class, 'simpanSoal'])->name('psikote.soal');
-    
+
     // // MODUL ADMIN PSIKOTEST FREE
     // Route::get('/dashboard/admin/psikotest/free/home', [DashboardController::class, 'adminHomePsikotestFree'])->name('dashboard.psikotestfree.home');
     Route::get('/dashboard/admin/psikotest/free/data', [DashboardController::class, 'adminDataPsikotesFree'])->name('dashboard.psikotestfree.data');
@@ -186,7 +189,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin/psikotest/free/question/edit/{id}', [DashboardController::class, 'adminEditSoalPsikotestFreeEdit'])->name('dashboard.psikotestfree.question.edit');
     Route::put('/dashboard/admin/psikotest/free/question/update/{id}', [DashboardController::class, 'adminEditSoalPsikotestFreeUpdate'])->name('dashboard.psikotestfree.question.update');
     Route::delete('/dashboard/admin/psikotest/free/question/delete/{id}', [DashboardController::class, 'adminEditSoalPsikotestFreeDestroy'])->name('dashboard.psikotestfree.question.destroy');
-    
+
     // MODUL ADMIN BERBINAR PLUS
     Route::get('/dashboard/admin/berbinarplus/data', [DashboardController::class, 'berbinarplusUserData'])->name('dashboard.berbinarplus.data');
 });
@@ -236,16 +239,25 @@ Route::resource('/user_internships', UserInternshipController::class);
 Route::get('/psikotest/register/{page}', [UserPsikotestPaidController::class, 'showPage'])->name('psikotest-paid.showPage');
 
 Route::prefix('/psikotest-paid')->group(function () {
-    
+
     Route::post('/reg-page-3', [UserPsikotestPaidController::class, 'postRegPage3'])->name('psikotest-paid.postRegPage3');
     Route::post('/reg-page-1', [UserPsikotestPaidController::class, 'postRegPage1'])->name('psikotest-paid.postRegPage1');
     Route::post('/reg-page-2', [UserPsikotestPaidController::class, 'postRegPage2'])->name('psikotest-paid.postRegPage2');
-    
+
     Route::get('/login', [UserPsikotestPaidController::class, 'showLogin'])->name('psikotest-paid.showLogin');
     Route::post('/login', [UserPsikotestPaidController::class, 'login'])->name('psikotest-paid.login');
     Route::post('/logout', [UserPsikotestPaidController::class, 'logout'])->name('psikotest-paid.logout');
-    
+
     Route::group(['middleware' => ['auth.psikotestpaid:psikotestpaid']], function () {
         Route::get('/landing', [UserPsikotestPaidController::class, 'showLanding'])->name('psikotest-paid.showLanding');
+
+        // PAPI KOSTICK
+        Route::get('/papi-kostick/instruksi', [PapiKostickTestController::class, 'instruksi'])->name('psikotest-paid.papi-kostick.instruksi');
+        Route::post('/papi-kostick/store', [PapiKostickTestController::class, 'store'])->name('psikotest-paid.papi-kostick.store');
+
+
+        Route::get('/papi-kostick/{test_id}/question/{question_order}', [PapiKostickQuestionController::class, 'show'])->name('psikotest-paid.papi-kostick.question');
+        Route::post('/papi-kostick/{test_id}/question/{question_order}/answer', [PapiKostickQuestionController::class, 'answer'])->name('psikotest-paid.papi-kostick.answer');
+        Route::get('/papi-kostick/{test_id}/complete', [PapiKostickQuestionController::class, 'complete'])->name('psikotest-paid.papi-kostick.complete');
     });
 });

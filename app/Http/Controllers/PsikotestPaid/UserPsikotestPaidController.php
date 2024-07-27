@@ -93,7 +93,9 @@ class UserPsikotestPaidController extends Controller
 
         if (Auth::guard('psikotestpaid')->attempt($credentials)) {
             Alert::toast('Login Sucessfully!', 'success')->autoClose(5000);
-            return redirect()->route('psikotest-paid.showLanding');
+            // return redirect()->route('psikotest-paid.showLanding');
+            return redirect()->route('psikotest-tools.index');
+            // return redirect()->route('psikotest-paid.papi-kostick.instruksi');
         } else {
             Alert::toast('Invalid Email-Address And Password', 'error')->autoClose(5000);;
             return redirect()->route('psikotest-paid.login');
@@ -108,7 +110,7 @@ class UserPsikotestPaidController extends Controller
         return redirect()->route('psikotest-paid.login');
     }
 
-    
+
     private function generatePassword($fullname)
     {
         $firstName = explode(' ', trim($fullname))[0];
@@ -133,7 +135,8 @@ class UserPsikotestPaidController extends Controller
     }
 
     // NANTI UNTUK LANDING/DASHBOARD PAKE FUNGSI DARI FILE LAIN AJA
-    public function showLanding(){
+    public function showLanding()
+    {
         $user = Auth::guard('psikotestpaid')->user();
         return view('moduls.psikotes-paid.landing', ['user' => $user]);
     }
