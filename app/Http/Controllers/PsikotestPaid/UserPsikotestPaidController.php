@@ -14,19 +14,36 @@ use App\Models\PsikotestPaid\PsikotestTool;
 
 class UserPsikotestPaidController extends Controller
 {
+    // public function showPage($page)
+    // {
+    //     switch ($page) {
+    //         case '1':
+    //             return view('moduls.psikotes-paid.reg-page-1');
+    //         case '2':
+    //             $psikotestCategoryTypes = CategoryPsikotestType::all();
+    //             $psikotestTypes = PsikotestType::all();
+    //             return view('moduls.psikotes-paid.reg-page-2', compact('psikotestTypes', 'psikotestCategoryTypes'));
+    //         case '3':
+    //             return view('moduls.psikotes-paid.reg-page-3');
+    //         case '4':
+    //             return view('moduls.psikotes-paid.reg-page-4');
+    //         default:
+    //             abort(404);
+    //     }
+    // }
     public function showPage($page)
     {
         switch ($page) {
             case '1':
-                return view('moduls.psikotes-paid.reg-page-1');
+                return view('moduls.psikotes-paid.registrasi.page-1');
             case '2':
                 $psikotestCategoryTypes = CategoryPsikotestType::all();
                 $psikotestTypes = PsikotestType::all();
-                return view('moduls.psikotes-paid.reg-page-2', compact('psikotestTypes', 'psikotestCategoryTypes'));
+                return view('moduls.psikotes-paid.registrasi.page-2', compact('psikotestTypes', 'psikotestCategoryTypes'));
             case '3':
-                return view('moduls.psikotes-paid.reg-page-3');
+                return view('moduls.psikotes-paid.registrasi.page-3');
             case '4':
-                return view('moduls.psikotes-paid.reg-page-4');
+                return view('moduls.psikotes-paid.registrasi.page-4');
             default:
                 abort(404);
         }
@@ -109,7 +126,7 @@ class UserPsikotestPaidController extends Controller
         return redirect()->route('psikotest-paid.login');
     }
 
-    
+
     private function generatePassword($fullname)
     {
         $firstName = explode(' ', trim($fullname))[0];
@@ -134,7 +151,8 @@ class UserPsikotestPaidController extends Controller
     }
 
     // NANTI UNTUK LANDING/DASHBOARD BISA PAKE FUNGSI DARI FILE LAIN AJA, dibawah cuman contoh
-    public function showLanding(){
+    public function showLanding()
+    {
         $user = Auth::guard('psikotestpaid')->user();
         $tools = PsikotestTool::all();
         return view('moduls.psikotes-paid.landing', ['user' => $user, 'tools' => $tools]);
