@@ -21,12 +21,13 @@
 
                         </div>
                         <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
-                            <form class="space-y-6" action="#" method="POST">
+                            <form class="space-y-6" method="POST" action="{{ route('psikotest-paid.login') }}">
+                                @csrf
                                 <div>
                                     <label for="email" class="block text-base font-semibold leading-6 text-black">Email
                                         address</label>
                                     <div class="mt-2">
-                                        <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-full border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
+                                        <input id="email" name="email" type="email" required class="block w-full rounded-full border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
                                     </div>
                                 </div>
 
@@ -34,25 +35,17 @@
                                     <div class="flex items-center justify-between">
                                         <label for="password" class="block text-base font-semibold leading-6 text-black">Password</label>
                                         <div class="text-sm">
-                                            <a href="#" class="font-semibold text-black hover:text-primary">Forgot
-                                                password?</a>
                                         </div>
                                     </div>
                                     <div class="mt-2">
-                                        <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-full border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
+                                        <input id="password" name="password" type="password" required class="block w-full rounded-full border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6">
                                     </div>
                                 </div>
 
-                                <div>
-                                    <button type="submit" class="flex w-fit justify-center rounded-full text-white bg-primary border-2 border-primary px-3 py-1.5 text-base font-semibold leading-6 shadow-sm hover:shadow-lg hover:shadow-primary-alt focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Login</button>
+                                <div class="justify-center items-center mx-auto">
+                                    <button type="submit" class="flex w-fit justify-center rounded-full text-white bg-primary border-2 border-primary px-7 py-1.5 text-base font-semibold leading-6 shadow-sm hover:shadow-lg hover:shadow-primary-alt focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">LOGIN</button>
                                 </div>
                             </form>
-
-                            <p class="mt-10 text-center text-sm text-black">
-                                Having problem?
-                                <a href="#" class="font-semibold leading-6 text-black hover:text-primary">Contact
-                                    Us</a>
-                            </p>
                         </div>
                     </div>
                 </div>

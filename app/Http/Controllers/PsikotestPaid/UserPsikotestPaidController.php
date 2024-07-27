@@ -11,19 +11,36 @@ use App\Models\PsikotestPaid\UserPsikotestPaid;
 
 class UserPsikotestPaidController extends Controller
 {
+    // public function showPage($page)
+    // {
+    //     switch ($page) {
+    //         case '1':
+    //             return view('moduls.psikotes-paid.reg-page-1');
+    //         case '2':
+    //             $psikotestCategoryTypes = CategoryPsikotestType::all();
+    //             $psikotestTypes = PsikotestType::all();
+    //             return view('moduls.psikotes-paid.reg-page-2', compact('psikotestTypes', 'psikotestCategoryTypes'));
+    //         case '3':
+    //             return view('moduls.psikotes-paid.reg-page-3');
+    //         case '4':
+    //             return view('moduls.psikotes-paid.reg-page-4');
+    //         default:
+    //             abort(404);
+    //     }
+    // }
     public function showPage($page)
     {
         switch ($page) {
             case '1':
-                return view('moduls.psikotes-paid.reg-page-1');
+                return view('moduls.psikotes-paid.registrasi.page-1');
             case '2':
                 $psikotestCategoryTypes = CategoryPsikotestType::all();
                 $psikotestTypes = PsikotestType::all();
-                return view('moduls.psikotes-paid.reg-page-2', compact('psikotestTypes', 'psikotestCategoryTypes'));
+                return view('moduls.psikotes-paid.registrasi.page-2', compact('psikotestTypes', 'psikotestCategoryTypes'));
             case '3':
-                return view('moduls.psikotes-paid.reg-page-3');
+                return view('moduls.psikotes-paid.registrasi.page-3');
             case '4':
-                return view('moduls.psikotes-paid.reg-page-4');
+                return view('moduls.psikotes-paid.registrasi.page-4');
             default:
                 abort(404);
         }
@@ -78,6 +95,34 @@ class UserPsikotestPaidController extends Controller
         $request->session()->forget('psikotest-paid');
 
         return redirect()->route('psikotest-paid.showPage', ['page' => '4']);
+    }
+
+    public function showLogin()
+    {
+        // return view('moduls.psikotes-paid.login');
+        return view('moduls.psikotes-paid.registrasi.login');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::guard('psikotestpaid')->attempt($credentials)) {
+            Alert::toast('Login Sucessfully!', 'success')->autoClose(5000);
+            return redirect()->route('psikotest-paid.showLanding');
+        } else {
+            Alert::toast('Invalid Email-Address And Password', 'error')->autoClose(5000);;
+            // return redirect()->route('psikotest-paid.login');
+            return redirect()->route('psikotest-paid.registrasi.login');
+        }
+    }
+
+    public function logout()
+    {
+        Auth::guard('psikotestpaid')->logout();
+        Alert::toast('Logout Sucessfully!', 'success')->autoClose(5000);
+
+        return redirect()->route('psikotest-paid.login');
     }
 
     private function generatePassword($fullname)
