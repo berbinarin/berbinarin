@@ -11,8 +11,12 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container mt-5">
         <h1>PAPI Kostick Test</h1>
+        <div class="progress mb-3">
+            <div class="progress-bar" role="progressbar" style="width: {{ $progress }}%;"
+                aria-valuenow="{{ $progress }}" aria-valuemin="0" aria-valuemax="100">{{ $progress }}%</div>
+        </div>
         <form method="POST"
             action="{{ route('psikotest-paid.papi-kostick.submit', ['id' => $id, 'question_order' => $question_order]) }}">
             @csrf
