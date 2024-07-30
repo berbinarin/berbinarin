@@ -99,61 +99,90 @@
     </div>
 
     {{-- POP UP FEEDBACK PSIKOTES --}}
-    <section class="w-screen">
-        <div id="close-psikotes" class="modal w-screen fixed top-0 left-0 right-0 z-50 flex justify-center items-center hidden">
-            <div class="modal-dialog w-[900px] overflow-auto m-4 modal-xl bg-linear rounded-xl shadow-lg p-4" style="background-color: white">
-                <div class="modal overflow-auto">
-                    <div class="px-4">
-                        <div class="text-center">
-                            <h1 class="text-black text-center text-3xl font-semibold mt-5">Syarat dan
-                                Ketentuan</h1>
-                            <p class="font-medium mt-2">Harap membaca syarat dan ketentuan berikut sebelum mendaftar</p>
-                            <div class="text-justify text-pretty font-light text-black px-16">
-                                <ul class="list-decimal list-outside leading-relaxed mt-10">
-                                    <li>Setelah mengisi form, calon pendaftar akan diarahkan untuk melakukan
-                                        <span class="font-bold">pembayaran 100% </span>ke <span class="font-bold">
-                                            Bank Mandiri </span> dengan no rekening <span class="font-bold">
-                                            1400020763711 </span> a.n. Berbinar Insightful
-                                        Indonesia dengan aturan transfer 1x24 jam setelah pengisian form.
-                                    </li>
-                                    <li>Jika calon peserta tes <span class="font-bold"> tidak membalas pesan
-                                        </span> admin dalam waktu 1x24 jam setelah pengisian form, maka
-                                        pendaftaran oleh calon peserta tes secara <span class="font-bold">
-                                            otomatis dibatalkan </span>.</li>
-                                    <li>Jika calon peserta tes <span class="font-bold"> tidak membalas pesan
-                                        </span> admin dalam 1x24 jam, jadwal yang sudah ditentukan oleh klien
-                                        <span class="font-bold"> berhak untuk dirubah oleh Tim Berbinar </span>
-                                        dan <span class="font-bold"> kesepakatan dari klien </span>.
-                                    </li>
-                                    <li>Jika calon peserta tes <span class="font-bold"> tidak membalas pesan
-                                        </span> admin dalam 2x24 jam setelah melakukan pembayaran, <span class="font-bold"> pembayaran dianggap hangus </span>.</li>
-                                    <li>Calon peserta tes <span class="font-bold"> dapat mengajukan pembatalan
-                                        </span> layanan psikotes dalam kurun waktu 1x24 jam setelah proses
-                                        admnistrasi dan dana yang telah dibayarkan akan <span class="font-bold">
-                                            dikembalikan 100% </span>.</li>
-                                    <li>Setelah <span class="font-bold"> selesai melaksanakan psikotes </span>,
-                                        peserta akan dikirimkan hasil psikotesnya dengan jangka waktu tertentu.
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="mt-5 px-16">
-                                <p class="text-left">Jika ada yang ingin ditanyakan, silakan menghubungi CP: <span class="text-primary underline underline-offset-2"><a aria-label="Chat on WhatsApp" href="https://wa.me/632351088413">
-                                            wa.me/632351088413
-                                            (Diah)</a></span></p>
-                            </div>
+    <div id="modal-registrasi" class="fixed inset-0 flex items-center justify-center z-50">
+        <div class="modal-overlay absolute inset-0 bg-black opacity-50"></div>
+        <div class="modal fixed px-5 md:px-0 z-50 flex justify-center items-center overflow-y-auto">
+            <div class="modal-dialog md:w-[900px] m-4 rounded-xl shadow-lg p-4" style="background-color: white">
+                <div class="modal-content px-4">
+                    <div class="text-center">
+                        <h1 class="text-black text-center text-3xl font-semibold mt-5">Syarat dan
+                            Ketentuan</h1>
+                        <p class="font-medium mt-2">Harap membaca syarat dan ketentuan berikut sebelum mendaftar</p>
+                        <div class="text-justify text-pretty font-light text-black px-5 md:px-16">
+                            <ul class="list-decimal list-outside leading-relaxed mt-10">
+                                <li>Setelah mengisi form, calon pendaftar akan diarahkan untuk melakukan
+                                    <span class="font-bold">pembayaran 100% </span>ke <span class="font-bold">
+                                        Bank Mandiri </span> dengan no rekening <span class="font-bold">
+                                        1400020763711 </span> a.n. Berbinar Insightful
+                                    Indonesia dengan aturan transfer 1x24 jam setelah pengisian form.
+                                </li>
+                                <li>Jika calon peserta tes <span class="font-bold"> tidak membalas pesan
+                                    </span> admin dalam waktu 1x24 jam setelah pengisian form, maka
+                                    pendaftaran oleh calon peserta tes secara <span class="font-bold">
+                                        otomatis dibatalkan </span>.</li>
+                                <li>Jika calon peserta tes <span class="font-bold"> tidak membalas pesan
+                                    </span> admin dalam 1x24 jam, jadwal yang sudah ditentukan oleh klien
+                                    <span class="font-bold"> berhak untuk dirubah oleh Tim Berbinar </span>
+                                    dan <span class="font-bold"> kesepakatan dari klien </span>.
+                                </li>
+                                <li>Jika calon peserta tes <span class="font-bold"> tidak membalas pesan
+                                    </span> admin dalam 2x24 jam setelah melakukan pembayaran, <span class="font-bold">
+                                        pembayaran dianggap hangus </span>.</li>
+                                <li>Calon peserta tes <span class="font-bold"> dapat mengajukan pembatalan
+                                    </span> layanan psikotes dalam kurun waktu 1x24 jam setelah proses
+                                    admnistrasi dan dana yang telah dibayarkan akan <span class="font-bold">
+                                        dikembalikan 100% </span>.</li>
+                                <li>Setelah <span class="font-bold"> selesai melaksanakan psikotes </span>,
+                                    peserta akan dikirimkan hasil psikotesnya dengan jangka waktu tertentu.
+                                </li>
+                            </ul>
                         </div>
-                        <div class="modal-footer flex w-100 justify-center items-center p-5 mt-4 mx-8 gap-4">
-                            <div class="flex text-center text-md-end ">
-                                <a href="{{ route('psikotestSignUp') }}" class="button hidden md:block px-5 py-2 font-semibold text-white bg-primary border-white border-2 rounded-full mr-4 hover:bg-white hover:border-primary hover:text-primary w-fit">Oke</a>
-                            </div>
+                        <div class="mt-5 px-5 md:px-16">
+                            <p class="text-left">Jika ada yang ingin ditanyakan, silakan menghubungi CP: <span class="text-primary underline underline-offset-2"><a aria-label="Chat on WhatsApp" href="https://wa.me/632351088413">
+                                        wa.me/632351088413
+                                        (Diah)</a></span></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer flex w-100 justify-center items-center p-5 mt-4 mx-8 gap-4">
+                        <div class="flex text-center text-md-end ">
+                            <button id="modal-close" class="flex px-5 py-2 font-semibold text-white bg-primary border-white border-2 rounded-full mr-4 hover:bg-white hover:border-primary hover:text-primary w-fit">Oke</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-    </section>
+    </div>
 
 </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var modal = document.getElementById('modal-registrasi');
+        var modalOverlay = modal.querySelector('.modal-overlay');
+        var modalCloseBtn = document.getElementById('modal-close');
+
+        modalOverlay.addEventListener('click', closeModal);
+        modalCloseBtn.addEventListener('click', closeModal);
+
+        function closeModal() {
+            modal.classList.remove('opacity-100', 'pointer-events-auto');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(function() {
+                modal.style.display = 'none';
+            }, 500);
+        }
+
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' || event.key === 'Esc') {
+                closeModal();
+            }
+        });
+    });
+</script>
 
 @endsection
