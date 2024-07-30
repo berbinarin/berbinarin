@@ -14,19 +14,36 @@ use App\Models\PsikotestPaid\PsikotestTool;
 
 class UserPsikotestPaidController extends Controller
 {
+    // public function showPage($page)
+    // {
+    //     switch ($page) {
+    //         case '1':
+    //             return view('moduls.psikotes-paid.reg-page-1');
+    //         case '2':
+    //             $psikotestCategoryTypes = CategoryPsikotestType::all();
+    //             $psikotestTypes = PsikotestType::all();
+    //             return view('moduls.psikotes-paid.reg-page-2', compact('psikotestTypes', 'psikotestCategoryTypes'));
+    //         case '3':
+    //             return view('moduls.psikotes-paid.reg-page-3');
+    //         case '4':
+    //             return view('moduls.psikotes-paid.reg-page-4');
+    //         default:
+    //             abort(404);
+    //     }
+    // }
     public function showPage($page)
     {
         switch ($page) {
             case '1':
-                return view('moduls.psikotes-paid.reg-page-1');
+                return view('moduls.psikotes-paid.registrasi.page-1');
             case '2':
                 $psikotestCategoryTypes = CategoryPsikotestType::all();
                 $psikotestTypes = PsikotestType::all();
-                return view('moduls.psikotes-paid.reg-page-2', compact('psikotestTypes', 'psikotestCategoryTypes'));
+                return view('moduls.psikotes-paid.registrasi.page-2', compact('psikotestTypes', 'psikotestCategoryTypes'));
             case '3':
-                return view('moduls.psikotes-paid.reg-page-3');
+                return view('moduls.psikotes-paid.registrasi.page-3');
             case '4':
-                return view('moduls.psikotes-paid.reg-page-4');
+                return view('moduls.psikotes-paid.registrasi.page-4');
             default:
                 abort(404);
         }

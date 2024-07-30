@@ -99,7 +99,7 @@
     @endif
 
     @if ($active === 'Registrasi')
-    <div class="flex bg-[#F5F7F9]">
+    <div class="flex md:h-screen bg-[#F5F7F9]">
         <main class="flex items-center justify-center bg-[#F5F7F9]">
             @yield('content')
         </main>
