@@ -45,7 +45,7 @@ class PapiKostickController extends Controller
     {
         // Verify session for test_id
         if (!session()->has('papikostick') || session('papikostick') != $id) {
-            return redirect()->route('psikotest-paid.papi-kostick.landing');
+            return redirect()->route('psikotest-paid.tool.PAPI Kostick.showLanding');
         }
 
         $question = QuestionPapiKostick::where('id', $question_order)->firstOrFail();
@@ -60,7 +60,7 @@ class PapiKostickController extends Controller
     {
         // Verify session for test_id
         if (!session()->has('papikostick') || session('papikostick') != $id) {
-            return redirect()->route('psikotest-paid.papi-kostick.landing');
+            return redirect()->route('psikotest-paid.tool.PAPI Kostick.showLanding');
         }
 
         $question = QuestionPapiKostick::where('id', $question_order)->firstOrFail();
@@ -422,11 +422,11 @@ class PapiKostickController extends Controller
         // return $scores;
     }
 
-    public function complete($id)
+    public function completeTest($id)
     {
         // Verify session for test_id
         if (!session()->has('papikostick') || session('papikostick') != $id) {
-            return redirect()->route('psikotest-paid.papi-kostick.landing');
+            return redirect()->route('psikotest-paid.tool.PAPI Kostick.showLanding');
         }
 
         $result = ResultPapiKostick::where('test_papi_kostick_id', $id)->firstOrFail();
