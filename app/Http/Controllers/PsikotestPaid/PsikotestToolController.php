@@ -3,18 +3,30 @@
 namespace App\Http\Controllers\PsikotestPaid;
 
 use App\Http\Controllers\Controller;
+use App\Models\PsikotestPaid\PsikotestPaidTest;
 use App\Models\PsikotestPaid\PsikotestTool;
+use App\Models\UserPsikotest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
-
+use App\Models\PsikotestPaid\UserPsikotestPaid;
 class PsikotestToolController extends Controller
 {
   public function index()
   {
       $tools = PsikotestTool::all();
-      return view('moduls.psikotes-paid.admin.admin', compact('tools'));
+      $users = UserPsikotestPaid::all();
+      return view('moduls.psikotes-paid.admin.admin', compact('tools', 'users'));
   }
+
+  public function viewTests($userId)
+  {
+      $user = UserPsikotest::findOrFail($userId);
+      $tests = PsikotestPaidTest::where('user_psikotest_paid_id', $userId)->get();
+      $tests->load('psikotestTool');
+      return view('moduls.psikotes-paid.admin.tests', compact('user', 'tests'));
+  }
+  
 
   public function generateToken($id)
   {

@@ -100,6 +100,17 @@ class UserPsikotestPaidController extends Controller
         return redirect()->route('psikotest-paid.showPage', ['page' => '4']);
     }
 
+    public function delete($userId)
+    {
+        // Find the user by ID and delete
+        $user = UserPsikotestPaid::findOrFail($userId);
+        $user->delete();
+
+        // Redirect back with a success message
+        Alert::toast('User Deleted!', 'success')->autoClose(5000);
+        return redirect()->route('psikotest-paid.showLanding');
+    }
+
     public function showLogin()
     {
         return view('moduls.psikotes-paid.login');

@@ -1,12 +1,16 @@
 <?php
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Internship\ajaxInternship;
 use App\Http\Controllers\PsikotestPaid\RedirectToolController;
 use App\Http\Controllers\PsikotestPaid\Tools\BAUM\BAUMController;
+use App\Http\Controllers\PsikotestPaid\Tools\Baum\ResultBaumController;
 use App\Http\Controllers\PsikotestPaid\Tools\DAP\DAPController;
 use App\Http\Controllers\PsikotestPaid\Tools\HTP\HTPController;
 use App\Http\Controllers\PsikotestPaid\tools\PapiKostick\PapiKostickController;
 use App\Http\Controllers\PsikotestPaid\Tools\SSCT\SSCTController;
+use App\Http\Controllers\PsikotestPaid\Tools\TesEsai\ResultTesEsaiController;
+use App\Http\Controllers\PsikotestPaid\Tools\TesEsai\TesEsaiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PsikotestFree\UserPsikotestFreeController;
@@ -268,6 +272,15 @@ Route::prefix('/psikotest-paid')->group(function () {
     Route::get('/admin', [PsikotestToolController::class, 'index'])->name('psikotest-tools.index');
     Route::post('/admin/{id}/generate-token', [PsikotestToolController::class, 'generateToken'])->name('psikotest-tools.generate-token');
     Route::post('/admin/{id}/delete-token', [PsikotestToolController::class, 'deleteToken'])->name('psikotest-tools.delete-token');
+    Route::get('/admin/{id}', [PsikotestToolController::class, 'viewTests'])->name('admin.show-tests');
+    Route::delete('/admin/{userId}', [UserPsikotestPaidController::class, 'delete'])->name('admin.user.delete');
+    Route::post('/admin/result', function(Request $request){
+        $path = 'admin.test.showResult.' . $request->input('name');
+        return redirect()->route($path, $request->input('id'));
+    })->name('admin.test.showResult');
+
+    Route::get('/admin/result/tes-esai/{testId}', [ResultTesEsaiController::class, 'showResult'])->name('admin.test.showResult.Tes Esai');
+    Route::get('/admin/result/baum/{testId}', [ResultBaumController::class, 'showResult'])->name('admin.test.showResult.BAUM');
 
     Route::group(['middleware' => ['auth.psikotestpaid:psikotestpaid']], function () {
         Route::get('/landing', [UserPsikotestPaidController::class, 'showLanding'])->name('psikotest-paid.showLanding');
@@ -275,9 +288,23 @@ Route::prefix('/psikotest-paid')->group(function () {
 
         // ROUTE UNTUK TIAP TOOLS!
         Route::get('/tool/papi-kostick', [PapiKostickController::class, 'showLanding'])->name('psikotest-paid.tool.PAPI Kostick.showLanding');
+        
         Route::get('/tool/BAUM', [BAUMController::class, 'showLanding'])->name('psikotest-paid.tool.BAUM.showLanding');
+        Route::post('/tool/BAUM/start', [BAUMController::class, 'startTest'])->name('psikotest-paid.tool.BAUM.startTest');
+        Route::get('/tool/BAUM/test/{testId}', [BAUMController::class, 'showTest'])->name('psikotest-paid.tool.BAUM.showTest');
+        Route::post('/tool/BAUM/submit-answer', [BAUMController::class, 'submitAnswer'])->name('psikotest-paid.tool.BAUM.submitAnswer');
+        Route::get('/tool/BAUM/summary/{testId}', [BAUMController::class, 'showSummary'])->name('psikotest-paid.tool.BAUM.summary');
+        
         Route::get('/tool/DAP', [DAPController::class, 'showLanding'])->name('psikotest-paid.tool.DAP.showLanding');
+        
         Route::get('/tool/HTP', [HTPController::class, 'showLanding'])->name('psikotest-paid.tool.HTP.showLanding');
+        
         Route::get('/tool/SSCT', [SSCTController::class, 'showLanding'])->name('psikotest-paid.tool.SSCT.showLanding');
+        
+        Route::get('/tool/tes-esai', [TesEsaiController::class, 'showLanding'])->name('psikotest-paid.tool.Tes Esai.showLanding');
+        Route::post('/tool/tes-esai/start', [TesEsaiController::class, 'startTest'])->name('psikotest-paid.tool.Tes Esai.startTest');
+        Route::get('/tool/tes-esai/test/{testId}', [TesEsaiController::class, 'showTest'])->name('psikotest-paid.tool.Tes Esai.showTest');
+        Route::post('/tool/tes-esai/submit-answer', [TesEsaiController::class, 'submitAnswer'])->name('psikotest-paid.tool.Tes Esai.submitAnswer');
+        Route::get('/tool/tes-esai/summary/{testId}', [TesEsaiController::class, 'showSummary'])->name('psikotest-paid.tool.Tes Esai.summary');
     });
 });

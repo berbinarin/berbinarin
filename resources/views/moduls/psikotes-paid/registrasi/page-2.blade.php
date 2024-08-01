@@ -30,12 +30,12 @@
                                 <div class="mt-5 md:mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
                                     <div class="col-span-full">
-                                        <label for="method" class="block text-lg font-semibold leading-6 text-black">Layanan
+                                        <label for="service" class="block text-lg font-semibold leading-6 text-black">Layanan
                                             Psikotes</label>
                                         <div class="mt-2">
-                                            <select id="method" name="method" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-lg sm:leading-6">
-                                                <option value="staff">Online</option>
-                                                <option value="supervisor">Offline (Surabaya)</option>
+                                            <select id="service" name="service" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-lg sm:leading-6">
+                                                <option value="online">Online</option>
+                                                <option value="offline">Offline (Surabaya)</option>
                                             </select>
                                         </div>
                                     </div>
