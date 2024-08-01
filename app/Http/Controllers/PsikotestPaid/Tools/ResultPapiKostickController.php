@@ -11,39 +11,37 @@ class ResultPapiKostickController extends Controller
     public function showResult($id)
     {
         $result = ResultPapiKostick::findOrFail($id);
+        $descriptions = $this->getAllDescription($result);
 
-        // Followership
-        $descriptionF = $this->getDescriptionF($result->F);
-        $descriptionW = $this->getDescriptionW($result->W);
-        // Work Direction
-        $descriptionN = $this->getDescriptionN($result->N);
-        $descriptionG = $this->getDescriptionG($result->G);
-        $descriptionA = $this->getDescriptionA($result->A);
-        // Leadership
-        $descriptionL = $this->getDescriptionL($result->L);
-        $descriptionP = $this->getDescriptionP($result->P);
-        $descriptionI = $this->getDescriptionI($result->I);
-        // Activity
-        $descriptionT = $this->getDescriptionT($result->T);
-        $descriptionV = $this->getDescriptionV($result->V);
-        // Social Nature
-        $descriptionO = $this->getDescriptionO($result->O);
-        $descriptionB = $this->getDescriptionB($result->B);
-        $descriptionS = $this->getDescriptionS($result->S);
-        $descriptionX = $this->getDescriptionX($result->X);
-        // Work Style
-        $descriptionC = $this->getDescriptionC($result->C);
-        $descriptionD = $this->getDescriptionD($result->D);
-        $descriptionR = $this->getDescriptionR($result->R);
-        // Temprament
-        $descriptionZ = $this->getDescriptionZ($result->Z);
-        $descriptionE = $this->getDescriptionE($result->E);
-        $descriptionK = $this->getDescriptionK($result->K);
+        return view('result.show', compact('result', 'descriptions'));
+    }
 
+    private function getAllDescription(ResultPapiKostick $result)
+    {
+        $descriptions = [
+            'F' => $this->getDescriptionF($result->F),
+            'W' => $this->getDescriptionW($result->W),
+            'N' => $this->getDescriptionN($result->N),
+            'G' => $this->getDescriptionG($result->G),
+            'A' => $this->getDescriptionA($result->A),
+            'L' => $this->getDescriptionL($result->L),
+            'P' => $this->getDescriptionP($result->P),
+            'I' => $this->getDescriptionI($result->I),
+            'T' => $this->getDescriptionT($result->T),
+            'V' => $this->getDescriptionV($result->V),
+            'O' => $this->getDescriptionO($result->O),
+            'B' => $this->getDescriptionB($result->B),
+            'S' => $this->getDescriptionS($result->S),
+            'X' => $this->getDescriptionX($result->X),
+            'C' => $this->getDescriptionC($result->C),
+            'D' => $this->getDescriptionD($result->D),
+            'R' => $this->getDescriptionR($result->R),
+            'Z' => $this->getDescriptionZ($result->Z),
+            'E' => $this->getDescriptionE($result->E),
+            'K' => $this->getDescriptionK($result->K),
+        ];
 
-
-
-        return view('result.show', compact('result', 'description'));
+        return $descriptions;
     }
 
     private function getDescriptionF($fScore)
