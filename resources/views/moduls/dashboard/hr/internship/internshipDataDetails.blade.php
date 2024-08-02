@@ -300,6 +300,7 @@
                   <label class="font-semibold text-gray-600">Motivasi:</label>
                 </td>
                 <td class="py-1 pl-4 pr-8 multi-line-ellipsis" style="word-wrap: break-word; white-space: normal;">
+
                   {{$Internship->motivasi}}
                 </td>
               </tr>

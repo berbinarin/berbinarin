@@ -659,7 +659,8 @@ class LandingController extends Controller
         ]);
     }
 
-    public function getImagePath($position){
+    public function getImagePath($position)
+    {
         if ($position == 'Web and Mobile Apps Developer') {
             return 'assets/images/internship/banner/web';
         }
@@ -1058,6 +1059,19 @@ class LandingController extends Controller
         return redirect()->route('home');
     }
 
+    public function instruksi()
+    {
+        return view('moduls.psikotes-paid.instruksi');
+    }
+    public function soal()
+    {
+        return view('moduls.psikotes-paid.soal');
+    }
+    public function end()
+    {
+        return view('moduls.psikotes-paid.end');
+    }
+
     public function psikotestHome()
     {
         return view('moduls.psikotes.homepage');
@@ -1087,5 +1101,35 @@ class LandingController extends Controller
     public function psikotestHasilTest()
     {
         return view('moduls.psikotes.hasiltes');
+    }
+
+    public function psikotestLogin()
+    {
+        return view('moduls.psikotes-paid.login');
+    }
+
+    public function psikotestSignUp()
+    {
+        return view('moduls.psikotes-paid.registrasi.page-1');
+    }
+
+    public function psikotestSchedule()
+    {
+        return view('moduls.psikotes-paid.registrasi.page-2');
+    }
+
+    public function psikotestMotive()
+    {
+        return view('moduls.psikotes-paid.registrasi.page-3');
+    }
+
+    public function psikotestSignupSuccess()
+    {
+        return view('moduls.psikotes-paid.registrasi.page-4');
+    }
+
+    public function psikotestServices()
+    {
+        return view('moduls.psikotes-paid.services');
     }
 }
