@@ -18,6 +18,6 @@ class QuestionPapiKostick extends Model
 
     public function answerPapiKostick()
     {
-        return $this->hasMany(AnswerPapiKostick::class);
+        return $this->hasMany(AnswerPapiKostick::class, 'question_papi_kostick_id');
     }
 }

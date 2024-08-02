@@ -1,20 +1,70 @@
 <?php
 
-namespace App\Http\Controllers\PsikotestPaid\Tools;
+namespace App\Http\Controllers\PsikotestPaid\Tools\PapiKostick;
 
-use App\Http\Controllers\Controller;
-use App\Models\PsikotestPaid\PapiKostick\ResultPapiKostick;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\PsikotestPaid\PsikotestPaidTest;
+use App\Models\PsikotestPaid\UserPsikotestPaid;
+use App\Models\PsikotestPaid\PapiKostick\TestPapiKostick;
+use App\Models\PsikotestPaid\PapiKostick\AnswerPapiKostick;
+use App\Models\PsikotestPaid\PapiKostick\ResultPapiKostick;
 
-class ResultPapiKostickController extends Controller
+class DashboardPapiKostickController extends Controller
 {
-    public function showResult($id)
-    {
-        $result = ResultPapiKostick::findOrFail($id);
-        $descriptions = $this->getAllDescription($result);
+    // public function __construct()
+    // {
+    //     $this->middleware('auth')->except(['login']);
+    //     $this->middleware('role:Admin,HR,Konselling,PsikotestFree')->except(['login']);
+    // }
 
-        return view('result.show', compact('result', 'descriptions'));
+    public function allResponden()
+    {
+        $respondens = PsikotestPaidTest::with('userPsikotestPaid')
+            ->where('psikotest_tool_id', 1)
+            ->get();
+
+        return view('moduls.psikotes-paid.tools.papi-kostick.data', compact('respondens'));
     }
+
+    // public function detailResponden($id)
+    // {
+    //     $responden = PsikotestPaidTest::with('userPsikotestPaid')->findOrFail($id);
+
+    //     // Fetch the TestPapiKostick based on psikotest_paid_test_id
+    //     $testPapiKostick = TestPapiKostick::where('psikotest_paid_test_id', $responden->id)->first();
+
+    //     // If there's a TestPapiKostick, fetch the result
+    //     $result = $testPapiKostick ? ResultPapiKostick::where('test_papi_kostick_id', $testPapiKostick->id)->first() : null;
+
+    //     // If there's a result, fetch the descriptions
+    //     $descriptions = $result ? $this->getAllDescription($result) : [];
+
+    //     return view('moduls.psikotes-paid.tools.papi-kostick.detail', compact('responden', 'result', 'descriptions'));
+    // }
+
+    public function detailResponden($id)
+    {
+        $responden = PsikotestPaidTest::with('userPsikotestPaid')->findOrFail($id);
+        $testPapiKostick = TestPapiKostick::where('psikotest_paid_test_id', $responden->id)->first();
+
+        $result = $testPapiKostick ? ResultPapiKostick::where('test_papi_kostick_id', $testPapiKostick->id)->first() : null;
+        $descriptions = $result ? $this->getAllDescription($result) : [];
+
+        $answers = $testPapiKostick ? AnswerPapiKostick::with('questionPapiKostick')
+            ->where('test_papi_kostick_id', $testPapiKostick->id)
+            ->get() : [];
+
+        return view('moduls.psikotes-paid.tools.papi-kostick.detail', compact('responden', 'result', 'descriptions', 'answers'));
+    }
+
+    // public function showResult($id)
+    // {
+    //     $result = ResultPapiKostick::findOrFail($id);
+    //     $descriptions = $this->getAllDescription($result);
+
+    //     return view('moduls.psikotes-paid.tools.papi-kostick.result', compact('result', 'descriptions'));
+    // }
 
     private function getAllDescription(ResultPapiKostick $result)
     {
@@ -52,7 +102,9 @@ class ResultPapiKostickController extends Controller
             return "Loyal pada Perusahaan.";
         } elseif ($fScore == 7) {
             return "Loyal pada pribadi atasan.";
-        } elseif ($fScore >= 8 && $fScore <= 9) {
+        } elseif (
+            $fScore >= 8 && $fScore <= 9
+        ) {
             return "Loyal, berusaha dekat dengan pribadi atasan, ingin menyenangkan atasan, sadar akan harapan atasan akan dirinya. Terlalu memperhatikan cara menyenangkan atasan, tidak berani berpendirian lain, tidak mandiri.";
         } else {
             return "Deskripsi tidak tersedia.";
@@ -80,7 +132,9 @@ class ResultPapiKostickController extends Controller
             return "Tidak terlalu merasa perlu untuk menuntaskan sendiri tugas-tugasnya, senang menangani beberapa pekerjaan sekaligus, mudah mendelegasikan tugas. Komitmen rendah, cenderung meninggalkan tugas sebelum tuntas, konsentrasi mudah buyar, mungkin suka berpindah pekerjaan.";
         } elseif ($nScore >= 3 && $nScore <= 5) {
             return "Cukup memiliki komitmen untuk menuntaskan tugas, akan tetapi jika memungkinkan akan mendelegasikan sebagian dari pekerjaannya kepada orang lain.";
-        } elseif ($nScore >= 6 && $nScore <= 7) {
+        } elseif (
+            $nScore >= 6 && $nScore <= 7
+        ) {
             return "Komitmen tinggi, lebih suka menangani pekerjaan satu demi satu, akan tetapi masih dapat mengubah prioritas jika terpaksa.";
         } elseif ($nScore >= 8 && $nScore <= 9) {
             return "Memiliki komitmen yg sangat tinggi terhadap tugas, sangat ingin menyelesaikan tugas, tekun dan tuntas dalam menangani pekerjaan satu demi satu hingga tuntas. Perhatian terpaku pada satu tugas, sulit untuk menangani beberapa pekerjaan sekaligus, sulit di interupsi, tidak melihat masalah sampingan.";
@@ -127,7 +181,9 @@ class ResultPapiKostickController extends Controller
             return "Kurang percaya diri dan kurang berminat untuk menjadi pemimpin.";
         } elseif ($lScore == 5) {
             return "Cukup percaya diri, tidak secara aktif mencari posisi kepemimpinan akan tetapi juga tidak akan menghindarinya.";
-        } elseif ($lScore >= 6 && $lScore <= 7) {
+        } elseif (
+            $lScore >= 6 && $lScore <= 7
+        ) {
             return "Percaya diri dan ingin berperan sebagai pemimpin.";
         } elseif ($lScore >= 8 && $lScore <= 9) {
             return "Sangat percaya diri untuk berperan sebagai atasan dan sangat mengharapkan posisi tersebut. Lebih mementingkan citra dan status kepemimpinannya dari pada efektifitas kelompok, mungkin akan tampil angkuh atau terlalu percaya diri.";
@@ -178,7 +234,9 @@ class ResultPapiKostickController extends Controller
             return "Santai. Kurang peduli akan waktu, kurang memiliki rasa urgensi, membuang-buang waktu, bukan pekerja yang tepat waktu.";
         } elseif ($tScore >= 4 && $tScore <= 6) {
             return "Cukup aktif dalam segi mental, dapat menyesuaikan tempo kerjanya dengan tuntutan pekerjaan atau lingkungan.";
-        } elseif ($tScore >= 7 && $tScore <= 9) {
+        } elseif (
+            $tScore >= 7 && $tScore <= 9
+        ) {
             return "Cekatan, selalu siaga, bekerja cepat, ingin segera menyelesaikan tugas.  Negatifnya: Tegang, cemas, impulsif, mungkin ceroboh, banyak gerakan yang tidak perlu.";
         } else {
             return "Deskripsi tidak tersedia.";
@@ -245,7 +303,9 @@ class ResultPapiKostickController extends Controller
             return "Sederhana, cenderung diam, cenderung pemalu, tidak suka menonjolkan diri.";
         } elseif ($xScore >= 4 && $xScore <= 5) {
             return "Mengharapkan pengakuan lingkungan dan tidak mau diabaikan tetapi tidak mencari-cari perhatian.";
-        } elseif ($xScore >= 6 && $xScore <= 9) {
+        } elseif (
+            $xScore >= 6 && $xScore <= 9
+        ) {
             return "Bangga akan diri dan gayanya sendiri, senang menjadi pusat perhatian, mengharapkan penghargaan dari lingkungan. Mencari-cari perhatian dan suka menyombongkan diri.";
         } else {
             return "Deskripsi tidak tersedia.";
@@ -275,7 +335,9 @@ class ResultPapiKostickController extends Controller
             return "Cukup peduli akan akurasi dan kelengkapan data.";
         } elseif ($dScore >= 4 && $dScore <= 6) {
             return "Tertarik untuk menangani sendiri detail.";
-        } elseif ($dScore >= 7 && $dScore <= 9) {
+        } elseif (
+            $dScore >= 7 && $dScore <= 9
+        ) {
             return "Sangat menyukai detail, sangat peduli akan akurasi dan kelengkapan data. Cenderung terlalu terlibat dengan detail sehingga melupakan tujuan utama.";
         } else {
             return "Deskripsi tidak tersedia.";
@@ -307,7 +369,9 @@ class ResultPapiKostickController extends Controller
             return "Mudah beradaptasi, cukup menyukai perubahan.";
         } elseif ($zScore >= 6 && $zScore <= 7) {
             return "Antusias terhadap perubahan dan akan mencari hal-hal baru, tetapi masih selektif (menilai kemanfaatannya ).";
-        } elseif ($zScore >= 8 && $zScore <= 9) {
+        } elseif (
+            $zScore >= 8 && $zScore <= 9
+        ) {
             return "Sangat menyukai perubahan, gagasan baru atau variasi, aktif mencari perubahan, antusias dengan hal-hal baru, fleksibel dalam berpikir, mudah beradaptasi pada situasi yang berbeda-beda. Gelisah, frustasi, mudah bosan, sangat membutuhkan variasi, tidak menyukai tugas atau situasi yang rutin-monoton.";
         } else {
             return "Deskripsi tidak tersedia.";
