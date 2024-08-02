@@ -17,7 +17,7 @@
                 <div class="absolute top-0 bottom-0 my-36 w-[300px] h-[380px] md:w-[400px] md:h-[380px] backdrop-blur-md bg-white/10 shadow-lg ring-1 ring-black/5 gap-4 rounded-xl">
                     <div class="p-5">
                         <div class="mt-3">
-                            <p class="text-2xl font-bold text-black">Login</p>
+                            <p class="text-2xl font-bold text-black">LOGIN</p>
 
                         </div>
                         <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -43,7 +43,7 @@
                                 </div>
 
                                 <div class="flex justify-center items-center mx-auto py-3">
-                                    <button type="submit" class="flex w-fit justify-center rounded-full text-white bg-primary border-2 border-primary px-7 py-1.5 text-base font-semibold leading-6 shadow-sm hover:shadow-lg hover:shadow-primary-alt focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">LOGIN</button>
+                                    <button type="submit" class="flex w-fit justify-center rounded-full text-white bg-primary border-2 border-primary px-7 py-1.5 text-base font-semibold leading-6 shadow-sm hover:shadow-lg hover:shadow-primary-alt focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Login</button>
                                 </div>
                             </form>
                         </div>
