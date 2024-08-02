@@ -101,7 +101,7 @@
                                                     @csrf
                                                     @method("DELETE")
                                                     <input type="hidden" name="id">
-                                                    <p class="mb-6">Apakah anda yakin ingin menghapus posisi {{ $item->name }} dari divisi {{ $item->divisi }} ?</p>
+                                                    <p class="mb-6">Apakah anda yakin ingin menghapus posisi <b>{{ $item->name }}</b> dari divisi <b>{{ $item->divisi }}</b> ?</p>
                                                 <!--footer-->
                                                 <div class="flex items-center justify-end pt-3 border-t border-solid border-blueGray-200 rounded-b">
                                                         <button class="text-gray-500 background-transparent font-bold  px-6 py-2 text-base outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" 
@@ -109,7 +109,7 @@
                                                         Close
                                                     </button>
                                                     <button type="submit" class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-red-500 hover:bg-red-500 focus:outline-none rounded">
-                                                        <i class='bx bxs-trash-alt text-white'></i>
+                                                        <p class="font-medium leading-none text-white">Hapus</p>
                                                     </button>
                                                 </div>
                                             </form>

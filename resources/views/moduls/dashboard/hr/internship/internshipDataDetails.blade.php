@@ -28,7 +28,7 @@
           </button>
         </form>
         <button  onclick="toggleModal('delete-modal-{{ $Internship->id}}')" type="button"
-          class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center px-6 py-3 bg-red-500 hover:bg-red-500 focus:outline-none rounded">
+          class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center px-6 py-3 text-white bg-red-500 hover:bg-red-500 focus:outline-none rounded">
           <p class="font-medium leading-none text-dark">Hapus</p>
         </button>
         {{-- <form action="{{ route('user_internships.destroy', $Internship->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
@@ -63,7 +63,7 @@
                       @csrf
                       @method("DELETE")
                       <input type="hidden" name="id">
-                      <p class="mb-6">Are you sure want to this detail data for {{ $Internship->nama_lengkap }} from {{ $Internship->asal_pendidikan }} ?</p>
+                      <p class="mb-6">Apakah anda yakin ingin menghapus data pendaftar bernama <b>{{ $Internship->nama_lengkap }}</b> dari <b>{{ $Internship->asal_pendidikan }}</b> ?</p>
                       <!--footer-->
                       <div class="flex items-center justify-end pt-3 border-t border-solid border-blueGray-200 rounded-b">
                           <button
