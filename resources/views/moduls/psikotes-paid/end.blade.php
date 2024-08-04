@@ -17,9 +17,9 @@
   </div>
 
   <!-- Card Transparant -->
-  <div class="relative justify-center text-justify z-10 mx-auto bg-none rounded-lg p-6 mt-20" style="width: 750px;">
+  <div class="relative justify-center text-justify z-10 mx-auto bg-none rounded-lg p-6 mt-10" style="width: 750px;">
 
-    <img src="{{ asset('assets/images/psikotes/paid/psikotes-ikon-piala.png') }}" alt="Ikon" class=" w-60 h-60 rounded-full" style="margin-left: 250px">
+    <img src="{{ asset('assets/images/psikotes/paid/psikotes-ikon-piala.png') }}" alt="Ikon" class=" w-60 rounded-full" style="margin-left: 240px">
     <p class="font-bold text-xl text-center">Selamat! Kamu sudah menyelesaikan Tes 1!</p>
 
 
