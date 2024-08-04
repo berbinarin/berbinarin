@@ -476,6 +476,25 @@ class DashboardController extends Controller
         return view('moduls.dashboard.psikotes.data', compact('testData'));
     }
 
+    //DASHBOARD ADMIN E-LEARNING PSIKOTEST
+    public function psikotestData()
+    {
+
+        return view('moduls.psikotes.dashboard.psikotestData');
+    }
+
+    public function papikostick()
+    {
+
+        return view('moduls.psikotes.dashboard.papikostick');
+    }
+
+    public function psikotestSoal()
+    {
+
+        return view('moduls.psikotes.dashboard.psikotestSoal');
+    }
+
 
     public function adminDataPsikotesFreeShow($test_id)
     {
