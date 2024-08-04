@@ -17,7 +17,7 @@
   </div>
 
   <!-- Card Transparant -->
-  <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-6 mt-20" style="width: 750px;">
+  <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-6 mt-0" style="width: 750px;">
 
     <p class="text-black mt-10 px-5">
       Akan terdapat 90 pasang pernyataan. Pilihlah satu pernyataan dari pasangan pernyataan yang Anda rasakan paling mendekati gambaran diri Anda, atau yang paling menunjukkan perasaan Anda.
