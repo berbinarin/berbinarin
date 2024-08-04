@@ -62,6 +62,8 @@ class UserInternshipController extends Controller
             $data['status_tidak_dapat_diproses'] = "Pilih";
             $data['status_catatan'] = "Pilih";
             $data['status_progress'] = "Pilih";
+            $data['keterangan'] = "";
+            //dd($data);
             UserInternship::create($data);
             
             return redirect()->route('hiring');

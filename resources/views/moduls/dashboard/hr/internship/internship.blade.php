@@ -32,7 +32,7 @@
         Internship Berbinar
       </p>
       <p class="w-full md:w-2/4 text-gray-600">
-        Fitur ini digunakan untuk memanajamen pendaftaran yang telah melakukan pendaftaran internship di laman web Berbinar Career.
+        Fitur ini digunakan untuk melakukan manajemen pendaftar yang telah melakukan pendaftaran internship di laman web Berbinar Career.
       </p>
     </div>
     <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-md">
@@ -59,7 +59,7 @@
               <td class="px-6 py-4 whitespace-no-wrap sticky-col sticky-col-2">{{ $item->nama_lengkap }}</td>
               <td class="px-6 py-4 whitespace-no-wrap text-blue-500"><a href="https://wa.me/{{ $item->no_whatsapp }}">{{ $item->no_whatsapp }}</a></td>
               <td class="px-6 py-4 whitespace-no-wrap">{{ $item->created_at}}</td>
-              <td class="px-6 py-4 whitespace-no-wrap">{{ $item->hiringPosition->name}}</td>
+              <td class="px-6 py-4 whitespace-no-wrap">{{ $item->HiringPosisitons->name}}</td>
               <td class="px-6 py-4 whitespace-no-wrap w-60">
                 <select name="tidak_dapat_diproses" class="form-select w-60 statusSelect" data-id="{{ $item->id }}" nama-kolom="status_tidak_dapat_diproses">
                   <option value="Pilih" @if($item->status_tidak_dapat_diproses == "Pilih") selected @endif>Pilih</option>
