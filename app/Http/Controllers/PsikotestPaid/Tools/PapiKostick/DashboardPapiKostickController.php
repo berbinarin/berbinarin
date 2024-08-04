@@ -9,6 +9,7 @@ use App\Models\PsikotestPaid\UserPsikotestPaid;
 use App\Models\PsikotestPaid\PapiKostick\TestPapiKostick;
 use App\Models\PsikotestPaid\PapiKostick\AnswerPapiKostick;
 use App\Models\PsikotestPaid\PapiKostick\ResultPapiKostick;
+use App\Models\PsikotestPaid\PapiKostick\QuestionPapiKostick;
 
 class DashboardPapiKostickController extends Controller
 {
@@ -27,22 +28,6 @@ class DashboardPapiKostickController extends Controller
         return view('moduls.psikotes-paid.tools.papi-kostick.data', compact('respondens'));
     }
 
-    // public function detailResponden($id)
-    // {
-    //     $responden = PsikotestPaidTest::with('userPsikotestPaid')->findOrFail($id);
-
-    //     // Fetch the TestPapiKostick based on psikotest_paid_test_id
-    //     $testPapiKostick = TestPapiKostick::where('psikotest_paid_test_id', $responden->id)->first();
-
-    //     // If there's a TestPapiKostick, fetch the result
-    //     $result = $testPapiKostick ? ResultPapiKostick::where('test_papi_kostick_id', $testPapiKostick->id)->first() : null;
-
-    //     // If there's a result, fetch the descriptions
-    //     $descriptions = $result ? $this->getAllDescription($result) : [];
-
-    //     return view('moduls.psikotes-paid.tools.papi-kostick.detail', compact('responden', 'result', 'descriptions'));
-    // }
-
     public function detailResponden($id)
     {
         $responden = PsikotestPaidTest::with('userPsikotestPaid')->findOrFail($id);
@@ -57,14 +42,6 @@ class DashboardPapiKostickController extends Controller
 
         return view('moduls.psikotes-paid.tools.papi-kostick.detail', compact('responden', 'result', 'descriptions', 'answers'));
     }
-
-    // public function showResult($id)
-    // {
-    //     $result = ResultPapiKostick::findOrFail($id);
-    //     $descriptions = $this->getAllDescription($result);
-
-    //     return view('moduls.psikotes-paid.tools.papi-kostick.result', compact('result', 'descriptions'));
-    // }
 
     private function getAllDescription(ResultPapiKostick $result)
     {
@@ -408,5 +385,40 @@ class DashboardPapiKostickController extends Controller
         } else {
             return "Deskripsi tidak tersedia.";
         }
+    }
+
+    // Display all questions
+    public function allSoal()
+    {
+        $questions = QuestionPapiKostick::all();
+
+        return view('moduls.psikotes-paid.tools.papi-kostick.soal', compact('questions'));
+    }
+
+    // Display the edit form for a specific question
+    public function editSoal($id)
+    {
+        $question = QuestionPapiKostick::findOrFail($id);
+
+        return view('moduls.psikotes-paid.tools.papi-kostick.edit-soal', compact('question'));
+    }
+
+    // Update the specific question
+    public function updateSoal(Request $request, $id)
+    {
+        $question = QuestionPapiKostick::findOrFail($id);
+
+        // Validate input
+        $request->validate([
+            'a' => 'required|string',
+            'b' => 'required|string',
+        ]);
+
+        // Update question
+        $question->a = $request->input('a');
+        $question->b = $request->input('b');
+        $question->save();
+
+        return redirect()->route('papi-kostick.soal')->with('success', 'Question updated successfully');
     }
 }
