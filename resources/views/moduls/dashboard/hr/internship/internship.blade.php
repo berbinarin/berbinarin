@@ -59,7 +59,7 @@
               <td class="px-6 py-4 whitespace-no-wrap sticky-col sticky-col-2">{{ $item->nama_lengkap }}</td>
               <td class="px-6 py-4 whitespace-no-wrap text-blue-500"><a href="https://wa.me/{{ $item->no_whatsapp }}">{{ $item->no_whatsapp }}</a></td>
               <td class="px-6 py-4 whitespace-no-wrap">{{ $item->created_at}}</td>
-              <td class="px-6 py-4 whitespace-no-wrap">{{ $item->HiringPosisitons->name}}</td>
+              <td class="px-6 py-4 whitespace-no-wrap">{{ $item->hiringPositions->name}}</td>
               <td class="px-6 py-4 whitespace-no-wrap w-60">
                 <select name="tidak_dapat_diproses" class="form-select w-60 statusSelect" data-id="{{ $item->id }}" nama-kolom="status_tidak_dapat_diproses">
                   <option value="Pilih" @if($item->status_tidak_dapat_diproses == "Pilih") selected @endif>Pilih</option>
