@@ -49,7 +49,7 @@ class PapiKostickController extends Controller
         $question = QuestionPapiKostick::where('id', $question_order)->firstOrFail();
 
         $totalQuestions = QuestionPapiKostick::count();
-        $progress = ($question_order / $totalQuestions) * 100;
+        $progress = round(($question_order / $totalQuestions) * 100);
 
         return view('moduls.psikotes-paid.tools.papi-kostick.question', compact('question', 'id', 'question_order', 'progress'));
     }
