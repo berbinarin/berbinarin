@@ -506,8 +506,8 @@
           // Regular expression for validating Google Drive links
           var googleDrivePattern = new RegExp(
               '^(https:\\/\\/)?(drive\\.google\\.com\\/)' + // Google Drive domain
-              '(file\\/d\\/|open\\?id=|drive\\/folders\\/|drive\\/u\\/\\d\\/folders\\/)' + // Different possible paths
-              '[a-zA-Z0-9-_]+\\/?$', // File or folder ID with optional trailing slash
+              '(file\\/d\\/|open\\?id=|drive\\/folders\\/|drive\\/u\\/\\d\\/folders\\/|drive\\/folders\\/)' + // Different possible paths
+              '[a-zA-Z0-9-_]+', // File or folder ID
               'i' // Case-insensitive flag
           );
           return googleDrivePattern.test(url);

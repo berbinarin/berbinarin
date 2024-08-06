@@ -6,7 +6,7 @@
         </a>
 
         <div class="flex-row gap-8 items-center hidden md:flex">
-            <a href="{{ route('psikotest-paid.showLogin') }}" class="text-white bg-primary border-2 border-primary rounded-full py-2 px-5 text-base font-medium hover:text-primary hover:bg-white hover:border-2 hover:border-b-primary hover:cursor-pointer block">
+            <a href="{{ route('psikotestLogin') }}" class="text-white bg-primary border-2 border-primary rounded-full py-2 px-5 text-base font-medium hover:text-primary hover:bg-white hover:border-2 hover:border-b-primary hover:cursor-pointer block">
                 Login
             </a>
             <!-- <a href="https://forms.gle/aabDZ5DmmhJs8obk8" target="_blank" rel="noopener noreferrer"
