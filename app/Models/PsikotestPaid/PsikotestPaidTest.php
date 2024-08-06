@@ -19,7 +19,7 @@ class PsikotestPaidTest extends Model
 
     public function userPsikotestPaid()
     {
-        return $this->belongsTo(UserPsikotestPaid::class);
+        return $this->belongsTo(UserPsikotestPaid::class, 'user_psikotest_paid_id');
     }
 
     public function psikotestTool()

@@ -76,8 +76,8 @@ class DashboardController extends Controller
     public function internship()
     {
         $internships = UserInternship::with('hiringPosition')
-                                     ->orderBy('created_at', 'desc')
-                                     ->get();
+            ->orderBy('created_at', 'desc')
+            ->get();
         return view('moduls.dashboard.hr.internship.internship', ['Internship' => $internships]);
     }
 
@@ -86,14 +86,14 @@ class DashboardController extends Controller
         // Menggunakan findOrFail untuk menangani kasus jika tidak ada data dengan ID yang sesuai
         $Internship = UserInternship::findOrFail($id);
         $postion = Hiring_Positions::find($Internship->position_id);
-        return view('moduls.dashboard.hr.internship.internshipDataDetails', ['Internship' => $Internship, 'position'=> $postion]);
+        return view('moduls.dashboard.hr.internship.internshipDataDetails', ['Internship' => $Internship, 'position' => $postion]);
     }
 
     public function editInternship($id)
     {
         $Internship = UserInternship::findOrFail($id);
         $postion = Hiring_Positions::find($Internship->position_id);
-        return view('moduls.dashboard.hr.internship.editInternship', ['Internship' => $Internship, 'position'=> $postion]);
+        return view('moduls.dashboard.hr.internship.editInternship', ['Internship' => $Internship, 'position' => $postion]);
     }
 
 
@@ -606,7 +606,7 @@ class DashboardController extends Controller
     }
 
     // BERBINARPLUS
-    
+
     public function berbinarplusUserData()
     {
         $berbinarpUser = Berbinarp_user::all();
