@@ -32,7 +32,7 @@
         Internship Berbinar
       </p>
       <p class="w-full md:w-2/4 text-gray-600">
-        Fitur ini digunakan untuk mengatur dan memanajemen data posisi hiring yang sedang atau akan dibuka atau telah dibuka yang ditampilkan pada website careers Berbinarin.
+        Fitur ini digunakan untuk memanajamen pendaftaran yang telah melakukan pendaftaran internship di laman web Berbinar Career.
       </p>
     </div>
     <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-md">
@@ -45,7 +45,7 @@
               <th class="px-6 py-3 bg-white text-left text-sm leading-4 font-bold text-black tracking-wider">Link WA</th>
               <th class="px-6 py-3 bg-white text-left text-sm leading-4 font-bold text-black tracking-wider">Tanggal Pendaftaran</th>
               <th class="px-6 py-3 bg-white text-left text-sm leading-4 font-bold text-black tracking-wider">Nama Posisi</th>
-              <th class="px-6 py-3 bg-white text-left text-sm leading-4 font-bold text-black tracking-wider w-80">Tidak dapat diproses</th>
+              <th class="px-6 py-3 bg-white text-left text-sm leading-4 font-bold text-black tracking-wider w-80">Tidak Dapat Diproses</th>
               <th class="px-6 py-3 bg-white text-left text-sm leading-4 font-bold text-black tracking-wider w-80">Catatan</th>
               <th class="px-6 py-3 bg-white text-left text-sm leading-4 font-bold text-black tracking-wider w-80">Progress</th>
               <th class="px-6 py-3 bg-white text-left text-sm leading-4 font-bold text-black tracking-wider">Keterangan</th>
@@ -59,7 +59,7 @@
               <td class="px-6 py-4 whitespace-no-wrap sticky-col sticky-col-2">{{ $item->nama_lengkap }}</td>
               <td class="px-6 py-4 whitespace-no-wrap text-blue-500"><a href="https://wa.me/{{ $item->no_whatsapp }}">{{ $item->no_whatsapp }}</a></td>
               <td class="px-6 py-4 whitespace-no-wrap">{{ $item->created_at}}</td>
-              <td class="px-6 py-4 whitespace-no-wrap">{{ $item->HiringPosisitons->name}}</td>
+              <td class="px-6 py-4 whitespace-no-wrap">{{ $item->hiringPosition->name ?? 'Posisi tidak ditemukan / dihapus'}}</td>
               <td class="px-6 py-4 whitespace-no-wrap w-60">
                 <select name="tidak_dapat_diproses" class="form-select w-60 statusSelect" data-id="{{ $item->id }}" nama-kolom="status_tidak_dapat_diproses">
                   <option value="Pilih" @if($item->status_tidak_dapat_diproses == "Pilih") selected @endif>Pilih</option>
