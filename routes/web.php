@@ -37,6 +37,7 @@ use App\Http\Controllers\PsikotestPaid\PsikotestToolController;
 use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\DashboardPapiKostickController;
 use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\ResultPapiKostickController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -151,6 +152,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/admin/faqs', [DashboardController::class, 'faqs'])->name('dashboard.faqs');
 
+    //PSIKOTEST PAID
+    Route::get('/dashboard/admin/psikotest-paid/data', [DashboardController::class, 'psikotesPaidData'])->name('dashboard.psikotespaid.data');
+    Route::get('/dashboard/admin/psikotest-paid/data-test', [DashboardController::class, 'psikotesPaidDataTest'])->name('dashboard.psikotespaid.data-test');
+    Route::get('/dashboard/admin/psikotest-paid/data-detail', [DashboardController::class, 'psikotesPaidDataShow'])->name('dashboard.psikotespaid.data-show');
+    Route::get('/dashboard/admin/psikotest-paid/individu', [DashboardController::class, 'psikotesPaidIndividu'])->name('dashboard.psikotespaid.individu');
+    Route::get('/dashboard/admin/psikotest-paid/pendidikan', [DashboardController::class, 'psikotesPaidPendidikan'])->name('dashboard.psikotespaid.pendidikan');
+    Route::get('/dashboard/admin/psikotest-paid/perusahaan', [DashboardController::class, 'psikotesPaidPerusahaan'])->name('dashboard.psikotespaid.perusahaan');
+    Route::get('/dashboard/admin/psikotest-paid/komunitas', [DashboardController::class, 'psikotesPaidKomunitas'])->name('dashboard.psikotespaid.komunitas');
+
     // MODUL KONSELLING PSIKOLOG
     Route::get('/dashboard/admin/psikologData', [DashboardController::class, 'PsikologData'])->name('dashboard.PsikologData');
     Route::post('/dashboard/admin/psikologData/add', [DashboardController::class, 'addPsikologData'])->name('dashboard.add.PsikologData');
@@ -239,7 +249,7 @@ Route::get('/psikotest/end', [LandingController::class, 'end'])->name('end');
 
 Route::get('/psikotest/signup', [LandingController::class, 'psikotestSignUp'])->name('psikotestSignUp');
 Route::get('/psikotest/schedule', [LandingController::class, 'psikotestSchedule'])->name('psikotestSchedule');
-Route::get('/psikotest/services', [LandingController::class, 'psikotestServices'])->name('psikotestServices');
+Route::get('/psikotest/test', [LandingController::class, 'psikotestTest'])->name('psikotestTest');
 Route::get('/psikotest/motive', [LandingController::class, 'psikotestMotive'])->name('psikotestMotive');
 Route::get('/psikotest/signup-success', [LandingController::class, 'psikotestSignupSuccess'])->name('psikotestSignupSuccess');
 Route::get('/psikotest/individual', [LandingController::class, 'psikotestIndividual'])->name('psikotestIndividual');
