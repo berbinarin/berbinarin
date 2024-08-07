@@ -1,13 +1,16 @@
-@extends('moduls.psikotes.layouts.main', [
+@extends('moduls.psikotes-paid.layouts.main', [
 'title' => 'Psikotest Berbinar',
 'active' => 'Registrasi',
 'page' => 'Schedule'])
 
 @section('content')
 <section class="bg-[#F5F7F9]">
-    <div class="flex bg-[#F5F7F9] mt-0 md:mt-[72px]">
+    <div class="flex bg-[#F5F7F9]">
         <div class="flex flex-col justify-center items-center">
             <div class="flex justify-center">
+                <!-- <a href="{{ route('psikotest-paid.showPage', [1]) }}" class="absolute left-10 top-5">
+                    <i class='bx bx-arrow-back text-[35px] text-primary ml-0 mt-2 text-left'></i>
+                </a> -->
                 <img src="{{ asset('assets/images/logo-psikotes.png') }}" alt="" title="" class="w-fit absolute ml-0 md:-ml-60 top-5">
             </div>
             <form action="{{ route('psikotest-paid.postRegPage2') }}" method="POST">
@@ -21,29 +24,29 @@
 
                         {{-- IMG MOBILE --}}
                         <div class="flex w-fit mx-auto mt-16 block md:hidden">
-                            <img src="{{ asset('assets/images/psikotes/signup.png') }}" alt="" title="" class="w-[300px] h-fit">
+                            <img src="{{ asset('assets/images/psikotes/signup.png') }}" alt="" title="" class="w-[250px] h-fit mt-[330px]">
                         </div>
 
                         <div class="flex flex-col md:flex-row w-screen mt-5">
-                            <h1 class="flex md:hidden text-5xl text-black font-extrabold mb-5">Registrasi</h1>
-                            <div class="w-full md:w-1/2 pr-0 md:pr-10">
+                            <h1 class="flex md:hidden text-3xl text-black font-extrabold mb-5">Registrasi</h1>
+                            <div class="w-full md:w-1/2 pr-0 md:pr-24">
                                 <div class="mt-5 md:mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
-                                    <div class="col-span-full">
-                                        <label for="method" class="block text-lg font-semibold leading-6 text-black">Layanan
+                                    <div class="col-span-full md:col-span-3">
+                                        <label for="service" class="block text-lg font-semibold leading-6 text-black">Layanan
                                             Psikotes</label>
                                         <div class="mt-2">
-                                            <select id="method" name="method" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-lg sm:leading-6">
-                                                <option value="staff">Online</option>
-                                                <option value="supervisor">Offline (Surabaya)</option>
+                                            <select id="service" name="service" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-lg sm:leading-6">
+                                                <option value="online">Online</option>
+                                                <option value="offline">Offline (Surabaya)</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-span-full">
+                                    <div class="col-span-full md:col-span-3">
                                         <label for="psikotest_category_id" class="block text-lg font-semibold leading-6 text-black">Kategori
                                             Psikotes</label>
                                         <div class="mt-2">
-                                            <select id="psikotest_category_id" name="psikotest_category_id" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-bas sm:leading-6">
+                                            <select id="psikotest_category_id" name="psikotest_category_id" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-lg sm:leading-6">
                                                 @foreach ($psikotestCategoryTypes as $category)
                                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                 @endforeach
@@ -58,13 +61,13 @@
                                             Psikotes</label>
                                         <div class="mt-2">
                                             <select name="psikotest_type_id" id="psikotest_type_id" required class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-lg sm:leading-6">
-                                                <option value="staff">Tes Kesiapan Pernikahan</option>
-                                                <option value="supervisor">Tes Kesiapan menjadi Orangtua</option>
+                                                <option value=""></option>
+                                                <!-- <option value="supervisor">Tes Kesiapan menjadi Orangtua</option> -->
                                             </select>
                                         </div>
                                     </div>
 
-                                    <div class="sm:col-span-full">
+                                    <div class="col-span-full">
                                         <label for="preference_schedule" class="block text-lg font-semibold leading-6 text-black">Jadwal
                                             Psikotes</label>
                                         <div class="mt-2">
@@ -72,21 +75,11 @@
                                         </div>
                                     </div>
 
-                                    <!-- <div class="sm:col-span-3">
-                                        <label for="time" class="block text-lg font-semibold leading-6 text-black">Jam
-                                            Psikotes</label>
-                                        <div class="mt-2">
-                                            <input type="time" name="time" id="time"
-                                                class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-lg sm:leading-6">
-                                        </div>
-                                    </div> -->
-
-
                                     <div class="col-span-full">
-                                        <label for="type" class="block text-lg font-semibold leading-6 text-black">Harga
+                                        <label for="price" class="block text-lg font-semibold leading-6 text-black">Harga
                                             Psikotes</label>
                                         <div class="mt-2">
-                                            <input type="text" name="price" id="price" readonly class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-lg sm:leading-6">
+                                            <input type="text" name="price" id="price" readonly class="price block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-lg sm:leading-6" data-mask="000.000.000" data-mask-reverse="true">
                                         </div>
                                     </div>
 
@@ -105,8 +98,8 @@
 
                             </div>
                             {{-- IMG DESKTOP --}}
-                            <div class="w-1/2 pl-10">
-                                <img src="{{ asset('assets/images/psikotes/signup.png') }}" alt="" title="" class="w-fit h-fit hidden md:block">
+                            <div class="w-1/2 ml-10 pl-10">
+                                <img src="{{ asset('assets/images/psikotes/signup.png') }}" alt="" title="" class="w-fit h-fit hidden md:block -ml-6 -mt-16">
                             </div>
                         </div>
 
@@ -117,6 +110,17 @@
     </div>
 </section>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        // Format mata uang.
+        $('.price').mask('000.000.000', {
+            reverse: true
+        });
+
+    })
+</script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const psikotestTypes = @json($psikotestTypes);
@@ -124,23 +128,42 @@
         const typeSelect = document.getElementById('psikotest_type_id');
         const priceInput = document.getElementById('price');
 
+        // Format currency function
+        function formatCurrency(amount) {
+            return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        }
+
         categorySelect.addEventListener('change', function() {
             const selectedCategoryId = this.value;
             const filteredTypes = psikotestTypes.filter(type => type.category_psikotest_type_id ==
                 selectedCategoryId);
 
-            typeSelect.innerHTML = '<option value="" disabled selected>Select Psikotest Type</option>';
+            // Clear the existing options in the typeSelect
+            typeSelect.innerHTML = '';
+
+            // Add the filtered options to the typeSelect
             filteredTypes.forEach(function(type) {
                 typeSelect.innerHTML +=
                     `<option value="${type.id}" data-price="${type.price}">${type.name}</option>`;
             });
+
+            // Trigger change event to update the price field if needed
+            if (filteredTypes.length > 0) {
+                typeSelect.dispatchEvent(new Event('change'));
+            }
         });
 
         typeSelect.addEventListener('change', function() {
             const selectedType = typeSelect.options[typeSelect.selectedIndex];
             const price = selectedType.getAttribute('data-price');
-            priceInput.value = price ? `Rp ${price}` : '';
+            if (price) {
+                // Format the price and set it in the input field
+                priceInput.value = `Rp ${formatCurrency(price)}`;
+            } else {
+                priceInput.value = '';
+            }
         });
+
     });
 </script>
 
