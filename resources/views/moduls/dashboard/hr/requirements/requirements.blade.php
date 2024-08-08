@@ -108,12 +108,12 @@
                             </tbody>
                             
                             <tfoot>
-                                <tr>
+                                {{-- <tr>
                                     <th>No</th>
                                     <th>Nama Posisi</th>
                                     <th>Requirement</th>
                                     <th>Actions</th>
-                                </tr>
+                                </tr> --}}
                             </tfoot>
                         </table>
                     </div>
