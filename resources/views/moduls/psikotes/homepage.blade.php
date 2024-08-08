@@ -45,7 +45,7 @@
 
 
                 <div class="flex flex-col lg:flex-row gap-4 items-center">
-                    <a href="https://forms.gle/aabDZ5DmmhJs8obk8" target="_blank" rel="noopener noreferrer" class="text-lg text-white bg-primary rounded-full font-semibold hover:text-amber-400 hover:font-semibold duration-500 px-5 py-2 w-fit">Daftar
+                    <a href="{{ route('psikotest-paid.showPage', [1]) }}" target="_blank" rel="noopener noreferrer" class="text-lg text-white bg-primary rounded-full font-semibold hover:text-amber-400 hover:font-semibold duration-500 px-5 py-2 w-fit">Daftar
                         Tes Berbayar</a>
                     <a href="{{ route('psikotestFreeStart') }}" class="text-lg text-white bg-amber-500 rounded-full font-semibold hover:bg-amber-400 hover:text-primary duration-700 px-5 py-2 w-fit">IKUTI
                         TES KEPRIBADIAN GRATIS</a>

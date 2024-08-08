@@ -1128,8 +1128,18 @@ class LandingController extends Controller
         return view('moduls.psikotes-paid.registrasi.page-4');
     }
 
-    public function psikotestServices()
+    public function psikotestTest()
     {
-        return view('moduls.psikotes-paid.services');
+        return view('moduls.psikotes-paid.test');
+    }
+
+    public function psikotestPaidData()
+    {
+        return view('moduls.dashboard.psikotes-paid.data');
+    }
+
+    public function psikotestPaidDataTest()
+    {
+        return view('moduls.dashboard.psikotes-paid.data-test');
     }
 }

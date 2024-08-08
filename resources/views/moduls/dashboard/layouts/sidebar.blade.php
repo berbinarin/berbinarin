@@ -82,10 +82,10 @@
                 <i class='bx bx-book text-lg'></i>
                 <span class="text-base mt-2 text-center">Internship</span>
             </a>
-
         </li>
-
         @endif
+
+
 
         @if (auth()->user()->role == 'Konselling')
         <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
@@ -111,19 +111,7 @@
         </li>
         @endif
 
-        <!-- @if (auth()->user()->role == 'PsikotestFree')
-        <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300  rounded-lg">
-            <a href="{{ route('dashboard.psikotestfree.data') }}" class=" flex flex-col items-center @if ($modul === 'Psikotest Free Data') text-primary @else text-gray-700 @endif">
-                <i class='bx bx-user @if ($modul === ' Psikotest Free Data') text-primary @else text-gray-700 @endif text-lg'></i>
-                <span class="text-base mt-2 text-center">Data</span>
-            </a>
-        </li>
-        <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300  rounded-lg">
-            <a href="{{ route('dashboard.psikotestfree.question.index') }}" class=" flex flex-col items-center @if ($modul === 'Psikotest Free Soal') text-primary @else text-gray-700 @endif">
-                <i class='bx bx-calendar @if ($modul === ' Psikotest Free Soal') text-primary @else text-gray-700 @endif text-lg'></i>
-                <span class="text-base mt-2 text-center">Edit Soal</span>
-            </a>
-            @endif -->
+
 
         @if (auth()->user()->role == 'PsikotestFree')
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
@@ -139,21 +127,64 @@
                 <i class="bx bxs-message-rounded-dots  @if ($modul === 'Psikotest Free Soal') text-primary @else text-gray-700 @endif text-lg"></i>
                 <span class="text-base mt-2 text-center">Soal</span>
             </a>
-
         </li>
         @endif
 
+
+
         @if (auth()->user()->role == 'BerbinarPlus')
-            <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300  rounded-lg">
-                <a href="{{ route('dashboard.berbinarplus.data') }}"
-                    class=" flex flex-col items-center @if ($modul === 'Berbinar Plus User Data') text-primary @else text-gray-700 @endif">
-                    <i
-                        class='bx bx-user @if ($modul === 'Berbinar Plus User Data') text-primary @else text-gray-700 @endif text-lg'></i>
-                    <span class="text-base mt-2 text-center">User Data</span>
-                </a>
-            </li>
+        <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300  rounded-lg">
+            <a href="{{ route('dashboard.berbinarplus.data') }}" class=" flex flex-col items-center @if ($modul === 'Berbinar Plus User Data') text-primary @else text-gray-700 @endif">
+                <i class='bx bx-user @if ($modul === ' Berbinar Plus User Data') text-primary @else text-gray-700 @endif text-lg'></i>
+                <span class="text-base mt-2 text-center">User Data</span>
+            </a>
+        </li>
         @endif
 
+
+        @if (auth()->user()->role == 'PsikotestPaid')
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.data') }}" class=" flex flex-col items-center @if ($modul === 'Psikotest Paid Data') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bxs-user @if ($modul === 'Psikotest Paid Data') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base mt-2">Data</span>
+            </a>
+        </li>
+
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.data-test') }}" class=" flex flex-col items-center @if ($modul === 'Psikotest Paid Data Test') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bxs-file  @if ($modul === 'Psikotest Paid Data Test') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base mt-2 text-center">Data Test</span>
+            </a>
+        </li>
+
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg relative">
+            <!-- Dropdown Button -->
+            <button onclick="toggleDropdown()" class="flex flex-col items-center @if ($modul === 'Psikotest Paid Price List') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bxs-purchase-tag @if ($modul === 'Psikotest Paid Price List') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base mt-2 text-center">Price List</span>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <div id="dropdown-menu" class="absolute left-0 mt-2 w-48 bg-primary border border-primary rounded-lg shadow-lg hidden">
+                <a href="{{ route('dashboard.psikotespaid.individu') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Individu</a>
+                <a href="{{ route('dashboard.psikotespaid.pendidikan') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Pendidikan</a>
+                <a href="{{ route('dashboard.psikotespaid.perusahaan') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Perusahaan</a>
+                <a href="{{ route('dashboard.psikotespaid.komunitas') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Komunitas</a>
+            </div>
+        </li>
+        @endif
+
+        @if ($title === '')
+        <li class="mt-20 p-2 hover:text-primary dark-hover:text-blue-300
+        rounded-lg">
+            <a href="" class=" flex flex-col items-center">
+                <button type="submit" class="items-center flex gap-2">
+                    <i class='bx bx-log-out text-lg'></i>
+                    <span class="text-base text-center">Kembali</span>
+                </button>
+            </a>
+        </li>
+        @else
         <li class="mt-20 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
             <form action="/logout" method="POST">
@@ -164,11 +195,30 @@
                         <span class="text-base text-center">Logout</span>
                     </button>
                 </a>
-
             </form>
-
         </li>
+        @endif
 
     </ul>
+
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById('dropdown-menu');
+            if (dropdown.classList.contains('hidden')) {
+                dropdown.classList.remove('hidden');
+            } else {
+                dropdown.classList.add('hidden');
+            }
+        }
+
+        // Close dropdown if clicked outside
+        document.addEventListener('click', function(event) {
+            var dropdown = document.getElementById('dropdown-menu');
+            var button = document.querySelector('button');
+            if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
+    </script>
 
 </nav>

@@ -46,23 +46,20 @@ class AuthController extends Controller
     {
         $credentials = $request->only('username', 'password');
 
-        if (Auth::attempt($credentials)) 
-        {
+        if (Auth::attempt($credentials)) {
             // Authenticated and role matches
-            if 
-            (
-                auth()->user()->role == 'Admin' || 
-                auth()->user()->role == 'HR' || 
-                auth()->user()->role == 'Konselling' || 
+            if (
+                auth()->user()->role == 'Admin' ||
+                auth()->user()->role == 'HR' ||
+                auth()->user()->role == 'Konselling' ||
                 auth()->user()->role == 'PsikotestFree' ||
-                auth()->user()->role == 'BerbinarPlus'
-            ) 
-            {
+                auth()->user()->role == 'BerbinarPlus' ||
+                auth()->user()->role == 'PsikotestPaid'
+            ) {
                 Alert::toast('Login Sucessfully!', 'success')->autoClose(5000);;
                 return redirect()->route('dashboard');
-            } 
-            else 
-            {
+            } else {
+
                 Alert::toast('Login Sucessfully', 'success')->autoClose(5000);;
                 return redirect()->route('home');
             }
