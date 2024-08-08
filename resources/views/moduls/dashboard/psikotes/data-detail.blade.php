@@ -1,5 +1,5 @@
 @extends('moduls.dashboard.layouts.main', [
-'title' => 'Data',
+'title' => 'Psikotes Free',
 'active' => 'Dashboard',
 'modul' => 'Psikotest Free Data',
 ])
@@ -66,7 +66,7 @@
                                 <td class="py-3 font-semibold">Feedback :
                                     <span>
                                         @php
-                                            $rating = optional(optional($user)->feedback)->rating;
+                                        $rating = optional(optional($user)->feedback)->rating;
                                         @endphp
                                         @if ($rating == 5)
                                         <img src="{{ asset('assets/images/psikotes/feedback/1-wahoo2.png') }}" alt="Happy" class="w-10 h-auto inline-block align-middle mr-2">
@@ -80,14 +80,14 @@
                                         <img src="{{ asset('assets/images/psikotes/feedback/4-pissed2.png') }}" alt="Bummed Out" class="w-10 h-auto inline-block align-middle mr-2">
                                         @else
                                         <span class="-ml-2 font-semibold"> tidak ada 😭
-                                        @endif
+                                            @endif
                                         </span>
-                                    <span class="-ml-2 font-semibold">{{ $rating }}
-                                    ,</span>
-                                    @php
+                                        <span class="-ml-2 font-semibold">{{ $rating }}
+                                            ,</span>
+                                        @php
                                         $experience = optional(optional($user)->feedback)->experience;
-                                    @endphp
-                                    <span class="ml-2 font-semibold">{{ $experience }}</span>
+                                        @endphp
+                                        <span class="ml-2 font-semibold">{{ $experience }}</span>
                                 </td>
                             </tr>
 

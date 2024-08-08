@@ -15,18 +15,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="" />
 
     <link rel="canonical" href="https://codepen.io/ocxigin/pen/RwvBLKp" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="{{ asset('assets/js/psikotest.js') }}"></script>
     @vite('resources/css/app.css')
 
-    @if ($active === 'Test' || 'Intro')
+    @if (!in_array($active, ['Registrasi', 'Login']))
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    @endif
+
+    @if (in_array($active, ['Test', 'Intro']))
     <link rel="stylesheet" href="{{ asset('assets/css/psikotest.css') }}">
     @endif
 </head>
@@ -40,7 +41,7 @@
     @include('moduls.psikotes.layouts.navbar')
     @endif--}}
 
-    @if (!in_array($active, ['Login', 'Register', 'Test', 'Biodata' ,'HasilTes']))
+    @if (!in_array($active, ['Login', 'Registrasi', 'Services', 'Psychotest','Test', 'Biodata' ,'HasilTes']))
     @include('moduls.psikotes.layouts.navbar')
     @endif
 
@@ -90,6 +91,22 @@
     @endif
 
     @if ($active === 'Login')
+    <div class="h-full w-full flex">
+        <main class="w-full flex items-center justify-center">
+            @yield('content')
+        </main>
+    </div>
+    @endif
+
+    @if ($active === 'Registrasi')
+    <div class="flex md:h-screen bg-[#F5F7F9]">
+        <main class="flex items-center justify-center bg-[#F5F7F9]">
+            @yield('content')
+        </main>
+    </div>
+    @endif
+
+    @if ($active === 'Services')
     <div class="h-screen w-full flex">
         <main class="bg-white w-full flex items-center justify-center">
             @yield('content')
@@ -97,16 +114,18 @@
     </div>
     @endif
 
-    @if ($active === 'Register')
+    @if ($page === 'Individual Psychotest')
     <div class="h-screen w-full flex">
-        <main class="bg-white w-full flex items-center justify-center">
+        <main class="bg-[#4D6AF6] w-screen flex items-center justify-center">
             @yield('content')
         </main>
     </div>
     @endif
 
     @include('sweetalert::alert')
+    @if (!in_array($active, ['Registrasi']))
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    @endif
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </html>
