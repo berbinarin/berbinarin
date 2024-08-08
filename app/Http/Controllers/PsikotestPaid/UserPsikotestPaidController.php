@@ -112,6 +112,7 @@ class UserPsikotestPaidController extends Controller
         if (Auth::guard('psikotestpaid')->attempt($credentials)) {
             Alert::toast('Login Sucessfully!', 'success')->autoClose(5000);
             return redirect()->route('psikotest-paid.showLanding');
+            // return redirect()->route('psikotest-tools.index');
         } else {
             Alert::toast('Invalid Email-Address And Password', 'error')->autoClose(5000);;
             return redirect()->route('psikotest-paid.login');
