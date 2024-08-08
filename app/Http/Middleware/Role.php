@@ -17,11 +17,13 @@ class Role
     public function handle(Request $request, Closure $next): Response
     {
         if (
-            Auth::user()->role == 'Admin' || 
-            Auth::user()->role == 'HR' || 
-            Auth::user()->role == 'Konselling' || 
-            Auth::user()->role == 'PsikotestFree' || 
-            Auth::user()->role == 'BerbinarPlus') {
+            Auth::user()->role == 'Admin' ||
+            Auth::user()->role == 'HR' ||
+            Auth::user()->role == 'Konselling' ||
+            Auth::user()->role == 'PsikotestFree' ||
+            Auth::user()->role == 'BerbinarPlus' ||
+            Auth::user()->role == 'PsikotestPaid'
+        ) {
             return $next($request);
         } else {
         }

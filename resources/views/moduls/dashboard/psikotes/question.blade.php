@@ -1,5 +1,5 @@
 @extends('moduls.dashboard.layouts.main', [
-'title' => 'Soal',
+'title' => 'Psikotes Free',
 'active' => 'Dashboard',
 'modul' => 'Psikotest Free Soal',
 ])

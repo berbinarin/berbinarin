@@ -1,7 +1,7 @@
 @extends('moduls.psikotes.layouts.main', [
 'title' => 'Psikotest Berbinar',
-'active' => 'Services',
-'page' => 'Services'])
+'active' => 'Test',
+'page' => 'Pilihan Test'])
 
 @section('content')
 <section>
@@ -175,7 +175,7 @@
     {{-- POP UP FEEDBACK PSIKOTES --}}
     <div id="modal-code" class="fixed inset-0 items-center justify-center hidden">
         <div class="modal-overlay absolute inset-0 bg-black opacity-50 -z-10"></div>
-        <div class="modal px-5 md:px-0 z-50 flex justify-center items-center overflow-y-auto">
+        <div class="modal py-48 md:px-0 z-50 flex items-center justify-center">
             <div class="modal-dialog md:w-[500px] m-4 rounded-xl shadow-lg p-4" style="background-color: white">
                 <form class="space-y-6" method="POST" action="">
                     @csrf
@@ -189,7 +189,7 @@
                             </div>
 
                         </div>
-                        <div class="modal-footer flex w-100 justify-center items-center p-5 mx-8">
+                        <div class="modal-footer flex w-100 items-center justify-center p-5 mx-8">
                             <div class="flex text-center text-md-end ">
                                 <button id="modal-close"
                                     class="flex px-5 py-2 font-semibold text-white bg-primary border-white border-2 rounded-full mr-4 hover:bg-white hover:border-primary hover:text-primary w-fit">Konfirmasi</button>
