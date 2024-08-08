@@ -1,4 +1,4 @@
-@extends('moduls.psikotes.layouts.main', [
+@extends('moduls.psikotes-paid.layouts.main', [
 'title' => 'Psikotest Berbinar',
 'active' => 'Registrasi',
 'page' => 'Sign Up'])
@@ -12,7 +12,7 @@
             </div>
             <form action="{{ route('psikotest-paid.postRegPage1') }}" method="POST">
                 @csrf
-                <div class="flex m-5 md:m-0 p-5">
+                <div class="flex p-5">
 
                     <div class="flex flex-col px-5 md:px-20">
                         <div class="mt-10 hidden md:block">
@@ -21,12 +21,12 @@
 
                         {{-- IMG MOBILE --}}
                         <div class="flex w-fit mx-auto mt-16 block md:hidden">
-                            <img src="{{ asset('assets/images/psikotes/signup.png') }}" alt="" title="" class="w-[300px] h-fit">
+                            <img src="{{ asset('assets/images/psikotes/signup.png') }}" alt="" title="" class="w-[250px] h-fit mt-[454px]">
                         </div>
 
                         <div class="flex flex-col md:flex-row w-screen mt-5">
-                            <h1 class="flex md:hidden text-5xl text-black font-extrabold mb-5">Registrasi</h1>
-                            <div class="w-screen md:w-1/2 pr-0 md:pr-10">
+                            <h1 class="flex md:hidden text-3xl text-black font-extrabold mb-5">Registrasi</h1>
+                            <div class="w-screen md:w-1/2 pr-0 md:pr-24">
                                 <div class="mt-5 md:mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                                     <div class="sm:col-span-3">
                                         <label for="name" class="block text-lg font-semibold leading-6 text-black">Nama</label>
@@ -71,12 +71,12 @@
                                         <label for="phone-input" class="block text-lg font-semibold leading-6 text-black">Nomor
                                             Telepon</label>
                                         <div class="mt-2">
-                                            <input type="text" name="phone_number" id="phone-input" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6">
+                                            <input type="text" name="phone_number" id="phone-input" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6" placeholder="+62xxxxxxxxxx">
                                         </div>
                                     </div>
 
                                 </div>
-                                <div class="flex flex-row w-full gap-5 mt-8 mb-10 md:mb-0">
+                                <div class="flex flex-row w-full gap-5 mt-8 md:mb-0">
                                     <div class="flex flex-row px-5 py-2 w-auto bg-primary hover:shadow-lg hover:shadow-cyan-300/80 rounded-full">
                                         <button type="submit" class="flex flex-row text-base text-white font-semibold duration-500">Selanjutnya
                                             <span class="py-[5px] pl-2"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20">
@@ -87,8 +87,8 @@
                                 </div>
                             </div>
                             {{-- IMG DESKTOP --}}
-                            <div class="w-1/2">
-                                <img src="{{ asset('assets/images/psikotes/signup.png') }}" alt="" title="" class="w-fit h-fit hidden md:block">
+                            <div class="w-1/2 ml-10 pl-10">
+                                <img src="{{ asset('assets/images/psikotes/signup.png') }}" alt="" title="" class="w-fit h-fit hidden md:block -ml-6 -mt-16">
                             </div>
                         </div>
 
@@ -99,58 +99,57 @@
     </div>
 
     {{-- POP UP FEEDBACK PSIKOTES --}}
-    <div id="modal-registrasi" class="fixed inset-0 flex items-center justify-center z-50">
-        <div class="modal-overlay absolute inset-0 bg-black opacity-50"></div>
-        <div class="modal fixed px-5 md:px-0 z-50 flex justify-center items-center overflow-y-auto">
-            <div class="modal-dialog md:w-[900px] m-4 rounded-xl shadow-lg p-4" style="background-color: white">
-                <div class="modal-content px-4">
-                    <div class="text-center">
-                        <h1 class="text-black text-center text-3xl font-semibold mt-5">Syarat dan
-                            Ketentuan</h1>
-                        <p class="font-medium mt-2">Harap membaca syarat dan ketentuan berikut sebelum mendaftar</p>
-                        <div class="text-justify text-pretty font-light text-black px-5 md:px-16">
-                            <ul class="list-decimal list-outside leading-relaxed mt-10">
-                                <li>Setelah mengisi form, calon pendaftar akan diarahkan untuk melakukan
-                                    <span class="font-bold">pembayaran 100% </span>ke <span class="font-bold">
-                                        Bank Mandiri </span> dengan no rekening <span class="font-bold">
-                                        1400020763711 </span> a.n. Berbinar Insightful
-                                    Indonesia dengan aturan transfer 1x24 jam setelah pengisian form.
-                                </li>
-                                <li>Jika calon peserta tes <span class="font-bold"> tidak membalas pesan
-                                    </span> admin dalam waktu 1x24 jam setelah pengisian form, maka
-                                    pendaftaran oleh calon peserta tes secara <span class="font-bold">
-                                        otomatis dibatalkan </span>.</li>
-                                <li>Jika calon peserta tes <span class="font-bold"> tidak membalas pesan
-                                    </span> admin dalam 1x24 jam, jadwal yang sudah ditentukan oleh klien
-                                    <span class="font-bold"> berhak untuk dirubah oleh Tim Berbinar </span>
-                                    dan <span class="font-bold"> kesepakatan dari klien </span>.
-                                </li>
-                                <li>Jika calon peserta tes <span class="font-bold"> tidak membalas pesan
-                                    </span> admin dalam 2x24 jam setelah melakukan pembayaran, <span class="font-bold">
-                                        pembayaran dianggap hangus </span>.</li>
-                                <li>Calon peserta tes <span class="font-bold"> dapat mengajukan pembatalan
-                                    </span> layanan psikotes dalam kurun waktu 1x24 jam setelah proses
-                                    admnistrasi dan dana yang telah dibayarkan akan <span class="font-bold">
-                                        dikembalikan 100% </span>.</li>
-                                <li>Setelah <span class="font-bold"> selesai melaksanakan psikotes </span>,
-                                    peserta akan dikirimkan hasil psikotesnya dengan jangka waktu tertentu.
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="mt-5 px-5 md:px-16">
-                            <p class="text-left">Jika ada yang ingin ditanyakan, silakan menghubungi CP: <span class="text-primary underline underline-offset-2"><a aria-label="Chat on WhatsApp" href="https://wa.me/632351088413">
-                                        wa.me/632351088413
-                                        (Diah)</a></span></p>
-                        </div>
+    <div id="modal-registrasi" class="fixed inset-0 flex items-center justify-center z-50 overflow-y-auto">
+        <div class="modal-overlay h-[1150px] md:h-full absolute inset-0 bg-black opacity-50"></div>
+        <div class="modal bg-white max-w-lg md:max-w-4xl mx-4 mb-5 md:mx-0 z-50 rounded-xl shadow-lg p-4 translate-y-44 md:translate-y-0">
+
+            <div class="modal-content px-4">
+                <div class="text-center">
+                    <h1 class="text-black text-center text-3xl font-semibold mt-5">Syarat dan
+                        Ketentuan</h1>
+                    <p class="font-medium mt-2">Harap membaca syarat dan ketentuan berikut sebelum mendaftar</p>
+                    <div class="text-justify text-black px-5 md:px-16">
+                        <ul class="list-decimal list-outside leading-relaxed mt-10">
+                            <li>Setelah mengisi formulir, calon pendaftar akan diarahkan untuk melakukan
+                                <span class="font-bold">pembayaran 100% </span>ke <span class="font-bold">
+                                    Bank Mandiri </span> dengan no rekening <span class="font-bold">
+                                    1400020763711 </span> a.n. Berbinar Insightful
+                                Indonesia dengan aturan transfer 1x24 jam setelah pengisian formulir.
+                            </li>
+                            <li>Jika calon peserta tes <span class="font-bold"> tidak membalas pesan
+                                </span> admin dalam waktu 1x24 jam setelah pengisian formulir, maka
+                                pendaftaran oleh calon peserta tes secara <span class="font-bold">
+                                    otomatis dibatalkan</span>.</li>
+                            <li>Jika calon peserta tes <span class="font-bold"> tidak membalas pesan
+                                </span> admin dalam 1x24 jam, jadwal yang sudah ditentukan oleh klien
+                                <span class="font-bold"> berhak untuk dirubah oleh Tim Berbinar </span>
+                                dan <span class="font-bold"> kesepakatan dari klien</span>.
+                            </li>
+                            <li>Jika calon peserta tes <span class="font-bold"> tidak membalas pesan
+                                </span> admin dalam 2x24 jam setelah melakukan pembayaran, <span class="font-bold">
+                                    pembayaran dianggap hangus</span>.</li>
+                            <li>Calon peserta tes <span class="font-bold"> dapat mengajukan pembatalan
+                                </span> layanan psikotes dalam kurun waktu 1x24 jam setelah proses
+                                admnistrasi dan dana yang telah dibayarkan akan <span class="font-bold">
+                                    dikembalikan 100%</span>.</li>
+                            <li>Setelah <span class="font-bold"> selesai melaksanakan psikotes</span>,
+                                peserta akan dikirimkan hasil psikotesnya dengan jangka waktu tertentu.
+                            </li>
+                        </ul>
                     </div>
-                    <div class="modal-footer flex w-100 justify-center items-center p-5 mt-4 mx-8 gap-4">
-                        <div class="flex text-center text-md-end ">
-                            <button id="modal-close" class="flex px-5 py-2 font-semibold text-white bg-primary border-white border-2 rounded-full mr-4 hover:bg-white hover:border-primary hover:text-primary w-fit">Oke</button>
-                        </div>
+                    <div class="mt-5 px-5 md:px-16">
+                        <p class="text-left">Jika ada yang ingin ditanyakan, silakan menghubungi: <span class="text-primary underline underline-offset-2"><a aria-label="Chat on WhatsApp" href="https://wa.me/632351088413">
+                                    082351088413</a></span> (Diah)</p>
+                    </div>
+                </div>
+                <div class="modal-footer flex w-100 justify-center items-center p-5 mt-4 mx-8 gap-4">
+                    <div class="flex text-center text-md-end ">
+                        <button id="modal-close" class="flex px-5 py-2 font-semibold text-white bg-primary border-white border-2 rounded-full mr-4 hover:bg-white hover:border-primary hover:text-primary w-fit">Tutup</button>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 
 </section>
