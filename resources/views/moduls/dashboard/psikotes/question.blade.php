@@ -1,7 +1,7 @@
 @extends('moduls.dashboard.layouts.main', [
-    'title' => 'Soal',
-    'active' => 'Dashboard',
-    'modul' => 'Psikotest Free Soal',
+'title' => 'Psikotes Free',
+'active' => 'Dashboard',
+'modul' => 'Psikotest Free Soal',
 ])
 
 @section('content-dashboard')
