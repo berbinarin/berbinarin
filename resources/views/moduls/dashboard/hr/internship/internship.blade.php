@@ -32,7 +32,7 @@
         Internship Berbinar
       </p>
       <p class="w-full md:w-2/4 text-gray-600">
-        Fitur ini digunakan untuk memanajamen pendaftaran yang telah melakukan pendaftaran internship di laman web Berbinar Career.
+        Fitur ini digunakan untuk melakukan manajemen pendaftar yang telah melakukan pendaftaran internship di laman web Berbinar Career.
       </p>
     </div>
     <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-md">

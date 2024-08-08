@@ -11,7 +11,7 @@
             <div class="py-4 md:py-12">
                 <div class="">
                     <p tabindex="0" class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
-                        Dashboard {{ Auth()->user()->role }}</p>
+                        Dashboard</p>
                     @if (Auth::user()->role == 'HR')
                     <p class="w-2/4 text-disabled">Fitur ini digunakan untuk menampilkan jumlah data posisi hiring,
                         job
@@ -37,6 +37,12 @@
                     <p class="w-2/4 text-disabled">
                         Fitur ini menampilkan jumlah user yang sedang mendaftar pada Berbinar Plus
                     </p>
+                    @else
+                    <p class="w-2/4 text-disabled"></p>
+                    @endif
+                    @if (Auth::user()->role == 'PsikotestPaid')
+                    <p class="w-2/4 text-disabled">Dashboard ini memberikan informasi mengenai jumlah pengguna yang
+                        telah mendaftar psikotes.</p>
                     @else
                     <p class="w-2/4 text-disabled"></p>
                     @endif
@@ -126,13 +132,55 @@
             </div>
             @elseif (Auth::user()->role == 'BerbinarPlus')
             <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                <div
-                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
                     <i class='bx bx-user text-2xl'></i>
                 </div>
                 <div>
                     <span class="block text-2xl font-bold">{{ $totalBerbinarPlusUser }}</span>
                     <span class="block text-gray-500">Total Users</span>
+                </div>
+            </div>
+            @elseif (Auth::user()->role == 'PsikotestPaid')
+            <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                    <i class='bx bxs-user text-2xl'></i>
+                </div>
+                <div>
+                    <span class="block text-gray-500">Individu</span>
+                    <span class="block text-2xl font-bold">1</span>
+                    <span class="block text-gray-500">Pendaftar</span>
+                </div>
+            </div>
+
+            <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                    <i class='bx bxs-graduation text-2xl'></i>
+                </div>
+                <div>
+                    <span class="block text-gray-500">Instansi Pendidikan</span>
+                    <span class="block text-2xl font-bold">1</span>
+                    <span class="block text-gray-500">Pendaftar</span>
+                </div>
+            </div>
+            <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                    <i class='bx bxs-business text-2xl'></i>
+                </div>
+                <div>
+                    <span class="block text-gray-500">Perusahaan</span>
+                    <span class="block text-2xl font-bold">1</span>
+                    <span class="block text-gray-500">Pendaftar</span>
+                </div>
+            </div>
+
+            <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                    <i class='bx bxs-group text-2xl'></i>
+                </div>
+                <div>
+                    <span class="block text-gray-500">Komunitas</span>
+                    <span class="block text-2xl font-bold">1</span>
+                    <span class="block text-gray-500">Pendaftar</span>
                 </div>
             </div>
             @endif

@@ -1,11 +1,12 @@
 @extends('moduls.psikotes.layouts.main', [
 'title' => 'Psikotest Berbinar',
 'active' => 'Intro',
+'page' => 'Tes Kepribadian Gratis',
 ])
 
 @section('content')
-<section class="overflow-y-auto md:overflow-hidden">
-    <div class="max-w-6xl mx-auto my-0 md:mb-2 p-4 h-fit flex relative items-center overflow-y-auto md:overflow-hidden">
+<section class="">
+    <div class="max-w-6xl mx-auto my-0 md:mb-2 p-4 h-fit flex relative items-center">
         <div class="flex relative h-fit">
             <div class="flex relative bg-primary rounded-[30px] items-center mt-2">
                 <div class="relative flex flex-col items-center">
