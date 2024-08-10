@@ -2,28 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Berbinarp_enrollment;
-use App\Models\Berbinarp_user;
-use App\Models\Feedback;
 use App\Models\Test;
+use App\Models\Feedback;
 use App\Models\Question;
 use App\Models\Dimension;
 use App\Models\jadwalPeer;
 use Illuminate\Http\Request;
 use App\Models\UserPsikotest;
+use App\Models\Berbinarp_user;
 use App\Models\KonsellingPeer;
+use App\Models\UserInternship;
 use App\Models\Hiring_Positions;
 use App\Models\KonsellingPsikolog;
+use Illuminate\Support\Facades\DB;
+use App\Models\Berbinarp_enrollment;
 use RealRashid\SweetAlert\Facades\Alert;
-use App\Models\Hiring_Positions_Requirements;
-use App\Models\Hiring_Positions_Job_Descriptions;
-use App\Models\PsikotestPaid\PsikotestPaidTest;
-use App\Models\PsikotestPaid\CategoryPsikotestType;
+use Illuminate\Support\Facades\Validator;
 use App\Models\PsikotestPaid\PsikotestTool;
 use App\Models\PsikotestPaid\PsikotestType;
+use App\Models\Hiring_Positions_Requirements;
+use App\Models\PsikotestPaid\PsikotestPaidTest;
 use App\Models\PsikotestPaid\UserPsikotestPaid;
-use Illuminate\Support\Facades\Validator;
-use App\Models\UserInternship;
+use App\Models\Hiring_Positions_Job_Descriptions;
+use App\Models\PsikotestPaid\CategoryPsikotestType;
 
 
 class DashboardController extends Controller
@@ -51,6 +52,29 @@ class DashboardController extends Controller
 
         $totalUserPsikotestPaid = UserPsikotestPaid::count('id');
 
+        $categoryIndividu = DB::table('psikotest_types')
+            ->where('category_psikotest_type_id', 2)
+            ->pluck('id');
+        $individu = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryIndividu)->count();
+
+        $categoryeducationalInstitution = DB::table('psikotest_types')
+            ->where('category_psikotest_type_id', 3)
+            ->pluck('id');
+
+        $educationalInstitution = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeducationalInstitution)->count();
+
+        $categoryeCorporate = DB::table('psikotest_types')
+            ->where('category_psikotest_type_id', 4)
+            ->pluck('id');
+
+        $corporate = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeCorporate)->count();
+
+        $categoryeCommunity = DB::table('psikotest_types')
+            ->where('category_psikotest_type_id', 1)
+            ->pluck('id');
+
+        $community = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeCommunity)->count();
+
         return view('moduls.dashboard.index', [
             "PeerConsellorSchedule" => $PeerConsellorSchedule,
             "PeerConsellorData" => $PeerConsellorData,
@@ -61,7 +85,11 @@ class DashboardController extends Controller
             'totalUserPsikotest' => $totalUserPsikotest,
             'totalQuestion' => $totalQuestion,
             "totalBerbinarPlusUser" => $totalBerbinarPlusUser,
-            'totalUserPsikotestPaid' => $totalUserPsikotestPaid
+            'totalUserPsikotestPaid' => $totalUserPsikotestPaid,
+            'individu' => $individu,
+            'educationalInstitution' => $educationalInstitution,
+            'corporate' => $corporate,
+            'community' => $community,
         ]);
     }
 

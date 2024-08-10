@@ -46,8 +46,11 @@
                                     {{-- <td class="px-4 py-2">{{ now()->subDays(1)->format('d/m/Y') }}</td> --}}
                                     <td class="px-4 py-2">{{ $responden->created_at->translatedFormat('d F Y') }}</td>
                                     <td class="px-4 py-2">
-                                        {{-- <span class="bg-blue-500 text-white px-2 py-1 rounded">Progress</span> --}}
-                                        <span class="bg-green-500 text-white px-2 py-1 rounded">Finished</span>
+                                        @if ($responden->status_progress)
+                                            <span class="bg-green-500 text-white px-2 py-1 rounded">Finished</span>
+                                        @else
+                                            <span class="bg-blue-500 text-white px-2 py-1 rounded">Progress</span>
+                                        @endif
                                     </td>
                                     <td class="px-4 py-2">
                                         <a href="{{ route('psikotest-paid.papi-kostick.detail', $responden->id) }}">
