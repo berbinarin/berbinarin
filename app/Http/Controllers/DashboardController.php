@@ -17,14 +17,9 @@ use App\Models\KonsellingPsikolog;
 use Illuminate\Support\Facades\DB;
 use App\Models\Berbinarp_enrollment;
 use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Support\Facades\Validator;
-use App\Models\PsikotestPaid\PsikotestTool;
-use App\Models\PsikotestPaid\PsikotestType;
 use App\Models\Hiring_Positions_Requirements;
-use App\Models\PsikotestPaid\PsikotestPaidTest;
 use App\Models\PsikotestPaid\UserPsikotestPaid;
 use App\Models\Hiring_Positions_Job_Descriptions;
-use App\Models\PsikotestPaid\CategoryPsikotestType;
 
 
 class DashboardController extends Controller

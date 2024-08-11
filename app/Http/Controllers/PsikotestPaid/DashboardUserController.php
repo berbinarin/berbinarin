@@ -19,9 +19,9 @@ class DashboardUserController extends Controller
 
     public function userRegister()
     {
-        $users = UserPsikotestPaid::all();
-
-        return view('moduls.psikotes-paid.dashboard.user-register', compact('users'));
+        // $users = UserPsikotestPaid::all();
+        $users = UserPsikotestPaid::with('psikotestType.categoryPsikotestType')->get();
+        return view('moduls.dashboard.psikotes-paid.data', compact('users'));
     }
 
     public function userDetail($id)
@@ -35,7 +35,7 @@ class DashboardUserController extends Controller
     {
         $tools = PsikotestTool::all();
 
-        return view('moduls.psikotes-paid.dashboard.psikotest-tool', compact('tools'));
+        return view('moduls.dashboard.psikotes-paid.data-test', compact('tools'));
     }
 
     public function generateToken($id)
