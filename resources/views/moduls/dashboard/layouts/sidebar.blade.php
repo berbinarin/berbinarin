@@ -142,7 +142,7 @@
         @endif
 
 
-        @if (auth()->user()->role == 'PsikotestPaid')
+        @if ((((auth()->user()->role == 'PsikotestPaid' && $title != 'dashboardtes') && $title != 'BAUM') && $title != 'HTP') && $title != 'DAP')
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.psikotespaid.data') }}" class=" flex flex-col items-center @if ($modul === 'Psikotest Paid Data') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
                 <i class="bx bxs-user @if ($modul === 'Psikotest Paid Data') text-primary @else text-gray-700 @endif text-lg"></i>
@@ -154,6 +154,13 @@
             <a href="{{ route('dashboard.psikotespaid.data-test') }}" class=" flex flex-col items-center @if ($modul === 'Psikotest Paid Data Test') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
                 <i class="bx bxs-file  @if ($modul === 'Psikotest Paid Data Test') text-primary @else text-gray-700 @endif text-lg"></i>
                 <span class="text-base mt-2 text-center">Data Test</span>
+            </a>
+        </li>
+
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.dashboardtes') }}" class=" flex flex-col items-center @if ($modul === 'Dashboard Tes Grafis') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bx-server  @if ($modul === 'Dashboard Tes Grafis') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base mt-2 text-center">Database</span>
             </a>
         </li>
 
@@ -172,12 +179,32 @@
                 <a href="{{ route('dashboard.psikotespaid.komunitas') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Komunitas</a>
             </div>
         </li>
+
+        @elseif ($title === 'dashboardtes' || $title === 'BAUM' || $title === 'DAP' || $title === 'HTP' )
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.baum') }}" class=" flex flex-col items-center @if ($modul === 'Psikotest Paid BAUM') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bx-edit  @if ($modul === 'Psikotest Paid BAUM') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base mt-2 text-center">BAUM</span>
+            </a>
+        </li>
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.dap') }}" class=" flex flex-col items-center @if ($modul === 'Psikotest Paid DAP') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bx-edit  @if ($modul === 'Psikotest Paid DAP') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base mt-2 text-center">DAP</span>
+            </a>
+        </li>
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.htp') }}" class=" flex flex-col items-center @if ($modul === 'Psikotest Paid HTP') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bx-edit  @if ($modul === 'Psikotest Paid HTP') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base mt-2 text-center">HTP</span>
+            </a>
+        </li>
         @endif
 
-        @if ($title === '')
+        @if ($title === 'dashboardtes' || $title === 'BAUM' || $title === 'DAP' || $title === 'HTP')
         <li class="mt-20 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
-            <a href="" class=" flex flex-col items-center">
+            <a href="{{ route('dashboard') }}" class=" flex flex-col items-center">
                 <button type="submit" class="items-center flex gap-2">
                     <i class='bx bx-log-out text-lg'></i>
                     <span class="text-base text-center">Kembali</span>
