@@ -16,8 +16,8 @@
                         <p class="text-disabled py-2">Fitur ini menampilkan informasi data pengguna yang telah melakukan
                             registrasi Psikotes Berbinar</p>
                         <button onclick="toggleModal('modal-id')" type="button"
-                            class="focus:ring-2 focus:ring-offset-2  mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded">
-                            <p class=" font-medium leading-none text-dark">Tambah Data</p>
+                            class="focus:ring-2 focus:ring-offset-2 mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded">
+                            <p class="font-medium leading-none text-dark">Tambah Data</p>
                         </button>
                     </div>
                 </div>
@@ -35,39 +35,32 @@
                                     <th style="text-align: center">Jam</th>
                                     <th style="text-align: center"></th>
                                 </tr>
-
                             </thead>
                             <tbody>
-
-                                <tr id="" class="data-consume">
-                                    @foreach ($users as $user)
+                                @foreach ($users as $user)
+                                    <tr>
                                         <td class="text-center">{{ $user->id }}</td>
                                         <td>{{ $user->fullname }}</td>
-                                        {{-- <td>Komunitas</td>
-                                        <td>Tes Kecemasan</td> --}}
                                         <td>{{ $user->psikotestType->name ?? 'N/A' }}</td>
                                         <td>{{ $user->psikotestType->categoryPsikotestType->name ?? 'N/A' }}</td>
-                                        <td class="text-center">Rp 159.000</td>
+                                        <td class="text-center">
+                                            @if ($user->psikotestType && $user->psikotestType->price)
+                                                Rp. {{ number_format($user->psikotestType->price, 0, ',', '.') }}
+                                            @else
+                                                N/A
+                                            @endif
+                                        </td>
                                         <td>{{ \Carbon\Carbon::parse($user->preference_schedule)->format('Y-m-d') }}</td>
                                         <td>{{ \Carbon\Carbon::parse($user->preference_schedule)->format('H:i:s') }}</td>
-
                                         <td class="flex gap-2">
-
-                                            {{-- BUTTON DETAIL  --}}
-                                            <a href="{{ route('dashboard.psikotespaid.data-show') }}"
+                                            <a href="{{ route('dashboard.psikotespaid.data-show', $user->id) }}"
                                                 class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-start justify-start p-3 focus:outline-none rounded">
-                                                <!-- <i class='bx bx-show text-white'></i> -->
                                                 <p class="text-primary font-semibold">Detail</p>
                                                 <i class='bx bx-right-arrow-alt mt-1 text-primary'></i>
                                             </a>
-
                                         </td>
-                                    @endforeach
-                                </tr>
-
-                                <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="">
-                                </div>
-
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -116,22 +109,4 @@
             });
         });
     </script>
-
-    <!-- <script>
-        function showTestData(testId) {
-            $.ajax({
-                url: '/dashboard/admin/psikotest/free/data/' + testId,
-                method: 'GET',
-                success: function(data) {
-                    // Populate modal with test data
-                    $('#test-detail-content').html(JSON.stringify(data, null, 2));
-                    // Show the modal
-                    $('#modal-detail').modal('show');
-                },
-                error: function() {
-                    alert('Failed to fetch test data.');
-                }
-            });
-        }
-    </script> -->
 @endsection

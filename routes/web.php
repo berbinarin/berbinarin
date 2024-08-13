@@ -157,9 +157,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::prefix('/dashboard/admin/psikotest-paid')->group(function () {
         // DASHBOARD PSIKOTEST PAID USER & TOOLS
         Route::get('/data', [DashboardUserController::class, 'userRegister'])->name('dashboard.psikotespaid.data');
+        Route::get('/data/{id}', [DashboardUserController::class, 'userDetail'])->name('dashboard.psikotespaid.data-show');
         Route::get('/data-test', [DashboardUserController::class, 'psikotestTool'])->name('dashboard.psikotespaid.data-test');
         Route::post('/data-test/{id}/generate-token', [DashboardUserController::class, 'generateToken'])->name('dashboard.psikotespaid.generate-token');
-        Route::get('/data-detail', [DashboardController::class, 'psikotesPaidDataShow'])->name('dashboard.psikotespaid.data-show');
         Route::get('/individu', [DashboardUserController::class, 'priceListIndividu'])->name('dashboard.psikotespaid.individu');
         Route::get('/pendidikan', [DashboardUserController::class, 'priceListEducationalInstitution'])->name('dashboard.psikotespaid.pendidikan');
         Route::get('/perusahaan', [DashboardUserController::class, 'priceListCorporate'])->name('dashboard.psikotespaid.perusahaan');

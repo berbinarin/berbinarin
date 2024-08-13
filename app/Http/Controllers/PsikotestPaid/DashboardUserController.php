@@ -26,9 +26,9 @@ class DashboardUserController extends Controller
 
     public function userDetail($id)
     {
-        $user = UserPsikotestPaid::find($id);
+        $user = UserPsikotestPaid::with('psikotestType.categoryPsikotestType')->find($id);
 
-        return view('moduls.psikotes-paid.dashboard.user-detail', compact('user'));
+        return view('moduls.dashboard.psikotes-paid.data-detail', compact('user'));
     }
 
     public function psikotestTool()
