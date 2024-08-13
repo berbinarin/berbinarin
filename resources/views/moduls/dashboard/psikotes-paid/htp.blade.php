@@ -6,10 +6,10 @@
 
 @section('content-dashboard')
 <section class="flex w-full">
-    <div class="flex flex-col">
+    <div class="flex flex-col w-full">
         <div class="w-full">
             <div class="py-4 md:pt-12 md:pb-7">
-                <div class="">
+                <div>
                     <p tabindex="0"
                         class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
                         Database Jawaban Alat Tes HTP</p>
@@ -18,7 +18,7 @@
             </div>
             <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-md">
                 <div class="mt-4 overflow-x-auto">
-                    <table id="example" class="display" style="overflow-x: scroll;">
+                    <table id="example" class="display w-full" style="overflow-x: scroll;">
                         <thead>
                             <tr>
                                 <th>No</th>
