@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('phone_number');
             $table->enum('service', ['offline', 'online']);
             $table->text('reason');
-            $table->date('preference_schedule');
+            $table->datetime('preference_schedule');
             $table->foreignId('psikotest_type_id')->constrained('psikotest_types')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

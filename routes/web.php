@@ -29,6 +29,7 @@ use App\Http\Controllers\HiringPositionsJobDescriptionController;
 use App\Http\Controllers\Internship\UserInternshipController;
 use App\Http\Controllers\Berbinarplus\AuthUserController;
 use App\Http\Controllers\Internship\InternshipController;
+use App\Http\Controllers\PsikotestPaid\DashboardUserController;
 use App\Http\Controllers\PsikotestPaid\UserPsikotestPaidController;
 use App\Http\Controllers\PsikotestPaid\PapiKostick\TestController as PapiKostickTestController;
 use App\Http\Controllers\PsikotestPaid\PapiKostick\QuestionController as PapiKostickQuestionController;
@@ -153,13 +154,17 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin/faqs', [DashboardController::class, 'faqs'])->name('dashboard.faqs');
 
     //PSIKOTEST PAID
-    Route::get('/dashboard/admin/psikotest-paid/data', [DashboardController::class, 'psikotesPaidData'])->name('dashboard.psikotespaid.data');
-    Route::get('/dashboard/admin/psikotest-paid/data-test', [DashboardController::class, 'psikotesPaidDataTest'])->name('dashboard.psikotespaid.data-test');
-    Route::get('/dashboard/admin/psikotest-paid/data-detail', [DashboardController::class, 'psikotesPaidDataShow'])->name('dashboard.psikotespaid.data-show');
-    Route::get('/dashboard/admin/psikotest-paid/individu', [DashboardController::class, 'psikotesPaidIndividu'])->name('dashboard.psikotespaid.individu');
-    Route::get('/dashboard/admin/psikotest-paid/pendidikan', [DashboardController::class, 'psikotesPaidPendidikan'])->name('dashboard.psikotespaid.pendidikan');
-    Route::get('/dashboard/admin/psikotest-paid/perusahaan', [DashboardController::class, 'psikotesPaidPerusahaan'])->name('dashboard.psikotespaid.perusahaan');
-    Route::get('/dashboard/admin/psikotest-paid/komunitas', [DashboardController::class, 'psikotesPaidKomunitas'])->name('dashboard.psikotespaid.komunitas');
+    Route::prefix('/dashboard/admin/psikotest-paid')->group(function () {
+        // DASHBOARD PSIKOTEST PAID USER & TOOLS
+        Route::get('/data', [DashboardUserController::class, 'userRegister'])->name('dashboard.psikotespaid.data');
+        Route::get('/data/{id}', [DashboardUserController::class, 'userDetail'])->name('dashboard.psikotespaid.data-show');
+        Route::get('/data-test', [DashboardUserController::class, 'psikotestTool'])->name('dashboard.psikotespaid.data-test');
+        Route::post('/data-test/{id}/generate-token', [DashboardUserController::class, 'generateToken'])->name('dashboard.psikotespaid.generate-token');
+        Route::get('/individu', [DashboardUserController::class, 'priceListIndividu'])->name('dashboard.psikotespaid.individu');
+        Route::get('/pendidikan', [DashboardUserController::class, 'priceListEducationalInstitution'])->name('dashboard.psikotespaid.pendidikan');
+        Route::get('/perusahaan', [DashboardUserController::class, 'priceListCorporate'])->name('dashboard.psikotespaid.perusahaan');
+        Route::get('/komunitas', [DashboardUserController::class, 'priceListCommunity'])->name('dashboard.psikotespaid.komunitas');
+    });
 
     // MODUL KONSELLING PSIKOLOG
     Route::get('/dashboard/admin/psikologData', [DashboardController::class, 'PsikologData'])->name('dashboard.PsikologData');

@@ -29,6 +29,7 @@ class PapiKostickController extends Controller
         $psikotestPaidTest = PsikotestPaidTest::create([
             'user_psikotest_paid_id' => $user->id,
             'psikotest_tool_id' => $tool->id,
+            'status_progress' => false,
         ]);
 
         $testPapiKostick = TestPapiKostick::create([
@@ -86,6 +87,12 @@ class PapiKostickController extends Controller
         if ($next_question_order > 90) {
             $this->calculateAndStoreResult($id);
 
+            // Update the status_progress to true
+            $psikotestPaidTest = PsikotestPaidTest::where('id', $id)->first();
+            if ($psikotestPaidTest) {
+                $psikotestPaidTest->update(['status_progress' => true]);
+            }
+
             return redirect()->route('psikotest-paid.papi-kostick.complete', ['id' => $id]);
         }
 
@@ -97,10 +104,26 @@ class PapiKostickController extends Controller
         $answers = AnswerPapiKostick::where('test_papi_kostick_id', $id)->get();
 
         $scores = [
-            'A' => 0, 'N' => 0, 'G' => 0, 'C' => 0, 'D' => 0,
-            'R' => 0, 'T' => 0, 'V' => 0, 'W' => 0, 'F' => 0,
-            'L' => 0, 'P' => 0, 'I' => 0, 'S' => 0, 'B' => 0,
-            'O' => 0, 'X' => 0, 'E' => 0, 'K' => 0, 'Z' => 0,
+            'A' => 0,
+            'N' => 0,
+            'G' => 0,
+            'C' => 0,
+            'D' => 0,
+            'R' => 0,
+            'T' => 0,
+            'V' => 0,
+            'W' => 0,
+            'F' => 0,
+            'L' => 0,
+            'P' => 0,
+            'I' => 0,
+            'S' => 0,
+            'B' => 0,
+            'O' => 0,
+            'X' => 0,
+            'E' => 0,
+            'K' => 0,
+            'Z' => 0,
         ];
 
         foreach ($answers as $answer) {
