@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_psikotest_paid_id')->constrained('user_psikotest_paids')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('psikotest_tool_id')->constrained('psikotest_tools')->onUpdate('cascade')->onDelete('cascade')->nullable();
+            $table->enum('status', ['progress', 'done']);
             $table->timestamps();
         });
     }
