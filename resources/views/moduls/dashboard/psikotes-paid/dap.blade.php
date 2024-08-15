@@ -23,50 +23,19 @@
                             <tr>
                                 <th>No</th>
                                 <th>User</th>
+                                <th>Email</th>
                                 <th>Date</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="data-consume">
-                                <td>1.</td>
+                                <td class="text-center">1</td>
                                 <td>Morgan Vero</td>
-                                <td>18-04-2024</td>
-                                <td class="flex gap-2">
-                                    <button  onclick="toggleModal('view-modal')" type="button"
-                                        class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-blue-500 hover:bg-blue-500 focus:outline-none rounded">
-                                        <p class="font-medium leading-none text-white">Lihat Gambar</p>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="data-consume">
-                                <td>2.</td>
-                                <td>Morgan Vero</td>
-                                <td>18-04-2024</td>
-                                <td class="flex gap-2">
-                                    <button  onclick="toggleModal('view-modal')" type="button"
-                                        class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-blue-500 hover:bg-blue-500 focus:outline-none rounded">
-                                        <p class="font-medium leading-none text-white">Lihat Gambar</p>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="data-consume">
-                                <td>3.</td>
-                                <td>Morgan Vero</td>
-                                <td>18-04-2024</td>
-                                <td class="flex gap-2">
-                                    <button  onclick="toggleModal('view-modal')" type="button"
-                                        class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-blue-500 hover:bg-blue-500 focus:outline-none rounded">
-                                        <p class="font-medium leading-none text-white">Lihat Gambar</p>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr class="data-consume">
-                                <td>4.</td>
-                                <td>Morgan Vero</td>
-                                <td>18-04-2024</td>
-                                <td class="flex gap-2">
-                                    <button  onclick="toggleModal('view-modal')" type="button"
+                                <td class="text-center">morganvero@gmail.com</td>
+                                <td class="text-center">18-04-2024</td>
+                                <td class="px-6 py-4 whitespace-no-wrap text-center text-center">
+                                    <button onclick="toggleModal('view-modal')" type="button"
                                         class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-blue-500 hover:bg-blue-500 focus:outline-none rounded">
                                         <p class="font-medium leading-none text-white">Lihat Gambar</p>
                                     </button>
