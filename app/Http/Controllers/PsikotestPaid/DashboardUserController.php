@@ -24,6 +24,24 @@ class DashboardUserController extends Controller
         return view('moduls.dashboard.psikotes-paid.data', compact('users'));
     }
 
+     // Dashboard Papikostick
+     public function dashboardPapikostick()
+     {
+         return view('moduls.dashboard.psikotes-paid.dashboardPapikostick');
+     }
+     public function papikostick()
+     {
+         return view('moduls.dashboard.psikotes-paid.papikostick');
+     }
+     public function psikotestData()
+     {
+         return view('moduls.dashboard.psikotes-paid.psikotestData');
+     }
+     public function psikotestSoal()
+     {
+         return view('moduls.dashboard.psikotes-paid.psikotestSoal');
+     }
+
     public function userDetail($id)
     {
         $user = UserPsikotestPaid::with('psikotestType.categoryPsikotestType')->find($id);
