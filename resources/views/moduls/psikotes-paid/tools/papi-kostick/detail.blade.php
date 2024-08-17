@@ -16,8 +16,23 @@
                 <p class="mb-2"><strong>Decs:</strong></p>
                 @foreach ($descriptions as $key => $description)
                     <p class="mb-2"><strong>{{ $key }} (Perseverance)</strong> - {{ $description }}</p>
-                @endforeach
-                {{-- <p class="mb-2"><strong>A (Achievement)</strong> - Kebutuhan untuk mencapai prestasi tinggi dan sukses
+                    {{-- <p class="mb-2">
+                        <strong>
+                            @if ($key == 'F')
+                                {{ $key }}
+                                ({{ 'Achievement' }})
+                                {{ $result->F }}
+                            @elseif ($key == 'W')
+                                {{ $key }}
+                                ({{ '' }})
+                                {{ $result->W }}
+                            @else
+                                {{ 'Unknown' }}
+                            @endif
+                        </strong> - {{ $description }}
+                    </p>
+                @endforeach --}}
+                    {{-- <p class="mb-2"><strong>A (Achievement)</strong> - Kebutuhan untuk mencapai prestasi tinggi dan sukses
                     dalam tugas atau pekerjaan yang diambil.</p>
                 <p class="mb-2"><strong>L (Leadership)</strong> - Kebutuhan untuk memimpin dan mengarahkan orang lain,
                     menunjukkan kemampuan kepemimpinan.</p>

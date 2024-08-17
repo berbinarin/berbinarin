@@ -28,7 +28,7 @@
                                 <th class="px-4 py-2">No</th>
                                 <th class="px-4 py-2">Choice 1</th>
                                 <th class="px-4 py-2">Choice 2</th>
-                                <th class="px-4 py-2">Date</th>
+                                {{-- <th class="px-4 py-2">Date</th> --}}
                                 <th class="px-4 py-2">Action</th>
                             </tr>
                         </thead>
@@ -38,7 +38,7 @@
                                     <td class="px-4 py-2">{{ $question->id }}</td>
                                     <td class="px-4 py-2">{{ $question->a }}</td>
                                     <td class="px-4 py-2">{{ $question->b }}</td>
-                                    <td class="px-4 py-2">{{ $question->created_at }}</td>
+                                    {{-- <td class="px-4 py-2">{{ $question->created_at }}</td> --}}
                                     <td class="px-4 py-2 flex justify-center space-x-2">
                                         <a href="{{ route('papi-kostick.edit-soal', $question->id) }}"
                                             class="w-8 h-8 bg-blue-500 text-white rounded flex items-center justify-center hover:bg-blue-600"
