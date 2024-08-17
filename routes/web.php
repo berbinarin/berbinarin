@@ -156,10 +156,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin/psikotest-paid/data', [DashboardController::class, 'psikotesPaidData'])->name('dashboard.psikotespaid.data');
     Route::get('/dashboard/admin/psikotest-paid/data-test', [DashboardController::class, 'psikotesPaidDataTest'])->name('dashboard.psikotespaid.data-test');
     Route::get('/dashboard/admin/psikotest-paid/data-detail', [DashboardController::class, 'psikotesPaidDataShow'])->name('dashboard.psikotespaid.data-show');
-    Route::get('/dashboard/admin/psikotest-paid/individu', [DashboardController::class, 'psikotesPaidIndividu'])->name('dashboard.psikotespaid.individu');
-    Route::get('/dashboard/admin/psikotest-paid/pendidikan', [DashboardController::class, 'psikotesPaidPendidikan'])->name('dashboard.psikotespaid.pendidikan');
-    Route::get('/dashboard/admin/psikotest-paid/perusahaan', [DashboardController::class, 'psikotesPaidPerusahaan'])->name('dashboard.psikotespaid.perusahaan');
-    Route::get('/dashboard/admin/psikotest-paid/komunitas', [DashboardController::class, 'psikotesPaidKomunitas'])->name('dashboard.psikotespaid.komunitas');
+    Route::get('/dashboard/admin/psikotest-paid/price-list', [DashboardController::class, 'psikotesPaidPrice'])->name('dashboard.psikotespaid.price-list');
+    Route::get('/dashboard/admin/psikotest-paid/testimoni', [DashboardController::class, 'psikotesPaidTestimoni'])->name('dashboard.psikotespaid.testimoni');
+    Route::get('/dashboard/admin/psikotest-paid/testimoni-detail', [DashboardController::class, 'psikotesPaidTestimoniShow'])->name('dashboard.psikotespaid.testimoni-show');
 
     // MODUL KONSELLING PSIKOLOG
     Route::get('/dashboard/admin/psikologData', [DashboardController::class, 'PsikologData'])->name('dashboard.PsikologData');

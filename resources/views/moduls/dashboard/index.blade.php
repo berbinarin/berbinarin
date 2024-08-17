@@ -8,11 +8,13 @@
 <section class="flex w-full">
     <div class="flex flex-col">
         <div class="w-full">
-            <div class="py-4 md:py-12">
+            <div class="py-10">
                 <div class="">
-                    <p tabindex="0" class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
-                        Dashboard</p>
+                    <!-- <p tabindex="0" class="focus:outline-none text-5xl font-bold leading-normal text-gray-800 mb-2">
+                        Dashboard</p> -->
                     @if (Auth::user()->role == 'HR')
+                    <p tabindex="0" class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
+                        Dashboard</p>
                     <p class="w-2/4 text-disabled">Fitur ini digunakan untuk menampilkan jumlah data posisi hiring,
                         job
                         description, serta requirments
@@ -21,12 +23,16 @@
                         dibukan atau telah dibuka yang ditampilkan pada website careers Berbinarin.</p>
                     @endif
                     @if (Auth::user()->role == 'Konselling')
+                    <p tabindex="0" class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
+                        Dashboard</p>
                     <p class="w-2/4 text-disabled">Fitur ini digunakan untuk menampilkan data pendaftar konseling
                         yang mendaftar melalui situs web Berbinar</p>
                     @else
                     <p class="w-2/4 text-disabled"></p>
                     @endif
                     @if (Auth::user()->role == 'PsikotestFree')
+                    <p tabindex="0" class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
+                        Dashboard</p>
                     <p class="w-2/4 text-disabled">Fitur ini menampilkan jumlah
                         pendaftar Tes Psikotes Berbinar dan jumlah soal yang ditampilkan pada website Tes Psikotes
                         Berbinar</p>
@@ -34,6 +40,8 @@
                     <p class="w-2/4 text-disabled"></p>
                     @endif
                     @if (Auth::user()->role == 'BerbinarPlus')
+                    <p tabindex="0" class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
+                        Dashboard</p>
                     <p class="w-2/4 text-disabled">
                         Fitur ini menampilkan jumlah user yang sedang mendaftar pada Berbinar Plus
                     </p>
@@ -41,18 +49,21 @@
                     <p class="w-2/4 text-disabled"></p>
                     @endif
                     @if (Auth::user()->role == 'PsikotestPaid')
-                    <p class="w-2/4 text-disabled">Dashboard ini memberikan informasi mengenai jumlah pengguna yang
+                    <p tabindex="0" class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
+                        Dashboard Pendaftaran Psikotes</p>
+                    <p class="text-base text-disabled">Dashboard ini memberikan informasi mengenai jumlah pengguna yang
                         telah mendaftar psikotes.</p>
                     @else
-                    <p class="w-2/4 text-disabled"></p>
+                    <p class="text-disabled"></p>
                     @endif
                 </div>
             </div>
         </div>
-        <div class="flex flex-col md:flex-row w-full gap-6">
-            @if (Auth::user()->role == 'HR')
+        @if (Auth::user()->role == 'HR')
+        <div class="flex flex-row w-full gap-6">
             <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                <div
+                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
                     <i class='bx bx-briefcase-alt-2  text-2xl'></i>
                 </div>
                 <div>
@@ -62,7 +73,8 @@
             </div>
 
             <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                <div
+                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
                     <i class='bx bxl-upwork  text-2xl'></i>
                 </div>
                 <div>
@@ -72,7 +84,8 @@
             </div>
 
             <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                <div
+                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
                     <i class='bx bx-file text-2xl'></i>
                 </div>
                 <div>
@@ -80,9 +93,12 @@
                     <span class="block text-gray-500">Requirements</span>
                 </div>
             </div>
-            @elseif (Auth::user()->role == 'Konselling')
+        </div>
+        @elseif (Auth::user()->role == 'Konselling')
+        <div class="flex flex-row w-full gap-6">
             <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                <div
+                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
                     <i class='bx bx-calendar text-2xl'></i>
                 </div>
                 <div>
@@ -92,7 +108,8 @@
             </div>
 
             <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                <div
+                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
                     <i class='bx bx-user text-2xl'></i>
                 </div>
                 <div>
@@ -102,7 +119,8 @@
             </div>
 
             <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                <div
+                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
                     <i class='bx bx-user text-2xl'></i>
                 </div>
                 <div>
@@ -110,9 +128,13 @@
                     <span class="block text-gray-500">Psikolog Data</span>
                 </div>
             </div>
-            @elseif (Auth::user()->role == 'PsikotestFree')
+        </div>
+
+        @elseif (Auth::user()->role == 'PsikotestFree')
+        <div class="flex flex-row w-full gap-6">
             <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                <div
+                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
                     <i class='bx bx-user text-2xl'></i>
                 </div>
                 <div>
@@ -122,7 +144,8 @@
             </div>
 
             <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                <div
+                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
                     <i class='bx bx-message-rounded-dots text-2xl'></i>
                 </div>
                 <div>
@@ -132,7 +155,8 @@
             </div>
             @elseif (Auth::user()->role == 'BerbinarPlus')
             <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                <div
+                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
                     <i class='bx bx-user text-2xl'></i>
                 </div>
                 <div>
@@ -140,51 +164,55 @@
                     <span class="block text-gray-500">Total Users</span>
                 </div>
             </div>
-            @elseif (Auth::user()->role == 'PsikotestPaid')
-            <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
-                    <i class='bx bxs-user text-2xl'></i>
-                </div>
-                <div>
-                    <span class="block text-gray-500">Individu</span>
-                    <span class="block text-2xl font-bold">1</span>
-                    <span class="block text-gray-500">Pendaftar</span>
-                </div>
-            </div>
-
-            <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
-                    <i class='bx bxs-graduation text-2xl'></i>
-                </div>
-                <div>
-                    <span class="block text-gray-500">Instansi Pendidikan</span>
-                    <span class="block text-2xl font-bold">1</span>
-                    <span class="block text-gray-500">Pendaftar</span>
-                </div>
-            </div>
-            <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
-                    <i class='bx bxs-business text-2xl'></i>
-                </div>
-                <div>
-                    <span class="block text-gray-500">Perusahaan</span>
-                    <span class="block text-2xl font-bold">1</span>
-                    <span class="block text-gray-500">Pendaftar</span>
-                </div>
-            </div>
-
-            <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
-                    <i class='bx bxs-group text-2xl'></i>
-                </div>
-                <div>
-                    <span class="block text-gray-500">Komunitas</span>
-                    <span class="block text-2xl font-bold">1</span>
-                    <span class="block text-gray-500">Pendaftar</span>
-                </div>
-            </div>
-            @endif
         </div>
+
+        @elseif (Auth::user()->role == 'PsikotestPaid')
+        <div class="grid grid-cols-2 w-full h-[470px] gap-6">
+            <div class="w-full flex flex-col justify-between items-center p-8 bg-[#6482AD] shadow rounded-lg">
+                <div class="w-full flex flex-row justify-between">
+                    <div class="block text-white text-xl font-semibold">Individu</div>
+                    <i class='bx bxs-user text-2xl text-white'></i>
+                </div>
+                <div class="w-full flex flex-col justify-start items-start">
+                    <span class="block text-white text-3xl font-bold">1</span>
+                    <span class="block text-white text-xl font-semibold">Pendaftar</span>
+                </div>
+            </div>
+
+            <div class="w-full flex flex-col justify-between items-center p-8 bg-[#7FA1C3] shadow rounded-lg">
+                <div class="w-full flex flex-row justify-between">
+                    <div class="block text-white text-xl font-semibold">Instansi Pendidikan</div>
+                    <i class='bx bxs-graduation text-2xl text-white'></i>
+                </div>
+                <div class="w-full flex flex-col justify-start items-start">
+                    <span class="block text-white text-3xl font-bold">1</span>
+                    <span class="block text-white text-xl font-semibold">Pendaftar</span>
+                </div>
+            </div>
+            <div class="w-full flex flex-col justify-between items-center p-8 bg-[#85B3E2] shadow rounded-lg">
+                <div class="w-full flex flex-row justify-between">
+                    <div class="block text-white text-xl font-semibold">Perusahaan</div>
+                    <i class='bx bxs-business text-2xl text-white'></i>
+                </div>
+                <div class="w-full flex flex-col justify-start items-start">
+                    <span class="block text-white text-3xl font-bold">1</span>
+                    <span class="block text-white text-xl font-semibold">Pendaftar</span>
+                </div>
+            </div>
+
+            <div class="w-full flex flex-col justify-between items-center p-8 bg-[#94c8fb] shadow rounded-lg">
+                <div class="w-full flex flex-row justify-between">
+                    <div class="block text-white text-xl font-semibold">Komunitas</div>
+                    <i class='bx bxs-group text-2xl text-white'></i>
+                </div>
+                <div class="w-full flex flex-col justify-start items-start">
+                    <span class="block text-white text-3xl font-bold">1</span>
+                    <span class="block text-white text-xl font-semibold">Pendaftar</span>
+                </div>
+            </div>
+        </div>
+        @endif
+
     </div>
 </section>
 @endsection
