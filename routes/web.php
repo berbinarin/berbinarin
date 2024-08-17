@@ -38,7 +38,6 @@ use App\Http\Controllers\PsikotestPaid\PsikotestToolController;
 use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\DashboardPapiKostickController;
 use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\ResultPapiKostickController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -154,8 +153,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin/faqs', [DashboardController::class, 'faqs'])->name('dashboard.faqs');
 
     //PSIKOTEST PAID
-    // DASHBOARD PSIKOTEST PAID USER & TOOLS
     Route::prefix('/dashboard/admin/psikotest-paid')->group(function () {
+        // DASHBOARD PSIKOTEST PAID USER & TOOLS
         Route::get('/data', [DashboardUserController::class, 'userRegister'])->name('dashboard.psikotespaid.data');
         Route::get('/data/{id}', [DashboardUserController::class, 'userDetail'])->name('dashboard.psikotespaid.data-show');
         Route::get('/data-test', [DashboardUserController::class, 'psikotestTool'])->name('dashboard.psikotespaid.data-test');
@@ -164,6 +163,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/pendidikan', [DashboardUserController::class, 'priceListEducationalInstitution'])->name('dashboard.psikotespaid.pendidikan');
         Route::get('/perusahaan', [DashboardUserController::class, 'priceListCorporate'])->name('dashboard.psikotespaid.perusahaan');
         Route::get('/komunitas', [DashboardUserController::class, 'priceListCommunity'])->name('dashboard.psikotespaid.komunitas');
+
+        //
+        Route::get('/price-list', [DashboardUserController::class, 'priceList'])->name('dashboard.psikotespaid.price-list');
+        Route::get('/testimoni', [DashboardUserController::class, 'testimoni'])->name('dashboard.psikotespaid.testimoni');
+        Route::get('/testimoni-detail', [DashboardUserController::class, 'testimoniShow'])->name('dashboard.psikotespaid.testimoni-show');
     });
     Route::get('/dashboard/admin/psikotest-paid/baum', [DashboardController::class, 'psikotesPaidBAUM'])->name('dashboard.psikotespaid.baum');
     Route::get('/dashboard/admin/psikotest-paid/htp', [DashboardController::class, 'psikotesPaidHTP'])->name('dashboard.psikotespaid.htp');
