@@ -83,4 +83,19 @@ class DashboardUserController extends Controller
 
         return view('moduls.dashboard.psikotes-paid.pendidikan', compact('psikotestSchool'));
     }
+
+    public function priceList()
+    {
+        return view('moduls.dashboard.psikotes-paid.price-list');
+    }
+
+    public function testimoni()
+    {
+        return view('moduls.dashboard.psikotes-paid.testi');
+    }
+
+    public function testimoniShow()
+    {
+        return view('moduls.dashboard.psikotes-paid.testi-detail');
+    }
 }

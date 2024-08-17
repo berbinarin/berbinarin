@@ -174,7 +174,7 @@
                     <i class='bx bxs-user text-2xl text-white'></i>
                 </div>
                 <div class="w-full flex flex-col justify-start items-start">
-                    <span class="block text-white text-3xl font-bold">1</span>
+                    <span class="block text-white text-3xl font-bold">{{ $individu }}</span>
                     <span class="block text-white text-xl font-semibold">Pendaftar</span>
                 </div>
             </div>
@@ -185,7 +185,7 @@
                     <i class='bx bxs-graduation text-2xl text-white'></i>
                 </div>
                 <div class="w-full flex flex-col justify-start items-start">
-                    <span class="block text-white text-3xl font-bold">1</span>
+                    <span class="block text-white text-3xl font-bold">{{ $educationalInstitution }}</span>
                     <span class="block text-white text-xl font-semibold">Pendaftar</span>
                 </div>
             </div>
@@ -195,7 +195,7 @@
                     <i class='bx bxs-business text-2xl text-white'></i>
                 </div>
                 <div class="w-full flex flex-col justify-start items-start">
-                    <span class="block text-white text-3xl font-bold">1</span>
+                    <span class="block text-white text-3xl font-bold">{{ $corporate }}</span>
                     <span class="block text-white text-xl font-semibold">Pendaftar</span>
                 </div>
             </div>
@@ -206,7 +206,7 @@
                     <i class='bx bxs-group text-2xl text-white'></i>
                 </div>
                 <div class="w-full flex flex-col justify-start items-start">
-                    <span class="block text-white text-3xl font-bold">1</span>
+                    <span class="block text-white text-3xl font-bold">{{ $community }}</span>
                     <span class="block text-white text-xl font-semibold">Pendaftar</span>
                 </div>
             </div>

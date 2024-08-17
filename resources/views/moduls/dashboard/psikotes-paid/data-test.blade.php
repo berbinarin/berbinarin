@@ -22,7 +22,6 @@
                     <table id="example" class="display gap-3" style="overflow-x: scroll;">
                         <thead>
                             <tr>
-                                <th style="text-align: center">No</th>
                                 <th style="text-align: center">Nama Alat Tes</th>
                                 <th style="text-align: center">Test</th>
                                 <th style="text-align: center">Token</th>
@@ -31,38 +30,42 @@
 
                         </thead>
                         <tbody>
-
+                            @foreach ($tools as $tool)
                             <tr id="" class="data-consume">
-                                <td class="text-center">1</td>
-                                <td class="text-center">BAUM</td>
-                                <td class="text-center">13</td>
-                                <td class="text-center">0DSDSD1</td>
+                                <td class="text-center">{{ $tool->name }}</td>
+                                <td class="text-center">{{ $tool->id }}</td>
+                                <td class="text-center">{{ $tool->token }}</td>
                                 <td class="flex gap-5 justify-center">
 
                                     {{-- BUTTON UPDATE TOKEN  --}}
-                                    <button type="button"
-                                        class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-start text-white justify-start py-2 px-3 bg-primary-alt hover:bg-primary-alt focus:outline-none rounded-full delete-button"
-                                        data-id="">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="14px" height="14px"
-                                            viewBox="0 0 24 24" class="mt-[5px]">
-                                            <path fill="none" stroke="white" stroke-width="3"
-                                                d="M1.75 16.002C3.353 20.098 7.338 23 12 23c6.075 0 11-4.925 11-11m-.75-4.002C20.649 3.901 16.663 1 12 1C5.925 1 1 5.925 1 12m8 4H1v8M23 0v8h-8" />
-                                        </svg>
-                                        <p class="ml-2">Update</p>
-
-                                    </button>
-
+                                    <form action="{{ route('dashboard.psikotespaid.generate-token', $tool->id) }}"
+                                        method="POST">
+                                        @csrf
+                                        <button type="submit"
+                                            class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-start text-white justify-start py-2 px-3 bg-primary-alt hover:bg-primary-alt focus:outline-none rounded-full"
+                                            data-id="">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14px" height="14px"
+                                                viewBox="0 0 24 24" class="mt-[5px]">
+                                                <path fill="none" stroke="white" stroke-width="3"
+                                                    d="M1.75 16.002C3.353 20.098 7.338 23 12 23c6.075 0 11-4.925 11-11m-.75-4.002C20.649 3.901 16.663 1 12 1C5.925 1 1 5.925 1 12m8 4H1v8M23 0v8h-8" />
+                                            </svg>
+                                            <p class="ml-2">Update</p>
+                                        </button>
+                                    </form>
                                     {{-- BUTTON DASHBOARD  --}}
-                                    <a href=""
-                                        class="focus:ring-2 focus:ring-offset-2 mt-2 sm:mt-0 inline-flex items-start text-white justify-start py-2 px-3 bg-[#2DA761] hover:bg-[#2DA761] focus:outline-none rounded-full">
+                                    @if ( $tool->name == 'BAUM' || 'HTP' || 'DAP')
+                                    <a href="{{ route('dashboard.psikotespaid.dashboardtes') }}"
+                                        class="focus:ring-2 focus:ring-offset-2 mt-2 sm:mt-0 inline-flex items-start text-white justify-start py-2 px-3 bg-green-500 hover:bg-green-500 focus:outline-none rounded-full">
                                         <i class='bx bx-home-alt-2 text-white text-base'></i>
                                         <p class="ml-2">Dashboard</p>
                                     </a>
+                                    @else
+                                    @endif
 
 
                                 </td>
                             </tr>
-
+                            @endforeach
 
                         </tbody>
                     </table>
@@ -72,62 +75,23 @@
     </div>
 </section>
 <script>
-    function toggleModal(modalId) {
-        var modal = document.getElementById(modalId);
-        if (modal.style.display === "none" || modal.style.display === "") {
-            modal.style.display = "block";
-        } else {
-            modal.style.display = "none";
-        }
+function toggleModal(modalId) {
+    var modal = document.getElementById(modalId);
+    if (modal.style.display === "none" || modal.style.display === "") {
+        modal.style.display = "block";
+    } else {
+        modal.style.display = "none";
     }
+}
 </script>
 
 <script type="text/javascript">
-    function toggleModal(modalID) {
-        document.getElementById(modalID).classList.toggle("hidden");
-        document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
-        document.getElementById(modalID).classList.toggle("flex");
-        document.getElementById(modalID + "-backdrop").classList.toggle("flex");
-    }
+function toggleModal(modalID) {
+    document.getElementById(modalID).classList.toggle("hidden");
+    document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
+    document.getElementById(modalID).classList.toggle("flex");
+    document.getElementById(modalID + "-backdrop").classList.toggle("flex");
+}
 </script>
 
-<script>
-    document.querySelectorAll('.delete-button').forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const formId = this.getAttribute('data-id');
-            Swal.fire({
-                title: 'Hapus Responden',
-                text: "Apakah anda yakin menghapusnya?",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Hapus'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById('deleteForm-' + formId).submit();
-                }
-            });
-        });
-    });
-</script>
-
-<!-- <script>
-        function showTestData(testId) {
-            $.ajax({
-                url: '/dashboard/admin/psikotest/free/data/' + testId,
-                method: 'GET',
-                success: function(data) {
-                    // Populate modal with test data
-                    $('#test-detail-content').html(JSON.stringify(data, null, 2));
-                    // Show the modal
-                    $('#modal-detail').modal('show');
-                },
-                error: function() {
-                    alert('Failed to fetch test data.');
-                }
-            });
-        }
-    </script> -->
 @endsection

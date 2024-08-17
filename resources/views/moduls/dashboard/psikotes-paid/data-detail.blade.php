@@ -37,24 +37,34 @@
                         <dl class="flex flex-col grow text-black">
                             <dt class="self-start font-bold">Nama</dt>
                             <dd class="px-2.5 py-2 mt-2.5 text-black bg-white rounded-md shadow-md max-md:pr-5">
-                                Dodo</dd>
+                                {{ $user->fullname }}
+                            </dd>
                             <dt class="self-start mt-3.5 font-bold">Usia</dt>
                             <dd
                                 class="px-2.5 py-2 mt-2.5 text-black whitespace-nowrap bg-white rounded-md shadow-md max-md:pr-5">
-                                20</dd>
+                                {{ $user->age }}
+                            </dd>
                             <dt class="self-start mt-3.5 font-bold">Email</dt>
                             <dd
                                 class="px-2.5 py-2 mt-2.5 text-black whitespace-nowrap bg-white rounded-md shadow-md max-md:pr-5">
-                                dodo@gmail.com</dd>
+                                {{ $user->email }}
+                            </dd>
                             <dt class="self-start mt-3.5 font-bold">Layanan Psikotes</dt>
                             <dd class="px-2.5 py-2 mt-2.5 text-black bg-white rounded-md shadow-md max-md:pr-5">
-                                Online</dd>
+                                {{ $user->service }}
+                            </dd>
                             <dt class="self-start mt-3.5 font-bold">Harga</dt>
                             <dd class="px-2.5 py-2 mt-2.5 text-black bg-white rounded-md shadow-md max-md:pr-5">
-                                Rp 159.000</dd>
+                                @if ($user->psikotestType && $user->psikotestType->price)
+                                Rp. {{ number_format($user->psikotestType->price, 0, ',', '.') }}
+                                @else
+                                N/A
+                                @endif
+                            </dd>
                             <dt class="self-start mt-3.5 font-bold">Tanggal Psikotes</dt>
                             <dd class="px-2.5 py-2 mt-2.5 text-black bg-white rounded-md shadow-md max-md:pr-5">
-                                10-08-2024</dd>
+                                {{ \Carbon\Carbon::parse($user->preference_schedule)->format('d-m-Y') }}
+                            </dd>
 
                         </dl>
                     </div>
@@ -63,33 +73,38 @@
                             <dt class="self-start font-bold">Jenis Kelamin</dt>
                             <dd
                                 class="px-2.5 py-2 mt-2.5 text-black whitespace-nowrap bg-white rounded-md shadow-md max-md:pr-5">
-                                Laki-laki</dd>
+                                {{ $user->gender }}
+                            </dd>
                             <dt class="self-start mt-3.5 font-bold">Nomor Telepon</dt>
                             <dd
                                 class="px-2.5 py-2 mt-2.5 text-black whitespace-nowrap bg-white rounded-md shadow-md max-md:pr-5">
-                                +628320010111</dd>
+                                {{ $user->phone_number }}
+                            </dd>
                             <dt class="self-start mt-3.5 font-bold">Domisili</dt>
                             <dd
                                 class="px-2.5 py-2 mt-2.5 text-black whitespace-nowrap bg-white rounded-md shadow-md max-md:pr-5">
-                                Surabaya</dd>
+                                {{ $user->domicile }}
+                            </dd>
                             <dt class="self-start mt-3.5 font-bold">Kategori Psikotes</dt>
                             <dd
                                 class="px-2.5 py-2 mt-2.5 text-black whitespace-nowrap bg-white rounded-md shadow-md max-md:pr-5">
-                                Komunitas</dd>
+                                {{ $user->psikotestType->categoryPsikotestType->name }}
+                            </dd>
                             <dt class="self-start mt-3.5 font-bold">Jenis Psikotes</dt>
                             <dd class="px-2.5 py-2 mt-2.5 text-black bg-white rounded-md shadow-md max-md:pr-5">
-                                Tes Kecemasan</dd>
+                                {{ $user->psikotestType->name }}
+                            </dd>
                             <dt class="self-start mt-3.5 font-bold">Waktu Psikotes</dt>
                             <dd class="px-2.5 py-2 mt-2.5 text-black bg-white rounded-md shadow-md max-md:pr-5">
-                                12:00</dd>
+                                {{ \Carbon\Carbon::parse($user->preference_schedule)->format('H:i:s') }}
+                            </dd>
                         </dl>
                     </div>
                 </div>
                 <h3 class="self-center mt-3.5 font-bold text-black">Alasan</h3>
                 <p
                     class="self-end px-3 pt-3 pb-14 mt-2.5 mr-28 max-w-full text-black bg-white rounded-md shadow-md w-full max-md:mr-2.5">
-                    Saya ingin lebih memahami diri saya, termasuk kekuatan dan kelemahan saya, agar dapat meningkatkan
-                    kualitas diri dan mencapai potensi maksimal dalam karir dan kehidupan pribadi.
+                    {{ $user->reason }}
                 </p>
             </div>
         </div>

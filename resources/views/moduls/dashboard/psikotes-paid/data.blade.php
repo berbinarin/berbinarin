@@ -39,20 +39,31 @@
 
                         </thead>
                         <tbody>
-
+                            @foreach ($users as $user)
                             <tr id="" class="data-consume">
-                                <td class="text-center">1</td>
-                                <td>Dodo</td>
-                                <td class="text-center">Online</td>
-                                <td class="text-center">Komunitas</td>
-                                <td class="text-center">Tes Kecemasan</td>
-                                <td class="text-center">Rp 159.000</td>
-                                <td class="text-center">10-08-2024</td>
-                                <td class="text-center">12:00</td>
+                                <td class="text-center">{{ $user->id }}</td>
+                                <td>{{ $user->fullname }}</td>
+                                <td class="text-center">{{ $user->service }}</td>
+                                <td class="text-center">{{ $user->psikotestType->name ?? 'N/A' }}</td>
+                                <td class="text-center">{{ $user->psikotestType->categoryPsikotestType->name ?? 'N/A' }}
+                                </td>
+                                <td class="text-center">
+                                    @if ($user->psikotestType && $user->psikotestType->price)
+                                    Rp. {{ number_format($user->psikotestType->price, 0, ',', '.') }}
+                                    @else
+                                    N/A
+                                    @endif
+                                </td>
+                                <td class="text-center">
+                                    {{ \Carbon\Carbon::parse($user->preference_schedule)->format('d-m-Y') }}
+                                </td>
+                                <td class="text-center">
+                                    {{ \Carbon\Carbon::parse($user->preference_schedule)->format('H:i:s') }}
+                                </td>
                                 <td class="flex gap-2 justify-center items-center">
 
                                     {{-- BUTTON DETAIL  --}}
-                                    <a href="{{ route('dashboard.psikotespaid.data-show')}}"
+                                    <a href="{{ route('dashboard.psikotespaid.data-show', $user->id) }}"
                                         class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-start justify-start p-3 focus:outline-none rounded">
                                         <!-- <i class='bx bx-show text-white'></i> -->
                                         <p class="text-primary font-semibold">Detail</p>
@@ -237,7 +248,7 @@
                                 </div>
                             </div>
                             <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="modal-id-backdrop"></div>
-
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -246,44 +257,44 @@
     </div>
 </section>
 <script>
-    function toggleModal(modalId) {
-        var modal = document.getElementById(modalId);
-        if (modal.style.display === "none" || modal.style.display === "") {
-            modal.style.display = "block";
-        } else {
-            modal.style.display = "none";
-        }
+function toggleModal(modalId) {
+    var modal = document.getElementById(modalId);
+    if (modal.style.display === "none" || modal.style.display === "") {
+        modal.style.display = "block";
+    } else {
+        modal.style.display = "none";
     }
+}
 </script>
 
 <script type="text/javascript">
-    function toggleModal(modalID) {
-        document.getElementById(modalID).classList.toggle("hidden");
-        document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
-        document.getElementById(modalID).classList.toggle("flex");
-        document.getElementById(modalID + "-backdrop").classList.toggle("flex");
-    }
+function toggleModal(modalID) {
+    document.getElementById(modalID).classList.toggle("hidden");
+    document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
+    document.getElementById(modalID).classList.toggle("flex");
+    document.getElementById(modalID + "-backdrop").classList.toggle("flex");
+}
 </script>
 
 <script>
-    document.querySelectorAll('.delete-button').forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            const formId = this.getAttribute('data-id');
-            Swal.fire({
-                title: 'Hapus Responden',
-                text: "Apakah anda yakin menghapusnya?",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Hapus'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById('deleteForm-' + formId).submit();
-                }
-            });
+document.querySelectorAll('.delete-button').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const formId = this.getAttribute('data-id');
+        Swal.fire({
+            title: 'Hapus Responden',
+            text: "Apakah anda yakin menghapusnya?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Hapus'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('deleteForm-' + formId).submit();
+            }
         });
     });
+});
 </script>
 @endsection

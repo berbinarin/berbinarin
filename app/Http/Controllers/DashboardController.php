@@ -663,4 +663,24 @@ class DashboardController extends Controller
     {
         return view('moduls.dashboard.psikotes-paid.testi-detail');
     }
+
+    public function psikotesPaidDashboardTes()
+    {
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dashboardtes');
+    }
+
+    public function psikotesPaidBAUM()
+    {
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.baum');
+    }
+
+    public function psikotesPaidHTP()
+    {
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.htp');
+    }
+
+    public function psikotesPaidDAP()
+    {
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dap');
+    }
 }
