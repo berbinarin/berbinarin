@@ -649,23 +649,38 @@ class DashboardController extends Controller
         return view('moduls.dashboard.psikotes-paid.data-detail');
     }
 
-    public function psikotesPaidIndividu()
+    public function psikotesPaidPrice()
     {
-        return view('moduls.dashboard.psikotes-paid.individu');
+        return view('moduls.dashboard.psikotes-paid.price-list');
     }
 
-    public function psikotesPaidPendidikan()
+    public function psikotesPaidTestimoni()
     {
-        return view('moduls.dashboard.psikotes-paid.pendidikan');
+        return view('moduls.dashboard.psikotes-paid.testi');
     }
 
-    public function psikotesPaidPerusahaan()
+    public function psikotesPaidTestimoniShow()
     {
-        return view('moduls.dashboard.psikotes-paid.perusahaan');
+        return view('moduls.dashboard.psikotes-paid.testi-detail');
     }
 
-    public function psikotesPaidKomunitas()
+    public function psikotesPaidDashboardTes()
     {
-        return view('moduls.dashboard.psikotes-paid.komunitas');
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dashboardtes');
+    }
+
+    public function psikotesPaidBAUM()
+    {
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.baum');
+    }
+
+    public function psikotesPaidHTP()
+    {
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.htp');
+    }
+
+    public function psikotesPaidDAP()
+    {
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dap');
     }
 }
