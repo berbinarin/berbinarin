@@ -1,0 +1,59 @@
+.custom-list {
+    list-style: none; /* Remove default list style */
+    counter-reset: custom-counter; /* Initialize counter */
+    word-spacing: 1px;
+    list-style-position: outside;
+}
+
+.custom-list li {
+    counter-increment: custom-counter; /* Increment counter */
+    position: relative;
+    padding-left: 20px; /* Adjust as needed */
+}
+
+.custom-list li::before {
+    content: "B."; /* Custom letter */
+    position: absolute;
+    left: 0;
+    font-weight: normal;
+}
+
+.custom-list-c {
+    list-style: none; /* Remove default list style */
+    counter-reset: custom-counter; /* Initialize counter */
+    word-spacing: 1px;
+    list-style-position: outside;
+}
+
+.custom-list-c li {
+    counter-increment: custom-counter; /* Increment counter */
+    position: relative;
+    padding-left: 20px; /* Adjust as needed */
+}
+
+.custom-list-c li::before {
+    content: "C."; /* Custom letter */
+    position: absolute;
+    left: 0;
+    font-weight: normal;
+}
+
+.custom-list-d {
+    list-style: none; /* Remove default list style */
+    counter-reset: custom-counter; /* Initialize counter */
+    word-spacing: 1px;
+    list-style-position: outside;
+}
+
+.custom-list-d li {
+    counter-increment: custom-counter; /* Increment counter */
+    position: relative;
+    padding-left: 20px; /* Adjust as needed */
+}
+
+.custom-list-d li::before {
+    content: "D."; /* Custom letter */
+    position: absolute;
+    left: 0;
+    font-weight: normal;
+}

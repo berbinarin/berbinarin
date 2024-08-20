@@ -288,6 +288,23 @@ Route::resource('/user_internships', UserInternshipController::class);
 // DEV PSIKOTES PAID
 Route::get('/psikotest/register/{page}', [UserPsikotestPaidController::class, 'showPage'])->name('psikotest-paid.showPage');
 
+
+Route::get('/baum-1', [BAUMController::class, 'instruksi1'])->name('psikotest-paid.tool.baum.instruksi1');
+Route::get('/baum-2', [BAUMController::class, 'instruksi2'])->name('psikotest-paid.tool.baum.instruksi2');
+Route::get('/baum-3', [BAUMController::class, 'instruksi3'])->name('psikotest-paid.tool.baum.instruksi3');
+Route::get('/baum-4', [BAUMController::class, 'instruksi4'])->name('psikotest-paid.tool.baum.instruksi4');
+
+Route::get('/dap-1', [DAPController::class, 'instruksi1'])->name('psikotest-paid.tool.dap.instruksi1');
+Route::get('/dap-2', [DAPController::class, 'instruksi2'])->name('psikotest-paid.tool.dap.instruksi2');
+Route::get('/dap-3', [DAPController::class, 'instruksi3'])->name('psikotest-paid.tool.dap.instruksi3');
+Route::get('/dap-4', [DAPController::class, 'instruksi4'])->name('psikotest-paid.tool.dap.instruksi4');
+
+Route::get('/htp-1', [HTPController::class, 'instruksi1'])->name('psikotest-paid.tool.htp.instruksi1');
+Route::get('/htp-2', [HTPController::class, 'instruksi2'])->name('psikotest-paid.tool.htp.instruksi2');
+Route::get('/htp-3', [HTPController::class, 'instruksi3'])->name('psikotest-paid.tool.htp.instruksi3');
+Route::get('/htp-4', [HTPController::class, 'instruksi4'])->name('psikotest-paid.tool.htp.instruksi4');
+
+
 Route::prefix('/psikotest-paid')->group(function () {
 
     Route::post('/reg-page-3', [UserPsikotestPaidController::class, 'postRegPage3'])->name('psikotest-paid.postRegPage3');

@@ -16,6 +16,10 @@
     <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
     @vite('resources/css/app.css')
 
+    @if (in_array($active, ['Tes 2', 'Tes 3', 'Tes 4']))
+    <link rel="stylesheet" href="{{ asset('assets/css/baum.css') }}">
+    @endif
+
 </head>
 
 
@@ -43,6 +47,12 @@
             @yield('content')
         </main>
     </div>
+    @endif
+
+    @if (in_array($active, ['Tes 2', 'Tes 3', 'Tes 4']))
+    <main class="w-full bg-white font-plusJakartaSans gap-8 flex flex-col relative">
+        @yield('content')
+    </main>
     @endif
 
     @include('sweetalert::alert')

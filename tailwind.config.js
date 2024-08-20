@@ -37,6 +37,13 @@ export default {
                 54: ".54",
             },
         },
+        listStyleType: {
+            none: "none",
+            disc: "disc",
+            decimal: "decimal",
+            square: "square",
+            "upper-alpha": "upper-alpha",
+        },
     },
     plugins: [require("@tailwindcss/forms")],
 };
