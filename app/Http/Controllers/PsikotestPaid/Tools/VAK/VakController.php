@@ -44,7 +44,7 @@ class VakController extends Controller
     public function showQuestions($id, $question_order)
     {
         if (!session()->has('VAK') || session('VAK') != $id) {
-            return redirect()->route('psikotest-paid.tool.PAPI Kostick.showLanding');
+            return redirect()->route('psikotest-paid.tool.VAK.showLanding');
         }
 
         $question = QuestionVak::where('id', $question_order)->firstOrFail();
@@ -64,7 +64,7 @@ class VakController extends Controller
         $question = QuestionVak::where('id', $question_order)->firstOrFail();
 
         $existingAnswer = AnswerVak::where('test_vak_id', $id)
-            ->where('question_papi_kostick_id', $question->id)
+            ->where('question_vak_id', $question->id)
             ->first();
 
         if ($existingAnswer) {
@@ -73,8 +73,8 @@ class VakController extends Controller
             ]);
         } else {
             AnswerVak::create([
-                'test_papi_kostick_id' => $id,
-                'question_papi_kostick_id' => $question->id,
+                'test_vak_id' => $id,
+                'question_vak_id' => $question->id,
                 'answer' => $request->input('answer'),
             ]);
         }
@@ -82,7 +82,7 @@ class VakController extends Controller
         $next_question_order = $question_order + 1;
 
         if ($next_question_order > 30) {
-            $this->w($id);
+            $this->calculateAndStoreResult($id);
 
             $psikotestPaidTest = PsikotestPaidTest::where('id', $id)->first();
             if ($psikotestPaidTest) {

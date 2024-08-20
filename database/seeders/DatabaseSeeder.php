@@ -10,6 +10,8 @@ use Database\Seeders\PsikotestPaid\PsikotestToolSeeder;
 use Database\Seeders\PsikotestPaid\PsikotestTypeSeeder;
 use Database\Seeders\PsikotestPaid\CategoryPsikotestTypeSeeder;
 use Database\Seeders\PsikotestPaid\PapiKostick\QuestionPapiKostickSeeder;
+use Database\Seeders\PsikotestPaid\VAK\CategoryQuestionVakSeeder;
+use Database\Seeders\PsikotestPaid\VAK\QuestionVakSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -32,6 +34,8 @@ class DatabaseSeeder extends Seeder
             PsikotestTypeSeeder::class,
             PsikotestToolSeeder::class,
             QuestionPapiKostickSeeder::class,
+            CategoryQuestionVakSeeder::class,
+            QuestionVakSeeder::class
         ]);
     }
 }
