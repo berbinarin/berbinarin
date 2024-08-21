@@ -108,7 +108,7 @@ class VakController extends Controller
 
             $score = $answer->answer;
 
-            switch ($question->category_question_id) {
+            switch ($question->category_question_vak_id) {
                 case 1:
                     $visualScore += $score;
                     break;
