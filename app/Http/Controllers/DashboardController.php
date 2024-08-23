@@ -665,4 +665,14 @@ class DashboardController extends Controller
     {
         return view('moduls.dashboard.psikotes-paid.dap');
     }
+
+    public function psikotesPaidDashboardEsai()
+    {
+        return view('moduls.dashboard.psikotes-paid.dashboardesai');
+    }
+
+    public function psikotesPaidPengumpulan()
+    {
+        return view('moduls.dashboard.psikotes-paid.pengumpulan');
+    }
 }
