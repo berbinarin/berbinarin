@@ -5,6 +5,8 @@ namespace App\Http\Controllers\PsikotestPaid;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\PsikotestPaid\CategoryPsikotestType;
+use App\Models\PsikotestPaid\PsikotestPaidTestimonial;
 use App\Models\PsikotestPaid\PsikotestTool;
 use App\Models\PsikotestPaid\PsikotestType;
 use App\Models\PsikotestPaid\UserPsikotestPaid;
@@ -56,46 +58,86 @@ class DashboardUserController extends Controller
         return redirect()->back()->with('success', 'Token deleted successfully!');
     }
 
-    public function priceListIndividu()
-    {
-        $psikotestIndividu = PsikotestType::where('category_psikotest_type_id', 2)->get();
-
-        return view('moduls.dashboard.psikotes-paid.individu', compact('psikotestIndividu'));
-    }
-
-    public function priceListCommunity()
-    {
-        $psikotestCommunity = PsikotestType::where('category_psikotest_type_id', 1)->get();
-
-        return view('moduls.dashboard.psikotes-paid.komunitas', compact('psikotestCommunity'));
-    }
-
-    public function priceListCorporate()
-    {
-        $psikotestCorporate = PsikotestType::where('category_psikotest_type_id', 4)->get();
-
-        return view('moduls.dashboard.psikotes-paid.perusahaan', compact('psikotestCorporate'));
-    }
-
-    public function priceListEducationalInstitution()
-    {
-        $psikotestSchool = PsikotestType::where('category_psikotest_type_id', 3)->get();
-
-        return view('moduls.dashboard.psikotes-paid.pendidikan', compact('psikotestSchool'));
-    }
-
     public function priceList()
     {
-        return view('moduls.dashboard.psikotes-paid.price-list');
+        $priceList = PsikotestType::with('categoryPsikotestType')->get();
+
+        return view('moduls.dashboard.psikotes-paid.price-list', compact('priceList'));
     }
+
+    public function storePriceList(Request $request)
+    {
+        $request->validate([
+            'category_psikotest_type_id' => 'required',
+            'name' => 'required',
+            'price' => 'required|numeric',
+        ]);
+
+        PsikotestType::create([
+            'name' => $request->name,
+            'price' => str_replace('.', '', $request->price),
+            'category_psikotest_type_id' => $request->category_psikotest_type_id,
+        ]);
+
+        return redirect()->back()->with('success', 'Pricelist berhasil ditambahkan.');
+    }
+
+    public function editPriceList(Request $request, $id)
+    {
+        $request->validate([
+            'category_psikotest_type_id' => 'required',
+            'name' => 'required',
+            'price' => 'required|numeric',
+        ]);
+
+        $psikotestType = PsikotestType::findOrFail($id);
+        $psikotestType->update([
+            'category_psikotest_type_id' => $request->category_psikotest_type_id,
+            'name' => $request->name,
+            'price' => str_replace('.', '', $request->price),
+        ]);
+
+        return redirect()->back()->with('success', 'Pricelist berhasil diupdate.');
+    }
+
+    public function deletePriceList($id)
+    {
+        $priceList = PsikotestType::findOrFail($id);
+        $priceList->delete();
+
+        return redirect()->back()->with('success', 'Pricelist berhasil dihapus.');
+    }
+
+
+    // public function updatePriceList(Request $request, $id)
+    // {
+    //     $request->validate([
+    //         'psikotest_category_id' => 'required',
+    //         'psikotest_type_id' => 'required',
+    //         'price' => 'required|numeric',
+    //     ]);
+
+    //     $psikotestType = PsikotestType::findOrFail($id);
+    //     $psikotestType->update([
+    //         'category_psikotest_type_id' => $request->psikotest_category_id,
+    //         'name' => $request->psikotest_type_id,
+    //         'price' => str_replace('.', '', $request->price), // Menghilangkan titik pada harga sebelum disimpan
+    //     ]);
+
+    //     return redirect()->route('psikotes.index')->with('success', 'Data berhasil diupdate.');
+    // }
 
     public function testimoni()
     {
-        return view('moduls.dashboard.psikotes-paid.testi');
+        $testimoni = PsikotestPaidTestimonial::with('userPsikotestPaid')->get();
+
+        return view('moduls.dashboard.psikotes-paid.testi', compact('testimoni'));
     }
 
-    public function testimoniShow()
+    public function testimoniShow($id)
     {
-        return view('moduls.dashboard.psikotes-paid.testi-detail');
+        $testimoni = PsikotestPaidTestimonial::with('userPsikotestPaid')->findOrFail($id);
+
+        return view('moduls.dashboard.psikotes-paid.testi-detail', compact('testimoni'));
     }
 }
