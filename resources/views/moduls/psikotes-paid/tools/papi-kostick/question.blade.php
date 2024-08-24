@@ -31,42 +31,43 @@
                     {{ $question_order }}
                 </div>
 
-                <!-- Blue and Orange Cards in Horizontal Layout -->
-                <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-                    <!-- Blue Card -->
-                    <label class="flex-1 rounded-lg p-4 my-8 cursor-pointer relative card"
-                        style="background-color: #3FA2F6; width: 100px; height: 150px; margin-top: 0px; transition: transform 0.2s ease;"
-                        for="answer_a_{{ $question->id }}">
-                        <input type="radio" name="answer" id="answer_a_{{ $question->id }}" value="a" class="hidden"
-                            required>
-                        <div class="text-white" style="margin-left: 10%;">
-                            {{ $question->a }}
-                        </div>
-                        <!-- Circle Button for Blue Card -->
-                        <div class="absolute bottom-2 right-2 w-5 h-5 rounded-full bg-white flex items-center justify-center"
-                            style="border: 2px solid #3FA2F6;">
-                            <span class="hidden text-lg checkmark"
-                                style="color: #3FA2F6; font-size: 12px;"><strong>&#10003;</strong></span>
-                        </div>
-                    </label>
+<!-- Blue and Orange Cards in Horizontal Layout -->
+<div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+    <!-- Blue Card -->
+    <label class="flex-1 rounded-lg p-4 my-8 cursor-pointer relative card"
+        style="background-color: #3FA2F6; width: 100px; height: 150px; margin-top: 0px; transition: transform 0.2s ease;"
+        onmouseover="this.style.boxShadow='0 6px 12px rgba(0, 125, 232, 0.6), 0 -6px 12px rgba(0, 125, 232, 0.6), -6px 0 12px rgba(0, 125, 232, 0.6), 6px 0 12px rgba(0, 125, 232, 0.6)';"
+        onmouseout="this.style.boxShadow='none';"
+        for="answer_a_{{ $question->id }}">
+        <input type="radio" name="answer" id="answer_a_{{ $question->id }}" value="a" class="hidden" required>
+        <div class="text-white" style="margin-left: 5px; margin-top: 20px; margin-right: 5px; height: 70px;">
+            {{ $question->a }}
+        </div>
+        <!-- Circle Button for Blue Card -->
+        <div class="absolute bottom-2 right-2 w-5 h-5 rounded-full bg-white flex items-center justify-center"
+            style="border: 2px solid #3FA2F6; margin-top: 3%; margin-left: 85%;">
+            <span class="hidden text-lg checkmark" style="color: #3FA2F6; font-size: 12px;"><strong>&#10003;</strong></span>
+        </div>
+    </label>
 
-                    <!-- Orange Card -->
-                    <label class="flex-1 rounded-lg p-4 my-8 cursor-pointer relative card"
-                        style="background-color: #FBB03B; width: 100px; height: 150px; transition: transform 0.2s ease;"
-                        for="answer_b_{{ $question->id }}">
-                        <input type="radio" name="answer" id="answer_b_{{ $question->id }}" value="b"
-                            class="hidden">
-                        <div class="text-white" style="margin-left: 10%;">
-                            {{ $question->b }}
-                        </div>
-                        <!-- Circle Button for Orange Card -->
-                        <div class="absolute bottom-2 right-2 w-5 h-5 rounded-full bg-white flex items-center justify-center"
-                            style="border: 2px solid #FBB03B;">
-                            <span class="hidden text-lg checkmark"
-                                style="color: #FBB03B; font-size: 12px;"><strong>&#10003;</strong></span>
-                        </div>
-                    </label>
-                </div>
+    <!-- Orange Card -->
+    <label class="flex-1 rounded-lg p-4 my-8 cursor-pointer relative card"
+        style="background-color: #FBB03B; width: 100px; height: 150px; transition: transform 0.2s ease;"
+        onmouseover="this.style.boxShadow='0 8px 16px rgba(251, 176, 59, 0.6), 0 -8px 16px rgba(251, 176, 59, 0.6), -8px 0 16px rgba(251, 176, 59, 0.6), 8px 0 16px rgba(251, 176, 59, 0.6)';"
+        onmouseout="this.style.boxShadow='none';"
+        for="answer_b_{{ $question->id }}">
+        <input type="radio" name="answer" id="answer_b_{{ $question->id }}" value="b" class="hidden">
+        <div class="text-white" style="margin-left: 5px; margin-top: 20px; margin-right: 5px; height: 70px;">
+            {{ $question->b }}
+        </div>
+        <!-- Circle Button for Orange Card -->
+        <div class="absolute bottom-2 right-2 w-5 h-5 rounded-full bg-white flex items-center justify-center"
+            style="border: 2px solid #FBB03B; margin-top: 3%; margin-left: 85%;">
+            <span class="hidden text-lg checkmark" style="color: #FBB03B; font-size: 12px;"><strong>&#10003;</strong></span>
+        </div>
+    </label>
+</div>
+
 
                 <script>
                     document.querySelectorAll('input[type="radio"]').forEach(radio => {
