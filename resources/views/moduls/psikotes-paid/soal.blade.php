@@ -24,28 +24,48 @@
       1 <!-- Example: Replace with dynamic question number -->
     </div>
 
-    <!-- Blue and Orange Cards in Horizontal Layout -->
-    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-      <!-- Blue Card -->
-      <div class="flex-1 bg-blue-200 rounded-lg p-4 my-8" style="background-color: #3FA2F6; width: 100px; height: 150px; margin-top: 16px">
-        <!-- <p class="text-lg font-semibold text-blue-800">Pernyataan 1:</p> -->
-        <p class="mt-2 text-gray-700">Saya bukan seorang pemurung.</p>
-        <div class="mt-16 flex items-center justify-end">
-          <input type="radio" name="statement" value="blue-card" class="form-radio text-blue-600">
-        </div>
+    
+  <!-- Blue and Orange Cards in Horizontal Layout -->
+  <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+    <!-- Blue Card -->
+    <div class="flex-1 rounded-lg p-4 my-8" style="background-color: #3FA2F6; width: 100px; height: 150px; margin-top: 0px">
+      <!-- <p class="text-lg font-semibold text-blue-800">Pernyataan 1:</p> -->
+      <p class="mt-10 text-white" style="margin-left: 10%;">Saya bukan seorang pemurung.</p>
+      <div class="mt-10 flex items-center justify-end">
+        <!-- Circle Button for Blue Card -->
+        <button class="circle-button relative w-5 h-5 rounded-full bg-white flex items-center justify-center focus:outline-none" style="border: 2px solid #3FA2F6;">
+        <span class="hidden text-lg" style="color: #3FA2F6; font-size: 12px;">&#10003;</span> <!-- Checkmark -->
+        </button>
       </div>
-
-      <!-- Orange Card -->
-      <div class="flex-1 bg-blue-200 rounded-lg p-4 ml-4 my-8" style="background-color: #FBB03B; width: 100px; height: 150px">
-        <!-- <p class="text-lg font-semibold text-orange-800">Pernyataan 2:</p> -->
-        <p class="mt-2 text-gray-700">Saya bukan seorang pemurung.</p>
-        <div class="mt-16 flex items-center justify-end">
-          <input type="radio" name="statement" value="orange-card" class="form-radio text-orange-600">
-        </div>
-      </div>
-
-
     </div>
+
+    <!-- Orange Card -->
+    <div class="flex-1 rounded-lg p-4 my-8" style="background-color: #FBB03B; width: 100px; height: 150px">
+      <!-- <p class="text-lg font-semibold text-orange-800">Pernyataan 2:</p> -->
+      <p class="mt-10 text-white" style="margin-left: 10%;">Saya bukan seorang pemurung.</p>
+      <div class="mt-10 flex items-center justify-end">
+        <!-- Circle Button for Orange Card -->
+        <button class="circle-button relative w-5 h-5 rounded-full bg-white flex items-center justify-center focus:outline-none" style="border: 2px solid #FBB03B;">
+          <span class="hidden text-lg" style="color: #FBB03B; font-size: 12px;">&#10003;</span> <!-- Checkmark -->
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.circle-button').forEach(button => {
+      button.addEventListener('click', function() {
+        // Deselect all buttons
+        document.querySelectorAll('.circle-button').forEach(btn => {
+          btn.querySelector('span').classList.add('hidden');
+        });
+        // Select the clicked button
+        this.querySelector('span').classList.remove('hidden');
+      });
+    });
+  </script>
+
+
 
     <!-- Percentage Line and Next Button -->
     <div class="flex bg-white rounded-md items-center justify-between mt-24" style="height: 40px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
@@ -64,7 +84,7 @@
       </a>
     </div>
 
-
+    </div>
   </div>
 
 </div>

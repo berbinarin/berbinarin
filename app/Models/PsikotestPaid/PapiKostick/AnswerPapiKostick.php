@@ -19,6 +19,11 @@ class AnswerPapiKostick extends Model
 
     public function testPapiKostick()
     {
-        return $this->belongsTo(TestPapiKostick::class);
+        return $this->belongsTo(TestPapiKostick::class, 'test_papi_kostick_id');
+    }
+
+    public function questionPapiKostick()
+    {
+        return $this->belongsTo(QuestionPapiKostick::class, 'question_papi_kostick_id');
     }
 }

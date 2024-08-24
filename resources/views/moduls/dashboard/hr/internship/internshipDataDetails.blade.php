@@ -27,16 +27,60 @@
           <p class="font-medium leading-none text-dark">Edit</p>
           </button>
         </form>
-        <form action="{{ route('user_internships.destroy', $Internship->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
+        <button  onclick="toggleModal('delete-modal-{{ $Internship->id}}')" type="button"
+          class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center px-6 py-3 text-white bg-red-500 hover:bg-red-500 focus:outline-none rounded">
+          <p class="font-medium leading-none text-dark">Hapus</p>
+        </button>
+        {{-- <form action="{{ route('user_internships.destroy', $Internship->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
           @csrf
           @method('DELETE')
           <button type="submit" class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center px-6 py-3 text-white bg-red-500 hover:bg-red-600 focus:outline-none rounded">
             <p class="font-medium leading-none">Hapus</p>
           </button>
-        </form>
+        </form> --}}
       </div>
     </div>
-
+    <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="delete-modal-{{ $Internship->id}}">
+      <div class="relative w-auto my-6 mx-auto max-w-3xl">
+          <!--content-->
+          <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" style="margin-top: 30%">
+              <!--header-->
+              <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                  <h3 class="text-3xl font-semibold">
+                      Delete Detail Data Internship
+                  </h3>
+                  <button
+                      class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                      onclick="toggleModal('delete-modal-{{ $Internship->id}}')">
+                      <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                          ×
+                      </span>
+                  </button>
+              </div>
+              <!--body-->
+              <div class="relative p-6 flex-auto">
+                  <form action="{{ route('user_internships.destroy', $Internship->id) }}"  method="POST">
+                      @csrf
+                      @method("DELETE")
+                      <input type="hidden" name="id">
+                      <p class="mb-6">Apakah anda yakin ingin menghapus data pendaftar bernama <b>{{ $Internship->nama_lengkap }}</b> dari <b>{{ $Internship->asal_pendidikan }}</b> ?</p>
+                      <!--footer-->
+                      <div class="flex items-center justify-end pt-3 border-t border-solid border-blueGray-200 rounded-b">
+                          <button
+                              class="text-gray-500 background-transparent font-bold  px-6 py-2 text-base outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                              type="button" onclick="toggleModal('delete-modal-{{ $Internship->id}}')">
+                              Close
+                          </button>
+                          <button type="submit" class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center px-6 py-3 text-white bg-red-500 hover:bg-red-600 focus:outline-none rounded">
+                            <p class="font-medium leading-none">Hapus</p>
+                          </button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="delete-modal-{{ $Internship->id}}-backdrop"></div>
 
     <!-- tabel kiri start -->
     <div class="flex flex-row gap-4">
@@ -255,7 +299,8 @@
                 <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Motivasi:</label>
                 </td>
-                <td class="py-1 pl-4 pr-8" style="word-wrap: break-word; white-space: normal;">
+                <td class="py-1 pl-4 pr-8 multi-line-ellipsis" style="word-wrap: break-word; white-space: normal;">
+
                   {{$Internship->motivasi}}
                 </td>
               </tr>
@@ -264,7 +309,7 @@
                 <td class="py-1 border-r px-4">
                   <label class="font-semibold text-gray-600">Keterangan:</label>
                 </td>
-                <td class="py-1 pl-4 pr-8" style="word-wrap: break-word; white-space: normal;"> 
+                <td class="py-1 pl-4 pr-8 multi-line-ellipsis" style="word-wrap: break-word; white-space: normal;">
                   {{$Internship->keterangan}}
                 </td>
               </tr>

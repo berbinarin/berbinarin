@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('psikotest_paid_tests', function (Blueprint $table) {
             $table->id();
+            $table->boolean('status_progress')->default(false);
             $table->foreignId('user_psikotest_paid_id')->constrained('user_psikotest_paids')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('psikotest_tool_id')->constrained('psikotest_tools')->onUpdate('cascade')->onDelete('cascade')->nullable();
             $table->enum('status', ['progress', 'done']);

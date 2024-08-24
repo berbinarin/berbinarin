@@ -25,16 +25,16 @@ class Hiring_PositionsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name" => "required|string" ,
-            "type"=> "required",
-            "positions"=> "required",
-            "location"=> "required",
-            "link"=> "required|string",
+            "name" => "required|string",
+            "type" => "required",
+            "positions" => "required",
+            "location" => "required",
+            // "link"=> "required|string",
             "divisi" => "required|string"
         ];
     }
 
-    public function failedValidation(Validator $validator) 
+    public function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(
             response()->json([

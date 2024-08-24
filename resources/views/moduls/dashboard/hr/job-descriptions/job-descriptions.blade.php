@@ -47,7 +47,7 @@
                                             class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-500 focus:outline-none rounded">
                                             <i class='bx bxs-edit-alt text-dark'></i>
                                         </a>
-                                        <form action="{{ route('JobDecription.destroy', $item->id) }}" method="post">
+                                        {{-- <form action="{{ route('JobDecription.destroy', $item->id) }}" method="post">
                                             @csrf
                                             @method("DELETE")
                                             <input type="hidden" name="id">
@@ -55,9 +55,53 @@
                                                 class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-red-500 hover:bg-red-500 focus:outline-none rounded">
                                                 <i class='bx bxs-trash-alt text-white'></i>
                                             </button>
-                                        </form>
+                                        </form> --}}
+                                        <button  onclick="toggleModal('delete-modal-{{ $item->id}}')" type="button"
+                                            class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-red-500 hover:bg-red-500 focus:outline-none rounded">
+                                            <i class='bx bxs-trash-alt text-white'></i>
+                                        </button>
                                     </td>
                                 </tr>
+                                {{-- modal delete job description --}}
+                                <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="delete-modal-{{ $item->id}}">
+                                    <div class="relative w-auto my-6 mx-auto max-w-3xl">
+                                        <!--content-->
+                                        <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                                            <!--header-->
+                                            <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                                                <h3 class="text-3xl font-semibold">
+                                                    Delete Job Description Data
+                                                </h3>
+                                                <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" onclick="toggleModal('delete-modal-{{ $item->id}}')">
+                                                    <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                                                        ×
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            <!--body-->
+                                            <div class="relative p-6 flex-auto">
+                                                <form action="{{ route('JobDecription.destroy', $item->id) }}" method="post">
+                                                        @csrf
+                                                        @method("DELETE")
+                                                        <input type="hidden" name="id">
+                                                        <p class="mb-6">Apakah anda yakin ingin menghapus deskripsi <b>{{ $item->HiringPositions->name }}</b> dengan deskripsi <i>{{ $item->job_description }}</i> ?</p>
+                                                    <!--footer-->
+                                                    <div class="flex items-center justify-end pt-3 border-t border-solid border-blueGray-200 rounded-b">
+                                                            <button class="text-gray-500 background-transparent font-bold  px-6 py-2 text-base outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" 
+                                                            type="button" onclick="toggleModal('delete-modal-{{ $item->id}}')">
+                                                            Close
+                                                        </button>
+                                                        <button type="submit" class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-red-500 hover:bg-red-500 focus:outline-none rounded">
+                                                            <p class="font-medium leading-none text-white">Hapus</p>
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="delete-modal-{{ $item->id}}-backdrop"></div>
                                 @empty
                                     <!-- Handle empty case if needed -->
                                 @endforelse
@@ -65,12 +109,12 @@
                             
                             
                             <tfoot>
-                                <tr>
+                                {{-- <tr>
                                     <th>No</th>
                                     <th>Nama Posisi</th>
                                     <th>Job Description</th>
                                     <th>Actions</th>
-                                </tr>
+                                </tr> --}}
                             </tfoot>
                         </table>
                     </div>

@@ -2,23 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Berbinarp_enrollment;
-use App\Models\Berbinarp_user;
-use App\Models\Feedback;
 use App\Models\Test;
+use App\Models\Feedback;
 use App\Models\Question;
 use App\Models\Dimension;
 use App\Models\jadwalPeer;
 use Illuminate\Http\Request;
 use App\Models\UserPsikotest;
+use App\Models\Berbinarp_user;
 use App\Models\KonsellingPeer;
+use App\Models\UserInternship;
 use App\Models\Hiring_Positions;
 use App\Models\KonsellingPsikolog;
+use Illuminate\Support\Facades\DB;
+use App\Models\Berbinarp_enrollment;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Hiring_Positions_Requirements;
+use App\Models\PsikotestPaid\UserPsikotestPaid;
 use App\Models\Hiring_Positions_Job_Descriptions;
-use Illuminate\Support\Facades\Validator;
-use App\Models\UserInternship;
 
 
 class DashboardController extends Controller
@@ -27,7 +28,7 @@ class DashboardController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except(['login']);
-        $this->middleware('role:Admin,HR,Konselling,PsikotestFree')->except(['login']);
+        $this->middleware('role:Admin,HR,Konselling,PsikotestFree,PsikotestPaid')->except(['login']);
     }
     public function index()
     {
@@ -44,6 +45,31 @@ class DashboardController extends Controller
 
         $totalBerbinarPlusUser = Berbinarp_user::count('id');
 
+        $totalUserPsikotestPaid = UserPsikotestPaid::count('id');
+
+        $categoryIndividu = DB::table('psikotest_types')
+            ->where('category_psikotest_type_id', 2)
+            ->pluck('id');
+        $individu = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryIndividu)->count();
+
+        $categoryeducationalInstitution = DB::table('psikotest_types')
+            ->where('category_psikotest_type_id', 3)
+            ->pluck('id');
+
+        $educationalInstitution = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeducationalInstitution)->count();
+
+        $categoryeCorporate = DB::table('psikotest_types')
+            ->where('category_psikotest_type_id', 4)
+            ->pluck('id');
+
+        $corporate = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeCorporate)->count();
+
+        $categoryeCommunity = DB::table('psikotest_types')
+            ->where('category_psikotest_type_id', 1)
+            ->pluck('id');
+
+        $community = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeCommunity)->count();
+
         return view('moduls.dashboard.index', [
             "PeerConsellorSchedule" => $PeerConsellorSchedule,
             "PeerConsellorData" => $PeerConsellorData,
@@ -53,7 +79,12 @@ class DashboardController extends Controller
             'HiringPosisitonsRequirement' => $HiringPosisitonsRequirement,
             'totalUserPsikotest' => $totalUserPsikotest,
             'totalQuestion' => $totalQuestion,
-            "totalBerbinarPlusUser" => $totalBerbinarPlusUser
+            "totalBerbinarPlusUser" => $totalBerbinarPlusUser,
+            'totalUserPsikotestPaid' => $totalUserPsikotestPaid,
+            'individu' => $individu,
+            'educationalInstitution' => $educationalInstitution,
+            'corporate' => $corporate,
+            'community' => $community,
         ]);
     }
 
@@ -76,8 +107,8 @@ class DashboardController extends Controller
     public function internship()
     {
         $internships = UserInternship::with('hiringPosition')
-                                     ->orderBy('created_at', 'desc')
-                                     ->get();
+            ->orderBy('created_at', 'desc')
+            ->get();
         return view('moduls.dashboard.hr.internship.internship', ['Internship' => $internships]);
     }
 
@@ -86,14 +117,14 @@ class DashboardController extends Controller
         // Menggunakan findOrFail untuk menangani kasus jika tidak ada data dengan ID yang sesuai
         $Internship = UserInternship::findOrFail($id);
         $postion = Hiring_Positions::find($Internship->position_id);
-        return view('moduls.dashboard.hr.internship.internshipDataDetails', ['Internship' => $Internship, 'position'=> $postion]);
+        return view('moduls.dashboard.hr.internship.internshipDataDetails', ['Internship' => $Internship, 'position' => $postion]);
     }
 
     public function editInternship($id)
     {
         $Internship = UserInternship::findOrFail($id);
         $postion = Hiring_Positions::find($Internship->position_id);
-        return view('moduls.dashboard.hr.internship.editInternship', ['Internship' => $Internship, 'position'=> $postion]);
+        return view('moduls.dashboard.hr.internship.editInternship', ['Internship' => $Internship, 'position' => $postion]);
     }
 
 
@@ -457,23 +488,30 @@ class DashboardController extends Controller
         return redirect()->route('dashboard.PeerConsellorData');
     }
 
-    // public function adminHomePsikotestFree()
-    // {
-
-    //     $totalUserPsikotest = UserPsikotest::count('id');
-    //     $totalQuestion = Question::count('id');
-
-    //     return view('moduls.psikotes.dashboard-dev.admin-home', [
-    //         'totalUserPsikotest' => $totalUserPsikotest,
-    //         'totalQuestion' => $totalQuestion,
-    //     ]);
-    // }
-
     public function adminDataPsikotesFree()
     {
         $testData = Test::with('users', 'results')->orderBy('created_at', 'desc')->get();
 
         return view('moduls.dashboard.psikotes.data', compact('testData'));
+    }
+
+    //DASHBOARD ADMIN E-LEARNING PSIKOTEST
+    public function psikotestData()
+    {
+
+        return view('moduls.psikotes.dashboard.psikotestData');
+    }
+
+    public function papikostick()
+    {
+
+        return view('moduls.psikotes.dashboard.papikostick');
+    }
+
+    public function psikotestSoal()
+    {
+
+        return view('moduls.psikotes.dashboard.psikotestSoal');
     }
 
 
@@ -587,12 +625,62 @@ class DashboardController extends Controller
     }
 
     // BERBINARPLUS
-    
     public function berbinarplusUserData()
     {
         $berbinarpUser = Berbinarp_user::all();
         $berbinarpEnrollments = Berbinarp_enrollment::all();
 
         return view('moduls.dashboard.berbinar-plus.berbinarplususer', ["berbinarpUser" => $berbinarpUser, 'berbinarpEnrollments' => $berbinarpEnrollments]);
+    }
+
+    //PSIKOTEST PAID
+    public function psikotesPaidData()
+    {
+        return view('moduls.dashboard.psikotes-paid.data');
+    }
+
+    public function psikotesPaidDataTest()
+    {
+        return view('moduls.dashboard.psikotes-paid.data-test');
+    }
+
+    public function psikotesPaidDataShow()
+    {
+        return view('moduls.dashboard.psikotes-paid.data-detail');
+    }
+
+    public function psikotesPaidPrice()
+    {
+        return view('moduls.dashboard.psikotes-paid.price-list');
+    }
+
+    public function psikotesPaidTestimoni()
+    {
+        return view('moduls.dashboard.psikotes-paid.testi');
+    }
+
+    public function psikotesPaidTestimoniShow()
+    {
+        return view('moduls.dashboard.psikotes-paid.testi-detail');
+    }
+
+    public function psikotesPaidDashboardTes()
+    {
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dashboardtes');
+    }
+
+    public function psikotesPaidBAUM()
+    {
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.baum');
+    }
+
+    public function psikotesPaidHTP()
+    {
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.htp');
+    }
+
+    public function psikotesPaidDAP()
+    {
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dap');
     }
 }

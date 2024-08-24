@@ -42,7 +42,7 @@
     @endif--}}
 
     @if (!in_array($active, ['Login', 'Registrasi', 'Services', 'Psychotest','Test', 'Biodata' ,'HasilTes']))
-    @include('moduls.psikotes.layouts.navbar')
+    @include('moduls.psikotes-paid.layouts.navbar')
     @endif
 
     @if ($active === 'Home')
@@ -99,14 +99,14 @@
     @endif
 
     @if ($active === 'Registrasi')
-    <div class="flex bg-[#F5F7F9]">
+    <div class="flex h-screen bg-[#F5F7F9]">
         <main class="flex items-center justify-center bg-[#F5F7F9]">
             @yield('content')
         </main>
     </div>
     @endif
 
-    @if ($active === 'Services')
+    @if ($active === 'Test')
     <div class="h-screen w-full flex">
         <main class="bg-white w-full flex items-center justify-center">
             @yield('content')
