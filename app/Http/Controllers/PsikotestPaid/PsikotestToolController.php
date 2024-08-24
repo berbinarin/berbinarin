@@ -21,7 +21,7 @@ class PsikotestToolController extends Controller
 
   public function viewTests($userId)
   {
-      $user = UserPsikotest::findOrFail($userId);
+      $user = UserPsikotestPaid::findOrFail($userId);
       $tests = PsikotestPaidTest::where('user_psikotest_paid_id', $userId)->get();
       $tests->load('psikotestTool');
       return view('moduls.psikotes-paid.admin.tests', compact('user', 'tests'));

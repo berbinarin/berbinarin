@@ -54,7 +54,7 @@ class BAUMController extends Controller
         $validatedData = $request->validate([
             'test_id' => 'required|exists:test_baum,id',
             'question_id' => 'required|exists:question_baum,id',
-            'answer_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'answer_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,JPG,PNG,JPEG|max:2048'
         ]);
 
         $testId = $validatedData['test_id'];

@@ -14,7 +14,7 @@
             <button onclick="window.history.back();" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
                 Kembali
             </button>
-            <form action="{{ route('psikotest-paid.tool.DAP.startTest') }}" method="POST" class="inline">
+            <form action="{{ route('psikotest-paid.tool.OCEAN.startTest') }}" method="POST" class="inline">
                 @csrf
                 <input type="hidden" name="user_id" value="{{ $user->id }}">
                 <input type="hidden" name="tool_id" value="{{ $tool->id }}">
