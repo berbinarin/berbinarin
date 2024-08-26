@@ -109,12 +109,12 @@
                             
                             
                             <tfoot>
-                                <tr>
+                                {{-- <tr>
                                     <th>No</th>
                                     <th>Nama Posisi</th>
                                     <th>Job Description</th>
                                     <th>Actions</th>
-                                </tr>
+                                </tr> --}}
                             </tfoot>
                         </table>
                     </div>

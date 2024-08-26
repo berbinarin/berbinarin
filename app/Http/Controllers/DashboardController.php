@@ -2,28 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Berbinarp_enrollment;
-use App\Models\Berbinarp_user;
-use App\Models\Feedback;
 use App\Models\Test;
+use App\Models\Feedback;
 use App\Models\Question;
 use App\Models\Dimension;
 use App\Models\jadwalPeer;
 use Illuminate\Http\Request;
 use App\Models\UserPsikotest;
+use App\Models\Berbinarp_user;
 use App\Models\KonsellingPeer;
+use App\Models\UserInternship;
 use App\Models\Hiring_Positions;
 use App\Models\KonsellingPsikolog;
+use Illuminate\Support\Facades\DB;
+use App\Models\Berbinarp_enrollment;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Hiring_Positions_Requirements;
-use App\Models\Hiring_Positions_Job_Descriptions;
-use App\Models\PsikotestPaid\PsikotestPaidTest;
-use App\Models\PsikotestPaid\CategoryPsikotestType;
-use App\Models\PsikotestPaid\PsikotestTool;
-use App\Models\PsikotestPaid\PsikotestType;
 use App\Models\PsikotestPaid\UserPsikotestPaid;
-use Illuminate\Support\Facades\Validator;
-use App\Models\UserInternship;
+use App\Models\Hiring_Positions_Job_Descriptions;
 
 
 class DashboardController extends Controller
@@ -51,6 +47,29 @@ class DashboardController extends Controller
 
         $totalUserPsikotestPaid = UserPsikotestPaid::count('id');
 
+        $categoryIndividu = DB::table('psikotest_types')
+            ->where('category_psikotest_type_id', 2)
+            ->pluck('id');
+        $individu = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryIndividu)->count();
+
+        $categoryeducationalInstitution = DB::table('psikotest_types')
+            ->where('category_psikotest_type_id', 3)
+            ->pluck('id');
+
+        $educationalInstitution = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeducationalInstitution)->count();
+
+        $categoryeCorporate = DB::table('psikotest_types')
+            ->where('category_psikotest_type_id', 4)
+            ->pluck('id');
+
+        $corporate = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeCorporate)->count();
+
+        $categoryeCommunity = DB::table('psikotest_types')
+            ->where('category_psikotest_type_id', 1)
+            ->pluck('id');
+
+        $community = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeCommunity)->count();
+
         return view('moduls.dashboard.index', [
             "PeerConsellorSchedule" => $PeerConsellorSchedule,
             "PeerConsellorData" => $PeerConsellorData,
@@ -61,7 +80,11 @@ class DashboardController extends Controller
             'totalUserPsikotest' => $totalUserPsikotest,
             'totalQuestion' => $totalQuestion,
             "totalBerbinarPlusUser" => $totalBerbinarPlusUser,
-            'totalUserPsikotestPaid' => $totalUserPsikotestPaid
+            'totalUserPsikotestPaid' => $totalUserPsikotestPaid,
+            'individu' => $individu,
+            'educationalInstitution' => $educationalInstitution,
+            'corporate' => $corporate,
+            'community' => $community,
         ]);
     }
 
@@ -158,6 +181,7 @@ class DashboardController extends Controller
             'hari' => 'required|not_in:default_value',
             'pukul_mulai' => 'required',
             'pukul_selesai' => 'required',
+            'penanggung_jawab' => 'required'
         ]);
 
         $konselling = new jadwalPeer();
@@ -175,6 +199,7 @@ class DashboardController extends Controller
             'hari' => 'required|not_in:default_value',
             'pukul_mulai' => 'required',
             'pukul_selesai' => 'required',
+            'penanggung_jawab' => 'required'
         ]);
 
         $jadwalPeer = JadwalPeer::find($id);
@@ -186,6 +211,7 @@ class DashboardController extends Controller
         $jadwalPeer->hari = $validatedData['hari'];
         $jadwalPeer->pukul_mulai = $validatedData['pukul_mulai'];
         $jadwalPeer->pukul_selesai = $validatedData['pukul_selesai'];
+        $jadwalPeer->penanggung_jawab = $validatedData['penanggung_jawab'];
         $jadwalPeer->save();
 
         Alert::toast('A Peer Consellor Schedule Updated', 'success')->autoClose(5000);
@@ -626,23 +652,38 @@ class DashboardController extends Controller
         return view('moduls.dashboard.psikotes-paid.data-detail');
     }
 
-    public function psikotesPaidIndividu()
+    public function psikotesPaidPrice()
     {
-        return view('moduls.dashboard.psikotes-paid.individu');
+        return view('moduls.dashboard.psikotes-paid.price-list');
     }
 
-    public function psikotesPaidPendidikan()
+    public function psikotesPaidTestimoni()
     {
-        return view('moduls.dashboard.psikotes-paid.pendidikan');
+        return view('moduls.dashboard.psikotes-paid.testi');
     }
 
-    public function psikotesPaidPerusahaan()
+    public function psikotesPaidTestimoniShow()
     {
-        return view('moduls.dashboard.psikotes-paid.perusahaan');
+        return view('moduls.dashboard.psikotes-paid.testi-detail');
     }
 
-    public function psikotesPaidKomunitas()
+    public function psikotesPaidDashboardTes()
     {
-        return view('moduls.dashboard.psikotes-paid.komunitas');
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dashboardtes');
+    }
+
+    public function psikotesPaidBAUM()
+    {
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.baum');
+    }
+
+    public function psikotesPaidHTP()
+    {
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.htp');
+    }
+
+    public function psikotesPaidDAP()
+    {
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dap');
     }
 }

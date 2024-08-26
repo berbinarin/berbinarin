@@ -1,7 +1,7 @@
 @extends('moduls.dashboard.layouts.main', [
-'title' => 'Price List',
+'title' => 'Pendaftaran Psikotes',
 'active' => 'Dashboard',
-'modul' => 'Psikotest Paid Price List',
+'modul' => 'Psikotest Paid Testimoni',
 ])
 
 @section('content-dashboard')
@@ -10,20 +10,23 @@
         <div class="w-full">
             <div class="py-4 md:pt-12 md:pb-7">
                 <div class="">
-                    <p tabindex="0" class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
-                        Perusahaan</p>
-                    <p class="text-disabled py-2">Pada halaman dashboard ini, Anda dapat melihat berbagai layanan alat
-                        tes dan harga yang termasuk dalam kategori komunitas..</p>
+                    <p tabindex="0"
+                        class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
+                        Testimoni Psikotes</p>
+                    <p class="text-disabled py-2">Fitur ini menampilkan data testimoni user yang telah melakukan
+                        psikotes.</p>
                 </div>
             </div>
-            <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-[24px]">
+            <div class="w-[1300px] bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-[24px]">
                 <div class="mt-4 overflow-x-auto">
                     <table id="example" class="display gap-3" style="overflow-x: scroll;">
                         <thead>
                             <tr>
-                                <th style="text-align: center">Jenis</th>
-                                <th style="text-align: center">Alat Tes</th>
-                                <th style="text-align: center">Harga</th>
+                                <th style="text-align: center">No</th>
+                                <th style="text-align: center">Nama</th>
+                                <th style="text-align: center">Email</th>
+                                <th style="text-align: center">Tanggal Pengisian</th>
+                                <th style="text-align: center">Waktu Pengisian</th>
                                 <th style="text-align: center"></th>
                             </tr>
 
@@ -31,31 +34,24 @@
                         <tbody>
 
                             <tr id="" class="data-consume">
-                                <td>Tes Kesiapan Pernikahan</td>
-                                <td>BAUM, DAP, HTP, SSCT</td>
-                                <td>Rp 250.000</td>
-                                <td class="flex gap-2">
+                                <td class="text-center">1</td>
+                                <td class="text-center">Dodo</td>
+                                <td class="text-center">dodo@gmail.com</td>
+                                <td class="text-center">10-08-2024</td>
+                                <td class="text-center">12:00</td>
+                                <td class="flex gap-5 justify-center">
 
-                                    {{-- BUTTON DELETE  --}}
-                                    <button type="button" class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 focus:outline-none rounded delete-button" data-id="">
-                                        <i class='bx bx-plus text-white'></i>
-                                    </button>
-
-
-                                    {{-- BUTTON DETAIL  --}}
-                                    <a href="" class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-red-500 hover:bg-red-600 focus:outline-none rounded">
-                                        <i class='bx bx-minus text-white'></i>
+                                    {{-- BUTTON TESTIMONI --}}
+                                    <a href="{{ route('dashboard.psikotespaid.testimoni-show')}}"
+                                        class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-start justify-start p-3 focus:outline-none rounded">
+                                        <!-- <i class='bx bx-show text-white'></i> -->
+                                        <p class="text-primary font-semibold">Detail</p>
+                                        <i class='bx bx-right-arrow-alt mt-1 text-primary'></i>
                                     </a>
 
-                                    {{-- BUTTON EDIT  --}}
-                                    <button type="button" class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-blue-500 hover:bg-blue-500 rounded">
-                                        <i class='bx bxs-edit-alt text-white'></i>
-                                    </button>
 
                                 </td>
                             </tr>
-
-
                         </tbody>
                     </table>
                 </div>

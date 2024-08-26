@@ -4,6 +4,13 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use Database\Seeders\PsikotestPaid\BAUM\QuestionBaumSeeder;
+use Database\Seeders\PsikotestPaid\DAP\QuestionDapSeeder;
+use Database\Seeders\PsikotestPaid\OCEAN\DimensionOceanSeeder;
+use Database\Seeders\PsikotestPaid\OCEAN\QuestionOceanSeeder;
+use Database\Seeders\PsikotestPaid\SSCT\QuestionSsctSeeder;
+use Database\Seeders\PsikotestPaid\TesEsai\QuestionTesEsaiSeeder;
+use Database\Seeders\PsikotestPaid\UserPsikotestPaidSeeder;
 use Illuminate\Database\Seeder;
 use App\Models\PsikotestPaid\CategoryPsikotestType;
 use Database\Seeders\PsikotestPaid\PsikotestToolSeeder;
@@ -31,7 +38,14 @@ class DatabaseSeeder extends Seeder
             CategoryPsikotestTypeSeeder::class,
             PsikotestTypeSeeder::class,
             PsikotestToolSeeder::class,
+            UserPsikotestPaidSeeder::class,
             QuestionPapiKostickSeeder::class,
+            QuestionBaumSeeder::class,
+            QuestionDapSeeder::class,
+            QuestionTesEsaiSeeder::class,
+            DimensionOceanSeeder::class,
+            QuestionOceanSeeder::class,
+            QuestionSsctSeeder::class
         ]);
     }
 }

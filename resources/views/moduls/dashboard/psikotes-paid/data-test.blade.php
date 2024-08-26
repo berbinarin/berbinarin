@@ -10,7 +10,8 @@
         <div class="w-full">
             <div class="py-4 md:pt-12 md:pb-7">
                 <div class="">
-                    <p tabindex="0" class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
+                    <p tabindex="0"
+                        class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
                         Data Test Psikotes Paid</p>
                     <p class="text-disabled py-2">Fitur ini menampilkan informasi data test dari user yang telah
                         mengerjakan psikotes Berbinar.</p>
@@ -21,43 +22,64 @@
                     <table id="example" class="display gap-3" style="overflow-x: scroll;">
                         <thead>
                             <tr>
-                                <th style="text-align: center">No</th>
-                                <th style="text-align: center">Nama Lengkap</th>
-                                <th style="text-align: center">Test</th>
-                                <th style="text-align: center">Kode</th>
-                                <th style="text-align: center">Action</th>
+                                {{-- <th style="text-align: center">No</th> --}}
+                                <th style="text-align: center">Nama Alat Tes</th>
+                                <th style="text-align: center">Nomor Alat Tes</th>
+                                <th style="text-align: center">Token</th>
+                                <th style="text-align: center">Generate Token</th>
+                                <th style="text-align: center">Dashboard</th>
                             </tr>
-
                         </thead>
                         <tbody>
-
+                            @foreach ($tools as $tool)
                             <tr id="" class="data-consume">
-                                <td class="text-center">1</td>
-                                <td class="text-center">Didi</td>
-                                <td class="text-center">12</td>
-                                <td class="text-center">0DSDSD1</td>
+                                <td class="text-center">{{ $tool->name }}</td>
+                                <td class="text-center">{{ $tool->id }}</td>
+                                <td class="text-center">{{ $tool->token }}</td>
                                 <td class="flex gap-2 justify-center">
 
-                                    {{-- BUTTON DELETE  --}}
-                                    <button type="button" class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 focus:outline-none rounded delete-button" data-id="">
-                                        <i class='bx bx-plus text-white'></i>
-                                    </button>
+                                     {{-- BUTTON DELETE --}}
+                                    {{-- <button type="button"
+                                                class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 focus:outline-none rounded delete-button"
+                                                data-id="">
+                                                <i class='bx bx-plus text-white'></i>
+                                            </button> --}}
 
 
                                     {{-- BUTTON DETAIL  --}}
-                                    <a href="" class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-red-500 hover:bg-red-600 focus:outline-none rounded">
-                                        <i class='bx bx-minus text-white'></i>
-                                    </a>
+                                    {{-- <a href=""
+                                                class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-red-500 hover:bg-red-600 focus:outline-none rounded">
+                                                <i class='bx bx-minus text-white'></i>
+                                            </a> --}}
 
-                                    {{-- BUTTON EDIT  --}}
-                                    <button type="button" class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-blue-500 hover:bg-blue-500 rounded">
-                                        <i class='bx bxs-edit-alt text-white'></i>
-                                    </button>
-
+                                    {{-- GENERATE TOKEN  --}}
+                                    <form action="{{ route('dashboard.psikotespaid.generate-token', $tool->id) }}"
+                                        method="POST" style="display: inline-block;">
+                                        @csrf
+                                        <button type="submit"
+                                            class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-blue-500 hover:bg-blue-500 rounded-3xl">
+                                            <i class='bx bx-sync text-white'> Update</i>
+                                        </button>
+                                    </form>
                                 </td>
+
+                                {{-- DASHBOARD KHUSUS PAPIKOSTICK --}}
+                                <td class="gap-2 justify-center">
+                                    @if ($tool->name === 'PAPI Kostick')
+                                    <a href="{{ route('dashboard.psikotespaid.dashboardPapikostick') }}"
+                                        class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
+                                        <i class='bx bx-home-alt text-white'> Dashboard</i>
+                                    </a>
+                                    @else
+                                    <button type="button"
+                                        class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
+                                        <i class='bx bx-home-alt text-white'> Dashboard</i>
+                                    </button>
+                                    @endif
+                                </td>
+
                             </tr>
-
-
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
