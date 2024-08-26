@@ -46,66 +46,6 @@
                 </div>
             </div>
             <!-- End Card -->
-
-        <!-- Start Card -->
-        <div class="rounded-xl shadow-lg mr-4">
-                <div class="p-5 flex flex-row items-left ">
-                    <!-- Gambar berada di sebelah kiri -->
-                    <div class="rounded-xl overflow-hidden">
-                    <img src="{{ asset('assets/images/credit-card/Anggi-FE.jpg') }}" alt="Foto Profil" class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">
-                    </div>
-                    <!-- Teks berada di sebelah kanan -->
-                    <div class="ml-5 flex flex-col">
-                        <h5 class="text-xl md:text-xl font-medium">Frenchyani Anggi</h5>
-                        <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">Front-End <br> Web Developer</h4>
-                        <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-700">Feb 2024 - Sekarang</h1>
-                        <!--Start Icon-->
-                        <div class="flex flew-row gap-5 flex-wrap mt-5">
-                            <a href="mailto:frenchyaanianggi2@gmail.com" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxs-envelope text-slate-500 text-[20px]'></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/frenchyani-anggi-shaktyanti-420851254/" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
-                            </a>
-                            <a href="https://www.instagram.com/frnchyn_shktynt/" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
-                            </a>
-                        </div>
-                        <!--End Icon-->
-                    </div>
-                </div>
-            </div>
-            <!-- End Card -->
-
-            <!-- Start Card -->
-            <div class="rounded-xl shadow-lg mr-4">
-                <div class="p-5 flex flex-row items-left ">
-                    <!-- Gambar berada di sebelah kiri -->
-                    <div class="rounded-xl overflow-hidden">
-                    <img src="{{ asset('assets/images/credit-card/fathiyyah2-FE.png') }}" alt="Foto Profil" class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">
-                    </div>
-                    <!-- Teks berada di sebelah kanan -->
-                    <div class="ml-5 flex flex-col">
-                        <h5 class="text-xl md:text-xl font-medium">Nur Fathiyyah</h5>
-                        <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">Front-End <br> Web Developer</h4>
-                        <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-700">Feb 2024 - Sekarang</h1>
-                        <!--Start Icon-->
-                        <div class="flex flew-row gap-5 flex-wrap mt-5">
-                            <a href="mailto:inifathiyyah@gmail.com" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxs-envelope text-slate-500 text-[20px]'></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/fathiyarn/" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
-                            </a>
-                            <a href="https://www.instagram.com/fathiyarn/" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
-                            </a>
-                        </div>
-                        <!--End Icon-->
-                    </div>
-                </div>
-            </div>
-            <!-- End Card -->
              
             <!-- Start Card -->
             <div class="rounded-xl shadow-lg mr-4">
@@ -128,6 +68,36 @@
                                 <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
                             </a>
                             <a href="https://www.instagram.com/latief.g" class="flex items-center justify-center" target="_blank">
+                                <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
+                            </a>
+                        </div>
+                        <!--End Icon-->
+                    </div>
+                </div>
+            </div>
+            <!-- End Card -->
+
+            <!-- Start Card -->
+            <div class="rounded-xl shadow-lg mr-4">
+                <div class="p-5 flex flex-row items-left ">
+                    <!-- Gambar berada di sebelah kiri -->
+                    <div class="rounded-xl overflow-hidden">
+                    <img src="{{ asset('assets/images/credit-card/juna_fe.jpg') }}" alt="Foto Profil" class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">
+                    </div>
+                    <!-- Teks berada di sebelah kanan -->
+                    <div class="ml-5 flex flex-col">
+                        <h5 class="text-xl md:text-xl font-medium">Junaidi Rahmat</h5>
+                        <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">Front-End <br> Web Developer</h4>
+                        <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-700">agus 2024 - Sekarang</h1>
+                        <!--Start Icon-->
+                        <div class="flex flew-row gap-5 flex-wrap mt-5">
+                            <a href="mailto:junaidirahmat02@gmail.com" class="flex items-center justify-center" target="_blank">
+                                <i class='bx bxs-envelope text-slate-500 text-[20px]'></i>
+                            </a>
+                            <a href="www.linkedin.com/in/junaidi-rahmat-eunola" class="flex items-center justify-center" target="_blank">
+                                <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
+                            </a>
+                            <a href="https://www.instagram.com/junaidirah_4?igsh=MTF1cHE3aXdhNWM5eg==" class="flex items-center justify-center" target="_blank">
                                 <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
                             </a>
                         </div>
@@ -257,6 +227,95 @@
             </div>
             <!-- End Card -->
 
+        <!-- Start Card -->
+        <div class="rounded-xl shadow-lg mr-4">
+                <div class="p-5 flex flex-row items-left ">
+                    <!-- Gambar berada di sebelah kiri -->
+                    <div class="rounded-xl overflow-hidden">
+                    <img src="{{ asset('assets/images/credit-card/Anggi-FE.jpg') }}" alt="Foto Profil" class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">
+                    </div>
+                    <!-- Teks berada di sebelah kanan -->
+                    <div class="ml-5 flex flex-col">
+                        <h5 class="text-xl md:text-xl font-medium">Frenchyani Anggi</h5>
+                        <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">Front-End <br> Web Developer</h4>
+                        <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-700">Feb 2024 - Agus 2024</h1>
+                        <!--Start Icon-->
+                        <div class="flex flew-row gap-5 flex-wrap mt-5">
+                            <a href="mailto:frenchyaanianggi2@gmail.com" class="flex items-center justify-center" target="_blank">
+                                <i class='bx bxs-envelope text-slate-500 text-[20px]'></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/frenchyani-anggi-shaktyanti-420851254/" class="flex items-center justify-center" target="_blank">
+                                <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
+                            </a>
+                            <a href="https://www.instagram.com/frnchyn_shktynt/" class="flex items-center justify-center" target="_blank">
+                                <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
+                            </a>
+                        </div>
+                        <!--End Icon-->
+                    </div>
+                </div>
+            </div>
+            <!-- End Card -->
+
+            <!-- Start Card -->
+            <div class="rounded-xl shadow-lg mr-4">
+                <div class="p-5 flex flex-row items-left ">
+                    <!-- Gambar berada di sebelah kiri -->
+                    <div class="rounded-xl overflow-hidden">
+                    <img src="{{ asset('assets/images/credit-card/fathiyyah2-FE.png') }}" alt="Foto Profil" class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">
+                    </div>
+                    <!-- Teks berada di sebelah kanan -->
+                    <div class="ml-5 flex flex-col">
+                        <h5 class="text-xl md:text-xl font-medium">Nur Fathiyyah</h5>
+                        <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">Front-End <br> Web Developer</h4>
+                        <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-700">Feb 2024 - Agus 2024</h1>
+                        <!--Start Icon-->
+                        <div class="flex flew-row gap-5 flex-wrap mt-5">
+                            <a href="mailto:inifathiyyah@gmail.com" class="flex items-center justify-center" target="_blank">
+                                <i class='bx bxs-envelope text-slate-500 text-[20px]'></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/fathiyarn/" class="flex items-center justify-center" target="_blank">
+                                <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
+                            </a>
+                            <a href="https://www.instagram.com/fathiyarn/" class="flex items-center justify-center" target="_blank">
+                                <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
+                            </a>
+                        </div>
+                        <!--End Icon-->
+                    </div>
+                </div>
+            </div>
+            <!-- End Card -->
+        <!-- Start Card -->
+        <div class="rounded-xl shadow-lg mr-4">
+                <div class="p-5 flex flex-row items-left ">
+                    <!-- Gambar berada di sebelah kiri -->
+                    <div class="rounded-xl overflow-hidden">
+                    <img src="{{ asset('assets/images/credit-card/Wawa-ex-FE.jpg') }}" alt="Foto Profil" class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">
+                    </div>
+                    <!-- Teks berada di sebelah kanan -->
+                    <div class="ml-5 flex flex-col">
+                        <h5 class="text-xl md:text-xl font-medium">Firdausi Baiq</h5>
+                        <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">Front-End <br> Web Developer</h4>
+                        <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-400">Agu 2023 - Feb 2024</h1>
+                        <!--Start Icon-->
+                        <div class="flex flew-row gap-5 flex-wrap mt-5">
+                            <a href="mailto:firdaardana0111@gmail.com" class="flex items-center justify-center" target="_blank">
+                                <i class='bx bxs-envelope text-slate-500 text-[20px]'></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/firdaardana/" class="flex items-center justify-center" target="_blank">
+                                <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
+                            </a>
+                            <a href="https://www.instagram.com/waawaaa_/" class="flex items-center justify-center" target="_blank">
+                                <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
+                            </a>
+                        </div>
+                        <!--End Icon-->
+                    </div>
+                </div>
+            </div>
+            <!-- End Card -->
+
             <!-- Start Card -->
             <div class="rounded-xl shadow-lg mr-4">
                 <div class="p-5 flex flex-row items-left ">
@@ -287,7 +346,7 @@
             </div>
             <!-- End Card -->
 
-        <!-- Start Card -->
+                    <!-- Start Card -->
         <div class="rounded-xl shadow-lg mr-4">
                 <div class="p-5 flex flex-row items-left ">
                     <!-- Gambar berada di sebelah kiri -->
@@ -308,36 +367,6 @@
                                 <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
                             </a>
                             <a href="https://instagram.com/farhantsyh" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
-                            </a>
-                        </div>
-                        <!--End Icon-->
-                    </div>
-                </div>
-            </div>
-            <!-- End Card -->
-
-        <!-- Start Card -->
-        <div class="rounded-xl shadow-lg mr-4">
-                <div class="p-5 flex flex-row items-left ">
-                    <!-- Gambar berada di sebelah kiri -->
-                    <div class="rounded-xl overflow-hidden">
-                    <img src="{{ asset('assets/images/credit-card/Wawa-ex-FE.jpg') }}" alt="Foto Profil" class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">
-                    </div>
-                    <!-- Teks berada di sebelah kanan -->
-                    <div class="ml-5 flex flex-col">
-                        <h5 class="text-xl md:text-xl font-medium">Firdausi Baiq</h5>
-                        <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">Front-End <br> Web Developer</h4>
-                        <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-400">Agu 2023 - Feb 2024</h1>
-                        <!--Start Icon-->
-                        <div class="flex flew-row gap-5 flex-wrap mt-5">
-                            <a href="mailto:firdaardana0111@gmail.com" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxs-envelope text-slate-500 text-[20px]'></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/firdaardana/" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
-                            </a>
-                            <a href="https://www.instagram.com/waawaaa_/" class="flex items-center justify-center" target="_blank">
                                 <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
                             </a>
                         </div>
