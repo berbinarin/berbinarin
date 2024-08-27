@@ -29,6 +29,7 @@
                                     <th style="text-align: center">Hari</th>
                                     <th style="text-align: center">Pukul Mulai</th>
                                     <th style="text-align: center">Pukul Selesai</th>
+                                    <th style="text-align: center">Penanggung Jawab</th>
                                     <th style="text-align: center">Action</th>
                                 </tr>
                             </thead>
@@ -39,6 +40,7 @@
                                         <td>{{ $item->hari}}</td>
                                         <td>{{ $item->pukul_mulai }}</td>
                                         <td>{{ $item->pukul_selesai }}</td>
+                                        <td>{{ $item->penanggung_jawab }}</td>
                                         <td class="flex gap-2 text-center" style="justify-content: center">
                                             <button onclick="toggleModal('edit-modal-{{ $item->id}}')" type="button"
                                                 class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-500 focus:outline-none rounded">
@@ -94,6 +96,12 @@
                                                             <div class="mb-6 pt-0 flex-1">
                                                                 <label for="pukul_selesai" class="text-blueGray-600 text-base">Pukul Selesai</label>
                                                                 <input name="pukul_selesai" id="pukul_selesai" value="{{ $item->pukul_selesai}}" type="time" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full"  required/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flex gap-1">
+                                                            <div class="mb-1 pt-0 w-full">
+                                                                <label for="penanggung_jawab" class="text-blueGray-600 text-base">Penanggung jawab</label>
+                                                                <input type="text" name="penanggung_jawab" value="{{ $item->penanggung_jawab}}"  class="px-3 py-3 appearance-none placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full" required>
                                                             </div>
                                                         </div>
                                                         <!--footer-->
@@ -212,6 +220,12 @@
                             <div class="mb-6 pt-0 flex-1">
                                 <label for="pukul_selesai" class="text-blueGray-600 text-base">Pukul Selesai</label>
                                 <input name="pukul_selesai" id="pukul_selesai" type="time" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full"  required/>
+                            </div>
+                        </div>
+                        <div class="flex gap-1">
+                            <div class="mb-1 pt-0 w-full">
+                                <label for="penanggung_jawab" class="text-blueGray-600 text-base">Penanggung jawab</label>
+                                <input type="text" name="penanggung_jawab" class="px-3 py-3 appearance-none placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full" required>
                             </div>
                         </div>
                         <!--footer-->

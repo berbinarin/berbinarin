@@ -14,23 +14,6 @@ use App\Models\PsikotestPaid\PsikotestTool;
 
 class UserPsikotestPaidController extends Controller
 {
-    // public function showPage($page)
-    // {
-    //     switch ($page) {
-    //         case '1':
-    //             return view('moduls.psikotes-paid.reg-page-1');
-    //         case '2':
-    //             $psikotestCategoryTypes = CategoryPsikotestType::all();
-    //             $psikotestTypes = PsikotestType::all();
-    //             return view('moduls.psikotes-paid.reg-page-2', compact('psikotestTypes', 'psikotestCategoryTypes'));
-    //         case '3':
-    //             return view('moduls.psikotes-paid.reg-page-3');
-    //         case '4':
-    //             return view('moduls.psikotes-paid.reg-page-4');
-    //         default:
-    //             abort(404);
-    //     }
-    // }
     public function showPage($page)
     {
         switch ($page) {
@@ -98,6 +81,17 @@ class UserPsikotestPaidController extends Controller
         $request->session()->forget('psikotest-paid');
 
         return redirect()->route('psikotest-paid.showPage', ['page' => '4']);
+    }
+
+    public function delete($userId)
+    {
+        // Find the user by ID and delete
+        $user = UserPsikotestPaid::findOrFail($userId);
+        $user->delete();
+
+        // Redirect back with a success message
+        Alert::toast('User Deleted!', 'success')->autoClose(5000);
+        return redirect()->route('psikotest-paid.showLanding');
     }
 
     public function showLogin()

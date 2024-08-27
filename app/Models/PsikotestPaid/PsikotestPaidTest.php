@@ -15,6 +15,7 @@ class PsikotestPaidTest extends Model
     protected $fillable = [
         'user_psikotest_paid_id',
         'psikotest_tool_id',
+        'status_progress',
     ];
 
     public function userPsikotestPaid()

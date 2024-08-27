@@ -1,12 +1,20 @@
 <?php
 
+use App\Http\Controllers\PsikotestPaid\Tools\OCEAN\OCEANController;
+use App\Http\Controllers\PsikotestPaid\Tools\OCEAN\ResultOceanController;
+use App\Http\Controllers\PsikotestPaid\Tools\SSCT\ResultSsctController;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Internship\ajaxInternship;
 use App\Http\Controllers\PsikotestPaid\RedirectToolController;
 use App\Http\Controllers\PsikotestPaid\Tools\BAUM\BAUMController;
+use App\Http\Controllers\PsikotestPaid\Tools\Baum\ResultBaumController;
 use App\Http\Controllers\PsikotestPaid\Tools\DAP\DAPController;
+use App\Http\Controllers\PsikotestPaid\Tools\DAP\ResultDapController;
 use App\Http\Controllers\PsikotestPaid\Tools\HTP\HTPController;
 use App\Http\Controllers\PsikotestPaid\tools\PapiKostick\PapiKostickController;
 use App\Http\Controllers\PsikotestPaid\Tools\SSCT\SSCTController;
+use App\Http\Controllers\PsikotestPaid\Tools\TesEsai\ResultTesEsaiController;
+use App\Http\Controllers\PsikotestPaid\Tools\TesEsai\TesEsaiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PsikotestFree\UserPsikotestFreeController;
@@ -29,6 +37,7 @@ use App\Http\Controllers\HiringPositionsJobDescriptionController;
 use App\Http\Controllers\Internship\UserInternshipController;
 use App\Http\Controllers\Berbinarplus\AuthUserController;
 use App\Http\Controllers\Internship\InternshipController;
+use App\Http\Controllers\PsikotestPaid\DashboardUserController;
 use App\Http\Controllers\PsikotestPaid\UserPsikotestPaidController;
 use App\Http\Controllers\PsikotestPaid\PapiKostick\TestController as PapiKostickTestController;
 use App\Http\Controllers\PsikotestPaid\PapiKostick\QuestionController as PapiKostickQuestionController;
@@ -36,7 +45,6 @@ use App\Http\Controllers\PsikotestPaid\PsikotestPaidTestController;
 use App\Http\Controllers\PsikotestPaid\PsikotestToolController;
 use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\DashboardPapiKostickController;
 use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\ResultPapiKostickController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -153,13 +161,30 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin/faqs', [DashboardController::class, 'faqs'])->name('dashboard.faqs');
 
     //PSIKOTEST PAID
-    Route::get('/dashboard/admin/psikotest-paid/data', [DashboardController::class, 'psikotesPaidData'])->name('dashboard.psikotespaid.data');
-    Route::get('/dashboard/admin/psikotest-paid/data-test', [DashboardController::class, 'psikotesPaidDataTest'])->name('dashboard.psikotespaid.data-test');
-    Route::get('/dashboard/admin/psikotest-paid/data-detail', [DashboardController::class, 'psikotesPaidDataShow'])->name('dashboard.psikotespaid.data-show');
-    Route::get('/dashboard/admin/psikotest-paid/individu', [DashboardController::class, 'psikotesPaidIndividu'])->name('dashboard.psikotespaid.individu');
-    Route::get('/dashboard/admin/psikotest-paid/pendidikan', [DashboardController::class, 'psikotesPaidPendidikan'])->name('dashboard.psikotespaid.pendidikan');
-    Route::get('/dashboard/admin/psikotest-paid/perusahaan', [DashboardController::class, 'psikotesPaidPerusahaan'])->name('dashboard.psikotespaid.perusahaan');
-    Route::get('/dashboard/admin/psikotest-paid/komunitas', [DashboardController::class, 'psikotesPaidKomunitas'])->name('dashboard.psikotespaid.komunitas');
+    Route::prefix('/dashboard/admin/psikotest-paid')->group(function () {
+        // DASHBOARD PSIKOTEST PAID USER & TOOLS
+        Route::get('/data', [DashboardUserController::class, 'userRegister'])->name('dashboard.psikotespaid.data');
+        Route::get('/data/{id}', [DashboardUserController::class, 'userDetail'])->name('dashboard.psikotespaid.data-show');
+        Route::get('/data-test', [DashboardUserController::class, 'psikotestTool'])->name('dashboard.psikotespaid.data-test');
+       
+        // Dashboard PAPI Kostick
+        Route::get('/data-test/dashboardPapikostick', [DashboardUserController::class, 'dashboardPapikostick'])->name('dashboard.psikotespaid.dashboardPapikostick');
+        Route::get('/data-test/papikostick', [DashboardUserController::class, 'papikostick'])->name('dashboard.psikotespaid.papikostick');
+        Route::get('/data-test/psikotestData', [DashboardUserController::class, 'psikotestData'])->name('dashboard.psikotespaid.psikotestData');
+        Route::get('/data-test/psikotestSoal', [DashboardUserController::class, 'psikotestSoal'])->name('dashboard.psikotespaid.psikotestSoal');
+
+       
+        Route::post('/data-test/{id}/generate-token', [DashboardUserController::class, 'generateToken'])->name('dashboard.psikotespaid.generate-token');
+        Route::get('/individu', [DashboardUserController::class, 'priceListIndividu'])->name('dashboard.psikotespaid.individu');
+        Route::get('/pendidikan', [DashboardUserController::class, 'priceListEducationalInstitution'])->name('dashboard.psikotespaid.pendidikan');
+        Route::get('/perusahaan', [DashboardUserController::class, 'priceListCorporate'])->name('dashboard.psikotespaid.perusahaan');
+        Route::get('/komunitas', [DashboardUserController::class, 'priceListCommunity'])->name('dashboard.psikotespaid.komunitas');
+
+        //
+        Route::get('/price-list', [DashboardUserController::class, 'priceList'])->name('dashboard.psikotespaid.price-list');
+        Route::get('/testimoni', [DashboardUserController::class, 'testimoni'])->name('dashboard.psikotespaid.testimoni');
+        Route::get('/testimoni-detail', [DashboardUserController::class, 'testimoniShow'])->name('dashboard.psikotespaid.testimoni-show');
+    });
     Route::get('/dashboard/admin/psikotest-paid/baum', [DashboardController::class, 'psikotesPaidBAUM'])->name('dashboard.psikotespaid.baum');
     Route::get('/dashboard/admin/psikotest-paid/htp', [DashboardController::class, 'psikotesPaidHTP'])->name('dashboard.psikotespaid.htp');
     Route::get('/dashboard/admin/psikotest-paid/dap', [DashboardController::class, 'psikotesPaidDAP'])->name('dashboard.psikotespaid.dap');
@@ -233,7 +258,7 @@ Route::get('/psikotest/free/{test_id}/biodata', [UserPsikotestFreeController::cl
 Route::post('/psikotest/free/{test_id}/biodata', [UserPsikotestFreeController::class, 'store'])->name('biodata.store');
 Route::get('/psikotest/free/{test_id}/questions/{question_order}', [QuestionController::class, 'show'])->name('question.show');
 Route::post('/psikotest/free/{test_id}/questions/{question_order}', [QuestionController::class, 'storeAnswer'])->name('question.storeAnswer');
-Route::get('/psikotest/free/{test_id}/{user_id}/feedback', [FeedbackController::class, 'show'])->name('feedback.show');
+Route::get('/psikotest/free/{test_id}/{user_id}/feedback', [FeedbackController::class, 'show'])->name('.psikotestpaid');
 Route::post('/psikotest/free/{test_id}/{user_id}/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 Route::get('/psikotest/free/{test_id}/{user_id}/results', [ResultController::class, 'show'])->name('result.show');
 Route::post('/psikotest/free/{test_id}/{user_id}/finish-test', [ResultController::class, 'finishTest'])->name('result.finishTest');
@@ -262,11 +287,11 @@ Route::get('/psikotest/individual', [LandingController::class, 'psikotestIndivid
 
 
 
-Route::get('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'show'])->name('feedback.show');
-Route::post('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'store'])->name('feedback.store');
+Route::get('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'show'])->name('feedback.psikotest.show');
+Route::post('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'store'])->name('feedback.psikotest.store');
 
-Route::get('/results/{test_id}/{user_id}', [ResultController::class, 'show'])->name('result.show');
-Route::post('/finish-test/{test_id}/{user_id}', [ResultController::class, 'finishTest'])->name('result.finishTest');
+Route::get('/results/{test_id}/{user_id}', [ResultController::class, 'show'])->name('result.psikotest.show');
+Route::post('/finish-test/{test_id}/{user_id}', [ResultController::class, 'finishTest'])->name('result.psikotest.finishTest');
 
 // Route::get('/psikotest/login', [LandingController::class, 'psikotestLogin'])->name('psikotestLogin');
 // Route::get('/psikotest/register', [LandingController::class, 'psikotestRegister'])->name('psikotestRegister');
@@ -293,8 +318,20 @@ Route::prefix('/psikotest-paid')->group(function () {
 
     // test for admin
     Route::get('/admin', [PsikotestToolController::class, 'index'])->name('psikotest-tools.index');
+    Route::get('/admin/{id}', [PsikotestToolController::class, 'viewTests'])->name('admin.show-tests');
     Route::post('/admin/{id}/generate-token', [PsikotestToolController::class, 'generateToken'])->name('psikotest-tools.generate-token');
     Route::post('/admin/{id}/delete-token', [PsikotestToolController::class, 'deleteToken'])->name('psikotest-tools.delete-token');
+    Route::delete('/admin/{userId}', [UserPsikotestPaidController::class, 'delete'])->name('admin.user.delete');
+    Route::post('/admin/result', function(Request $request){
+        $path = 'admin.test.showResult.' . $request->input('name');
+        return redirect()->route($path, $request->input('id'));
+    })->name('admin.test.showResult');
+
+    Route::get('/admin/result/tes-esai/{testId}', [ResultTesEsaiController::class, 'showResult'])->name('admin.test.showResult.Tes Esai');
+    Route::get('/admin/result/baum/{testId}', [ResultBaumController::class, 'showResult'])->name('admin.test.showResult.BAUM');
+    Route::get('/admin/result/dap/{testId}', [ResultDapController::class, 'showResult'])->name('admin.test.showResult.DAP');
+    Route::get('/admin/result/ocean/{testId}', [ResultOceanController::class, 'showResult'])->name('admin.test.showResult.OCEAN');
+    Route::get('/admin/result/ssct/{testId}', [ResultSsctController::class, 'showResult'])->name('admin.test.showResult.SSCT');
 
     Route::group(['middleware' => ['auth.psikotestpaid:psikotestpaid']], function () {
         Route::get('/landing', [UserPsikotestPaidController::class, 'showLanding'])->name('psikotest-paid.showLanding');
@@ -302,10 +339,40 @@ Route::prefix('/psikotest-paid')->group(function () {
 
         // ROUTE UNTUK TIAP TOOLS!
         Route::get('/tool/papi-kostick', [PapiKostickController::class, 'showLanding'])->name('psikotest-paid.tool.PAPI Kostick.showLanding');
+        
         Route::get('/tool/BAUM', [BAUMController::class, 'showLanding'])->name('psikotest-paid.tool.BAUM.showLanding');
+        Route::post('/tool/BAUM/start', [BAUMController::class, 'startTest'])->name('psikotest-paid.tool.BAUM.startTest');
+        Route::get('/tool/BAUM/test/{testId}', [BAUMController::class, 'showTest'])->name('psikotest-paid.tool.BAUM.showTest');
+        Route::post('/tool/BAUM/submit-answer', [BAUMController::class, 'submitAnswer'])->name('psikotest-paid.tool.BAUM.submitAnswer');
+        Route::get('/tool/BAUM/summary/{testId}', [BAUMController::class, 'showSummary'])->name('psikotest-paid.tool.BAUM.summary');
+        
         Route::get('/tool/DAP', [DAPController::class, 'showLanding'])->name('psikotest-paid.tool.DAP.showLanding');
+        Route::post('/tool/DAP/start', [DAPController::class, 'startTest'])->name('psikotest-paid.tool.DAP.startTest');
+        Route::get('/tool/DAP/test/{testId}', [DAPController::class, 'showTest'])->name('psikotest-paid.tool.DAP.showTest');
+        Route::post('/tool/DAP/submit-answer', [DAPController::class, 'submitAnswer'])->name('psikotest-paid.tool.DAP.submitAnswer');
+        Route::get('/tool/DAP/summary/{testId}', [DAPController::class, 'showSummary'])->name('psikotest-paid.tool.DAP.summary');
+
         Route::get('/tool/HTP', [HTPController::class, 'showLanding'])->name('psikotest-paid.tool.HTP.showLanding');
+        
         Route::get('/tool/SSCT', [SSCTController::class, 'showLanding'])->name('psikotest-paid.tool.SSCT.showLanding');
+        Route::post('/tool/SSCT/start', [SSCTController::class, 'startTest'])->name('psikotest-paid.tool.SSCT.startTest');
+        Route::get('/tool/SSCT/test/{testId}', [SSCTController::class, 'showTest'])->name('psikotest-paid.tool.SSCT.showTest');
+        Route::post('/tool/SSCT/submit-answer', [SSCTController::class, 'submitAnswer'])->name('psikotest-paid.tool.SSCT.submitAnswer');
+        Route::get('/tool/SSCT/summary/{testId}', [SSCTController::class, 'showSummary'])->name('psikotest-paid.tool.SSCT.summary');
+        
+        Route::get('/tool/tes-esai', [TesEsaiController::class, 'showLanding'])->name('psikotest-paid.tool.Tes Esai.showLanding');
+        Route::post('/tool/tes-esai/start', [TesEsaiController::class, 'startTest'])->name('psikotest-paid.tool.Tes Esai.startTest');
+        Route::get('/tool/tes-esai/test/{testId}', [TesEsaiController::class, 'showTest'])->name('psikotest-paid.tool.Tes Esai.showTest');
+        Route::post('/tool/tes-esai/submit-answer', [TesEsaiController::class, 'submitAnswer'])->name('psikotest-paid.tool.Tes Esai.submitAnswer');
+        Route::get('/tool/tes-esai/summary/{testId}', [TesEsaiController::class, 'showSummary'])->name('psikotest-paid.tool.Tes Esai.summary');
+        
+        Route::get('/tool/OCEAN', [OCEANController::class, 'showLanding'])->name('psikotest-paid.tool.OCEAN.showLanding');
+        Route::post('/tool/OCEAN/start', [OCEANController::class, 'startTest'])->name('psikotest-paid.tool.OCEAN.startTest');
+        Route::get('/tool/OCEAN/test/{testId}', [OCEANController::class, 'showTest'])->name('psikotest-paid.tool.OCEAN.showTest');
+        Route::post('/tool/OCEAN/submit-answer', [OCEANController::class, 'submitAnswer'])->name('psikotest-paid.tool.OCEAN.submitAnswer');
+        Route::get('/tool/OCEAN/summary/{testId}', [OCEANController::class, 'showSummary'])->name('psikotest-paid.tool.OCEAN.summary');
+        Route::post('/tool/OCEAN/calculate-result', [ResultOceanController::class, 'calculateAndStoreResult'])->name('psikotest-paid.tool.OCEAN.calculateResult');
+
 
         // PAPI KOSTICK
         Route::post('/start', [PapiKostickController::class, 'startTest'])->name('psikotest-paid.papi-kostick.start');
@@ -318,5 +385,6 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::get('/papi-kostick/soal', [DashboardPapiKostickController::class, 'allSoal'])->name('papi-kostick.soal');
         Route::get('/papi-kostick/soal/{id}/edit', [DashboardPapiKostickController::class, 'editSoal'])->name('papi-kostick.edit-soal');
         Route::put('/papi-kostick/soal/{id}', [DashboardPapiKostickController::class, 'updateSoal'])->name('papi-kostick.update-soal');
+
     });
 });

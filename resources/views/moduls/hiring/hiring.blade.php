@@ -445,34 +445,6 @@
     </ul>
 </section>
 
-<div id="modal" class="absolute md:fixed">
-    <div class="modal-content md:w-[900px] flex flex-col gap-3 top-0">
-        <div class="flex flex-col gap-1">
-            <h5 class="text-black text-2xl" id="modal-name"></h5>
-            <div class="flex flex-row items-center gap-2 text-base">
-                <span id="modal-type" class="text-primary bg-blur-bg px-2 py-1 rounded-md uppercase"></span>
-                <span class="text-disabled" id="modal-positions"></span>
-            </div>
-        </div>
-        <div class="flex flex-col md:flex-row gap-3">
-            <div class="flex flex-col gap-2 flex-1">
-                <p class="text-disabled">Job Descriptions : </p>
-                <div class="flex flex-col text-disabled gap-1" id="modal-jobDescriptions">
-                </div>
-            </div>
-            <div class="flex flex-col gap-2 flex-1">
-                <p class="text-disabled">Requirements : </p>
-                <div class="flex flex-col text-disabled gap-1" id="modal-requirements"></div>
-            </div>
-        </div>
-
-        <a href="{{ $position->link }}"
-            class="text-center text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 closeModal mt-5">Daftar</a>
-        <button
-            class="text-center text-base text-white bg-disabled rounded-md duration-700 px-5 py-2 closeModal">Close</button>
-    </div>
-</div>
-
 <script>
 const showModalButtons = document.querySelectorAll('.showModal');
 const closeModalButtons = document.querySelectorAll('.closeModal');
