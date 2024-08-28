@@ -156,8 +156,11 @@ Route::group(['middleware' => ['auth']], function () {
     //PSIKOTEST PAID
     Route::prefix('/dashboard/admin/psikotest-paid')->group(function () {
         // DASHBOARD PSIKOTEST PAID USER & TOOLS
+        Route::post('/data', [DashboardUserController::class, 'addUserRegister'])->name('dashboard.psikotespaid.data-store');
         Route::get('/data', [DashboardUserController::class, 'userRegister'])->name('dashboard.psikotespaid.data');
         Route::get('/data/{id}', [DashboardUserController::class, 'userDetail'])->name('dashboard.psikotespaid.data-show');
+        Route::patch('/data/{id}', [DashboardUserController::class, 'editUserRegister'])->name('dashboard.psikotespaid.data-edit');
+        Route::delete('/data/{id}', [DashboardUserController::class, 'deleteUserRegister'])->name('dashboard.psikotespaid.data-destroy');
         Route::get('/data-test', [DashboardUserController::class, 'psikotestTool'])->name('dashboard.psikotespaid.data-test');
         Route::post('/data-test/{id}/generate-token', [DashboardUserController::class, 'generateToken'])->name('dashboard.psikotespaid.generate-token');
         Route::get('/price-list', [DashboardUserController::class, 'priceList'])->name('dashboard.psikotespaid.price-list');
