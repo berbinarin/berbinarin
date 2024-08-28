@@ -319,14 +319,14 @@
                 <!-- <label for="tiktokFive" class="block text-lg font-medium text-gray-700">Motivasi Mendaftar Internship Berbinar</label> -->
                 <p class="text-xs">Terima kasih sudah mendaftar. Pastikan bahwa seluruh data <br> telah benar, link dapat diakses, dan jangan lupa tekan tombol <br> kirim di bawah ini 😆</p>
                 <p class="text-xs mt-4 mb-4">Jika ada pertanyaan lebih lanjut, bisa hubungi WA di bawah ini:<br>
-                  Nisa (<a href="https://wa.me/6285721842573" class="text-blue-500">085721842573</a>)<br>
+                  Zona (<a href="https://wa.me/6288233215540 " class="text-blue-500">085721842573</a>)<br>
                   Dhina (<a href="https://wa.me/6281315226773" class="text-blue-500">088233215540</a>)<br>
                   Laila (<a href="https://wa.me/6281542288773" class="text-blue-500">081234567890</a>)
                 </p>
                 <!-- <textarea type="textarea" id="tiktokFive" name="tiktokFive" placeholder="Lorem Ipsum" class="mt-1 h-[200px] block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs"></textarea> -->
               </div>
 
-              <div class="hidden md:flex justify-between items-center -mb-4 -mt-14">
+              <div class="hidden md:flex justify-between items-center -mt-[4.4rem] -mb-7">
                 <!-- Tombol Sebelumnya -->
                 <button id="previousButtonPageFive" type="button" class="w-full md:w-auto bg-[#C7F8FF] md:mt-36 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">Sebelumnya</button>
 
