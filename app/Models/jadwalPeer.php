@@ -11,7 +11,7 @@ class jadwalPeer extends Model
 
     protected $table = 'jadwal_peers';
 
-    protected $fillable = ['hari', 'pukul_mulai', 'pukul_selesai'];
+    protected $fillable = ['hari', 'pukul_mulai', 'pukul_selesai', 'penanggung_jawab'];
 
     public function userDetail()
     {

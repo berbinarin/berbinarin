@@ -181,6 +181,7 @@ class DashboardController extends Controller
             'hari' => 'required|not_in:default_value',
             'pukul_mulai' => 'required',
             'pukul_selesai' => 'required',
+            'penanggung_jawab' => 'required'
         ]);
 
         $konselling = new jadwalPeer();
@@ -198,6 +199,7 @@ class DashboardController extends Controller
             'hari' => 'required|not_in:default_value',
             'pukul_mulai' => 'required',
             'pukul_selesai' => 'required',
+            'penanggung_jawab' => 'required'
         ]);
 
         $jadwalPeer = JadwalPeer::find($id);
@@ -209,6 +211,7 @@ class DashboardController extends Controller
         $jadwalPeer->hari = $validatedData['hari'];
         $jadwalPeer->pukul_mulai = $validatedData['pukul_mulai'];
         $jadwalPeer->pukul_selesai = $validatedData['pukul_selesai'];
+        $jadwalPeer->penanggung_jawab = $validatedData['penanggung_jawab'];
         $jadwalPeer->save();
 
         Alert::toast('A Peer Consellor Schedule Updated', 'success')->autoClose(5000);
@@ -681,6 +684,6 @@ class DashboardController extends Controller
 
     public function psikotesPaidDAP()
     {
-        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dap');
+        return view('moduls.dashboard.psikotes-paid.dap');
     }
 }
