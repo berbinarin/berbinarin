@@ -684,6 +684,6 @@ class DashboardController extends Controller
 
     public function psikotesPaidDAP()
     {
-        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dap');
+        return view('moduls.dashboard.psikotes-paid.dap');
     }
 }
