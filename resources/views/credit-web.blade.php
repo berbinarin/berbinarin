@@ -238,7 +238,7 @@
                     <div class="ml-5 flex flex-col">
                         <h5 class="text-xl md:text-xl font-medium">Frenchyani Anggi</h5>
                         <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">Front-End <br> Web Developer</h4>
-                        <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-700">Feb 2024 - Agus 2024</h1>
+                        <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-400">Feb 2024 - Agus 2024</h1>
                         <!--Start Icon-->
                         <div class="flex flew-row gap-5 flex-wrap mt-5">
                             <a href="mailto:frenchyaanianggi2@gmail.com" class="flex items-center justify-center" target="_blank">
@@ -268,7 +268,7 @@
                     <div class="ml-5 flex flex-col">
                         <h5 class="text-xl md:text-xl font-medium">Nur Fathiyyah</h5>
                         <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">Front-End <br> Web Developer</h4>
-                        <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-700">Feb 2024 - Agus 2024</h1>
+                        <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-400">Feb 2024 - Agus 2024</h1>
                         <!--Start Icon-->
                         <div class="flex flew-row gap-5 flex-wrap mt-5">
                             <a href="mailto:inifathiyyah@gmail.com" class="flex items-center justify-center" target="_blank">
