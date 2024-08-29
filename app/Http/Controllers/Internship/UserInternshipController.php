@@ -48,9 +48,9 @@ class UserInternshipController extends Controller
             'akun_tiktok' => 'required|string',
             'akun_linkdin' => 'required|string',
             'sumber_informasi' => 'required|string',
-            'tautan_cv' => 'required|url',
-            'tautan_portofolio' => 'required|url',
-            'tautan_berkas_ss' => 'required|url',
+            'tautan_cv' => 'required|string',
+            'tautan_portofolio' => 'required|string',
+            'tautan_berkas_ss' => 'required|string',
             'motivasi' => 'required|string',
             'is_process' => 'required|boolean',
             'status_tidak_dapat_diproses' => 'required|string',
@@ -68,8 +68,8 @@ class UserInternshipController extends Controller
             
             return redirect()->route('hiring');
         }catch(\Exception $e){
-            Log::error('Error storing user internship: ' . $e->getMessage());
-            Alert::toast('error', 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage());
+            // Log::error('Error storing user internship: ' . $e->getMessage());
+            Alert::toast('Terjadi kesalahan saat menyimpan data: ' . $e->getMessage(), 'error')->autoClose(5000);
             return redirect()->back();
         }
     }

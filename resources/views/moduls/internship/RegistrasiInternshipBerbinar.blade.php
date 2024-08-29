@@ -203,17 +203,17 @@
               <div class="mb-3">
                 <label for="akun_instagram" class="block text-xs font-medium text-gray-700">Tautan akun Instagram</label>
                 <p class="text-xs font-small">(Disarankan mencantumkan akun Instagram yang tidak diprivate)</p>
-                <input type="url" id="akun_instagram" name="akun_instagram" placeholder="https://www.instagram.com/username" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
+                <input type="text" id="akun_instagram" name="akun_instagram" placeholder="https://www.instagram.com/username" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
               </div>
               <div class="mb-3">
                 <label for="akun_tiktok" class="block text-xs font-medium text-gray-700">Tautan akun TikTok</label>
                 <p class="text-xs font-small">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p>
-                <input type="url" id="akun_tiktok" name="akun_tiktok" placeholder="https://www.tiktok.com/@username" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
+                <input type="text" id="akun_tiktok" name="akun_tiktok" placeholder="https://www.tiktok.com/@username" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
               </div>
               <div class="mb-3">
                 <label for="akun_linkdin" class="block text-xs font-medium text-gray-700">Tautan akun LinkedIn</label>
                 <p class="text-xs font-small">(Disarankan mencantumkan akun LinkedIn yang tidak diprivate)</p>
-                <input type="url" id="akun_linkdin" name="akun_linkdin" placeholder="https://www.linkedin.com/in/username" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
+                <input type="text" id="akun_linkdin" name="akun_linkdin" placeholder="https://www.linkedin.com/in/username" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
               </div>
               <div class="mb-3">
                 <label for="sumber_informasi" class="block text-xs font-medium text-gray-700">Dari mana kamu mendapatkan informasi rekrutmen ini?</label>
@@ -482,74 +482,82 @@
           return str.replace(/_/g, ' '); // Replace all underscores with spaces
       }
 
+
       function isValidURL(url) {
           // Regular expression for basic URL validation
-          var urlPattern = new RegExp('^(https?:\\/\\/)?' + // protocol
-                  '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-                  '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-                  '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-                  '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-                  '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
-          return urlPattern.test(url);
+          // var urlPattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+          //         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+          //         '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+          //         '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+          //         '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+          //         '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+          // return urlPattern.test(url);
+          return true;
       }
 
       function isValidEmail(email) {
-          // Regular expression for basic email validation
-          var emailPattern = new RegExp(
-              '^[a-zA-Z0-9._%+-]+' +           // local part
-              '@' +                            // @ symbol
-              '([a-zA-Z0-9.-]+\\.[a-zA-Z]{2,})$', 'i' // domain name
-          );
-          return emailPattern.test(email);
+          // // Regular expression for basic email validation
+          // var emailPattern = new RegExp(
+          //     '^[a-zA-Z0-9._%+-]+' +           // local part
+          //     '@' +                            // @ symbol
+          //     '([a-zA-Z0-9.-]+\\.[a-zA-Z]{2,})$', 'i' // domain name
+          // );
+          // return emailPattern.test(email);
+          return true;
       }
 
       function isValidGoogleDriveLink(url) {
-          // Regular expression for validating Google Drive links
-          var googleDrivePattern = new RegExp(
-              '^(https:\\/\\/)?(drive\\.google\\.com\\/)' + // Google Drive domain
-              '(file\\/d\\/|open\\?id=|drive\\/folders\\/|drive\\/u\\/\\d\\/folders\\/|drive\\/folders\\/)' + // Different possible paths
-              '[a-zA-Z0-9-_]+', // File or folder ID
-              'i' // Case-insensitive flag
-          );
-          return googleDrivePattern.test(url);
+          // // Regular expression for validating Google Drive links
+          // var googleDrivePattern = new RegExp(
+          //     '^(https:\\/\\/)?(drive\\.google\\.com\\/)' + // Google Drive domain
+          //     '(file\\/d\\/|open\\?id=|drive\\/folders\\/|drive\\/u\\/\\d\\/folders\\/|drive\\/folders\\/)' + // Different possible paths
+          //     '[a-zA-Z0-9-_]+', // File or folder ID
+          //     'i' // Case-insensitive flag
+          // );
+          // return googleDrivePattern.test(url);
+          return true;
       }
 
       function isValidInstagramLink(url) {
-          // Regular expression for validating Instagram links
-          var instagramPattern = new RegExp(
-              '^(https?:\\/\\/)?(www\\.)?instagram\\.com\\/' + // Instagram domain
-              '[a-zA-Z0-9_\\.]+\\/?$', // Username with optional trailing slash
-              'i' // Case-insensitive flag
-          );
-          return instagramPattern.test(url);
-      }
+          // // Regular expression for validating Instagram links
+          // var instagramPattern = new RegExp(
+          //     '^(https?:\\/\\/)?(www\\.)?instagram\\.com\\/' + // Instagram domain
+          //     '[a-zA-Z0-9_\\.]+\\/?$', // Username with optional trailing slash
+          //     'i' // Case-insensitive flag
+          // );
+          // return instagramPattern.test(url);
+          return true;
+        }
 
       function isValidTikTokLink(url) {
-          // Regular expression for validating TikTok links
-          var tikTokPattern = new RegExp(
-              '^(https?:\\/\\/)?(www\\.)?tiktok\\.com\\/(@[a-zA-Z0-9_]+)\\/?$', // TikTok domain and username with optional trailing slash
-              'i' // Case-insensitive flag
-          );
-          return tikTokPattern.test(url);
+          // // Regular expression for validating TikTok links
+          // var tikTokPattern = new RegExp(
+          //     '^(https?:\\/\\/)?(www\\.)?tiktok\\.com\\/(@[a-zA-Z0-9_]+)\\/?$', // TikTok domain and username with optional trailing slash
+          //     'i' // Case-insensitive flag
+          // );
+          // return tikTokPattern.test(url);
+          return true;
       }
 
       function isValidLinkedInLink(url) {
-          // Regular expression for validating LinkedIn links
-          var linkedInPattern = new RegExp(
-              '^(https?:\\/\\/)?(www\\.)?linkedin\\.com\\/' + // LinkedIn domain
-              '(in|pub|company|school)\\/[a-zA-Z0-9_-]+\\/?$', // Profile, company, or school paths with optional trailing slash
-              'i' // Case-insensitive flag
-          );
-          return linkedInPattern.test(url);
+          // // Regular expression for validating LinkedIn links
+          // var linkedInPattern = new RegExp(
+          //     '^(https?:\\/\\/)?(www\\.)?linkedin\\.com\\/' + // LinkedIn domain
+          //     '(in|pub|company|school)\\/[a-zA-Z0-9_-]+\\/?$', // Profile, company, or school paths with optional trailing slash
+          //     'i' // Case-insensitive flag
+          // );
+          // return linkedInPattern.test(url);
+          return true;
       }
 
 
       function isValidPhoneNumber(number) {
-          // Regular expression for validating phone numbers starting with +
-          var phonePattern = new RegExp(
-              '^\\+[0-9]+$' // Must start with + followed by one or more digits
-          );
-          return phonePattern.test(number);
+          // // Regular expression for validating phone numbers starting with +
+          // var phonePattern = new RegExp(
+          //     '^\\+[0-9]+$' // Must start with + followed by one or more digits
+          // );
+          // return phonePattern.test(number);
+          return true;
       }
 
       document.getElementById('closeModal').addEventListener('click', function() {
