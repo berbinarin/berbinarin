@@ -41,6 +41,7 @@
                 <span class="text-base mt-2">Dashboard</span>
             </a>
         </li>
+        @endif
 
 
         @if (auth()->user()->role == 'Admin')
@@ -176,7 +177,6 @@
                 <span class="text-base mt-2">Data</span>
             </a>
         </li>
-        @if (auth()->user()->role == 'PsikotestPaid')
 
         <!-- Psikotest Data -->
         @php
@@ -213,12 +213,12 @@
             </a>
         </li>
 
-        @php
+        {{-- @php (punya kakfat yang bikin if nya ga abis2)
         // Tentukan apakah modul saat ini termasuk dalam daftar yang perlu disembunyikan
+        if (!$hidePriceList)
         $hidePriceList = in_array($modul, ['psikotestSoal', 'psikotestData', 'Dashboard Papikostick', 'papikostick']);
-        @endphp
+        @endphp --}}
 
-        @if (!$hidePriceList)
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg relative">
             <!-- Dropdown Button -->
             <button onclick="toggleDropdown()" class="flex flex-col items-center @if ($modul === 'papikostick' || $modul === 'dashboardPapikostick') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
@@ -264,16 +264,10 @@
         </li>
         @endif
 
-
-        <!-- Add more items here as needed -->
-        @endif
-
         @if ($title === 'Dashboard Tes' || $title === 'BAUM' || $title === 'DAP' || $title === 'HTP' || $title === 'Dashboard Esai' || $title === 'Pengumpulan')
-
-        @if ($title === '')
         <li class="mt-20 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
-            <a href="" class=" flex flex-col items-center">
+            <a href="{{ route('dashboard') }}" class=" flex flex-col items-center">
                 <button type="submit" class="items-center flex gap-2">
                     <i class='bx bx-log-out text-lg'></i>
                     <span class="text-base text-center">Kembali</span>
