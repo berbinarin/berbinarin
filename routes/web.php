@@ -45,6 +45,7 @@ use App\Http\Controllers\PsikotestPaid\PsikotestPaidTestController;
 use App\Http\Controllers\PsikotestPaid\PsikotestToolController;
 use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\DashboardPapiKostickController;
 use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\ResultPapiKostickController;
+use App\Http\Controllers\PsikotestPaid\Tools\VAK\DashboardVakController;
 use App\Http\Controllers\PsikotestPaid\Tools\VAK\VakController;
 
 /*
@@ -307,6 +308,11 @@ Route::resource('/user_internships', UserInternshipController::class);
 // DEV PSIKOTES PAID
 Route::get('/psikotest/register/{page}', [UserPsikotestPaidController::class, 'showPage'])->name('psikotest-paid.showPage');
 
+// DASHBOARD VAK
+Route::get('/vak/data', [DashboardVakController::class, 'countUserTest'])->name('dashboard.psikotespaid.vak.data-count');
+Route::get('/vak/responden', [DashboardVakController::class, 'allResponden'])->name('dashboard.psikotespaid.vak.all-responden');
+Route::get('/vak/detail/{id}', [DashboardVakController::class, 'allResponden'])->name('dashboard.psikotespaid.vak.detail-answer');
+
 Route::prefix('/psikotest-paid')->group(function () {
 
     Route::post('/reg-page-3', [UserPsikotestPaidController::class, 'postRegPage3'])->name('psikotest-paid.postRegPage3');
@@ -386,5 +392,13 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::get('/papi-kostick/soal', [DashboardPapiKostickController::class, 'allSoal'])->name('papi-kostick.soal');
         Route::get('/papi-kostick/soal/{id}/edit', [DashboardPapiKostickController::class, 'editSoal'])->name('papi-kostick.edit-soal');
         Route::put('/papi-kostick/soal/{id}', [DashboardPapiKostickController::class, 'updateSoal'])->name('papi-kostick.update-soal');
+
+        // VAK
+        Route::prefix('/test-13')->group(function () {
+            Route::post('/start', [VakController::class, 'startTest'])->name('psikotest-paid.VAK.start');
+            Route::get('/{id}/question/{question_order}', [VakController::class, 'showQuestions'])->name('psikotest-paid.VAK.questions');
+            Route::post('/{id}/question/{question_order}', [VakController::class, 'submitAnswers'])->name('psikotest-paid.VAK.submit');
+            Route::get('/{id}/complete', [VakController::class, 'completeTest'])->name('psikotest-paid.VAK.complete');
+        });
     });
 });
