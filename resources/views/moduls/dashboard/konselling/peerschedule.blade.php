@@ -224,7 +224,7 @@
                         </div>
                         <div class="flex gap-1">
                             <div class="mb-1 pt-0 w-full">
-                                <label for="penanggung_jawab" class="text-blueGray-600 text-base">Penanggung jawab</label>
+                                <label for="penanggung_jawab" class="text-blueGray-600 text-base">Penanggung Jawab</label>
                                 <input type="text" name="penanggung_jawab" class="px-3 py-3 appearance-none placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full" required>
                             </div>
                         </div>
