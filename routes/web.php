@@ -186,6 +186,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('/price-list/{id}', [DashboardUserController::class, 'deletePriceList'])->name('dashboard.psikotespaid.delete-price-list');
         Route::get('/testimoni', [DashboardUserController::class, 'testimoni'])->name('dashboard.psikotespaid.testimoni');
         Route::get('/testimoni/{id}', [DashboardUserController::class, 'testimoniShow'])->name('dashboard.psikotespaid.testimoni-show');
+
+        // DASHBOARD PSIKOTEST PAID VAK
+
     });
     Route::get('/dashboard/admin/psikotest-paid/baum', [DashboardController::class, 'psikotesPaidBAUM'])->name('dashboard.psikotespaid.baum');
     Route::get('/dashboard/admin/psikotest-paid/htp', [DashboardController::class, 'psikotesPaidHTP'])->name('dashboard.psikotespaid.htp');
@@ -311,7 +314,7 @@ Route::get('/psikotest/register/{page}', [UserPsikotestPaidController::class, 's
 // DASHBOARD VAK
 Route::get('/vak/data', [DashboardVakController::class, 'countUserTest'])->name('dashboard.psikotespaid.vak.data-count');
 Route::get('/vak/responden', [DashboardVakController::class, 'allResponden'])->name('dashboard.psikotespaid.vak.all-responden');
-Route::get('/vak/detail/{id}', [DashboardVakController::class, 'allResponden'])->name('dashboard.psikotespaid.vak.detail-answer');
+Route::get('/vak/detail/{id}', [DashboardVakController::class, 'detailAnswer'])->name('dashboard.psikotespaid.vak.detail-answer');
 
 Route::prefix('/psikotest-paid')->group(function () {
 

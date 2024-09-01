@@ -228,10 +228,14 @@
 
             <!-- Dropdown Menu -->
             <div id="dropdown-menu" class="absolute left-0 mt-2 w-48 bg-primary border border-primary rounded-lg shadow-lg hidden">
-                <a href="{{ route('dashboard.psikotespaid.individu') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Individu</a>
+                {{-- <a href="{{ route('dashboard.psikotespaid.individu') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Individu</a>
                 <a href="{{ route('dashboard.psikotespaid.pendidikan') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Pendidikan</a>
                 <a href="{{ route('dashboard.psikotespaid.perusahaan') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Perusahaan</a>
-                <a href="{{ route('dashboard.psikotespaid.komunitas') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Komunitas</a>
+                <a href="{{ route('dashboard.psikotespaid.komunitas') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Komunitas</a> --}}
+                <a href="" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Individu</a>
+                <a href="" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Pendidikan</a>
+                <a href="" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Perusahaan</a>
+                <a href="" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Komunitas</a>
             </div>
         </li>
 

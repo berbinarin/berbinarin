@@ -5,8 +5,11 @@ namespace App\Http\Controllers\PsikotestPaid\Tools\VAK;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\PsikotestPaidTest;
+use App\Models\PsikotestPaid\VAK\AnswerVak;
+use App\Models\PsikotestPaid\VAK\QuestionVak;
 use App\Models\PsikotestPaid\VAK\ResultVak;
 use App\Models\PsikotestPaid\VAK\TestVak;
+use LDAP\Result;
 
 class DashboardVakController extends Controller
 {
@@ -30,45 +33,72 @@ class DashboardVakController extends Controller
             ->where('psikotest_tool_id', 13)
             ->get();
 
-        // dd($respondens);
         return view('moduls.dashboard.psikotes-paid.tools.vak.responden', compact('respondens'));
     }
 
     public function detailAnswer($id)
     {
-        // menampilkan result berdasarkan id responden
         $responden = PsikotestPaidTest::with('userPsikotestPaid')->findOrFail($id);
         $testVak = TestVak::where('psikotest_paid_test_id', $responden->id)->first();
-
         $result = $testVak ? ResultVak::where('test_vak_id', $testVak->id)->first() : null;
-        // $descriptions = $result ? $this->getAllDescription($result) : [];
 
-        return view('moduls.dashboard.psikotes-paid.tools.vak.detail', compact('responden', 'answers', 'result'));
-    }
+        $visual = $result->visual;
+        $auditory = $result->auditori;
+        $kinestetik = $result->kinestetik;
 
-    private function getAllDescription($result)
-    {
-        $descriptions = [];
-        $descriptions['visual'] = $this->getDescription($result->visual);
-        $descriptions['auditory'] = $this->getDescription($result->auditory);
-        $descriptions['kinesthetic'] = $this->getDescription($result->kinesthetic);
-
-        return $descriptions;
-    }
-
-    private function getDescription($result)
-    {
-        $description = '';
-        if ($result == 1) {
-            $description = 'Tidak Sesuai';
-        } elseif ($result == 2) {
-            $description = 'Cukup Sesuai';
-        } elseif ($result == 3) {
-            $description = 'Sangat Sesuai';
+        if ($visual >= $auditory) {
+            $terpilih = 'visual';
         } else {
-            $description = 'Jawaban Tidak Ada';
+            $terpilih = 'auditory';
         }
 
-        return $description;
+        if ($terpilih === 'visual' && $visual >= $kinestetik) {
+            $description = 'Kecenderungan siswa untuk menerima informasi dalam belajar dengan menggunakan indera penglihatan. Gaya belajar ini mengakses citra visual seperti warna, gambar dan video.';
+        } elseif ($terpilih === 'auditory' && $auditory >= $kinestetik) {
+            $description = 'Kecenderungan siswa untuk menerima informasi dalam belajar dengan melibatkan indera pendengaran.';
+        } else {
+            $description = 'Kecenderungan siswa untuk menerima informasi dalam belajar dengan melibatkan gerakan /psikomotorik';
+        }
+
+
+        if ($testVak) {
+            $categoryIds = [1, 2, 3];
+
+            $answers = [];
+
+            foreach ($categoryIds as $categoryId) {
+                $answers[$categoryId] = AnswerVak::whereHas('questionVak', function ($query) use ($categoryId) {
+                    $query->where('category_question_vak_id', $categoryId);
+                })->with('questionVak')
+                    ->where('test_vak_id', $testVak->id)
+                    ->get()
+                    ->map(function ($answer) {
+                        $answer->answer = $this->formatAnswer($answer->answer);
+                        return $answer;
+                    });
+            }
+        } else {
+            $answers = [
+                1 => [],
+                2 => [],
+                3 => [],
+            ];
+        }
+
+        return view('moduls.dashboard.psikotes-paid.tools.vak.detail-answer', compact('responden', 'result', 'description', 'answers'));
+    }
+
+    private function formatAnswer($answer)
+    {
+        switch ($answer) {
+            case 1:
+                return 'Kurang Sesuai';
+            case 2:
+                return 'Cukup Sesuai';
+            case 3:
+                return 'Sangat Sesuai';
+            default:
+                return 'Tidak Valid';
+        }
     }
 }
