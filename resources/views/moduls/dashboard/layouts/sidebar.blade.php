@@ -221,18 +221,22 @@
 
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg relative">
             <!-- Dropdown Button -->
-            <button onclick="toggleDropdown()" class="flex flex-col items-center @if ($modul === 'papikostick' || $modul === 'dashboardPapikostick') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+            <a href="{{ route('dashboard.psikotespaid.price-list') }}" onclick="toggleDropdown()" class="flex flex-col items-center @if ($modul === 'papikostick' || $modul === 'dashboardPapikostick') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
                 <i class="bx bxs-purchase-tag @if ($modul === 'papikostick' || $modul === 'dashboardPapikostick') text-primary @else text-gray-700 @endif text-lg"></i>
                 <span class="text-base mt-2 text-center">Price List</span>
-            </button>
+            </a>
 
             <!-- Dropdown Menu -->
-            <div id="dropdown-menu" class="absolute left-0 mt-2 w-48 bg-primary border border-primary rounded-lg shadow-lg hidden">
-                <a href="{{ route('dashboard.psikotespaid.individu') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Individu</a>
+            {{-- <div id="dropdown-menu" class="absolute left-0 mt-2 w-48 bg-primary border border-primary rounded-lg shadow-lg hidden"> --}}
+                {{-- <a href="{{ route('dashboard.psikotespaid.individu') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Individu</a>
                 <a href="{{ route('dashboard.psikotespaid.pendidikan') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Pendidikan</a>
                 <a href="{{ route('dashboard.psikotespaid.perusahaan') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Perusahaan</a>
-                <a href="{{ route('dashboard.psikotespaid.komunitas') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Komunitas</a>
-            </div>
+                <a href="{{ route('dashboard.psikotespaid.komunitas') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Komunitas</a> --}}
+                {{-- <a href="" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Individu</a>
+                <a href="" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Pendidikan</a>
+                <a href="" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Perusahaan</a>
+                <a href="" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-700">Komunitas</a> --}}
+            {{-- </div> --}}
         </li>
 
         @elseif ($title === 'Dashboard Esai' || $title === 'Pengumpulan')
