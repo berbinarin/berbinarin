@@ -203,29 +203,21 @@
               <div class="mb-3">
                 <label for="akun_instagram" class="block text-xs font-medium text-gray-700">Tautan akun Instagram</label>
                 <p class="text-xs font-small">(Disarankan mencantumkan akun Instagram yang tidak diprivate)</p>
-                <input type="text" id="akun_instagram" name="akun_instagram" placeholder="https://www.instagram.com/username" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
+                <input type="url" id="akun_instagram" name="akun_instagram" placeholder="https://www.instagram.com/username" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
               </div>
               <div class="mb-3">
                 <label for="akun_tiktok" class="block text-xs font-medium text-gray-700">Tautan akun TikTok</label>
                 <p class="text-xs font-small">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p>
-                <input type="text" id="akun_tiktok" name="akun_tiktok" placeholder="https://www.tiktok.com/@username" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
+                <input type="url" id="akun_tiktok" name="akun_tiktok" placeholder="https://www.tiktok.com/@username" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
               </div>
               <div class="mb-3">
                 <label for="akun_linkdin" class="block text-xs font-medium text-gray-700">Tautan akun LinkedIn</label>
                 <p class="text-xs font-small">(Disarankan mencantumkan akun LinkedIn yang tidak diprivate)</p>
-                <input type="text" id="akun_linkdin" name="akun_linkdin" placeholder="https://www.linkedin.com/in/username" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
+                <input type="url" id="akun_linkdin" name="akun_linkdin" placeholder="https://www.linkedin.com/in/username" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
               </div>
               <div class="mb-3">
                 <label for="sumber_informasi" class="block text-xs font-medium text-gray-700">Dari mana kamu mendapatkan informasi rekrutmen ini?</label>
-                <select id="sumber_informasi" name="sumber_informasi" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
-                  <option value="">Pilih Informasi</option>
-                  <option value="Instagram">Instagram</option>
-                  <option value="Telegram">Telegram</option>
-                  <option value="TikTok">TikTok</option>
-                  <option value="LinkedIn">LinkedIn</option>
-                  <option value="Teman">Teman</option>
-                  <option value="Other">Other</option>
-                </select>
+                  <input type="text" id="sumber_informasi" name="sumber_informasi" placeholder="Instagram Berbinar, Tiktok Berbinar, Linkedin Berbinar,Teman, Lainnya" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
               </div>
 
               <div class="hidden md:flex justify-between items-center -mb-2 mt-5">
@@ -331,7 +323,7 @@
                 <button id="previousButtonPageFive" type="button" class="w-full md:w-auto bg-[#C7F8FF] md:mt-36 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">Sebelumnya</button>
 
                 <!-- Tombol Selanjutnya -->
-                <button id="nextButtonPageFive" type="button" class="w-full md:w-auto bg-primary md:mt-36 text-white py-2 px-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary">Kirim</button>
+                <button id="nextButtonPageFive" type="submit" class="w-full md:w-auto bg-primary md:mt-36 text-white py-2 px-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary">Kirim</button>
               </div>
 
               <!-- Modal -->
@@ -358,7 +350,7 @@
                       </div>
                     </div>
                     <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                      <button id="closeModal" name="submit" type="submit" class="w-xl md:w-full md:w-auto bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary sm:text-xs">
+                      <button id="closeModal" name="button" type="button" class="w-xl md:w-full md:w-auto bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary sm:text-xs">
                         Tutup
                       </button>
                     </div>
@@ -370,231 +362,174 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-      document.getElementById('nextButtonPageFive').addEventListener('click', function(event) {
-        event.preventDefault();
+document.getElementById('nextButtonPageFive').addEventListener('click', function(event) {
+    event.preventDefault();
 
-        var hasError = false; // Assume no error initially
-        var errorMessage;
-        // Example error checking logic (replace with actual logic)
-        var requiredFields = [
-          'email',
-          'nama_lengkap',
-          'nama_panggilan',
-          'tanggal_lahir',
-          'no_whatsapp',
-          'asal_kota',
-          'asal_pendidikan',
-          'status_kelas',
-          'jurusan',
-          'akun_instagram',
-          'akun_tiktok',
-          'akun_linkdin',
-          'sumber_informasi',
-          'tautan_cv',
-          'tautan_portofolio',
-          'tautan_berkas_ss',
-          'motivasi'
-        ];
+    var hasError = false; // Assume no error initially
+    var errorMessage;
+    
+    // List of required fields
+    var requiredFields = [
+        'email',
+        'nama_lengkap',
+        'nama_panggilan',
+        'tanggal_lahir',
+        'no_whatsapp',
+        'asal_kota',
+        'asal_pendidikan',
+        'status_kelas',
+        'jurusan',
+        'akun_instagram',
+        'akun_tiktok',
+        'akun_linkdin',
+        'sumber_informasi',
+        'tautan_cv',
+        'tautan_portofolio',
+        'tautan_berkas_ss',
+        'motivasi'
+    ];
 
-        requiredFields.forEach(function(fieldId) {
-          var field = document.getElementById(fieldId);
-          if (!field || field.value.trim() === '') {
+    // Validate each field
+    requiredFields.forEach(function(fieldId) {
+        var field = document.getElementById(fieldId);
+        if (!field || field.value.trim() === '') {
             hasError = true;
-            errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' belum diisi nih :(';
-            console.log("Missing or empty field: " + fieldId); // Log the missing field for debugging
-            // break;
-          }
-          if (fieldId === 'email') {
-            if (!isValidEmail(field.value)){
-              hasError = true;
-              errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-              console.log('salah format: ' + fieldId);
-            }
-          }
-          if (fieldId === 'no_whatsapp') {
-            if (!isValidPhoneNumber(field.value)){
-              hasError = true;
-              errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-              console.log('salah format: ' + fieldId);
-            }
-          }
-          
-          if (fieldId === 'tautan_cv' || fieldId === 'tautan_portofolio' || fieldId === 'tautan_berkas_ss'){
-            if (!isValidGoogleDriveLink(field.value)){
-             hasError = true;
-             errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-             console.log('salah format: ' + fieldId);
-            }
-          }
-          if (fieldId === 'akun_instagram'){
-            if(!isValidInstagramLink(field.value)){
-              hasError = true;
-              errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-              console.log('salah format: ' + fieldId);
-            }
-          }
-          if (fieldId === 'akun_tiktok'){
-            if(!isValidTikTokLink(field.value)){
-              hasError = true;
-              errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-              console.log('salah format: ' + fieldId);
-            }
-          }
-          if (fieldId === 'akun_linkdin'){
-            if(!isValidLinkedInLink(field.value)){
-              hasError = true;
-              errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-              console.log('salah format: ' + fieldId);
-            }
-          }
-        });
-
-        console.log("HASERROR: " + hasError
-
-        );
-
-        if (hasError) {
-          const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          // confirmButtonText: 'X',
-          showCloseButton: true,
-          timer: null,
-          timerProgressBar: false,
-              didOpen: (toast) => {
-                  toast.onmouseenter = null;
-                  toast.onmouseleave = null;
-              }
-          });
-
-          Toast.fire({
-              icon: "error",
-              title: errorMessage
-          });
-        } else {
-          // No error, show the modal
-          document.getElementById('successModal').classList.remove('hidden');
+            errorMessage = 'Kolom ' + removeUnderscores(fieldId) + ' belum diisi nih :(';
+            return;
         }
-      });
+
+        if (fieldId === 'email' && !isValidEmail(field.value)) {
+            hasError = true;
+            errorMessage = 'Kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
+            return;
+        }
+
+        if (fieldId === 'no_whatsapp' && !isValidPhoneNumber(field.value)) {
+            hasError = true;
+            errorMessage = 'Kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
+            return;
+        }
+
+        if (['tautan_cv', 'tautan_portofolio', 'tautan_berkas_ss'].includes(fieldId) && !isValidGoogleDriveLink(field.value)) {
+            hasError = true;
+            errorMessage = 'Kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
+            return;
+        }
+
+        if (fieldId === 'akun_instagram' && !isValidInstagramLink(field.value)) {
+            hasError = true;
+            errorMessage = 'Kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
+            return;
+        }
+
+        if (fieldId === 'akun_tiktok' && !isValidTikTokLink(field.value)) {
+            hasError = true;
+            errorMessage = 'Kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
+            return;
+        }
+
+        if (fieldId === 'akun_linkdin' && !isValidLinkedInLink(field.value)) {
+            hasError = true;
+            errorMessage = 'Kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
+            return;
+        }
+    });
+
+    // Display error if found
+    if (hasError) {
+        Swal.fire({
+            icon: "error", // Correct icon usage
+            title: "Error!",
+            text: errorMessage,
+        });
+    } else {
+        // No error, show the modal
+        document.getElementById('successModal').classList.remove('hidden');
+    }
+});
+
+document.getElementById('closeModal').addEventListener('click', function() {
+    // Hide the modal
+    document.getElementById('successModal').classList.add('hidden');
+    
+    // Redirect to the homepage
+    window.location.href = "{{ route('home') }}"; // Replace with the correct route to your homepage
+});
+
 
       function removeUnderscores(str) {
           return str.replace(/_/g, ' '); // Replace all underscores with spaces
       }
 
-
       function isValidURL(url) {
           // Regular expression for basic URL validation
-          // var urlPattern = new RegExp('^(https?:\\/\\/)?' + // protocol
-          //         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-          //         '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-          //         '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-          //         '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-          //         '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
-          // return urlPattern.test(url);
-          return true;
+          var urlPattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+                  '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+                  '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+                  '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+                  '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+                  '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+          return urlPattern.test(url);
       }
 
       function isValidEmail(email) {
-          // // Regular expression for basic email validation
-          // var emailPattern = new RegExp(
-          //     '^[a-zA-Z0-9._%+-]+' +           // local part
-          //     '@' +                            // @ symbol
-          //     '([a-zA-Z0-9.-]+\\.[a-zA-Z]{2,})$', 'i' // domain name
-          // );
-          // return emailPattern.test(email);
-          return true;
+          // Regular expression for basic email validation
+          var emailPattern = new RegExp(
+              '^[a-zA-Z0-9._%+-]+' +           // local part
+              '@' +                            // @ symbol
+              '([a-zA-Z0-9.-]+\\.[a-zA-Z]{2,})$', 'i' // domain name
+          );
+          return emailPattern.test(email);
       }
 
       function isValidGoogleDriveLink(url) {
-          // // Regular expression for validating Google Drive links
-          // var googleDrivePattern = new RegExp(
-          //     '^(https:\\/\\/)?(drive\\.google\\.com\\/)' + // Google Drive domain
-          //     '(file\\/d\\/|open\\?id=|drive\\/folders\\/|drive\\/u\\/\\d\\/folders\\/|drive\\/folders\\/)' + // Different possible paths
-          //     '[a-zA-Z0-9-_]+', // File or folder ID
-          //     'i' // Case-insensitive flag
-          // );
-          // return googleDrivePattern.test(url);
-          return true;
+          // Regular expression for validating Google Drive links
+          var googleDrivePattern = new RegExp(
+              '^(https:\\/\\/)?(drive\\.google\\.com\\/)' + // Google Drive domain
+              '(file\\/d\\/|open\\?id=|drive\\/folders\\/|drive\\/u\\/\\d\\/folders\\/|drive\\/folders\\/)' + // Different possible paths
+              '[a-zA-Z0-9-_]+', // File or folder ID
+              'i' // Case-insensitive flag
+          );
+          return googleDrivePattern.test(url);
       }
 
       function isValidInstagramLink(url) {
-          // // Regular expression for validating Instagram links
-          // var instagramPattern = new RegExp(
-          //     '^(https?:\\/\\/)?(www\\.)?instagram\\.com\\/' + // Instagram domain
-          //     '[a-zA-Z0-9_\\.]+\\/?$', // Username with optional trailing slash
-          //     'i' // Case-insensitive flag
-          // );
-          // return instagramPattern.test(url);
-          return true;
-        }
+          // Regular expression for validating Instagram links
+          var instagramPattern = new RegExp(
+              '^(https?:\\/\\/)?(www\\.)?instagram\\.com\\/' + // Instagram domain
+              '[a-zA-Z0-9_\\.]+\\/?$', // Username with optional trailing slash
+              'i' // Case-insensitive flag
+          );
+          return instagramPattern.test(url);
+      }
 
       function isValidTikTokLink(url) {
-          // // Regular expression for validating TikTok links
-          // var tikTokPattern = new RegExp(
-          //     '^(https?:\\/\\/)?(www\\.)?tiktok\\.com\\/(@[a-zA-Z0-9_]+)\\/?$', // TikTok domain and username with optional trailing slash
-          //     'i' // Case-insensitive flag
-          // );
-          // return tikTokPattern.test(url);
-          return true;
+          // Regular expression for validating TikTok links
+          var tikTokPattern = new RegExp(
+              '^(https?:\\/\\/)?(www\\.)?tiktok\\.com\\/(@[a-zA-Z0-9_]+)\\/?$', // TikTok domain and username with optional trailing slash
+              'i' // Case-insensitive flag
+          );
+          return tikTokPattern.test(url);
       }
 
       function isValidLinkedInLink(url) {
-          // // Regular expression for validating LinkedIn links
-          // var linkedInPattern = new RegExp(
-          //     '^(https?:\\/\\/)?(www\\.)?linkedin\\.com\\/' + // LinkedIn domain
-          //     '(in|pub|company|school)\\/[a-zA-Z0-9_-]+\\/?$', // Profile, company, or school paths with optional trailing slash
-          //     'i' // Case-insensitive flag
-          // );
-          // return linkedInPattern.test(url);
-          return true;
+          // Regular expression for validating LinkedIn links
+          var linkedInPattern = new RegExp(
+              '^(https?:\\/\\/)?(www\\.)?linkedin\\.com\\/' + // LinkedIn domain
+              '(in|pub|company|school)\\/[a-zA-Z0-9_-]+\\/?$', // Profile, company, or school paths with optional trailing slash
+              'i' // Case-insensitive flag
+          );
+          return linkedInPattern.test(url);
       }
 
 
       function isValidPhoneNumber(number) {
-          // // Regular expression for validating phone numbers starting with +
-          // var phonePattern = new RegExp(
-          //     '^\\+[0-9]+$' // Must start with + followed by one or more digits
-          // );
-          // return phonePattern.test(number);
-          return true;
+          // Regular expression for validating phone numbers starting with +
+          var phonePattern = new RegExp(
+              '^\\+[0-9]+$' // Must start with + followed by one or more digits
+          );
+          return phonePattern.test(number);
       }
-
-      document.getElementById('closeModal').addEventListener('click', function() {
-        document.getElementById('successModal').classList.add('hidden');
-        document.addEventListener("DOMContentLoaded", function() {
-          const successModal = document.getElementById('successModal');
-          const previousButtonPageFive = document.getElementById('previousButtonPageFive');
-          const nextButtonPageFive = document.getElementById('nextButtonPageFive');
-          const closeModal = document.getElementById('closeModal');
-
-          if (nextButtonPageFive) {
-            nextButtonPageFive.addEventListener('click', function() {
-              // Tampilkan modal
-              successModal.classList.remove('hidden');
-              successModal.classList.add('flex');
-
-              // Optional: Anda bisa menyembunyikan tombol "Sebelumnya" di sini
-              if (previousButtonPageFive) {
-                previousButtonPageFive.style.display = 'none';
-              }
-            });
-          }
-
-          if (closeModal) {
-            closeModal.addEventListener('click', function() {
-              // Sembunyikan modal
-              successModal.classList.remove('flex');
-              successModal.classList.add('hidden');
-
-              // Optional: Anda bisa menampilkan kembali tombol "Sebelumnya" di sini
-              if (previousButtonPageFive) {
-                previousButtonPageFive.style.display = 'block';
-              }
-            });
-          }
-        });
-      });
     </script>
     <!-- </form> -->
   </div>
