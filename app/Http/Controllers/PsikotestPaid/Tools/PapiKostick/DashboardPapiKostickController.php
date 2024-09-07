@@ -16,8 +16,22 @@ class DashboardPapiKostickController extends Controller
     // public function __construct()
     // {
     //     $this->middleware('auth')->except(['login']);
-    //     $this->middleware('role:Admin,HR,Konselling,PsikotestFree')->except(['login']);
+    //     $this->middleware('role:Admin,HR,Konselling,PsikotestFree,PsikotestPaid')->except(['login']);
     // }
+
+    public function countUserTest()
+    {
+        $onprogress = PsikotestPaidTest::where('psikotest_tool_id', 1)
+            ->where('status_progress', false)
+            ->count();
+
+        $done = PsikotestPaidTest::where('psikotest_tool_id', 1)
+            ->where('status_progress', true)
+            ->count();
+
+        return view('moduls.dashboard.psikotes-paid.tools.papi-kostick.dashboardPapikostick', compact('onprogress', 'done'));
+    }
+
 
     public function allResponden()
     {
@@ -25,7 +39,8 @@ class DashboardPapiKostickController extends Controller
             ->where('psikotest_tool_id', 1)
             ->get();
 
-        return view('moduls.psikotes-paid.tools.papi-kostick.data', compact('respondens'));
+        // return view('moduls.psikotes-paid.tools.papi-kostick.data', compact('respondens'));
+        return view('moduls.dashboard.psikotes-paid.tools.papi-kostick.psikotestData', compact('respondens'));
     }
 
     public function detailResponden($id)
@@ -40,7 +55,8 @@ class DashboardPapiKostickController extends Controller
             ->where('test_papi_kostick_id', $testPapiKostick->id)
             ->get() : [];
 
-        return view('moduls.psikotes-paid.tools.papi-kostick.detail', compact('responden', 'result', 'descriptions', 'answers'));
+        // return view('moduls.psikotes-paid.tools.papi-kostick.detail', compact('responden', 'result', 'descriptions', 'answers'));
+        return view('moduls.dashboard.psikotes-paid.tools.papi-kostick.papikostick', compact('responden', 'result', 'descriptions', 'answers'));
     }
 
     private function getAllDescription(ResultPapiKostick $result)
@@ -392,18 +408,16 @@ class DashboardPapiKostickController extends Controller
     {
         $questions = QuestionPapiKostick::all();
 
-        return view('moduls.psikotes-paid.tools.papi-kostick.soal', compact('questions'));
+        return view('moduls.dashboard.psikotes-paid.tools.papi-kostick.psikotestSoal', compact('questions'));
     }
 
-    // Display the edit form for a specific question
     public function editSoal($id)
     {
         $question = QuestionPapiKostick::findOrFail($id);
 
-        return view('moduls.psikotes-paid.tools.papi-kostick.edit-soal', compact('question'));
+        return view('moduls.dashboard.psikotes-paid.tools.papi-kostick.edit-soal', compact('question'));
     }
 
-    // Update the specific question
     public function updateSoal(Request $request, $id)
     {
         $question = QuestionPapiKostick::findOrFail($id);
@@ -419,6 +433,6 @@ class DashboardPapiKostickController extends Controller
         $question->b = $request->input('b');
         $question->save();
 
-        return redirect()->route('papi-kostick.soal')->with('success', 'Question updated successfully');
+        return redirect()->route('dashboard.psikotespaid.psikotestSoal')->with('success', 'Question updated successfully');
     }
 }

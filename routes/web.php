@@ -173,11 +173,20 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/data-test', [DashboardUserController::class, 'psikotestTool'])->name('dashboard.psikotespaid.data-test');
 
         // Dashboard PAPI Kostick
-        Route::get('/data-test/dashboardPapikostick', [DashboardUserController::class, 'dashboardPapikostick'])->name('dashboard.psikotespaid.dashboardPapikostick');
-        Route::get('/data-test/papikostick', [DashboardUserController::class, 'papikostick'])->name('dashboard.psikotespaid.papikostick');
-        Route::get('/data-test/psikotestData', [DashboardUserController::class, 'psikotestData'])->name('dashboard.psikotespaid.psikotestData');
-        Route::get('/data-test/psikotestSoal', [DashboardUserController::class, 'psikotestSoal'])->name('dashboard.psikotespaid.psikotestSoal');
+        // Route::get('/data-test/dashboardPapikostick', [DashboardUserController::class, 'dashboardPapikostick'])->name('dashboard.psikotespaid.dashboardPapikostick');
+        Route::get('/papi-kostick/dashboardPapikostick', [DashboardPapiKostickController::class, 'countUserTest'])->name('dashboard.psikotespaid.dashboardPapikostick');
+        // Route::get('/papi-kostick/psikotestData', [DashboardUserController::class, 'psikotestData'])->name('dashboard.psikotespaid.psikotestData');
+        Route::get('/papi-kostick/respondents', [DashboardPapiKostickController::class, 'allResponden'])->name('dashboard.psikotespaid.psikotestData');
+        // Route::get('/papi-kostick/papikostick', [DashboardUserController::class, 'papikostick'])->name('dashboard.psikotespaid.papikostick');
+        Route::get('/papi-kostick/respondents/{id}', [DashboardPapiKostickController::class, 'detailResponden'])->name('dashboard.psikotespaid.papikostick');
+        Route::get('/papi-kostick/psikotestSoal', [DashboardPapiKostickController::class, 'allSoal'])->name('dashboard.psikotespaid.psikotestSoal');
+        Route::get('/papi-kostick/psikotestSoal/{id}/edit', [DashboardPapiKostickController::class, 'editSoal'])->name('dashboard.psikotespaid.psikotestSoal.page-edit');
+        Route::put('/papi-kostick/psikotestSoal/{id}', [DashboardPapiKostickController::class, 'updateSoal'])->name('dashboard.psikotespaid.psikotestSoal.edit');
 
+        // DASHBOARD VAK
+        Route::get('/vak/data', [DashboardVakController::class, 'countUserTest'])->name('dashboard.psikotespaid.vak.data-count');
+        Route::get('/vak/responden', [DashboardVakController::class, 'allResponden'])->name('dashboard.psikotespaid.vak.all-responden');
+        Route::get('/vak/detail/{id}', [DashboardVakController::class, 'detailAnswer'])->name('dashboard.psikotespaid.vak.detail-answer');
 
         Route::post('/data-test/{id}/generate-token', [DashboardUserController::class, 'generateToken'])->name('dashboard.psikotespaid.generate-token');
         Route::get('/price-list', [DashboardUserController::class, 'priceList'])->name('dashboard.psikotespaid.price-list');
@@ -186,10 +195,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('/price-list/{id}', [DashboardUserController::class, 'deletePriceList'])->name('dashboard.psikotespaid.delete-price-list');
         Route::get('/testimoni', [DashboardUserController::class, 'testimoni'])->name('dashboard.psikotespaid.testimoni');
         Route::get('/testimoni/{id}', [DashboardUserController::class, 'testimoniShow'])->name('dashboard.psikotespaid.testimoni-show');
-
-        // DASHBOARD PSIKOTEST PAID VAK
-
     });
+
     Route::get('/dashboard/admin/psikotest-paid/baum', [DashboardController::class, 'psikotesPaidBAUM'])->name('dashboard.psikotespaid.baum');
     Route::get('/dashboard/admin/psikotest-paid/htp', [DashboardController::class, 'psikotesPaidHTP'])->name('dashboard.psikotespaid.htp');
     Route::get('/dashboard/admin/psikotest-paid/dap', [DashboardController::class, 'psikotesPaidDAP'])->name('dashboard.psikotespaid.dap');
@@ -298,23 +305,11 @@ Route::post('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'store'
 Route::get('/results/{test_id}/{user_id}', [ResultController::class, 'show'])->name('result.psikotest.show');
 Route::post('/finish-test/{test_id}/{user_id}', [ResultController::class, 'finishTest'])->name('result.psikotest.finishTest');
 
-// Route::get('/psikotest/login', [LandingController::class, 'psikotestLogin'])->name('psikotestLogin');
-// Route::get('/psikotest/register', [LandingController::class, 'psikotestRegister'])->name('psikotestRegister');
-
-// Route::get('/dashboard/admin/data', [DashboardController::class, 'data'])->name('dashboard.data');
-// Route::get('/dashboard/admin/question', [DashboardController::class, 'question'])->name('dashboard.question');
-// Route::resource('/posts', App\Http\Controllers\DashboardController::class);
-
 // MODUL INTERSHIP
 Route::resource('/user_internships', UserInternshipController::class);
 
 // DEV PSIKOTES PAID
 Route::get('/psikotest/register/{page}', [UserPsikotestPaidController::class, 'showPage'])->name('psikotest-paid.showPage');
-
-// DASHBOARD VAK
-Route::get('/vak/data', [DashboardVakController::class, 'countUserTest'])->name('dashboard.psikotespaid.vak.data-count');
-Route::get('/vak/responden', [DashboardVakController::class, 'allResponden'])->name('dashboard.psikotespaid.vak.all-responden');
-Route::get('/vak/detail/{id}', [DashboardVakController::class, 'detailAnswer'])->name('dashboard.psikotespaid.vak.detail-answer');
 
 Route::prefix('/psikotest-paid')->group(function () {
 
@@ -349,7 +344,6 @@ Route::prefix('/psikotest-paid')->group(function () {
 
         // ROUTE UNTUK TIAP TOOLS!
         Route::get('/tool/papi-kostick', [PapiKostickController::class, 'showLanding'])->name('psikotest-paid.tool.PAPI Kostick.showLanding');
-
         Route::get('/tool/BAUM', [BAUMController::class, 'showLanding'])->name('psikotest-paid.tool.BAUM.showLanding');
         Route::post('/tool/BAUM/start', [BAUMController::class, 'startTest'])->name('psikotest-paid.tool.BAUM.startTest');
         Route::get('/tool/BAUM/test/{testId}', [BAUMController::class, 'showTest'])->name('psikotest-paid.tool.BAUM.showTest');
