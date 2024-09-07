@@ -1142,4 +1142,19 @@ class LandingController extends Controller
     {
         return view('moduls.dashboard.psikotes-paid.data-test');
     }
+
+    public function instruksiVak()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.vak.instruksi');
+    }
+
+    public function soalVak()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.vak.soal');
+    }
+
+    public function endVak()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.vak.end');
+    }
 }

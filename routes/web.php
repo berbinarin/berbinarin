@@ -405,3 +405,7 @@ Route::prefix('/psikotest-paid')->group(function () {
         });
     });
 });
+
+Route::get('/instruksiVak', [LandingController::class, 'instruksiVak'])->name('instruksiVak');
+Route::get('/soalVak', [LandingController::class, 'soalVak'])->name('soalVak');
+Route::get('/endVak', [LandingController::class, 'endVak'])->name('endVak');
