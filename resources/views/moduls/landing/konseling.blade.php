@@ -46,7 +46,7 @@
                                         Kalimantan Utara
                                         (Tarakan)
                                     </li>
-                                    <li>Peer Counselor : Bekasi, Tangerang Selatan, dan Padang</li>
+                                    <li>Peer Counselor : Bekasi, Jakarta, Tangerang Selatan, Padang, Wonogirin dan Malang</li>
                                 </ul>
                             </li>
                             <li>Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n.
@@ -341,7 +341,7 @@
                                         Kalimantan Utara
                                         (Tarakan)
                                     </li>
-                                    <li>Peer Counselor : Bekasi, Tangerang Selatan, dan Padang</li>
+                                    <li>Peer Counselor : Bekasi, Jakarta, Tangerang Selatan, Padang, Wonogirin dan Malang </li>
                                 </ul>
                             </li>
                             <li>Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n.
@@ -444,7 +444,7 @@
                 <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
                     <h3 class="text-black text-xl font-medium">Offline</h3>
                     <h1 class="text-black text-4xl font-medium">IDR 55k/jam</h1>
-                    <p class="text-lg text-disabled">Wilayah Bekasi, Tangerang Selatan, Padang</p>
+                    <p class="text-lg text-disabled">Wilayah Bekasi, Jakarta, Tangerang Selatan, Padang, Wonogirin dan Malang</p>
                     <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="0">
                         Mulai Sekarang
                     </button>
