@@ -217,15 +217,7 @@
               </div>
               <div class="mb-3">
                 <label for="sumber_informasi" class="block text-xs font-medium text-gray-700">Dari mana kamu mendapatkan informasi rekrutmen ini?</label>
-                <select id="sumber_informasi" name="sumber_informasi" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
-                  <option value="">Pilih Informasi</option>
-                  <option value="Instagram">Instagram</option>
-                  <option value="Telegram">Telegram</option>
-                  <option value="TikTok">TikTok</option>
-                  <option value="LinkedIn">LinkedIn</option>
-                  <option value="Teman">Teman</option>
-                  <option value="Other">Other</option>
-                </select>
+                <input type="text" id="sumber_informasi" name="sumber_informasi" placeholder="Instagram Berbinar, Tiktok Berbinar, Linkedin Berbinar,Teman, Lainnya" class="mt-1 block w-full md:w-full px-2.5 py-1.5 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs" required>
               </div>
 
               <div class="hidden md:flex justify-between items-center -mb-2 mt-5">
@@ -319,9 +311,9 @@
                 <!-- <label for="tiktokFive" class="block text-lg font-medium text-gray-700">Motivasi Mendaftar Internship Berbinar</label> -->
                 <p class="text-xs">Terima kasih sudah mendaftar. Pastikan bahwa seluruh data <br> telah benar, link dapat diakses, dan jangan lupa tekan tombol <br> kirim di bawah ini 😆</p>
                 <p class="text-xs mt-4 mb-4">Jika ada pertanyaan lebih lanjut, bisa hubungi WA di bawah ini:<br>
-                  Zona (<a href="https://wa.me/6288233215540 " class="text-blue-500">085721842573</a>)<br>
-                  Dhina (<a href="https://wa.me/6281315226773" class="text-blue-500">088233215540</a>)<br>
-                  Laila (<a href="https://wa.me/6281542288773" class="text-blue-500">081234567890</a>)
+                  Zona (<a href="https://wa.me/6288233215540 " class="text-blue-500">088233215540</a>)<br>
+                  Dhina (<a href="https://wa.me/6281315226773" class="text-blue-500">081315226773</a>)<br>
+                  Laila (<a href="https://wa.me/6281542288773" class="text-blue-500">081542288773</a>)
                 </p>
                 <!-- <textarea type="textarea" id="tiktokFive" name="tiktokFive" placeholder="Lorem Ipsum" class="mt-1 h-[200px] block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs"></textarea> -->
               </div>

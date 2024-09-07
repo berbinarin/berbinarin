@@ -56,7 +56,7 @@
                                         <div class="relative w-auto my-6 mx-auto max-w-3xl">
                                             <!--content-->
                                             <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                                                <!--header-->
+                                                <!--header siniiiiii-->
                                                 <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
                                                     <h3 class="text-3xl font-semibold">
                                                         Edit Peer Counselor Schedule
@@ -88,19 +88,20 @@
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        <div class="flex gap-1 mb-2">
+                                                        <div class="flex gap-1 mb-1">
                                                             <div class="mb-1 pt-0 flex-1">
                                                                 <label for="pukul_mulai" class="text-blueGray-600 text-base">Pukul Mulai</label>
                                                                 <input name="pukul_mulai" id="pukul_mulai" value="{{ $item->pukul_mulai}}" type="time" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full"  required/>
                                                             </div>
-                                                            <div class="mb-6 pt-0 flex-1">
+                                                            <div class="pt-0 flex-1">
                                                                 <label for="pukul_selesai" class="text-blueGray-600 text-base">Pukul Selesai</label>
                                                                 <input name="pukul_selesai" id="pukul_selesai" value="{{ $item->pukul_selesai}}" type="time" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full"  required/>
                                                             </div>
                                                         </div>
-                                                        <div class="flex gap-1">
-                                                            <div class="mb-1 pt-0 w-full">
-                                                                <label for="penanggung_jawab" class="text-blueGray-600 text-base">Penanggung jawab</label>
+                                                        {{-- <div class="flex gap-1"> --}}
+                                                        <div class="flex gap-1 mb-8">
+                                                            <div class="pt-0 w-full">
+                                                                <label for="penanggung_jawab" class="text-blueGray-600 text-base">Penanggung Jawab</label>
                                                                 <input type="text" name="penanggung_jawab" value="{{ $item->penanggung_jawab}}"  class="px-3 py-3 appearance-none placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full" required>
                                                             </div>
                                                         </div>

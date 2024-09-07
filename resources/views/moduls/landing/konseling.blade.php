@@ -399,6 +399,7 @@
                 <div class="flex flex-col items-center">
                     <a target="_blank" href="#" class="text-xl font-medium text-center">Fairuzza Nur Qibtiya
                     </a>
+                    <p class="text-lg text-disabled">Bekasi & Jakarta</p>
                 </div>
             </div>
 
@@ -407,6 +408,7 @@
                 <div class="flex flex-col items-center">
                     <a target="_blank" href="#" class="text-xl font-medium text-center">Shafiyyah Muthi'ah
                     </a>
+                    <p class="text-lg text-disabled">Tangerang Selatan</p>
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
@@ -414,6 +416,15 @@
                 <div class="flex flex-col items-center">
                     <a target="_blank" href="#" class="text-xl font-medium text-center">Nurul Asmaul Husna
                     </a>
+                    <p class="text-lg text-disabled">Padang</p>
+                </div>
+            </div>
+            <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/nabila.jpg') }}">
+                <div class="flex flex-col items-center">
+                    <a target="_blank" href="#" class="text-xl font-medium text-center">Nabila Farah Atiqah 
+                    </a>
+                    <p class="text-lg text-disabled">Wonogiri & Malang</p>
                 </div>
             </div>
 
