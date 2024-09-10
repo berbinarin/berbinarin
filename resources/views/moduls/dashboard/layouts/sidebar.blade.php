@@ -35,12 +35,12 @@
         $dashboardTextColor = $modul === 'Dashboard Papikostick' ? 'text-primary' : 'text-gray-700';
         @endphp
 
-        <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+        {{-- <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route($dashboardRoute) }}" class="flex flex-col items-center {{ $dashboardTextColor }} hover:text-primary duration-700">
                 <i class='bx bx-grid-alt text-lg'></i>
                 <span class="text-base mt-2">Dashboard</span>
             </a>
-        </li>
+        </li> --}}
         @endif
 
 

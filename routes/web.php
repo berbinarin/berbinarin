@@ -172,21 +172,30 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('/data/{id}', [DashboardUserController::class, 'deleteUserRegister'])->name('dashboard.psikotespaid.data-destroy');
         Route::get('/data-test', [DashboardUserController::class, 'psikotestTool'])->name('dashboard.psikotespaid.data-test');
 
-        // Dashboard PAPI Kostick
-        // Route::get('/data-test/dashboardPapikostick', [DashboardUserController::class, 'dashboardPapikostick'])->name('dashboard.psikotespaid.dashboardPapikostick');
-        Route::get('/papi-kostick/dashboardPapikostick', [DashboardPapiKostickController::class, 'countUserTest'])->name('dashboard.psikotespaid.dashboardPapikostick');
-        // Route::get('/papi-kostick/psikotestData', [DashboardUserController::class, 'psikotestData'])->name('dashboard.psikotespaid.psikotestData');
-        Route::get('/papi-kostick/respondents', [DashboardPapiKostickController::class, 'allResponden'])->name('dashboard.psikotespaid.psikotestData');
-        // Route::get('/papi-kostick/papikostick', [DashboardUserController::class, 'papikostick'])->name('dashboard.psikotespaid.papikostick');
-        Route::get('/papi-kostick/respondents/{id}', [DashboardPapiKostickController::class, 'detailResponden'])->name('dashboard.psikotespaid.papikostick');
-        Route::get('/papi-kostick/psikotestSoal', [DashboardPapiKostickController::class, 'allSoal'])->name('dashboard.psikotespaid.psikotestSoal');
-        Route::get('/papi-kostick/psikotestSoal/{id}/edit', [DashboardPapiKostickController::class, 'editSoal'])->name('dashboard.psikotespaid.psikotestSoal.page-edit');
-        Route::put('/papi-kostick/psikotestSoal/{id}', [DashboardPapiKostickController::class, 'updateSoal'])->name('dashboard.psikotespaid.psikotestSoal.edit');
+        // DASHBOARD PAPI Kostick
+        Route::prefix('papi-kostick')->group(function () {
+            Route::get('/dashboardPapikostick', [DashboardPapiKostickController::class, 'countUserTest'])->name('dashboard.psikotespaid.papi-kostick');
+            Route::get('/respondents', [DashboardPapiKostickController::class, 'allResponden'])->name('dashboard.psikotespaid.psikotestData');
+            Route::get('/respondents/{id}', [DashboardPapiKostickController::class, 'detailResponden'])->name('dashboard.psikotespaid.papikostick');
+            Route::get('/psikotestSoal', [DashboardPapiKostickController::class, 'allSoal'])->name('dashboard.psikotespaid.psikotestSoal');
+            Route::get('/psikotestSoal/{id}/edit', [DashboardPapiKostickController::class, 'editSoal'])->name('dashboard.psikotespaid.psikotestSoal.page-edit');
+            Route::put('/psikotestSoal/{id}', [DashboardPapiKostickController::class, 'updateSoal'])->name('dashboard.psikotespaid.psikotestSoal.edit');
+        });
 
         // DASHBOARD VAK
-        Route::get('/vak/data', [DashboardVakController::class, 'countUserTest'])->name('dashboard.psikotespaid.vak.data-count');
-        Route::get('/vak/responden', [DashboardVakController::class, 'allResponden'])->name('dashboard.psikotespaid.vak.all-responden');
-        Route::get('/vak/detail/{id}', [DashboardVakController::class, 'detailAnswer'])->name('dashboard.psikotespaid.vak.detail-answer');
+        Route::prefix('vak')->group(function () {
+            Route::get('/data', [DashboardVakController::class, 'countUserTest'])->name('dashboard.psikotespaid.vak');
+            Route::get('/responden', [DashboardVakController::class, 'allResponden'])->name('dashboard.psikotespaid.vak.all-responden');
+            Route::get('/detail/{id}', [DashboardVakController::class, 'detailAnswer'])->name('dashboard.psikotespaid.vak.detail-answer');
+        });
+
+        // DASHBOARD TOOLS
+        Route::get('/baum', [DashboardController::class, 'psikotesPaidBAUM'])->name('dashboard.psikotespaid.baum');
+        Route::get('/htp', [DashboardController::class, 'psikotesPaidHTP'])->name('dashboard.psikotespaid.htp');
+        Route::get('/dap', [DashboardController::class, 'psikotesPaidDAP'])->name('dashboard.psikotespaid.dap');
+        Route::get('/dashboardtes', [DashboardController::class, 'psikotesPaidDashboardTes'])->name('dashboard.psikotespaid.dashboardtes');
+        Route::get('/dashboardesai', [DashboardController::class, 'psikotesPaidDashboardEsai'])->name('dashboard.psikotespaid.dashboardesai');
+        Route::get('/pengumpulan', [DashboardController::class, 'psikotesPaidPengumpulan'])->name('dashboard.psikotespaid.pengumpulan');
 
         Route::post('/data-test/{id}/generate-token', [DashboardUserController::class, 'generateToken'])->name('dashboard.psikotespaid.generate-token');
         Route::get('/price-list', [DashboardUserController::class, 'priceList'])->name('dashboard.psikotespaid.price-list');
@@ -197,12 +206,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/testimoni/{id}', [DashboardUserController::class, 'testimoniShow'])->name('dashboard.psikotespaid.testimoni-show');
     });
 
-    Route::get('/dashboard/admin/psikotest-paid/baum', [DashboardController::class, 'psikotesPaidBAUM'])->name('dashboard.psikotespaid.baum');
-    Route::get('/dashboard/admin/psikotest-paid/htp', [DashboardController::class, 'psikotesPaidHTP'])->name('dashboard.psikotespaid.htp');
-    Route::get('/dashboard/admin/psikotest-paid/dap', [DashboardController::class, 'psikotesPaidDAP'])->name('dashboard.psikotespaid.dap');
-    Route::get('/dashboard/admin/psikotest-paid/dashboardtes', [DashboardController::class, 'psikotesPaidDashboardTes'])->name('dashboard.psikotespaid.dashboardtes');
-    Route::get('/dashboard/admin/psikotest-paid/dashboardesai', [DashboardController::class, 'psikotesPaidDashboardEsai'])->name('dashboard.psikotespaid.dashboardesai');
-    Route::get('/dashboard/admin/psikotest-paid/pengumpulan', [DashboardController::class, 'psikotesPaidPengumpulan'])->name('dashboard.psikotespaid.pengumpulan');
 
     // MODUL KONSELLING PSIKOLOG
     Route::get('/dashboard/admin/psikologData', [DashboardController::class, 'PsikologData'])->name('dashboard.PsikologData');
@@ -383,12 +386,12 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::post('/{id}/question/{question_order}', [PapiKostickController::class, 'submitAnswers'])->name('psikotest-paid.papi-kostick.submit');
         Route::get('/{id}/complete', [PapiKostickController::class, 'completeTest'])->name('psikotest-paid.papi-kostick.complete');
 
-        // DASHBOARD PAPI KOSTICK
-        Route::get('/respondents', [DashboardPapiKostickController::class, 'allResponden'])->name('psikotest-paid.papi-kostick.data');
-        Route::get('/respondents/{id}', [DashboardPapiKostickController::class, 'detailResponden'])->name('psikotest-paid.papi-kostick.detail');
-        Route::get('/papi-kostick/soal', [DashboardPapiKostickController::class, 'allSoal'])->name('papi-kostick.soal');
-        Route::get('/papi-kostick/soal/{id}/edit', [DashboardPapiKostickController::class, 'editSoal'])->name('papi-kostick.edit-soal');
-        Route::put('/papi-kostick/soal/{id}', [DashboardPapiKostickController::class, 'updateSoal'])->name('papi-kostick.update-soal');
+        // // DASHBOARD PAPI KOSTICK
+        // Route::get('/respondents', [DashboardPapiKostickController::class, 'allResponden'])->name('psikotest-paid.papi-kostick.data');
+        // Route::get('/respondents/{id}', [DashboardPapiKostickController::class, 'detailResponden'])->name('psikotest-paid.papi-kostick.detail');
+        // Route::get('/papi-kostick/soal', [DashboardPapiKostickController::class, 'allSoal'])->name('papi-kostick.soal');
+        // Route::get('/papi-kostick/soal/{id}/edit', [DashboardPapiKostickController::class, 'editSoal'])->name('papi-kostick.edit-soal');
+        // Route::put('/papi-kostick/soal/{id}', [DashboardPapiKostickController::class, 'updateSoal'])->name('papi-kostick.update-soal');
 
         // VAK
         Route::prefix('/test-13')->group(function () {
