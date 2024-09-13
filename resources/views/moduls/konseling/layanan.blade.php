@@ -58,7 +58,7 @@
                     </div>
                 </div>
 
-                <div class="w-screen h-max hidden lg:block decoration__conreg">
+                <div class="w-screen h-auto hidden lg:block decoration__conreg">
                     <div class="flex mx-auto justify-center align-items-center">
                         <img src="{{ asset('assets/images/konseling/regist/Ilustrasi2.png') }}" alt="Ilustrasi-Test"
                             class="absolute mx-auto mt-14 w-[550px] z-10">

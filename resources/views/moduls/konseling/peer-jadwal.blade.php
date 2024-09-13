@@ -271,6 +271,9 @@
                                         <option value="Bekasi">Bekasi</option>
                                         <option value="Tangerang Selatan">Tangerang Selatan</option>
                                         <option value="Padang">Padang</option>
+                                        <option value="Jakarta">Jakarta</option>
+                                        <option value="Wonogiri">Wonogiri</option>
+                                        <option value="Malang">Malang</option>
                                     </select>
                                 </div>
                                 <div class="hargakons mt-4">
