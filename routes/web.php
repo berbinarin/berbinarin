@@ -206,6 +206,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/testimoni/{id}', [DashboardUserController::class, 'testimoniShow'])->name('dashboard.psikotespaid.testimoni-show');
     });
 
+    Route::get('/dashboard/admin/psikotest-paid/dashboardVAK', [DashboardController::class, 'dashboardVAK'])->name('dashboard.psikotespaid.dashboardVAK');
+    Route::get('/dashboard/admin/psikotest-paid/jawabanVAK', [DashboardController::class, 'jawabanVAK'])->name('dashboard.psikotespaid.jawabanVAK');
+    Route::get('/dashboard/admin/psikotest-paid/detailVAK', [DashboardController::class, 'detailVAK'])->name('dashboard.psikotespaid.detailVAK');
 
     // MODUL KONSELLING PSIKOLOG
     Route::get('/dashboard/admin/psikologData', [DashboardController::class, 'PsikologData'])->name('dashboard.PsikologData');
