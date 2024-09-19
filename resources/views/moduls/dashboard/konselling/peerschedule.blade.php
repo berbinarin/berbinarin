@@ -146,7 +146,7 @@
                                                         @csrf
                                                         @method("DELETE")
                                                         <input type="hidden" name="id">
-                                                        <p class="mb-6">Are you sure want to delete peer counsellor schedule in {{ $item->hari }} on {{ $item->pukul_mulai }} - {{ $item->pukul_selesai }} ?</p>
+                                                        <p class="mb-6">Are you sure want to delete peer counsellor schedule in <b>{{ $item->hari }}</b> on <b>{{ $item->pukul_mulai }} - {{ $item->pukul_selesai }}</b> ?</p>
                                                         <!--footer-->
                                                         <div class="flex items-center justify-end pt-3 border-t border-solid border-blueGray-200 rounded-b">
                                                             <button
