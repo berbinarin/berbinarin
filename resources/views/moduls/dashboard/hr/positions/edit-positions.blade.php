@@ -78,11 +78,11 @@
                             </select>
                         </div>
                     </div>
-                    <div class="mb-1 pt-0 w-full">
+                    {{-- <div class="mb-1 pt-0 w-full">
                         <label for="link" class="text-blueGray-600 text-base">Link Registrasi</label>
                         <input id="link" name="link" type="text" placeholder="Link Registrasi" value="{{ $HiringPosisitons->link }}"
                             class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full" />
-                    </div>
+                    </div> --}}
 
                     <!--footer-->
                     <div class="flex items-center justify-end pt-3 border-t border-solid border-blueGray-200 rounded-b">
