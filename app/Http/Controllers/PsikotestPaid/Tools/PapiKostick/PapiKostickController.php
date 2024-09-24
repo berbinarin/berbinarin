@@ -87,14 +87,10 @@ class PapiKostickController extends Controller
         if ($next_question_order > 90) {
             $this->calculateAndStoreResult($id);
 
-            // Update the status_progress to true
-            // $psikotestPaidTest = PsikotestPaidTest::where('id', $id)->first();
             $testPapiKostick = TestPapiKostick::with('psikotestPaidTest')->where('id', $id)->first();
 
-            // dd($testPapiKostick);
             if ($testPapiKostick && $testPapiKostick->psikotestPaidTest) {
                 $testPapiKostick->psikotestPaidTest->update(['status_progress' => true]);
-                dd($testPapiKostick->psikotestPaidTest, $testPapiKostick);
             }
 
             return redirect()->route('psikotest-paid.papi-kostick.complete', ['id' => $id]);
