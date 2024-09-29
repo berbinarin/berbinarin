@@ -34,6 +34,15 @@
             </a>
         </li>
 
+        @elseif ($title === 'Dashboard SSCT' || $title === 'Jawaban SSCT')
+        <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
+        rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.dashboardSSCT') }}" class=" flex flex-col items-center @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bx-grid-alt text-lg  @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base mt-2 text-center">Dashboard</span>
+            </a>
+        </li>
+
         @else
         <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
@@ -179,7 +188,7 @@
         @endif
 
 
-        @if (((((((((auth()->user()->role == 'PsikotestPaid' && $title != 'Dashboard Tes') && $title != 'BAUM') && $title != 'HTP') && $title != 'DAP' ) && $title != 'Dashboard Esai') && $title != 'Pengumpulan') && $title != 'Dashboard VAK' ) && $title != 'Jawaban VAK') && $title != 'Detail Jawaban VAK')
+        @if (((((((((((auth()->user()->role == 'PsikotestPaid' && $title != 'Dashboard Tes') && $title != 'BAUM') && $title != 'HTP') && $title != 'DAP' ) && $title != 'Dashboard Esai') && $title != 'Pengumpulan') && $title != 'Dashboard VAK' ) && $title != 'Jawaban VAK') && $title != 'Detail Jawaban VAK') && $title != 'Dashboard SSCT') && $title != 'Jawaban SSCT') 
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.psikotespaid.data') }}" class=" flex flex-col items-center @if ($modul === 'Psikotest Paid Data') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
                 <i class="bx bxs-user @if ($modul === 'Psikotest Paid Data') text-primary @else text-gray-700 @endif text-lg"></i>
@@ -283,9 +292,17 @@
                 <span class="text-base mt-2 text-center">Respon</span>
             </a>
         </li>
+
+        @elseif ($title === 'Dashboard SSCT' || $title === 'Jawaban SSCT')
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.jawabanSSCT') }}" class=" flex flex-col items-center @if ($modul === 'Psikotest Paid SSCT') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bx-receipt  @if ($modul === 'Psikotest Paid SSCT') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base mt-2 text-center">Pengumpulan</span>
+            </a>
+        </li>
         @endif
 
-        @if ($title === 'Dashboard Tes' || $title === 'BAUM' || $title === 'DAP' || $title === 'HTP' || $title === 'Dashboard Esai' || $title === 'Pengumpulan' || $title === 'Dashboard VAK' || $title === 'Jawaban VAK')
+        @if ($title === 'Dashboard Tes' || $title === 'BAUM' || $title === 'DAP' || $title === 'HTP' || $title === 'Dashboard Esai' || $title === 'Pengumpulan' || $title === 'Dashboard VAK' || $title === 'Jawaban VAK' || $title === 'Dashboard SSCT' || $title === 'Jawaban SSCT')
         <li class="mt-20 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
             <a href="{{ route('dashboard') }}" class=" flex flex-col items-center">
