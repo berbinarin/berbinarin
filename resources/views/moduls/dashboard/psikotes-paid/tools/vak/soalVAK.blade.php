@@ -86,7 +86,7 @@
         <!-- Percentage text -->
         <span class="text-sm text-black" style="position: absolute; top: 1px; left: 40%; transform: translateX(-50%); font-size: 8px;">40%</span>
       </div>
-      <a href="{{ route('endVak') }}">
+      <a href="{{ route('endVAK') }}">
         <button class="px-4 py-1 bg-blue-500 text-sm mr-2 text-white rounded-lg hover:bg-blue-600">Soal Berikutnya</button>
       </a>
     </div>
