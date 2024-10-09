@@ -196,6 +196,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin/psikotest-paid/dashboardtes', [DashboardController::class, 'psikotesPaidDashboardTes'])->name('dashboard.psikotespaid.dashboardtes');
     Route::get('/dashboard/admin/psikotest-paid/dashboardesai', [DashboardController::class, 'psikotesPaidDashboardEsai'])->name('dashboard.psikotespaid.dashboardesai');
     Route::get('/dashboard/admin/psikotest-paid/pengumpulan', [DashboardController::class, 'psikotesPaidPengumpulan'])->name('dashboard.psikotespaid.pengumpulan');
+    Route::get('/dashboard/admin/psikotest-paid/dashboardVAK', [DashboardController::class, 'dashboardVAK'])->name('dashboard.psikotespaid.dashboardVAK');
+    Route::get('/dashboard/admin/psikotest-paid/jawabanVAK', [DashboardController::class, 'jawabanVAK'])->name('dashboard.psikotespaid.jawabanVAK');
+    Route::get('/dashboard/admin/psikotest-paid/detailVAK', [DashboardController::class, 'detailVAK'])->name('dashboard.psikotespaid.detailVAK');
+    Route::get('/dashboard/admin/psikotest-paid/dashboardSSCT', [DashboardController::class, 'dashboardSSCT'])->name('dashboard.psikotespaid.dashboardSSCT');
+    Route::get('/dashboard/admin/psikotest-paid/jawabanSSCT', [DashboardController::class, 'jawabanSSCT'])->name('dashboard.psikotespaid.jawabanSSCT');
 
     // MODUL KONSELLING PSIKOLOG
     Route::get('/dashboard/admin/psikologData', [DashboardController::class, 'PsikologData'])->name('dashboard.PsikologData');
@@ -405,3 +410,10 @@ Route::prefix('/psikotest-paid')->group(function () {
         });
     });
 });
+
+Route::get('/instruksiVAK', [LandingController::class, 'instruksiVAK'])->name('instruksiVAK');
+Route::get('/soalVAK', [LandingController::class, 'soalVAK'])->name('soalVAK');
+Route::get('/endVAK', [LandingController::class, 'endVAK'])->name('endVAK');
+Route::get('/instruksiSSCT', [LandingController::class, 'instruksiSSCT'])->name('instruksiSSCT');
+Route::get('/soalSSCT', [LandingController::class, 'soalSSCT'])->name('soalSSCT');
+Route::get('/endSSCT', [LandingController::class, 'endSSCT'])->name('endSSCT');

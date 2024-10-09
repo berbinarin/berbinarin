@@ -387,6 +387,19 @@
                                         {{ old('daerah', $PeerConsellorDataDetails[0]->daerah ?? '') == 'Padang' ? 'selected' : '' }}>
                                         Padang
                                     </option>
+                                        <option value="Jakarta"
+                                        {{ old('daerah', $PeerConsellorDataDetails[0]->daerah ?? '') == 'Jakarta' ? 'selected' : '' }}>
+                                        Jakarta
+                                    </option>
+                                        <option value="Wonogiri"
+                                        {{ old('daerah', $PeerConsellorDataDetails[0]->daerah ?? '') == 'Wonogiri' ? 'selected' : '' }}>
+                                        Wonogiri
+                                    </option>
+                                        </option>
+                                        <option value="Malang"
+                                        {{ old('daerah', $PeerConsellorDataDetails[0]->daerah ?? '') == 'Malang' ? 'selected' : '' }}>
+                                        Malang
+                                    </option>
                                 </select>
                             </div>
                             <div class="mb-1 pt-0 flex-1">

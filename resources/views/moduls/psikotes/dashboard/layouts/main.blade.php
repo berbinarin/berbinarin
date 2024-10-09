@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title }} - Berbinar Insightful Indonesia</title>
     <link rel="shortcut icon" href="{{ asset('assets/images/logo-berbinar.png') }}" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
 
     <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel=" stylesheet">
     <!--Replace with your tailwind.css once created-->
@@ -58,19 +59,18 @@
 <body class="font-plusJakartaSans">
 
     @if ($active === 'Dashboard Psikotest')
-    <div class="h-screen w-full flex select-none">
-        @include('moduls.psikotes.dashboard.layouts.sidebar')
-        <main class="my-1 pt-2 pb-2 px-10 flex-1 bg-gray-100 rounded-l-lg
-		transition duration-500 ease-in-out overflow-y-auto">
-            @yield('content-dashboard')
-        </main>
-    </div>
+        <div class="h-screen w-full flex select-none">
+            @include('moduls.psikotes.dashboard.layouts.sidebar')
+            <main class="my-1 pt-2 pb-2 px-10 flex-1 bg-gray-200 transition duration-500 ease-in-out overflow-y-auto">
+                @yield('content-dashboard')
+            </main>
+        </div>
     @endif
 
     @if ($active === 'Login')
-    <main class="bg-gray-100 w-full flex items-center justify-center pt-36">
-        @yield('content')
-    </main>
+        <main class="bg-gray-100 w-full flex items-center justify-center pt-36">
+            @yield('content')
+        </main>
     @endif
 
     @include('sweetalert::alert')
