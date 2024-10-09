@@ -87,7 +87,7 @@
                     <!-- Teks berada di sebelah kanan -->
                     <div class="ml-5 flex flex-col">
                         <h5 class="text-xl md:text-xl font-medium">Junaidi Rahmat</h5>
-                        <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">Front-End <br> Web Developer</h4>
+                        <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">Back-End <br> Web Developer</h4>
                         <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-700">Agu 2024 - Sekarang</h1>
                         <!--Start Icon-->
                         <div class="flex flew-row gap-5 flex-wrap mt-5">
@@ -98,96 +98,6 @@
                                 <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
                             </a>
                             <a href="https://www.instagram.com/junaidirah_4?igsh=MTF1cHE3aXdhNWM5eg==" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
-                            </a>
-                        </div>
-                        <!--End Icon-->
-                    </div>
-                </div>
-            </div>
-            <!-- End Card -->
-
-            <!-- Start Card -->
-            <div class="rounded-xl shadow-lg mr-4">
-                <div class="p-5 flex flex-row items-left ">
-                    <!-- Gambar berada di sebelah kiri -->
-                    <div class="rounded-xl overflow-hidden">
-                    <img src="{{ asset('assets/images/credit-card/AdamWisnu-BE.jpg') }}" alt="Foto Profil" class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">
-                    </div>
-                    <!-- Teks berada di sebelah kanan -->
-                    <div class="ml-5 flex flex-col">
-                        <h5 class="text-xl md:text-xl font-medium">Adam Wisnu</h4>
-                        <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">Back-End <br> Web Developer</h4>
-                        <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-700">Apr 2024 - Sekarang</h1>
-                        <!--Start Icon-->
-                        <div class="flex flew-row gap-5 flex-wrap mt-5">
-                            <a href="mailto:wisnuadam21@gmail.com" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxs-envelope text-slate-500 text-[20px]'></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/adamwisnup/" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
-                            </a>
-                            <a href="https://www.instagram.com/adam_wisnup/" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
-                            </a>
-                        </div>
-                        <!--End Icon-->
-                    </div>
-                </div>
-            </div>
-            <!-- End Card -->
-
-            <!-- Start Card -->
-            <div class="rounded-xl shadow-lg mr-4">
-                <div class="p-5 flex flex-row items-left ">
-                    <!-- Gambar berada di sebelah kiri -->
-                    <div class="rounded-xl overflow-hidden">
-                    <img src="{{ asset('assets/images/credit-card/Ridho-BE.jpg') }}" alt="Foto Profil" class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">
-                    </div>
-                    <!-- Teks berada di sebelah kanan -->
-                    <div class="ml-5 flex flex-col">
-                        <h5 class="text-xl md:text-xl font-medium">Ridho Aditya </h5>
-                        <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">Back-End <br> Web Developer</h4>
-                        <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-700">Apr 2024 - Sekarang</h1>
-                        <!--Start Icon-->
-                        <div class="flex flew-row gap-5 flex-wrap mt-5">
-                            <a href="mailto:ridhoaditya925@gmail.com" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxs-envelope text-slate-500 text-[20px]'></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/ridho-aditya-rosman-eka-putra/" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
-                            </a>
-                            <a href="https://www.instagram.com/ido.adtya?igsh=c3QzMGxjOGJ0bzM1" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
-                            </a>
-                        </div>
-                        <!--End Icon-->
-                    </div>
-                </div>
-            </div>
-            <!-- End Card -->
-
-            <!-- Start Card -->
-            <div class="rounded-xl shadow-lg mr-4">
-                <div class="p-5 flex flex-row items-left ">
-                    <!-- Gambar berada di sebelah kiri -->
-                    <div class="rounded-xl overflow-hidden">
-                    <img src="{{ asset('assets/images/credit-card/MuhammadAdam-UIUX.jpg') }}" alt="Foto Profil" class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">
-                    </div>
-                    <!-- Teks berada di sebelah kanan -->
-                    <div class="ml-5 flex flex-col">
-                        <h5 class="text-xl md:text-xl font-medium">Muhammad <br>Adam</h5>
-                        <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">UI/UX Designer</h4>
-                        <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-700">Feb 2024 - Sekarang</h1>
-                        <!--Start Icon-->
-                        <div class="flex flew-row gap-5 flex-wrap mt-5">
-                            <a href="mailto:muhadamibrahim1873@gmail.com" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxs-envelope text-slate-500 text-[20px]'></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/adamibrahim18/" class="flex items-center justify-center" target="_blank">
-                                <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
-                            </a>
-                            <a href="https://www.instagram.com/dammm_zx/" class="flex items-center justify-center" target="_blank">
                                 <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
                             </a>
                         </div>
@@ -218,6 +128,126 @@
                             <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
                         </a>
                         <a href="https://www.instagram.com/talithariin/" class="flex items-center justify-center" target="_blank">
+                            <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
+                        </a>
+                    </div>
+                    <!--End Icon-->
+                </div>
+            </div>
+        </div>
+        <!-- End Card -->
+
+        <!-- Start Card -->
+        <div class="rounded-xl shadow-lg mr-4">
+            <div class="p-5 flex flex-row items-left ">
+                <!-- Gambar berada di sebelah kiri -->
+                <div class="rounded-xl overflow-hidden">
+                <img src="{{ asset('assets/images/credit-card/Irul-FE.jpg') }}" alt="Foto Profil" class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">
+                </div>
+                <!-- Teks berada di sebelah kanan -->
+                <div class="ml-5 flex flex-col">
+                    <h5 class="text-xl md:text-xl font-medium">Hairul Anam</h4>
+                    <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">Front-End<br/> Web Developer</h4>
+                    <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-700">Okt 2024 - Sekarang</h1>
+                    <!--Start Icon-->
+                    <div class="flex flew-row gap-5 flex-wrap mt-5">
+                        <a href="mailto:hairulanam.contact@gmail.com" class="flex items-center justify-center" target="_blank">
+                            <i class='bx bxs-envelope text-slate-500 text-[20px]'></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/hairulanam/" class="flex items-center justify-center" target="_blank">
+                            <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
+                        </a>
+                        <a href="https://www.instagram.com/hairulanaam" class="flex items-center justify-center" target="_blank">
+                            <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
+                        </a>
+                    </div>
+                    <!--End Icon-->
+                </div>
+            </div>
+        </div>
+        <!-- End Card -->
+
+        <!-- Start Card -->
+        <div class="rounded-xl shadow-lg mr-4">
+            <div class="p-5 flex flex-row items-left ">
+                <!-- Gambar berada di sebelah kiri -->
+                <div class="rounded-xl overflow-hidden">
+                <img src="{{ asset('assets/images/credit-card/AdamWisnu-BE.jpg') }}" alt="Foto Profil" class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">
+                </div>
+                <!-- Teks berada di sebelah kanan -->
+                <div class="ml-5 flex flex-col">
+                    <h5 class="text-xl md:text-xl font-medium">Adam Wisnu</h4>
+                    <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">Back-End <br> Web Developer</h4>
+                    <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-400">Apr 2024 - Okt 2024</h1>
+                    <!--Start Icon-->
+                    <div class="flex flew-row gap-5 flex-wrap mt-5">
+                        <a href="mailto:wisnuadam21@gmail.com" class="flex items-center justify-center" target="_blank">
+                            <i class='bx bxs-envelope text-slate-500 text-[20px]'></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/adamwisnup/" class="flex items-center justify-center" target="_blank">
+                            <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
+                        </a>
+                        <a href="https://www.instagram.com/adam_wisnup/" class="flex items-center justify-center" target="_blank">
+                            <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
+                        </a>
+                    </div>
+                    <!--End Icon-->
+                </div>
+            </div>
+        </div>
+        <!-- End Card -->
+
+        <!-- Start Card -->
+        <div class="rounded-xl shadow-lg mr-4">
+            <div class="p-5 flex flex-row items-left ">
+                <!-- Gambar berada di sebelah kiri -->
+                <div class="rounded-xl overflow-hidden">
+                <img src="{{ asset('assets/images/credit-card/Ridho-BE.jpg') }}" alt="Foto Profil" class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">
+                </div>
+                <!-- Teks berada di sebelah kanan -->
+                <div class="ml-5 flex flex-col">
+                    <h5 class="text-xl md:text-xl font-medium">Ridho Aditya </h5>
+                    <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">Back-End <br> Web Developer</h4>
+                    <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-400">Apr 2024 - Okt 2024</h1>
+                    <!--Start Icon-->
+                    <div class="flex flew-row gap-5 flex-wrap mt-5">
+                        <a href="mailto:ridhoaditya925@gmail.com" class="flex items-center justify-center" target="_blank">
+                            <i class='bx bxs-envelope text-slate-500 text-[20px]'></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ridho-aditya-rosman-eka-putra/" class="flex items-center justify-center" target="_blank">
+                            <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
+                        </a>
+                        <a href="https://www.instagram.com/ido.adtya?igsh=c3QzMGxjOGJ0bzM1" class="flex items-center justify-center" target="_blank">
+                            <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
+                        </a>
+                    </div>
+                    <!--End Icon-->
+                </div>
+            </div>
+        </div>
+        <!-- End Card -->
+
+        <!-- Start Card -->
+        <div class="rounded-xl shadow-lg mr-4">
+            <div class="p-5 flex flex-row items-left ">
+                <!-- Gambar berada di sebelah kiri -->
+                <div class="rounded-xl overflow-hidden">
+                <img src="{{ asset('assets/images/credit-card/MuhammadAdam-UIUX.jpg') }}" alt="Foto Profil" class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">
+                </div>
+                <!-- Teks berada di sebelah kanan -->
+                <div class="ml-5 flex flex-col">
+                    <h5 class="text-xl md:text-xl font-medium">Muhammad <br>Adam</h5>
+                    <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">UI/UX Designer</h4>
+                    <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-400">Feb 2024 - Sep 2024</h1>
+                    <!--Start Icon-->
+                    <div class="flex flew-row gap-5 flex-wrap mt-5">
+                        <a href="mailto:muhadamibrahim1873@gmail.com" class="flex items-center justify-center" target="_blank">
+                            <i class='bx bxs-envelope text-slate-500 text-[20px]'></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/adamibrahim18/" class="flex items-center justify-center" target="_blank">
+                            <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
+                        </a>
+                        <a href="https://www.instagram.com/dammm_zx/" class="flex items-center justify-center" target="_blank">
                             <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
                         </a>
                     </div>
