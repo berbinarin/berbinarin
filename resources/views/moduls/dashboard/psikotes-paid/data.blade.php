@@ -15,10 +15,6 @@
                             Data Pendaftar Psikotes</p>
                         <p class="text-disabled py-2">Fitur ini menampilkan informasi data pengguna yang telah melakukan
                             registrasi Psikotes Berbinar</p>
-                        <button onclick="toggleModal('modal-id')" type="button"
-                            class="focus:ring-2 focus:ring-offset-2  mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded">
-                            <p class=" font-medium leading-none text-dark">Tambah Data</p>
-                        </button>
                     </div>
                 </div>
                 <div class="w-[1300px] bg-white py-7 px-10 rounded-[24px]">
@@ -34,7 +30,6 @@
                                     <th style="text-align: center">Harga</th>
                                     <th style="text-align: center">Jadwal</th>
                                     <th style="text-align: center">Waktu</th>
-                                    <th style="text-align: center"></th>
                                 </tr>
 
                             </thead>
@@ -77,6 +72,10 @@
                             </tbody>
                         </table>
                     </div>
+                    <button onclick="toggleModal('modal-id')" type="button"
+                        class="focus:ring-2 focus:ring-offset-2  mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded">
+                        <p class=" font-medium leading-none text-dark">Tambah Data</p>
+                    </button>
                 </div>
             </div>
         </div>
@@ -261,37 +260,36 @@
             } else {
                 modal.style.display = "none";
             }
-        }
-    </script>
+        </script>
 
-    <script type="text/javascript">
-        function toggleModal(modalID) {
-            document.getElementById(modalID).classList.toggle("hidden");
-            document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
-            document.getElementById(modalID).classList.toggle("flex");
-            document.getElementById(modalID + "-backdrop").classList.toggle("flex");
-        }
-    </script>
+        <script type="text/javascript">
+            function toggleModal(modalID) {
+                document.getElementById(modalID).classList.toggle("hidden");
+                document.getElementById(modalID + "-backdrop").classList.toggle("hidden");
+                document.getElementById(modalID).classList.toggle("flex");
+                document.getElementById(modalID + "-backdrop").classList.toggle("flex");
+            }
+        </script>
 
-    <script>
-        document.querySelectorAll('.delete-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                const formId = this.getAttribute('data-id');
-                Swal.fire({
-                    title: 'Hapus Responden',
-                    text: "Apakah anda yakin menghapusnya?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Hapus'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        document.getElementById('deleteForm-' + formId).submit();
-                    }
+        <script>
+            document.querySelectorAll('.delete-button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const formId = this.getAttribute('data-id');
+                    Swal.fire({
+                        title: 'Hapus Responden',
+                        text: "Apakah anda yakin menghapusnya?",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Hapus'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            document.getElementById('deleteForm-' + formId).submit();
+                        }
+                    });
                 });
             });
-        });
-    </script>
-@endsection
+        </script>
+    @endsection
