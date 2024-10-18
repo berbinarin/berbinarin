@@ -20,15 +20,15 @@
                 class="@if ($active == 'Produk Berbinar') text-primary @else text-disabled @endif text-base font-medium hover:text-primary hover:cursor-pointer block">
                 Produk Berbinar
             </a>
-            <a href="{{ route('contact') }}"
+            {{-- <a href="{{ route('contact') }}"
                 class="@if ($active == 'Kontak') text-primary @else text-disabled @endif text-base font-medium hover:text-primary hover:cursor-pointer block">
                 Kontak
-            </a>
+            </a> --}}
             <a href="{{ route('hiring') }}"
                 class="@if ($active == 'Hiring') text-primary @else text-disabled @endif text-base font-medium hover:text-primary hover:cursor-pointer block">
                 Berbinar Careers
             </a>
-            <a href="{{ route('workWithUs') }}"
+            <a href="https://linktr.ee/berbinarinsight"
                 class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 w-fit mx-5 md:mx-0">Collaborate With Us</a>
         </div>
 
@@ -58,10 +58,10 @@
                     onclick="navigateToPage('products')">
                     Produk Berbinar
                 </div>
-                <div class="m-auto text-lg flex items-center justify-center p-4 duration-300 cursor-pointer hover:text-primary text-gray-700"
+                {{-- <div class="m-auto text-lg flex items-center justify-center p-4 duration-300 cursor-pointer hover:text-primary text-gray-700"
                     onclick="navigateToPage('contact')">
                     Kontak
-                </div>
+                </div> --}}
                 <div class="m-auto text-lg flex items-center justify-center p-4 duration-300 cursor-pointer hover:text-primary text-gray-700"
                     onclick="navigateToPage('career')">
                     Berbinar Careers
