@@ -146,7 +146,7 @@
                         </div>
                         <div class="flex flex-col w-full md:flex-row gap-5 justify-center items-center pt-8">
                             <button type="submit"
-                                class="text-lg text-white bg-primary rounded-full font-semibold hover:bg-amber-300 hover:text-primary hover:font-semibold duration-500 px-10 py-2.5 w-auto">Simpan</button>
+                                class="text-lg text-white rounded-full font-semibold hover:text-primary hover:font-semibold duration-500 px-10 py-2.5 w-auto">Simpan</button>
                         </div>
                     </form>
                 </div>
