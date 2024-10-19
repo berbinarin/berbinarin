@@ -17,6 +17,13 @@
     /* background-color: initial;
     background-image: initial;
 } */
+button[type="submit"] {
+    background-color: #3986a3 !important; 
+}
+
+button[type="submit"]:hover {
+    background-color: #fcd34d !important;
+}
 
 .dark\:bg-gray-800 {
     background-color: #3986a3; /* Warna cyan */
