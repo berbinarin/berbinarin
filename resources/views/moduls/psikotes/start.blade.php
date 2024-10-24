@@ -88,7 +88,7 @@
 
                 <form action="{{ route('test.store') }}" method="POST">
                     @csrf
-                    <button type="submit" class="text-lg text-white bg-primary font-medium rounded-full hover:text-primary hover:bg-amber-300 duration-700 px-8 mt-0 mb-4 py-2 w-fit">
+                    <button type="submit" class="text-lg text-white font-medium rounded-full hover:text-primary duration-700 px-8 mt-0 mb-4 py-2 w-fit">
                         Mulai</button>
                 </form>
             </div>
