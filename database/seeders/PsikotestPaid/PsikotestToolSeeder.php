@@ -98,6 +98,26 @@ class PsikotestToolSeeder extends Seeder
                 'id' => 21,
                 'name' => 'BAI',
             ],
+            [
+                'id' => 22,
+                'name' => 'BIODATA_PERUSAHAAN'
+            ],
+            [
+                'id' => 23,
+                'name' => 'BIODATA_PENDIDIKAN'
+            ],
+            [
+                'id' => 24,
+                'name' => 'BIODATA_KOMUNITAS'
+            ],
+            [
+                'id' => 25,
+                'name' => 'BIODATA_INDIVIDUAL'
+            ],
+            [
+                'id' => 26,
+                'name' => 'BIODATA_KLINIS'
+            ]
         ]);
     }
 }
