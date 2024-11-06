@@ -1,52 +1,58 @@
 <?php
 
-use App\Http\Controllers\PsikotestPaid\Tools\OCEAN\OCEANController;
-use App\Http\Controllers\PsikotestPaid\Tools\OCEAN\ResultOceanController;
-use App\Http\Controllers\PsikotestPaid\Tools\SSCT\ResultSsctController;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Internship\ajaxInternship;
-use App\Http\Controllers\PsikotestPaid\RedirectToolController;
-use App\Http\Controllers\PsikotestPaid\Tools\BAUM\BAUMController;
-use App\Http\Controllers\PsikotestPaid\Tools\Baum\ResultBaumController;
-use App\Http\Controllers\PsikotestPaid\Tools\DAP\DAPController;
-use App\Http\Controllers\PsikotestPaid\Tools\DAP\ResultDapController;
-use App\Http\Controllers\PsikotestPaid\Tools\HTP\HTPController;
-use App\Http\Controllers\PsikotestPaid\tools\PapiKostick\PapiKostickController;
-use App\Http\Controllers\PsikotestPaid\Tools\SSCT\SSCTController;
-use App\Http\Controllers\PsikotestPaid\Tools\TesEsai\ResultTesEsaiController;
-use App\Http\Controllers\PsikotestPaid\Tools\TesEsai\TesEsaiController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\PsikotestFree\UserPsikotestFreeController;
-use App\Http\Controllers\PsikotestFree\TestController;
-use App\Http\Controllers\PsikotestFree\QuestionController;
-use App\Http\Controllers\PsikotestFree\FeedbackController;
-use App\Http\Controllers\PsikotestFree\ResultController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LandingController;
-use App\Http\Controllers\PDFController;
-use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\testGratisController;
-// use App\Http\Controllers\UserPsikotestController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\HiringPositionsController;
-use App\Http\Controllers\HiringGeneralRequirementsController;
-use App\Http\Controllers\HiringPositionsRequirementsController;
-use App\Http\Controllers\HiringPositionsJobDescriptionController;
-// use App\Http\Controllers\UserInternshipController;
-use App\Http\Controllers\Internship\UserInternshipController;
+use App\Http\Controllers\Internship\ajaxInternship;
+use App\Http\Controllers\PsikotestFree\TestController;
+use App\Http\Controllers\PsikotestFree\ResultController;
 use App\Http\Controllers\Berbinarplus\AuthUserController;
 use App\Http\Controllers\Internship\InternshipController;
+use App\Http\Controllers\PsikotestFree\FeedbackController;
+use App\Http\Controllers\PsikotestFree\QuestionController;
+use App\Http\Controllers\HiringGeneralRequirementsController;
+use App\Http\Controllers\Internship\UserInternshipController;
+use App\Http\Controllers\PsikotestPaid\RedirectToolController;
+use App\Http\Controllers\HiringPositionsRequirementsController;
 use App\Http\Controllers\PsikotestPaid\DashboardUserController;
+use App\Http\Controllers\PsikotestPaid\PsikotestToolController;
+use App\Http\Controllers\PsikotestPaid\Tools\DAP\DAPController;
+use App\Http\Controllers\PsikotestPaid\Tools\HTP\HTPController;
+use App\Http\Controllers\PsikotestPaid\Tools\VAK\VakController;
+// use App\Http\Controllers\UserPsikotestController;
+use App\Http\Controllers\HiringPositionsJobDescriptionController;
+use App\Http\Controllers\PsikotestPaid\Tools\BAUM\BAUMController;
+use App\Http\Controllers\PsikotestPaid\Tools\SSCT\SSCTController;
+use App\Http\Controllers\PsikotestFree\UserPsikotestFreeController;
+// use App\Http\Controllers\UserInternshipController;
+use App\Http\Controllers\PsikotestPaid\PsikotestPaidTestController;
+use App\Http\Controllers\PsikotestPaid\Tools\OCEAN\OCEANController;
 use App\Http\Controllers\PsikotestPaid\UserPsikotestPaidController;
+use App\Http\Controllers\PsikotestPaid\Tools\DAP\ResultDapController;
+use App\Http\Controllers\PsikotestPaid\Tools\Baum\ResultBaumController;
+use App\Http\Controllers\PsikotestPaid\Tools\SSCT\ResultSsctController;
+use App\Http\Controllers\PsikotestPaid\Tools\TesEsai\TesEsaiController;
+use App\Http\Controllers\PsikotestPaid\Tools\VAK\DashboardVakController;
+use App\Http\Controllers\PsikotestPaid\Tools\OCEAN\ResultOceanController;
+use App\Http\Controllers\PsikotestPaid\Tools\TesEsai\ResultTesEsaiController;
+use App\Http\Controllers\PsikotestPaid\tools\PapiKostick\PapiKostickController;
+use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\ResultPapiKostickController;
+use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\DashboardPapiKostickController;
 use App\Http\Controllers\PsikotestPaid\PapiKostick\TestController as PapiKostickTestController;
 use App\Http\Controllers\PsikotestPaid\PapiKostick\QuestionController as PapiKostickQuestionController;
-use App\Http\Controllers\PsikotestPaid\PsikotestPaidTestController;
-use App\Http\Controllers\PsikotestPaid\PsikotestToolController;
-use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\DashboardPapiKostickController;
-use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\ResultPapiKostickController;
-use App\Http\Controllers\PsikotestPaid\Tools\VAK\DashboardVakController;
-use App\Http\Controllers\PsikotestPaid\Tools\VAK\VakController;
+use App\Http\Controllers\PsikotestPaid\Tools\Biodata\QuestionEssayController;
+use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserCompanyController;
+use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserEducationController;
+use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserCommunityController;
+use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserClinicalController;
+use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserIndividualController;
 
 /*
 |--------------------------------------------------------------------------
@@ -322,6 +328,14 @@ Route::get('/vak/responden', [DashboardVakController::class, 'allResponden'])->n
 Route::get('/vak/detail/{id}', [DashboardVakController::class, 'detailAnswer'])->name('dashboard.psikotespaid.vak.detail-answer');
 
 Route::prefix('/psikotest-paid')->group(function () {
+
+    //Biodata Psikotest
+    Route::resource('/user-clinical', UserClinicalController::class);
+    Route::resource('/user-company', UserCompanyController::class);
+    Route::resource('/user-community', UserCommunityController::class);
+    Route::resource('/user-education', UserEducationController::class);
+    Route::resource('/user-individual', UserIndividualController::class);
+    Route::resource('/question-essay', QuestionEssayController::class);
 
     Route::post('/reg-page-3', [UserPsikotestPaidController::class, 'postRegPage3'])->name('psikotest-paid.postRegPage3');
     Route::post('/reg-page-1', [UserPsikotestPaidController::class, 'postRegPage1'])->name('psikotest-paid.postRegPage1');
