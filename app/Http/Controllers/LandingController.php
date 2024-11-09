@@ -1172,4 +1172,389 @@ class LandingController extends Controller
     {
         return view('moduls.dashboard.psikotes-paid.tools.ssct.endSSCT');
     }
+
+    public function instruksiCompBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.instruksi-bio');
+    }
+
+    public function dataDiriCompBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.dataDiri-bio');
+    }
+    
+    public function dataLanjutanCompBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.dataLanjutan-bio');
+    }
+
+    public function riwayatPendCompBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.riwayatPend-bio');
+    }
+
+    public function riwayatPend2CompBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.riwayatPend2-bio');
+    }
+
+    public function riwayatPend3CompBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.riwayatPend3-bio');
+    }
+
+    public function riwayatPend4CompBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.riwayatPend4-bio');
+    }
+
+    public function isian1CompBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.isian1-bio');
+    }
+
+    public function isian2CompBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.isian2-bio');
+    }
+
+    public function isian3CompBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.isian3-bio');
+    }
+
+    public function isian4CompBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.isian4-bio');
+    }
+
+    public function isian5CompBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.isian5-bio');
+    }
+
+    public function endCompBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.end-bio');
+    }
+    
+    public function instruksiPendBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.instruksi-bio');
+    }
+
+    public function dataDiriPendBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.dataDiri-bio');
+    }
+    
+    public function dataLanjutanPendBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.dataLanjutan-bio');
+    }
+
+    public function riwayatPendPendBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.riwayatPend-bio');
+    }
+
+    public function riwayatPend2PendBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.riwayatPend2-bio');
+    }
+
+    public function riwayatPend3PendBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.riwayatPend3-bio');
+    }
+
+    public function isian1PendBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.isian1-bio');
+    }
+
+    public function isian2PendBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.isian2-bio');
+    }
+
+    public function isian3PendBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.isian3-bio');
+    }
+
+    public function isian4PendBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.isian4-bio');
+    }
+
+    public function isian5PendBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.isian5-bio');
+    }
+
+    public function isian6PendBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.isian6-bio');
+    }
+
+    public function isian7PendBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.isian7-bio');
+    }
+
+    public function endPendBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.end-bio');
+    }
+
+    public function instruksiCommBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.instruksi-bio');
+    }
+
+    public function dataDiriCommBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.dataDiri-bio');
+    }
+    
+    public function dataLanjutanCommBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.dataLanjutan-bio');
+    }
+
+    public function riwayatPendCommBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.riwayatPend-bio');
+    }
+
+    public function riwayatPend2CommBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.riwayatPend2-bio');
+    }
+
+    public function riwayatPend3CommBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.riwayatPend3-bio');
+    }
+
+    public function riwayatKeg1CommBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.riwayatKeg1-bio');
+    }
+
+    public function riwayatKeg2CommBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.riwayatKeg2-bio');
+    }
+
+    public function isian1CommBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian1-bio');
+    }
+
+    public function isian2CommBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian2-bio');
+    }
+
+    public function isian3CommBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian3-bio');
+    }
+
+    public function isian4CommBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian4-bio');
+    }
+
+    public function isian5CommBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian5-bio');
+    }
+
+    public function isian6CommBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian6-bio');
+    }
+
+    public function isian7CommBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian7-bio');
+    }
+
+    public function endCommBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.end-bio');
+    }
+
+    public function instruksiIndvBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.instruksi-bio');
+    }
+
+    public function dataDiriIndvBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.dataDiri-bio');
+    }
+    
+    public function dataLanjutanIndvBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.dataLanjutan-bio');
+    }
+
+    public function riwayatPendIndvBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.riwayatPend-bio');
+    }
+
+    public function riwayatPend2IndvBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.riwayatPend2-bio');
+    }
+
+    public function riwayatPend3IndvBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.riwayatPend3-bio');
+    }
+
+    public function isian1IndvBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian1-bio');
+    }
+
+    public function isian2IndvBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian2-bio');
+    }
+
+    public function isian3IndvBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian3-bio');
+    }
+
+    public function isian4IndvBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian4-bio');
+    }
+
+    public function isian5IndvBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian5-bio');
+    }
+
+    public function isian6IndvBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian6-bio');
+    }
+
+    public function isian7IndvBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian7-bio');
+    }
+
+    public function isian8IndvBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian8-bio');
+    }
+
+    public function endIndvBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.end-bio');
+    }
+
+    public function instruksiKlinBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.instruksi-bio');
+    }
+
+    public function dataDiriKlinBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataDiri-bio');
+    }
+    
+    public function dataLanjutanKlinBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataLanjutan-bio');
+    }
+
+    public function riwayatPendKlinBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.riwayatPend-bio');
+    }
+
+    public function riwayatPend2KlinBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.riwayatPend2-bio');
+    }
+
+    public function riwayatPend3KlinBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.riwayatPend3-bio');
+    }
+
+    public function riwayatKeg1KlinBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.riwayatKeg1-bio');
+    }
+
+    public function riwayatKeg2KlinBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.riwayatKeg2-bio');
+    }
+
+    public function DataPasangan1Bio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataPasangan1-bio');
+    }
+
+    public function DataPasangan2Bio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataPasangan2-bio');
+    }
+
+    public function dataAyah1KlinBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataAyah1-bio');
+    }
+
+    public function dataAyah2KlinBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataAyah2-bio');
+    }
+
+    public function dataIbu1KlinBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataIbu1-bio');
+    }
+
+    public function dataIbu2KlinBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataIbu2-bio');
+    }
+
+    public function isian1KlinBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.isian1-bio');
+    }
+
+    public function isian2KlinBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.isian2-bio');
+    }
+
+    public function isian3KlinBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.isian3-bio');
+    }
+
+    public function isian4KlinBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.isian4-bio');
+    }
+
+    public function endKlinBio()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.end-bio');
+    }
 }
