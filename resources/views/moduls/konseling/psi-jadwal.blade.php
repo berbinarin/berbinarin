@@ -22,14 +22,14 @@
                         <form action="{{ route('post-psi-jadwal') }}" method="POST">
                             @csrf
                             <div class="mt-6 mx-0 sm:mx-20 md:mx-30 lg:mx-0 justify-items-start">
-                                <div class="datekons mt-4">
+                                <div class="datekons mt-4 w-full">
                                     <p class="text-left text-[#555555]">Tanggal Konseling</p>
                                     <input type="date" placeholder="" name="jadwal_tanggal"
                                         value="{{ old('jadwal_tanggal', $konselling->jadwal_tanggal ?? '') }}"
                                         class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1"
                                         required id="jadwal_tanggal">
                                 </div>
-                                <div class="timekons mt-4">
+                                <div class="timekons mt-4 w-full">
                                     <p class="text-left text-[#555555]">Waktu Konseling</p>
                                     <input type="time" placeholder="" name="jadwal_pukul"
                                         value="{{ old('jadwal_pukul', $konselling->jadwal_pukul ?? '') }}"
@@ -79,7 +79,7 @@
                                             Kalimantan Utara (Tarakan)</option>
                                     </select>
                                 </div> --}}
-                                <div class="metodekons mt-4">
+                                <div class="metodekons mt-4 w-full">
                                     <p class="text-left text-[#555555]">Metode Konseling</p>
                                     <select name="metode" id="metode"
                                         class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1"
@@ -93,7 +93,7 @@
                                             Offline</option>
                                     </select>
                                 </div>
-                                <div class="daerahkons mt-4" id="daerah-container"
+                                <div class="daerahkons mt-4 w-full" id="daerah-container"
                                     style="display: {{ !empty($konselling) && $konselling->metode == 'offline' ? 'block' : 'none' }};">
                                     <p class="text-left text-[#555555]">Derah Konselling</p>
                                     <select name="daerah" id="daerah"
@@ -129,7 +129,7 @@
                                     </select>
                                 </div>
 
-                                <div class="sesi mt-4">
+                                <div class="sesi mt-4 w-full">
                                     <p class="text-left text-[#555555]">Sesi</p>
                                     <select name="sesi" id="sesi"
                                         class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1"
@@ -145,13 +145,13 @@
                                         </option>
                                     </select>
                                 </div>
-                                <div class="hargakons mt-4">
+                                <div class="hargakons mt-4 w-full">
                                     <p class="text-left text-[#555555]">Harga</p>
                                     <input readonly name="harga" id="harga"
                                         value="{{ old('harga', $konselling->harga ?? '') }}"
                                         class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1">
                                 </div>
-                                <div class="text-right">
+                                <div class="text-right w-full">
                                     <button type="submit"
                                         class="button-next inline-block rounded-lg w-fit my-6 px-5 py-3 text-base font-medium text-white">
                                         Selanjutnya
@@ -163,7 +163,7 @@
                     <div class="w-screen hidden lg:block decoration__conreg">
                         <div class="flex mx-auto justify-center align-items-center">
                             <img src="{{ asset('assets/images/konseling/regist/Ilustrasi1.png') }}" alt="Ilustrasi-Test"
-                                class="absolute m-auto mt-36 w-[540px] z-10">
+                                class="absolute m-auto w-[550px] z-10">
                             <div
                                 class="decoration__img__conreg mx-auto rounded-3xl mt-[24rem] w-[500px] h-[200px] border-4 bg-white z-0">
                             </div>

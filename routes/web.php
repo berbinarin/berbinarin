@@ -207,6 +207,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin/psikotest-paid/detailVAK', [DashboardController::class, 'detailVAK'])->name('dashboard.psikotespaid.detailVAK');
     Route::get('/dashboard/admin/psikotest-paid/dashboardSSCT', [DashboardController::class, 'dashboardSSCT'])->name('dashboard.psikotespaid.dashboardSSCT');
     Route::get('/dashboard/admin/psikotest-paid/jawabanSSCT', [DashboardController::class, 'jawabanSSCT'])->name('dashboard.psikotespaid.jawabanSSCT');
+    Route::get('/dashboard/admin/psikotest-paid/dashboardbiodata', [DashboardController::class, 'psikotesPaidDashboardBiodata'])->name('dashboard.psikotespaid.dashboardbiodata');
+    Route::get('/dashboard/admin/psikotest-paid/bioperusahaan', [DashboardController::class, 'BiodataPerusahaan'])->name('dashboard.psikotespaid.biodataperusahaan');
+    Route::get('/dashboard/admin/psikotest-paid/biopendidikan', [DashboardController::class, 'BiodataPendidikan'])->name('dashboard.psikotespaid.biodatapendidikan');
+    Route::get('/dashboard/admin/psikotest-paid/biokomunitas', [DashboardController::class, 'BiodataKomunitas'])->name('dashboard.psikotespaid.biodatakomunitas');
+    Route::get('/dashboard/admin/psikotest-paid/bioindividual', [DashboardController::class, 'BiodataIndividual'])->name('dashboard.psikotespaid.biodataindividual');
+    Route::get('/dashboard/admin/psikotest-paid/bioklinis', [DashboardController::class, 'BiodataKlinis'])->name('dashboard.psikotespaid.biodataklinis');
 
     // MODUL KONSELLING PSIKOLOG
     Route::get('/dashboard/admin/psikologData', [DashboardController::class, 'PsikologData'])->name('dashboard.PsikologData');
