@@ -283,7 +283,7 @@
                                         class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg p-4 mt-3">
                                 </div>
                             </div>
-                            <div class="text-right">
+                            <div class="text-right w-full">
                                 <button type="submit"
                                     class="button-next inline-block rounded-lg w-full my-6 px-5 py-3 text-base font-medium text-white">
                                     Selanjutnya
