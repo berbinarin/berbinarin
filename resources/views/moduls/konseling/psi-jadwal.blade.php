@@ -153,7 +153,7 @@
                                 </div>
                                 <div class="text-right w-full">
                                     <button type="submit"
-                                        class="button-next inline-block rounded-lg w-fit my-6 px-5 py-3 text-base font-medium text-white">
+                                        class="button-next inline-block rounded-lg w-full my-6 px-5 py-3 text-base font-medium text-white">
                                         Selanjutnya
                                     </button>
                                 </div>
