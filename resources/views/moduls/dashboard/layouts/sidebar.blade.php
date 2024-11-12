@@ -50,6 +50,15 @@
             </a>
         </li>
 
+        @elseif ($title === 'Dashboard Alat Tes Biodata' || $title === 'Tes Biodata Perusahaan' || $title === 'Tes Biodata Pendidikan' || $title === 'Tes Biodata Komunitas' || $title === 'Tes Biodata Individual' || $title === 'Tes Biodata Klinis')
+        <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
+        rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.dashboardbiodata') }}" class=" flex flex-row items-center @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="i fi-tr-chart-line-up text-xl mr-2  @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-lg font-bold ml-4 leading-5">Dashboard</span>
+            </a>
+        </li>
+
         @else
         <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
@@ -196,7 +205,7 @@
 
 
 
-        @if (((((((((((auth()->user()->role == 'PsikotestPaid' && $title != 'Dashboard Tes') && $title != 'BAUM') && $title != 'HTP') && $title != 'DAP' ) && $title != 'Dashboard Esai') && $title != 'Pengumpulan') && $title != 'Dashboard VAK' ) && $title != 'Jawaban VAK') && $title != 'Detail Jawaban VAK') && $title != 'Dashboard SSCT') && $title != 'Jawaban SSCT') 
+        @if (((((((((((((((((auth()->user()->role == 'PsikotestPaid' && $title != 'Dashboard Tes') && $title != 'BAUM') && $title != 'HTP') && $title != 'DAP' ) && $title != 'Dashboard Esai') && $title != 'Pengumpulan') && $title != 'Dashboard VAK' ) && $title != 'Jawaban VAK') && $title != 'Detail Jawaban VAK') && $title != 'Dashboard SSCT') && $title != 'Jawaban SSCT') && $title != 'Dashboard Alat Tes Biodata') && $title != 'Tes Biodata Perusahaan') && $title != 'Tes Biodata Pendidikan') && $title != 'Tes Biodata Komunitas') && $title != 'Tes Biodata Individual') && $title != 'Tes Biodata Klinis')
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.psikotespaid.data') }}" class=" flex items-center @if ($modul === 'Psikotest Paid Data') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
                 <i class="fi fi-br-ballot text-xl mr-2 @if ($modul === 'Psikotest Paid Data') text-primary @else text-gray-700 @endif text-lg"></i>
@@ -316,8 +325,8 @@
 
         @elseif ($title === 'Dashboard VAK' || $title === 'Jawaban VAK' || $title === 'Detail Jawaban VAK')
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
-            <a href="{{ route('dashboard.psikotespaid.jawabanVAK') }}" class=" flex flex-col items-center @if ($modul === 'Psikotest Paid Pengumpulan') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-                <i class="bx bx-receipt  @if ($modul === 'Psikotest Paid Pengumpulan') text-primary @else text-gray-700 @endif text-lg"></i>
+            <a href="{{ route('dashboard.psikotespaid.jawabanVAK') }}" class=" flex flex-col items-center @if ($modul === 'Psikotest Paid VAK') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bx-receipt  @if ($modul === 'Psikotest Paid VAK') text-primary @else text-gray-700 @endif text-lg"></i>
                 <span class="text-base mt-2 text-center">Respon</span>
             </a>
         </li>
@@ -329,10 +338,42 @@
                 <span class="text-base mt-2 text-center">Pengumpulan</span>
             </a>
         </li>
+
+        @elseif ($title === 'Dashboard Alat Tes Biodata' || $title === 'Tes Biodata Perusahaan' || $title === 'Tes Biodata Pendidikan' || $title === 'Tes Biodata Komunitas' || $title === 'Tes Biodata Individual' || $title === 'Tes Biodata Klinis')
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.biodataperusahaan') }}" class=" flex items-center @if ($modul === 'Psikotest Paid Perusahaan') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bxs-business text-xl mr-2 @if ($modul === 'Psikotest Paid Perusahaan') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base font-bold ml-4 leading-5">Perusahaan</span>
+            </a>
+        </li>
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.biodatapendidikan') }}" class=" flex items-center @if ($modul === 'Psikotest Paid Pendidikan') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bxs-school text-xl mr-2 @if ($modul === 'Psikotest Paid Pendidikan') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base font-bold ml-4 leading-5">Pendidikan</span>
+            </a>
+        </li>
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.biodatakomunitas') }}" class=" flex items-center @if ($modul === 'Psikotest Paid Komunitas') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bxs-group text-xl mr-2 @if ($modul === 'Psikotest Paid Komunitas') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base font-bold ml-4 leading-5">Komunitas</span>
+            </a>
+        </li>
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.biodataindividual') }}" class=" flex items-center @if ($modul === 'Psikotest Paid Individual') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bxs-user text-xl mr-2 @if ($modul === 'Psikotest Paid Individual') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base font-bold ml-4 leading-5">Individual</span>
+            </a>
+        </li>
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.biodataklinis') }}" class=" flex items-center @if ($modul === 'Psikotest Paid Klinis') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bxs-home-heart text-xl mr-2 @if ($modul === 'Psikotest Paid Klinis') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base font-bold ml-4 leading-5">Klinis</span>
+            </a>
+        </li>
         @endif
 
 
-        @if ($title === 'Dashboard Tes' || $title === 'BAUM' || $title === 'DAP' || $title === 'HTP' || $title === 'Dashboard Esai' || $title === 'Pengumpulan' || $title === 'Dashboard VAK' || $title === 'Jawaban VAK' || $title === 'Dashboard SSCT' || $title === 'Jawaban SSCT')
+        @if ($title === 'Dashboard Tes' || $title === 'BAUM' || $title === 'DAP' || $title === 'HTP' || $title === 'Dashboard Esai' || $title === 'Pengumpulan' || $title === 'Dashboard VAK' || $title === 'Jawaban VAK' || $title === 'Dashboard SSCT' || $title === 'Jawaban SSCT' || $title === 'Dashboard Alat Tes Biodata')
         <li class="mt-40 p-2 pt-20 hover:text-primary dark-hover:text-blue-300
 
         rounded-lg">

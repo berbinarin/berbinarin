@@ -721,4 +721,34 @@ class DashboardController extends Controller
     {
         return view('moduls.dashboard.psikotes-paid.tools.ssct.jawabanSSCT');
     }
+
+    public function psikotesPaidDashboardBiodata()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.dashboardbiodata');
+    }
+
+    public function BiodataPerusahaan()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan');
+    }
+    
+    public function BiodataPendidikan()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan');
+    }
+
+    public function BiodataKomunitas()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas');
+    }
+
+    public function BiodataIndividual()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual');
+    }
+
+    public function BiodataKlinis()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis');
+    }
 }
