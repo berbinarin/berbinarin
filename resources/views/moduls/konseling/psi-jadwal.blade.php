@@ -277,17 +277,17 @@
     <script>
         // Mendapatkan tanggal saat ini
         const now = new Date();
-
+    
         // Menambahkan 7 hari ke tanggal sekarang
         now.setDate(now.getDate() + 7);
-
+        
         const year = now.getFullYear();
         const month = String(now.getMonth() + 1).padStart(2, '0'); // Bulan dalam format dua digit
         const day = String(now.getDate()).padStart(2, '0'); // Tanggal dalam format dua digit
-
+    
         // Format tanggal sesuai format min yang diharapkan untuk input type date (YYYY-MM-DD)
         const minDate = `${year}-${month}-${day}`;
-
+        
         // Mengatur atribut min pada input date
         document.getElementById("jadwal_tanggal").setAttribute("min", minDate);
     </script>
