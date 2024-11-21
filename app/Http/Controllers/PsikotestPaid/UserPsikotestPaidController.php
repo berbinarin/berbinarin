@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\PsikotestPaid;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
@@ -46,6 +47,7 @@ class UserPsikotestPaidController extends Controller
         $data = $request->all();
         $request->session()->put('psikotest-paid', $data);
 
+        // return redirect()->route('psikotest-paid.showPage', ['page' => '2']);
         return redirect()->route('psikotest-paid.showPage', ['page' => '2']);
     }
 
@@ -104,6 +106,9 @@ class UserPsikotestPaidController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::guard('psikotestpaid')->attempt($credentials)) {
+            // $user = Auth::guard('psikotestpaid')->user();
+            // $token = $user->createToken('auth_token')->plainTextToken;
+            // dd($token);
             Alert::toast('Login Sucessfully!', 'success')->autoClose(5000);
             return redirect()->route('psikotest-paid.showLanding');
             // return redirect()->route('psikotest-tools.index');
