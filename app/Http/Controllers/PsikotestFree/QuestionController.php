@@ -65,7 +65,7 @@ class QuestionController extends Controller
 
             $user_id = UserPsikotest::where('test_id', $test_id)->firstOrFail()->id;
 
-            return redirect()->route('feedback.show', ['test_id' => $test_id, 'user_id' => $user_id]);
+            return redirect()->route('result.show', ['test_id' => $test_id, 'user_id' => $user_id]);
         }
 
         // Arahkan ke pertanyaan berikutnya
