@@ -528,3 +528,9 @@ Route::get('/isian2KlinBio', [LandingController::class, 'isian2KlinBio'])->name(
 Route::get('/isian3KlinBio', [LandingController::class, 'isian3KlinBio'])->name('isian3KlinBio');
 Route::get('/isian4KlinBio', [LandingController::class, 'isian4KlinBio'])->name('isian4KlinBio');
 Route::get('/endKlinBio', [LandingController::class, 'endKlinBio'])->name('endKlinBio');
+
+//alat tes OCEAN
+Route::get('/instruksiOCEAN', [LandingController::class, 'instruksiOCEAN'])->name('instruksiOCEAN');
+Route::get('/soalOCEAN', [LandingController::class, 'soalOCEAN'])->name('soalOCEAN');
+Route::get('/soal2OCEAN', [LandingController::class, 'soal2OCEAN'])->name('soal2OCEAN');
+Route::get('/endOCEAN', [LandingController::class, 'endOCEAN'])->name('endOCEAN');
