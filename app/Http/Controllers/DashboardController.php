@@ -731,10 +731,20 @@ class DashboardController extends Controller
     {
         return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan');
     }
+
+    public function TablePerusahaan()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.tableperusahaan');
+    }
     
     public function BiodataPendidikan()
     {
         return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan');
+    }
+
+    public function TablePendidikan()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.tablependidikan');
     }
 
     public function BiodataKomunitas()
@@ -742,13 +752,28 @@ class DashboardController extends Controller
         return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas');
     }
 
+    public function TableKomunitas()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.tablekomunitas');
+    }
+
     public function BiodataIndividual()
     {
         return view('moduls.dashboard.psikotes-paid.tools.biodata.individual');
     }
 
+    public function TableIndividual()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.tableindividual');
+    }
+
     public function BiodataKlinis()
     {
         return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis');
+    }
+
+    public function TableKlinis()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.tableklinis');
     }
 }

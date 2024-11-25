@@ -1,4 +1,4 @@
-<nav class="w-72 flex flex-col items-center bg-white py-8 pl-10 pr-6">
+<nav class="w-56 flex flex-col items-center bg-white py-8 pl-10 pr-6">
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-rounded/css/uicons-thin-rounded.css'>
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
@@ -50,7 +50,7 @@
             </a>
         </li>
 
-        @elseif ($title === 'Dashboard Alat Tes Biodata' || $title === 'Tes Biodata Perusahaan' || $title === 'Tes Biodata Pendidikan' || $title === 'Tes Biodata Komunitas' || $title === 'Tes Biodata Individual' || $title === 'Tes Biodata Klinis')
+        @elseif ($title === 'Dashboard Alat Tes Biodata' || $title === 'Tes Biodata Perusahaan' || $title === 'Tes Biodata Pendidikan' || $title === 'Tes Biodata Komunitas' || $title === 'Tes Biodata Individual' || $title === 'Tes Biodata Klinis' || $title === 'Table Biodata Perusahaan' || $title === 'Table Biodata Pendidikan' || $title === 'Table Biodata Komunitas' || $title === 'Table Biodata Individual' || $title === 'Table Biodata Klinis')
         <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
             <a href="{{ route('dashboard.psikotespaid.dashboardbiodata') }}" class=" flex flex-row items-center @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
@@ -205,7 +205,7 @@
 
 
 
-        @if (((((((((((((((((auth()->user()->role == 'PsikotestPaid' && $title != 'Dashboard Tes') && $title != 'BAUM') && $title != 'HTP') && $title != 'DAP' ) && $title != 'Dashboard Esai') && $title != 'Pengumpulan') && $title != 'Dashboard VAK' ) && $title != 'Jawaban VAK') && $title != 'Detail Jawaban VAK') && $title != 'Dashboard SSCT') && $title != 'Jawaban SSCT') && $title != 'Dashboard Alat Tes Biodata') && $title != 'Tes Biodata Perusahaan') && $title != 'Tes Biodata Pendidikan') && $title != 'Tes Biodata Komunitas') && $title != 'Tes Biodata Individual') && $title != 'Tes Biodata Klinis')
+        @if ((((((((((((((((((((((auth()->user()->role == 'PsikotestPaid' && $title != 'Dashboard Tes') && $title != 'BAUM') && $title != 'HTP') && $title != 'DAP' ) && $title != 'Dashboard Esai') && $title != 'Pengumpulan') && $title != 'Dashboard VAK' ) && $title != 'Jawaban VAK') && $title != 'Detail Jawaban VAK') && $title != 'Dashboard SSCT') && $title != 'Jawaban SSCT') && $title != 'Dashboard Alat Tes Biodata') && $title != 'Tes Biodata Perusahaan') && $title != 'Tes Biodata Pendidikan') && $title != 'Tes Biodata Komunitas') && $title != 'Tes Biodata Individual') && $title != 'Tes Biodata Klinis') && $title != 'Table Biodata Perusahaan') && $title != 'Table Biodata Pendidikan') && $title != 'Table Biodata Komunitas') && $title != 'Table Biodata Individual') && $title != 'Table Biodata Klinis')
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.psikotespaid.data') }}" class=" flex items-center @if ($modul === 'Psikotest Paid Data') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
                 <i class="fi fi-br-ballot text-xl mr-2 @if ($modul === 'Psikotest Paid Data') text-primary @else text-gray-700 @endif text-lg"></i>
@@ -339,7 +339,7 @@
             </a>
         </li>
 
-        @elseif ($title === 'Dashboard Alat Tes Biodata' || $title === 'Tes Biodata Perusahaan' || $title === 'Tes Biodata Pendidikan' || $title === 'Tes Biodata Komunitas' || $title === 'Tes Biodata Individual' || $title === 'Tes Biodata Klinis')
+        @elseif ($title === 'Dashboard Alat Tes Biodata' || $title === 'Tes Biodata Perusahaan' || $title === 'Tes Biodata Pendidikan' || $title === 'Tes Biodata Komunitas' || $title === 'Tes Biodata Individual' || $title === 'Tes Biodata Klinis' || $title === 'Table Biodata Perusahaan'|| $title === 'Table Biodata Pendidikan' || $title === 'Table Biodata Komunitas' || $title === 'Table Biodata Individual' || $title === 'Table Biodata Klinis')
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.psikotespaid.biodataperusahaan') }}" class=" flex items-center @if ($modul === 'Psikotest Paid Perusahaan') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
                 <i class="bx bxs-business text-xl mr-2 @if ($modul === 'Psikotest Paid Perusahaan') text-primary @else text-gray-700 @endif text-lg"></i>
@@ -373,7 +373,7 @@
         @endif
 
 
-        @if ($title === 'Dashboard Tes' || $title === 'BAUM' || $title === 'DAP' || $title === 'HTP' || $title === 'Dashboard Esai' || $title === 'Pengumpulan' || $title === 'Dashboard VAK' || $title === 'Jawaban VAK' || $title === 'Dashboard SSCT' || $title === 'Jawaban SSCT' || $title === 'Dashboard Alat Tes Biodata')
+        @if ($title === 'Dashboard Tes' || $title === 'BAUM' || $title === 'DAP' || $title === 'HTP' || $title === 'Dashboard Esai' || $title === 'Pengumpulan' || $title === 'Dashboard VAK' || $title === 'Jawaban VAK' || $title === 'Dashboard SSCT' || $title === 'Jawaban SSCT' || $title === 'Dashboard Alat Tes Biodata' || $title === 'Tes Biodata Perusahaan' || $title === 'Tes Biodata Pendidikan' || $title === 'Tes Biodata Komunitas' || $title === 'Tes Biodata Individual' || $title === 'Tes Biodata Klinis')
         <li class="mt-40 p-2 pt-20 hover:text-primary dark-hover:text-blue-300
 
         rounded-lg">
@@ -384,7 +384,7 @@
                 </button>
             </a>
         </li>
-        @elseif ($title === 'Detail Jawaban VAK')
+        @elseif ($title === 'Detail Jawaban VAK' || $title === 'Table Biodata Perusahaan'|| $title === 'Table Biodata Pendidikan' || $title === 'Table Biodata Komunitas' || $title === 'Table Biodata Individual' || $title === 'Table Biodata Klinis')
         @else
                 <li class="mt-20 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <form action="/logout" method="POST">
