@@ -1557,4 +1557,24 @@ class LandingController extends Controller
     {
         return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.end-bio');
     }
+
+    public function instruksiOCEAN()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.ocean.instruksiOCEAN');
+    }
+
+    public function soalOCEAN()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.ocean.soalOCEAN');
+    }
+
+    public function soal2OCEAN()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.ocean.soal2OCEAN');
+    }
+
+    public function endOCEAN()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.ocean.endOCEAN');
+    }
 }

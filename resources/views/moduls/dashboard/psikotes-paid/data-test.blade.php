@@ -70,6 +70,56 @@
                                                     class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
                                                     <i class='bx bx-home-alt text-white'> Dashboard</i>
                                                 </a>
+                                            @elseif ($tool->name === 'BIODATA_INDIVIDUAL')
+                                                <a href="{{ route('dashboard.psikotespaid.biodataindividual') }}"
+                                                    class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
+                                                    <i class='bx bx-home-alt text-white'> Dashboard</i>
+                                                </a>
+                                            @elseif ($tool->name === 'BIODATA_PERUSAHAAN')
+                                                <a href="{{ route('dashboard.psikotespaid.biodataperusahaan') }}"
+                                                    class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
+                                                    <i class='bx bx-home-alt text-white'> Dashboard</i>
+                                                </a>
+                                            @elseif ($tool->name === 'BIODATA_PENDIDIKAN')
+                                                <a href="{{ route('dashboard.psikotespaid.biodatapendidikan') }}"
+                                                    class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
+                                                    <i class='bx bx-home-alt text-white'> Dashboard</i>
+                                                </a>
+                                            @elseif ($tool->name === 'BIODATA_KOMUNITAS')
+                                                <a href="{{ route('dashboard.psikotespaid.biodatakomunitas') }}"
+                                                    class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
+                                                    <i class='bx bx-home-alt text-white'> Dashboard</i>
+                                                </a>
+                                            @elseif ($tool->name === 'BIODATA_KLINIS')
+                                                <a href="{{ route('dashboard.psikotespaid.biodataklinis') }}"
+                                                    class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
+                                                    <i class='bx bx-home-alt text-white'> Dashboard</i>
+                                                </a>
+                                            @elseif ($tool->name === 'BAUM')
+                                                <a href="{{ route('dashboard.psikotespaid.baum') }}"
+                                                    class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
+                                                    <i class='bx bx-home-alt text-white'> Dashboard</i>
+                                                </a>
+                                            @elseif ($tool->name === 'DAP')
+                                                <a href="{{ route('dashboard.psikotespaid.dap') }}"
+                                                    class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
+                                                    <i class='bx bx-home-alt text-white'> Dashboard</i>
+                                                </a>
+                                            @elseif ($tool->name === 'HTP')
+                                                <a href="{{ route('dashboard.psikotespaid.htp') }}"
+                                                    class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
+                                                    <i class='bx bx-home-alt text-white'> Dashboard</i>
+                                                </a>
+                                            @elseif ($tool->name === 'Tes Esai')
+                                                <a href="{{ route('dashboard.psikotespaid.dashboardesai') }}"
+                                                    class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
+                                                    <i class='bx bx-home-alt text-white'> Dashboard</i>
+                                                </a>
+                                            @elseif ($tool->name === 'VAK')
+                                                <a href="{{ route('dashboard.psikotespaid.dashboardVAK') }}"
+                                                    class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
+                                                    <i class='bx bx-home-alt text-white'> Dashboard</i>
+                                                </a>
                                             @else
                                                 <button type="button"
                                                     class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
