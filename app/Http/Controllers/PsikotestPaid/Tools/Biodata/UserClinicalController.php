@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\PsikotestPaid\Tools\Biodata;
 
+use Illuminate\Support\Facades\Auth;
+use App\Models\PsikotestPaid\PsikotestTool;
+use App\Models\PsikotestPaid\Biodata\QuestionCategory;
 use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\Biodata\UserClinical;
 use App\Models\PsikotestPaid\Biodata\Education;
 use App\Models\PsikotestPaid\Biodata\Identity;
 use App\Models\PsikotestPaid\Biodata\AnswerEssay;
 use App\Models\PsikotestPaid\Biodata\Family;
-use App\Models\PsikotestPaid\Biodata\UserIndividual;
+use App\Models\PsikotestPaid\Biodata\FamilyStatus;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -20,6 +23,79 @@ class UserClinicalController extends Controller
     public function index()
     {
         return response()->json(200);
+    }
+
+    public function showLanding()
+    {
+        $user = Auth::guard('psikotestpaid')->user();
+        $tool = PsikotestTool::where('name', 'BIODATA_KLINIS')->firstOrFail();
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.instruksi-bio', ['user' => $user, 'tool' => $tool]);
+    }
+
+    public function showPage($page)
+    {
+        switch ($page) {
+            case '0':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataDiri-bio');
+            case '1':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataLanjutan-bio');
+            case '2':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.riwayatPend-bio');
+            case '3':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.riwayatPend2-bio');
+            case '4':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.riwayatPend3-bio');
+            case '5':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataPasangan1-bio');
+            case '6':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataPasangan2-bio');
+            case '7':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataAyah1-bio',[
+                    "family_statuses" => FamilyStatus::get()
+                ]);
+            case '8':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataAyah2-bio');
+            case '9':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataIbu1-bio');
+            case '10':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataIbu2-bio');
+            case '11':
+                $questionCategory = QuestionCategory::find(5);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[0]->id,
+                    'question' => $questionCategory->question_essays[0]->question,
+                    'page' => 12,
+                    'index' => 0
+                ]);
+            case '12':
+                $questionCategory = QuestionCategory::find(5);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[1]->id,
+                    'question' => $questionCategory->question_essays[1]->question,
+                    'page' => 13,
+                    'index' => 1
+                ]);
+            case '13':
+                $questionCategory = QuestionCategory::find(5);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[2]->id,
+                    'question' => $questionCategory->question_essays[2]->question,
+                    'page' => 14,
+                    'index' => 2
+                ]);
+            case '14':
+                $questionCategory = QuestionCategory::find(5);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[3]->id,
+                    'question' => $questionCategory->question_essays[3]->question,
+                    'page' => 15,
+                    'index' => 3
+                ]);
+            case '15':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.end-bio');
+            default:
+                abort(404);
+        }
     }
 
     /**
@@ -87,6 +163,26 @@ class UserClinicalController extends Controller
                     'major.*' => 'nullable'
                 ]);
                 $this->yearData($data);
+                $startingIndex = 3;
+                $data['level_education_id'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['level_education_id']) - 1),
+                    $data['level_education_id']
+                );
+
+                $data['school_name'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['school_name']) - 1),
+                    $data['school_name']
+                );
+
+                $data['year'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['year']) - 1),
+                    $data['year']
+                );
+
+                $data['major'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['major']) - 1),
+                    $data['major']
+                );
                 $data['educationable_type'] = UserClinical::class;
                 break;
 
@@ -100,6 +196,26 @@ class UserClinicalController extends Controller
                     'major.*' => 'nullable'
                 ]);
                 $this->yearData($data);
+                $startingIndex = 20;
+                $data['level_education_id'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['level_education_id']) - 1),
+                    $data['level_education_id']
+                );
+
+                $data['school_name'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['school_name']) - 1),
+                    $data['school_name']
+                );
+
+                $data['year'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['year']) - 1),
+                    $data['year']
+                );
+
+                $data['major'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['major']) - 1),
+                    $data['major']
+                );
                 $data['educationable_type'] = UserClinical::class;
                 break;
 
@@ -113,7 +229,14 @@ class UserClinicalController extends Controller
                     'address_family.*' => 'nullable',
                 ]);
                 if (isset($data)) {
-                    $data['family_status_id'][0] = 1;
+                    if($data['gender_family'][0] == 'Laki-laki')
+                    {
+                        $data['family_status_id'][0] = 2;
+                    }
+                    else
+                    {
+                        $data['family_status_id'][0] = 3;
+                    }
                 }
                 break;
 
@@ -129,15 +252,13 @@ class UserClinicalController extends Controller
             case 8:
                 $data = $request->validate([
                     'name_family.*' => 'nullable',
+                    'family_status_id.*' => 'nullable',
                     'gender_family.*' => 'nullable',
                     'age_family.*' => 'nullable',
                     'ethnic_family.*' => 'nullable',
                     'religion_family.*' => 'nullable',
                     'address_family.*' => 'nullable',
                 ]);
-                if (isset($data)) {
-                    $data['family_status_id'][1] = 2;
-                }
                 break;
 
             case 9:
@@ -159,7 +280,7 @@ class UserClinicalController extends Controller
                     'address_family.*' => 'nullable',
                 ]);
                 if (isset($data)) {
-                    $data['family_status_id'][2] = 3;
+                    $data['family_status_id'][2] = 7;
                 }
                 break;
 
@@ -221,10 +342,11 @@ class UserClinicalController extends Controller
             $request->session()->forget('psikotest-paid');
         }
 
-        return response()->json([
-            'message' => "Success store to session for page {$page}",
-            'data' => $sessionData,
-        ]);
+        // return response()->json([
+        //     'message' => "Success store to session for page {$page}",
+        //     'data' => $sessionData,
+        // ]);
+        return redirect()->route('psikotest-paid.tool.BIODATA_KLINIS.showPage', ['page' => $page]);
     }
 
     private function yearData(&$data)
@@ -263,35 +385,42 @@ class UserClinicalController extends Controller
             ]);
 
             $userClinical = UserClinical::create([
-                // 'user_psikotest_paid_id' => Auth::guard('psikotestpaid')->user()->id,
+                'user_psikotest_paid_id' => Auth::guard('psikotestpaid')->user()->id,
                 'identity_id' => $identity->id,
             ]);
 
             foreach ($data['school_name'] as $key => $value) {
-                $education[] = Education::create([
-                    'level_education_id' => $data['level_education_id'][$key],
-                    'educationable_id' => $userClinical->id,
-                    'educationable_type' => $data['educationable_type'],
-                    'school_name' => $value,
-                    'year' => $data['year'][$key],
-                ]);
+                if ($value != null)
+                {
+                    $education[] = Education::create([
+                        'level_education_id' => $data['level_education_id'][$key],
+                        'educationable_id' => $userClinical->id,
+                        'educationable_type' => $data['educationable_type'],
+                        'school_name' => $value,
+                        'major' => $data['major'][$key] ?? null,
+                        'year' => $data['year'][$key],
+                    ]);
+                }
             }
 
             foreach ($data['family_status_id'] as $key => $value) {
-                $family[] = Family::create([
-                    'user_clinical_id' => $userClinical->id,
-                    'family_status_id' => $value,
-                    'name' => $data['name_family'][$key],
-                    'gender' => $data['gender_family'][$key],
-                    'age' => $data['age_family'][$key],
-                    'ethnic' => $data['ethnic_family'][$key],
-                    'religion' => $data['religion_family'][$key],
-                    'address' => $data['address_family'][$key],
-                    'no_hp' => $data['no_hp_family'][$key],
-                    'last_education' => $data['last_education_family'][$key],
-                    'job' => $data['job_family'][$key],
-                    'child_marriage' => $data['child_marriage'][$key],
-                ]);
+                if ($value != null)
+                {
+                    $family[] = Family::create([
+                        'user_clinical_id' => $userClinical->id,
+                        'family_status_id' => $value,
+                        'name' => $data['name_family'][$key],
+                        'gender' => $data['gender_family'][$key],
+                        'age' => $data['age_family'][$key],
+                        'ethnic' => $data['ethnic_family'][$key],
+                        'religion' => $data['religion_family'][$key],
+                        'address' => $data['address_family'][$key],
+                        'no_hp' => $data['no_hp_family'][$key],
+                        'last_education' => $data['last_education_family'][$key],
+                        'job' => $data['job_family'][$key],
+                        'child_marriage' => $data['child_marriage'][$key],
+                    ]);
+                }
             }
 
             foreach ($data['answer'] as $key => $value) {

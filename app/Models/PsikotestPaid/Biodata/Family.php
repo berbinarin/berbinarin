@@ -5,6 +5,7 @@ namespace App\Models\PsikotestPaid\Biodata;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Family extends Model
 {
@@ -29,8 +30,8 @@ class Family extends Model
     {
         return $this->belongsTo(UserClinical::class);
     }
-    public function family_status():BelongsTo
+    public function family_status():HasMany
     {
-        return $this->belongsTo(FamilyStatus::class);
+        return $this->hasMany(FamilyStatus::class);
     }
 }
