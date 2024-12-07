@@ -1,5 +1,9 @@
 @extends('moduls.psikotes.layouts.mainn', [
+<<<<<<< Updated upstream
 'title' => 'Selesai Tes Biodata',
+=======
+'title' => 'End Psikotest',
+>>>>>>> Stashed changes
 'active' => 'one psikotest',
 ])
 
@@ -24,7 +28,11 @@
 
 
     <div class="mb-4 flex justify-center mt-10">
+<<<<<<< Updated upstream
       <a href="{{ route('instruksiIndvBio') }}">
+=======
+      <a href="{{ route('psikotest-paid.showLanding') }}">
+>>>>>>> Stashed changes
       <button type="button" class="w-xl bg-primary  items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Kembali ke Halaman Utama</button>
       </a>
     </div>
