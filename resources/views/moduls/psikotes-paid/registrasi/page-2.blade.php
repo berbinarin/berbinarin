@@ -53,6 +53,7 @@
                                         <div class="mt-2">
                                             <select id="psikotest_category_id" name="psikotest_category_id"
                                                 class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-lg sm:leading-6">
+                                                <option value=""></option>
                                                 @foreach ($psikotestCategoryTypes as $category)
                                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                 @endforeach

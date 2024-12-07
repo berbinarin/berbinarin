@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\PsikotestPaid\Tools\Biodata;
 
+use Illuminate\Support\Facades\Auth;
+use App\Models\PsikotestPaid\PsikotestTool;
+use App\Models\PsikotestPaid\Biodata\QuestionCategory;
 use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\Biodata\UserIndividual;
 use App\Models\PsikotestPaid\Biodata\Education;
@@ -18,6 +21,97 @@ class UserIndividualController extends Controller
     public function index()
     {
         return response()->json(200);
+    }
+
+    public function showLanding()
+    {
+        $user = Auth::guard('psikotestpaid')->user();
+        $tool = PsikotestTool::where('name', 'BIODATA_INDIVIDUAL')->firstOrFail();
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.instruksi-bio', ['user' => $user, 'tool' => $tool]);
+    }
+
+    public function showPage($page)
+    {
+        switch ($page) {
+            case '0':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.dataDiri-bio');
+            case '1':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.dataLanjutan-bio');
+            case '2':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.riwayatPend-bio');
+            case '3':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.riwayatPend2-bio');
+            case '4':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.riwayatPend3-bio');
+            case '5':
+                $questionCategory = QuestionCategory::find(4);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[0]->id,
+                    'question' => $questionCategory->question_essays[0]->question,
+                    'page' => 6,
+                    'index' => 0
+                ]);
+            case '6':
+                $questionCategory = QuestionCategory::find(4);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[1]->id,
+                    'question' => $questionCategory->question_essays[1]->question,
+                    'page' => 7,
+                    'index' => 1
+                ]);
+            case '7':
+                $questionCategory = QuestionCategory::find(4);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[2]->id,
+                    'question' => $questionCategory->question_essays[2]->question,
+                    'page' => 8,
+                    'index' => 2
+                ]);
+            case '8':
+                $questionCategory = QuestionCategory::find(4);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[3]->id,
+                    'question' => $questionCategory->question_essays[3]->question,
+                    'page' => 9,
+                    'index' => 3
+                ]);
+            case '9':
+                $questionCategory = QuestionCategory::find(4);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[4]->id,
+                    'question' => $questionCategory->question_essays[4]->question,
+                    'page' => 10,
+                    'index' => 4
+                ]);
+            case '10':
+                $questionCategory = QuestionCategory::find(4);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[5]->id,
+                    'question' => $questionCategory->question_essays[5]->question,
+                    'page' => 11,
+                    'index' => 5
+                ]);
+            case '11':
+                $questionCategory = QuestionCategory::find(4);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[6]->id,
+                    'question' => $questionCategory->question_essays[6]->question,
+                    'page' => 12,
+                    'index' => 6
+                ]);
+            case '12':
+                $questionCategory = QuestionCategory::find(4);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[7]->id,
+                    'question' => $questionCategory->question_essays[7]->question,
+                    'page' => 13,
+                    'index' => 7
+                ]);
+            case '13':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.end-bio');
+            default:
+                abort(404);
+        }
     }
 
     /**
@@ -85,6 +179,26 @@ class UserIndividualController extends Controller
                     'major.*' => 'nullable'
                 ]);
                 $this->yearData($data);
+                $startingIndex = 3;
+                $data['level_education_id'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['level_education_id']) - 1),
+                    $data['level_education_id']
+                );
+
+                $data['school_name'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['school_name']) - 1),
+                    $data['school_name']
+                );
+
+                $data['year'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['year']) - 1),
+                    $data['year']
+                );
+
+                $data['major'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['major']) - 1),
+                    $data['major']
+                );
                 $data['educationable_type'] = UserIndividual::class;
                 break;
 
@@ -98,6 +212,26 @@ class UserIndividualController extends Controller
                     'major.*' => 'nullable'
                 ]);
                 $this->yearData($data);
+                $startingIndex = 20;
+                $data['level_education_id'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['level_education_id']) - 1),
+                    $data['level_education_id']
+                );
+
+                $data['school_name'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['school_name']) - 1),
+                    $data['school_name']
+                );
+
+                $data['year'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['year']) - 1),
+                    $data['year']
+                );
+
+                $data['major'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['major']) - 1),
+                    $data['major']
+                );
                 $data['educationable_type'] = UserIndividual::class;
                 break;
 
@@ -165,7 +299,7 @@ class UserIndividualController extends Controller
                 $data['answer_essayable_type'] = UserIndividual::class;
                 break;
 
-                // Tambahkan case tambahan untuk halaman berikutnya
+                //Tambahkan case tambahan untuk halaman berikutnya
             default:
                 return response()->json([
                     'message' => 'Invalid page number',
@@ -182,10 +316,11 @@ class UserIndividualController extends Controller
             $request->session()->forget('psikotest-paid');
         }
 
-        return response()->json([
-            'message' => "Success store to session for page {$page}",
-            'data' => $sessionData,
-        ]);
+        // return response()->json([
+        //     'message' => "Success store to session for page {$page}",
+        //     'data' => $sessionData,
+        // ]);
+        return redirect()->route('psikotest-paid.tool.BIODATA_INDIVIDUAL.showPage', ['page' => $page]);
     }
 
     private function yearData(&$data)
@@ -224,7 +359,7 @@ class UserIndividualController extends Controller
             ]);
 
             $userIndividual = UserIndividual::create([
-                // 'user_psikotest_paid_id' => Auth::guard('psikotestpaid')->user()->id,
+                'user_psikotest_paid_id' => Auth::guard('psikotestpaid')->user()->id,
                 'identity_id' => $identity->id,
             ]);
 
@@ -234,6 +369,7 @@ class UserIndividualController extends Controller
                     'educationable_id' => $userIndividual->id,
                     'educationable_type' => $data['educationable_type'],
                     'school_name' => $value,
+                    'major' => $data['major'][$key] ?? null,
                     'year' => $data['year'][$key],
                 ]);
             }
