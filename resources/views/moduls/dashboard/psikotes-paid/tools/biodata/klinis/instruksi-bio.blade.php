@@ -23,7 +23,7 @@
   <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-6 mt-4 " style="width: 950px;">
     {{-- isi instruksi --}}
     <div class="mb-4 flex justify-center mt-10">
-      <a href="{{ route('dataDiriKlinBio') }}">
+      <a href="{{ route('psikotest-paid.tool.BIODATA_KLINIS.showPage', ['page' => 0]) }}">
         <button type="button" class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Selanjutnya</button>
       </a>
     </div>

@@ -15,13 +15,28 @@ class FamilyStatusSeeder extends Seeder
     {
         DB::table('family_statuses')->insert([
             [
-                'name' => 'partner',
+                'name' => 'Kepala Keluarga',
             ],
             [
-                'name' => 'father',
+                'name' => 'Suami',
             ],
             [
-                'name' => 'mother',
+                'name' => 'Istri',
+            ],
+            [
+                'name' => 'Anak',
+            ],
+            [
+                'name' => 'Menantu',
+            ],
+            [
+                'name' => 'Cucu',
+            ],
+            [
+                'name' => 'Orangtua',
+            ],
+            [
+                'name' => 'Mertua',
             ],
         ]);
     }
