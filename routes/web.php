@@ -47,7 +47,6 @@ use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\ResultPapiKostickContro
 use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\DashboardPapiKostickController;
 use App\Http\Controllers\PsikotestPaid\PapiKostick\TestController as PapiKostickTestController;
 use App\Http\Controllers\PsikotestPaid\PapiKostick\QuestionController as PapiKostickQuestionController;
-use App\Http\Controllers\PsikotestPaid\Tools\Biodata\QuestionEssayController;
 use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserCompanyController;
 use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserEducationController;
 use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserCommunityController;
@@ -209,15 +208,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin/psikotest-paid/jawabanSSCT', [DashboardController::class, 'jawabanSSCT'])->name('dashboard.psikotespaid.jawabanSSCT');
     Route::get('/dashboard/admin/psikotest-paid/dashboardbiodata', [DashboardController::class, 'psikotesPaidDashboardBiodata'])->name('dashboard.psikotespaid.dashboardbiodata');
     Route::get('/dashboard/admin/psikotest-paid/bioperusahaan', [DashboardController::class, 'BiodataPerusahaan'])->name('dashboard.psikotespaid.biodataperusahaan');
-    Route::get('/dashboard/admin/psikotest-paid/tableperusahaan', [DashboardController::class, 'TablePerusahaan'])->name('dashboard.psikotespaid.tableperusahaan');
+    Route::get('/dashboard/admin/psikotest-paid/tableperusahaan/{id}', [DashboardController::class, 'TablePerusahaan'])->name('dashboard.psikotespaid.tableperusahaan');
     Route::get('/dashboard/admin/psikotest-paid/biopendidikan', [DashboardController::class, 'BiodataPendidikan'])->name('dashboard.psikotespaid.biodatapendidikan');
-    Route::get('/dashboard/admin/psikotest-paid/tablependidikan', [DashboardController::class, 'TablePendidikan'])->name('dashboard.psikotespaid.tablependidikan');
+    Route::get('/dashboard/admin/psikotest-paid/tablependidikan/{id}', [DashboardController::class, 'TablePendidikan'])->name('dashboard.psikotespaid.tablependidikan');
     Route::get('/dashboard/admin/psikotest-paid/biokomunitas', [DashboardController::class, 'BiodataKomunitas'])->name('dashboard.psikotespaid.biodatakomunitas');
-    Route::get('/dashboard/admin/psikotest-paid/tablekomunitas', [DashboardController::class, 'TableKomunitas'])->name('dashboard.psikotespaid.tablekomunitas');
+    Route::get('/dashboard/admin/psikotest-paid/tablekomunitas/{id}', [DashboardController::class, 'TableKomunitas'])->name('dashboard.psikotespaid.tablekomunitas');
     Route::get('/dashboard/admin/psikotest-paid/bioindividual', [DashboardController::class, 'BiodataIndividual'])->name('dashboard.psikotespaid.biodataindividual');
-    Route::get('/dashboard/admin/psikotest-paid/tableindividual', [DashboardController::class, 'TableIndividual'])->name('dashboard.psikotespaid.tableindividual');
+    Route::get('/dashboard/admin/psikotest-paid/tableindividual/{id}', [DashboardController::class, 'TableIndividual'])->name('dashboard.psikotespaid.tableindividual');
     Route::get('/dashboard/admin/psikotest-paid/bioklinis', [DashboardController::class, 'BiodataKlinis'])->name('dashboard.psikotespaid.biodataklinis');
-    Route::get('/dashboard/admin/psikotest-paid/tableklinis', [DashboardController::class, 'TableKlinis'])->name('dashboard.psikotespaid.tableklinis');
+    Route::get('/dashboard/admin/psikotest-paid/tableklinis/{id}', [DashboardController::class, 'TableKlinis'])->name('dashboard.psikotespaid.tableklinis');
 
     // MODUL KONSELLING PSIKOLOG
     Route::get('/dashboard/admin/psikologData', [DashboardController::class, 'PsikologData'])->name('dashboard.PsikologData');
@@ -346,7 +345,6 @@ Route::prefix('/psikotest-paid')->group(function () {
     Route::resource('/user-community', UserCommunityController::class);
     Route::resource('/user-education', UserEducationController::class);
     Route::resource('/user-individual', UserIndividualController::class);
-    Route::resource('/question-essay', QuestionEssayController::class);
 
     Route::post('/reg-page-3', [UserPsikotestPaidController::class, 'postRegPage3'])->name('psikotest-paid.postRegPage3');
     Route::post('/reg-page-1', [UserPsikotestPaidController::class, 'postRegPage1'])->name('psikotest-paid.postRegPage1');
