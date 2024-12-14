@@ -30,8 +30,8 @@ class Family extends Model
     {
         return $this->belongsTo(UserClinical::class);
     }
-    public function family_status():HasMany
+    public function family_status():BelongsTo
     {
-        return $this->hasMany(FamilyStatus::class);
+        return $this->belongsTo(FamilyStatus::class);
     }
 }

@@ -59,7 +59,7 @@
                 </div>
                 <button type="button" onclick="addDiploma()"
                     class="flex items-center justify-center w-full border-2 border-dotted border-blue-500 text-blue-500 py-2 rounded-lg mb-4">
-                    <span class="text-lg">+ Tambahkan Riwayat Pendidikan</span>
+                    <span class="text-lg">+ Tambahkan Kegiatan</span>
                 </button>
 
                 <!-- Tombol Navigasi -->
@@ -78,14 +78,14 @@
             entry.classList.add('activity-entry', 'grid', 'grid-cols-6', 'gap-x-6', 'gap-y-4', 'mb-4');
             entry.innerHTML = `
       <div class="col-span-3">
-        <label class="block text-lg font-semibold leading-6 text-black">Asal Sekolah/Bidang</label>
+        <label class="block text-lg font-semibold leading-6 text-black">Nama Kursus/Seminar/Pelatihan</label>
         <div class="mt-2">
-          <input type="text" name="course_name[]" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6" placeholder="Asal Sekolah/Bidang">
+          <input type="text" name="course_name[]" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6" placeholder="Nama Kursus/Seminar/Pelatihan">
         </div>
       </div>
       <div class="col-span-3 flex space-x-2">
         <div class="col-span-2">
-          <label for="provider" class="block text-lg font-semibold leading-6 text-black">Jurusan</label>
+          <label for="provider" class="block text-lg font-semibold leading-6 text-black">Penyelenggara</label>
             <div class="mt-2">
               <input type="text" name="organizer_course[]" id="provider" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6" placeholder="Manajemen">
             </div>

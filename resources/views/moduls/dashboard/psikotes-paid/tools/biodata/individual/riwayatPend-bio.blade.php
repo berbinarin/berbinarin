@@ -105,7 +105,7 @@
                         <label for="nama_sma" class="block text-lg font-semibold leading-6 text-black">Nama
                             Sekolah</label>
                         <div class="mt-2">
-                            <input type="text" name="name_school[2]" id="nama_sma"
+                            <input type="text" name="school_name[2]" id="nama_sma"
                                 class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6"
                                 placeholder="SMA Harapan 1">
                         </div>
