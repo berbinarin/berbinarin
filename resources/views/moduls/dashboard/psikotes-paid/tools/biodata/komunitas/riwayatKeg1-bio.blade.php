@@ -34,7 +34,7 @@
                             <label for="activity-name" class="block text-lg font-semibold leading-6 text-black">Nama
                                 Kursus/Seminar/Pelatihan</label>
                             <div class="mt-2">
-                                <input type="text" name="course_name[]" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6" placeholder="Workshop Ketiduran">
+                                <input type="text" name="course_name[]" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6" placeholder="Workshop Berbinar">
                             </div>
                         </div>
                         <div class="col-span-2">
@@ -80,14 +80,14 @@
       <div class="col-span-3">
         <label class="block text-lg font-semibold leading-6 text-black">Nama Kursus/Seminar/Pelatihan</label>
         <div class="mt-2">
-          <input type="text" name="course_name[]" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6" placeholder="Nama Kursus/Seminar/Pelatihan">
+          <input type="text" name="course_name[]" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6" placeholder="Workshop Berbinar">
         </div>
       </div>
       <div class="col-span-3 flex space-x-2">
         <div class="col-span-2">
           <label for="provider" class="block text-lg font-semibold leading-6 text-black">Penyelenggara</label>
             <div class="mt-2">
-              <input type="text" name="organizer_course[]" id="provider" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6" placeholder="Manajemen">
+              <input type="text" name="organizer_course[]" id="provider" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6" placeholder="PT X">
             </div>
         </div>
         <div class="col-span-2">
