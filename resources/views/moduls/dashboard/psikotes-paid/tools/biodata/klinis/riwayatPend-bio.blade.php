@@ -25,7 +25,7 @@
         <!-- Card Transparant -->
         <form action="{{ route('psikotest-paid.tool.BIODATA_KLINIS.post') }}" method="post">
             @csrf
-            <div class="relative text-justify z-10 w-xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-6 mt-10 "
+            <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-6 mt-10 "
                 style="width: 950px;">
 
                 <p class="font-bold text-xl text-left text-gray-800 mb-4">Riwayat Pendidikan</p>
@@ -109,14 +109,13 @@
                                 placeholder="SMA Harapan 1">
                         </div>
                     </div>
-                    <div class="col-span-3 flex space-x-3">
-                      <div class="w-1/3">
-                        <label for="jurusan" class="block text-lg font-semibold leading-6 text-black">Jurusan</label>
-                          <div class="mt-2">
-                            <input type="text" name="major[2]" id="jurusan" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6" placeholder="MIPA">
-                          </div>
-                      </div>
-                    <div class="col-span-3 flex space-x-3">
+                    <div class="col-span-3 flex space-x-4">
+                        <div class="w-1/3">
+                            <label for="jurusan" class="block text-lg font-semibold leading-6 text-black">Jurusan</label>
+                            <div class="mt-2">
+                                <input type="text" name="major[2]" id="jurusan" class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6" placeholder="MIPA">
+                            </div>
+                        </div>
                         <div class="w-1/3">
                             <label for="sma" class="block text-lg font-semibold leading-6 text-black">Tahun</label>
                             <div class="mt-2">
@@ -143,4 +142,5 @@
                 </div>
             </div>
         </form>
-    @endsection
+    </div>
+@endsection

@@ -346,7 +346,7 @@ Route::prefix('/psikotest-paid')->group(function () {
     Route::resource('/user-community', UserCommunityController::class);
     Route::resource('/user-education', UserEducationController::class);
     Route::resource('/user-individual', UserIndividualController::class);
-    Route::resource('/question-essay', QuestionEssayController::class);
+    // Route::resource('/question-essay', QuestionEssayController::class);
 
     Route::post('/reg-page-3', [UserPsikotestPaidController::class, 'postRegPage3'])->name('psikotest-paid.postRegPage3');
     Route::post('/reg-page-1', [UserPsikotestPaidController::class, 'postRegPage1'])->name('psikotest-paid.postRegPage1');
