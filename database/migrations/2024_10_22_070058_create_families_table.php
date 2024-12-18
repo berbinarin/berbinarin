@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_clinical_id')->constrained('user_clinicals')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('family_status_id')->constrained('family_statuses')->onUpdate('cascade')->onDelete('cascade');
             $table->string('name');
-            $table->boolean('gender');
+            $table->string('gender');
             $table->integer('age');
             $table->string('ethnic');
             $table->string('religion');

@@ -13,7 +13,8 @@ class UserEducation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'identity_id'
+        'identity_id',
+        'user_psikotest_paid_id'
     ];
 
     public function user_psikotest_paid(): BelongsTo

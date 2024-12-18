@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\PsikotestPaid\Tools\Biodata;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\Biodata\UserCommunity;
+use App\Models\PsikotestPaid\Biodata\QuestionCategory;
 use App\Models\PsikotestPaid\Biodata\Education;
 use App\Models\PsikotestPaid\Biodata\Identity;
 use App\Models\PsikotestPaid\Biodata\AnswerEssay;
+use App\Models\PsikotestPaid\PsikotestTool;
 use App\Models\PsikotestPaid\Biodata\Course;
 use App\Models\PsikotestPaid\Biodata\Experience;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +23,93 @@ class UserCommunityController extends Controller
     public function index()
     {
         return response()->json([200]);
+    }
+
+    public function showLanding()
+    {
+        $user = Auth::guard('psikotestpaid')->user();
+        $tool = PsikotestTool::where('name', 'BIODATA_KOMUNITAS')->firstOrFail();
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.instruksi-bio', ['user' => $user, 'tool' => $tool]);
+    }
+
+    public function showPage($page)
+    {
+        switch ($page) {
+            case '0':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.dataDiri-bio');
+            case '1':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.dataLanjutan-bio');
+            case '2':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.riwayatPend-bio');
+            case '3':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.riwayatPend2-bio');
+            case '4':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.riwayatPend3-bio');
+            case '5':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.riwayatKeg1-bio');
+            case '6':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.riwayatKeg2-bio');
+            case '7':
+                $questionCategory = QuestionCategory::find(3);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[0]->id,
+                    'question' => $questionCategory->question_essays[0]->question,
+                    'page' => 8,
+                    'index' => 0
+                ]);
+            case '8':
+                $questionCategory = QuestionCategory::find(3);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[1]->id,
+                    'question' => $questionCategory->question_essays[1]->question,
+                    'page' => 9,
+                    'index' => 1
+                ]);
+            case '9':
+                $questionCategory = QuestionCategory::find(3);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[2]->id,
+                    'question' => $questionCategory->question_essays[2]->question,
+                    'page' => 10,
+                    'index' => 2
+                ]);
+            case '10':
+                $questionCategory = QuestionCategory::find(3);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[3]->id,
+                    'question' => $questionCategory->question_essays[3]->question,
+                    'page' => 11,
+                    'index' => 3
+                ]);
+            case '11':
+                $questionCategory = QuestionCategory::find(3);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[4]->id,
+                    'question' => $questionCategory->question_essays[4]->question,
+                    'page' => 12,
+                    'index' => 4
+                ]);
+            case '12':
+                $questionCategory = QuestionCategory::find(3);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[5]->id,
+                    'question' => $questionCategory->question_essays[5]->question,
+                    'page' => 13,
+                    'index' => 5
+                ]);
+            case '13':
+                $questionCategory = QuestionCategory::find(3);
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian1-bio', [
+                    'question_essay_id' => $questionCategory->question_essays[6]->id,
+                    'question' => $questionCategory->question_essays[6]->question,
+                    'page' => 14,
+                    'index' => 6
+                ]);
+            case '14':
+                return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.end-bio');
+            default:
+                abort(404);
+        }
     }
 
     /**
@@ -87,6 +177,26 @@ class UserCommunityController extends Controller
                     'major.*' => 'nullable'
                 ]);
                 $this->yearData($data);
+                $startingIndex = 3;
+                $data['level_education_id'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['level_education_id']) - 1),
+                    $data['level_education_id']
+                );
+
+                $data['school_name'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['school_name']) - 1),
+                    $data['school_name']
+                );
+
+                $data['year'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['year']) - 1),
+                    $data['year']
+                );
+
+                $data['major'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['major']) - 1),
+                    $data['major']
+                );
                 $data['educationable_type'] = UserCommunity::class;
                 break;
 
@@ -100,6 +210,26 @@ class UserCommunityController extends Controller
                     'major.*' => 'nullable'
                 ]);
                 $this->yearData($data);
+                $startingIndex = 20;
+                $data['level_education_id'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['level_education_id']) - 1),
+                    $data['level_education_id']
+                );
+
+                $data['school_name'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['school_name']) - 1),
+                    $data['school_name']
+                );
+
+                $data['year'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['year']) - 1),
+                    $data['year']
+                );
+
+                $data['major'] = array_combine(
+                    range($startingIndex, $startingIndex + count($data['major']) - 1),
+                    $data['major']
+                );
                 $data['educationable_type'] = UserCommunity::class;
                 break;
 
@@ -186,16 +316,18 @@ class UserCommunityController extends Controller
         $getSessionData = $request->session()->get('psikotest-paid-community', []);
         $sessionData = array_merge_recursive_distinct($getSessionData, $data);
         $request->session()->put('psikotest-paid-community', $sessionData);
-
+        // dd($sessionData);
         if ($page == 14) {
             $this->saveData($sessionData);
             $request->session()->forget('psikotest-paid');
         }
 
-        return response()->json([
-            'message' => "Success store to session for page {$page}",
-            'data' => $sessionData,
-        ]);
+        // return response()->json([
+        //     'message' => "Success store to session for page {$page}",
+        //     'data' => $sessionData,
+        // ]);
+        
+        return redirect()->route('psikotest-paid.tool.BIODATA_KOMUNITAS.showPage', ['page' => $page]);
     }
 
     private function yearData(&$data)
@@ -234,35 +366,47 @@ class UserCommunityController extends Controller
             ]);
 
             $userCommunity = UserCommunity::create([
-                // 'user_psikotest_paid_id' => Auth::guard('psikotestpaid')->user()->id,
+                'user_psikotest_paid_id' => Auth::guard('psikotestpaid')->user()->id,
                 'identity_id' => $identity->id,
             ]);
 
             foreach ($data['school_name'] as $key => $value) {
-                $education[] = Education::create([
-                    'level_education_id' => $data['level_education_id'][$key],
-                    'educationable_id' => $userCommunity->id,
-                    'educationable_type' => $data['educationable_type'],
-                    'school_name' => $value,
-                    'year' => $data['year'][$key],
-                ]);
+                if ($value != null)
+                {
+                    $education[] = Education::create([
+                        'level_education_id' => $data['level_education_id'][$key],
+                        'educationable_id' => $userCommunity->id,
+                        'educationable_type' => $data['educationable_type'],
+                        'school_name' => $value,
+                        'major' => $data['major'][$key] ?? null,
+                        'year' => $data['year'][$key],
+                    ]);
+                }
+                
             }
 
             foreach ($data['course_name'] as $key => $value) {
-                $course[] = Course::create([
-                    'user_community_id' => $userCommunity->id,
-                    'course_name' => $value,
-                    'organizer_course' => $data['organizer_course'][$key],
-                    'year_course' => $data['year_course'][$key],
-                ]);
+                if ($value != null)
+                {
+                    $course[] = Course::create([
+                        'user_community_id' => $userCommunity->id,
+                        'course_name' => $value,
+                        'organizer_course' => $data['organizer_course'][$key],
+                        'year_course' => $data['year_course'][$key],
+                    ]);
+                }
             }
 
             foreach ($data['company_name'] as $key => $value) {
-                $experience[] = Experience::create([
-                    'user_community_id' => $userCommunity->id,
-                    'company_name' => $value,
-                    'last_position' => $data['last_position'][$key],
-                ]);
+                if ($value != null)
+                {
+                    $experience[] = Experience::create([
+                        'user_community_id' => $userCommunity->id,
+                        'company_name' => $value,
+                        'last_position' => $data['last_position'][$key],
+                    ]);
+                }
+                
             }
 
             foreach ($data['answer'] as $key => $value) {

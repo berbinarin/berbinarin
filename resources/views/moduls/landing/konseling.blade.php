@@ -42,11 +42,8 @@
                         <ul class="list-disc list-outside leading-relaxed mt-10">
                             <li class="font-semibold">Lokasi offline Konseling
                                 <ul class="list-decimal list-outside leading-relaxed pl-4">
-                                    <li>Psikolog : Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, Jakarta, Malang, dan
-                                        Kalimantan Utara
-                                        (Tarakan)
-                                    </li>
-                                    <li>Peer Counselor : Bekasi, Tangerang Selatan, Padang, Wonogirin dan Malang</li>
+                                    <li>Psikolog : Surabaya, Kediri, Sidoarjo, Makassar, Samarinda, Jakarta, dan Malang</li>
+                                    <li>Peer Counselor : Tangerang Selatan, Malang, dan Surabaya </li>
                                 </ul>
                             </li>
                             <li>Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n.
@@ -115,8 +112,7 @@
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog1.jpg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" class="text-lg font-medium text-center">Danny Sanjaya Arfensia, S.Psi., M.Psi.,
-                        Psikolog</a>
+                    <a target="_blank" class="text-lg font-medium text-center">Danny Sanjaya Arfensia, S.Psi., M.Psi., Psikolog</a>
                     <!-- href="http://127.0.0.1:8000/counseling/pdf/DANNY SANJAYA ARFENSIA.pdf"  -->
                 </div>
             </div>
@@ -161,7 +157,7 @@
             </div>
         </div>
         --}} -->
-            <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+            {{-- <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog2.jpeg') }}">
                 <div class="flex flex-col items-center">
                     <a target="_blank" class="text-lg font-medium text-center">B. Primandini Yunanda Harumi, S.Psi.,
@@ -176,28 +172,25 @@
                         Psikolog</a>
                     <!-- href="http://127.0.0.1:8000/counseling/pdf/YUSANDI REZKI FADHLI.pdf" -->
                 </div>
-            </div>
+            </div> --}}
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog4.jpeg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" class="text-lg font-medium text-center">Satria Kamal Agassi, S.Psi., M.Psi.,
-                        Psikolog</a>
+                    <a target="_blank" class="text-lg font-medium text-center">Satria Kamal Agassi, S.Psi., M.Psi., Psikolog</a>
                     <!-- href="http://127.0.0.1:8000/counseling/pdf/SATRIA KAMAL AGASSI.pdf" -->
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog5.jpeg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" class="text-lg font-medium text-center">Virginia Sukma Dewi, S. Psi., M. Psi.,
-                        Psikolog</a>
+                    <a target="_blank" class="text-lg font-medium text-center">Virginia Sukma Dewi, S.Psi., M.Psi., Psikolog </a>
                     <!-- href="http://127.0.0.1:8000/counseling/pdf/VIRGINIA SUKMA DEWI.pdf" -->
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog6.jpeg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" class="text-lg font-medium text-center">Kasmayani Karim, M.Psi., </br>
-                        Psikolog</a>
+                    <a target="_blank" class="text-lg font-medium text-center">⁠Kasmayani Karim, M.Psi., Psikolog</a>
                     <!-- href="http://127.0.0.1:8000/counseling/pdf/KASMAYANI KARIM.pdf" -->
                 </div>
             </div>
@@ -212,24 +205,21 @@
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog8.jpeg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" class="text-lg font-medium text-center">Ira Mayang Sari, S. Psi., M. Psi.,
-                        Psikolog</a>
+                    <a target="_blank" class="text-lg font-medium text-center">Ira Mayang Sari, S.Psi., M.Psi., Psikolog</a>
                     <!-- href="http://127.0.0.1:8000/counseling/pdf/IRA MAYANG SARI.pdf" -->
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog9.jpg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" class="text-lg font-medium text-center">Adismara Putri Pradiri, S.Psi., M.Psi.,
-                        Psikolog</a>
+                    <a target="_blank" class="text-lg font-medium text-center">Adismara Putri Pradiri, S.Psi., M.Psi., Psikolog</a>
                     <!-- href="#" -->
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog10.jpg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" class="text-lg font-medium text-center">Ramadhani Lucky Al Kahfi, S.Psi., M.Psi.,
-                        Psikolog</a>
+                    <a target="_blank" class="text-lg font-medium text-center">Ramadhani Lucky Al Kahfi, S.Psi., M.Psi., Psikolog</a>
                     <!-- href="#" -->
                 </div>
             </div>
@@ -394,17 +384,17 @@
         <div class="flex flex-col md:flex-row md:gap-6 items-center justify-center mt-10">
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
 
-                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/fairuzza.jpeg') }}">
+                <img alt="Najwa Chana Indica" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/najwa.jpg') }}">
 
                 <div class="flex flex-col items-center">
-                    <a target="_blank" href="#" class="text-xl font-medium text-center">Fairuzza Nur Qibtiya
+                    <a target="_blank" href="#" class="text-xl font-medium text-center">Najwa Chana Indica
                     </a>
-                    <p class="text-lg text-disabled">Malang & Bekasi</p>
+                    <p class="text-lg text-disabled">Malang</p>
                 </div>
             </div>
 
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/shafiyyah.jpeg') }}">
+                <img alt="Shafiyyah Muthi'ah" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/shafiyyah.jpg') }}">
                 <div class="flex flex-col items-center">
                     <a target="_blank" href="#" class="text-xl font-medium text-center">Shafiyyah Muthi'ah
                     </a>
@@ -412,19 +402,19 @@
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/nurul.jpeg') }}">
+                <img alt="Thahira Raudhatunissa" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/thahira.jpg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" href="#" class="text-xl font-medium text-center">Nurul Asmaul Husna
+                    <a target="_blank" href="#" class="text-xl font-medium text-center">Thahira Raudhatunissa
                     </a>
-                    <p class="text-lg text-disabled">Padang</p>
+                    <p class="text-lg text-disabled">Surabaya</p>
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/nabila.jpg') }}">
+                <img alt="Nabila Farah Atiqah" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/nabila.jpg') }}">
                 <div class="flex flex-col items-center">
                     <a target="_blank" href="#" class="text-xl font-medium text-center">Nabila Farah Atiqah 
                     </a>
-                    <p class="text-lg text-disabled">Wonogiri & Malang</p>
+                    <p class="text-lg text-disabled">Malang</p>
                 </div>
             </div>
 
