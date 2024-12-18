@@ -79,7 +79,7 @@
                         <div class="mt-2">
                             <input type="text" name="address_family[0]" id="address"
                                 class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6"
-                                placeholder="Jl. Afui Lapar">
+                                placeholder="Jl. Berbinar Raya">
                         </div>
                     </div>
                 </div>

@@ -57,8 +57,8 @@
                                     <th class="text-left text-gray-400">NIK</th>
                                 </tr>
                                 <tr class="mb-4">
-                                    <td class="font-medium">Morgan Vero</td>
-                                    <td class="font-medium">84928492</td>
+                                    <td class="font-medium">{{ $user_company->identity->fullname }}</td>
+                                    <td class="font-medium">{{ $user_company->identity->no_ktp }}</td>
                                 </tr>
                                 <tr><td colspan="2" class="h-6"></td></tr>
                                 <tr>
@@ -66,8 +66,8 @@
                                     <th class="text-left text-gray-400">Tanggal Lahir</th>
                                 </tr>
                                 <tr class="mb-4">
-                                    <td class="font-medium">Kota Surabaya</td>
-                                    <td class="font-medium">01/01/2000</td>
+                                    <td class="font-medium">{{ $user_company->identity->place_of_birth }}</td>
+                                    <td class="font-medium">{{ $user_company->identity->date_of_birth }}</td>
                                 </tr>
                                 <tr><td colspan="2" class="h-6"></td></tr>
                                 <tr>
@@ -75,8 +75,8 @@
                                     <th class="text-left text-gray-400">Status Pernikahan</th>
                                 </tr>
                                 <tr class="mb-4">
-                                    <td class="font-medium">Laki-laki</td>
-                                    <td class="font-medium">Belum Menikah</td>
+                                    <td class="font-medium">{{ $user_company->identity->gender }}</td>
+                                    <td class="font-medium">{{ $user_company->identity->marriage_status }}</td>
                                 </tr>
                                 <tr><td colspan="2" class="h-6"></td></tr>
                                 <tr>
@@ -84,8 +84,8 @@
                                     <th class="text-left text-gray-400">Alamat</th>
                                 </tr>
                                 <tr class="mb-4">
-                                    <td class="font-medium">081234567890</td>
-                                    <td class="font-medium">Jl. Tata Surya No. 123</td>
+                                    <td class="font-medium">{{ $user_company->identity->no_hp }}</td>
+                                    <td class="font-medium">{{ $user_company->identity->address }}</td>
                                 </tr>
                                 <tr><td colspan="2" class="h-6"></td></tr>
                                 <tr>
@@ -93,8 +93,8 @@
                                     <th class="text-left text-gray-400">Unit Kerja</th>
                                 </tr>
                                 <tr class="mb-4">
-                                    <td class="font-medium">berbinar@gmail.com</td>
-                                    <td class="font-medium">Departemen SDM</td>
+                                    <td class="font-medium">{{ $user_company->identity->email }}</td>
+                                    <td class="font-medium">{{ $user_company->identity->work_unit }}</td>
                                 </tr>
                                 <tr><td colspan="2" class="h-6"></td></tr>
                                 <tr>
@@ -102,8 +102,8 @@
                                     <th class="text-left text-gray-400">Jabatan yang Diinginkan</th>
                                 </tr>
                                 <tr class="mb-4">
-                                    <td class="font-medium">CEO</td>
-                                    <td class="font-medium">CEO</td>
+                                    <td class="font-medium">{{ $user_company->identity->current_position }}</td>
+                                    <td class="font-medium">{{ $user_company->identity->desired_position }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -121,8 +121,9 @@
                                     <th class="text-left text-gray-400">Tahun</th>
                                 </tr>
                                 <tr class="mb-4">
-                                    <td class="font-medium">SD Harapan 1</td>
-                                    <td class="font-medium">2003</td>
+                                    <?php $sd = $educations->where('level_education_id', 2)->first()  ?>
+                                    <td class="font-medium">{{ $sd->school_name ?? '-' }}</td>
+                                    <td class="font-medium">{{ $sd->year ?? '-' }}</td>
                                 </tr>
                                 <tr><td colspan="2" class="h-6"></td></tr>
                                 <tr>
@@ -133,8 +134,9 @@
                                     <th class="text-left text-gray-400">Tahun</th>
                                 </tr>
                                 <tr class="mb-4">
-                                    <td class="font-medium">SMP Harapan 1</td>
-                                    <td class="font-medium">2003</td>
+                                    <?php $smp = $educations->where('level_education_id', 3)->first()  ?>
+                                    <td class="font-medium">{{ $smp->school_name ?? '-' }}</td>
+                                    <td class="font-medium">{{ $smp->year ?? '-' }}</td>
                                 </tr>
                                 <tr><td colspan="2" class="h-6"></td></tr>
                                 <tr>
@@ -146,9 +148,10 @@
                                     <th class="text-left text-gray-400">Tahun</th>
                                 </tr>
                                 <tr class="mb-4">
-                                    <td class="font-medium">SMA Harapan 1</td>
-                                    <td class="font-medium">MIPA</td>
-                                    <td class="font-medium">2003</td>
+                                    <?php $sma = $educations->where('level_education_id', 4)->first()  ?>
+                                    <td class="font-medium">{{ $sma->school_name ?? '-' }}</td>
+                                    <td class="font-medium">{{ $sma->major ?? '-' }}</td>
+                                    <td class="font-medium">{{ $sma->year ?? '-' }}</td>
                                 </tr>
                                 <tr><td colspan="2" class="h-6"></td></tr>
                                 <tr>
@@ -160,9 +163,10 @@
                                     <th class="text-left text-gray-400">Tahun</th>
                                 </tr>
                                 <tr class="mb-4">
-                                    <td class="font-medium">Politeknik Bandung</td>
-                                    <td class="font-medium">Manajemen</td>
-                                    <td class="font-medium">2003</td>
+                                    <?php $d3 = $educations->where('level_education_id', 5)->first()  ?>
+                                    <td class="font-medium">{{ $d3->school_name ?? '-' }}</td>
+                                    <td class="font-medium">{{ $d3->major ?? '-' }}</td>
+                                    <td class="font-medium">{{ $d3->year ?? '-' }}</td>
                                 </tr>
                                 <tr><td colspan="2" class="h-6"></td></tr>
                                 <tr>
@@ -174,9 +178,10 @@
                                     <th class="text-left text-gray-400">Tahun</th>
                                 </tr>
                                 <tr class="mb-4">
-                                    <td class="font-medium">Universitas Bandung</td>
-                                    <td class="font-medium">Manajemen</td>
-                                    <td class="font-medium">2003</td>
+                                    <?php $s1 = $educations->where('level_education_id', 6)->first()  ?>
+                                    <td class="font-medium">{{ $s1->school_name ?? '-' }}</td>
+                                    <td class="font-medium">{{ $s1->major ?? '-' }}</td>
+                                    <td class="font-medium">{{ $s1->year ?? '-' }}</td>
                                 </tr>
                                 <tr><td colspan="2" class="h-6"></td></tr>
                                 <tr>
@@ -188,9 +193,10 @@
                                     <th class="text-left text-gray-400">Tahun</th>
                                 </tr>
                                 <tr class="mb-4">
-                                    <td class="font-medium">Universitas Bandung</td>
-                                    <td class="font-medium">Manajemen</td>
-                                    <td class="font-medium">2003</td>
+                                    <?php $s2 = $educations->where('level_education_id', 7)->first()  ?>
+                                    <td class="font-medium">{{ $s2->school_name ?? '-' }}</td>
+                                    <td class="font-medium">{{ $s2->major ?? '-' }}</td>
+                                    <td class="font-medium">{{ $s2->year ?? '-' }}</td>
                                 </tr>
                                 <tr><td colspan="2" class="h-6"></td></tr>
                                 <tr>
@@ -202,9 +208,10 @@
                                     <th class="text-left text-gray-400">Tahun</th>
                                 </tr>
                                 <tr class="mb-4">
-                                    <td class="font-medium">Universitas Bandung</td>
-                                    <td class="font-medium">Manajemen</td>
-                                    <td class="font-medium">2003</td>
+                                    <?php $s3 = $educations->where('level_education_id', 8)->first()  ?>
+                                    <td class="font-medium">{{ $s3->school_name ?? '-' }}</td>
+                                    <td class="font-medium">{{ $s3->major ?? '-' }}</td>
+                                    <td class="font-medium">{{ $s3->year ?? '-' }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -214,44 +221,15 @@
                         <h2 class="font-bold text-3xl text-primary mb-6">Pertanyaan Essay</h2>
                         <table class="w-full text-lg">
                             <tbody>
+                                @foreach ($answers as $item)    
                                 <tr>
-                                    <th class="text-left text-gray-400">Sebutkan Kelebihan/Kekuatan dari Pribadi Anda yang Mendukung Tugas Anda Saat Ini (Minimal 3)</th>
+                                    <th class="text-left text-gray-400">{{ $item->question_essay->question }}</th>
                                 </tr>
                                 <tr class="mb-4">
-                                    <td class="font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores veniam esse odio eveniet quidem voluptas et illum sit expedita aperiam optio obcaecati tenetur voluptatibus animi perspiciatis nulla, voluptatem, adipisci modi!</td>
+                                    <td class="font-medium">{{ $item->answer}}</td>
                                 </tr>
                                 <tr><td colspan="2" class="h-6"></td></tr>
-                                <tr>
-                                    <th class="text-left text-gray-400">Sebutkan Faktor yang Sering Menghambat Keberhasilan/Kelancaran Pelaksanaan Tugas Anda Saat Ini (Minimal 3)</th>
-                                </tr>
-                                <tr class="mb-4">
-                                    <td class="font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex, iste. Natus quibusdam consequuntur rem error magni ad ut veniam dolores eveniet, est rerum et voluptates libero omnis veritatis assumenda cumque?</td>
-                                </tr>
-                                <tr><td colspan="2" class="h-6"></td></tr>
-                                <tr>
-                                    <th class="text-left text-gray-400">Target capaian anda untuk lima (5) tahun ke depan</th>
-                                </tr>
-                                <tr class="mb-4">
-                                    <td class="font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel qui ea dolore, reiciendis laborum quaerat, neque soluta maiores placeat iure praesentium itaque magnam? Laboriosam obcaecati expedita fugit, provident temporibus vitae!</td>
-                                </tr>
-                                <tr><td colspan="2" class="h-6"></td></tr>
-                                <tr>
-                                <tr>
-                                    <th class="text-left text-gray-400">Tuliskan satu pengalaman keberhasilan anda dalam menjalankan tugas, yang menurut anda merupakan tugas yang sangat sulit. Jelaskan tugas tersebut dan faktor -faktor yang membantu anda menemukan penyelesaian atas tugas yang sulit tersebut</th>
-                                </tr>
-                                <tr class="mb-4">
-                                    <td class="font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel qui ea dolore, reiciendis laborum quaerat, neque soluta maiores placeat iure praesentium itaque magnam? Laboriosam obcaecati expedita fugit, provident temporibus vitae!</td>
-                                </tr>
-                                <tr><td colspan="2" class="h-6"></td></tr>
-                                <tr>
-                                <tr>
-                                    <th class="text-left text-gray-400">Sudah Pernah Melakukan Pemeriksaan Psikologis Sebelumnya? Jika Iya, Untuk Keperluan Apa?</th>
-                                </tr>
-                                <tr class="mb-4">
-                                    <td class="font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel qui ea dolore, reiciendis laborum quaerat, neque soluta maiores placeat iure praesentium itaque magnam? Laboriosam obcaecati expedita fugit, provident temporibus vitae!</td>
-                                </tr>
-                                <tr><td colspan="2" class="h-6"></td></tr>
-                                <tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

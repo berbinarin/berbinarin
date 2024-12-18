@@ -51,7 +51,7 @@
                         <div class="mt-2">
                             <input type="text" name="job_family[1]" id="work"
                                 class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6"
-                                placeholder="Tukang Tidur">
+                                placeholder="PNS">
                         </div>
                     </div>
                     <div class="col-span-3">
