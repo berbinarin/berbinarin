@@ -1,76 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('moduls.psikotes.layouts.mainn', [
+'title' => 'Instruksi Tes VAK',
+'active' => 'one psikotest',
+])
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>VAK Psikotest</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-        }
+@section('content')
+<div class="relative h-11/12 md:min-h-screen flex flex-col items-center bg-gray-100 justify-center">
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+  <!-- bg-internship -->
+  <img src="{{ asset('assets/images/psikotes/paid/psikotest-soal-bg.png') }}" alt="Latar Belakang Berbinar" class="absolute inset-0 hidden md:block md:w-full md:h-full object-cover z-0">
 
-        h1 {
-            text-align: center;
-        }
-
-        p {
-            margin-bottom: 1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            border-radius: 5px;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #45a049;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <h1>Instruksi Tes VAK</h1>
-        <p>Bacalah setiap kalimat dengan hati-hati lalu pertimbangkan apakah pernyataan tersebut menggambarkan diri
-            Anda. Setiap pernyataan akan tersedia tiga opsi pilihan jawaban, pilihlah salah satu opsi jawaban yang
-            sesuai dengan gambaran diri Anda.</p>
-        <p><strong>Keterangan pilihan jawaban:</strong></p>
-        <ul>
-            <li>1 : Jika pernyataan <strong>"TIDAK SESUAI"</strong> dengan gambaran diri Anda.</li>
-            <li>2 : Jika pernyataan <strong>"CUKUP SESUAI"</strong> dengan gambaran diri Anda.</li>
-            <li>3 : Jika pernyataan <strong>"SANGAT SESUAI"</strong> dengan gambaran diri Anda.</li>
-        </ul>
-        <p>Tidak ada benar atau salah dalam pengerjaan soal ini, jadi silakan Anda menjawab sejujur-jujurnya.</p>
-
-        <div>
-            <form action="{{ route('psikotest-paid.VAK.start') }}" method="POST">
-                @csrf
-                <button type="submit" class="btn">Selanjutnya</button>
-            </form>
-        </div>
+  <!-- Container untuk ikon di atas card -->
+  <div class="absolute top-0 left-0 right-0 flex items-center justify-center mt-8 z-10">
+    <div class="bg-white h-[50px] rounded-full px-4 py-2 flex items-center">
+      <img src="{{ asset('assets/images/psikotes/paid/logo-berbinar.png') }}" alt="Ikon" class="w-8 h-8 rounded-full">
+      <img src="{{ asset('assets/images/psikotes/paid/logo-berbinar-psikotest.png') }}" alt="Ikon" class="w-8 h-8 rounded-full ml-2">
     </div>
-</body>
+  </div>
 
-</html>
+  <p class="font-bold text-2xl text-center text-gray-800 mt-16 z-20 relative">Tes 13</p>
+
+  <!-- Card Transparant -->
+  <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-6 mt-4 " style="width: 750px;">
+    <p class="text-black mt-4 px-5">
+      Bacalah setiap kalimat dengan hati-hati lalu pertimbangkan apakah pernyataan tersebut menggambarkan diri Anda. Setiap pernyataan akan tersedia tiga opsi pilihan jawaban, pilihlah salah satu opsi jawaban yang sesuai dengan gambaran diri Anda.
+    </p>
+    <p class="text-black mt-2 px-5">
+      <b>Keterangan pilihan jawaban:</b>
+      <br>1 : Jika pernyataan <b>"TIDAK SESUAI"</b> dengan gambaran diri Anda. 
+      <br>2 : Jika pernyataan <b>"CUKUP SESUAI"</b> dengan gambaran diri Anda.
+      <br>3 : Jika pernyataan <b>"SANGAT SESUAI"</b> dengan gambaran diri Anda.
+    </p>
+    <p class="text-black mt-2 px-5">
+      Tidak ada benar atau salah dalam pengerjaan soal ini, jadi silakan Anda menjawab sejujur-jujurnya.
+    </p>
+    
+    <div class="mb-4 flex justify-center mt-10">
+      <form action="{{ route('psikotest-paid.VAK.start') }}" method="POST">
+        @csrf
+        <button type="submit" class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Selanjutnya</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+@endsection
