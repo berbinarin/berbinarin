@@ -20,6 +20,14 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Hiring_Positions_Requirements;
 use App\Models\PsikotestPaid\UserPsikotestPaid;
 use App\Models\Hiring_Positions_Job_Descriptions;
+use App\Models\PsikotestPaid\Biodata\UserClinical;
+use App\Models\PsikotestPaid\Biodata\UserCompany;
+use App\Models\PsikotestPaid\Biodata\UserCommunity;
+use App\Models\PsikotestPaid\Biodata\UserIndividual;
+use App\Models\PsikotestPaid\Biodata\UserEducation;
+use App\Models\PsikotestPaid\Biodata\Education;
+use App\Models\PsikotestPaid\Biodata\Family;
+use App\Models\PsikotestPaid\Biodata\LevelEducation;
 
 
 class DashboardController extends Controller
@@ -724,56 +732,122 @@ class DashboardController extends Controller
 
     public function psikotesPaidDashboardBiodata()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.dashboardbiodata');
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.dashboardbiodata',[
+            'count_company_users' => UserCompany::count(),
+            'count_education_users' => UserEducation::count(),
+            'count_individual_users' => UserIndividual::count(),
+            'count_community_users' => UserCommunity::count(),
+            'count_clinical_users' => UserClinical::count(),
+        ]);
     }
 
     public function BiodataPerusahaan()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan');
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan',[
+            'user_companies' => UserCompany::latest()->get(),
+        ]);
     }
 
-    public function TablePerusahaan()
+    public function TablePerusahaan($id)
     {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.tableperusahaan');
+        $user_company = UserCompany::with('educations.level_education','answer_essays.question_essay');
+        $user_company = $user_company->find($id);
+        $educations = $user_company->educations;
+        $answers = $user_company->answer_essays;
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.tableperusahaan',[
+            'user_company' => $user_company,
+            'educations' => $educations,
+            'answers' => $answers
+        ]);
     }
     
     public function BiodataPendidikan()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan');
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan', [
+            'user_educations' => UserEducation::latest()->get(),
+        ]);
     }
 
-    public function TablePendidikan()
+    public function TablePendidikan($id)
     {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.tablependidikan');
+        $user_education = UserEducation::with('educations.level_education','answer_essays.question_essay');
+        $user_education = $user_education->find($id);
+        $educations = $user_education->educations;
+        $answers = $user_education->answer_essays;
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.tablependidikan',[
+            'user_education' => $user_education,
+            'educations' => $educations,
+            'answers' => $answers
+        ]);
     }
 
     public function BiodataKomunitas()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas');
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas',[
+            'user_communities' => UserCommunity::latest()->get(),
+        ]);
     }
 
-    public function TableKomunitas()
+    public function TableKomunitas($id)
     {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.tablekomunitas');
+        $user_community = UserCommunity::with('educations.level_education','answer_essays.question_essay', 'courses', 'experiences');
+        $user_community = $user_community->find($id);
+        $educations = $user_community->educations;
+        $answers = $user_community->answer_essays;
+        $courses = $user_community->courses;
+        $experiences = $user_community->experiences;
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.tablekomunitas',[
+            'user_community' => $user_community,
+            'educations' => $educations,
+            'answers' => $answers,
+            'courses' => $courses,
+            'experiences' => $experiences,
+        ]);
     }
 
     public function BiodataIndividual()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual');
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual',[
+            'user_individuals' => UserIndividual::latest()->get(),
+        ]);
     }
 
-    public function TableIndividual()
+    public function TableIndividual($id)
     {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.tableindividual');
+        $user_individual = UserIndividual::with('educations.level_education','answer_essays.question_essay');
+        $user_individual = $user_individual->find($id);
+        $educations = $user_individual->educations;
+        $answers = $user_individual->answer_essays;
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.tableindividual', [
+            'user_individual' => $user_individual,
+            'educations' => $educations,
+            'answers' => $answers
+        ]);
     }
 
     public function BiodataKlinis()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis');
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis',[
+            'user_clinicals' => UserClinical::latest()->get(),
+        ]);
     }
 
-    public function TableKlinis()
+    public function TableKlinis($id)
     {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.tableklinis');
+        $user_clinical = UserClinical::with('educations.level_education','answer_essays.question_essay', 'families.family_status');
+        $user_clinical = $user_clinical->find($id);
+        $educations = $user_clinical->educations;
+        $answers = $user_clinical->answer_essays;
+        $partner = $user_clinical->families->whereIn('family_status_id', [2, 3])->first();
+        $father = $user_clinical->families->where('gender','Laki-laki')->whereIn('family_status_id', [1, 4, 5, 6, 7, 8])->first();
+        $mother = $user_clinical->families->where('gender','Perempuan')->whereIn('family_status_id', [1, 4, 5, 6, 7, 8])->first();
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.tableklinis',[
+            'user_clinical' => $user_clinical,
+            'educations' => $educations,
+            'answers' => $answers,
+            'partner' => $partner,
+            'father' => $father,
+            'mother' => $mother
+        ]);
     }
 }
