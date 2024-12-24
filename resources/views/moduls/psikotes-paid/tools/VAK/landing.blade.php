@@ -22,6 +22,9 @@
   <!-- Card Transparant -->
   <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-6 mt-4 " style="width: 750px;">
     <p class="text-black mt-4 px-5">
+      Hai {{ $user->fullname }}, berikut adalah instruksi untuk test {{ $tool->name }}
+    </p>
+    <p class="text-black mt-4 px-5">
       Bacalah setiap kalimat dengan hati-hati lalu pertimbangkan apakah pernyataan tersebut menggambarkan diri Anda. Setiap pernyataan akan tersedia tiga opsi pilihan jawaban, pilihlah salah satu opsi jawaban yang sesuai dengan gambaran diri Anda.
     </p>
     <p class="text-black mt-2 px-5">

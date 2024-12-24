@@ -60,7 +60,7 @@
                         <div class="mt-2">
                             <input type="number" name="child_marriage[1]" id="marriage"
                                 class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6"
-                                placeholder="25">
+                                placeholder="1">
                         </div>
                     </div>
                     <input type="hidden" name="page" value="9">

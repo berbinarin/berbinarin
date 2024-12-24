@@ -78,6 +78,6 @@ class BAUMController extends Controller
 
     public function showSummary($testId)
     {
-        return view('moduls.psikotes-paid.tools.tes-esai.summary', ['testId' => $testId]);
+        return view('moduls.psikotes-paid.tools.BAUM.summary', ['testId' => $testId]);
     }
 }

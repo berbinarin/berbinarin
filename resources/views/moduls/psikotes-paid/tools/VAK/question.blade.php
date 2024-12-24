@@ -48,7 +48,7 @@
     <form action="{{ route('psikotest-paid.VAK.submit', ['id' => $id, 'question_order' => $question_order]) }}"
       method="POST">
       @csrf
-    <p class="text-black mt-3 px-5">
+    <p class="text-black mt-3 px-5 text-center">
       {{ $question->question_text }}
     </p>
 
@@ -76,11 +76,12 @@
           3
         </div>
         <span class="mt-4 text-xs text-gray-500">Sangat sesuai</span>
-      </label>
-    </div>
-    <div class="flex rounded-md items-center justify-center mt-8" style="height: 40px;">
-        <button type="submit" class="px-4 py-1 bg-blue-500 text-sm mr-2 text-white rounded-lg hover:bg-blue-600">Soal Berikutnya</button>
-    </div>
+        </label>
+      </div>
+      <div class="flex rounded-md items-center justify-center mt-8" style="height: 40px;">
+          <button type="submit" class="px-4 py-1 bg-blue-500 text-sm mr-2 text-white rounded-full hover:bg-blue-600" style="height: 40px;">Soal Berikutnya</button>
+      </div>
+    </form>
   </div>
 </div>
 
