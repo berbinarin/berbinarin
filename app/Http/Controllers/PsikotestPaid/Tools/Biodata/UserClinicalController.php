@@ -231,11 +231,11 @@ class UserClinicalController extends Controller
                 if (isset($data)) {
                     if($data['gender_family'][0] == 'Laki-laki')
                     {
-                        $data['family_status_id'][0] = 2;
+                        $data['family_status_id'][0] = 2; //suami
                     }
                     else
                     {
-                        $data['family_status_id'][0] = 3;
+                        $data['family_status_id'][0] = 3; //istri
                     }
                 }
                 break;

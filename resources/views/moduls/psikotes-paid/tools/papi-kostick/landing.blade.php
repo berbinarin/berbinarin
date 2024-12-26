@@ -19,11 +19,16 @@
             </div>
         </div>
 
+        <p class="font-bold text-2xl text-center text-gray-800 mt-16 z-20 relative">Tes 01</p>
+
         <!-- Card Transparant -->
-        <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-6 mt-0"
+        <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-6 mt-8"
             style="width: 750px;">
 
-            <p class="text-black mt-10 px-5">
+            <p class="text-black mt-4 px-5">
+                Hai {{ $user->fullname }}, berikut adalah instruksi untuk test {{ $tool->name }}
+            </p>
+            <p class="text-black mt-6 px-5">
                 Akan terdapat 90 pasang pernyataan. Pilihlah satu pernyataan dari pasangan pernyataan yang Anda rasakan
                 paling mendekati gambaran diri Anda, atau yang paling menunjukkan perasaan Anda.
 
