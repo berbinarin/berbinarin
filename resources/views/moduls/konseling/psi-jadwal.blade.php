@@ -111,15 +111,18 @@
                                         <option value="Sidoarjo"
                                             {{ !empty($konselling) && $konselling->daerah == 'Sidoarjo' ? 'selected' : '' }}>
                                             Sidoarjo</option>
-                                        <option value="Denpasar"
+                                        {{-- <option value="Denpasar"
                                             {{ !empty($konselling) && $konselling->daerah == 'Denpasar' ? 'selected' : '' }}>
-                                            Denpasar</option>
+                                            Denpasar</option> --}}
                                         <option value="Samarinda"
                                             {{ !empty($konselling) && $konselling->daerah == 'Samarinda' ? 'selected' : '' }}>
                                             Samarinda</option>
-                                        <option value="Kalimantan Utara (Tarakan)"
+                                        <option value="Makassar"
+                                            {{ !empty($konselling) && $konselling->daerah == 'Makassar' ? 'selected' : '' }}>
+                                            Makassar</option>
+                                        {{-- <option value="Kalimantan Utara (Tarakan)"
                                             {{ !empty($konselling) && $konselling->daerah == 'Kalimantan Utara (Tarakan)' ? 'selected' : '' }}>
-                                            Kalimantan Utara (Tarakan)</option>
+                                            Kalimantan Utara (Tarakan)</option> --}}
                                         <option value="Jakarta"
                                             {{ !empty($konselling) && $konselling->daerah == 'Jakarta' ? 'selected' : '' }}>
                                             Jakarta</option>

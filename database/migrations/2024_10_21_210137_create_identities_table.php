@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('no_ktp');
             $table->text('place_of_birth');
             $table->date('date_of_birth');
-            $table->boolean('gender');
-            $table->boolean('marriage_status');
+            $table->string('gender');
+            $table->string('marriage_status');
             $table->string('no_hp');
             $table->text('address');
             $table->string('email');
