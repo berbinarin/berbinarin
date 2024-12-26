@@ -252,8 +252,8 @@
                 if (metode === 'online') {
                     if (isWeekday) {
                         if (sesi == 1) harga = 150000;
-                        else if (sesi == 2) harga = 255000;
-                        else if (sesi == 3) harga = 360000;
+                        else if (sesi == 2) harga = 300000;
+                        else if (sesi == 3) harga = 450000;
                     } else {
                         if (sesi == 1) harga = 200000;
                         else if (sesi == 2) harga = 340000;
@@ -262,8 +262,8 @@
                 } else if (metode === 'offline') {
                     if (isWeekday) {
                         if (sesi == 1) harga = 175000;
-                        else if (sesi == 2) harga = 298000;
-                        else if (sesi == 3) harga = 421000;
+                        else if (sesi == 2) harga = 350000;
+                        else if (sesi == 3) harga = 525000;
                     } else {
                         if (sesi == 1) harga = 225000;
                         else if (sesi == 2) harga = 382000;

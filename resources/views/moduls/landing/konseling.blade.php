@@ -246,16 +246,16 @@
                     <div class="flex flex-col gap-3 text-center items-center justify-items-center px-5 py-3">
                         <p class="text-primary-alt text-lg font-semibold italic">Online</p>
                         <p class="text-primary-alt text-lg font-semibold italic">1 Sesi (1 Jam) 150k</p>
-                        <p class="text-primary-alt text-lg font-semibold italic">2 Sesi (2 Jam) 255k</p>
-                        <p class="text-primary-alt text-lg font-semibold italic">3 Sesi (3 Jam) 360k</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">2 Sesi (2 Jam) 300k</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">3 Sesi (3 Jam) 450k</p>
                     </div>
                     <!-- <div class="inline-block h-[250px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 dark:bg-white/10">
                     </div> -->
                     <div class="flex flex-col gap-2 text-center items-center justify-center px-5 py-3">
                         <p class="text-primary-alt text-lg font-semibold italic">Offline</p>
                         <p class="text-primary-alt text-lg font-semibold italic">1 Sesi (1 Jam) 175k</p>
-                        <p class="text-primary-alt text-lg font-semibold italic">2 Sesi (2 Jam) 298k</p>
-                        <p class="text-primary-alt text-lg font-semibold italic">3 Sesi (3 Jam) 421k</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">2 Sesi (2 Jam) 350k</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">3 Sesi (3 Jam) 525k</p>
 
 
                     </div>
