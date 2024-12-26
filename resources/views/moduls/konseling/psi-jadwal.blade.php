@@ -111,15 +111,18 @@
                                         <option value="Sidoarjo"
                                             {{ !empty($konselling) && $konselling->daerah == 'Sidoarjo' ? 'selected' : '' }}>
                                             Sidoarjo</option>
-                                        <option value="Denpasar"
+                                        {{-- <option value="Denpasar"
                                             {{ !empty($konselling) && $konselling->daerah == 'Denpasar' ? 'selected' : '' }}>
-                                            Denpasar</option>
+                                            Denpasar</option> --}}
                                         <option value="Samarinda"
                                             {{ !empty($konselling) && $konselling->daerah == 'Samarinda' ? 'selected' : '' }}>
                                             Samarinda</option>
-                                        <option value="Kalimantan Utara (Tarakan)"
+                                        <option value="Makassar"
+                                            {{ !empty($konselling) && $konselling->daerah == 'Makassar' ? 'selected' : '' }}>
+                                            Makassar</option>
+                                        {{-- <option value="Kalimantan Utara (Tarakan)"
                                             {{ !empty($konselling) && $konselling->daerah == 'Kalimantan Utara (Tarakan)' ? 'selected' : '' }}>
-                                            Kalimantan Utara (Tarakan)</option>
+                                            Kalimantan Utara (Tarakan)</option> --}}
                                         <option value="Jakarta"
                                             {{ !empty($konselling) && $konselling->daerah == 'Jakarta' ? 'selected' : '' }}>
                                             Jakarta</option>
@@ -249,8 +252,8 @@
                 if (metode === 'online') {
                     if (isWeekday) {
                         if (sesi == 1) harga = 150000;
-                        else if (sesi == 2) harga = 255000;
-                        else if (sesi == 3) harga = 360000;
+                        else if (sesi == 2) harga = 300000;
+                        else if (sesi == 3) harga = 450000;
                     } else {
                         if (sesi == 1) harga = 200000;
                         else if (sesi == 2) harga = 340000;
@@ -259,8 +262,8 @@
                 } else if (metode === 'offline') {
                     if (isWeekday) {
                         if (sesi == 1) harga = 175000;
-                        else if (sesi == 2) harga = 298000;
-                        else if (sesi == 3) harga = 421000;
+                        else if (sesi == 2) harga = 350000;
+                        else if (sesi == 3) harga = 525000;
                     } else {
                         if (sesi == 1) harga = 225000;
                         else if (sesi == 2) harga = 382000;
