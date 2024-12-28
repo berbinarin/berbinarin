@@ -266,8 +266,7 @@
                     <!-- <div class="inline-block h-[250px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 dark:bg-white/10">
                     </div> -->
                     <div class="flex flex-col gap-2 text-center items-center justify-center px-16 py-3">
-                        <p class="text-disabled italic text-sm">*Wilayah Surabaya, Kediri, Sidoarjo, Denpasar,
-                            Kalimantan Utara (Tarakan), Samarinda, Jakarta, Malang</p>
+                        <p class="text-disabled italic text-sm">*Wilayah Surabaya, Sidoarjo, Kediri, Makassar, Samarinda, Surabaya, Jakarta, dan Malang</p>
                     </div>
                 </div>
             </div>
@@ -304,8 +303,7 @@
                     <!-- <div class="inline-block h-[250px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 dark:bg-white/10">
                     </div> -->
                     <div class="flex flex-col gap-2 text-center items-center justify-center px-16 py-3">
-                        <p class="text-disabled italic text-sm">*Wilayah Surabaya, Kediri, Sidoarjo, Denpasar,
-                            Kalimantan Utara (Tarakan), Samarinda, Jakarta, Malang</p>
+                        <p class="text-disabled italic text-sm">*Wilayah Surabaya, Sidoarjo, Kediri, Makassar, Samarinda, Surabaya, Jakarta, dan Malang</p>
                     </div>
                 </div>
 
@@ -445,7 +443,7 @@
                 <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
                     <h3 class="text-black text-xl font-medium">Offline</h3>
                     <h1 class="text-black text-4xl font-medium">IDR 55k/jam</h1>
-                    <p class="text-lg text-disabled">Wilayah Bekasi, Jakarta, Tangerang Selatan, Padang, Wonogiri dan Malang</p>
+                    <p class="text-lg text-disabled">Wilayah Tangerang Selatan, Surabaya, dan Malang</p>
                     <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="0">
                         Mulai Sekarang
                     </button>
