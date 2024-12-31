@@ -17,5 +17,6 @@ class VerifyCsrfToken extends Middleware
         'api/psikotest-paid/post-community',
         'api/psikotest-paid/post-individual',
         'api/psikotest-paid/post-clinical',
+        'api/*',
     ];
 }
