@@ -177,11 +177,39 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('/data/{id}', [DashboardUserController::class, 'deleteUserRegister'])->name('dashboard.psikotespaid.data-destroy');
         Route::get('/data-test', [DashboardUserController::class, 'psikotestTool'])->name('dashboard.psikotespaid.data-test');
 
-        // Dashboard PAPI Kostick
+        // Dashboard Psikotest Paid
         Route::get('/data-test/dashboardPapikostick', [DashboardUserController::class, 'dashboardPapikostick'])->name('dashboard.psikotespaid.dashboardPapikostick');
         Route::get('/data-test/papikostick', [DashboardUserController::class, 'papikostick'])->name('dashboard.psikotespaid.papikostick');
         Route::get('/data-test/psikotestData', [DashboardUserController::class, 'psikotestData'])->name('dashboard.psikotespaid.psikotestData');
         Route::get('/data-test/psikotestSoal', [DashboardUserController::class, 'psikotestSoal'])->name('dashboard.psikotespaid.psikotestSoal');
+        Route::get('/data-test/baum', [DashboardUserController::class, 'psikotesPaidBAUM'])->name('dashboard.psikotespaid.baum');
+        Route::get('/data-test/htp', [DashboardUserController::class, 'psikotesPaidHTP'])->name('dashboard.psikotespaid.htp');
+        Route::get('/data-test/dap', [DashboardUserController::class, 'psikotesPaidDAP'])->name('dashboard.psikotespaid.dap');
+        Route::get('/data-test/dashboardtes', [DashboardUserController::class, 'psikotesPaidDashboardTes'])->name('dashboard.psikotespaid.dashboardtes');
+        Route::get('/data-test/dashboardEsai', [DashboardUserController::class, 'psikotesPaidDashboardEsai'])->name('dashboard.psikotespaid.dashboardesai');
+        Route::get('/data-test/pengumpulan', [DashboardUserController::class, 'psikotesPaidPengumpulan'])->name('dashboard.psikotespaid.pengumpulan');
+        Route::get('/data-test/dashboardVAK', [DashboardUserController::class, 'dashboardVAK'])->name('dashboard.psikotespaid.dashboardVAK');
+        Route::get('/data-test/dashboardVAK/jawaban', [DashboardUserController::class, 'jawabanVAK'])->name('dashboard.psikotespaid.jawabanVAK');
+        Route::get('/data-test/dashboardVAK/jawaban/detail', [DashboardUserController::class, 'detailVAK'])->name('dashboard.psikotespaid.detailVAK');
+        Route::get('/data-test/dashboardSSCT', [DashboardUserController::class, 'dashboardSSCT'])->name('dashboard.psikotespaid.dashboardSSCT');
+        Route::get('/data-test/dashboardSSCT/jawaban', [DashboardUserController::class, 'jawabanSSCT'])->name('dashboard.psikotespaid.jawabanSSCT');
+        Route::get('/data-test/dashboardbiodata', [DashboardUserController::class, 'psikotesPaidDashboardBiodata'])->name('dashboard.psikotespaid.dashboardbiodata');
+        Route::get('/data-test/bioperusahaan', [DashboardUserController::class, 'BiodataPerusahaan'])->name('dashboard.psikotespaid.biodataperusahaan');
+        Route::get('/data-test/tableperusahaan/{id}', [DashboardUserController::class, 'TablePerusahaan'])->name('dashboard.psikotespaid.tableperusahaan');
+        Route::get('/data-test/biopendidikan', [DashboardUserController::class, 'BiodataPendidikan'])->name('dashboard.psikotespaid.biodatapendidikan');
+        Route::get('/data-test/tablependidikan/{id}', [DashboardUserController::class, 'TablePendidikan'])->name('dashboard.psikotespaid.tablependidikan');
+        Route::get('/data-test/biokomunitas', [DashboardUserController::class, 'BiodataKomunitas'])->name('dashboard.psikotespaid.biodatakomunitas');
+        Route::get('/data-test/tablekomunitas/{id}', [DashboardUserController::class, 'TableKomunitas'])->name('dashboard.psikotespaid.tablekomunitas');
+        Route::get('/data-test/bioindividual', [DashboardUserController::class, 'BiodataIndividual'])->name('dashboard.psikotespaid.biodataindividual');
+        Route::get('/data-test/tableindividual/{id}', [DashboardUserController::class, 'TableIndividual'])->name('dashboard.psikotespaid.tableindividual');
+        Route::get('/data-test/bioklinis', [DashboardUserController::class, 'BiodataKlinis'])->name('dashboard.psikotespaid.biodataklinis');
+        Route::get('/data-test/tableklinis/{id}', [DashboardUserController::class, 'TableKlinis'])->name('dashboard.psikotespaid.tableklinis');
+        Route::get('/data-test/OCEAN', [DashboardUserController::class, 'OCEAN'])->name('dashboard.psikotespaid.ocean');
+        Route::get('/data-test/OCEAN/data', [DashboardUserController::class, 'dataOCEAN'])->name('dashboard.psikotespaid.dataocean');
+        Route::get('/data-test/OCEAN/data/detail', [DashboardUserController::class, 'detailOCEAN'])->name('dashboard.psikotespaid.detailocean');
+        Route::get('/data-test/BDI', [DashboardUserController::class, 'BDI'])->name('dashboard.psikotespaid.bdi');
+        Route::get('/data-test/BDI/data', [DashboardUserController::class, 'dataBDI'])->name('dashboard.psikotespaid.databdi');
+        Route::get('/data-test/BDI/data/detail', [DashboardUserController::class, 'detailBDI'])->name('dashboard.psikotespaid.detailbdi');
 
 
         Route::post('/data-test/{id}/generate-token', [DashboardUserController::class, 'generateToken'])->name('dashboard.psikotespaid.generate-token');
@@ -191,32 +219,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('/price-list/{id}', [DashboardUserController::class, 'deletePriceList'])->name('dashboard.psikotespaid.delete-price-list');
         Route::get('/testimoni', [DashboardUserController::class, 'testimoni'])->name('dashboard.psikotespaid.testimoni');
         Route::get('/testimoni/{id}', [DashboardUserController::class, 'testimoniShow'])->name('dashboard.psikotespaid.testimoni-show');
-
-        // DASHBOARD PSIKOTEST PAID VAK
-
     });
-    Route::get('/dashboard/admin/psikotest-paid/baum', [DashboardController::class, 'psikotesPaidBAUM'])->name('dashboard.psikotespaid.baum');
-    Route::get('/dashboard/admin/psikotest-paid/htp', [DashboardController::class, 'psikotesPaidHTP'])->name('dashboard.psikotespaid.htp');
-    Route::get('/dashboard/admin/psikotest-paid/dap', [DashboardController::class, 'psikotesPaidDAP'])->name('dashboard.psikotespaid.dap');
-    Route::get('/dashboard/admin/psikotest-paid/dashboardtes', [DashboardController::class, 'psikotesPaidDashboardTes'])->name('dashboard.psikotespaid.dashboardtes');
-    Route::get('/dashboard/admin/psikotest-paid/dashboardesai', [DashboardController::class, 'psikotesPaidDashboardEsai'])->name('dashboard.psikotespaid.dashboardesai');
-    Route::get('/dashboard/admin/psikotest-paid/pengumpulan', [DashboardController::class, 'psikotesPaidPengumpulan'])->name('dashboard.psikotespaid.pengumpulan');
-    Route::get('/dashboard/admin/psikotest-paid/dashboardVAK', [DashboardController::class, 'dashboardVAK'])->name('dashboard.psikotespaid.dashboardVAK');
-    Route::get('/dashboard/admin/psikotest-paid/jawabanVAK', [DashboardController::class, 'jawabanVAK'])->name('dashboard.psikotespaid.jawabanVAK');
-    Route::get('/dashboard/admin/psikotest-paid/detailVAK', [DashboardController::class, 'detailVAK'])->name('dashboard.psikotespaid.detailVAK');
-    Route::get('/dashboard/admin/psikotest-paid/dashboardSSCT', [DashboardController::class, 'dashboardSSCT'])->name('dashboard.psikotespaid.dashboardSSCT');
-    Route::get('/dashboard/admin/psikotest-paid/jawabanSSCT', [DashboardController::class, 'jawabanSSCT'])->name('dashboard.psikotespaid.jawabanSSCT');
-    Route::get('/dashboard/admin/psikotest-paid/dashboardbiodata', [DashboardController::class, 'psikotesPaidDashboardBiodata'])->name('dashboard.psikotespaid.dashboardbiodata');
-    Route::get('/dashboard/admin/psikotest-paid/bioperusahaan', [DashboardController::class, 'BiodataPerusahaan'])->name('dashboard.psikotespaid.biodataperusahaan');
-    Route::get('/dashboard/admin/psikotest-paid/tableperusahaan/{id}', [DashboardController::class, 'TablePerusahaan'])->name('dashboard.psikotespaid.tableperusahaan');
-    Route::get('/dashboard/admin/psikotest-paid/biopendidikan', [DashboardController::class, 'BiodataPendidikan'])->name('dashboard.psikotespaid.biodatapendidikan');
-    Route::get('/dashboard/admin/psikotest-paid/tablependidikan/{id}', [DashboardController::class, 'TablePendidikan'])->name('dashboard.psikotespaid.tablependidikan');
-    Route::get('/dashboard/admin/psikotest-paid/biokomunitas', [DashboardController::class, 'BiodataKomunitas'])->name('dashboard.psikotespaid.biodatakomunitas');
-    Route::get('/dashboard/admin/psikotest-paid/tablekomunitas/{id}', [DashboardController::class, 'TableKomunitas'])->name('dashboard.psikotespaid.tablekomunitas');
-    Route::get('/dashboard/admin/psikotest-paid/bioindividual', [DashboardController::class, 'BiodataIndividual'])->name('dashboard.psikotespaid.biodataindividual');
-    Route::get('/dashboard/admin/psikotest-paid/tableindividual/{id}', [DashboardController::class, 'TableIndividual'])->name('dashboard.psikotespaid.tableindividual');
-    Route::get('/dashboard/admin/psikotest-paid/bioklinis', [DashboardController::class, 'BiodataKlinis'])->name('dashboard.psikotespaid.biodataklinis');
-    Route::get('/dashboard/admin/psikotest-paid/tableklinis/{id}', [DashboardController::class, 'TableKlinis'])->name('dashboard.psikotespaid.tableklinis');
 
     // MODUL KONSELLING PSIKOLOG
     Route::get('/dashboard/admin/psikologData', [DashboardController::class, 'PsikologData'])->name('dashboard.PsikologData');
@@ -429,6 +432,11 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::get('/papi-kostick/soal', [DashboardPapiKostickController::class, 'allSoal'])->name('papi-kostick.soal');
         Route::get('/papi-kostick/soal/{id}/edit', [DashboardPapiKostickController::class, 'editSoal'])->name('papi-kostick.edit-soal');
         Route::put('/papi-kostick/soal/{id}', [DashboardPapiKostickController::class, 'updateSoal'])->name('papi-kostick.update-soal');
+        
+        // BDI
+        Route::get('/tool/BDI', [LandingController::class, 'LandingBDI'])->name('psikotest-paid.tool.BDI.landingbdi');
+        Route::get('/tool/BDI/test', [LandingController::class, 'TestBDI'])->name('psikotest-paid.tool.BDI.testbdi');
+        Route::get('/tool/BDI/end/', [LandingController::class, 'EndBDI'])->name('psikotest-paid.tool.BDI.endbdi');
         
         // BIODATA
         // Perusahaan
