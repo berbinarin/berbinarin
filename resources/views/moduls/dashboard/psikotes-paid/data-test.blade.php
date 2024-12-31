@@ -120,6 +120,21 @@
                                                     class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
                                                     <i class='bx bx-home-alt text-white'> Dashboard</i>
                                                 </a>
+                                            @elseif ($tool->name === 'SSCT')
+                                                <a href="{{ route('dashboard.psikotespaid.dashboardSSCT') }}"
+                                                    class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
+                                                    <i class='bx bx-home-alt text-white'> Dashboard</i>
+                                                </a>
+                                            @elseif ($tool->name === 'OCEAN')
+                                                <a href="{{ route('dashboard.psikotespaid.ocean') }}"
+                                                    class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
+                                                    <i class='bx bx-home-alt text-white'> Dashboard</i>
+                                                </a>
+                                            @elseif ($tool->name === 'BDI')
+                                                <a href="{{ route('dashboard.psikotespaid.bdi') }}"
+                                                    class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
+                                                    <i class='bx bx-home-alt text-white'> Dashboard</i>
+                                                </a>
                                             @else
                                                 <button type="button"
                                                     class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
