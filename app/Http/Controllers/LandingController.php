@@ -494,7 +494,6 @@ class LandingController extends Controller
 
     public function creditWeb()
     {
-
         return view('credit-web');
     }
 
