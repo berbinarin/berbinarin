@@ -16,6 +16,9 @@ export default {
             8: "8px",
         },
         extend: {
+            screens: {
+                xs: '470px', // Tambahkan breakpoint kustom
+              },
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],
                 plusJakartaSans: ["Plus Jakarta Sans", "sans-serif"],

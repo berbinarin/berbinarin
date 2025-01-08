@@ -169,7 +169,7 @@
 
         <!-- Start Card -->
         <div class="rounded-xl shadow-lg mr-4">
-            <div class="p-5 flex flex-row items-left ">
+            <div class="p-5 flex flex-row items-left ">a
                 <!-- Gambar berada di sebelah kiri -->
                 <div class="rounded-xl overflow-hidden">
                 <img src="{{ asset('assets/images/credit-card/AdamWisnu-BE.jpg') }}" alt="Foto Profil" class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">

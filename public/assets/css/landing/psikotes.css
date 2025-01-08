@@ -1,0 +1,144 @@
+.text-gradient {
+    background: linear-gradient(to right, #3886A3, #225062); 
+    background-clip: text;
+    -webkit-background-clip: text; 
+    color: transparent; 
+}
+
+.bg-individu {
+    position: relative;
+    background-image: url('/assets/images/landing/asset-psikotes/bg-1.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-perusahaan {
+    position: relative;
+    background-image: url('/assets/images/landing/asset-psikotes/bg-2.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-pendidikan {
+    position: relative;
+    background-image: url('/assets/images/landing/asset-psikotes/bg-3.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.swiperContainer {
+    overflow: hidden;
+}
+
+#swiperIndividu {
+    width: 1100px;
+    overflow: hidden;
+    margin: 60px auto;
+    padding-bottom: 35px;
+}
+
+#swiperPerusahaanStaff {
+    width: 1100px;
+    overflow: hidden;
+    margin: 10px auto;
+    padding-bottom: 35px;
+}
+
+#swiperPerusahaanSupervisor {
+    width: 700px;
+    overflow: hidden;
+    margin: 10px auto;
+    padding-bottom: 35px;
+}
+
+#swiperPendidikan {
+    width: 800px;
+    overflow: hidden;
+    margin: 60px auto;
+    padding-bottom: 35px;
+}
+
+#swiperKomunitas {
+    width: 1100px;
+    overflow: hidden;
+    margin: 60px auto;
+    padding-bottom: 35px;
+}
+
+.swiper-pagination {
+    position: relative;
+    padding-top: 20px;
+}
+
+.swiper-pagination-bullet {
+    background-color: #D0D0D0; 
+    opacity: 1;
+    height: 8px;
+    width: 8px;
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #3886A3; 
+    width: 16px;
+    height: 8px;
+    border-radius: 10px;
+}
+
+.bg-wave {
+    background-image: url('/assets/images/landing/asset-konseling/vector/vector-wave.svg');
+    background-repeat: no-repeat; 
+    background-position: center; 
+}
+
+.border-active {
+    border: 1.5px solid #3986A3
+}
+
+@media (min-width: 0px) and (max-width: 465px) {
+    .dynamic-height {
+        min-height: 50px; 
+        align-items: center;
+        display: flex;
+    }
+
+    .dynamic-height-3 {
+        min-height: 75px; 
+        align-items: center;
+        display: flex;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    #swiperKomunitas {
+        max-width: 700px;
+    }
+
+    #swiperPendidikan {
+        max-width: 700px;
+    }
+
+    #swiperPerusahaanSupervisor {
+        max-width: 600px;
+    }
+
+    #swiperPerusahaanStaff {
+        max-width: 700px;
+    }
+
+    #swiperIndividu {
+        max-width: 700px;
+    }
+
+    .swiperContainer {
+        margin: 0px 80px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    
+
+    .swiperContainer {
+        margin: 0px 80px;
+    }
+}
