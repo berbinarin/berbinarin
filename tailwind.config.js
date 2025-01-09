@@ -1,9 +1,12 @@
 /** @type {import('tailwindcss').Config} */
+import forms from '@tailwindcss/forms';
+
 export default {
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+
     ],
     theme: {
         borderWidth: {
@@ -15,13 +18,17 @@ export default {
             6: "6px",
             8: "8px",
         },
+        fontFamily: {
+            inter: ["Inter", "serif"]
+        },
         extend: {
             screens: {
                 xs: '470px', // Tambahkan breakpoint kustom
-              },
+            },
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],
                 plusJakartaSans: ["Plus Jakarta Sans", "sans-serif"],
+                inter: ["Inter", "sans-serif"],
             },
             backgroundImage: {
                 "primary-linear":
@@ -39,7 +46,17 @@ export default {
             opacity: {
                 54: ".54",
             },
+            animation: {
+                'infinity-horizontal': 'infinity-horizontal 50s linear infinite'
+            },
+            keyframes: {
+                'infinity-horizontal': {
+                    from: {transform: 'translateX(0)'},
+                    to: {transform: 'translateX(-100%)'}
+                }
+            }
+
         },
     },
-    plugins: [require("@tailwindcss/forms")],
+    plugins: [forms],
 };
