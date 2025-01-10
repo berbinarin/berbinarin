@@ -45,17 +45,7 @@ export default {
             },
             opacity: {
                 54: ".54",
-            },
-            animation: {
-                'infinity-horizontal': 'infinity-horizontal 50s linear infinite'
-            },
-            keyframes: {
-                'infinity-horizontal': {
-                    from: {transform: 'translateX(0)'},
-                    to: {transform: 'translateX(-100%)'}
-                }
             }
-
         },
     },
     plugins: [forms],
