@@ -40,69 +40,69 @@ class LandingController extends Controller
         $products = [
             [
                 'vector' => 'assets/images/landing/asset-beranda/produk/konseling.png',
-                'produk' => 'Konseling',
-                'deskripsi' => 'Tempat konsultasi permasalahan kamu dengan memilih psikolog yang sudah terjamin kualitas dan profesionalitasnya',
+                'produk' => 'Berbinar Konseling',
+                'deskripsi' => 'Tempat konsultasi kesehatan mental klien dengan memilih psikolog maupun peer counselor yang sudah terjamin kualitas dan profesionalitasnya.',
             ],
             [
                 'vector' => 'assets/images/landing/asset-beranda/produk/kelas.png',
-                'produk' => 'Kelas',
-                'deskripsi' => 'Tempat konsultasi permasalahan kamu dengan memilih psikolog yang sudah terjamin kualitas dan profesionalitasnya',
+                'produk' => 'Berbinar Kelas',
+                'deskripsi' => 'Rintis perkembangan karier klien dengan kelas edukasi Berbinar yang terdiri beberapa topik untuk meningkatkan soft skill dan hard skill.',
             ],
             [
                 'vector' => 'assets/images/landing/asset-beranda/produk/psikotest.png',
-                'produk' => 'Psikotest',
-                'deskripsi' => 'Tempat konsultasi permasalahan kamu dengan memilih psikolog yang sudah terjamin kualitas dan profesionalitasnya',
+                'produk' => 'Berbinar Psikotest',
+                'deskripsi' => 'Serangkaian tes untuk mengukur, menentukan, dan mempersiapkan karier dengan mengidentifikasi potensi yang dimiliki setiap klien.',
             ],
             [
                 'vector' => 'assets/images/landing/asset-beranda/produk/consulting.png',
-                'produk' => 'Consulting',
-                'deskripsi' => 'Tempat konsultasi permasalahan kamu dengan memilih psikolog yang sudah terjamin kualitas dan profesionalitasnya',
+                'produk' => 'Berbinar Consulting',
+                'deskripsi' => 'Suatu layanan dalam membantu suatu perusahaan, komunitas, dan organisasi yang berkaitan kinerja sumber daya manusia.',
             ],
             [
                 'vector' => 'assets/images/landing/asset-beranda/produk/emoshuffle.png',
                 'produk' => 'EmoShuffle',
-                'deskripsi' => 'Tempat konsultasi permasalahan kamu dengan memilih psikolog yang sudah terjamin kualitas dan profesionalitasnya',
+                'deskripsi' => 'Kartu yang dirancang dengan desain menarik dan dapat mendalami juga mengekspresikan perasaan klien saat bermain.',
             ],
             [
                 'vector' => 'assets/images/landing/asset-beranda/produk/moodscantees.png',
                 'produk' => 'Moodscan Tees',
-                'deskripsi' => 'Tempat konsultasi permasalahan kamu dengan memilih psikolog yang sudah terjamin kualitas dan profesionalitasnya',
+                'deskripsi' => 'Kaos super nyaman yang memiliki desain konsep psikologis juga fitur QR Code untuk menyimpan pesan motivasi agar tampil bergaya.',
             ],
         ];
 
         $testimonis = [
             [
-                'comment' => 'Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya sangat bagus.',
+                'comment' => '"Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya sangat bagus."',
                 'name' => 'Ace Pebri Ala',
                 'image' => 'assets/images/landing/asset-beranda/testimoni/user-ace.png',
                 'division' => 'Tiktok Creator',
             ],
             [
-                'comment' => 'Tentunya produk dari berbinar itu memiliki kualitas unggul karena ditangani langsung oleh seorang psikolog.',
+                'comment' => '"Tentunya produk dari berbinar itu memiliki kualitas unggul karena ditangani langsung oleh seorang psikolog."',
                 'name' => 'Mellynda Silanur Rohmah',
                 'image' => 'assets/images/landing/asset-beranda/testimoni/user-mellynda.png',
                 'division' => 'Human Resource',
             ],
             [
-                'comment' => 'Sejauh yang aku tau di berbinar sendiri itu udah nyediain beragam banget layanan psikologi untuk sobat binar semua.',
+                'comment' => '"Sejauh yang aku tau di berbinar sendiri itu udah nyediain beragam banget layanan psikologi untuk sobat binar semua."',
                 'name' => 'Caroline Athalia Rianda',
                 'image' => 'assets/images/landing/asset-beranda/testimoni/user-caroline.png',
                 'division' => 'Graphic Designer',
             ],
             [
-                'comment' => 'Berbinar salah satu layanan edukasi psikologi yang cukup lengkap, dan produk produknya sangat dibutuhkan.',
+                'comment' => '"Berbinar salah satu layanan edukasi psikologi yang cukup lengkap, dan produk produknya sangat dibutuhkan."',
                 'name' => 'Ananda Deshinta Rasyid',
                 'image' => 'assets/images/landing/asset-beranda/testimoni/user-ananda.png',
                 'division' => 'Class Product Management',
             ],
             [
-                'comment' => 'Memberikan banyak ilmu dan pengetahuan baru melalui konten - konten yang menarik dan mudah dipahami',
+                'comment' => '"Memberikan banyak ilmu dan pengetahuan baru melalui konten - konten yang menarik dan mudah dipahami."',
                 'name' => 'Intan Putri Ardhitya',
                 'image' => 'assets/images/landing/asset-beranda/testimoni/user-intan.png',
                 'division' => 'Human Resource',
             ],
             [
-                'comment' => 'Menurut saya produknya sudah bagus karena mencakup hal yang sangat diperlukan. Selain itu terus mengembangkan produknya',
+                'comment' => '"Menurut saya produknya sudah bagus karena mencakup hal yang sangat diperlukan. Selain itu terus mengembangkan produknya."',
                 'name' => 'Sri Wahyuni',
                 'image' => 'assets/images/landing/asset-beranda/testimoni/user-sri.png',
                 'division' => 'PTPM',
