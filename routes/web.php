@@ -54,6 +54,10 @@ use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserClinicalController;
 use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserIndividualController;
 use App\Http\Controllers\IdentitasStaffController;
 use App\Http\Controllers\JabatanStaffController;
+use App\Http\Controllers\PsikotestPaid\Tools\BDI\NomorBdiController;
+use App\Http\Controllers\PsikotestPaid\Tools\BDI\SoalBdiController;
+use App\Http\Controllers\PsikotestPaid\Tools\BDI\SkorBdiController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -578,6 +582,8 @@ Route::middleware(['web'])->group(function () {
     Route::get('/jabatan/filter/divisi', [JabatanStaffController::class, 'staffByDivisi'])->name('jabatan.filter.divisi');
     Route::get('/jabatan/filter/subdivisi', [JabatanStaffController::class, 'staffBySubDivisi'])->name('jabatan.filter.subdivisi');
     Route::get('/jabatan/filter/tahun', [JabatanStaffController::class, 'staffByTahun'])->name('jabatan.filter.tahun');
+    Route::match(['get', 'post'], '/nomor-bdi', [NomorBdiController::class, 'index'])->name('nomor_bdi.index');
+    Route::get('/soalBdi/{nomor}',[SoalBdiController::class, 'getSoalByNomor']);
 });
 // API Routes (Tanpa CSRF Protection)
 Route::prefix('api')->group(function () {
@@ -590,4 +596,12 @@ Route::prefix('api')->group(function () {
     Route::post('/jabatan', [JabatanStaffController::class, 'store']);
     Route::put('/jabatan/{id}', [JabatanStaffController::class, 'update']);
     Route::delete('/jabatan/{id}', [JabatanStaffController::class, 'destroy']);
+    Route::match(['get', 'post'], '/nomor-bdi', [NomorBdiController::class, 'index'])->name('nomor_bdi.index');
+    Route::get('/soal', [SoalBdiController::class, 'index']); // Get all soal and nomor BDI
+    Route::post('/soal', [SoalBdiController::class, 'store']); // Add new soal
+    Route::get('/soal/{nomor}', [SoalBdiController::class, 'getSoalByNomor']); // Get soal by nomor
+    Route::post('/soal/hitung-hasil', [SoalBdiController::class, 'hitungHasil']); // Calculate hasil based on jawaban
+
+    // Skor BDI Routes
+    Route::post('/skor', [SkorBdiController::class, 'store']); // Add new skor
 });
