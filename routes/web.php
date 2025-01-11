@@ -65,6 +65,16 @@ use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserIndividualController;
 */
 
 Route::get('/', [LandingController::class, 'index'])->name('home');
+
+Route::get('/landing-new', [LandingController::class, 'landing_new'])->name('home-new');
+Route::get('/produk-new', [LandingController::class, 'produk_new'])->name('produk-new');
+Route::get('/karir-new', [LandingController::class, 'karir_new'])->name('karir-new');
+Route::get('/konseling-new', [LandingController::class, 'konseling_new'])->name('konseling-new');
+Route::get('/psikotest-new', [LandingController::class, 'psikotest_new'])->name('psikotest-new');
+Route::get('/kelas-new', [LandingController::class, 'kelas_new'])->name('kelas-new');
+Route::get('/tentang-new', [LandingController::class, 'tentang_new'])->name('tentang-new');
+
+
 Route::get('/about-us', [LandingController::class, 'tentangKami'])->name('about');
 Route::get('/products', [LandingController::class, 'products'])->name('products');
 Route::get('/counseling', [LandingController::class, 'konseling'])->name('counseling');
