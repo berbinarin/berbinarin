@@ -1,3 +1,8 @@
+@extends('moduls.psikotes.layouts.mainn', [
+'title' => 'End Psikotest',
+'active' => 'one psikotest',
+])
+
 @section('content')
 <div class="relative h-11/12 md:min-h-screen flex flex-col items-center bg-gray-100 justify-center">
   <!-- bg-internship -->
@@ -20,9 +25,7 @@
 
     <div class="mb-4 flex justify-center mt-10">
       <a href="{{ route('psikotest-paid.showLanding') }}">
-      <button type="button" class="w-xl bg-primary  items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
-        Kembali ke Halaman Utama
-      </button>
+      <button type="button" class="w-xl bg-primary  items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Kembali ke Halaman Utama</button>
       </a>
     </div>
 

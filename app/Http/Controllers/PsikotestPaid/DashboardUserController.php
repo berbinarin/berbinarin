@@ -16,6 +16,9 @@ use App\Models\PsikotestPaid\Biodata\UserCompany;
 use App\Models\PsikotestPaid\Biodata\UserCommunity;
 use App\Models\PsikotestPaid\Biodata\UserIndividual;
 use App\Models\PsikotestPaid\Biodata\UserEducation;
+use App\Models\PsikotestPaid\OCEAN\TestOcean;
+use App\Models\PsikotestPaid\OCEAN\AnswerOcean;
+use App\Models\PsikotestPaid\OCEAN\ResultOcean;
 
 class DashboardUserController extends Controller
 {
@@ -435,15 +438,23 @@ class DashboardUserController extends Controller
 
     public function OCEAN()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.ocean.dashboardOCEAN');
+        return view('moduls.dashboard.psikotes-paid.tools.ocean.dashboardOCEAN',[
+            'tool_id' => PsikotestTool::where('name','OCEAN')->first()->id,
+            'numb_user' => TestOcean::count(),
+        ]);
     }
     
     public function dataOCEAN()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.ocean.jawabanOCEAN');
+        $test_ocean = TestOcean::with('PsikotestPaidTest.userPsikotestPaid', 'answerOcean');
+        // dd($test_ocean->latest()->get()[0]->PsikotestPaidTest->userPsikotestPaid);
+        return view('moduls.dashboard.psikotes-paid.tools.ocean.jawabanOCEAN',[
+            'test_ocean' => $test_ocean->latest()->get(),
+
+        ]);
     }
 
-    public function detailOCEAN()
+    public function detailOCEAN($id)
     {
         return view('moduls.dashboard.psikotes-paid.tools.ocean.detailOCEAN');
     }

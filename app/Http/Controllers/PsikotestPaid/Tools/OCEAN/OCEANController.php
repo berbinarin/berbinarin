@@ -53,6 +53,7 @@ class OCEANController extends Controller
 
   public function submitAnswer(Request $request)
   {
+    $currentQuestionNumber = $request->input('current_question_number');
     $validatedData = $request->validate([
       'test_id' => 'required|exists:test_ocean,id',
       'question_id' => 'required|exists:question_ocean,id',
@@ -71,7 +72,7 @@ class OCEANController extends Controller
       'user_id' => $userId
     ]);
 
-    $currentQuestionNumber = $request->input('current_question_number');
+    // $currentQuestionNumber = $request->input('current_question_number');
     if ($currentQuestionNumber < 44) {
       return redirect()->route('psikotest-paid.tool.OCEAN.showTest', ['testId' => $testId])
         ->with('current_question_number', $currentQuestionNumber + 1);
