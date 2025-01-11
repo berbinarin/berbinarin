@@ -178,10 +178,10 @@
 
                         <div class="max-sm:px-3 px-4 max-sm:py-3 py-4 text-center flex flex-col flex-grow">
                             <h2 class="max-sm:text-[16px] text-[17px] font-semibold text-black items-center justify-center flex">{{ $product['produk'] }}</h2>
-                            <p class="max-sm:mt-2 mt-3 max-md:text-sm text-[15px] text-[#70787D] max-sm:leading-tight max-lg:min-h-[115px] min-h-[75px]">
+                            <p class="max-sm:mt-2 mt-3 max-md:text-sm text-[15px] text-[#70787D] max-sm:leading-tight max-lg:min-h-[90px] min-h-[75px]">
                                 {{ $product['deskripsi'] }}
                             </p>
-                            <a href="#" class="max-md:mt-4 mt-5 bg-[#75BADB] text-white rounded-full max-sm:w-full font-semibold text-sm max-sm:text-[13px] px-4 py-2 shadow self-center">
+                            <a href="#" class="max-md:mt-4 mt-4 bg-[#75BADB] text-white rounded-full max-sm:w-full font-semibold text-sm max-sm:text-[13px] px-4 py-2 shadow self-center">
                                 Pelajari Selengkapnya
                             </a>
                         </div>
