@@ -55,12 +55,12 @@ class TesEsaiController extends Controller
         $validatedData = $request->validate([
             'test_id' => 'required|exists:test_tes_esai,id',
             'question_id' => 'required|exists:question_tes_esai,id',
-            'answer' => 'required|string'
+            'answer' => 'nullable|string'
         ]);
 
         $testId = $validatedData['test_id'];
         $questionId = $validatedData['question_id'];
-        $answer = $validatedData['answer'];
+        $answer = $validatedData['answer']??NULL;
         $userId = Auth::guard('psikotestpaid')->id();
 
         AnswerTesEsai::create([
@@ -71,7 +71,8 @@ class TesEsaiController extends Controller
         ]);
 
         $currentQuestionNumber = $request->input('current_question_number');
-        if ($currentQuestionNumber < 6) {
+        $timeout = $request->input('timeout');
+        if ($currentQuestionNumber < 6 && $timeout != "2") {
             return redirect()->route('psikotest-paid.tool.Tes Esai.showTest', ['testId' => $testId])
                 ->with('current_question_number', $currentQuestionNumber + 1);
         } else {
