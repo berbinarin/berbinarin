@@ -25,6 +25,9 @@ export default {
             screens: {
                 xs: '470px', // Tambahkan breakpoint kustom
             },
+            boxShadow: {
+                'benefit-icon': '0px 0px 15px 0px #0000001A',
+            },
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],
                 plusJakartaSans: ["Plus Jakarta Sans", "sans-serif"],

@@ -92,15 +92,16 @@
     {{-- HERO END --}}
 
     {{--ALUR PENDAFTARAN START--}}
-    <section class="w-full mb-12 mx-auto overflow-hidden flex items-center justify-center">
+    <section class="w-full mt-32 mx-auto overflow-hidden flex items-center justify-center">
         <div class="container mx-auto md:mx-14">
             {{--caption--}}
-            <div class="mb-8">
+            <div class="mb-12 md:mb-32">
                 <h1 class="font-semibold text-3xl bg-clip-text text-center md:text-4xl lg:text-5xl text-transparent bg-gradient-to-r from-[#1C4352] to-[#3986A3] font-plusJakartaSans mb-4 lg:tracking-wide py-1">
-                    Alur Pendaftaran <span class="block"></span> Internship
+                    Alur Pendaftaran <span class="block md:inline-block"></span> Internship
                 </h1>
             </div>
 
+            {{--flex alur pendaftara--}}
             <div class="lg:flex justify-around relative">
                 {{--background image--}}
                 <div class="hidden lg:block absolute inset-0 z-0">
@@ -209,5 +210,175 @@
         </div>
     </section>
     {{--ALUR PENDAFTARAN END--}}
+
+    {{--YOUR BENEFIT START--}}
+    <section class="w-full mt-32 mx-auto overflow-hidden flex items-center justify-center">
+        <div class="container mx-auto md:mx-14">
+            {{--captions--}}
+            <div class="mb-12 md:mb-32">
+                <h1 class="font-semibold text-3xl bg-clip-text text-center md:text-4xl lg:text-5xl text-transparent bg-gradient-to-r from-[#1C4352] to-[#3986A3] font-plusJakartaSans mb-4 lg:tracking-wide py-1">
+                    Your Benefits
+                </h1>
+            </div>
+
+            {{--grid benefit--}}
+            <div class="grid py-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-y-10">
+                {{--            <div class="w-full md:flex md:flex-wrap md:gap-4 md:items-center md:justify-center">--}}
+
+                {{--E-Certificate--}}
+                <div
+                    class="flex mx-auto justify-center items-center gap-4 mb-4 md:mx-0 md:relative  md:p-4 md:rounded-xl md:shadow-lg md:border-2 md:border-[#D7E6ED]">
+                    {{--icon--}}
+                    <div
+                        class="flex items-center shrink-0 justify-center p-5 rounded-full shadow-benefit-icon md:absolute md:bg-white md:z-20 md:-top-12 md:left-1/2 md:-translate-x-1/2 ">
+                        <img src="{{ asset("assets/images/landing/karir-dummy/benefit1.png") }}" alt="benefit 1"
+                             class="size-14 md:size-12 translate-y-1">
+                    </div>
+                    {{--captions--}}
+                    <div class="ps-2 w-64 z-10 md:mt-10 md:pb-0 md:w-full md:flex-col md:items-center">
+                        <h3 class="font-semibold text-lg text-primary text-start mb-2 md:text-center md:text-xl">
+                            E-Certificate</h3>
+                        <p class="text-sm text-start md:text-center md:text-base">Terima e-sertifikat resmi di akhir
+                            magang Kamu</p>
+                    </div>
+
+                </div>
+
+                {{--Relasi--}}
+                <div
+                    class="flex mx-auto justify-center items-center gap-4 mb-4 md:mx-0 md:relative  md:p-4 md:rounded-xl md:shadow-lg md:border-2 md:border-[#D7E6ED]">
+                    {{--icon--}}
+                    <div
+                        class="flex order-last items-center shrink-0 justify-center p-5 rounded-full shadow-benefit-icon md:absolute md:bg-white md:z-20 md:-top-12 md:left-1/2 md:-translate-x-1/2 ">
+                        <img src="{{ asset("assets/images/landing/karir-dummy/benefit1.png") }}" alt="benefit 1"
+                             class="size-14 md:size-12 translate-y-1">
+                    </div>
+                    {{--captions--}}
+                    <div class="ps-2 w-64 md:mt-10 md:pb-0 md:w-full md:flex-col md:items-center">
+                        <h3 class="font-semibold text-lg text-primary mb-2 text-end md:text-center md:text-xl">
+                            Relasi</h3>
+                        <p class="text-sm text-end md:text-center md:text-base">Bersosialisasi dengan praktisi dan
+                            mahasiswa psikologi</p>
+                    </div>
+
+                </div>
+
+                {{--Pengetahuan--}}
+                <div
+                    class="flex mx-auto justify-center items-center gap-4 mb-4 md:mx-0 md:relative  md:p-4 md:rounded-xl md:shadow-lg md:border-2 md:border-[#D7E6ED]">
+                    {{--icon--}}
+                    <div
+                        class="flex items-center shrink-0 justify-center p-5 rounded-full shadow-benefit-icon md:absolute md:bg-white md:z-20 md:-top-12 md:left-1/2 md:-translate-x-1/2 ">
+                        <img src="{{ asset("assets/images/landing/karir-dummy/benefit1.png") }}" alt="benefit 1"
+                             class="size-14 md:size-12 translate-y-1">
+                    </div>
+                    {{--captions--}}
+                    <div class="ps-2 w-64 md:mt-10 md:pb-0 md:w-full md:flex-col md:items-center">
+                        <h3 class="font-semibold text-lg text-primary text-start mb-2 md:text-center md:text-xl">
+                            Pengetahuan</h3>
+                        <p class="text-sm text-start tracking-tight md:text-center md:text-base md:tracking-normal">
+                            Perluas pengetahuan dan keterampilan</p>
+                    </div>
+
+                </div>
+
+                {{--Konseling Gratis--}}
+                <div
+                    class="flex mx-auto justify-center items-center gap-4 mb-4 md:mx-0 md:relative  md:p-4 md:rounded-xl md:shadow-lg md:border-2 md:border-[#D7E6ED]">
+                    {{--icon--}}
+                    <div
+                        class="flex order-last items-center shrink-0 justify-center p-5 rounded-full shadow-benefit-icon md:absolute md:bg-white md:z-20 md:-top-12 md:left-1/2 md:-translate-x-1/2">
+                        <img src="{{ asset("assets/images/landing/karir-dummy/benefit1.png") }}" alt="benefit 1"
+                             class="size-14 md:size-12 translate-y-1">
+                    </div>
+                    {{--captions--}}
+                    <div class="ps-2 w-64 md:mt-10 md:pb-0 md:w-full md:flex-col md:items-center">
+                        <h3 class="font-semibold text-lg text-primary mb-2 text-end md:text-center md:text-xl">
+                            Konseling Gratis</h3>
+                        <p class="text-sm text-end md:text-center md:text-base">Dapatkan sesi konseling gratis sekali
+                            sebulan</p>
+                    </div>
+
+                </div>
+
+                {{--Tes Psikologi Gratis--}}
+                <div
+                    class="flex mx-auto justify-center items-center gap-4 mb-4 md:mx-0 md:relative  md:p-4 md:rounded-xl md:shadow-lg md:border-2 md:border-[#D7E6ED]">
+                    {{--icon--}}
+                    <div
+                        class="flex items-center shrink-0 justify-center p-5 rounded-full shadow-benefit-icon md:absolute md:bg-white md:z-20 md:-top-12 md:left-1/2 md:-translate-x-1/2">
+                        <img src="{{ asset("assets/images/landing/karir-dummy/benefit1.png") }}" alt="benefit 1"
+                             class="size-14 md:size-12 translate-y-1">
+                    </div>
+                    {{--captions--}}
+                    <div class="ps-2 w-64 md:mt-10 md:pb-0 md:w-full md:flex-col md:items-center">
+                        <h3 class="font-semibold text-lg text-primary text-start mb-2 md:text-center md:text-xl">Tes
+                            Psikologi Gratis</h3>
+                        <p class="text-sm text-start md:text-base md:tracking-normal md:text-center">Tes psikologi
+                            gratis dengan hasil yang bisa dikonsultasikan</p>
+                    </div>
+
+                </div>
+
+                {{--Rekomendasi--}}
+                <div
+                    class="flex mx-auto justify-center items-center gap-4 mb-4 md:mx-0 md:relative  md:p-4 md:rounded-xl md:shadow-lg md:border-2 md:border-[#D7E6ED]">
+                    {{--icon--}}
+                    <div
+                        class="flex order-last items-center shrink-0 justify-center p-5 rounded-full shadow-benefit-icon md:absolute md:bg-white md:z-20 md:-top-12 md:left-1/2 md:-translate-x-1/2">
+                        <img src="{{ asset("assets/images/landing/karir-dummy/benefit1.png") }}" alt="benefit 1"
+                             class="size-14 md:size-12 translate-y-1">
+                    </div>
+                    {{--captions--}}
+                    <div class="ps-2 w-64 md:mt-10 md:pb-0 md:w-full md:flex-col md:items-center">
+                        <h3 class="font-semibold text-lg text-primary mb-2 text-end md:text-center md:text-xl">
+                            Rekomendasi</h3>
+                        <p class="text-sm text-end md:text-center md:text-base">Rekomendasi pekerjaan & LinkedIn
+                            langsung dari CEO</p>
+                    </div>
+
+                </div>
+
+                {{--Konversi UKP--}}
+                <div
+                    class="flex mx-auto justify-center items-center gap-4 mb-4 md:mx-0 md:relative  md:p-4 md:rounded-xl md:shadow-lg md:border-2 md:border-[#D7E6ED]">
+                    {{--icon--}}
+                    <div
+                        class="flex items-center shrink-0 justify-center p-5 rounded-full shadow-benefit-icon md:absolute md:bg-white md:z-20 md:-top-12 md:left-1/2 md:-translate-x-1/2">
+                        <img src="{{ asset("assets/images/landing/karir-dummy/benefit1.png") }}" alt="benefit 1"
+                             class="size-14 md:size-12 translate-y-1">
+                    </div>
+                    {{--captions--}}
+                    <div class="ps-2 w-64 md:mt-10 md:pb-0 md:w-full md:flex-col md:items-center">
+                        <h3 class="font-semibold text-lg text-primary text-start mb-2 md:text-center md:text-xl">
+                            Konversi UKP</h3>
+                        <p class="text-sm text-start md:text-base md:tracking-normal md:text-center">Unit Kredit
+                            Partisipasi (syarat dan ketentuan berlaku)</p>
+                    </div>
+
+                </div>
+
+                {{--Pengalaman--}}
+                <div
+                    class="flex mx-auto justify-center items-center gap-4 mb-4 md:mx-0 md:relative  md:p-4 md:rounded-xl md:shadow-lg md:border-2 md:border-[#D7E6ED]">
+                    {{--icon--}}
+                    <div
+                        class="flex order-last items-center shrink-0 justify-center p-5 rounded-full shadow-benefit-icon md:absolute md:bg-white md:z-20 md:-top-12 md:left-1/2 md:-translate-x-1/2">
+                        <img src="{{ asset("assets/images/landing/karir-dummy/benefit1.png") }}" alt="benefit 1"
+                             class="size-14 md:size-12 translate-y-1">
+                    </div>
+                    {{--captions--}}
+                    <div class="ps-2 w-64 md:mt-10 md:pb-0 md:w-full md:flex-col md:items-center">
+                        <h3 class="font-semibold text-lg text-primary mb-2 text-end md:text-center md:text-xl">
+                            Pengalaman</h3>
+                        <p class="text-sm text-end md:text-center md:text-base">Pengalaman bersama perusahaan
+                            profesional </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    {{--YOUR BENEFIT END--}}
 
 @endsection
