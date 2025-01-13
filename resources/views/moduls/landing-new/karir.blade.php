@@ -92,9 +92,120 @@
     {{-- HERO END --}}
 
     {{--ALUR PENDAFTARAN START--}}
-    <section class="w-full">
+    <section class="w-full mb-12 mx-auto overflow-hidden flex items-center justify-center">
         <div class="container mx-auto md:mx-14">
+            {{--caption--}}
+            <div class="mb-8">
+                <h1 class="font-semibold text-3xl bg-clip-text text-center md:text-4xl lg:text-5xl text-transparent bg-gradient-to-r from-[#1C4352] to-[#3986A3] font-plusJakartaSans mb-4 lg:tracking-wide py-1">
+                    Alur Pendaftaran <span class="block"></span> Internship
+                </h1>
+            </div>
 
+            <div class="lg:flex justify-around relative">
+                {{--background image--}}
+                <div class="hidden lg:block absolute inset-0 z-0">
+                    <img src="{{ asset("assets/images/landing/karir-dummy/garis.png") }}" alt="garis"
+                         class="object-cover">
+                </div>
+
+                {{--mencari--}}
+                <div
+                    class="flex items-center justify-around mx-auto mb-4 relative z-20 lg:flex-col lg:items-center lg:justify-center lg:pb-60">
+                    {{--masking biru halus --}}
+                    <div class="hidden lg:flex lg:items-center lg:justify-center absolute z-10 -bottom-20 -left-8">
+                        <img src="{{ asset('assets/images/landing/karir-dummy/Ellipse1.png') }}" alt="ellipse 3"
+                             class="translate-x-4">
+                    </div>
+
+                    {{--image & image caption--}}
+                    <div class="flex-col items-center justify-center shrink-0 gap-1 lg:mb-4">
+                        <img src="{{ asset('assets/images/landing/karir-dummy/mencari.png') }}" alt="icon mencari"
+                             class="size-28">
+                        <h4 class="text-center font-semibold text-lg text-black">Mencari</h4>
+                    </div>
+                    {{--description--}}
+                    <div class="flex items-center justify-center w-64 ps-4 lg:flex-col lg:text-center lg:p-0">
+                        <p class="font-semibold text-wrap">Kandidat mencari informasi posisi yang diminati</p>
+                    </div>
+
+                </div>
+
+                {{--administrasi--}}
+                <div
+                    class="flex items-center justify-around mx-auto mb-4 relative z-20 lg:flex-col lg:items-center lg:justify-center xl:pt-60 lg:pt-32">
+
+                    {{--masking biru halus --}}
+                    <div class="hidden lg:block absolute z-10 -top-20 -left-8 ">
+                        <img src="{{ asset('assets/images/landing/karir-dummy/Ellipse2.png') }}" alt="ellipse 1"
+                             class="object-cover">
+                    </div>
+
+                    {{--description--}}
+                    <div
+                        class="flex items-center justify-center w-64 ps-4 lg:p-0 lg:flex-col lg:text-center lg:order-last">
+                        <p class="font-semibold text-wrap">Pendaftaran data diri pada Google Form yang tersedia</p>
+                    </div>
+
+                    {{--image & image caption--}}
+                    <div class="flex-col items-center justify-center shrink-0 gap-1 lg:mb-4">
+                        <img src="{{ asset('assets/images/landing/karir-dummy/administrasi.png') }}"
+                             alt="icon administrasi"
+                             class="size-28">
+                        <h4 class="text-center font-semibold text-lg text-black">Administrasi</h4>
+                    </div>
+
+                </div>
+
+                {{--Pengiriman berkas--}}
+                <div
+                    class="flex items-center justify-around mx-auto mb-4 relative z-20 lg:flex-col lg:items-center lg:justify-center lg:pb-60">
+
+                    {{--masking biru halus --}}
+                    <div class="hidden lg:block absolute z-10 -bottom-20 -left-8">
+                        <img src="{{ asset('assets/images/landing/karir-dummy/Ellipse3.png') }}" alt="ellipse 3"
+                             class="object-cover">
+                    </div>
+
+                    {{--image & image caption--}}
+                    <div class="flex-col items-center justify-center shrink-0 gap-1 lg:mb-4">
+                        <img src="{{ asset('assets/images/landing/karir-dummy/pengiriman berkas.png') }}"
+                             alt="icon mengirim berkas"
+                             class="size-28 mx-auto">
+                        <h4 class="text-center font-semibold text-lg text-black">Pengiriman <span
+                                class="block lg:inline-block"></span>Berkas</h4>
+                    </div>
+                    {{--description--}}
+                    <div class="flex items-center justify-center w-64 ps-4 lg:flex-col lg:text-center lg:p-0">
+                        <p class="font-semibold text-wrap">Mengirim berkas wajib seperti CV, Resume, Portfolio,dll</p>
+                    </div>
+
+                </div>
+
+                {{--selesai--}}
+                <div
+                    class="flex items-center justify-around mx-auto mb-4 relative z-20 lg:flex-col lg:items-center lg:justify-center xl:pt-60 lg:pt-32">
+
+                    {{--masking biru halus --}}
+                    <div class="hidden lg:block absolute z-10 -top-20 -left-8 ">
+                        <img src="{{ asset('assets/images/landing/karir-dummy/Ellipse2.png') }}" alt="ellipse 1"
+                             class="object-cover">
+                    </div>
+
+                    {{--description--}}
+                    <div
+                        class="flex items-center justify-center w-64 ps-4 lg:p-0 lg:flex-col lg:text-center lg:order-last">
+                        <p class="font-semibold text-wrap">Menunggu pengumuman melalui E-mail / Whatsapp</p>
+                    </div>
+
+                    {{--image & image caption--}}
+                    <div class="flex-col items-center justify-center shrink-0 gap-1 lg:mb-4">
+                        <img src="{{ asset('assets/images/landing/karir-dummy/selesai.png') }}" alt="icon selesai"
+                             class="size-28">
+                        <h4 class="text-center font-semibold text-lg text-black">selesai</h4>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </section>
     {{--ALUR PENDAFTARAN END--}}
