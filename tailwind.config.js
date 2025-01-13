@@ -27,6 +27,7 @@ export default {
             },
             boxShadow: {
                 'benefit-icon': '0px 0px 15px 0px #0000001A',
+                'primary-light': '0px 5px 15px 0px #3986A333'
             },
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],
@@ -45,6 +46,7 @@ export default {
                 "blur-bg-2": "#C7F8FF",
                 "blur-black": "rgba(0, 0, 0, 0.54)",
                 "card-box": "#F7F7F7",
+                "remote": '#9E9E9E'
             },
             opacity: {
                 54: ".54",

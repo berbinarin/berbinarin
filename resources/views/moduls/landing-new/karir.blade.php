@@ -381,4 +381,64 @@
     </section>
     {{--YOUR BENEFIT END--}}
 
+    {{--AVAIABLE POSITIONS START--}}
+    <section class="border-2 border-red-500 w-full mt-32 mx-auto flex items-center justify-center">
+        <div class="container mx-auto md:mx-14">
+            {{--caption START--}}
+            <div class="border-2 border-purple-500 w-full mx-auto mb-12 md:mb-32">
+                <h1 class="font-semibold text-3xl bg-clip-text text-center md:text-4xl lg:text-5xl text-transparent bg-gradient-to-r from-[#1C4352] to-[#3986A3] font-plusJakartaSans mb-4 lg:tracking-wide py-1">
+                    Alur Pendaftaran <span class="block md:inline-block"></span> Internship
+                </h1>
+            </div>
+            {{--caption END--}}
+
+            {{--list START--}}
+            <div class="w-full border-orange-500 py-12 mx-auto flex flex-wrap gap-4 justify-center items-center">
+
+                <div class="bg-white rounded-lg shadow-benefit-icon w-80 p-2">
+                    {{--banner start--}}
+                    <div class="w-full rounded-t-lg bg-slate-400 h-20 mb-8 relative">
+                        {{--insert imgage here!--}}
+                        <img src="{{ asset("assets/images/landing/logo-berbinar.png") }}" alt="berbinar logo"
+                             class="absolute z-30 bg-white size-10 right-4 -bottom-5 rounded-full shadow-primary-light">
+                    </div>
+                    {{--banner end--}}
+
+                    {{--caption start--}}
+                    <div class="w-full mb-8">
+                        <h3 class="font-normal text-lg font-inter text-black text-center">Counseling Product
+                            Management</h3>
+                    </div>
+                    {{--caption end--}}
+
+                    {{--button start--}}
+                    <div class="w-full mx-auto flex justify-center items-center mb-4">
+                        <button
+                            class="w-3/4 py-2 px-4 rounded-xl bg-primary font-normal text-base text-white text-center hover:opacity-80 hover:shadow-lg">
+                            Lihat Selengkapnya
+                        </button>
+                    </div>
+                    {{--button end--}}
+
+                    {{--short detail start--}}
+                    <div class="w-full flex items-center justify-center">
+                    <span class="font-normal text-base text-remote italic"><img
+                            src="{{ asset("assets/images/landing/karir-dummy/remote.png") }}" alt="remote icon"
+                            class="inline-block size-4">Remote</span>
+                        <div class="py-1 px-2 bg-[#F7B23B4D] rounded-full inline ms-2">
+                            <span class="font-normal text-base text-[#ED810D] self-center">Magang</span>
+                        </div>
+                    </div>
+                    {{--short detail end--}}
+
+                </div>
+
+
+            </div>
+            {{--list END--}}
+
+        </div>
+    </section>
+    {{--AVAIABLE POSITIONS END--}}
+
 @endsection
