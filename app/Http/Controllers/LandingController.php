@@ -34,7 +34,7 @@ class LandingController extends Controller
             [
                 'moto' => 'Fleksibel',
             ],
-            
+
         ];
 
         $products = [
@@ -123,7 +123,49 @@ class LandingController extends Controller
 
     public function karir_new(Request $request)
     {
-        return view('moduls.landing-new.karir')->with([]);
+
+        $testimonis = [
+            [
+                'comment' => 'Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya sangat bagus.',
+                'name' => 'Ace Pebri Ala',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/user-ace.png',
+                'division' => 'Tiktok Creator',
+            ],
+            [
+                'comment' => 'Tentunya produk dari berbinar itu memiliki kualitas unggul karena ditangani langsung oleh seorang psikolog.',
+                'name' => 'Mellynda Silanur Rohmah',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/user-mellynda.png',
+                'division' => 'Human Resource',
+            ],
+            [
+                'comment' => 'Sejauh yang aku tau di berbinar sendiri itu udah nyediain beragam banget layanan psikologi untuk sobat binar semua.',
+                'name' => 'Caroline Athalia Rianda',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/user-caroline.png',
+                'division' => 'Graphic Designer',
+            ],
+            [
+                'comment' => 'Berbinar salah satu layanan edukasi psikologi yang cukup lengkap, dan produk produknya sangat dibutuhkan.',
+                'name' => 'Ananda Deshinta Rasyid',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/user-ananda.png',
+                'division' => 'Class Product Management',
+            ],
+            [
+                'comment' => 'Memberikan banyak ilmu dan pengetahuan baru melalui konten - konten yang menarik dan mudah dipahami',
+                'name' => 'Intan Putri Ardhitya',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/user-intan.png',
+                'division' => 'Human Resource',
+            ],
+            [
+                'comment' => 'Menurut saya produknya sudah bagus karena mencakup hal yang sangat diperlukan. Selain itu terus mengembangkan produknya',
+                'name' => 'Sri Wahyuni',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/user-sri.png',
+                'division' => 'PTPM',
+            ],
+        ];
+
+        return view('moduls.landing-new.karir')->with([
+            'testimonis' => $testimonis,
+        ]);
     }
 
     public function konseling_new(Request $request)
@@ -1156,7 +1198,7 @@ class LandingController extends Controller
             ],
             [
                 'question' => 'Proses pembelajarannya ribet gak, ya?',
-                'answer' => "Mudah, kok! Peserta bisa akses video pembelajarannya kapanpun dan dimanapun. Peserta hanya perlu melalui proses berikut: 
+                'answer' => "Mudah, kok! Peserta bisa akses video pembelajarannya kapanpun dan dimanapun. Peserta hanya perlu melalui proses berikut:
                 Selesaikan video pembelajaran dan mengisi post-test, Melakukan personal mentoring bersama mentor, Klaim sertifikat dan peserta dapat memilih untuk lanjut ke layanan konseling dan psikotes.
                 "
             ],
@@ -1333,7 +1375,7 @@ class LandingController extends Controller
         $faqs = [
             [
                 'question' => 'Apakah Internship Berbinar dapat dikonversi ke SKS perkuliahan?',
-                'answer' => 'Apabila SobatBinar nantinya menghendaki untuk mengkonversikan internship Berbinar ke SKS atau KRS perkuliahan, SobatBinar bisa mengajukan proposal kerjasama, seperti MoU atau MoA kepada Berbinar. 
+                'answer' => 'Apabila SobatBinar nantinya menghendaki untuk mengkonversikan internship Berbinar ke SKS atau KRS perkuliahan, SobatBinar bisa mengajukan proposal kerjasama, seperti MoU atau MoA kepada Berbinar.
                 '
             ],
             [
@@ -1411,7 +1453,7 @@ class LandingController extends Controller
         $faqs = [
             [
                 'question' => 'Apakah Internship Berbinar dapat dikonversi ke SKS perkuliahan?',
-                'answer' => 'Apabila SobatBinar nantinya menghendaki untuk mengkonversikan internship Berbinar ke SKS atau KRS perkuliahan, SobatBinar bisa mengajukan proposal kerjasama, seperti MoU atau MoA kepada Berbinar. 
+                'answer' => 'Apabila SobatBinar nantinya menghendaki untuk mengkonversikan internship Berbinar ke SKS atau KRS perkuliahan, SobatBinar bisa mengajukan proposal kerjasama, seperti MoU atau MoA kepada Berbinar.
                 '
             ],
             [
