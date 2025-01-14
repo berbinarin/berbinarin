@@ -64,6 +64,7 @@ Route::get('/', [LandingController::class, 'index'])->name('home');
 Route::get('/landing-new', [LandingController::class, 'landing_new'])->name('home-new');
 Route::get('/produk-new', [LandingController::class, 'produk_new'])->name('produk-new');
 Route::get('/karir-new', [LandingController::class, 'karir_new'])->name('karir-new');
+Route::get('/karir-new/positions', [LandingController::class, 'positions_new'])->name('positions-new');
 Route::get('/konseling-new', [LandingController::class, 'konseling_new'])->name('konseling-new');
 Route::get('/psikotest-new', [LandingController::class, 'psikotest_new'])->name('psikotest-new');
 Route::get('/kelas-new', [LandingController::class, 'kelas_new'])->name('kelas-new');

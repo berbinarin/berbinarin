@@ -18,23 +18,23 @@
 
     <!-- Navigasi Link -->
     <div id="navLinks" class="hidden lg:flex ml-auto items-center max-lg:space-x-6 space-x-14">
-        <a href="{{ route('home-new') }}" 
-            class="@if ($active == 'Beranda') text-[#3886A3] font-semibold border-b-2 border-[#3886A3] 
+        <a href="{{ route('home-new') }}"
+            class="@if ($active == 'Beranda') text-[#3886A3] font-semibold border-b-2 border-[#3886A3]
                 @else text-gray-600 font-semibold @endif">
             Beranda
         </a>
-        <a href="{{ route('tentang-new') }}" 
-            class="@if ($active == 'Tentang Kami') text-[#3886A3] font-semibold border-b-2 border-[#3886A3] 
+        <a href="{{ route('tentang-new') }}"
+            class="@if ($active == 'Tentang Kami') text-[#3886A3] font-semibold border-b-2 border-[#3886A3]
                 @else text-gray-600 font-semibold @endif">
             Tentang Kami
         </a>
-        <a href="{{ route('produk-new') }}" 
-            class="@if ($active == 'Produk Berbinar') text-[#3886A3] font-semibold border-b-2 border-[#3886A3] 
+        <a href="{{ route('produk-new') }}"
+            class="@if ($active == 'Produk Berbinar') text-[#3886A3] font-semibold border-b-2 border-[#3886A3]
                 @else text-gray-600 font-semibold @endif">
             Produk
         </a>
-        <a href="#" 
-            class="@if ($active == '') text-[#3886A3] font-semibold border-b-2 border-[#3886A3] 
+        <a href="{{route('karir-new')}}"
+            class="@if ($active == 'Karir') text-[#3886A3] font-semibold border-b-2 border-[#3886A3]
                 @else text-gray-600 font-semibold @endif">
             Karir
         </a>
@@ -48,23 +48,23 @@
 
 <!-- Screen Mobile Menu -->
 <div id="mobileMenu" class="fixed inset-0 bg-white bg-opacity-90 hidden z-40 flex flex-col justify-center items-center">
-    <a href="{{ route('home-new') }}" 
-        class="@if ($active == 'Beranda') block text-[#3886A3] font-medium text-2xl py-4 
+    <a href="{{ route('home-new') }}"
+        class="@if ($active == 'Beranda') block text-[#3886A3] font-medium text-2xl py-4
             @else block text-gray-600 font-medium text-2xl py-4 @endif">
         Beranda
     </a>
-    <a href="{{ route('tentang-new') }}" 
-        class="@if ($active == 'Tentang Kami') block text-[#3886A3] font-medium text-2xl py-4 
+    <a href="{{ route('tentang-new') }}"
+        class="@if ($active == 'Tentang Kami') block text-[#3886A3] font-medium text-2xl py-4
             @else block text-gray-600 font-medium text-2xl py-4 @endif">
         Tentang Kami
     </a>
-    <a href="{{ route('produk-new') }}" 
-        class="@if ($active == 'Produk Berbinar') block text-[#3886A3] font-medium text-2xl py-4 
+    <a href="{{ route('produk-new') }}"
+        class="@if ($active == 'Produk Berbinar') block text-[#3886A3] font-medium text-2xl py-4
             @else block text-gray-600 font-medium text-2xl py-4 @endif">
         Produk
     </a>
-    <a href="#" 
-        class="@if ($active == '') block text-[#3886A3] font-medium text-2xl py-4 
+    <a href="{{route('karir-new')}}"
+        class="@if ($active == 'Karir') block text-[#3886A3] font-medium text-2xl py-4
             @else block text-gray-600 font-medium text-2xl py-4 @endif">
         Karir
     </a>
@@ -102,7 +102,7 @@
     <div class="flex items-center">
       <img src="{{ asset('assets/images/landing/logo-berbinar.png') }}" alt="Logo" class="h-12 w-auto">
     </div>
-    
+
     <div class="ml-auto">
         <!-- Navigation Links -->
         <div class="flex items-center space-x-14">
