@@ -67,7 +67,7 @@
                 </div>
             </div>
             {{--infinite horizontal scroll--}}
-            <div class="w-full mx-auto lg:pt-32">
+            <div class="w-full mx-auto pt-20 md:pt-32">
                 <div class="flex gap-1">
                     <div class="flex gap-4 profile-slide">
                         @for($i = 1; $i <= 35; $i++)
@@ -917,44 +917,56 @@
     {{--AVAIABLE POSITIONS END--}}
 
     {{--TESTIMONI MAGANG START--}}
-    <section class="mt-6">
-        <p class="max-sm:text-[29px] text-4xl font font-semibold text-black text-center my-8 max-sm:mx-2 mx-20 relative z-10">
-            Apa Kata Mereka Tentang <span class="bg-primary text-white px-2 ">Berbinar</span> ?</p>
-        <div class="swiperContainer">
-            <div class="swiper" id="swiperTestimoni">
-                <div class="swiper-wrapper max-sm:pb-8 pb-1">
-                    @foreach ($testimonis as $testimoni)
-                        <div class="swiper-slide">
-                            <div
-                                class="bg-white rounded-3xl shadow-md flex flex-col justify-center text-center items-center h-auto w-auto p-5 max-sm:max-w-[240px] max-sm:max-h-[390px]">
-                                <img src="{{ asset('assets/images/landing/vector-kutip.png') }}" alt="Kutip"
-                                     class="max-sm:h-7 h-8 w-auto">
+    <section class="w-full mt-16 mx-auto flex items-center justify-center">
+        <div class="container mx-auto md:mx-14">
+            {{--caption START--}}
+            <div class="w-full mx-auto mb-4 md:mb-8">
+                <h2 class="font-semibold text-3xl bg-clip-text text-center md:text-4xl lg:text-5xl text-transparent bg-gradient-to-r from-[#1C4352] to-[#3986A3] font-plusJakartaSans mb-4 lg:tracking-wide py-1">
+                    Kata Mereka Tentang Internship di Berbinar
+                </h2>
+            </div>
+            {{--caption END--}}
 
-                                <div class="py-4 text-center flex flex-col flex-grow">
-                                    <p class="max-sm:text-[15px] text-[16px] text-black font-medium flex-grow text-justify max-sm:min-h-[135px] min-h-[120px]">
-                                        {{ $testimoni['comment'] }}
-                                    </p>
-                                </div>
+            {{--testimoni irul--}}
+            <div class="swiperContainer">
+                <div class="swiper" id="swiperTestimoni">
+                    <div class="swiper-wrapper max-sm:pb-8 pb-1">
+                        @foreach ($testimonis as $testimoni)
+                            <div class="swiper-slide">
+                                <div
+                                    class="bg-white rounded-3xl shadow-md flex flex-col justify-center text-center items-center h-auto w-auto p-5 max-sm:max-w-[240px] max-sm:max-h-[390px]">
+                                    <img src="{{ asset('assets/images/landing/vector-kutip.png') }}" alt="Kutip"
+                                         class="max-sm:h-7 h-8 w-auto">
 
-                                <div class="flex flex-col items-center max-sm:mt-3 mt-3 text-center">
-                                    <img src="{{ asset($testimoni['image']) }}" alt="Kutip"
-                                         class="-mt-3 max-sm:h-[62px] max-sm:w-[62px] h-[70px] w-[70px] rounded-full object-cover">
-                                    <p class="max-sm:text-[15px] text-[17px] text-black font-semibold">
-                                        {{ $testimoni['name'] }}
-                                    </p>
-                                    <p class="text-sm text-[#70787D]">
-                                        {{ $testimoni['division'] }}
-                                    </p>
+                                    <div class="py-4 text-center flex flex-col flex-grow">
+                                        <p class="max-sm:text-[15px] text-[16px] text-black font-medium flex-grow text-justify max-sm:min-h-[135px] min-h-[120px]">
+                                            {{ $testimoni['comment'] }}
+                                        </p>
+                                    </div>
+
+                                    <div class="flex flex-col items-center max-sm:mt-3 mt-3 text-center">
+                                        <img src="{{ asset($testimoni['image']) }}" alt="Kutip"
+                                             class="-mt-3 max-sm:h-[62px] max-sm:w-[62px] h-[70px] w-[70px] rounded-full object-cover">
+                                        <p class="max-sm:text-[15px] text-[17px] text-black font-semibold">
+                                            {{ $testimoni['name'] }}
+                                        </p>
+                                        <p class="text-sm text-[#70787D]">
+                                            {{ $testimoni['division'] }}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
+
+                    <div class="swiper-pagination hidden sm:block"></div>
+                    <div class="swiper-scrollbar block sm:hidden"></div>
+
                 </div>
-
-                <div class="swiper-pagination hidden sm:block"></div>
-                <div class="swiper-scrollbar block sm:hidden"></div>
-
             </div>
+            {{--testimoni irul--}}
+
+
         </div>
     </section>
     {{--TESTIMONI MAGANG END--}}

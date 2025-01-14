@@ -1,14 +1,3 @@
-.bg-hero {
-    background-image: url('/assets/images/landing/bg-hero.png');
-}
-
-#swiperProduk {
-    width: 900px;
-    margin: 20px auto;
-    overflow: hidden;
-
-}
-
 #swiperTestimoni {
     width: 900px;
     margin: 20px auto;

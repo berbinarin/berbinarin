@@ -10,7 +10,7 @@
 
     <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
 
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css'])
     <link rel="stylesheet" href="{{ asset('assets/css/landing-new.css') }}">
 
     {{-- Css Swiper --}}
@@ -64,9 +64,8 @@
     <script src="{{ asset('assets/js/landing/beranda.js') }}"></script>
 @endif
 
-{{--Script Karir--}}
 @if($page === 'Karir')
-    <script src="{{asset('public/assets/js/landing/Karir.js')}}"></script>
+    <script src="{{asset('assets/js/landing/karir.js')}}"></script>
 @endif
 
 {{-- Script Produk Berbinar --}}
