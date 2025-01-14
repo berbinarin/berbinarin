@@ -78,7 +78,7 @@ class OCEANController extends Controller
         ->with('current_question_number', $currentQuestionNumber + 1);
     } else {
       $ResultController = new ResultOceanController();
-      $ResultController->calculateAndStoreResult($testId);
+      $ResultController->calculateAndStoreResult(test_ocean_id: $testId);
       return redirect()->route('psikotest-paid.tool.OCEAN.summary', ['testId' => $testId]);
     }
   }

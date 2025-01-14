@@ -53,9 +53,14 @@
   <p class="font-bold text-2xl text-center text-gray-800 mt-0 z-20 relative">Tes 05</p>
   <p class="text-sm text-center text-gray-800 mt-0 z-20 relative">Soal {{ session('current_question_number', 1) }} dari 60</p>
 
+  <div class="mt-4 mb-2 text-center z-20">
+    <span id="timer" class="text-xl font-semibold text-red-600"></span>
+  </div>
+
   <div class="relative text-center z-10 w-3xl mx-auto p-7 mt-8" style="width: 750px;">
-    <form action="{{ route('psikotest-paid.tool.SSCT.submitAnswer') }}" method="POST">
+    <form id="autoSubmitForm" action="{{ route('psikotest-paid.tool.SSCT.submitAnswer') }}" method="POST">
       @csrf
+      <input type="hidden" name="timeout" id="timeout" value="">
       <input type="hidden" name="test_id" value="{{ $test->id }}">
       <input type="hidden" name="question_id" value="{{ $questions[session('current_question_number', 1) - 1]->id }}">
       <input type="hidden" name="current_question_number" value="{{ session('current_question_number', 1) }}">
@@ -63,7 +68,7 @@
           <label class="block text-lg mt-7 px-8 mb-8" for="question">
               {{ $questions[session('current_question_number', 1) - 1]->question }}
           </label>
-          <textarea name="answer" rows="4" class="input-field rounded-lg" required></textarea>
+          <textarea name="answer" rows="1" placeholder="Ketik disini..." class="input-field rounded-lg w-1/2" required></textarea>
       </div>
       <button type="submit" class="w-xl bg-primary  items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
           Selanjutnya
@@ -71,4 +76,34 @@
     </form>
   </div>
 </div>
+<script>
+const totalDuration = 35 * 60 * 1000; 
+
+let startTime = localStorage.getItem('startTime') || new Date().getTime();
+localStorage.setItem('startTime', startTime);
+
+const timerElement = document.getElementById('timer');
+
+const timerInterval = setInterval(() => {
+    const now = new Date().getTime();
+    const elapsed = now - startTime;
+    const remaining = totalDuration - elapsed;
+
+    if (remaining <= 0) {
+        clearInterval(timerInterval);
+        localStorage.removeItem('startTime');
+        const timeout = document.getElementById('timeout');
+        timeout.value = true;
+        document.getElementById('autoSubmitForm').submit();
+    } else {
+      const timeout = document.getElementById('timeout');
+      timeout.value = false;
+    }
+
+    const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+    timerElement.innerHTML = `Waktu Tersisa: ${minutes}m ${seconds}s`;
+}, 1000);
+</script>
 @endsection

@@ -1,3 +1,8 @@
+@extends('moduls.psikotes.layouts.mainn', [
+'title' => 'End Psikotest',
+'active' => 'one psikotest',
+])
+
 @section('content')
 <div class="relative h-11/12 md:min-h-screen flex flex-col items-center bg-gray-100 justify-center">
   <!-- bg-internship -->
@@ -16,7 +21,6 @@
 
     <img src="{{ asset('assets/images/psikotes/paid/psikotes-ikon-piala.png') }}" alt="Ikon" class=" w-60 rounded-full" style="margin-left: 240px">
     <p class="font-bold text-xl text-center">Selamat! Kamu sudah menyelesaikan Tes 07!</p>
-
 
     <div class="mb-4 flex justify-center mt-10">
       <a href="{{ route('psikotest-paid.showLanding') }}">

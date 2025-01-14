@@ -83,5 +83,4 @@ class TesEsaiController extends Controller
     {
         return view('moduls.psikotes-paid.tools.tes-esai.summary', ['testId' => $testId]);
     }
-
 }

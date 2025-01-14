@@ -94,10 +94,12 @@
               <p class="text-sm text-gray-600 text-center">Harap segera mengumpulkan jawaban</p>
           </div>
           <div class="flex items-center justify-center p-3 border-t border-solid border-gray-200 rounded-b">
+            <a href="{{ route('psikotest-paid.showLanding') }}">
               <button onclick="toggleModal('view-modal')" type="button"
                       class="focus:ring-2 focus:ring-offset-2 font-medium text-sm rounded-lg inline-flex items-start justify-start px-6 py-3 text-white bg-blue-500 hover:bg-blue-700 focus:outline-none">
-                      <p class=" font-medium leading-none text-dark">Kembali</p>
+                hrefont-medium leading-none text-dark">Kembali</p>
               </button>
+            </a>
           </div>
       </div>
   </div>
