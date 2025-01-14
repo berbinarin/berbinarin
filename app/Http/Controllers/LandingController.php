@@ -163,8 +163,33 @@ class LandingController extends Controller
             ],
         ];
 
+        $faqs = [
+            [
+                'question' => 'Apakah magang di Berbinar dapat dikonversi ke SKS perkuliahan?',
+                'answer' => 'Apabila SobatBinar nantinya menghendaki untuk mengkonversikan magang di Berbinar ke SKS atau KRS perkuliahan, SobatBinar bisa mengajukan proposal kerjasama, seperti MoU atau MoA kepada Berbinar.'
+            ],
+            [
+                'question' => 'Pengumuman kelulusan magang diberitahukan kapan dan melalui media apa?',
+                'answer' => 'Untuk tahapan kelulusan dari proses rekrutmen akan dikabarkan secara talent pool, dimana SobatBinar akan dihubungi oleh tim rekruter saat posisi pekerjaan sedang kosong melalui e-mail atau WhatsApp.'
+            ],
+            [
+                'question' => 'Apakah ada peraturan perusahaan mengenai jam kerja magang?',
+                'answer' => 'Sesuai peraturan perusahaan, staf Berbinar bekerja minimal 16 jam/minggu dan maksimal 21 jam/minggu, namun jam kerja akan disesuaikan kembali secara fleksibel apabila terdapat pekerjaan yang bersifat urgent atau genting.'
+            ],
+            [
+                'question' => 'Bagaimana sistem magang di Berbinar?',
+                'answer' => 'Sistem magang di Berbinar saat ini masih bersifat work from anywhere dan unpaid (tidak dibayar).'
+            ],
+            [
+                'question' => 'Berapa lama durasi magang di Berbinar?',
+                'answer' => 'Terdapat 2 pilihan durasi magang di Berbinar, yaitu selama 6 bulan atau 1 tahun.'
+            ],
+        ];
+
+
         return view('moduls.landing-new.karir')->with([
             'testimonis' => $testimonis,
+            'faqs' => $faqs
         ]);
     }
 
@@ -1906,10 +1931,12 @@ class LandingController extends Controller
     {
         return view('moduls.psikotes-paid.instruksi');
     }
+
     public function soal()
     {
         return view('moduls.psikotes-paid.soal');
     }
+
     public function end()
     {
         return view('moduls.psikotes-paid.end');

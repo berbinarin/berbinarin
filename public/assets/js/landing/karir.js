@@ -1,6 +1,3 @@
-import Swiper from 'swiper/bundle';
-
-
 // const swiper = new Swiper('.testimoni-swiper', {
 //     loop: true,
 //     centeredSlides: true,
