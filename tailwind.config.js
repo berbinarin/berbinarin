@@ -28,12 +28,12 @@ export default {
             boxShadow: {
                 'benefit-icon': '0px 0px 15px 0px #0000001A',
                 'primary-light': '0px 5px 15px 0px #3986A333',
-                'magang': '0px 0px 15px 0px #F7B23B4D',
+                'magang': '0px 0px 15px 0px #F7B23B4D'
             },
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],
                 plusJakartaSans: ["Plus Jakarta Sans", "sans-serif"],
-                inter: ["Inter", "sans-serif"],
+                inter: ['Inter']
             },
             backgroundImage: {
                 "primary-linear":

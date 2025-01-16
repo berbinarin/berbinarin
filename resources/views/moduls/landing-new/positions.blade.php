@@ -27,7 +27,7 @@
 
                         {{--image-banner start--}}
                         <div class="w-full h-full rounded-t-lg overflow-hidden">
-                            <img src="{{ asset('assets/images/landing/karir-dummy/banner/1.png') }}" alt="1"
+                            <img src="{{ asset('assets/images/landing/karir/banner/1.png') }}" alt="1"
                                  class="object-cover h-full w-full">
                         </div>
                         {{--image-banner end--}}
@@ -56,7 +56,7 @@
                     {{--md:remote start--}}
                     <div class="hidden w-full mb-4 md:flex items-start">
                         <span class="font-normal text-xs text-remote italic"><img
-                                src="{{ asset("assets/images/landing/karir-dummy/remote.png") }}" alt="remote icon"
+                                src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
                                 class="inline-block size-4">Remote</span>
                     </div>
                     {{--md:remote end--}}
@@ -73,7 +73,7 @@
                     {{--short detail start--}}
                     <div class="w-full flex items-center justify-center mb-2 md:hidden">
                     <span class="font-normal text-xs text-remote italic"><img
-                            src="{{ asset("assets/images/landing/karir-dummy/remote.png") }}" alt="remote icon"
+                            src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
                             class="inline-block size-4">Remote</span>
                         <div
                             class="py-1 px-2 bg-[#F7B23B4D] rounded-full ms-2 flex items-center justify-center shadow-magang">
@@ -90,7 +90,7 @@
 
                         {{--image-banner start--}}
                         <div class="w-full h-full rounded-t-lg overflow-hidden">
-                            <img src="{{ asset('assets/images/landing/karir-dummy/banner/1.png') }}" alt="1"
+                            <img src="{{ asset('assets/images/landing/karir/banner/1.png') }}" alt="1"
                                  class="object-cover h-full w-full">
                         </div>
                         {{--image-banner end--}}
@@ -119,7 +119,7 @@
                     {{--md:remote start--}}
                     <div class="hidden w-full mb-4 md:flex items-start">
                         <span class="font-normal text-xs text-remote italic"><img
-                                src="{{ asset("assets/images/landing/karir-dummy/remote.png") }}" alt="remote icon"
+                                src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
                                 class="inline-block size-4">Remote</span>
                     </div>
                     {{--md:remote end--}}
@@ -136,7 +136,7 @@
                     {{--short detail start--}}
                     <div class="w-full flex items-center justify-center mb-2 md:hidden">
                     <span class="font-normal text-xs text-remote italic"><img
-                            src="{{ asset("assets/images/landing/karir-dummy/remote.png") }}" alt="remote icon"
+                            src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
                             class="inline-block size-4">Remote</span>
                         <div
                             class="py-1 px-2 bg-[#F7B23B4D] rounded-full ms-2 flex items-center justify-center shadow-magang">
@@ -153,7 +153,7 @@
 
                         {{--image-banner start--}}
                         <div class="w-full h-full rounded-t-lg overflow-hidden">
-                            <img src="{{ asset('assets/images/landing/karir-dummy/banner/1.png') }}" alt="1"
+                            <img src="{{ asset('assets/images/landing/karir/banner/1.png') }}" alt="1"
                                  class="object-cover h-full w-full">
                         </div>
                         {{--image-banner end--}}
@@ -182,7 +182,7 @@
                     {{--md:remote start--}}
                     <div class="hidden w-full mb-4 md:flex items-start">
                         <span class="font-normal text-xs text-remote italic"><img
-                                src="{{ asset("assets/images/landing/karir-dummy/remote.png") }}" alt="remote icon"
+                                src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
                                 class="inline-block size-4">Remote</span>
                     </div>
                     {{--md:remote end--}}
@@ -199,7 +199,7 @@
                     {{--short detail start--}}
                     <div class="w-full flex items-center justify-center mb-2 md:hidden">
                     <span class="font-normal text-xs text-remote italic"><img
-                            src="{{ asset("assets/images/landing/karir-dummy/remote.png") }}" alt="remote icon"
+                            src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
                             class="inline-block size-4">Remote</span>
                         <div
                             class="py-1 px-2 bg-[#F7B23B4D] rounded-full ms-2 flex items-center justify-center shadow-magang">
@@ -216,7 +216,7 @@
 
                         {{--image-banner start--}}
                         <div class="w-full h-full rounded-t-lg overflow-hidden">
-                            <img src="{{ asset('assets/images/landing/karir-dummy/banner/1.png') }}" alt="1"
+                            <img src="{{ asset('assets/images/landing/karir/banner/1.png') }}" alt="1"
                                  class="object-cover h-full w-full">
                         </div>
                         {{--image-banner end--}}
@@ -245,7 +245,7 @@
                     {{--md:remote start--}}
                     <div class="hidden w-full mb-4 md:flex items-start">
                         <span class="font-normal text-xs text-remote italic"><img
-                                src="{{ asset("assets/images/landing/karir-dummy/remote.png") }}" alt="remote icon"
+                                src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
                                 class="inline-block size-4">Remote</span>
                     </div>
                     {{--md:remote end--}}
@@ -262,7 +262,7 @@
                     {{--short detail start--}}
                     <div class="w-full flex items-center justify-center mb-2 md:hidden">
                     <span class="font-normal text-xs text-remote italic"><img
-                            src="{{ asset("assets/images/landing/karir-dummy/remote.png") }}" alt="remote icon"
+                            src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
                             class="inline-block size-4">Remote</span>
                         <div
                             class="py-1 px-2 bg-[#F7B23B4D] rounded-full ms-2 flex items-center justify-center shadow-magang">
@@ -279,7 +279,7 @@
 
                         {{--image-banner start--}}
                         <div class="w-full h-full rounded-t-lg overflow-hidden">
-                            <img src="{{ asset('assets/images/landing/karir-dummy/banner/1.png') }}" alt="1"
+                            <img src="{{ asset('assets/images/landing/karir/banner/1.png') }}" alt="1"
                                  class="object-cover h-full w-full">
                         </div>
                         {{--image-banner end--}}
@@ -308,7 +308,7 @@
                     {{--md:remote start--}}
                     <div class="hidden w-full mb-4 md:flex items-start">
                         <span class="font-normal text-xs text-remote italic"><img
-                                src="{{ asset("assets/images/landing/karir-dummy/remote.png") }}" alt="remote icon"
+                                src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
                                 class="inline-block size-4">Remote</span>
                     </div>
                     {{--md:remote end--}}
@@ -325,7 +325,7 @@
                     {{--short detail start--}}
                     <div class="w-full flex items-center justify-center mb-2 md:hidden">
                     <span class="font-normal text-xs text-remote italic"><img
-                            src="{{ asset("assets/images/landing/karir-dummy/remote.png") }}" alt="remote icon"
+                            src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
                             class="inline-block size-4">Remote</span>
                         <div
                             class="py-1 px-2 bg-[#F7B23B4D] rounded-full ms-2 flex items-center justify-center shadow-magang">
@@ -342,7 +342,7 @@
 
                         {{--image-banner start--}}
                         <div class="w-full h-full rounded-t-lg overflow-hidden">
-                            <img src="{{ asset('assets/images/landing/karir-dummy/banner/1.png') }}" alt="1"
+                            <img src="{{ asset('assets/images/landing/karir/banner/1.png') }}" alt="1"
                                  class="object-cover h-full w-full">
                         </div>
                         {{--image-banner end--}}
@@ -371,7 +371,7 @@
                     {{--md:remote start--}}
                     <div class="hidden w-full mb-4 md:flex items-start">
                         <span class="font-normal text-xs text-remote italic"><img
-                                src="{{ asset("assets/images/landing/karir-dummy/remote.png") }}" alt="remote icon"
+                                src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
                                 class="inline-block size-4">Remote</span>
                     </div>
                     {{--md:remote end--}}
@@ -388,7 +388,7 @@
                     {{--short detail start--}}
                     <div class="w-full flex items-center justify-center mb-2 md:hidden">
                     <span class="font-normal text-xs text-remote italic"><img
-                            src="{{ asset("assets/images/landing/karir-dummy/remote.png") }}" alt="remote icon"
+                            src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
                             class="inline-block size-4">Remote</span>
                         <div
                             class="py-1 px-2 bg-[#F7B23B4D] rounded-full ms-2 flex items-center justify-center shadow-magang">
@@ -405,7 +405,7 @@
 
                         {{--image-banner start--}}
                         <div class="w-full h-full rounded-t-lg overflow-hidden">
-                            <img src="{{ asset('assets/images/landing/karir-dummy/banner/1.png') }}" alt="1"
+                            <img src="{{ asset('assets/images/landing/karir/banner/1.png') }}" alt="1"
                                  class="object-cover h-full w-full">
                         </div>
                         {{--image-banner end--}}
@@ -434,7 +434,7 @@
                     {{--md:remote start--}}
                     <div class="hidden w-full mb-4 md:flex items-start">
                         <span class="font-normal text-xs text-remote italic"><img
-                                src="{{ asset("assets/images/landing/karir-dummy/remote.png") }}" alt="remote icon"
+                                src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
                                 class="inline-block size-4">Remote</span>
                     </div>
                     {{--md:remote end--}}
@@ -451,7 +451,7 @@
                     {{--short detail start--}}
                     <div class="w-full flex items-center justify-center mb-2 md:hidden">
                     <span class="font-normal text-xs text-remote italic"><img
-                            src="{{ asset("assets/images/landing/karir-dummy/remote.png") }}" alt="remote icon"
+                            src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
                             class="inline-block size-4">Remote</span>
                         <div
                             class="py-1 px-2 bg-[#F7B23B4D] rounded-full ms-2 flex items-center justify-center shadow-magang">
@@ -468,7 +468,7 @@
 
                         {{--image-banner start--}}
                         <div class="w-full h-full rounded-t-lg overflow-hidden">
-                            <img src="{{ asset('assets/images/landing/karir-dummy/banner/1.png') }}" alt="1"
+                            <img src="{{ asset('assets/images/landing/karir/banner/1.png') }}" alt="1"
                                  class="object-cover h-full w-full">
                         </div>
                         {{--image-banner end--}}
@@ -497,7 +497,7 @@
                     {{--md:remote start--}}
                     <div class="hidden w-full mb-4 md:flex items-start">
                         <span class="font-normal text-xs text-remote italic"><img
-                                src="{{ asset("assets/images/landing/karir-dummy/remote.png") }}" alt="remote icon"
+                                src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
                                 class="inline-block size-4">Remote</span>
                     </div>
                     {{--md:remote end--}}
@@ -514,7 +514,7 @@
                     {{--short detail start--}}
                     <div class="w-full flex items-center justify-center mb-2 md:hidden">
                     <span class="font-normal text-xs text-remote italic"><img
-                            src="{{ asset("assets/images/landing/karir-dummy/remote.png") }}" alt="remote icon"
+                            src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
                             class="inline-block size-4">Remote</span>
                         <div
                             class="py-1 px-2 bg-[#F7B23B4D] rounded-full ms-2 flex items-center justify-center shadow-magang">
@@ -591,7 +591,7 @@
     <section class="w-full lg:mt-12 mx-auto flex items-center justify-center px-2 md:px-16 mb-12">
         <a href="#">
             <div class=" cursor-pointer">
-                <img src="{{asset('assets/images/landing/karir-dummy/banner-keluarga-berbinar.png')}}"
+                <img src="{{asset('assets/images/landing/karir/banner-keluarga-berbinar.png')}}"
                      alt="banner keluarga berbinar" class="object-cover">
             </div>
         </a>
