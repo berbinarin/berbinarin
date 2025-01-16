@@ -48,7 +48,8 @@
     <form action="{{ route('psikotest-paid.VAK.submit', ['id' => $id, 'question_order' => $question_order]) }}"
       method="POST">
       @csrf
-    <p class="text-black mt-3 px-5 text-center">
+      <input type="hidden" name="timeout" id="timeout" value="false">
+      <p class="text-black mt-3 px-5 text-center">
       {{ $question->question_text }}
     </p>
 
@@ -99,5 +100,44 @@
       }
     });
   });
-</script>   
+</script>
+<script>
+  const totalDuration = 30 * 60 * 1000;
+  const intervalDuration = 10 * 60 * 1000; 
+  const timeout = document.getElementById('timeout');
+  
+  let startTime = localStorage.getItem('startTime');
+  if (!startTime || performance.navigation.type === 1) { 
+      startTime = new Date().getTime();
+      localStorage.setItem('startTime', startTime);
+  }
+  
+  const now = new Date().getTime();
+  const elapsed = now - startTime;
+  
+  const redirect = (url) => {
+      window.location.href = url;
+  };
+  
+  if (elapsed <= intervalDuration) {
+      setTimeout(() => {
+          redirect("http://127.0.0.1:8000/psikotest-paid/test-13/{{ $id }}/question/11");
+      }, intervalDuration - elapsed);
+  } else if (elapsed <= 2 * intervalDuration) {
+      setTimeout(() => {
+          redirect("http://127.0.0.1:8000/psikotest-paid/test-13/{{ $id }}/question/21");
+      }, 2 * intervalDuration - elapsed);
+  } else if (elapsed <= totalDuration) {
+      timeout.value = true;
+      setTimeout(() => {
+          localStorage.removeItem('startTime');
+          document.forms[0].submit();
+      }, totalDuration - elapsed);
+  } else {
+      // Waktu habis
+      timerElement.innerHTML = `Waktu habis. Mengirim otomatis...`;
+      localStorage.removeItem('startTime');
+      document.forms[0].submit();
+  }
+  </script>      
 @endsection

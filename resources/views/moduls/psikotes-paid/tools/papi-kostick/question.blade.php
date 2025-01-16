@@ -8,6 +8,7 @@
         <form method="POST"
             action="{{ route('psikotest-paid.papi-kostick.submit', ['id' => $id, 'question_order' => $question_order]) }}">
             @csrf
+        <input type="hidden" name="timeout" id="timeout" value="false">
             <!-- Background Image -->
             <img src="{{ asset('assets/images/psikotes/paid/psikotest-soal-bg.png') }}" alt="Latar Belakang Berbinar"
                 class="absolute inset-0 hidden md:block md:w-full md:h-full object-cover z-0">
@@ -95,6 +96,11 @@
                     });
                 </script>
 
+        <!-- Timer -->
+        <div class="mt-4 mb-2 text-center z-20">
+            <span id="timer" class="text-xl font-semibold text-red-600"></span>
+        </div>
+
                 <!-- Percentage Line and Next Button -->
                 <div class="flex bg-white rounded-md items-center justify-between mt-24"
                     style="height: 40px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
@@ -119,4 +125,31 @@
             </div>
         </form>
     </div>
+<script>
+    // Total durasi (misalnya 90 menit = 90 * 60 * 1000 milidetik)
+    const totalDuration = 45 * 60 * 1000;
+
+    let startTime = localStorage.getItem('startTimePapiKostick') || new Date().getTime();
+    localStorage.setItem('startTimePapiKostick', startTime);
+
+    const timerElement = document.getElementById('timer');
+
+    const timerInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const elapsed = now - startTime;
+        const remaining = totalDuration - elapsed;
+
+        if (remaining <= 0) {
+            clearInterval(timerInterval);
+            localStorage.removeItem('startTimePapiKostick');
+            document.getElementById('timeout').value = true;
+            document.querySelector('form').submit();
+        }
+
+        const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+        timerElement.innerHTML = `Waktu Tersisa: ${minutes}m ${seconds}s`;
+    }, 1000);
+</script>
 @endsection
