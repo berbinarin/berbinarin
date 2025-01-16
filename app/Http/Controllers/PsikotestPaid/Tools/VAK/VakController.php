@@ -75,24 +75,23 @@ class VakController extends Controller
             AnswerVak::create([
                 'test_vak_id' => $id,
                 'question_vak_id' => $question->id,
-                'answer' => $request->input('answer'),
+                'answer' => $request->input('answer')??null,
             ]);
         }
 
         $next_question_order = $question_order + 1;
-
-        if ($next_question_order > 30) {
+        $timeout = $request->input('timeout');
+        if ($next_question_order < 30 && $timeout == "false") {
+            return redirect()->route('psikotest-paid.VAK.questions', ['id' => $id, 'question_order' => $next_question_order]);
+        } else {
             $this->calculateAndStoreResult($id);
 
             $psikotestPaidTest = PsikotestPaidTest::where('id', $id)->first();
             if ($psikotestPaidTest) {
                 $psikotestPaidTest->update(['status_progress' => true]);
             }
-
             return redirect()->route('psikotest-paid.VAK.complete', ['id' => $id]);
         }
-
-        return redirect()->route('psikotest-paid.VAK.questions', ['id' => $id, 'question_order' => $next_question_order]);
     }
 
     public function calculateAndStoreResult($id)
