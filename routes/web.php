@@ -52,8 +52,6 @@ use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserEducationController;
 use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserCommunityController;
 use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserClinicalController;
 use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserIndividualController;
-use App\Http\Controllers\IdentitasStaffController;
-use App\Http\Controllers\JabatanStaffController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\NomorBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\SoalBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\SkorBdiController;
@@ -561,41 +559,11 @@ Route::get('/soal2OCEAN', [LandingController::class, 'soal2OCEAN'])->name('soal2
 Route::get('/endOCEAN', [LandingController::class, 'endOCEAN'])->name('endOCEAN');
 // Web Routes (Untuk tampilan di browser)
 Route::middleware(['web'])->group(function () {
-    // Halaman List Staff
-    Route::get('/staff', [IdentitasStaffController::class, 'index'])->name('staff.index');
-    // Form Tambah Staff
-    Route::get('/staff/create', [IdentitasStaffController::class, 'create'])->name('staff.create');
-    Route::post('/staff', [IdentitasStaffController::class, 'store'])->name('staff.store');
-    // Update Data Staff
-    Route::get('/staff/{id}/edit', [IdentitasStaffController::class, 'edit'])->name('staff.edit');
-    Route::put('/staff/{id}', [IdentitasStaffController::class, 'update'])->name('staff.update');
-    // Hapus Staff
-    Route::delete('/staff/{id}', [IdentitasStaffController::class, 'destroy'])->name('staff.destroy');
-    // Manajemen Jabatan
-    Route::get('/jabatan', [JabatanStaffController::class, 'index'])->name('jabatan.index');
-    Route::get('/jabatan/create', [JabatanStaffController::class, 'create'])->name('jabatan.create');
-    Route::post('/jabatan', [JabatanStaffController::class, 'store'])->name('jabatan.store');
-    Route::get('/jabatan/{id}/edit', [JabatanStaffController::class, 'edit'])->name('jabatan.edit');
-    Route::put('/jabatan/{id}', [JabatanStaffController::class, 'update'])->name('jabatan.update');
-    Route::delete('/jabatan/{id}', [JabatanStaffController::class, 'destroy'])->name('jabatan.destroy');
-    // Filter Jabatan di Halaman View
-    Route::get('/jabatan/filter/divisi', [JabatanStaffController::class, 'staffByDivisi'])->name('jabatan.filter.divisi');
-    Route::get('/jabatan/filter/subdivisi', [JabatanStaffController::class, 'staffBySubDivisi'])->name('jabatan.filter.subdivisi');
-    Route::get('/jabatan/filter/tahun', [JabatanStaffController::class, 'staffByTahun'])->name('jabatan.filter.tahun');
     Route::match(['get', 'post'], '/nomor-bdi', [NomorBdiController::class, 'index'])->name('nomor_bdi.index');
     Route::get('/soalBdi/{nomor}',[SoalBdiController::class, 'getSoalByNomor']);
 });
 // API Routes (Tanpa CSRF Protection)
 Route::prefix('api')->group(function () {
-    // Staff API
-    Route::post('/staff', [IdentitasStaffController::class, 'store']);
-    Route::put('/staff/{id}', [IdentitasStaffController::class, 'update']);
-    Route::delete('/staff/{id}', [IdentitasStaffController::class, 'destroy']);
-
-    // Jabatan API
-    Route::post('/jabatan', [JabatanStaffController::class, 'store']);
-    Route::put('/jabatan/{id}', [JabatanStaffController::class, 'update']);
-    Route::delete('/jabatan/{id}', [JabatanStaffController::class, 'destroy']);
     Route::match(['get', 'post'], '/nomor-bdi', [NomorBdiController::class, 'index'])->name('nomor_bdi.index');
     Route::get('/soal', [SoalBdiController::class, 'index']); // Get all soal and nomor BDI
     Route::post('/soal', [SoalBdiController::class, 'store']); // Add new soal
