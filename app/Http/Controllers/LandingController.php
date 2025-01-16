@@ -123,6 +123,7 @@ class LandingController extends Controller
 
     public function karir_new(Request $request)
     {
+        $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->where('is_active', true)->get();
 
         $testimonis = [
             [
@@ -189,14 +190,15 @@ class LandingController extends Controller
 
         return view('moduls.landing-new.karir')->with([
             'testimonis' => $testimonis,
-            'faqs' => $faqs
+            'faqs' => $faqs,
+            'positions' => $positions
         ]);
     }
 
     public function positions_new(Request $request)
     {
 
-        //data fro positions still dummy
+        $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->where('is_active', true)->get();
 
         $faqs = [
             [
@@ -222,7 +224,8 @@ class LandingController extends Controller
         ];
 
         return view('moduls.landing-new.positions')->with([
-            'faqs' => $faqs
+            'faqs' => $faqs,
+            'positions' => $positions,
         ]);
     }
 
@@ -1453,6 +1456,8 @@ class LandingController extends Controller
         return view('credit-web');
     }
 
+
+//    ridhoooooooo
     public function hiring()
     {
         $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->where('is_active', true)->get();

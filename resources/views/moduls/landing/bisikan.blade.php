@@ -82,7 +82,7 @@
         <div class="flex flex-col gap-4 mx-8 md:mx-0  rounded-xl bg-white shadow-md relative pb-6 flex-1"
             data-aos="fade-right" data-aos-duration="1500" data-aos-delay="500">
 
-            <img src="{{ asset('assets/images/products/bisikan/bisikan-2.png') }}"
+            <img src="{{ asset('assets/images/products/bisikan/bisikan-Secretary and Finance.png') }}"
                 alt="Ilustrasi Peer Counselor Berbinar" title="Ilustrasi Peer Counselor Berbinar"
                 class="w-full rounded-tl-xl rounded-tr-xl p-4">
 
@@ -101,7 +101,7 @@
         <div class="flex flex-col gap-4 mx-8 md:mx-0  rounded-xl bg-white shadow-md relative pb-6 flex-1"
             data-aos="fade-right" data-aos-duration="1500" data-aos-delay="1000">
 
-            <img src="{{ asset('assets/images/products/bisikan/bisikan-3.png') }}"
+            <img src="{{ asset('assets/images/products/bisikan/bisikan-Researcher.png') }}"
                 alt="Ilustrasi Asesmen Psikologi Berbinar" title="Ilustrasi Asesmen Psikologi Berbinar"
                 class="w-full rounded-tl-xl rounded-tr-xl p-4">
 
@@ -119,7 +119,7 @@
         <div class="flex flex-col gap-4 mx-8 md:mx-0  rounded-xl bg-white shadow-md relative pb-6 flex-1"
             data-aos="fade-right" data-aos-duration="1500" data-aos-delay="1500">
 
-            <img src="{{ asset('assets/images/products/bisikan/bisikan-4.png') }}" alt="Ilustrasi Kelas Berbinar"
+            <img src="{{ asset('assets/images/products/bisikan/bisikan-Full Stack Developer.png') }}" alt="Ilustrasi Kelas Berbinar"
                 title="Ilustrasi Kelas Berbinar" class="w-full rounded-tl-xl rounded-tr-xl p-4">
             <div class="flex flex-col gap-1 text-center px-5 items-center justify-center">
                 <h3 class="text-black text-xl font-medium">BISIKAN "Eps 4"</h3>

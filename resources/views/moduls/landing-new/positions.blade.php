@@ -20,510 +20,78 @@
             {{--list START--}}
             <div
                 class="w-full border-orange-500 pt-4 pb-12 mx-auto flex flex-wrap gap-x-8 gap-y-8 md:gap-y-12 justify-center items-center">
-                <div class="bg-white rounded-xl shadow-benefit-icon w-72 p-2">
-
-                    {{--banner start--}}
-                    <div class="w-full h-24 mb-8 relative md:h-32 md:mb-4">
-
-                        {{--image-banner start--}}
-                        <div class="w-full h-full rounded-t-lg overflow-hidden">
-                            <img src="{{ asset('assets/images/landing/karir/banner/1.png') }}" alt="1"
-                                 class="object-cover h-full w-full">
+                @foreach ($positions as $position)
+                    {{--card start--}}
+                    <div class="bg-white rounded-xl shadow-benefit-icon w-72 p-2 flex-col">
+                        {{--banner start--}}
+                        <div class="w-full h-24 mb-8 relative md:h-32 md:mb-4">
+                            {{--image-banner start--}}
+                            <div class="w-full h-full rounded-t-lg overflow-hidden">
+                                <img
+                                    src="{{ asset('assets/images/landing/karir/banner/'.$position->name.'.png') }}"
+                                    alt="1"
+                                    class="object-cover h-full w-full">
+                            </div>
+                            {{--image-banner end--}}
+                            <img src="{{ asset("assets/images/landing/logo-berbinar.png") }}" alt="berbinar logo"
+                                 class="absolute z-20 bg-white size-10 right-4 -bottom-5 rounded-full shadow-primary-light">
                         </div>
-                        {{--image-banner end--}}
-                        <img src="{{ asset("assets/images/landing/logo-berbinar.png") }}" alt="berbinar logo"
-                             class="absolute z-20 bg-white size-10 right-4 -bottom-5 rounded-full shadow-primary-light">
-                    </div>
-                    {{--banner end--}}
+                        {{--banner end--}}
 
-                    {{--md:status start--}}
-                    <div class="hidden w-full mb-4 md:flex items-start">
-                        <div
-                            class="py-1 px-2 bg-[#F7B23B4D] rounded-full flex items-center justify-center shadow-magang">
-                            <span class="font-normal text-xs text-[#ED810D] self-center">Magang</span>
+                        {{--md:status start--}}
+                        <div class="hidden w-full mb-4 md:flex items-start">
+                            <div
+                                class="py-1 px-2 bg-[#F7B23B4D] rounded-full flex items-center justify-center shadow-magang">
+                                    <span
+                                        class="font-normal text-xs text-[#ED810D] self-center">{{$position->type === 'Internship' ? 'Magang' : $position->type}}</span>
+                            </div>
                         </div>
-                    </div>
-                    {{--md:status end--}}
+                        {{--md:status end--}}
 
-                    {{--caption start--}}
-                    <div class="w-full mb-8 md:mb-4">
-                        <h3 class="font-normal text-base font-inter text-black text-center md:text-start">Counseling
-                            Product
-                            Management</h3>
-                    </div>
-                    {{--caption end--}}
-
-                    {{--md:remote start--}}
-                    <div class="hidden w-full mb-4 md:flex items-start">
-                        <span class="font-normal text-xs text-remote italic"><img
-                                src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
-                                class="inline-block size-4">Remote</span>
-                    </div>
-                    {{--md:remote end--}}
-
-                    {{--button start--}}
-                    <div class="w-full flex justify-center items-center mb-4 md:mb-1">
-                        <button
-                            class="w-3/4 py-2 px-2 rounded-lg bg-primary font-normal text-sm text-white text-center hover:opacity-80 hover:shadow-lg md:w-full">
-                            Lihat Selengkapnya
-                        </button>
-                    </div>
-                    {{--button end--}}
-
-                    {{--short detail start--}}
-                    <div class="w-full flex items-center justify-center mb-2 md:hidden">
-                    <span class="font-normal text-xs text-remote italic"><img
-                            src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
-                            class="inline-block size-4">Remote</span>
-                        <div
-                            class="py-1 px-2 bg-[#F7B23B4D] rounded-full ms-2 flex items-center justify-center shadow-magang">
-                            <span class="font-normal text-xs text-[#ED810D] self-center">Magang</span>
+                        {{--caption start--}}
+                        <div class="w-full mb-8 md:mb-4">
+                            <h3 class="font-normal text-base font-inter text-black text-center md:text-start h-10">
+                                {{$position->name}}</h3>
                         </div>
-                    </div>
-                    {{--short detail end--}}
+                        {{--caption end--}}
 
-                </div>
-                <div class="bg-white rounded-xl shadow-benefit-icon w-72 p-2">
-
-                    {{--banner start--}}
-                    <div class="w-full h-24 mb-8 relative md:h-32 md:mb-4">
-
-                        {{--image-banner start--}}
-                        <div class="w-full h-full rounded-t-lg overflow-hidden">
-                            <img src="{{ asset('assets/images/landing/karir/banner/1.png') }}" alt="1"
-                                 class="object-cover h-full w-full">
+                        {{--md:remote start--}}
+                        <div class="hidden w-full mb-4 md:flex md:items-start">
+                                <span class="font-normal text-xs text-remote italic">
+                                    <img src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
+                                         class="inline-block size-4">{{$position->location}}
+                                </span>
                         </div>
-                        {{--image-banner end--}}
-                        <img src="{{ asset("assets/images/landing/logo-berbinar.png") }}" alt="berbinar logo"
-                             class="absolute z-20 bg-white size-10 right-4 -bottom-5 rounded-full shadow-primary-light">
-                    </div>
-                    {{--banner end--}}
+                        {{--md:remote end--}}
 
-                    {{--md:status start--}}
-                    <div class="hidden w-full mb-4 md:flex items-start">
-                        <div
-                            class="py-1 px-2 bg-[#F7B23B4D] rounded-full flex items-center justify-center shadow-magang">
-                            <span class="font-normal text-xs text-[#ED810D] self-center">Magang</span>
+                        {{--button start--}}
+                        <div class="w-full flex justify-center items-center mb-4 md:mb-1">
+                            <button
+                                class="w-3/4 py-2 px-2 rounded-lg bg-primary font-normal text-sm text-white text-center hover:opacity-80 hover:shadow-lg md:w-full">
+                                Lihat Selengkapnya
+                            </button>
                         </div>
-                    </div>
-                    {{--md:status end--}}
+                        {{--button end--}}
 
-                    {{--caption start--}}
-                    <div class="w-full mb-8 md:mb-4">
-                        <h3 class="font-normal text-base font-inter text-black text-center md:text-start">Counseling
-                            Product
-                            Management</h3>
-                    </div>
-                    {{--caption end--}}
-
-                    {{--md:remote start--}}
-                    <div class="hidden w-full mb-4 md:flex items-start">
-                        <span class="font-normal text-xs text-remote italic"><img
-                                src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
-                                class="inline-block size-4">Remote</span>
-                    </div>
-                    {{--md:remote end--}}
-
-                    {{--button start--}}
-                    <div class="w-full flex justify-center items-center mb-4 md:mb-1">
-                        <button
-                            class="w-3/4 py-2 px-2 rounded-lg bg-primary font-normal text-sm text-white text-center hover:opacity-80 hover:shadow-lg md:w-full">
-                            Lihat Selengkapnya
-                        </button>
-                    </div>
-                    {{--button end--}}
-
-                    {{--short detail start--}}
-                    <div class="w-full flex items-center justify-center mb-2 md:hidden">
-                    <span class="font-normal text-xs text-remote italic"><img
-                            src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
-                            class="inline-block size-4">Remote</span>
-                        <div
-                            class="py-1 px-2 bg-[#F7B23B4D] rounded-full ms-2 flex items-center justify-center shadow-magang">
-                            <span class="font-normal text-xs text-[#ED810D] self-center">Magang</span>
+                        {{--short detail start--}}
+                        <div class="w-full flex items-center justify-center mb-2 md:hidden">
+                                <span class="font-normal text-xs text-remote italic">
+                                    <img src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
+                                         class="inline-block size-4">
+                                    {{$position->location}}
+                                </span>
+                            <div
+                                class="py-1 px-2 bg-[#F7B23B4D] rounded-full ms-2 flex items-center justify-center shadow-magang">
+                                    <span class="font-normal text-xs text-[#ED810D] self-center">
+                                        {{$position->type === 'Internship' ? 'Magang' : $position->type}}
+                                    </span>
+                            </div>
                         </div>
+                        {{--short detail end--}}
                     </div>
-                    {{--short detail end--}}
+                    {{--card start--}}
+                @endforeach
 
-                </div>
-                <div class="bg-white rounded-xl shadow-benefit-icon w-72 p-2">
-
-                    {{--banner start--}}
-                    <div class="w-full h-24 mb-8 relative md:h-32 md:mb-4">
-
-                        {{--image-banner start--}}
-                        <div class="w-full h-full rounded-t-lg overflow-hidden">
-                            <img src="{{ asset('assets/images/landing/karir/banner/1.png') }}" alt="1"
-                                 class="object-cover h-full w-full">
-                        </div>
-                        {{--image-banner end--}}
-                        <img src="{{ asset("assets/images/landing/logo-berbinar.png") }}" alt="berbinar logo"
-                             class="absolute z-20 bg-white size-10 right-4 -bottom-5 rounded-full shadow-primary-light">
-                    </div>
-                    {{--banner end--}}
-
-                    {{--md:status start--}}
-                    <div class="hidden w-full mb-4 md:flex items-start">
-                        <div
-                            class="py-1 px-2 bg-[#F7B23B4D] rounded-full flex items-center justify-center shadow-magang">
-                            <span class="font-normal text-xs text-[#ED810D] self-center">Magang</span>
-                        </div>
-                    </div>
-                    {{--md:status end--}}
-
-                    {{--caption start--}}
-                    <div class="w-full mb-8 md:mb-4">
-                        <h3 class="font-normal text-base font-inter text-black text-center md:text-start">Counseling
-                            Product
-                            Management</h3>
-                    </div>
-                    {{--caption end--}}
-
-                    {{--md:remote start--}}
-                    <div class="hidden w-full mb-4 md:flex items-start">
-                        <span class="font-normal text-xs text-remote italic"><img
-                                src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
-                                class="inline-block size-4">Remote</span>
-                    </div>
-                    {{--md:remote end--}}
-
-                    {{--button start--}}
-                    <div class="w-full flex justify-center items-center mb-4 md:mb-1">
-                        <button
-                            class="w-3/4 py-2 px-2 rounded-lg bg-primary font-normal text-sm text-white text-center hover:opacity-80 hover:shadow-lg md:w-full">
-                            Lihat Selengkapnya
-                        </button>
-                    </div>
-                    {{--button end--}}
-
-                    {{--short detail start--}}
-                    <div class="w-full flex items-center justify-center mb-2 md:hidden">
-                    <span class="font-normal text-xs text-remote italic"><img
-                            src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
-                            class="inline-block size-4">Remote</span>
-                        <div
-                            class="py-1 px-2 bg-[#F7B23B4D] rounded-full ms-2 flex items-center justify-center shadow-magang">
-                            <span class="font-normal text-xs text-[#ED810D] self-center">Magang</span>
-                        </div>
-                    </div>
-                    {{--short detail end--}}
-
-                </div>
-                <div class="bg-white rounded-xl shadow-benefit-icon w-72 p-2">
-
-                    {{--banner start--}}
-                    <div class="w-full h-24 mb-8 relative md:h-32 md:mb-4">
-
-                        {{--image-banner start--}}
-                        <div class="w-full h-full rounded-t-lg overflow-hidden">
-                            <img src="{{ asset('assets/images/landing/karir/banner/1.png') }}" alt="1"
-                                 class="object-cover h-full w-full">
-                        </div>
-                        {{--image-banner end--}}
-                        <img src="{{ asset("assets/images/landing/logo-berbinar.png") }}" alt="berbinar logo"
-                             class="absolute z-20 bg-white size-10 right-4 -bottom-5 rounded-full shadow-primary-light">
-                    </div>
-                    {{--banner end--}}
-
-                    {{--md:status start--}}
-                    <div class="hidden w-full mb-4 md:flex items-start">
-                        <div
-                            class="py-1 px-2 bg-[#F7B23B4D] rounded-full flex items-center justify-center shadow-magang">
-                            <span class="font-normal text-xs text-[#ED810D] self-center">Magang</span>
-                        </div>
-                    </div>
-                    {{--md:status end--}}
-
-                    {{--caption start--}}
-                    <div class="w-full mb-8 md:mb-4">
-                        <h3 class="font-normal text-base font-inter text-black text-center md:text-start">Counseling
-                            Product
-                            Management</h3>
-                    </div>
-                    {{--caption end--}}
-
-                    {{--md:remote start--}}
-                    <div class="hidden w-full mb-4 md:flex items-start">
-                        <span class="font-normal text-xs text-remote italic"><img
-                                src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
-                                class="inline-block size-4">Remote</span>
-                    </div>
-                    {{--md:remote end--}}
-
-                    {{--button start--}}
-                    <div class="w-full flex justify-center items-center mb-4 md:mb-1">
-                        <button
-                            class="w-3/4 py-2 px-2 rounded-lg bg-primary font-normal text-sm text-white text-center hover:opacity-80 hover:shadow-lg md:w-full">
-                            Lihat Selengkapnya
-                        </button>
-                    </div>
-                    {{--button end--}}
-
-                    {{--short detail start--}}
-                    <div class="w-full flex items-center justify-center mb-2 md:hidden">
-                    <span class="font-normal text-xs text-remote italic"><img
-                            src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
-                            class="inline-block size-4">Remote</span>
-                        <div
-                            class="py-1 px-2 bg-[#F7B23B4D] rounded-full ms-2 flex items-center justify-center shadow-magang">
-                            <span class="font-normal text-xs text-[#ED810D] self-center">Magang</span>
-                        </div>
-                    </div>
-                    {{--short detail end--}}
-
-                </div>
-                <div class="bg-white rounded-xl shadow-benefit-icon w-72 p-2">
-
-                    {{--banner start--}}
-                    <div class="w-full h-24 mb-8 relative md:h-32 md:mb-4">
-
-                        {{--image-banner start--}}
-                        <div class="w-full h-full rounded-t-lg overflow-hidden">
-                            <img src="{{ asset('assets/images/landing/karir/banner/1.png') }}" alt="1"
-                                 class="object-cover h-full w-full">
-                        </div>
-                        {{--image-banner end--}}
-                        <img src="{{ asset("assets/images/landing/logo-berbinar.png") }}" alt="berbinar logo"
-                             class="absolute z-20 bg-white size-10 right-4 -bottom-5 rounded-full shadow-primary-light">
-                    </div>
-                    {{--banner end--}}
-
-                    {{--md:status start--}}
-                    <div class="hidden w-full mb-4 md:flex items-start">
-                        <div
-                            class="py-1 px-2 bg-[#F7B23B4D] rounded-full flex items-center justify-center shadow-magang">
-                            <span class="font-normal text-xs text-[#ED810D] self-center">Magang</span>
-                        </div>
-                    </div>
-                    {{--md:status end--}}
-
-                    {{--caption start--}}
-                    <div class="w-full mb-8 md:mb-4">
-                        <h3 class="font-normal text-base font-inter text-black text-center md:text-start">Counseling
-                            Product
-                            Management</h3>
-                    </div>
-                    {{--caption end--}}
-
-                    {{--md:remote start--}}
-                    <div class="hidden w-full mb-4 md:flex items-start">
-                        <span class="font-normal text-xs text-remote italic"><img
-                                src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
-                                class="inline-block size-4">Remote</span>
-                    </div>
-                    {{--md:remote end--}}
-
-                    {{--button start--}}
-                    <div class="w-full flex justify-center items-center mb-4 md:mb-1">
-                        <button
-                            class="w-3/4 py-2 px-2 rounded-lg bg-primary font-normal text-sm text-white text-center hover:opacity-80 hover:shadow-lg md:w-full">
-                            Lihat Selengkapnya
-                        </button>
-                    </div>
-                    {{--button end--}}
-
-                    {{--short detail start--}}
-                    <div class="w-full flex items-center justify-center mb-2 md:hidden">
-                    <span class="font-normal text-xs text-remote italic"><img
-                            src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
-                            class="inline-block size-4">Remote</span>
-                        <div
-                            class="py-1 px-2 bg-[#F7B23B4D] rounded-full ms-2 flex items-center justify-center shadow-magang">
-                            <span class="font-normal text-xs text-[#ED810D] self-center">Magang</span>
-                        </div>
-                    </div>
-                    {{--short detail end--}}
-
-                </div>
-                <div class="bg-white rounded-xl shadow-benefit-icon w-72 p-2">
-
-                    {{--banner start--}}
-                    <div class="w-full h-24 mb-8 relative md:h-32 md:mb-4">
-
-                        {{--image-banner start--}}
-                        <div class="w-full h-full rounded-t-lg overflow-hidden">
-                            <img src="{{ asset('assets/images/landing/karir/banner/1.png') }}" alt="1"
-                                 class="object-cover h-full w-full">
-                        </div>
-                        {{--image-banner end--}}
-                        <img src="{{ asset("assets/images/landing/logo-berbinar.png") }}" alt="berbinar logo"
-                             class="absolute z-20 bg-white size-10 right-4 -bottom-5 rounded-full shadow-primary-light">
-                    </div>
-                    {{--banner end--}}
-
-                    {{--md:status start--}}
-                    <div class="hidden w-full mb-4 md:flex items-start">
-                        <div
-                            class="py-1 px-2 bg-[#F7B23B4D] rounded-full flex items-center justify-center shadow-magang">
-                            <span class="font-normal text-xs text-[#ED810D] self-center">Magang</span>
-                        </div>
-                    </div>
-                    {{--md:status end--}}
-
-                    {{--caption start--}}
-                    <div class="w-full mb-8 md:mb-4">
-                        <h3 class="font-normal text-base font-inter text-black text-center md:text-start">Counseling
-                            Product
-                            Management</h3>
-                    </div>
-                    {{--caption end--}}
-
-                    {{--md:remote start--}}
-                    <div class="hidden w-full mb-4 md:flex items-start">
-                        <span class="font-normal text-xs text-remote italic"><img
-                                src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
-                                class="inline-block size-4">Remote</span>
-                    </div>
-                    {{--md:remote end--}}
-
-                    {{--button start--}}
-                    <div class="w-full flex justify-center items-center mb-4 md:mb-1">
-                        <button
-                            class="w-3/4 py-2 px-2 rounded-lg bg-primary font-normal text-sm text-white text-center hover:opacity-80 hover:shadow-lg md:w-full">
-                            Lihat Selengkapnya
-                        </button>
-                    </div>
-                    {{--button end--}}
-
-                    {{--short detail start--}}
-                    <div class="w-full flex items-center justify-center mb-2 md:hidden">
-                    <span class="font-normal text-xs text-remote italic"><img
-                            src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
-                            class="inline-block size-4">Remote</span>
-                        <div
-                            class="py-1 px-2 bg-[#F7B23B4D] rounded-full ms-2 flex items-center justify-center shadow-magang">
-                            <span class="font-normal text-xs text-[#ED810D] self-center">Magang</span>
-                        </div>
-                    </div>
-                    {{--short detail end--}}
-
-                </div>
-                <div class="bg-white rounded-xl shadow-benefit-icon w-72 p-2">
-
-                    {{--banner start--}}
-                    <div class="w-full h-24 mb-8 relative md:h-32 md:mb-4">
-
-                        {{--image-banner start--}}
-                        <div class="w-full h-full rounded-t-lg overflow-hidden">
-                            <img src="{{ asset('assets/images/landing/karir/banner/1.png') }}" alt="1"
-                                 class="object-cover h-full w-full">
-                        </div>
-                        {{--image-banner end--}}
-                        <img src="{{ asset("assets/images/landing/logo-berbinar.png") }}" alt="berbinar logo"
-                             class="absolute z-20 bg-white size-10 right-4 -bottom-5 rounded-full shadow-primary-light">
-                    </div>
-                    {{--banner end--}}
-
-                    {{--md:status start--}}
-                    <div class="hidden w-full mb-4 md:flex items-start">
-                        <div
-                            class="py-1 px-2 bg-[#F7B23B4D] rounded-full flex items-center justify-center shadow-magang">
-                            <span class="font-normal text-xs text-[#ED810D] self-center">Magang</span>
-                        </div>
-                    </div>
-                    {{--md:status end--}}
-
-                    {{--caption start--}}
-                    <div class="w-full mb-8 md:mb-4">
-                        <h3 class="font-normal text-base font-inter text-black text-center md:text-start">Counseling
-                            Product
-                            Management</h3>
-                    </div>
-                    {{--caption end--}}
-
-                    {{--md:remote start--}}
-                    <div class="hidden w-full mb-4 md:flex items-start">
-                        <span class="font-normal text-xs text-remote italic"><img
-                                src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
-                                class="inline-block size-4">Remote</span>
-                    </div>
-                    {{--md:remote end--}}
-
-                    {{--button start--}}
-                    <div class="w-full flex justify-center items-center mb-4 md:mb-1">
-                        <button
-                            class="w-3/4 py-2 px-2 rounded-lg bg-primary font-normal text-sm text-white text-center hover:opacity-80 hover:shadow-lg md:w-full">
-                            Lihat Selengkapnya
-                        </button>
-                    </div>
-                    {{--button end--}}
-
-                    {{--short detail start--}}
-                    <div class="w-full flex items-center justify-center mb-2 md:hidden">
-                    <span class="font-normal text-xs text-remote italic"><img
-                            src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
-                            class="inline-block size-4">Remote</span>
-                        <div
-                            class="py-1 px-2 bg-[#F7B23B4D] rounded-full ms-2 flex items-center justify-center shadow-magang">
-                            <span class="font-normal text-xs text-[#ED810D] self-center">Magang</span>
-                        </div>
-                    </div>
-                    {{--short detail end--}}
-
-                </div>
-                <div class="bg-white rounded-xl shadow-benefit-icon w-72 p-2">
-
-                    {{--banner start--}}
-                    <div class="w-full h-24 mb-8 relative md:h-32 md:mb-4">
-
-                        {{--image-banner start--}}
-                        <div class="w-full h-full rounded-t-lg overflow-hidden">
-                            <img src="{{ asset('assets/images/landing/karir/banner/1.png') }}" alt="1"
-                                 class="object-cover h-full w-full">
-                        </div>
-                        {{--image-banner end--}}
-                        <img src="{{ asset("assets/images/landing/logo-berbinar.png") }}" alt="berbinar logo"
-                             class="absolute z-20 bg-white size-10 right-4 -bottom-5 rounded-full shadow-primary-light">
-                    </div>
-                    {{--banner end--}}
-
-                    {{--md:status start--}}
-                    <div class="hidden w-full mb-4 md:flex items-start">
-                        <div
-                            class="py-1 px-2 bg-[#F7B23B4D] rounded-full flex items-center justify-center shadow-magang">
-                            <span class="font-normal text-xs text-[#ED810D] self-center">Magang</span>
-                        </div>
-                    </div>
-                    {{--md:status end--}}
-
-                    {{--caption start--}}
-                    <div class="w-full mb-8 md:mb-4">
-                        <h3 class="font-normal text-base font-inter text-black text-center md:text-start">Counseling
-                            Product
-                            Management</h3>
-                    </div>
-                    {{--caption end--}}
-
-                    {{--md:remote start--}}
-                    <div class="hidden w-full mb-4 md:flex items-start">
-                        <span class="font-normal text-xs text-remote italic"><img
-                                src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
-                                class="inline-block size-4">Remote</span>
-                    </div>
-                    {{--md:remote end--}}
-
-                    {{--button start--}}
-                    <div class="w-full flex justify-center items-center mb-4 md:mb-1">
-                        <button
-                            class="w-3/4 py-2 px-2 rounded-lg bg-primary font-normal text-sm text-white text-center hover:opacity-80 hover:shadow-lg md:w-full">
-                            Lihat Selengkapnya
-                        </button>
-                    </div>
-                    {{--button end--}}
-
-                    {{--short detail start--}}
-                    <div class="w-full flex items-center justify-center mb-2 md:hidden">
-                    <span class="font-normal text-xs text-remote italic"><img
-                            src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
-                            class="inline-block size-4">Remote</span>
-                        <div
-                            class="py-1 px-2 bg-[#F7B23B4D] rounded-full ms-2 flex items-center justify-center shadow-magang">
-                            <span class="font-normal text-xs text-[#ED810D] self-center">Magang</span>
-                        </div>
-                    </div>
-                    {{--short detail end--}}
-
-                </div>
 
             </div>
             {{--list END--}}

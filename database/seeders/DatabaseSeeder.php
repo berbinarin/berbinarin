@@ -49,7 +49,8 @@ class DatabaseSeeder extends Seeder
             QuestionOceanSeeder::class,
             QuestionSsctSeeder::class,
             CategoryQuestionVakSeeder::class,
-            QuestionVakSeeder::class
+            QuestionVakSeeder::class,
+            HiringSeeder::class,
         ]);
     }
 }
