@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('test_papi_kostick_id')->constrained('test_papi_kosticks')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('question_papi_kostick_id')->constrained('question_papi_kosticks')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('answer');
+            $table->integer('answer')->nullable();
             $table->timestamps();
         });
     }

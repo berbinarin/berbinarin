@@ -42,11 +42,8 @@
                         <ul class="list-disc list-outside leading-relaxed mt-10">
                             <li class="font-semibold">Lokasi offline Konseling
                                 <ul class="list-decimal list-outside leading-relaxed pl-4">
-                                    <li>Psikolog : Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, Jakarta, Malang, dan
-                                        Kalimantan Utara
-                                        (Tarakan)
-                                    </li>
-                                    <li>Peer Counselor : Bekasi, Tangerang Selatan, Padang, Wonogirin dan Malang</li>
+                                    <li>Psikolog : Surabaya, Kediri, Sidoarjo, Makassar, Samarinda, Jakarta, dan Malang</li>
+                                    <li>Peer Counselor : Tangerang Selatan, Malang, dan Surabaya </li>
                                 </ul>
                             </li>
                             <li>Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n.
@@ -115,8 +112,7 @@
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog1.jpg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" class="text-lg font-medium text-center">Danny Sanjaya Arfensia, S.Psi., M.Psi.,
-                        Psikolog</a>
+                    <a target="_blank" class="text-lg font-medium text-center">Danny Sanjaya Arfensia, S.Psi., M.Psi., Psikolog</a>
                     <!-- href="http://127.0.0.1:8000/counseling/pdf/DANNY SANJAYA ARFENSIA.pdf"  -->
                 </div>
             </div>
@@ -161,7 +157,7 @@
             </div>
         </div>
         --}} -->
-            <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
+            {{-- <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog2.jpeg') }}">
                 <div class="flex flex-col items-center">
                     <a target="_blank" class="text-lg font-medium text-center">B. Primandini Yunanda Harumi, S.Psi.,
@@ -176,28 +172,25 @@
                         Psikolog</a>
                     <!-- href="http://127.0.0.1:8000/counseling/pdf/YUSANDI REZKI FADHLI.pdf" -->
                 </div>
-            </div>
+            </div> --}}
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog4.jpeg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" class="text-lg font-medium text-center">Satria Kamal Agassi, S.Psi., M.Psi.,
-                        Psikolog</a>
+                    <a target="_blank" class="text-lg font-medium text-center">Satria Kamal Agassi, S.Psi., M.Psi., Psikolog</a>
                     <!-- href="http://127.0.0.1:8000/counseling/pdf/SATRIA KAMAL AGASSI.pdf" -->
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog5.jpeg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" class="text-lg font-medium text-center">Virginia Sukma Dewi, S. Psi., M. Psi.,
-                        Psikolog</a>
+                    <a target="_blank" class="text-lg font-medium text-center">Virginia Sukma Dewi, S.Psi., M.Psi., Psikolog </a>
                     <!-- href="http://127.0.0.1:8000/counseling/pdf/VIRGINIA SUKMA DEWI.pdf" -->
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog6.jpeg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" class="text-lg font-medium text-center">Kasmayani Karim, M.Psi., </br>
-                        Psikolog</a>
+                    <a target="_blank" class="text-lg font-medium text-center">⁠Kasmayani Karim, M.Psi., Psikolog</a>
                     <!-- href="http://127.0.0.1:8000/counseling/pdf/KASMAYANI KARIM.pdf" -->
                 </div>
             </div>
@@ -212,24 +205,21 @@
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog8.jpeg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" class="text-lg font-medium text-center">Ira Mayang Sari, S. Psi., M. Psi.,
-                        Psikolog</a>
+                    <a target="_blank" class="text-lg font-medium text-center">Ira Mayang Sari, S.Psi., M.Psi., Psikolog</a>
                     <!-- href="http://127.0.0.1:8000/counseling/pdf/IRA MAYANG SARI.pdf" -->
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog9.jpg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" class="text-lg font-medium text-center">Adismara Putri Pradiri, S.Psi., M.Psi.,
-                        Psikolog</a>
+                    <a target="_blank" class="text-lg font-medium text-center">Adismara Putri Pradiri, S.Psi., M.Psi., Psikolog</a>
                     <!-- href="#" -->
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
                 <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/psikolog/psikolog10.jpg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" class="text-lg font-medium text-center">Ramadhani Lucky Al Kahfi, S.Psi., M.Psi.,
-                        Psikolog</a>
+                    <a target="_blank" class="text-lg font-medium text-center">Ramadhani Lucky Al Kahfi, S.Psi., M.Psi., Psikolog</a>
                     <!-- href="#" -->
                 </div>
             </div>
@@ -256,16 +246,16 @@
                     <div class="flex flex-col gap-3 text-center items-center justify-items-center px-5 py-3">
                         <p class="text-primary-alt text-lg font-semibold italic">Online</p>
                         <p class="text-primary-alt text-lg font-semibold italic">1 Sesi (1 Jam) 150k</p>
-                        <p class="text-primary-alt text-lg font-semibold italic">2 Sesi (2 Jam) 255k</p>
-                        <p class="text-primary-alt text-lg font-semibold italic">3 Sesi (3 Jam) 360k</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">2 Sesi (2 Jam) 300k</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">3 Sesi (3 Jam) 450k</p>
                     </div>
                     <!-- <div class="inline-block h-[250px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 dark:bg-white/10">
                     </div> -->
                     <div class="flex flex-col gap-2 text-center items-center justify-center px-5 py-3">
                         <p class="text-primary-alt text-lg font-semibold italic">Offline</p>
                         <p class="text-primary-alt text-lg font-semibold italic">1 Sesi (1 Jam) 175k</p>
-                        <p class="text-primary-alt text-lg font-semibold italic">2 Sesi (2 Jam) 298k</p>
-                        <p class="text-primary-alt text-lg font-semibold italic">3 Sesi (3 Jam) 421k</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">2 Sesi (2 Jam) 350k</p>
+                        <p class="text-primary-alt text-lg font-semibold italic">3 Sesi (3 Jam) 525k</p>
 
 
                     </div>
@@ -276,8 +266,7 @@
                     <!-- <div class="inline-block h-[250px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 dark:bg-white/10">
                     </div> -->
                     <div class="flex flex-col gap-2 text-center items-center justify-center px-16 py-3">
-                        <p class="text-disabled italic text-sm">*Wilayah Surabaya, Kediri, Sidoarjo, Denpasar,
-                            Kalimantan Utara (Tarakan), Samarinda, Jakarta, Malang</p>
+                        <p class="text-disabled italic text-sm">*Wilayah Surabaya, Sidoarjo, Kediri, Makassar, Samarinda, Surabaya, Jakarta, dan Malang</p>
                     </div>
                 </div>
             </div>
@@ -314,8 +303,7 @@
                     <!-- <div class="inline-block h-[250px] min-h-[1em] w-0.5 self-stretch bg-neutral-100 dark:bg-white/10">
                     </div> -->
                     <div class="flex flex-col gap-2 text-center items-center justify-center px-16 py-3">
-                        <p class="text-disabled italic text-sm">*Wilayah Surabaya, Kediri, Sidoarjo, Denpasar,
-                            Kalimantan Utara (Tarakan), Samarinda, Jakarta, Malang</p>
+                        <p class="text-disabled italic text-sm">*Wilayah Surabaya, Sidoarjo, Kediri, Makassar, Samarinda, Surabaya, Jakarta, dan Malang</p>
                     </div>
                 </div>
 
@@ -394,17 +382,17 @@
         <div class="flex flex-col md:flex-row md:gap-6 items-center justify-center mt-10">
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
 
-                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/fairuzza.jpeg') }}">
+                <img alt="Najwa Chana Indica" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/najwa.jpg') }}">
 
                 <div class="flex flex-col items-center">
-                    <a target="_blank" href="#" class="text-xl font-medium text-center">Fairuzza Nur Qibtiya
+                    <a target="_blank" href="#" class="text-xl font-medium text-center">Najwa Chana Indica
                     </a>
-                    <p class="text-lg text-disabled">Malang & Bekasi</p>
+                    <p class="text-lg text-disabled">Malang</p>
                 </div>
             </div>
 
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/shafiyyah.jpeg') }}">
+                <img alt="Shafiyyah Muthi'ah" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/shafiyyah.jpg') }}">
                 <div class="flex flex-col items-center">
                     <a target="_blank" href="#" class="text-xl font-medium text-center">Shafiyyah Muthi'ah
                     </a>
@@ -412,19 +400,19 @@
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/nurul.jpeg') }}">
+                <img alt="Thahira Raudhatunissa" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/thahira.jpg') }}">
                 <div class="flex flex-col items-center">
-                    <a target="_blank" href="#" class="text-xl font-medium text-center">Nurul Asmaul Husna
+                    <a target="_blank" href="#" class="text-xl font-medium text-center">Thahira Raudhatunissa
                     </a>
-                    <p class="text-lg text-disabled">Padang</p>
+                    <p class="text-lg text-disabled">Surabaya</p>
                 </div>
             </div>
             <div class="space-y-4 bg-white shadow-md py-7 px-2 rounded-md w-[300px] md:w-full">
-                <img alt="" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/nabila.jpg') }}">
+                <img alt="Nabila Farah Atiqah" class="object-cover h-60 mx-auto mb-4 bg-center rounded-xl dark:bg-gray-500" src="{{ asset('assets/images/konseling/nabila.jpg') }}">
                 <div class="flex flex-col items-center">
                     <a target="_blank" href="#" class="text-xl font-medium text-center">Nabila Farah Atiqah 
                     </a>
-                    <p class="text-lg text-disabled">Wonogiri & Malang</p>
+                    <p class="text-lg text-disabled">Malang</p>
                 </div>
             </div>
 
@@ -455,7 +443,7 @@
                 <div class="flex flex-col gap-2 text-center items-center px-5 pt-10">
                     <h3 class="text-black text-xl font-medium">Offline</h3>
                     <h1 class="text-black text-4xl font-medium">IDR 55k/jam</h1>
-                    <p class="text-lg text-disabled">Wilayah Bekasi, Jakarta, Tangerang Selatan, Padang, Wonogiri dan Malang</p>
+                    <p class="text-lg text-disabled">Wilayah Tangerang Selatan, Surabaya, dan Malang</p>
                     <button class="text-base text-white bg-primary-alt rounded-md hover:bg-primary duration-700 px-5 py-2 bottom-0 openModal" data-modal-index="0">
                         Mulai Sekarang
                     </button>

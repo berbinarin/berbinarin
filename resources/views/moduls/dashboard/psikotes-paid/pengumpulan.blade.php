@@ -34,7 +34,7 @@
                                 <td>Morgan Vero</td>
                                 <td class="text-center">morganvero@gmail.com</td>
                                 <td class="text-center">18-04-2024</td>
-                                <td class="px-6 py-4 whitespace-no-wrap text-center text-center">
+                                <td class="px-6 py-4 whitespace-no-wrap text-center">
                                     <button onclick="toggleModal('view-modal')" type="button"
                                         class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-blue-500 hover:bg-blue-500 focus:outline-none rounded">
                                         <p class="font-medium leading-none text-white">Lihat Jawaban</p>

@@ -18,6 +18,806 @@ use App\Models\Hiring_Positions_Job_Descriptions;
 
 class LandingController extends Controller
 {
+    // NEW LANDING PAGE
+    public function landing_new(Request $request)
+    {
+        $visimisis = [
+            [
+                'moto' => 'Profesional',
+            ],
+            [
+                'moto' => 'Alat Tes Terstandar',
+            ],
+            [
+                'moto' => 'Biaya Terjangkau',
+            ],
+            [
+                'moto' => 'Fleksibel',
+            ],
+            
+        ];
+
+        $products = [
+            [
+                'vector' => 'assets/images/landing/asset-beranda/produk/konseling.png',
+                'produk' => 'Berbinar Konseling',
+                'deskripsi' => 'Tempat konsultasi kesehatan mental klien dengan memilih psikolog maupun peer counselor yang sudah terjamin kualitas dan profesionalitasnya.',
+            ],
+            [
+                'vector' => 'assets/images/landing/asset-beranda/produk/kelas.png',
+                'produk' => 'Berbinar Kelas',
+                'deskripsi' => 'Rintis perkembangan karier klien dengan kelas edukasi Berbinar yang terdiri beberapa topik untuk meningkatkan soft skill dan hard skill.',
+            ],
+            [
+                'vector' => 'assets/images/landing/asset-beranda/produk/psikotest.png',
+                'produk' => 'Berbinar Psikotest',
+                'deskripsi' => 'Serangkaian tes untuk mengukur, menentukan, dan mempersiapkan karier dengan mengidentifikasi potensi yang dimiliki setiap klien.',
+            ],
+            [
+                'vector' => 'assets/images/landing/asset-beranda/produk/consulting.png',
+                'produk' => 'Berbinar Consulting',
+                'deskripsi' => 'Suatu layanan dalam membantu suatu perusahaan, komunitas, dan organisasi yang berkaitan kinerja sumber daya manusia.',
+            ],
+            [
+                'vector' => 'assets/images/landing/asset-beranda/produk/emoshuffle.png',
+                'produk' => 'EmoShuffle',
+                'deskripsi' => 'Kartu yang dirancang dengan desain menarik dan dapat mendalami juga mengekspresikan perasaan klien saat bermain.',
+            ],
+            [
+                'vector' => 'assets/images/landing/asset-beranda/produk/moodscantees.png',
+                'produk' => 'Moodscan Tees',
+                'deskripsi' => 'Kaos super nyaman yang memiliki desain konsep psikologis juga fitur QR Code untuk menyimpan pesan motivasi agar tampil bergaya.',
+            ],
+        ];
+
+        $testimonis = [
+            [
+                'comment' => '"Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya sangat bagus."',
+                'name' => 'Ace Pebri Ala',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/user-ace.png',
+                'division' => 'Tiktok Creator',
+            ],
+            [
+                'comment' => '"Tentunya produk dari berbinar itu memiliki kualitas unggul karena ditangani langsung oleh seorang psikolog."',
+                'name' => 'Mellynda Silanur Rohmah',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/user-mellynda.png',
+                'division' => 'Human Resource',
+            ],
+            [
+                'comment' => '"Sejauh yang aku tau di berbinar sendiri itu udah nyediain beragam banget layanan psikologi untuk sobat binar semua."',
+                'name' => 'Caroline Athalia Rianda',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/user-caroline.png',
+                'division' => 'Graphic Designer',
+            ],
+            [
+                'comment' => '"Berbinar salah satu layanan edukasi psikologi yang cukup lengkap, dan produk produknya sangat dibutuhkan."',
+                'name' => 'Ananda Deshinta Rasyid',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/user-ananda.png',
+                'division' => 'Class Product Management',
+            ],
+            [
+                'comment' => '"Memberikan banyak ilmu dan pengetahuan baru melalui konten - konten yang menarik dan mudah dipahami."',
+                'name' => 'Intan Putri Ardhitya',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/user-intan.png',
+                'division' => 'Human Resource',
+            ],
+            [
+                'comment' => '"Menurut saya produknya sudah bagus karena mencakup hal yang sangat diperlukan. Selain itu terus mengembangkan produknya."',
+                'name' => 'Sri Wahyuni',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/user-sri.png',
+                'division' => 'PTPM',
+            ],
+        ];
+
+        return view('moduls.landing-new.index')->with([
+            'products' => $products,
+            'testimonis' => $testimonis,
+            'visimisis' => $visimisis,
+        ]);
+    }
+
+    public function produk_new(Request $request)
+    {
+        return view('moduls.landing-new.produk')->with([]);
+    }
+
+    public function karir_new(Request $request)
+    {
+        return view('moduls.landing-new.karir')->with([]);
+    }
+
+    public function konseling_new(Request $request)
+    {
+        $psikologs = [
+            [
+                'name' => 'Danny Sanjaya Arfensia',
+                'title' => 'S.Psi., M.Psi., Psikolog',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/danny.png'
+            ],
+            [
+                'name' => 'B. Primandini Y. H.',
+                'title' => 'S.Psi., M.Psi., Psikolog',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/primandini.png'
+            ],
+            [
+                'name' => 'Yusandi Rezki Fadhli',
+                'title' => 'S.Psi., M.Psi., Psikolog',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/yusandi.png'
+            ],
+            [
+                'name' => 'Satria Kamal Agassi',
+                'title' => 'S.Psi., M.Psi., Psikolog',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/satria.png'
+            ],
+            [
+                'name' => 'Virginia Sukma Dewi',
+                'title' => 'S.Psi., M.Psi., Psikolog',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/virginia.png'
+            ],
+            [
+                'name' => 'Kasmayani Karim',
+                'title' => 'M.Psi., Psikolog',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/kasmayani.png'
+            ],
+            [
+                'name' => 'Ira Mayang Sari',
+                'title' => 'S.Psi., M.Psi., Psikolog',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/ira.png'
+            ],
+            [
+                'name' => 'Adismara Putri Pradiri',
+                'title' => 'S.Psi., M.Psi., Psikolog',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/adismara.png'
+            ],
+            [
+                'name' => 'Ramadhani Lucky Al Kahfi',
+                'title' => 'S.Psi., M.Psi., Psikolog',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/ramadhani.png'
+            ]
+        ];
+
+        $weeksOn = [
+            [
+                'description' => 'Konseling dengan psikolog fleksibel sesuai kenyamanan Anda'
+            ],
+            [
+                'description' => 'Data pribadi Anda akan dijaga kerahasiaannya'
+            ],
+            [
+                'description' => 'Psikolog akan menavigasi hidup Anda dengan bijaksana'
+            ],
+            [
+                'description' => 'Memberikan dukungan emosional untuk Anda'
+            ],
+        ];
+
+        $weeksOff = [
+            [
+                'description' => 'Sesi tatap muka untuk pengalaman konseling lebih personal dengan psikolog'
+            ],
+            [
+                'description' => 'Data pribadi Anda akan dijaga kerahasiaannya'
+            ],
+            [
+                'description' => 'Psikolog akan menavigasi hidup Anda dengan bijaksana'
+            ],
+            [
+                'description' => 'Memberikan dukungan emosional untuk Anda'
+            ],
+        ];
+
+        $weekdayPricesOn = [
+            [
+                'session' => '⏱️  1 Sesi (1 jam)',
+                'price' => 'Rp150.000',
+            ],
+            [
+                'session' => '⏱️  2 Sesi (2 jam)',
+                'price' => 'Rp300.000',
+            ],
+            [
+                'session' => '⏱️  3 Sesi (3 jam)',
+                'price' => 'Rp450.000',
+            ],
+        ];
+
+        $weekdayPricesOff = [
+            [
+                'session' => '⏱️  1 Sesi (1 jam)',
+                'price' => 'Rp175.000',
+            ],
+            [
+                'session' => '⏱️  2 Sesi (2 jam)',
+                'price' => 'Rp350.000',
+            ],
+            [
+                'session' => '⏱️  3 Sesi (3 jam)',
+                'price' => 'Rp525.000',
+            ],
+        ];
+
+        $weekendPricesOn = [
+            [
+                'session' => '⏱️  1 Sesi (1 jam)',
+                'price' => 'Rp200.000',
+            ],
+            [
+                'session' => '⏱️  2 Sesi (2 jam)',
+                'price' => 'Rp340.000',
+            ],
+            [
+                'session' => '⏱️  3 Sesi (3 jam)',
+                'price' => 'Rp500.000',
+            ],
+        ];
+
+        $weekendPricesOff = [
+            [
+                'session' => '⏱️  1 Sesi (1 jam)',
+                'price' => 'Rp225.000',
+            ],
+            [
+                'session' => '⏱️  2 Sesi (2 jam)',
+                'price' => 'Rp340.000',
+            ],
+            [
+                'session' => '⏱️  3 Sesi (3 jam)',
+                'price' => 'Rp500.000',
+            ],
+        ];
+
+        $peers = [
+            [
+                'name' => "Shafiyyah Muthi'ah",
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/shafiyyah.png',
+                'region' => 'Tangerang Selatan'
+            ],
+            [
+                'name' => "Nabila Farah Atiqah",
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/nabila.png',
+                'region' => 'Malang'
+            ],
+            [
+                'name' => 'Thahira Raudhatunissa',
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/thahira.png',
+                'region' => 'Surabaya'
+            ],
+            [
+                'name' => 'Najwa Chana Indica',
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/najwa.png',
+                'region' => 'Malang'
+            ]
+        ];
+
+        $peerOnlines = [
+            [
+                'description' => 'Konseling dimanapun dan kapanpun sesuai dengan kenyamanan Anda'
+            ],
+            [
+                'description' => 'Data pribadi Anda akan dijaga kerahasiaannya'
+            ],
+            [
+                'description' => 'Membantu memberikan dukungan emosional untuk Anda'
+            ],
+            [
+                'description' => 'Peer counselor akan menjadi teman bicara dan membantu permasalahan Anda sehari-hari'
+            ],
+        ];
+
+        $peerOfflines = [
+            [
+                'description' => 'Pengalaman konseling tatap muka yang lebih personal dengan peer counselor'
+            ],
+            [
+                'description' => 'Data pribadi Anda akan dijaga kerahasiaannya'
+            ],
+            [
+                'description' => 'Membantu memberikan dukungan emosional untuk Anda'
+            ],
+            [
+                'description' => 'Waktu dan tempat bisa fleksibel sesuai dengan kesepakatan antara Anda dengan peer counselor'
+            ],
+        ];
+
+        $faqs = [
+            [
+                'question' => 'Apa perbedaan Psikolog dan Peer Counselor?',
+                'answer' => 'Psikolog merupakan tenaga profesional yang telah menyelesaikan pendidikan S1 Psikologi dan melanjutkan kuliah di program studi profesi untuk mendapatkan gelar Psikolog dan M.Psi. Sedangkan Peer Counselor merupakan individu yang telah mendapatkan pelatihan dari psikolog sehingga mempunyai kemampuan dasar untuk melakukan konseling termasuk dalam mengidentifikasi permasalahan dengan usia sebaya.
+            '
+            ],
+            [
+                'question' => 'Apabila sesi konseling telah berakhir, dan saya ingin menambah durasi sesi konseling apalah boleh?',
+                'answer' => 'Menambah durasi konseling sangat diperbolehkan. Namun, durasi konseling ditentukan berdasarkan kebutuhan dalam penanganan suatu masalah. Sehingga, yang dapat merekomendasikan adalah psikolog dan keputusan dibuat bersama antara klien dengan psikolog atau peer counselor. Jika klien bersedia, maka durasi konseling akan dilanjutkan.
+            '
+            ],
+            [
+                'question' => 'Apakah privasi saya akan terjamin?',
+                'answer' => 'Tentu saja, seluruh hal yang akan kamu sampaikan saat sesi konseling akan dijaga kerahasiaannya oleh psikolog/peer counsellor kami. Selain itu, psikolog serta peer counsellor kami sangat menjunjung tinggi kode etik psikologi, sehingga kamu dapat bebas dalam menyampaikan sesuatu saat sesi konseling berlangsung.
+            '
+            ],
+            [
+                'question' => 'Apakah ada batasan usia untuk konseling?',
+                'answer' => 'Tidak ada batasan usia dalam konseling, sehingga konseling bisa digunakan untuk berbagai usia.
+            '
+            ],
+            [
+                'question' => 'Apakah saya bisa memilih psikolog yang menangani?',
+                'answer' => "SobatBinar tidak dapat memilih psikolog dengan nama tertentu. Namun demi kenyamanan SobatBinar, SobatBinar diperbolehkan mengajukan karakter psikolog yang diinginkan (Seperti: Jenis kelamin tertentu, agama tertentu, usia tertentu, maupun psikolog yang sudah menikah ataupun belum)
+            "
+            ],
+        ];
+
+        return view('moduls.landing-new.produk-konseling')->with([
+            'psikologs' => $psikologs,
+            'weeksOn' => $weeksOn,
+            'weeksOff' => $weeksOff,
+            'weekdayPricesOn' => $weekdayPricesOn,
+            'weekdayPricesOff' => $weekdayPricesOff,
+            'weekendPricesOn' => $weekendPricesOn,
+            'weekendPricesOff' => $weekendPricesOff,
+            'peerOnlines' => $peerOnlines,
+            'peerOfflines' => $peerOfflines,
+            'peers' => $peers,
+            'faqs' => $faqs,
+        ]);
+    }
+
+    public function psikotest_new(Request $request)
+    {
+        $individus = [
+            [
+                'jenis_tes' => 'Tes Memori‍ 🧠',
+                'harga' => 'Rp129.999',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => false,
+                ],
+            ],
+            [
+                'jenis_tes' => 'Tes Self-Love‍ 💖',
+                'harga' => 'Rp99.000',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => false,
+                ],
+            ],
+            [
+                'jenis_tes' => 'Tes Dimensia 🧩',
+                'harga' => 'Rp199.999',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => false,
+                ],
+            ],
+            [
+                'jenis_tes' => 'Tes Stress‍ 😣',
+                'harga' => 'Rp159.000',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => true,
+                ],
+            ],
+            [
+                'jenis_tes' => 'Tes Depresi 🌧️',
+                'harga' => 'Rp159.000',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => true,
+                ],
+            ],
+            [
+                'jenis_tes' => 'Tes Kecemasan 😟',
+                'harga' => 'Rp159.000',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => false,
+                ],
+            ],
+            [
+                'jenis_tes' => 'Tes Kecemasan+ 😰',
+                'harga' => 'Rp229.000',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => true,
+                ],
+            ],
+            [
+                'jenis_tes' => 'Tes Fungsi Kognitif 🧬',
+                'harga' => 'Rp129.999',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => false,
+                ],
+            ],
+        ];
+
+        $staffs = [
+            [
+                'paket' => 'Paket 1',
+                'harga' => 'Rp450.000',
+                'keterangan' => [
+                    'tes_intelegensi' => true,
+                    'tes_sikap_kerja' => true,
+                    'tes_kepribadian' => true,
+                    'focus_group_discussion' => true,
+                    'wawancara' => false,
+                    'psikogram' => true,
+                    'deskripsi' => true,
+                    'proyeksi_pengembangan' => false,
+                    'saran_pengembangan' => false,
+                ],
+            ],
+            [
+                'paket' => 'Paket 2',
+                'harga' => 'Rp600.000',
+                'keterangan' => [
+                    'tes_intelegensi' => true,
+                    'tes_sikap_kerja' => true,
+                    'tes_kepribadian' => true,
+                    'focus_group_discussion' => true,
+                    'wawancara' => false,
+                    'psikogram' => true,
+                    'deskripsi' => true,
+                    'proyeksi_pengembangan' => true,
+                    'saran_pengembangan' => true,
+                ],
+            ],
+            [
+                'paket' => 'Paket 3',
+                'harga' => 'Rp550.000',
+                'keterangan' => [
+                    'tes_intelegensi' => true,
+                    'tes_sikap_kerja' => true,
+                    'tes_kepribadian' => true,
+                    'focus_group_discussion' => false,
+                    'wawancara' => true,
+                    'psikogram' => true,
+                    'deskripsi' => true,
+                    'proyeksi_pengembangan' => true,
+                    'saran_pengembangan' => true,
+                ],
+            ],
+            [
+                'paket' => 'Paket 4',
+                'harga' => 'Rp750.000',
+                'keterangan' => [
+                    'tes_intelegensi' => true,
+                    'tes_sikap_kerja' => true,
+                    'tes_kepribadian' => true,
+                    'focus_group_discussion' => true,
+                    'wawancara' => true,
+                    'psikogram' => true,
+                    'deskripsi' => true,
+                    'proyeksi_pengembangan' => true,
+                    'saran_pengembangan' => true,
+                ],
+            ],
+        ];
+
+        $supervisors = [
+            [
+                'paket' => 'Paket 1',
+                'harga' => 'Rp650.000',
+                'keterangan' => [
+                    'tes_intelegensi' => true,
+                    'tes_sikap_kerja' => true,
+                    'tes_kepribadian' => true,
+                    'focus_group_discussion' => false,
+                    'wawancara' => true,
+                    'psikogram' => true,
+                    'deskripsi' => true,
+                    'proyeksi_pengembangan' => false,
+                    'saran_pengembangan' => false,
+                ],
+            ],
+            [
+                'paket' => 'Paket 2',
+                'harga' => 'Rp600.000',
+                'keterangan' => [
+                    'tes_intelegensi' => true,
+                    'tes_sikap_kerja' => true,
+                    'tes_kepribadian' => true,
+                    'focus_group_discussion' => false,
+                    'wawancara' => true,
+                    'psikogram' => true,
+                    'deskripsi' => true,
+                    'proyeksi_pengembangan' => true,
+                    'saran_pengembangan' => true,
+                ],
+            ],
+        ];
+
+        $pendidikans = [
+            [
+                'paket' => 'Paket WOW Gaya Belajar',
+                'harga' => 'Rp99.999',
+                'keterangan' => [
+                    'laporan_tertulis' => false,
+                    'tes_gaya_belajar' => true,
+                    'konseling_hasil_tes' => false,
+                ],
+            ],
+            [
+                'paket' => 'Paket Hemat Cita-Cita',
+                'harga' => 'Rp99.999',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'tes_gaya_belajar' => false,
+                    'konseling_hasil_tes' => false,
+                ],
+            ],
+            [
+                'paket' => 'Paket Lengkap Tes Kepribadian',
+                'harga' => 'Rp129.999',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'tes_gaya_belajar' => false,
+                    'konseling_hasil_tes' => true,
+                ],
+            ],
+            [
+                'paket' => 'Tes Memori',
+                'harga' => 'Rp99.999',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'tes_gaya_belajar' => false,
+                    'konseling_hasil_tes' => false,
+                ],
+            ],
+            [
+                'paket' => 'Tes Paket Mini Penjurusan',
+                'harga' => 'Rp255.500',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'tes_gaya_belajar' => false,
+                    'konseling_hasil_tes' => false,
+                ],
+            ],
+            [
+                'paket' => 'Tes Paket Gold Penjurusan',
+                'harga' => 'Rp319.000',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'tes_gaya_belajar' => false,
+                    'konseling_hasil_tes' => false,
+                ],
+            ],
+            [
+                'paket' => 'Paket Tahu Bakat Minat',
+                'harga' => 'Rp351.000',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'tes_gaya_belajar' => true,
+                    'konseling_hasil_tes' => true,
+                ],
+            ],
+            [
+                'paket' => 'Paket Lengkap Penjurusan',
+                'harga' => 'Rp399.000',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'tes_gaya_belajar' => true,
+                    'konseling_hasil_tes' => true,
+                ],
+            ],
+        ];
+
+        $communitys = [
+            [
+                'paket' => 'Tes Kesiapan Pernikahan 💍',
+                'harga' => 'Rp299.999',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => true,
+                ],
+            ],
+            [
+                'paket' => 'Tes Kesiapan Menjadi Orang Tua 👶',
+                'harga' => 'Rp299.999',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => true,
+                ],
+            ],
+            [
+                'paket' => 'Tes Kecocokan Pasangan ❤️',
+                'harga' => 'Rp299.999',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => true,
+                ],
+            ],
+            [
+                'paket' => 'Tes Stress 😫',
+                'harga' => 'Rp159.999',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => true,
+                ],
+            ],
+            [
+                'paket' => 'Tes Depresi 🤯',
+                'harga' => 'Rp159.999',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => true,
+                ],
+            ],
+            [
+                'paket' => 'Tes Kecemasan 😟',
+                'harga' => 'Rp159.999',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => true,
+                ],
+            ],
+            [
+                'paket' => 'Tes Kecemasan+ 😰',
+                'harga' => 'Rp299.999',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => true,
+                ],
+            ],
+            [
+                'paket' => 'Tes Fungsi Kognitif 🧬',
+                'harga' => 'Rp129.999',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => false,
+                ],
+            ],
+            [
+                'paket' => 'Tes Memori 📝',
+                'harga' => 'Rp129.999',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => false,
+                ],
+            ],
+            [
+                'paket' => 'Tes Dimensia 🧩',
+                'harga' => 'Rp199.999',
+                'keterangan' => [
+                    'laporan_tertulis' => true,
+                    'konseling_hasil_tes' => false,
+                ],
+            ],
+        ];
+
+        $faqs = [
+            [
+                'question' => 'Apa yang dimaksud dengan ‘Psikotes’?',
+                'answer' => 'Kegiatan psikotes merupakan suatu bentuk asesmen psikologi yang digunakan untuk mengukur aspek-aspek psikologi dari seorang individu, seperti kemampuan kognitif, kepribadian, keadaan emosional, dan lainnya.
+            '
+            ],
+            [
+                'question' => 'Apa manfaat dari mengikuti kegiatan psikotes?',
+                'answer' => 'Tes psikologi dapat memberikan informasi mengenai kemampuan kognitif, kepribadian, keadaan emosional, dan kesehatan mental dari seorang individu. Hasil psikotes juga dapat membantu dalam mengidentifikasi potensi diri yang dapat digunakan untuk membantu dalam membuat keputusan tentang masalah pribadi atau profesional.
+            '
+            ],
+            [
+                'question' => 'Apa saja jenis layanan psikotes pada Berbinar?',
+                'answer' => 'PT. Berbinar Insightful Indonesia menyediakan 4 kategori layanan psikotes, yaitu asesmen psikologi individu, asesmen psikologi perusahaan, asesmen psikologi instansi pendidikan, dan asesmen psikologi komunitas. Asesmen psikologi individu tersedia 8 jenis tes, termasuk di dalamnya adalah tes memori dan tes kecemasan. Asesmen psikologi perusahaan, kami menyediakan 4 paket tes untuk level staff dan 2 paket tes untuk level supervisor. Asesmen psikologi instansi pendidikan tersedia 8 jenis tes, termasuk tes gaya belajar dan tes penjurusan. Lalu asesmen psikologi komunitas tersedia 8 jenis tes, termasuk tes kesiapan pernikahan dan tes kesiapan menjadi orang tua.
+            '
+            ],
+            [
+                'question' => 'Berapa harga layanan psikotes Berbinar?',
+                'answer' => 'Untuk informasi mengenai harga layanan psikotes Berbinar, silakan klik link berikut ini Pricelist atau pricelist yang tertera pada halaman ini
+            '
+            ],
+            [
+                'question' => 'Apakah tes dilaksanakan secara individual atau kelompok?',
+                'answer' => 'Kegiatan psikotes dapat dilaksanakan secara individual maupun kelompok, tergantung dari layanan psikotes yang diambil. Sebagai contoh, untuk tes minat bakat, pada umumnya dilaksanakan secara individual, sedangkan
+            '
+            ],
+            [
+                'question' => 'Apakah tes dilaksanakan secara Online atau Offline?',
+                'answer' => 'Kegiatan psikotes dari PT. Berbinar Insightful Indonesia dapat dilaksanakan secara Online maupun Offline.
+            '
+            ],
+            [
+                'question' => 'Apa saja yang perlu dipersiapkan dalam pelaksanaan psikotes Online?',
+                'answer' => 'Bagi peserta psikotes yang melaksanakan secara Online, peserta wajib menyiapkan jaringan internet yang kuat, laptop yang stabil, dan baterai yang penuh. Jika peserta tidak menyiapkan ketiga hal tersebut, dapat mempengaruhi dalam keoptimalan pelaksanaan dan hasil psikotes tersebut.
+            '
+            ],
+            [
+                'question' => 'Bagaimana cara mendaftar?',
+                'answer' => 'Untuk mendaftar psikotes, silahkan mengisi data diri Anda di Google Form pada link berikut: bit.ly/DaftarPsikotesBerbinar
+            '
+            ],
+        ];
+
+        return view('moduls.landing-new.produk-psikotest')->with([
+            'individus' => $individus,
+            'staffs' => $staffs,
+            'supervisors' => $supervisors,
+            'pendidikans' => $pendidikans,
+            'communitys' => $communitys,
+            'faqs' => $faqs,
+        ]);
+    }
+
+    public function kelas_new(Request $request)
+    {
+        $products = [
+            [
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-webinar.png',
+                'produk' => 'Webinar',
+                'deskripsi' => 'Memperluas wawasan keilmuan dan keterampilan yang berasal dari ahli',
+            ],
+            [
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
+                'produk' => 'Bisikan (Live Instagram)',
+                'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
+            ],
+            [
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-berbinar.png',
+                'produk' => 'Berbinar+',
+                'deskripsi' => 'Bundling package dimana customer bisa menggunakan produk kelas, konseling, dan psikotes.',
+            ],
+            [
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
+                'produk' => 'Berarty',
+                'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
+            ],
+            [
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
+                'produk' => 'Premium Class',
+                'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
+            ],
+        ];
+
+        $faqs = [
+            [
+                'question' => 'Durasi kelasnya berapa lama?',
+                'answer' => 'Peserta diberikan waktu sekitar ± 7 hari untuk menyelesaikan seluruh rangkaian kelas BERBINAR+. Apabila peserta melanjutkan ke layanan konseling dan psikotes, akan ada informasi lebih lanjut.
+            '
+            ],
+            [
+                'question' => 'Apakah boleh ikut lebih dari satu kelas?',
+                'answer' => 'Boleh banget! Setiap peserta diperbolehkan untuk memilih lebih dari satu kelas sesuai dengan bidang yang menjadi ketertarikan untuk dipelajari.
+            '
+            ],
+            [
+                'question' => 'Apakah nanti akan mendapatkan sertifikat?',
+                'answer' => 'Pasti! Peserta dapat melakukan klaim sertifikat setelah menyelesaikan rangkaian kelas BERBINAR+. Sertifikat ini dapat digunakan sebagai dokumen pendukung CV sekaligus menjadi portofolio building.
+            '
+            ],
+            [
+                'question' => 'Apakah bisa terhubung dengan narasumbernya juga?',
+                'answer' => 'Bisa, dong. BERBINAR+ menyediakan wadah personal mentoring dimana peserta mendapatkan kesempatan untuk melakukan sesi tanya jawab bersama mentor sesuai dengan bidang kelas yang diambil.
+            '
+            ],
+            [
+                'question' => 'Proses pembelajarannya ribet gak, ya?',
+                'answer' => 'Mudah, kok! Peserta bisa akses video pembelajarannya kapanpun dan dimanapun. Peserta hanya perlu melalui proses berikut: Selesaikan video pembelajaran dan mengisi post-test, Melakukan personal mentoring bersama mentor, Klaim sertifikat dan peserta dapat memilih untuk lanjut ke layanan konseling dan psikotes.
+            '
+            ],
+            [
+                'question' => 'Jika mau upgrade ke konseling dan psikotes gimana ya?',
+                'answer' => 'Peserta dapat berkomunikasi dengan narahubung untuk proses upgrade layanan. Setelah itu, akan ada arahan dan informasi lebih lanjut.
+            '
+            ],
+            [
+                'question' => 'Jika mau mengetahui informasi lebih lanjut secara lebih rincinya gimana ya?',
+                'answer' => 'Peserta dapat mengunjungi linktr.ee/BerbinarPlus atau menghubungi narahubung melalui whatsapp dengan nomor 0813-1435-4623 (Wulan).
+            '
+            ],
+        ];
+
+        return view('moduls.landing-new.produk-kelas')->with([
+            'faqs' => $faqs,
+            'products' => $products,
+        ]);
+    }
+
+    public function tentang_new(Request $request)
+    {
+        return view('moduls.landing-new.tentang-kami')->with([]);
+    }
+
+
     public function index(Request $request)
     {
         $products = [
@@ -66,6 +866,7 @@ class LandingController extends Controller
             'notif' => $notif,
         ]);
     }
+
 
     public function tentangKami()
     {
@@ -1143,438 +1944,15 @@ class LandingController extends Controller
         return view('moduls.dashboard.psikotes-paid.data-test');
     }
 
-    public function instruksiVak()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.vak.instruksiVAK');
+    public function LandingBDI(){
+        return view('moduls.dashboard.psikotes-paid.tools.bdi.landing');
     }
 
-    public function soalVak()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.vak.soalVAK');
+    public function TestBDI(){
+        return view('moduls.dashboard.psikotes-paid.tools.bdi.test');
     }
 
-    public function endVak()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.vak.endVAK');
-    }
-
-    public function instruksiSSCT()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.ssct.instruksiSSCT');
-    }
-
-    public function soalSSCT()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.ssct.soalSSCT');
-    }
-
-    public function endSSCT()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.ssct.endSSCT');
-    }
-
-    public function instruksiCompBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.instruksi-bio');
-    }
-
-    public function dataDiriCompBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.dataDiri-bio');
-    }
-    
-    public function dataLanjutanCompBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.dataLanjutan-bio');
-    }
-
-    public function riwayatPendCompBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.riwayatPend-bio');
-    }
-
-    public function riwayatPend2CompBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.riwayatPend2-bio');
-    }
-
-    public function riwayatPend3CompBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.riwayatPend3-bio');
-    }
-
-    public function riwayatPend4CompBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.riwayatPend4-bio');
-    }
-
-    public function isian1CompBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.isian1-bio');
-    }
-
-    public function isian2CompBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.isian2-bio');
-    }
-
-    public function isian3CompBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.isian3-bio');
-    }
-
-    public function isian4CompBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.isian4-bio');
-    }
-
-    public function isian5CompBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.isian5-bio');
-    }
-
-    public function endCompBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan.end-bio');
-    }
-    
-    public function instruksiPendBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.instruksi-bio');
-    }
-
-    public function dataDiriPendBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.dataDiri-bio');
-    }
-    
-    public function dataLanjutanPendBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.dataLanjutan-bio');
-    }
-
-    public function riwayatPendPendBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.riwayatPend-bio');
-    }
-
-    public function riwayatPend2PendBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.riwayatPend2-bio');
-    }
-
-    public function riwayatPend3PendBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.riwayatPend3-bio');
-    }
-
-    public function isian1PendBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.isian1-bio');
-    }
-
-    public function isian2PendBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.isian2-bio');
-    }
-
-    public function isian3PendBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.isian3-bio');
-    }
-
-    public function isian4PendBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.isian4-bio');
-    }
-
-    public function isian5PendBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.isian5-bio');
-    }
-
-    public function isian6PendBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.isian6-bio');
-    }
-
-    public function isian7PendBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.isian7-bio');
-    }
-
-    public function endPendBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan.end-bio');
-    }
-
-    public function instruksiCommBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.instruksi-bio');
-    }
-
-    public function dataDiriCommBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.dataDiri-bio');
-    }
-    
-    public function dataLanjutanCommBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.dataLanjutan-bio');
-    }
-
-    public function riwayatPendCommBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.riwayatPend-bio');
-    }
-
-    public function riwayatPend2CommBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.riwayatPend2-bio');
-    }
-
-    public function riwayatPend3CommBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.riwayatPend3-bio');
-    }
-
-    public function riwayatKeg1CommBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.riwayatKeg1-bio');
-    }
-
-    public function riwayatKeg2CommBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.riwayatKeg2-bio');
-    }
-
-    public function isian1CommBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian1-bio');
-    }
-
-    public function isian2CommBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian2-bio');
-    }
-
-    public function isian3CommBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian3-bio');
-    }
-
-    public function isian4CommBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian4-bio');
-    }
-
-    public function isian5CommBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian5-bio');
-    }
-
-    public function isian6CommBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian6-bio');
-    }
-
-    public function isian7CommBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.isian7-bio');
-    }
-
-    public function endCommBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas.end-bio');
-    }
-
-    public function instruksiIndvBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.instruksi-bio');
-    }
-
-    public function dataDiriIndvBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.dataDiri-bio');
-    }
-    
-    public function dataLanjutanIndvBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.dataLanjutan-bio');
-    }
-
-    public function riwayatPendIndvBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.riwayatPend-bio');
-    }
-
-    public function riwayatPend2IndvBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.riwayatPend2-bio');
-    }
-
-    public function riwayatPend3IndvBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.riwayatPend3-bio');
-    }
-
-    public function isian1IndvBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian1-bio');
-    }
-
-    public function isian2IndvBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian2-bio');
-    }
-
-    public function isian3IndvBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian3-bio');
-    }
-
-    public function isian4IndvBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian4-bio');
-    }
-
-    public function isian5IndvBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian5-bio');
-    }
-
-    public function isian6IndvBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian6-bio');
-    }
-
-    public function isian7IndvBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian7-bio');
-    }
-
-    public function isian8IndvBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.isian8-bio');
-    }
-
-    public function endIndvBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual.end-bio');
-    }
-
-    public function instruksiKlinBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.instruksi-bio');
-    }
-
-    public function dataDiriKlinBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataDiri-bio');
-    }
-    
-    public function dataLanjutanKlinBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataLanjutan-bio');
-    }
-
-    public function riwayatPendKlinBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.riwayatPend-bio');
-    }
-
-    public function riwayatPend2KlinBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.riwayatPend2-bio');
-    }
-
-    public function riwayatPend3KlinBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.riwayatPend3-bio');
-    }
-
-    public function riwayatKeg1KlinBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.riwayatKeg1-bio');
-    }
-
-    public function riwayatKeg2KlinBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.riwayatKeg2-bio');
-    }
-
-    public function DataPasangan1Bio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataPasangan1-bio');
-    }
-
-    public function DataPasangan2Bio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataPasangan2-bio');
-    }
-
-    public function dataAyah1KlinBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataAyah1-bio');
-    }
-
-    public function dataAyah2KlinBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataAyah2-bio');
-    }
-
-    public function dataIbu1KlinBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataIbu1-bio');
-    }
-
-    public function dataIbu2KlinBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.dataIbu2-bio');
-    }
-
-    public function isian1KlinBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.isian1-bio');
-    }
-
-    public function isian2KlinBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.isian2-bio');
-    }
-
-    public function isian3KlinBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.isian3-bio');
-    }
-
-    public function isian4KlinBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.isian4-bio');
-    }
-
-    public function endKlinBio()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis.end-bio');
-    }
-
-    public function instruksiOCEAN()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.ocean.instruksiOCEAN');
-    }
-
-    public function soalOCEAN()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.ocean.soalOCEAN');
-    }
-
-    public function soal2OCEAN()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.ocean.soal2OCEAN');
-    }
-
-    public function endOCEAN()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.ocean.endOCEAN');
+    public function EndBDI(){
+        return view('moduls.dashboard.psikotes-paid.tools.bdi.summary');
     }
 }

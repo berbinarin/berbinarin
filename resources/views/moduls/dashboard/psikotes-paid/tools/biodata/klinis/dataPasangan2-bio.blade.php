@@ -51,7 +51,7 @@
                         <div class="mt-2">
                             <input type="text" name="job_family[0]" id="work"
                                 class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6"
-                                placeholder="Push Emel">
+                                placeholder="PNS">
                         </div>
                     </div>
                     <div class="col-span-3">
@@ -59,7 +59,7 @@
                         <div class="mt-2">
                             <input type="text" name="child_marriage[0]" id="numberKid"
                                 class="block w-full rounded-md border-0 py-1.5 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-lg sm:leading-6"
-                                placeholder="9">
+                                placeholder="2">
                         </div>
                     </div>
                     <input type="hidden" name="page" value="7">

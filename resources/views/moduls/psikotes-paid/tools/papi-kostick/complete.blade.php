@@ -24,7 +24,7 @@
 
             <img src="{{ asset('assets/images/psikotes/paid/psikotes-ikon-piala.png') }}" alt="Ikon"
                 class=" w-60 rounded-full" style="margin-left: 240px">
-            <p class="font-bold text-xl text-center">Selamat! Kamu sudah menyelesaikan Tes 1!</p>
+            <p class="font-bold text-xl text-center">Selamat! Kamu sudah menyelesaikan Tes 01!</p>
 
 
             <div class="mb-4 flex justify-center mt-10">
