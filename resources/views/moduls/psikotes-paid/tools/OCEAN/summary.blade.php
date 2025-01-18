@@ -22,7 +22,6 @@
     <img src="{{ asset('assets/images/psikotes/paid/psikotes-ikon-piala.png') }}" alt="Ikon" class=" w-60 rounded-full" style="margin-left: 240px">
     <p class="font-bold text-xl text-center">Selamat! Kamu sudah menyelesaikan Tes 07!</p>
 
-
     <div class="mb-4 flex justify-center mt-10">
       <a href="{{ route('psikotest-paid.showLanding') }}">
       <button type="button" class="w-xl bg-primary  items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Kembali ke Halaman Utama</button>

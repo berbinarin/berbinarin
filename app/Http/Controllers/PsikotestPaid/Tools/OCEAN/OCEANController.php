@@ -57,12 +57,12 @@ class OCEANController extends Controller
     $validatedData = $request->validate([
       'test_id' => 'required|exists:test_ocean,id',
       'question_id' => 'required|exists:question_ocean,id',
-      'answer' => 'required|string'
+      'answer' => 'nullable|string'
     ]);
 
     $testId = $validatedData['test_id'];
     $questionId = $validatedData['question_id'];
-    $answer = $validatedData['answer'];
+    $answer = $validatedData['answer']??NULL;
     $userId = Auth::guard('psikotestpaid')->id();
 
     AnswerOcean::create([
@@ -72,13 +72,14 @@ class OCEANController extends Controller
       'user_id' => $userId
     ]);
 
-    // $currentQuestionNumber = $request->input('current_question_number');
-    if ($currentQuestionNumber < 44) {
+    $currentQuestionNumber = $request->input('current_question_number');
+    $timeout = $request->input('timeout');
+    if ($currentQuestionNumber < 44 && $timeout == "false") {
       return redirect()->route('psikotest-paid.tool.OCEAN.showTest', ['testId' => $testId])
         ->with('current_question_number', $currentQuestionNumber + 1);
     } else {
       $ResultController = new ResultOceanController();
-      $ResultController->calculateAndStoreResult($testId);
+      $ResultController->calculateAndStoreResult(test_ocean_id: $testId);
       return redirect()->route('psikotest-paid.tool.OCEAN.summary', ['testId' => $testId]);
     }
   }
