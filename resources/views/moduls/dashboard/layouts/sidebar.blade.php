@@ -32,6 +32,20 @@
             </a>
         </li>
 
+         <!-- PAPI KOSTICK SIDEBAR -->
+        @elseif (
+    $title === 'Dashboard Papikostick'    // main dashboard papikostick
+    || $title === 'User Data Papikostick'   // user data papikostick atau yg table user
+    || $title === 'Soal Papikostick'             // soal papikostick
+)
+        <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
+        rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.dashboardPapikostick') }}" class=" flex flex-row items-center @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="fi fi-tr-chart-line-up text-xl mr-2  @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-lg font-bold ml-4 leading-5">Dashboard</span>
+            </a>
+        </li>
+
         @elseif ($title === 'Dashboard VAK' || $title === 'Jawaban VAK' || $title === 'Detail Jawaban VAK')
         <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
@@ -81,11 +95,11 @@
         <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
             <a href="{{ route('dashboard') }}" class=" flex flex-col items-center @if ($modul === 'Dashboard') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-        @php
+        <!-- @php
         // Tentukan rute berdasarkan modul aktif
         $dashboardRoute = $modul === 'Dashboard Papikostick' | $modul === 'psikotestSoal' | $modul === 'psikotestData' | $modul === 'papikostick' ? 'dashboard.psikotespaid.dashboardPapikostick' : 'dashboard';
         $dashboardTextColor = $modul === 'Dashboard Papikostick' ? 'text-primary' : 'text-gray-700';
-        @endphp
+        @endphp -->
 
         <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route($dashboardRoute) }}" class="flex items-center {{ $dashboardTextColor }} hover:text-primary duration-700">
@@ -156,6 +170,14 @@
                 <span class="text-base font-bold ml-4 leading-5">Internship</span>
             </a>
         </li>
+
+        <!-- sidebar keluarga berbinar  -->
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.berbinarFamily') }}" class=" flex flex-row items-center @if ($modul === 'BerbinarFamily') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bx-group text-xl mr-2 @if ($modul === 'BerbinarFamily') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base font-bold ml-4 leading-5">Keluarga Berbinar</span>
+            </a>
+        </li>
         @endif
 
         @if (auth()->user()->role == 'Konselling')
@@ -213,7 +235,7 @@
 
 
 
-        @if ((((((((((((((((((((((((((((auth()->user()->role == 'PsikotestPaid' && $title != 'Dashboard Tes') && $title != 'BAUM') && $title != 'HTP') && $title != 'DAP' ) && $title != 'Dashboard Esai') && $title != 'Pengumpulan') && $title != 'Dashboard VAK' ) && $title != 'Jawaban VAK') && $title != 'Detail Jawaban VAK') && $title != 'Dashboard SSCT') && $title != 'Jawaban SSCT') && $title != 'Dashboard Alat Tes Biodata') && $title != 'Tes Biodata Perusahaan') && $title != 'Tes Biodata Pendidikan') && $title != 'Tes Biodata Komunitas') && $title != 'Tes Biodata Individual') && $title != 'Tes Biodata Klinis') && $title != 'Table Biodata Perusahaan') && $title != 'Table Biodata Pendidikan') && $title != 'Table Biodata Komunitas') && $title != 'Table Biodata Individual') && $title != 'Table Biodata Klinis') && $title != 'Dashboard OCEAN') && $title != 'Dashboard BDI') && $title != 'Jawaban OCEAN') && $title != 'Jawaban BDI') && $title != 'Detail Jawaban OCEAN') && $title != 'Detail Jawaban BDI')
+        @if ((((((((((((((((((((((((((((auth()->user()->role == 'PsikotestPaid' && $title != 'Dashboard Tes') && $title != 'BAUM') && $title != 'HTP') && $title != 'DAP' ) && $title != 'Dashboard Esai') && $title != 'Pengumpulan') && $title != 'Dashboard VAK' ) && $title != 'Jawaban VAK') && $title != 'Detail Jawaban VAK') && $title != 'Dashboard SSCT') && $title != 'Jawaban SSCT') && $title != 'Dashboard Alat Tes Biodata') && $title != 'Tes Biodata Perusahaan') && $title != 'Tes Biodata Pendidikan') && $title != 'Tes Biodata Komunitas') && $title != 'Tes Biodata Individual') && $title != 'Tes Biodata Klinis') && $title != 'Table Biodata Perusahaan') && $title != 'Table Biodata Pendidikan') && $title != 'Table Biodata Komunitas') && $title != 'Table Biodata Individual') && $title != 'Table Biodata Klinis') && $title != 'Dashboard OCEAN') && $title != 'Dashboard BDI') && $title != 'Jawaban OCEAN') && $title != 'Jawaban BDI') && $title != 'Detail Jawaban OCEAN') && $title != 'Detail Jawaban BDI' && $title != 'Dashboard Papikostick' && $title != 'User Data Papikostick' && $title != 'Soal Papikostick')
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.psikotespaid.data') }}" class=" flex items-center @if ($modul === 'Psikotest Paid Data') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
                 <i class="fi fi-br-ballot text-xl mr-2 @if ($modul === 'Psikotest Paid Data') text-primary @else text-gray-700 @endif text-lg"></i>
@@ -222,12 +244,12 @@
         </li>
 
 
-        <!-- Psikotest Data -->
-        @php
+        <!-- Psikotest Data INIIIIIIIII -->
+        <!-- @php
         $dataRoute = $modul === 'psikotestSoal' | $modul === 'psikotestData' | $modul === 'Dashboard Papikostick' | $modul === 'papikostick' ? 'dashboard.psikotespaid.psikotestData' : 'dashboard.psikotespaid.data';
         $dataText = ($modul === 'psikotestData' || $modul === 'psikotestSoal' || $modul === 'papikostick') ? 'Data' : 'Data';
         $dataTextColor = $modul === 'psikotestData' ? 'text-primary' : 'text-gray-700';
-        @endphp
+        @endphp -->
 
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.psikotespaid.data-test') }}" class=" flex items-center @if ($modul === 'Psikotest Paid Data Test') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
@@ -236,12 +258,12 @@
             </a>
         </li>
 
-        <!-- Psikotest Soal -->
-        @php
+        <!-- Psikotest Soal INIIIIIIIII -->
+        <!-- @php
         $activeModule = $modul === 'psikotestData' | $modul === 'psikotestSoal' | $modul === 'Dashboard Papikostick' | $modul === 'papikostick' ? 'dashboard.psikotespaid.psikotestSoal' : 'dashboard.psikotespaid.data-test';
         $activeText = ($modul === 'psikotestSoal' || $modul === 'psikotestData' || $modul === 'papikostick' || $modul === 'Dashboard Papikostick') ? 'Soal' : 'Data Test';
         $textColor = $modul === 'psikotestSoal' ? 'text-primary' : 'text-gray-700';
-        @endphp
+        @endphp -->
 
         {{-- <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.psikotespaid.dashboardtes') }}" class=" flex flex-col items-center @if ($modul === 'Dashboard Tes Grafis') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
@@ -313,22 +335,59 @@
         @elseif ($title === 'Dashboard Tes' || $title === 'BAUM' || $title === 'DAP' || $title === 'HTP' )
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.psikotespaid.baum') }}" class=" flex flex-row items-center @if ($modul === 'Psikotest Paid BAUM') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-                <i class="bx bx-file text-xl mr-2 @if ($modul === 'Psikotest Paid BAUM') text-primary @else text-gray-700 @endif text-lg"></i>
+                <i class="bx bx-edit-alt text-xl mr-2 @if ($modul === 'Psikotest Paid BAUM') text-primary @else text-gray-700 @endif text-lg"></i>
                 <span class="text-base font-bold ml-4 leading-5">BAUM</span>
             </a>
         </li>
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.psikotespaid.dap') }}" class=" flex flex-row items-center @if ($modul === 'Psikotest Paid DAP') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-                <i class="bx bx-notepad text-xl mr-2 @if ($modul === 'Psikotest Paid DAP') text-primary @else text-gray-700 @endif text-lg"></i>
+                <i class="bx bx-file text-xl mr-2 @if ($modul === 'Psikotest Paid DAP') text-primary @else text-gray-700 @endif text-lg"></i>
                 <span class="text-base font-bold ml-4 leading-5">DAP</span>
             </a>
         </li>
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.psikotespaid.htp') }}" class=" flex flex-row items-center @if ($modul === 'Psikotest Paid HTP') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-                <i class="bx bx-spreadsheet text-xl mr-2 @if ($modul === 'Psikotest Paid HTP') text-primary @else text-gray-700 @endif text-lg"></i>
+                <i class="bx bx-edit text-xl mr-2 @if ($modul === 'Psikotest Paid HTP') text-primary @else text-gray-700 @endif text-lg"></i>
                 <span class="text-base font-bold ml-4 leading-5">HTP</span>
             </a>
         </li>
+
+        <!-- PAPI KOSTICK SIDEBAR -->
+        @elseif (
+    $title === 'Dashboard Papikostick'    // main dashboard papikostick
+    || $title === 'User Data Papikostick'   // user data papikostick atau yg table user
+    || $title === 'Soal Papikostick'             // soal papikostick
+)
+
+    <!-- Menu "Data" Papikostick -->
+    <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+        <a href="{{ route('dashboard.psikotespaid.psikotestData') }}"
+           class="flex flex-row items-center 
+                  @if ($modul === 'psikotestData') text-primary @else text-gray-700 @endif 
+                  hover:text-primary duration-700">
+            <i class="bx bx-clipboard text-xl mr-2 
+               @if ($modul === 'psikotestData') text-primary @else text-gray-700 @endif 
+               text-lg">
+            </i>
+            <span class="text-base font-bold ml-4 leading-5">Data</span>
+        </a>
+    </li>
+
+    <!-- Menu "Soal" Papikostick -->
+    <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+        <a href="{{ route('dashboard.psikotespaid.psikotestSoal') }}"
+           class="flex flex-row items-center
+                  @if ($modul === 'psikotestSoal') text-primary @else text-gray-700 @endif 
+                  hover:text-primary duration-700">
+            <i class="bx bx-edit text-xl mr-2 
+               @if ($modul === 'psikotestSoal') text-primary @else text-gray-700 @endif 
+               text-lg">
+            </i>
+            <span class="text-lg font-bold ml-4 leading-5">Soal</span>
+        </a>
+    </li>
+
+
 
         @elseif ($title === 'Dashboard VAK' || $title === 'Jawaban VAK' || $title === 'Detail Jawaban VAK')
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
@@ -396,7 +455,7 @@
         @endif
 
 
-        @if ($title === 'Dashboard Tes' || $title === 'BAUM' || $title === 'DAP' || $title === 'HTP' || $title === 'Dashboard Esai' || $title === 'Pengumpulan' || $title === 'Dashboard VAK' || $title === 'Jawaban VAK' || $title === 'Dashboard SSCT' || $title === 'Jawaban SSCT' || $title === 'Dashboard Alat Tes Biodata' || $title === 'Tes Biodata Perusahaan' || $title === 'Tes Biodata Pendidikan' || $title === 'Tes Biodata Komunitas' || $title === 'Tes Biodata Individual' || $title === 'Tes Biodata Klinis'  || $title === 'Table Biodata Klinis' || $title === 'Dashboard OCEAN' || $title === 'Dashboard BDI' || $title === 'Jawaban OCEAN' || $title === 'Jawaban BDI')
+        @if ($title === 'Dashboard Tes' || $title === 'BAUM' || $title === 'DAP' || $title === 'HTP' || $title === 'Dashboard Esai' || $title === 'Pengumpulan' || $title === 'Dashboard VAK' || $title === 'Jawaban VAK' || $title === 'Dashboard SSCT' || $title === 'Jawaban SSCT' || $title === 'Dashboard Alat Tes Biodata' || $title === 'Tes Biodata Perusahaan' || $title === 'Tes Biodata Pendidikan' || $title === 'Tes Biodata Komunitas' || $title === 'Tes Biodata Individual' || $title === 'Tes Biodata Klinis'  || $title === 'Table Biodata Klinis' || $title === 'Dashboard OCEAN' || $title === 'Dashboard BDI' || $title === 'Jawaban OCEAN' || $title === 'Jawaban BDI' || $title === 'Dashboard Papikostick' || $title === 'User Data Papikostick' || $title === 'Soal Papikostick')
         <li class="mt-20 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard') }}" class=" flex flex-col items-center">
                 <button type="submit" class="fixed bottom-5 left-14  bg-blue-500 text-white rounded-full px-6 py-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">

@@ -1,5 +1,5 @@
 @extends('moduls.dashboard.layouts.main', [
-'title' => 'Dashboard Psikotest',
+'title' => 'User Data Papikostick',
 'active' => 'Dashboard',
 'modul' => 'psikotestData',
 ])
@@ -13,7 +13,7 @@
           <p tabindex="0" class="focus:outline-none text-start text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
             Data User
           </p>
-          <p class="text-start w-3/5 text-disabled">Fitur ini menampilkan data responden yang telah mengikuti alat tes Papi Kostick</p>
+          <p class="text-start w-3/5 text-disabled">Fitur ini menampilkan data responden seperti nama, status, tanggal, dan email yang telah mengisi Tes Papi Kostick Berbinar.</p>
         </div>
       </div>
     </div>

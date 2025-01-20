@@ -254,6 +254,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin/positions', [DashboardController::class, 'positions'])->name('dashboard.positions');
     Route::get('/dashboard/admin/positions/edit/{id}', [DashboardController::class, 'editPositions']);
 
+    // MODUL KELUARGA BERBINAR
+    Route::get('/dashboard/admin/berbinar-family', [DashboardController::class, 'berbinarFamily'])->name('dashboard.berbinarFamily');
+    Route::get('/dashboard/admin/berbinar-family/add', [DashboardController::class, 'addBerbinarFamily'])->name('dashboard.berbinarFamily.add');
+    
+
     // MODUL INTERNSHIP
     Route::get('/dashboard/admin/internship', [DashboardController::class, 'internship'])->name('dashboard.internship');
     Route::patch('/dashboard/admin/internship/setProcess/{id}', [UserInternshipController::class, 'SetProcess'])->name('dashboard.internship.setProcess');

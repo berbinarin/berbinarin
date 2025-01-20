@@ -110,7 +110,7 @@
                   <label class="font-semibold text-gray-600">Posisi:</label>
                 </td>
                 <td class="py-1 px-4">
-                  {{$position->name}}
+                  {{$Internship->name}}
                 </td>
               </tr>
               <tr class="border-b border-gray-200" style="height: 80px;">
