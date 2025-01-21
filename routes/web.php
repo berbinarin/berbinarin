@@ -257,6 +257,7 @@ Route::group(['middleware' => ['auth']], function () {
     // MODUL KELUARGA BERBINAR
     Route::get('/dashboard/admin/berbinar-family', [DashboardController::class, 'berbinarFamily'])->name('dashboard.berbinarFamily');
     Route::get('/dashboard/admin/berbinar-family/add', [DashboardController::class, 'addBerbinarFamily'])->name('dashboard.berbinarFamily.add');
+    Route::get('/dashboard/admin/berbinar-family/details', [DashboardController::class, 'detailBerbinarFamily'])->name('dashboard.berbinarFamily.details'); // yang ini ntar ada tab layoutnya
     
 
     // MODUL INTERNSHIP

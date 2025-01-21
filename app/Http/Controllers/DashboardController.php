@@ -127,6 +127,11 @@ class DashboardController extends Controller
         return view('moduls.dashboard.hr.berbinar-family.addBerbinarFamily');
     }
 
+    public function detailBerbinarFamily()
+    {
+        return view('moduls.dashboard.hr.berbinar-family.detailBerbinarFamily');
+    }
+
     public function internshipDataDetails($id)
     {
         // Menggunakan findOrFail untuk menangani kasus jika tidak ada data dengan ID yang sesuai

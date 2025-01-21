@@ -32,7 +32,6 @@
 
 <section class="flex w-full">
     <div class="flex flex-col w-full">
-
         <div class="py-4 md:pt-12 md:pb-7">
             <div class="">
                 <p tabindex="0"
@@ -133,7 +132,7 @@
 
                                 <!-- Action -->
                                 <td class="px-6 py-4 whitespace-no-wrap flex justify-center items-center gap-2">
-                                    <a href="#"
+                                    <a href="{{ route('dashboard.berbinarFamily.details') }}"
                                         class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-2 focus:outline-none rounded hover:bg-blue-700"
                                         style="background-color: #3B82F6;">
                                         <i class='bx bx-show text-white'></i>
