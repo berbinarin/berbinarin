@@ -6,6 +6,8 @@
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 {{-- LOGO BERBINAR --}}
     <div>
         <img src="{{ asset('assets/images/logo-berbinar.png') }}" alt="Logo Berbinar Insightful Indonesia" title="Logo Berbinar Insightful Indonesia" class="w-14">
@@ -176,6 +178,14 @@
             <a href="{{ route('dashboard.berbinarFamily') }}" class=" flex flex-row items-center @if ($modul === 'BerbinarFamily') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
                 <i class="bx bx-group text-xl mr-2 @if ($modul === 'BerbinarFamily') text-primary @else text-gray-700 @endif text-lg"></i>
                 <span class="text-base font-bold ml-4 leading-5">Keluarga Berbinar</span>
+            </a>
+        </li>
+
+        <!-- sidebar manage division  -->
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.manageDivision') }}" class=" flex flex-row items-center @if ($modul === 'Manage Division') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bi bi-files text-xl mr-2 @if ($modul === 'Manage Division') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base font-bold ml-4 leading-5">Manage Division</span>
             </a>
         </li>
         @endif

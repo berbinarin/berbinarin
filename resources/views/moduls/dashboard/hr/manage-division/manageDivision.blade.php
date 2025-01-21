@@ -1,7 +1,7 @@
 @extends('moduls.dashboard.layouts.main', [
-    'title' => 'BerbinarFamily',
+    'title' => 'Manage Division',
     'active' => 'Dashboard',
-    'modul' => 'BerbinarFamily',
+    'modul' => 'Manage Division',
 ])
 
 @section('content-dashboard')
@@ -36,11 +36,11 @@
             <div class="">
                 <p tabindex="0"
                     class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
-                    Staff Data Management</p>
+                    Division Management</p>
                 <p class="w-3/4 text-disabled">Pada halaman ini, admin dapat melakukan tambah, edit, ataupun hapus
-                    terhadap data seluruh staff di Berbinar. </br> Data tersebut yang menjadi bahan untuk ditampilkan
+                    terhadap divisi yang ada pada Keluarga Berbinar. Data tersebut yang menjadi bahan untuk ditampilkan
                     pada website resmi Berbinar pada bagian Keluarga Berbinar </p>
-                <a href="{{ route('dashboard.berbinarFamily.add') }}">
+                <a href="{{ route('dashboard.manageDivision.add') }}">
                     <button type="button"
                         class="focus:ring-2 focus:ring-offset-2  mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded-lg">
                         <p class=" font-medium leading-none text-dark">Tambah Data</p>
@@ -58,16 +58,13 @@
                                 No</th>
                             <th
                                 class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider sticky-col sticky-col-2">
-                                Nama Lengkap</th>
+                                Nama Divisi</th>
                             <th
                                 class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider">
-                                Posisi</th>
+                                Sub Divisi</th>
                             <th
                                 class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider w-80">
-                                Divisi</th>
-                            <th
-                                class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider w-80">
-                                Waktu Menjabat</th>
+                                Tanggal Dibuat</th>
                             <th
                                 class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider">
                                 Action</th>
@@ -79,24 +76,21 @@
                             $dummyData = [
                                 [
                                     'id' => 1,
-                                    'nama_lengkap' => 'John Doe',
-                                    'posisi' => 'Ketua Organisasi',
-                                    'divisi' => 'Divisi Internal',
-                                    'waktu_menjabat' => '2023 - 2024',
+                                    'nama_divisi' => 'Divisi Keuangan',
+                                    'sub_divisi' => 'Anggaran & Akuntansi',
+                                    'tanggal_dibuat' => '2023-01-15',
                                 ],
                                 [
                                     'id' => 2,
-                                    'nama_lengkap' => 'Jane Smith',
-                                    'posisi' => 'Wakil Ketua',
-                                    'divisi' => 'Divisi Eksternal',
-                                    'waktu_menjabat' => '2023 - 2024',
+                                    'nama_divisi' => 'Divisi Pemasaran',
+                                    'sub_divisi' => 'Media Sosial',
+                                    'tanggal_dibuat' => '2023-02-10',
                                 ],
                                 [
                                     'id' => 3,
-                                    'nama_lengkap' => 'Samuel Green',
-                                    'posisi' => 'Sekretaris',
-                                    'divisi' => 'Divisi Administrasi',
-                                    'waktu_menjabat' => '2023 - 2025',
+                                    'nama_divisi' => 'Divisi Pengembangan SDM',
+                                    'sub_divisi' => 'Pelatihan & Rekrutmen',
+                                    'tanggal_dibuat' => '2023-03-05',
                                 ],
                             ];
                         @endphp
@@ -107,19 +101,16 @@
                                     {{ $index + 1 }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap sticky-col sticky-col-2">
-                                    {{ $item['nama_lengkap'] }}
+                                    {{ $item['nama_divisi'] }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap">
-                                    {{ $item['posisi'] }}
+                                    {{ $item['sub_divisi'] }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap w-80">
-                                    {{ $item['divisi'] }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-no-wrap w-80">
-                                    {{ $item['waktu_menjabat'] }}
+                                    {{ $item['tanggal_dibuat'] }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap flex justify-center items-center gap-2">
-                                    <a href="{{ route('dashboard.berbinarFamily.details') }}"
+                                    <a href="{{ route('dashboard.manageDivision.details') }}"
                                         class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-2 focus:outline-none rounded hover:bg-blue-700"
                                         style="background-color: #3B82F6;">
                                         <i class='bx bx-show text-white'></i>

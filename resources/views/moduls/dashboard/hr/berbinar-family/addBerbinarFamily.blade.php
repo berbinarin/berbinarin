@@ -97,8 +97,13 @@
                             <p class="text-lg font-semibold flex gap-1">
                                 Awal Menjabat<i class="bx bxs-star text-xs text-red-600"></i>
                             </p>
-                            <div class=" rounded-lg border border-gray-300 focus:outline-none focus:border-transparent focus:ring-0 shadow-sm flex justify-between">
-                                <input type="date" class="border-none rounded-lg text-gray-500 w-full"/>
+                            <div class="flex items-center w-full">
+                                <div class="rounded-lg border border-gray-300 focus:outline-none focus:border-transparent focus:ring-0 shadow-sm flex justify-between w-full mr-3">
+                                    <input type="date" class="border-none rounded-lg text-gray-500 w-full"/>
+                                </div>
+                                <button>
+                                    <i class="bx bxs-trash-alt text-lg px-2 py-1 border border-red-700 text-red-700 rounded-lg"></i>
+                                </button>
                             </div>
                         </div>
                         <div class="flex flex-col gap-2 w-full">
@@ -112,18 +117,18 @@
                     </form>
                     <div class="w-1/6"></div>
                 </div>
-                <div class="py-2 flex items-center justify-center border border-dashed rounded-lg border-blue-500 text-blue-500">
+                {{-- Ini nanti bikin logic klo diklik nanti div yg classnya flex pb-5 nambah lagi kebawah --}}
+                <button class="py-2 flex items-center justify-center border border-dashed rounded-lg border-blue-500 text-blue-500">
                     <h1 class="">
                         <i class="bx bx-plus-circle"></i>
                         Tambahkan Riwayat Jabatan
                     </h1>
-                </div>
-                <div class="bg-gray-300 h-1 mt-8"></div>
-                <div class="flex justify-end pt-5">
-                    <button
-                    class="flex items-center gap-2 bg-blue-500 text-white rounded-xl px-3 py-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">
-                    Unggah Data
                 </button>
+                <div class="flex justify-end pt-5 border-t-2 border-t-gray-400 mt-8">
+                    <button
+                        class="flex items-center gap-2 bg-blue-500 text-white rounded-xl px-3 py-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                        Unggah Data
+                    </button>
                 </div>
             </div>
         </div>
