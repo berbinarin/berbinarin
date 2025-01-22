@@ -15,7 +15,7 @@
             <div class="mx-auto w-full lg:flex lg:flex-wrap lg:justify-center lg:items-center">
                 <div class="w-full p-4 sm:px-16 md:p-4 relative mb-4 lg:w-1/2 z-20">
                     <div>
-                        <img src="{{asset('assets/images/landing/karir/banner/detail/banner-Back End Developer.png')}}"
+                        <img src="{{asset('assets/images/landing/karir/banner/Back End Developer.png')}}"
                              alt="banner"
                              class="object-cover">
                     </div>

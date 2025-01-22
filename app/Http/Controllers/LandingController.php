@@ -283,6 +283,11 @@ class LandingController extends Controller
         ]);
     }
 
+    public function keluarga_berbinar(Request $request){
+
+        return view('moduls.landing-new.keluarga-berbinar');
+    }
+
     public function konseling_new(Request $request)
     {
         $psikologs = [
