@@ -4,6 +4,7 @@ namespace App\Models\PsikotestPaid\OCEAN;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AnswerOcean extends Model
 {
@@ -17,11 +18,11 @@ class AnswerOcean extends Model
         'answer',
     ];
 
-    public function testOcean()
+    public function testOcean(): BelongsTo
     {
-        return $this->belongsTo(TestOcean::class);
+        return $this->belongsTo(TestOcean::class, 'test_ocean_id');
     }
-    public function questionOcean()
+    public function questionOcean(): BelongsTo
     {
         return $this->belongsTo(QuestionOcean::class, 'question_ocean_id');
     }
