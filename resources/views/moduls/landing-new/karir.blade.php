@@ -7,10 +7,20 @@
 @section('content')
 
     {{-- HERO START --}}
-    <section class="pt-32 w-full overflow-x-hidden relative mb-12">
-        <div class="container mx-auto md:mx-14">{{--px-4--}}
-            <div
-                class="w-full text-center mb-12 md:flex md:flex-wrap md:items-center md:justify-between lg:pt-24 md:pt-12">
+    <section class="mt-32 w-full overflow-x-hidden relative mb-12">
+
+        <div class="hidden md:block absolute left-0 top-0 md:w-1/3 lg:w-1/5 h-fit">
+            <img src="{{asset("assets/images/landing/karir/hexagon-texture.png")}}" alt="top-left-texture"
+                 class="object-cover ">
+        </div>
+        <div class="hidden md:block absolute right-0 bottom-0 md:w-1/3 lg:w-1/5 h-fit rotate-180">
+            <img src="{{asset("assets/images/landing/karir/hexagon-texture.png")}}" alt="top-left-texture"
+                 class="object-cover ">
+        </div>
+
+        <div class="mx-auto md:mx-14 md:pt-14 3xl:pt-0">
+            <div class="w-full text-center mb-12 md:flex md:flex-wrap md:items-center md:justify-center">
+
                 {{--wave atas--}}
                 <div class="relative md:hidden mb-4 w-full">
                     <div class="w-full mb-12">
@@ -18,7 +28,7 @@
                              class="translate-x-4">
                         <img src="{{ asset("assets/images/landing/karir/hexagon-picture-right.png") }}"
                              alt="hexagon-topright"
-                             class="absolute -top-0 left-2 w-20 h-25 scale-150 -rotate-45 sm:scale-150">
+                             class="absolute top-5 left-2 w-20 h-25 scale-150 -rotate-45 sm:scale-150">
                     </div>
                 </div>
 
@@ -32,30 +42,16 @@
                     </div>
                     {{--button--}}
                     <button
-                        class="py-2 px-4 rounded-lg text-sm md:text-xl text-white bg-gradient-to-tr from-[#F7B23B] to-[#AD7D29] hover:opacity-80 hover:shadow-lg transition duration-300 mb-12">
+                        class="py-2 px-4 rounded-lg text-sm md:text-lg lg:text-xl text-white bg-gradient-to-tr from-[#F7B23B] to-[#AD7D29] hover:opacity-80 hover:shadow-lg transition duration-300 mb-12">
                         Lihat
                         Posisi Tersedia
                     </button>
                 </div>
 
                 {{--hexagon banner--}}
-                <div
-                    class="hidden md:flex md:items-start md:justify-center md:w-1/2 md:z-10 lg:scale-125 lg:translate-x-12 lg:translate-y-12">
-                    <img src="{{ asset("assets/images/landing/karir/hexagon-banner.png") }}" alt="">
-                </div>
-
-                {{--lg:wavy-cloud--}}
-                <div
-                    class="hidden px-0 lg:flex md:items-center md:justify-start md:w-full md:absolute md:right-0 md:bottom-40">
-                    <img src="{{ asset("assets/images/landing/karir/wavy-cloud.png") }}" alt=""
-                         class="scale-75 md:scale-y-50 md:-translate-x-48 lg:-translate-x-52">
-                </div>
-
-                {{--md:wavy-cloud--}}
-                <div
-                    class="hidden px-0 md:flex lg:hidden md:items-center md:justify-start md:w-full md:absolute md:right-0 md:bottom-16">
-                    <img src="{{ asset("assets/images/landing/karir/wavy-cloud.png") }}" alt=""
-                         class="scale-75 scale-y-50 -translate-x-32 ">
+                <div class="hidden md:flex md:w-1/2 lg:w-fit relative z-20">
+                    <img src="{{ asset("assets/images/landing/karir/hexagon-new.png") }}" alt=""
+                         class="h-96 3xl:h-[600px]">
                 </div>
 
                 {{--wave bawah--}}
@@ -66,30 +62,34 @@
                          alt="hexagon-bottomright" class="absolute -bottom-0 right-0 w-20 h-25 scale-150">
                 </div>
             </div>
-            {{--infinite horizontal scroll--}}
-            <div class="w-full mx-auto pt-20 md:pt-32">
-                <div class="flex gap-1">
-                    <div class="flex gap-4 profile-slide">
-                        @for($i = 1; $i <= 35; $i++)
-                            <div class="bg-primary rounded-full w-14 h-14 lg:w-20 lg:h-20 overflow-hidden"><img
-                                    src="{{ asset("assets/images/landing/karir/profile-dummy.jpeg") }}"
-                                    alt="profile dummy" class="object-cover">
-                            </div>
-                        @endfor
-                        @for($i = 1; $i <= 35; $i++)
-                            <div class="bg-primary rounded-full w-14 h-14 lg:w-20 lg:h-20 overflow-hidden">
-                                <img
-                                    src="{{ asset("assets/images/landing/karir/profile-dummy.jpeg") }}"
-                                    alt="profile dummy" class="object-cover">
-                            </div>
-                        @endfor
-                    </div>
-
-                </div>
-            </div>
         </div>
     </section>
     {{-- HERO END --}}
+
+    {{--infinite horizontal scroll--}}
+    <section class="w-full overflow-hidden">
+        <div class="w-full mx-auto">
+            <div class="flex gap-1">
+                <div class="flex gap-4 profile-slide">
+                    @for($i = 1; $i <= 35; $i++)
+                        <div class="bg-primary rounded-full w-14 h-14 lg:w-20 lg:h-20 overflow-hidden"><img
+                                src="{{ asset("assets/images/landing/karir/profile-dummy.jpeg") }}"
+                                alt="profile dummy" class="object-cover">
+                        </div>
+                    @endfor
+                    @for($i = 1; $i <= 35; $i++)
+                        <div class="bg-primary rounded-full w-14 h-14 lg:w-20 lg:h-20 overflow-hidden">
+                            <img
+                                src="{{ asset("assets/images/landing/karir/profile-dummy.jpeg") }}"
+                                alt="profile dummy" class="object-cover">
+                        </div>
+                    @endfor
+                </div>
+
+            </div>
+        </div>
+    </section>
+    {{--infinite horizontal scroll--}}
 
     {{--ALUR PENDAFTARAN START--}}
     <section class="w-full mt-16 lg:mt-32 mx-auto overflow-hidden flex items-center justify-center">
@@ -202,7 +202,7 @@
                     <div class="flex-col items-center justify-center shrink-0 gap-1 lg:mb-4">
                         <img src="{{ asset('assets/images/landing/karir/selesai.png') }}" alt="icon selesai"
                              class="size-28">
-                        <h4 class="text-center font-semibold text-lg text-black">selesai</h4>
+                        <h4 class="text-center font-semibold text-lg text-black">Selesai</h4>
                     </div>
 
                 </div>
@@ -257,7 +257,7 @@
                     <div class="ps-2 w-64 md:mt-10 md:pb-0 md:w-full md:flex-col md:items-center">
                         <h3 class="font-semibold text-lg text-primary mb-2 text-end md:text-center md:text-xl">
                             Relasi</h3>
-                        <p class="text-sm text-end md:text-center md:text-base">memperluas relasi dari mahasiswa
+                        <p class="text-sm text-end md:text-center md:text-base">Memperluas relasi dari mahasiswa
                             berbagai universitas</p>
                     </div>
 
@@ -603,7 +603,7 @@
 
     {{--BANNER KELUARGA BERBINAR START--}}
     <section class="w-full lg:mt-12 mx-auto flex items-center justify-center px-2 md:px-16 mb-12">
-        <a href="#">
+        <a href="{{route('keluarga-berbinar')}}">
             <div class=" cursor-pointer">
                 <img src="{{asset('assets/images/landing/karir/banner-keluarga-berbinar.png')}}"
                      alt="banner keluarga berbinar" class="object-cover">
