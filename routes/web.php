@@ -55,7 +55,8 @@ use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserIndividualController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\NomorBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\SoalBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\SkorBdiController;
-
+use App\Http\Controllers\KeluargaBerbinar\DataStaffController;
+use App\Http\Controllers\KeluargaBerbinar\DataJabatanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -598,6 +599,31 @@ Route::middleware(['web'])->group(function () {
     Route::match(['get', 'post'], '/nomor-bdi', [NomorBdiController::class, 'index'])->name('nomor_bdi.index');
     Route::get('/soalBdi/{nomor}',[SoalBdiController::class, 'getSoalByNomor']);
 });
+
+Route::prefix('data-staff')->group(function () {
+    Route::get('/', [DataStaffController::class, 'index'])->name('data_staff.index');
+    Route::get('/create', [DataStaffController::class, 'create'])->name('data_staff.create');
+    Route::post('/store', [DataStaffController::class, 'store'])->name('data_staff.store');
+    Route::get('/edit/{id}', [DataStaffController::class, 'edit'])->name('data_staff.edit');
+    Route::put('/update/{id}', [DataStaffController::class, 'update'])->name('data_staff.update');
+    Route::delete('/destroy/{id}', [DataStaffController::class, 'destroy'])->name('data_staff.destroy');
+    Route::get('/motm', [DataStaffController::class, 'showMotm'])->name('data_staff.motm_view');
+
+    // Route untuk Data Jabatan
+    Route::prefix('jabatan')->group(function () {
+        Route::get('/', [DataJabatanController::class, 'index'])->name('data_jabatan.index');
+        Route::get('/create/{staffId}', [DataJabatanController::class, 'createByStaffId'])->name('data_jabatan.create');
+        Route::post('/store/{staffId}', [DataJabatanController::class, 'storeByStaffId'])->name('data_jabatan.store');
+        Route::get('/edit/{staffId}/{jabatanId}', [DataJabatanController::class, 'edit'])->name('data_jabatan.edit');
+        Route::put('/update/{staffId}/{jabatanId}', [DataJabatanController::class, 'update'])->name('data_jabatan.update');
+        Route::delete('/destroy/{staffId}/{jabatanId}', [DataJabatanController::class, 'destroy'])->name('data_jabatan.destroy');
+        Route::get('/divisi', [DataJabatanController::class, 'getDivisi'])->name('data_jabatan.divisi');
+        Route::get('/sub-divisi', [DataJabatanController::class, 'getSubDivisi'])->name('data_jabatan.sub_divisi');
+        Route::get('/tahun', [DataJabatanController::class, 'getTahun'])->name('data_jabatan.tahun');
+    });
+});
+
+
 // API Routes (Tanpa CSRF Protection)
 Route::prefix('api')->group(function () {
     Route::match(['get', 'post'], '/nomor-bdi', [NomorBdiController::class, 'index'])->name('nomor_bdi.index');
