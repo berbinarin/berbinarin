@@ -23,12 +23,15 @@ export default {
         },
         extend: {
             screens: {
-                xs: '470px', // Tambahkan breakpoint kustom
+                "xs": '470px', // Tambahkan breakpoint kustom
+                "3xl": '1440px' // 4k
+
             },
             boxShadow: {
                 'benefit-icon': '0px 0px 15px 0px #0000001A',
                 'primary-light': '0px 5px 15px 0px #3986A333',
-                'magang': '0px 0px 15px 0px #F7B23B4D'
+                'magang': '0px 0px 15px 0px #F7B23B4D',
+                'subdivisi': '0px 0px 15px 0px #15323D'
             },
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],

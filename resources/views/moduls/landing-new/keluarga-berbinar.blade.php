@@ -8,50 +8,345 @@
 @section('content')
 
     {{--header & selection menu--}}
-    <section class=" mt-32 mb-12 w-full mx-auto ">
-        <div class=" container w-full mx-auto">
+    <section class="mt-32 w-full mx-auto min-w-96 bg-[#F7F9FA] lg:mt-44">
+        {{--filter tahun--}}
+        <div class="w-full mx-auto">
             {{--heading--}}
-            <h1 class="font-semibold text-4xl text-center text-slate-900 py-2 mb-4">Keluarga <span
+            <h1 class="font-semibold text-4xl text-center text-slate-900 py-2 mb-8 md:text-5xl lg:mb-16">Keluarga <span
                     class="text-white bg-primary p-2">Berbinar</span></h1>
             {{--menu tahun--}}
-            <div class=" w-full mx-auto flex-col justify-center items-center sm:bg-red-500 md:bg-blue-500 mb-4 relative z-10">
-                <div class="w-full flex justify-between mb-4 px-2">
-                    <div class="p-1 bg-primary rounded-md">
-                        <button
-                            class="font-semibold text-lg text-center tracking-wide px-4 w-36 text-white bg-primary rounded-sm hover:text-primary hover:bg-white hover:ring-2 hover:ring-primary hover:shadow-lg">
-                            2022
-                        </button>
-                    </div>
-                    <div class="p-1 bg-primary rounded-md">
-                        <button
-                            class="font-semibold text-lg text-center tracking-wide px-4 w-36 text-white bg-primary rounded-sm hover:text-primary hover:bg-white hover:ring-2 hover:ring-primary hover:shadow-lg">
-                            2025
-                        </button>
-                    </div>
+            <div class=" w-full mx-auto flex-col justify-center items-center mb-4 relative z-10     px-4 sm:px-14">
+                <div class="w-full flex justify-between mb-4 px-2 lg:space-x-4">
+                    <button
+                        class="block font-semibold text-lg md:text-xl text-center tracking-wide px-4 py-1 w-36 md:w-44 md:px-5 xl:py-2 border-3 border-transparent text-white bg-primary rounded-md hover:text-primary hover:bg-white hover:border-3 hover:border-primary hover:shadow-lg lg:w-full">
+                        2022
+                    </button>
+                    {{--button in lg screen--}}
+                    <button
+                        class="hidden lg:block font-semibold text-lg md:text-xl text-center tracking-wide px-4 py-1 w-36 md:w-44 md:px-5 xl:py-2 border-3 border-transparent text-white bg-primary rounded-md hover:text-primary hover:bg-white hover:border-3 hover:border-primary hover:shadow-lg lg:w-full">
+                        2023
+                    </button>
+                    <button
+                        class="hidden lg:block font-semibold text-lg md:text-xl text-center tracking-wide px-4 py-1 w-36 md:w-44 md:px-5 xl:py-2 border-3 border-transparent text-white bg-primary rounded-md hover:text-primary hover:bg-white hover:border-3 hover:border-primary hover:shadow-lg lg:w-full">
+                        2024
+                    </button>
+                    {{--button in lg screen--}}
+                    <button
+                        class="block font-semibold text-lg md:text-xl text-center tracking-wide px-4 py-1 w-36 md:w-44 md:px-5 xl:py-2 border-3 border-transparent text-white bg-primary rounded-md hover:text-primary hover:bg-white hover:border-3 hover:border-primary hover:shadow-lg lg:w-full">
+                        2025
+                    </button>
                 </div>
-                <div class="flex justify-around items-center mb-4 sm:px-10">
-                    <div class="p-1 bg-primary rounded-md">
-                        <button
-                            class="font-semibold text-lg text-center tracking-wide px-4 w-36 text-white bg-primary rounded-sm hover:text-primary hover:bg-white hover:ring-2 hover:ring-primary hover:shadow-lg">
-                            2023
-                        </button>
-                    </div>
-                    <div class="p-1 bg-primary rounded-md">
-                        <button
-                            class="font-semibold text-lg text-center tracking-wide px-4 w-36 text-white bg-primary rounded-sm hover:text-primary hover:bg-white hover:ring-2 hover:ring-primary hover:shadow-lg">
-                            2024
-                        </button>
-                    </div>
+                <div class="flex justify-around items-center mb-4 sm:px-14 lg:hidden">
+                    <button
+                        class="block font-semibold text-lg md:text-xl text-center tracking-wide px-4 py-1 w-36 md:w-44 md:px-5 border-3 border-transparent text-white bg-primary rounded-md hover:text-primary hover:bg-white hover:border-3 hover:border-primary hover:shadow-lg">
+                        2023
+                    </button>
+                    <button
+                        class="block font-semibold text-lg md:text-xl text-center tracking-wide px-4 py-1 w-36 md:w-44 md:px-5 border-3 border-transparent text-white bg-primary rounded-md hover:text-primary hover:bg-white hover:border-3 hover:border-primary hover:shadow-lg">
+                        2024
+                    </button>
                 </div>
             </div>
             {{--menu tahun--}}
         </div>
         {{--divider path--}}
-        <div class=" w-full h-20 relative z-0">
-            <img src="{{asset("assets/images/landing/keluarga-berbinar/path2.png")}}" alt="divider"
-                 class="object-cover -translate-y-36">
+        <div class="mx-auto h-20 relative md:mb-5 xl:mb-7">
+            <img src="{{asset("assets/images/landing/keluarga-berbinar/path.png")}}" alt="divider"
+                 class="object-cover h-auto min-w-96 w-screen -translate-y-16 sm:-translate-y-24 md:-translate-y-28 lg:-translate-y-20 xl:-translate-y-32 2xl:scale-y-75 2xl:-translate-y-52 3xl:scale-y-75 3xl:-translate-y-54">
+        </div>
+
+        {{--[MOBILE] drop down menu-divisi--}}
+        <div class="w-full px-4 sm:px-14 mb-4 lg:hidden">
+            <button
+                onclick="handleToggleDropdownDivision()"
+                class="mb-4 font-normal text-base text-white bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] rounded-md text-center h-14 px-8 w-full mx-auto hover:shadow-lg hover:bg-opacity-80">
+                <span id="selected-division">select division</span>
+            </button>
+
+            {{-- Dropdown menu for selecting a division --}}
+            <div id="division-dropdown"
+                 class="hidden w-full mx-auto flex-col items-center justify-start gap-4 py-2 px-4 bg-gradient-to-b from-transparent to-[#F7B23B33]">
+                @foreach($divisi as $key => $division)
+                    <div
+                        onclick="handleSelectDivision('{{ $division['name'] }}', {{ $key }})"
+                        id="division-{{ $key }}"
+                        class="division-item w-full mx-auto px-4 py-4 font-normal bg-transparent text-base text-[#F7B23B] text-center h-14 mb-4 flex items-center justify-center rounded-md border-2 border-[#916823] cursor-pointer">
+                        <span>{{ $division['name'] }}</span>
+                    </div>
+                @endforeach
+            </div>
+
+        </div>
+
+        {{--[MOBILE] drop down menu-subdivisi--}}
+        <div id="subdivision-menu" class="hidden w-full px-4 mb-4 mx-auto flex-col lg:hidden">
+            <button
+                id="subdivision-button"
+                onclick="handleToggleDropdownSubdivision()"
+                class="mb-4 font-normal text-base text-[#15323D] bg-[#3986A340] rounded-md text-center h-12 px-8 w-3/4 sm:w-1/2 mx-auto hover:shadow-lg hover:bg-opacity-80 block border-2 border-[#15323D] shadow-md">
+                <span id="selected-subdivision">Select Subdivision</span>
+            </button>
+
+            {{--Dropdown menu for selecting a division--}}
+            <div id="subdivision-dropdown"
+                 class="hidden w-full mx-auto flex-col items-center justify-start gap-4 py-2 px-4 bg-gradient-to-b from-white from-20% to-[#3986A333]">
+                {{--dynamic--}}
+            </div>
+
+        </div>
+
+        <div class="lg:mx-auto lg:flex lg:justify-start lg:items-start lg:space-x-12 xl:pe-14 lg:bg-gradient-to-r lg:from-[#DDEAF0] lg:to-[#F7F9FA] lg:pt-16">
+
+            {{--divisi menu divisi desktop--}}
+            <div class="hidden lg:block w-3/5 max-w-96 pt-4 ps-2">
+                <div
+                    class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">
+                    Class Product Management
+                </div>
+                <div
+                    class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">
+                    Psychological Testing Product Management
+                </div>
+                <div
+                    class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">
+                    Counseling Product Managment
+                </div>
+                <div
+                    class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">
+                    Web & Mobile App Developer
+                </div>
+                <div
+                    class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">
+                    Secretary & Finance
+                </div>
+                <div
+                    class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">
+                    Marketing Strategy & Sales
+                </div>
+                <div
+                    class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">
+                    Instagram Creator
+                </div>
+                <div
+                    class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">
+                    Tiktok Creator
+                </div>
+                <div
+                    class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">
+                    Graphic Designer
+                </div>
+                <div
+                    class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">
+                    Human Resource
+                </div>
+            </div>
+            {{--list staff--}}
+            <div class="container mx-auto p-4 lg:py-4 lg:px-0">
+                {{--menu subdivisi dekstop--}}
+                <div class="hidden lg:block lg:w-full lg:mb-4">
+                    <div class="w-full mx-auto flex justify-start space-x-4 items-center mb-8">
+                        <button
+                            class="font-semibold tracking-wide text-nowrap text-white bg-primary text-center px-4 py-1 border-2 border-transparent hover:text-primary hover:bg-white hover:border-primary">
+                            UI/UX Designer
+                        </button>
+                        <button
+                            class="font-semibold tracking-wide text-nowrap text-white bg-primary text-center px-4 py-1 border-2 border-transparent hover:text-primary hover:bg-white hover:border-primary">
+                            Front-End
+                        </button>
+                        <button
+                            class="font-semibold tracking-wide text-nowrap text-white bg-primary text-center px-4 py-1 border-2 border-transparent hover:text-primary hover:bg-white hover:border-primary">
+                            Back-End
+                        </button>
+                        <button
+                            class="font-semibold tracking-wide text-nowrap text-white bg-primary text-center px-4 py-1 border-2 border-transparent hover:text-primary hover:bg-white hover:border-primary">
+                            Full-Stack
+                        </button>
+                    </div>
+                    <div
+                        class="w-full mx-auto flex justify-center items-center py-2 bg-primary font-semibold tracking-wide text-base text-white">
+                        UI/UX Designer
+                    </div>
+                </div>
+
+                {{--grid--}}
+                <div class="w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-4">
+                    @for($i = 1; $i < 6; $i++)
+                        {{--container for card--}}
+                        @php
+                            $isEven = $i % 2 === 0;
+                            // isLg -> variable that keep track of current viewport is lg or not, how can i do it in php
+                        @endphp
+                        <div class="w-full flex {{$isEven ? 'justify-end' : 'justify-start'}} mb-4 lg:justify-start">
+                            {{--card--}}
+                            <div class="p-4 flex bg-gradient-to-b from-[#3986A3] to-[#15323D] rounded-lg relative lg:pt-10 xl:py-6 xl:w-full overflow-hidden">
+                                <img src="{{asset('assets/images/landing/keluarga-berbinar/texture-card.png')}}" alt="texture" class="hidden xl:block absolute z-0 scale-y-75  -bottom-8 left-0">
+                                {{--photo&division--}}
+                                <div class="relative size-32 {{$isEven ? 'order-last' : ''}} lg:order-first xl:size-48 z-10">
+                                    <img src="{{asset('assets/images/landing/keluarga-berbinar/image-example.png')}}"
+                                         alt="image-example" class="">
+                                    <span
+                                        class="absolute w-full p-1 z-10 bottom-0 left-1/2 -translate-x-1/2 font-semibold text-sm text-white text-center bg-[#654064] rounded-lg">Manajer Divisi</span>
+                                </div>
+
+                                {{--status & btn lini masa--}}
+                                <span class="absolute top-4 {{$isEven ? 'left-4': 'right-4'}} font-normal text-sm text-white bg-[#04CA00] rounded-full py-1 px-4 lg:left-auto lg:right-4">Aktif</span>
+                                <button class="hidden absolute xl:flex lg:bottom-4 lg:right-4 items-center justify-center">
+                                    <div>
+                                        <img src="{{asset("assets/images/landing/keluarga-berbinar/lini-masa.png")}}"
+                                             alt=""
+                                             class="size-4 mx-auto">
+                                        <p class="text-center text-white font-thin text-xs">Lini masa</p>
+                                    </div>
+                                </button>
+
+                                {{--information--}}
+                                <div class="{{$isEven ? 'pe-4' : 'px-4'}} flex items-end justify-start lg:px-4 relative z-10">
+                                    <div class="pb-2 xl:pb-14">
+                                        <h3 class="font-semibold text-xl text-start text-white lg:text-2xl">Barita Davitya S.</h3>
+                                        <p class="block font-thin text-xs text-white text-start lg:text-base">As UI/UX Designer</p>
+                                        <p class="block font-thin text-xs text-white text-start lg:text-base mb-2">Agu 2024 -
+                                            Sekarang</p>
+                                        <a href="#" class="hidden xl:block"> <img
+                                                src="{{ asset('assets/images/landing/keluarga-berbinar/linkedin-fill.png') }}"
+                                                alt="linkedin" class="size-6"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
+
+                </div>
+            </div>
         </div>
     </section>
-    {{--header & selection menu--}}
+
+    <script>
+        const listDivisi = @json($divisi);
+        const divisionDropdown = document.querySelector('#division-dropdown');
+        const selectedDivision = document.querySelector('#selected-division');
+
+        const subdivisionMenu = document.querySelector(`#subdivision-menu`);
+        const subdivisionDropdown = document.querySelector(`#subdivision-dropdown`);
+        const selectedSubdivision = document.querySelector('#selected-subdivision');
+        const subdivisionButton = document.querySelector('#subdivision-button');
+
+        let previousSelectedKey = null;
+
+        let previousSelectedIdex = null;
+
+
+        function handleShowSubdivisionMenu(key) {
+            const subdivisions = listDivisi[key].subdivision;
+
+            if (subdivisions.length > 0) {
+                // Populate the subdivision dropdown dynamically
+                subdivisionDropdown.innerHTML = ''; // Clear previous subdivisions
+                subdivisions.forEach((subdivision, index) => {
+                    const subdivisionDiv = document.createElement('div');
+                    subdivisionDiv.classList.add(
+                        'w-3/4',
+                        'mx-auto',
+                        'px-4',
+                        'py-4',
+                        'font-normal',
+                        'bg-transparent',
+                        'text-base',
+                        'text-[#15323D]',
+                        'text-center',
+                        'h-14',
+                        'mb-4',
+                        'flex',
+                        'items-center',
+                        'justify-center',
+                        'rounded-md',
+                        'border-2',
+                        'border-[#15323D]',
+                        'cursor-pointer'
+                    );
+                    subdivisionDiv.textContent = subdivision;
+                    subdivisionDiv.id = `subdivision-${index}`;
+
+                    subdivisionDiv.addEventListener('click', () => {
+                        handleSelectSubdivision(subdivision, index);
+                    });
+
+                    subdivisionDropdown.appendChild(subdivisionDiv);
+                });
+
+                // Show the subdivision menu
+                subdivisionMenu.classList.remove('hidden');
+            } else {
+                console.log('No subdivisions available for this division.');
+                subdivisionMenu.classList.add('hidden');
+            }
+        }
+
+
+        function handleSelectSubdivision(subdivisionName, index) {
+            // Unhide the previously selected subdivision, if any
+            if (previousSelectedIdex !== null) {
+                const previousSubDiv = document.querySelector(`#subdivision-${previousSelectedIdex}`);
+                if (previousSubDiv) {
+                    previousSubDiv.classList.remove('hidden');
+                }
+            }
+
+            // Update the button with the selected subdivision
+            selectedSubdivision.textContent = subdivisionName;
+
+            // Hide the currently selected subdivision
+            const selectedDiv = document.querySelector(`#subdivision-${index}`);
+            if (selectedDiv) {
+                selectedDiv.classList.add('hidden');
+            }
+
+            // Update the previous selected index
+            previousSelectedIdex = index;
+
+            // Hide the subdivision dropdown
+            handleToggleDropdownSubdivision();
+        }
+
+
+        function handleToggleDropdownSubdivision() {
+            subdivisionDropdown.classList.toggle('hidden');
+            subdivisionButton.classList.toggle('text-white');
+            subdivisionButton.classList.toggle('bg-gradient-to-r');
+            subdivisionButton.classList.toggle('from-[#74AABF]');
+            subdivisionButton.classList.toggle('to-[#15323D]');
+
+        }
+
+        function handleToggleDropdownDivision() {
+            // Toggle visibility of the dropdown menu
+            divisionDropdown.classList.toggle('hidden');
+        }
+
+        function handleSelectDivision(divisionName, divisionKey) {
+            // Show the previously selected division (if any)
+            if (previousSelectedKey !== null) {
+                const previousDiv = document.querySelector(`#division-${previousSelectedKey}`);
+                if (previousDiv) {
+                    previousDiv.classList.remove('hidden');
+                }
+            }
+
+            // Update the button with the selected division
+            selectedDivision.textContent = divisionName;
+
+            // Hide the currently selected division in the dropdown
+            const selectedDiv = document.querySelector(`#division-${divisionKey}`);
+            if (selectedDiv) {
+                selectedDiv.classList.add('hidden');
+            }
+
+            // Update the previous selected key
+            previousSelectedKey = divisionKey;
+
+            // Hide the dropdown menu
+            handleToggleDropdownDivision();
+            handleShowSubdivisionMenu(divisionKey);
+        }
+    </script>
 
 @endsection

@@ -5,9 +5,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.profile {
 
-}
+
 
 @keyframes slide {
     from {
@@ -21,4 +20,13 @@
 .profile-slide {
     animation: 300s slide linear infinite;
 }
+
+
+/*.division-border-gradient {*/
+/*    border-width: 2px;*/
+/*    border-style: solid;*/
+/*    border-image-source: linear-gradient(90deg, #F7B23B 0%, #916823 100%); !*because of this*!*/
+/*    border-image-slice: 1; !* Ensures the gradient covers the full border *!*/
+/*}*/
+
 
