@@ -118,12 +118,12 @@
                     <div class="w-1/6"></div>
                 </div>
                 {{-- Ini nanti bikin logic klo diklik nanti div yg classnya flex pb-5 nambah lagi kebawah --}}
-                <button class="py-2 flex items-center justify-center border border-dashed rounded-lg border-blue-500 text-blue-500">
+                <div class="py-2 flex items-center justify-center border border-dashed rounded-lg border-blue-500 text-blue-500">
                     <h1 class="">
                         <i class="bx bx-plus-circle"></i>
                         Tambahkan Riwayat Jabatan
                     </h1>
-                </button>
+                </div>
                 <div class="flex justify-end pt-5 border-t-2 border-t-gray-400 mt-8">
                     <button
                         class="flex items-center gap-2 bg-blue-500 text-white rounded-xl px-3 py-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">
