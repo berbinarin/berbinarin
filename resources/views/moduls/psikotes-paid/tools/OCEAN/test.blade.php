@@ -62,7 +62,7 @@
                 <div class="flex justify-center gap-4">
                     <div class="flex justify-center space-x-4 mt-8 gap-3">
                         <label class="flex flex-col items-center">
-                            <input type="radio" name="answer" value="1" class="hidden peer">
+                            <input type="radio" name="answer" value="1" class="hidden peer" required>
                             <div id="option-1" class="option w-12 h-12 rounded-full border-4 border-gray-400 flex items-center justify-center cursor-pointer">
                             1
                             </div>
@@ -70,7 +70,7 @@
                         </label>    
                         
                         <label class="flex flex-col items-center">
-                            <input type="radio" name="answer" value="2" class="hidden peer">
+                            <input type="radio" name="answer" value="2" class="hidden peer" required>
                             <div id="option-2" class="option w-12 h-12 rounded-full border-4 border-gray-400 flex items-center justify-center cursor-pointer">
                             2
                             </div>
@@ -78,21 +78,21 @@
                         </label>
                         
                         <label class="flex flex-col items-center">
-                            <input type="radio" name="answer" value="3" class="hidden peer">
+                            <input type="radio" name="answer" value="3" class="hidden peer" required>
                             <div id="option-3" class="option w-12 h-12 rounded-full border-4 border-gray-400 flex items-center justify-center cursor-pointer">
                             3
                             </div>
                             <span class="mt-4 text-xs text-gray-500 text-center">Netral</span>
                         </label>
                         <label class="flex flex-col items-center">
-                            <input type="radio" name="answer" value="4" class="hidden peer">
+                            <input type="radio" name="answer" value="4" class="hidden peer" required>
                             <div id="option-4" class="option w-12 h-12 rounded-full border-4 border-gray-400 flex items-center justify-center cursor-pointer">
                             4
                             </div>
                             <span class="mt-4 text-xs text-gray-500 text-center">Sesuai</span>
                         </label>
                         <label class="flex flex-col items-center">
-                            <input type="radio" name="answer" value="5" class="hidden peer">
+                            <input type="radio" name="answer" value="5" class="hidden peer" required>
                             <div id="option-5" class="option w-12 h-12 rounded-full border-4 border-gray-400 flex items-center justify-center cursor-pointer">
                             5
                             </div>
