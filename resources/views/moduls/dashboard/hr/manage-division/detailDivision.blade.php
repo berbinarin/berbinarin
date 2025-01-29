@@ -11,7 +11,7 @@
         <div class="py-4 md:pt-12 md:pb-7">
             <div class="">
                 <div class="flex items-center mb-2 gap-2">
-                    <a href="{{ route('dashboard.berbinarFamily') }}">
+                    <a href="{{ route('dashboard.manageDivision') }}">
                         <img src="{{ asset('assets/images/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                     </a>
                     <p tabindex="0"
@@ -61,7 +61,7 @@
                                 </li>
                                 <li class="flex items-center gap-3">
                                     <div class="px-2 py-1 rounded-full bg-primary">
-                                        <h1 class="text-white text-sm">1.</h1>
+                                        <h1 class="text-white text-sm">2.</h1>
                                     </div>
                                     <div class="">
                                         <p class="text-gray-400">Nama Sub Divisi</p>
@@ -70,7 +70,7 @@
                                 </li>
                                 <li class="flex items-center gap-3">
                                     <div class="px-2 py-1 rounded-full bg-primary">
-                                        <h1 class="text-white text-sm">1.</h1>
+                                        <h1 class="text-white text-sm">3.</h1>
                                     </div>
                                     <div class="">
                                         <p class="text-gray-400">Nama Sub Divisi</p>

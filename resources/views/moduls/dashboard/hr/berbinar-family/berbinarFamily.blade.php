@@ -132,7 +132,7 @@
                                     <a href="#"
                                         class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-2 focus:outline-none rounded hover:bg-red-700"
                                         style="background-color: #EF4444;">
-                                        <i class='bx bx-show text-white'></i>
+                                        <i class='bx bx-trash-alt text-white'></i>
                                     </a>
                                 </td>
                             </tr>
