@@ -13,13 +13,13 @@
         {{--banner & CTA start--}}
         <div class="w-full lg:ps-14">
             <div class="mx-auto w-full lg:flex lg:flex-wrap lg:justify-center lg:items-center">
-                <div class="w-full p-4 sm:px-16 md:p-4 relative mb-4 lg:w-1/2 z-20">
-                    <div>
+                <div class="w-full p-4 sm:px-16 md:px-14 lg:p-0 relative mb-4 lg:w-1/2 z-20">
+                    <div class="w-full rounded-2xl overflow-hidden flex justify-center items-center lg:rounded-3xl">
                         <img src="{{asset('assets/images/landing/karir/banner/Back End Developer.png')}}"
                              alt="banner"
-                             class="object-cover">
+                             class="object-cover w-full h-40 sm:h-48 md:h-60 lg:h-64 xl:h-72">
                     </div>
-                    <div class="absolute -bottom-2 right-10 rounded-full bg-white">
+                    <div class="absolute -bottom-2 right-10 rounded-full bg-white sm:right-20 lg:-bottom-6 lg:right-auto lg:left-8">
                         <img src="{{asset('assets/images/landing/logo-berbinar.png')}}" alt="logo berbinar"
                              class="object-cover size-14">
                     </div>
