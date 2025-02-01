@@ -255,6 +255,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin/positions', [DashboardController::class, 'positions'])->name('dashboard.positions');
     Route::get('/dashboard/admin/positions/edit/{id}', [DashboardController::class, 'editPositions']);
 
+    // MODUL KELUARGA BERBINAR
+    Route::get('/dashboard/admin/berbinar-family', [DashboardController::class, 'berbinarFamily'])->name('dashboard.berbinarFamily');
+    Route::get('/dashboard/admin/berbinar-family/add', [DashboardController::class, 'addBerbinarFamily'])->name('dashboard.berbinarFamily.add');
+    Route::get('/dashboard/admin/berbinar-family/details', [DashboardController::class, 'detailBerbinarFamily'])->name('dashboard.berbinarFamily.details'); // yang ini ntar ada tab layoutnya
+
+    // MODUL MANAGE DIVISION
+    Route::get('/dashboard/admin/manage-division', [DashboardController::class, 'manageDivision'])->name('dashboard.manageDivision');
+    Route::get('/dashboard/admin/manage-division/add', [DashboardController::class, 'addManageDivision'])->name('dashboard.manageDivision.add');
+    Route::get('/dashboard/admin/manage-division/details', [DashboardController::class, 'detailManageDivision'])->name('dashboard.manageDivision.details');
+
     // MODUL INTERNSHIP
     Route::get('/dashboard/admin/internship', [DashboardController::class, 'internship'])->name('dashboard.internship');
     Route::patch('/dashboard/admin/internship/setProcess/{id}', [UserInternshipController::class, 'SetProcess'])->name('dashboard.internship.setProcess');
@@ -409,7 +419,8 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::get('/tool/DAP/summary/{testId}', [DAPController::class, 'showSummary'])->name('psikotest-paid.tool.DAP.summary');
         
         // TES HTP
-        Route::get('/tool/HTP', [HTPController::class, 'showLanding'])->name('psikotest-paid.tool.HTP.showLanding');
+        Route::get('/tool/HTP/A', [HTPController::class, 'showLanding'])->name('psikotest-paid.tool.HTP.showLanding');
+        Route::get('/tool/HTP/B', [HTPController::class, 'instruksi_b'])->name('psikotest-paid.tool.HTP.instruksi_b');
         
         // TES SSCT
         Route::get('/tool/SSCT', [SSCTController::class, 'showLanding'])->name('psikotest-paid.tool.SSCT.showLanding');
@@ -448,7 +459,7 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::put('/papi-kostick/soal/{id}', [DashboardPapiKostickController::class, 'updateSoal'])->name('papi-kostick.update-soal');
         
         // BDI
-        Route::get('/tool/BDI', [LandingController::class, 'LandingBDI'])->name('psikotest-paid.tool.BDI.landingbdi');
+        Route::get('/tool/BDI', [LandingController::class, 'LandingBDI'])->name('psikotest-paid.tool.BDI.showLanding');
         Route::get('/tool/BDI/test', [LandingController::class, 'TestBDI'])->name('psikotest-paid.tool.BDI.testbdi');
         Route::get('/tool/BDI/end/', [LandingController::class, 'EndBDI'])->name('psikotest-paid.tool.BDI.endbdi');
         

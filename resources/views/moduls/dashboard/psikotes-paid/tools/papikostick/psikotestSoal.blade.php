@@ -1,5 +1,5 @@
 @extends('moduls.dashboard.layouts.main', [
-'title' => 'Dashboard',
+'title' => 'Soal Papikostick',
 'active' => 'Dashboard',
 'modul' => 'psikotestSoal',
 ])
@@ -12,7 +12,7 @@
         <div>
           <p tabindex="0" class="focus:outline-none text-start text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
             Edit Soal</p>
-          <p class="text-start w-3/5 text-disabled">Fitur ini menampilkan data soal yang tersedia di alat tes Papi Kostick</p>
+          <p class="text-start w-3/5 text-disabled">Dashboard ini menampilkan informasi terkait soal tes pilihan ganda, tanggal, serta fitur update soal Tes Papi Kostick.</p>
         </div>
       </div>
     </div>

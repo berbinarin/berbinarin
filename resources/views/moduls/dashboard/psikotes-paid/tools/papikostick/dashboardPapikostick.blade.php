@@ -1,7 +1,7 @@
 @extends('moduls.dashboard.layouts.main', [
 'title' => 'Dashboard Papikostick',
 'active' => 'Dashboard',
-'modul' => 'Dashboard Papikostick',
+'modul' => 'Dashboard Tes',
 ])
 
 @section('content-dashboard')
@@ -9,12 +9,12 @@
   <div class="flex flex-col w-full">
     <div class="w-full">
       <div class="py-4 md:py-4">
-        <div>
+        <diD>
           <p tabindex="0" class="focus:outline-none text-start text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
-            Data User
+          Dashboard Papi Kostick
           </p>
-          <p class="text-start w-3/5 text-disabled">Fitur ini menampilkan data responden seperti Nama, Jenis kelamin, Tanggal lahir, Email yang telah mengisi Tes Psikotes Berbinar</p>
-        </div>
+          <p class="text-start w-3/5 text-disabled">Fitur ini menampilkan data  progress yang sudah mengerjakan dan yang sedang mengerjakan Papi Kostick Berbinar.</p>
+        </diD>
       </div>
     </div>
     <div class="flex flex-col md:flex-row w-full gap-6">

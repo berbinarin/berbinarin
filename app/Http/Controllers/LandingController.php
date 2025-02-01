@@ -1295,7 +1295,6 @@ class LandingController extends Controller
 
     public function creditWeb()
     {
-
         return view('credit-web');
     }
 
@@ -1945,14 +1944,14 @@ class LandingController extends Controller
     }
 
     public function LandingBDI(){
-        return view('moduls.dashboard.psikotes-paid.tools.bdi.landing');
+        return view('moduls.psikotes-paid.tools.bdi.landing');
     }
 
     public function TestBDI(){
-        return view('moduls.dashboard.psikotes-paid.tools.bdi.test');
+        return view('moduls.psikotes-paid.tools.bdi.test');
     }
 
     public function EndBDI(){
-        return view('moduls.dashboard.psikotes-paid.tools.bdi.summary');
+        return view('moduls.psikotes-paid.tools.bdi.summary');
     }
 }
