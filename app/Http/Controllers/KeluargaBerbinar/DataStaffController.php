@@ -24,6 +24,7 @@ class DataStaffController extends Controller
         $validated = $request->validate([
             'nama_lengkap' => 'required|string|min:5',
             'linkedin' => 'required|string',
+            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'motm' => 'nullable|in:yes,no',
         ]);
         $validated['motm'] = $validated['motm'] ?? 'no';
