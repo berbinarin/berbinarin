@@ -49,7 +49,7 @@
         {{--banner & CTA end--}}
 
         {{--description start--}}
-        <div class="w-full p-4 md:flex lg:px-20 gap-8">
+        <div class="w-full p-4 md:flex lg:px-20 gap-8 lg:mt-8">
             <div class="w-full mx-auto mb-4">
                 <h3 class="font-semibold text-xl sm:text-2xl text-center md:text-start text-transparent bg-clip-text bg-gradient-to-r from-[#3986A3] to-[#15323D] mb-4">
                     Deskripsi Pekerjaan</h3>

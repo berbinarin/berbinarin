@@ -1,9 +1,8 @@
 @extends('layouts.main-new', [
     'title' => 'Berbinar Insightful Indonesia',
     'active' => 'Karir',
-    'page' => 'keluarga-berbinar',
+    'page' => 'card-flip',
 ])
-
 
 @section('content')
 
@@ -95,7 +94,8 @@
 
         </div>
 
-        <div class="lg:mx-auto lg:flex lg:justify-start lg:items-start lg:space-x-12 xl:pe-14 lg:bg-gradient-to-r lg:from-[#DDEAF0] lg:to-[#F7F9FA] lg:pt-16">
+        <div
+            class="lg:mx-auto lg:flex lg:justify-start lg:items-start lg:space-x-12 xl:pe-14 lg:bg-gradient-to-r lg:from-[#DDEAF0] lg:to-[#F7F9FA] lg:pt-16">
 
             {{--divisi menu divisi desktop--}}
             <div class="hidden lg:block w-3/5 max-w-96 pt-4 ps-2">
@@ -141,7 +141,7 @@
                 </div>
             </div>
             {{--list staff--}}
-            <div class="container mx-auto p-4 lg:py-4 lg:px-0">
+            <div id="list-staff" class="w-full px-4 sm:px-14 lg:py-4 lg:px-0">
                 {{--menu subdivisi dekstop--}}
                 <div class="hidden lg:block lg:w-full lg:mb-4">
                     <div class="w-full mx-auto flex justify-start space-x-4 items-center mb-8">
@@ -169,57 +169,290 @@
                 </div>
 
                 {{--grid--}}
-                <div class="w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-4">
-                    @for($i = 1; $i < 6; $i++)
-                        {{--container for card--}}
-                        @php
-                            $isEven = $i % 2 === 0;
-                            // isLg -> variable that keep track of current viewport is lg or not, how can i do it in php
-                        @endphp
-{{--                        <div class="w-full flex {{$isEven ? 'justify-end' : 'justify-start'}} mb-4 lg:justify-start border border-black">--}}
-                            <div class="w-full flex odd:justify-start even:justify-end mb-4 lg:justify-start border border-black">
-                            {{--card--}}
-                            <div class="p-4 flex bg-gradient-to-b from-[#3986A3] to-[#15323D] rounded-lg relative lg:pt-10 xl:py-6 xl:w-full overflow-hidden">
-                                <img src="{{asset('assets/images/landing/keluarga-berbinar/texture-card.png')}}" alt="texture" class="hidden xl:block absolute z-0 scale-y-75  -bottom-8 left-0">
-                                {{--photo&division--}}
-                                <div class="relative size-32 {{$isEven ? 'order-last' : ''}} lg:order-first xl:size-48 z-10">
-                                    <img src="{{asset('assets/images/landing/keluarga-berbinar/image-example.png')}}"
-                                         alt="image-example" class="">
-                                    <span
-                                        class="absolute w-full p-1 z-10 bottom-0 left-1/2 -translate-x-1/2 font-semibold text-sm text-white text-center bg-[#654064] rounded-lg">Manajer Divisi</span>
+                <div class="w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-4 ">
+
+
+                    @for($i = 1; $i <= 5; $i++)
+                        {{--LIST FOR SM - MD START--}}
+                        {{--CARD CONTAINER--}}
+                        <div class="w-full bg-transparent perspective flex items-center odd:justify-start even:justify-end mb-4 group lg:hidden">
+                            {{--CARD--}}
+                            <div id="card-{{$i}}" class="preserve-3d duration-1000 bg-transparent w-[350px] md:w-[400px]">
+                                {{--FRONT CARD--}}
+                                <div onclick="handleMobileFlip({{$i}})" id="front-{{$i}}" class="relative h-40 md:h-48 rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] pt-2 pb-3 px-4 cursor-pointer hover:shadow-lg">
+                                    {{--status--}}
+                                    <span class="absolute top-2 font-semibold text-xs text-white bg-[#04CA00] rounded-full py-1 px-3 group-odd:right-2 group-even:left-2">Aktif</span>
+
+                                    {{--content--}}
+                                    <div class="w-full h-full flex items-center justify-between md:justify-start md:space-x-4">
+                                        {{--image--}}
+                                        <div class="relative h-full w-32 md:w-36 overflow-hidden group-even:order-last md:flex md:items-end">
+                                            <img
+                                                src="{{asset('assets/images/landing/keluarga-berbinar/image-example.png')}}"
+                                                alt="image-example" class="object-cover">
+                                            <span
+                                                class="absolute w-auto py-1 px-2 z-10 bottom-0 left-1/2 -translate-x-1/2 font-semibold text-nowrap tracking-wide text-xs text-white text-center bg-[#654064] rounded-lg shadow-lg">Manajer Divisi</span>
+                                        </div>
+                                        {{--info--}}
+                                        <div class="h-full py-1 content-end space-y-2">
+                                            <h3 class="font-semibold text-xl text-start md:text-2xl text-white">Barita
+                                                Davitya S.</h3>
+                                            <p class="block font-thin text-sm text-white md:text-base text-start">As
+                                                UI/UX
+                                                Designer</p>
+                                            <p class="block font-thin text-sm text-white md:text-base text-start mb-2">
+                                                Agu
+                                                2024 -
+                                                Sekarang</p>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                {{--status & btn lini masa--}}
-                                <span class="absolute top-4 {{$isEven ? 'left-4': 'right-4'}} font-normal text-sm text-white bg-[#04CA00] rounded-full py-1 px-4 lg:left-auto lg:right-4">Aktif</span>
-                                <button class="hidden absolute xl:flex lg:bottom-4 lg:right-4 items-center justify-center">
-                                    <div>
+                                {{--BACK CARD--}}
+                                <div onclick="handleMobileFlip({{$i}})" id="back-{{$i}}" class="relative hidden min-h-40 md:min-h-48 rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] pt-2 pb-3 px-4 cursor-pointer hover:shadow-lg my-rotate-y-180">
+                                    {{--lini masa--}}
+                                    <span
+                                        class="absolute top-2 font-semibold text-xs text-white bg-[#FF8364] rounded-full py-1 px-3 right-2">Lini Masa</span>
+                                    {{--linkedin--}}
+                                    <a href="#" class="absolute bottom-2 right-3">
+                                        <img
+                                            src="{{ asset('assets/images/landing/keluarga-berbinar/linkedin-fill.png') }}"
+                                            alt="linkedin" class="size-6">
+                                    </a>
+                                    {{--content--}}
+                                    <div class="">
+                                        <h3 class="font-semibold text-xl text-white w-3/4 mb-4">Barita Davitya Suryawati
+                                            Makmur Jaya</h3>
+                                        <div class="w-full grid grid-cols-1 justify-items-start">
+                                            @for($j = 1; $j <= 5; $j++)
+                                                <div class="mb-2 last:mb-0">
+                                                    <h4 class="font-semibold text-lg text-white text-start">As UI/UX
+                                                        Designer</h4>
+                                                    <p class="font-thin text-base text-white">Jan 2024 - Feb 2024</p>
+                                                </div>
+                                            @endfor
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        {{--LIST FOR SM - MD END--}}
+                    @endfor
+
+                    @for($h = 1; $h <= 5; $h++)
+                        {{--LIST FOR DESKTOP START--}}
+                        {{--CARD CONTAINER--}}
+                        <div class="hidden w-full bg-transparent lg:flex items-center p-2 perspective">
+                            {{--CARD--}}
+                            <div id="card-{{$h}}" class="preserve-3d duration-1000 bg-transparent w-full">
+
+                                {{--FRONT CARD--}}
+                                <div id="front-{{$h}}" class="relative h-60 w-full rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] hover:shadow-lg p-4">
+                                    {{--texture--}}
+                                    <img src="{{asset('assets/images/landing/keluarga-berbinar/texture-card.png')}}"
+                                         alt="texture"
+                                         class="block absolute z-10 scale-y-75 -bottom-8 left-0 ">
+                                    {{--status--}}
+                                    <span class="absolute top-2 right-2 font-semibold text-sm text-white bg-[#04CA00] rounded-full py-1 px-4">Aktif</span>
+                                    {{--lini masa button--}}
+                                    <button
+                                        onclick="handleDesktopFlip({{$h}})"
+                                        class="absolute bottom-2 right-2 block z-30">
                                         <img src="{{asset("assets/images/landing/keluarga-berbinar/lini-masa.png")}}"
                                              alt=""
-                                             class="size-4 mx-auto">
-                                        <p class="text-center text-white font-thin text-xs">Lini masa</p>
+                                             class="size-5 mx-auto">
+                                        <p class="text-center text-white font-semibold text-xs">Lini masa</p>
+                                    </button>
+                                    {{--content--}}
+                                    <div class="w-full h-full flex items-center space-x-4 relative z-20">
+                                        {{--image--}}
+                                        <div class="relative h-full w-48 py-1 overflow-hidden">
+                                            <img
+                                                src="{{asset('assets/images/landing/keluarga-berbinar/image-example.png')}}"
+                                                alt="image-example" class="object-cover">
+                                            <span
+                                                class="absolute w-auto py-1 px-2 z-10 bottom-2 left-1/2 -translate-x-1/2 font-semibold text-nowrap tracking-wide text-xs text-white text-center bg-[#654064] rounded-lg shadow-lg">Manajer Divisi</span>
+                                        </div>
+                                        {{--info--}}
+                                        <div class="h-full py-1 content-start pt-8 space-y-2">
+                                            <h3 class="font-semibold text-2xl text-white">Barita
+                                                Davitya S.</h3>
+                                            <p class="block font-normal text-base text-white">As
+                                                UI/UX
+                                                Designer</p>
+                                            <p class="block font-normal text-base text-white">
+                                                Agu
+                                                2024 -
+                                                Sekarang</p>
+                                            <a href="#" class=" xl:block"> <img
+                                                    src="{{ asset('assets/images/landing/keluarga-berbinar/linkedin-fill.png') }}"
+                                                    alt="linkedin" class="size-6"></a>
+                                        </div>
                                     </div>
-                                </button>
+                                </div>
 
-                                {{--information--}}
-                                <div class="{{$isEven ? 'pe-4' : 'px-4'}} flex items-end justify-start lg:px-4 relative z-10">
-                                    <div class="pb-2 xl:pb-14">
-                                        <h3 class="font-semibold text-xl text-start text-white lg:text-2xl">Barita Davitya S.</h3>
-                                        <p class="block font-thin text-xs text-white text-start lg:text-base">As UI/UX Designer</p>
-                                        <p class="block font-thin text-xs text-white text-start lg:text-base mb-2">Agu 2024 -
-                                            Sekarang</p>
-                                        <a href="#" class="hidden xl:block"> <img
-                                                src="{{ asset('assets/images/landing/keluarga-berbinar/linkedin-fill.png') }}"
-                                                alt="linkedin" class="size-6"></a>
+                                {{--BACK CARD--}}
+                                <div id="back-{{$h}}" onclick="handleDesktopFlip({{$h}})" class="hidden relative min-h-60 w-full rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] hover:shadow-lg p-4 my-rotate-y-180 cursor-pointer">
+                                    {{--texture--}}
+                                    <img src="{{asset('assets/images/landing/keluarga-berbinar/texture-card.png')}}"
+                                         alt="texture"
+                                         class="block absolute z-10 scale-y-75 -bottom-8 left-0 ">
+
+                                    {{--lini masa--}}
+                                    <span class="absolute top-2 font-semibold text-xs text-white bg-[#FF8364] rounded-full py-1 px-3 right-2">Lini Masa</span>
+
+                                    {{--content--}}
+                                    <div class="relative z-20">
+                                        <h3 class="font-semibold text-2xl text-white w-3/4 mb-4">Barita Davitya Suryawati
+                                            Makmur Jaya</h3>
+                                        <div class="w-full grid grid-cols-2 justify-items-start">
+                                            @for($j = 1; $j <= 5; $j++)
+                                                <div class="mb-2 last:mb-0">
+                                                    <h4 class="font-semibold text-lg text-white text-start">As UI/UX
+                                                        Designer</h4>
+                                                    <p class="font-thin text-base text-white">Jan 2024 - Feb 2024</p>
+                                                </div>
+                                            @endfor
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        {{--LIST FOR DESKTOP END--}}
                     @endfor
 
                 </div>
             </div>
         </div>
     </section>
+
+
+    <script>
+    function handleFlipLG(id) {
+            const card = document.getElementById(`card-${id}`);
+            const back = document.getElementById(`back-${id}`);
+            const front = document.getElementById(`front-${id}`);
+
+            if (!card || !back || !front) {
+                console.error(`Card elements not found for ID: ${id}`);
+                return;
+            }
+
+            card.classList.toggle("my-rotate-y-180");
+
+            if (card.classList.contains("my-rotate-y-180")) {
+                // Show back side after a slight delay
+                setTimeout(() => {
+                    front.classList.add('hidden');
+                }, 300)
+                setTimeout(() => {
+                    back.classList.remove("hidden");
+                }, 300); // Delay to allow rotation to start
+            } else {
+                // Hide back side AFTER animation completes (matching duration: 1000ms)
+                setTimeout(() => {
+                    front.classList.remove('hidden');
+                }, 300)
+                setTimeout(() => {
+                    back.classList.add("hidden");
+                }, 300);
+
+                // setTimeout(() => {
+                //     front.classList.remove("hidden");
+                // }, 100);
+            }
+        }
+    function handleFlip(id) {
+            const card = document.getElementById(`card-${id}`);
+            const back = document.getElementById(`back-${id}`);
+            const front = document.getElementById(`front-${id}`);
+
+            // Ensure elements exist before proceeding
+            if (!card || !back || !front) {
+                console.error(`Card elements not found for ID: ${id}`);
+                return;
+            }
+
+            // Toggle rotation
+            card.classList.toggle("my-rotate-y-180");
+            // front.classList.toggle('hidden');
+
+            if (card.classList.contains("my-rotate-y-180")) {
+                // Show back side after a slight delay
+                setTimeout(() => {
+                    front.classList.add('hidden');
+                }, 300)
+                setTimeout(() => {
+                    back.classList.remove("hidden");
+                }, 300); // Delay to allow rotation to start
+            } else {
+                // Hide back side AFTER animation completes (matching duration: 1000ms)
+                setTimeout(() => {
+                    front.classList.remove('hidden');
+                }, 300)
+                setTimeout(() => {
+                    back.classList.add("hidden");
+                }, 300);
+
+                // setTimeout(() => {
+                //     front.classList.remove("hidden");
+                // }, 100);
+            }
+        }
+
+
+    function handleMobileFlip(id) {
+        const card = document.getElementById(`card-${id}`);
+        const back = document.getElementById(`back-${id}`);
+        const front = document.getElementById(`front-${id}`);
+
+        if (!card || !front || !back) {
+            console.error(`Elements for card ${id} not found`);
+            return;
+        }
+
+        card.classList.toggle("my-rotate-y-180");
+
+        if (card.classList.contains("my-rotate-y-180")) {
+            setTimeout(() => {
+                front.classList.add("hidden");
+                back.classList.remove("hidden");
+            }, 300);
+        } else {
+            setTimeout(() => {
+                back.classList.add("hidden");
+                front.classList.remove("hidden");
+            }, 300);
+        }
+    }
+
+    function handleDesktopFlip(id) {
+        const card = document.getElementById(`card-${id}`);
+        const back = document.getElementById(`back-${id}`);
+        const front = document.getElementById(`front-${id}`);
+
+        if (!card || !front || !back) {
+            console.error(`Elements for card ${id} not found`);
+            return;
+        }
+
+        card.classList.toggle("my-rotate-y-180");
+
+        if (card.classList.contains("my-rotate-y-180")) {
+            setTimeout(() => {
+                front.classList.add("opacity-0", "absolute");
+                back.classList.remove("opacity-0", "absolute");
+            }, 300);
+        } else {
+            setTimeout(() => {
+                back.classList.add("opacity-0", "absolute");
+                front.classList.remove("opacity-0", "absolute");
+            }, 300);
+        }
+    }
+
+    </script>
 
     <script>
         const listDivisi = @json($divisi);
