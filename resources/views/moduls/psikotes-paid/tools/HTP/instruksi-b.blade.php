@@ -23,15 +23,19 @@
   <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-6 mt-4 " style="width: 750px;">
     <div class="flex">
         <p class="text-black px-5">
-          A.
+          B.
         </p>
         <p class="text-black ">
-            Silahkan kesampingkan dulu kertas yang pertama. Kemudian silahkan ambil kertas HVS yang kedua, pastikan bahwa kertas tersebut telah terisi identitas.
+          Kertas yang sudah terisi gambar pohon silahkan dikesampingkan terlebih dahulu agar tidak mengganggu proses menggambar di sesi yang sekarang.
         </p>
     </div>
 
+    <p class="text-black mt-5 pl-14">
+      Baik jika sudah silahkan balik kertasnya pada bagian yang kosong atau bagian yang tidak ada identitasnya.
+    </p>
+
     <div class="mb-2 flex justify-center gap-6 mt-8">
-      <a href="{{ route('psikotest-paid.tool.HTP.instruksi_b') }}">
+      <a href="{{ route('psikotest-paid.tool.BDI.testbdi') }}">
         <button type="button" class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
             Selanjutnya
         </button>

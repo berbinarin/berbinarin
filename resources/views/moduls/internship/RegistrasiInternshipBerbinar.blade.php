@@ -312,8 +312,9 @@
                 <p class="text-xs">Terima kasih sudah mendaftar. Pastikan bahwa seluruh data <br> telah benar, link dapat diakses, dan jangan lupa tekan tombol <br> kirim di bawah ini 😆</p>
                 <p class="text-xs mt-4 mb-4">Jika ada pertanyaan lebih lanjut, bisa hubungi WA di bawah ini:<br>
                   Ridwan (<a href="https://wa.me/6281288757094" class="text-blue-500">081288757094</a>)<br>
-                  Dhina (<a href="https://wa.me/6281315226773" class="text-blue-500">081315226773</a>)<br>
-                  Laila (<a href="https://wa.me/6281542288773" class="text-blue-500">081542288773</a>)
+                  Laila (<a href="https://wa.me/6281542288773" class="text-blue-500">081542288773</a>)<br>
+                  Amel (<a href="https://wa.me/6281542288773" class="text-blue-500">085264351885</a>)<br>
+                  Nurul (<a href="https://wa.me/6281542288773" class="text-blue-500">083182356031</a>)<br>
                 </p>
                 <!-- <textarea type="textarea" id="tiktokFive" name="tiktokFive" placeholder="Lorem Ipsum" class="mt-1 h-[200px] block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs"></textarea> -->
               </div>

@@ -115,6 +115,38 @@ class DashboardController extends Controller
         return view('moduls.dashboard.hr.internship.internship', ['Internship' => $internships]);
     }
 
+    // <---View Keluarga Berbinar--->
+
+    public function berbinarFamily()
+    {
+        return view('moduls.dashboard.hr.berbinar-family.berbinarFamily');
+    }
+
+    public function addBerbinarFamily()
+    {
+        return view('moduls.dashboard.hr.berbinar-family.addBerbinarFamily');
+    }
+
+    public function detailBerbinarFamily()
+    {
+        return view('moduls.dashboard.hr.berbinar-family.detailBerbinarFamily');
+    }
+
+    public function manageDivision()
+    {
+        return view('moduls.dashboard.hr.manage-division.manageDivision');
+    }
+
+    public function addManageDivision()
+    {
+        return view('moduls.dashboard.hr.manage-division.addDivision');
+    }
+
+    public function detailManageDivision()
+    {
+        return view('moduls.dashboard.hr.manage-division.detailDivision');
+    }
+
     public function internshipDataDetails($id)
     {
         // Menggunakan findOrFail untuk menangani kasus jika tidak ada data dengan ID yang sesuai
