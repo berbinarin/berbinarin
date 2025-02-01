@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('test_tes_esai_id')->constrained('test_tes_esai')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('question_tes_esai_id')->constrained('question_tes_esai')->onUpdate('cascade')->onDelete('cascade');
-            $table->text('answer');
+            $table->text('answer')->nullable();
             $table->timestamps();
         });
     }

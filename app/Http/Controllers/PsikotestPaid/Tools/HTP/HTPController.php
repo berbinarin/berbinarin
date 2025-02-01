@@ -15,4 +15,9 @@ class HTPController extends Controller
     $tool = PsikotestTool::where('name', 'HTP')->firstOrFail();
     return view('moduls.psikotes-paid.tools.HTP.landing', ['user' => $user, 'tool' => $tool]);
   }
+
+  public function instruksi_b()
+  {
+    return view('moduls.psikotes-paid.tools.htp.instruksi-b');
+  }
 }
