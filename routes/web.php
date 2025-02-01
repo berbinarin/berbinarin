@@ -220,7 +220,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/data-test/tableklinis/{id}', [DashboardUserController::class, 'TableKlinis'])->name('dashboard.psikotespaid.tableklinis');
         Route::get('/data-test/OCEAN', [DashboardUserController::class, 'OCEAN'])->name('dashboard.psikotespaid.ocean');
         Route::get('/data-test/OCEAN/data', [DashboardUserController::class, 'dataOCEAN'])->name('dashboard.psikotespaid.dataocean');
-        Route::get('/data-test/OCEAN/data/detail', [DashboardUserController::class, 'detailOCEAN'])->name('dashboard.psikotespaid.detailocean');
+        Route::get('/data-test/OCEAN/data/detail/{id}', [DashboardUserController::class, 'detailOCEAN'])->name('dashboard.psikotespaid.detailocean');
         Route::get('/data-test/BDI', [DashboardUserController::class, 'BDI'])->name('dashboard.psikotespaid.bdi');
         Route::get('/data-test/BDI/data', [DashboardUserController::class, 'dataBDI'])->name('dashboard.psikotespaid.databdi');
         Route::get('/data-test/BDI/data/detail', [DashboardUserController::class, 'detailBDI'])->name('dashboard.psikotespaid.detailbdi');
