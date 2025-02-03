@@ -17,112 +17,103 @@
     </div>
   </div>
 
-  <p class="font-bold text-2xl text-center text-gray-800 mt-16 z-20 relative">Tes 27</p>
+  <!-- Judul tes, misalnya "Tes 1" -->
+  <p class="font-bold text-2xl text-center text-gray-800 mt-16 z-20 relative">
+    Tes 27
+  </p>
 
   <!-- Main Content Area -->
-  <div class="relative z-10 w-3xl mx-auto bg-none rounded-lg p-6 mt-10" style="width: 750px;">
-    <!-- Question Number Circle -->
+  <div class="relative z-10 mx-auto bg-none rounded-lg p-6 mt-10" style="width: 750px;">
+    <!-- Question Number Circle (menampilkan nomor tes saat ini) -->
     <div class="absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/2 bg-amber-500 text-white rounded-full h-12 w-12 flex items-center justify-center text-lg font-bold">
-        1
+        {{ $nomorBdi->nomor_bdi ?? '1' }}
     </div>
-    <!-- Blue, Brown, Dark Blue, and Orange Cards in Horizontal Layout -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <!-- Blue Card -->
-      <label class="rounded-lg p-4 cursor-pointer relative card flex items-center justify-center text-center"
-      style="background-color: #3FA2F6; height: 150px; transition: transform 0.2s ease;"
-      onmouseover="this.style.boxShadow='0 6px 12px rgba(0, 125, 232, 0.6)';"
-      onmouseout="this.style.boxShadow='none';"
-      for="answer_a_{{ $question->id }};">
-      <input type="radio" name="answer" id="answer_a_{{ $question->id }}" value="a" class="hidden" required>
-      <div class="text-white">{{ $question->a }}</div>
-      <div class="absolute bottom-2 right-2 w-5 h-5 rounded-full bg-white flex items-center justify-center"
-        style="border: 2px solid #3FA2F6;">
-        <span class="hidden text-lg checkmark" style="color: #3FA2F6;">✔</span>
-      </div>
-      </label>
 
-    
-      <!-- Orange Card -->
-      <label class="rounded-lg p-4 cursor-pointer relative card flex items-center justify-center text-center"
-        style="background-color: #FBB03B; height: 150px; transition: transform 0.2s ease;"
-        onmouseover="this.style.boxShadow='0 6px 12px rgba(251, 176, 59, 0.6)';"
-        onmouseout="this.style.boxShadow='none';"
-        for="answer_b_{{ $question->id }}">>
-        <input type="radio" name="answer" id="answer_b_{{ $question->id }}" value="b" class="hidden">
-        <div class="text-white">{{ $question->b }}</div>
-        <div class="absolute bottom-2 right-2 w-5 h-5 rounded-full bg-white flex items-center justify-center"
-          style="border: 2px solid #FBB03B;">
-          <span class="hidden text-lg checkmark" style="color: #FBB03B;">✔</span>
-        </div>
-      </label>
-    
-      <!-- Dark Blue Card -->
-      <label class="rounded-lg p-4 cursor-pointer relative card flex items-center justify-center text-center"
-        style="background-color: #406C9B; height: 150px; transition: transform 0.2s ease;"
-        onmouseover="this.style.boxShadow='0 6px 12px rgba(64, 108, 155, 0.6)';"
-        onmouseout="this.style.boxShadow='none';"
-        for="answer_c_{{ $question->id }}">>
-        <input type="radio" name="answer" id="answer_c_{{ $question->id }}" value="c" class="hidden">
-        <div class="text-white">{{ $question->c }}</div>
-        <div class="absolute bottom-2 right-2 w-5 h-5 rounded-full bg-white flex items-center justify-center"
-          style="border: 2px solid #406C9B;">
-          <span class="hidden text-lg checkmark" style="color: #406C9B;">✔</span>
-        </div>
-      </label>
-    
-      <!-- Brown Card -->
-      <label class="rounded-lg p-4 cursor-pointer relative card flex items-center justify-center text-center"
-        style="background-color: #6A3D00; height: 150px; transition: transform 0.2s ease;"
-        onmouseover="this.style.boxShadow='0 6px 12px rgba(106, 61, 0, 0.6)';"
-        onmouseout="this.style.boxShadow='none';"
-        for="answer_d_{{ $question->id }}">>
-        <input type="radio" name="answer" id="answer_d_{{ $question->id }}" value="d" class="hidden">
-        <div class="text-white">{{ $question->d }}</div>
-        <div class="absolute bottom-2 right-2 w-5 h-5 rounded-full bg-white flex items-center justify-center"
-          style="border: 2px solid #6A3D00;">
-          <span class="hidden text-lg checkmark" style="color: #6A3D00;">✔</span>
-        </div>
-      </label>
-    </div>
-    
-    
-    <!-- Percentage Line and Next Button -->
-    <div class="flex bg-white rounded-md items-center justify-between mt-24" style="height: 40px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-      <div class="flex items-center ml-6" style="height: 3px; width: 510px; position: relative;">
-        <!-- Black background line -->
-        <div class="bg-black rounded-full" style="height: 3px; width: 100%;"></div>
-        <!-- Blue percentage line -->
-        <div class="bg-blue-500 rounded-full" style="height: 3px; width: 40%; position: absolute; top: 0; left: 0;"></div>
-        <!-- Small circle at the end of the blue line -->
-        <div class="bg-blue-500 rounded-full" style="height: 10px; width: 10px; position: absolute; top: -4px; left: 40%; transform: translateX(-50%);"></div>
-        <!-- Percentage text -->
-        <span class="text-sm text-black" style="position: absolute; top: 1px; left: 40%; transform: translateX(-50%); font-size: 8px;">40%</span>
+    <!-- Form untuk submit jawaban -->
+    <form method="POST" action="{{ route('psikotest-paid.tool.BDI.testbdi') }}">
+      @csrf
+      <!-- Sertakan id nomor tes agar dapat diidentifikasi di controller -->
+      <input type="hidden" name="nomor_bdi_id" value="{{ $nomorBdi->id }}">
+
+      <!-- Tampilan 4 kartu soal (opsi jawaban) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        @php
+          // Definisikan warna untuk tiap kartu (sesuai urutan)
+          $colors = [
+            1 => ['bg' => '#3FA2F6', 'border' => '#3FA2F6'],
+            2 => ['bg' => '#FBB03B', 'border' => '#FBB03B'],
+            3 => ['bg' => '#406C9B', 'border' => '#406C9B'],
+            4 => ['bg' => '#6A3D00', 'border' => '#6A3D00'],
+          ];
+        @endphp
+
+        @foreach($soalbdi as $soal)
+          @php 
+             $color = $colors[$loop->iteration] ?? $colors[1];
+          @endphp
+          <label class="rounded-lg p-4 cursor-pointer relative card flex items-center justify-center text-center"
+                 style="background-color: {{ $color['bg'] }}; height: 150px; transition: transform 0.2s ease;"
+                 onmouseover="this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.6)';"
+                 onmouseout="this.style.boxShadow='none';"
+                 for="soal_{{ $soal->id }}">
+            <!-- Radio button untuk memilih soal; nilai yang dikirim adalah id soal -->
+            <input type="radio" name="jawaban[0][soal_id]" id="soal_{{ $soal->id }}" value="{{ $soal->id }}" data-bobot="{{ $soal->bobot }}" class="hidden" required>
+      <!-- Teks pernyataan soal -->
+                  <div class="text-white">{{ $soal->pernyataan }}</div>
+            <!-- Checkmark (akan tampil jika opsi terpilih) -->
+            <div class="absolute bottom-2 right-2 w-5 h-5 rounded-full bg-white flex items-center justify-center"
+                 style="border: 2px solid {{ $color['border'] }};">
+              <span class="hidden text-lg checkmark" style="color: {{ $color['border'] }};">✔</span>
+            </div>
+          </label>
+        @endforeach
       </div>
-        <a href="{{ route('psikotest-paid.tool.BDI.endbdi') }}">
-          <button type="button" class="px-4 py-1 bg-blue-500 text-sm mr-2 text-white rounded-lg hover:bg-blue-600">Soal
-            Berikutnya
-          </button>
-        </a>
-    </div>
+
+      <!-- Hidden input untuk menyimpan bobot dari jawaban yang dipilih -->
+      <input type="hidden" name="jawaban[0][bobot]" id="selected_bobot">
+
+      <!-- Bar progres dan tombol Next -->
+      <div class="flex bg-white rounded-md items-center justify-between mt-24" style="height: 40px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <div class="flex items-center ml-6" style="height: 3px; width: 510px; position: relative;">
+          <!-- Garis background hitam -->
+          <div class="bg-black rounded-full" style="height: 3px; width: 100%;"></div>
+          <!-- Garis progress biru (misalnya 40%; bisa dibuat dinamis) -->
+          <div class="bg-blue-500 rounded-full" style="height: 3px; width: 40%; position: absolute; top: 0; left: 0;"></div>
+          <!-- Lingkaran kecil di ujung garis -->
+          <div class="bg-blue-500 rounded-full" style="height: 10px; width: 10px; position: absolute; top: -4px; left: 40%; transform: translateX(-50%);"></div>
+          <!-- Teks persentase -->
+          <span class="text-sm text-black" style="position: absolute; top: 1px; left: 40%; transform: translateX(-50%); font-size: 8px;">40%</span>
+        </div>
+        <!-- Tombol submit jawaban; saat diklik, jawaban (soal_id & bobot) akan dikirim ke controller SkorBdi -->
+        <button type="submit" class="px-4 py-1 bg-blue-500 text-sm mr-2 text-white rounded-lg hover:bg-blue-600">
+          Soal Berikutnya
+        </button>
+      </div>
+    </form>
   </div>
 </div>
 
 <script>
+  // Tambahkan event listener untuk radio button agar:
+  // 1. Menampilkan checkmark pada opsi yang dipilih
+  // 2. Mengisi hidden input 'selected_bobot' dengan nilai bobot dari opsi terpilih
   document.querySelectorAll('input[type="radio"]').forEach(radio => {
       radio.addEventListener('change', function() {
-          // Hide all checkmarks
+          // Sembunyikan semua checkmark
           document.querySelectorAll('.checkmark').forEach(checkmark => {
               checkmark.classList.add('hidden');
           });
 
-          // Show the checkmark for the selected option
+          // Tampilkan checkmark untuk opsi yang dipilih
           if (this.checked) {
               this.closest('label').querySelector('.checkmark').classList.remove('hidden');
+              // Set nilai bobot ke hidden input
+              document.getElementById('selected_bobot').value = this.getAttribute('data-bobot');
           }
       });
   });
 
-  // Add hover effect to card labels
+  // Tambahkan efek hover untuk tiap kartu (card)
   document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('mouseover', function() {
           this.style.transform = 'scale(1.03)';

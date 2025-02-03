@@ -5,7 +5,6 @@
 
 @section('content')
 <div class="relative h-11/12 md:min-h-screen flex flex-col items-center bg-gray-100 justify-center">
-
   <!-- bg-internship -->
   <img src="{{ asset('assets/images/psikotes/paid/psikotest-soal-bg.png') }}" alt="Latar Belakang Berbinar" class="absolute inset-0 hidden md:block md:w-full md:h-full object-cover z-0">
 
@@ -17,28 +16,21 @@
     </div>
   </div>
 
-  <p class="font-bold text-2xl text-center text-gray-800 mt-16 z-20 relative">Tes 04</p>
-
   <!-- Card Transparant -->
-  <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-6 mt-4 " style="width: 750px;">
-    <div class="flex">
-        <p class="text-black px-5">
-          A.
-        </p>
-        <p class="text-black ">
-          Sebelum masuk ke subtes selanjutnya, silahkan kesampingkan dulu kertas yang pertama dan kertas kedua. Kemudian silahkan ambil kertas HVS yang ketiga. pastikan bahwa kertas tersebut telah terisi identitas.
-        </p>
-    </div>
+  <div class="relative justify-center text-justify z-10 mx-auto bg-none rounded-lg p-6 mt-10" style="width: 750px;">
 
-    <div class="mb-2 flex justify-center gap-6 mt-8">
-      <a href="{{ route('psikotest-paid.tool.HTP.instruksi_b') }}">
-        <button type="button" class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
-            Selanjutnya
-        </button>
+    <img src="{{ asset('assets/images/psikotes/paid/psikotes-ikon-piala.png') }}" alt="Ikon" class=" w-60 rounded-full" style="margin-left: 240px">
+    <p class="font-bold text-xl text-center">Selamat! Kamu sudah menyelesaikan Tes 04!</p>
+
+    <div class="mb-4 flex justify-center mt-10">
+      <a href="{{ route('psikotest-paid.showLanding') }}">
+      <button type="button" class="w-xl bg-primary  items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+        Kembali ke Halaman Utama
+      </button>
       </a>
     </div>
+
   </div>
 </div>
 
 @endsection
-@include('sweetalert::alert')

@@ -20,4 +20,19 @@ class HTPController extends Controller
   {
     return view('moduls.psikotes-paid.tools.htp.instruksi-b');
   }
+
+  public function instruksi_c()
+  {
+    return view('moduls.psikotes-paid.tools.htp.instruksi-c');
+  }
+
+  public function instruksi_d()
+  {
+    return view('moduls.psikotes-paid.tools.htp.instruksi-d');
+  }
+
+  public function summary()
+  {
+    return view('moduls.psikotes-paid.tools.htp.summary');
+  }
 }
