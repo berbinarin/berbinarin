@@ -95,7 +95,8 @@
 
         </div>
 
-        <div class="lg:mx-auto lg:flex lg:justify-start lg:items-start lg:space-x-12 xl:pe-14 lg:bg-gradient-to-r lg:from-[#DDEAF0] lg:to-[#F7F9FA] lg:pt-16">
+        <div
+            class="lg:mx-auto lg:flex lg:justify-start lg:items-start lg:space-x-12 xl:pe-14 lg:bg-gradient-to-r lg:from-[#DDEAF0] lg:to-[#F7F9FA] lg:pt-16">
 
             {{--divisi menu divisi desktop--}}
             <div class="hidden lg:block w-3/5 max-w-96 pt-4 ps-2">
@@ -170,52 +171,127 @@
 
                 {{--grid--}}
                 <div class="w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-4">
-                    @for($i = 1; $i < 6; $i++)
-                        {{--container for card--}}
-                        @php
-                            $isEven = $i % 2 === 0;
-                            // isLg -> variable that keep track of current viewport is lg or not, how can i do it in php
-                        @endphp
-{{--                        <div class="w-full flex {{$isEven ? 'justify-end' : 'justify-start'}} mb-4 lg:justify-start border border-black">--}}
-                            <div class="w-full flex odd:justify-start even:justify-end mb-4 lg:justify-start border border-black">
-                            {{--card--}}
-                            <div class="p-4 flex bg-gradient-to-b from-[#3986A3] to-[#15323D] rounded-lg relative lg:pt-10 xl:py-6 xl:w-full overflow-hidden">
-                                <img src="{{asset('assets/images/landing/keluarga-berbinar/texture-card.png')}}" alt="texture" class="hidden xl:block absolute z-0 scale-y-75  -bottom-8 left-0">
-                                {{--photo&division--}}
-                                <div class="relative size-32 {{$isEven ? 'order-last' : ''}} lg:order-first xl:size-48 z-10">
-                                    <img src="{{asset('assets/images/landing/keluarga-berbinar/image-example.png')}}"
-                                         alt="image-example" class="">
-                                    <span
-                                        class="absolute w-full p-1 z-10 bottom-0 left-1/2 -translate-x-1/2 font-semibold text-sm text-white text-center bg-[#654064] rounded-lg">Manajer Divisi</span>
-                                </div>
+                    @for($i = 1; $i <= 5; $i++)
+                        {{--LIST--}}
+                        {{--CARD CONTAINER--}}
+                        <div
+                            class="w-full bg-transparent perspective flex items-center odd:justify-start even:justify-end mb-4 group lg:justify-start lg:p-2 lg:m-0">
+                            {{--CARD--}}
+                            <div id="card-{{$i}}"
+                                 class="preserve-3d duration-1000 bg-transparent w-[350px] md:w-[400px] lg:w-full">
+                                {{--FRONT CARD--}}
+                                <div onclick="handleFlip({{$i}})" id="front-{{$i}}"
+                                     class="relative h-40 md:h-48 rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] pt-2 pb-3 px-4 cursor-pointer hover:shadow-lg lg:h-60 lg:w-full lg:p-4 lg:cursor-default lg:pointer-events-none">
+                                    {{--texture--}}
+                                    <img src="{{asset('assets/images/landing/keluarga-berbinar/texture-card.png')}}"
+                                         alt="texture"
+                                         class="hidden lg:block absolute z-10 scale-y-75 -bottom-8 left-0 ">
 
-                                {{--status & btn lini masa--}}
-                                <span class="absolute top-4 {{$isEven ? 'left-4': 'right-4'}} font-normal text-sm text-white bg-[#04CA00] rounded-full py-1 px-4 lg:left-auto lg:right-4">Aktif</span>
-                                <button class="hidden absolute xl:flex lg:bottom-4 lg:right-4 items-center justify-center">
-                                    <div>
+                                    {{--status--}}
+                                    <span
+                                        class="absolute top-2 font-semibold text-xs text-white bg-[#04CA00] rounded-full py-1 px-3 group-odd:right-2 group-even:left-2 lg:hidden">Aktif</span>
+                                    <span
+                                        class="hidden absolute lg:block top-2 right-2 py-1 px-4 font-semibold text-xs text-white bg-[#04CA00] rounded-full ">Aktif</span>
+
+                                    {{--lini masa button--}}
+                                    <button
+                                        onclick=""
+                                        class="hidden lg:block absolute bottom-2 right-2 z-30 lg:pointer-events-auto lg:cursor-pointer">
                                         <img src="{{asset("assets/images/landing/keluarga-berbinar/lini-masa.png")}}"
                                              alt=""
-                                             class="size-4 mx-auto">
-                                        <p class="text-center text-white font-thin text-xs">Lini masa</p>
-                                    </div>
-                                </button>
+                                             class="size-5 mx-auto">
+                                        <p class="text-center text-white font-semibold text-xs">Lini masa</p>
+                                    </button>
+                                    {{--content--}}
 
-                                {{--information--}}
-                                <div class="{{$isEven ? 'pe-4' : 'px-4'}} flex items-end justify-start lg:px-4 relative z-10">
-                                    <div class="pb-2 xl:pb-14">
-                                        <h3 class="font-semibold text-xl text-start text-white lg:text-2xl">Barita Davitya S.</h3>
-                                        <p class="block font-thin text-xs text-white text-start lg:text-base">As UI/UX Designer</p>
-                                        <p class="block font-thin text-xs text-white text-start lg:text-base mb-2">Agu 2024 -
-                                            Sekarang</p>
-                                        <a href="#" class="hidden xl:block"> <img
-                                                src="{{ asset('assets/images/landing/keluarga-berbinar/linkedin-fill.png') }}"
-                                                alt="linkedin" class="size-6"></a>
+                                    {{--content--}}
+                                    <div
+                                        class="w-full h-full flex items-center justify-between md:justify-start md:space-x-4 lg:justify-normal lg:relative lg:z-20">
+                                        {{--image-sm-md--}}
+                                        <div
+                                            class="relative h-full w-32 md:w-36 overflow-hidden group-even:order-last md:flex md:items-end lg:hidden">
+                                            <img
+                                                src="{{asset('assets/images/landing/keluarga-berbinar/image-example.png')}}"
+                                                alt="image-example" class="object-cover">
+                                            <span
+                                                class="absolute w-auto py-1 px-2 z-10 bottom-0 left-1/2 -translate-x-1/2 font-semibold text-nowrap tracking-wide text-xs text-white text-center bg-[#654064] rounded-lg shadow-lg">Manajer Divisi</span>
+                                        </div>
+                                        {{--image-lg--}}
+                                        <div class="hidden lg:block relative h-full w-48 py-1 overflow-hidden">
+                                            <img
+                                                src="{{asset('assets/images/landing/keluarga-berbinar/image-example.png')}}"
+                                                alt="image-example" class="object-cover">
+                                            <span
+                                                class="absolute w-auto py-1 px-2 z-10 bottom-2 left-1/2 -translate-x-1/2 font-semibold text-nowrap tracking-wide text-xs text-white text-center bg-[#654064] rounded-lg shadow-lg">Manajer Divisi</span>
+                                        </div>
+                                        {{--info-sm-md--}}
+                                        <div class="h-full py-1 content-end space-y-2 lg:hidden">
+                                            <h3 class="font-semibold text-xl text-start md:text-2xl text-white">Barita
+                                                Davitya S.</h3>
+                                            <p class="block font-thin text-sm text-white md:text-base text-start">As
+                                                UI/UX
+                                                Designer</p>
+                                            <p class="block font-thin text-sm text-white md:text-base text-start mb-2">
+                                                Agu
+                                                2024 -
+                                                Sekarang</p>
+                                        </div>
+                                        {{--info-lg--}}
+                                        <div class="hidden lg:block h-full py-1 content-start pt-8 space-y-2">
+                                            <h3 class="font-semibold text-2xl text-white">Barita
+                                                Davitya S.</h3>
+                                            <p class="block font-normal text-base text-white">As
+                                                UI/UX
+                                                Designer</p>
+                                            <p class="block font-normal text-base text-white">
+                                                Agu
+                                                2024 -
+                                                Sekarang</p>
+                                            <a href="#"
+                                               class="hidden xl:block xl:cursor-pointer xl:pointer-events-auto"> <img
+                                                    src="{{ asset('assets/images/landing/keluarga-berbinar/linkedin-fill.png') }}"
+                                                    alt="linkedin" class="size-6"></a>
+                                        </div>
                                     </div>
                                 </div>
+
+                                {{--BACK CARD--}}
+                                <div onclick="handleFlip({{$i}})" id="back-{{$i}}"
+                                     class="relative hidden min-h-40 md:min-h-48 lg:min-h-60 rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] pt-2 pb-3 px-4 lg:p-4 cursor-pointer hover:shadow-lg my-rotate-y-180">
+                                    {{--texture--}}
+                                    <img src="{{asset('assets/images/landing/keluarga-berbinar/texture-card.png')}}"
+                                         alt="texture"
+                                         class="hidden lg:block absolute z-10 scale-y-75 -bottom-8 left-0">
+
+                                    {{--lini masa--}}
+                                    <span
+                                        class="absolute top-2 font-semibold text-xs text-white bg-[#FF8364] rounded-full py-1 px-3 right-2">Lini Masa</span>
+                                    {{--linkedin--}}
+                                    <a href="#" class="absolute bottom-2 right-3 lg:hidden">
+                                        <img
+                                            src="{{ asset('assets/images/landing/keluarga-berbinar/linkedin-fill.png') }}"
+                                            alt="linkedin" class="size-6">
+                                    </a>
+                                    {{--content--}}
+                                    <div class="lg:relative lg:z-20">
+                                        <h3 class="font-semibold text-xl text-white w-3/4 mb-4">Barita Davitya Suryawati
+                                            Makmur Jaya</h3>
+                                        <div class="w-full grid grid-cols-1 justify-items-start">
+                                            @for($j = 1; $j <= 5; $j++)
+                                                <div class="mb-2 last:mb-0">
+                                                    <h4 class="font-semibold text-lg text-white text-start">As UI/UX
+                                                        Designer</h4>
+                                                    <p class="font-thin text-base text-white">Jan 2024 - Feb 2024</p>
+                                                </div>
+                                            @endfor
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
+                        {{--LIST--}}
                     @endfor
-
                 </div>
             </div>
         </div>
@@ -347,6 +423,31 @@
             // Hide the dropdown menu
             handleToggleDropdownDivision();
             handleShowSubdivisionMenu(divisionKey);
+        }
+
+        function handleFlip(id) {
+            const card = document.getElementById(`card-${id}`);
+            const back = document.getElementById(`back-${id}`);
+            const front = document.getElementById(`front-${id}`);
+
+            if (!card || !front || !back) {
+                console.error(`Elements for card ${id} not found`);
+                return;
+            }
+
+            card.classList.toggle("my-rotate-y-180");
+
+            if (card.classList.contains("my-rotate-y-180")) {
+                setTimeout(() => {
+                    front.classList.add("hidden");
+                    back.classList.remove("hidden");
+                }, 300);
+            } else {
+                setTimeout(() => {
+                    back.classList.add("hidden");
+                    front.classList.remove("hidden");
+                }, 300);
+            }
         }
     </script>
 

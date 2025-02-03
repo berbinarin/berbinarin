@@ -169,32 +169,57 @@
                 </div>
 
                 {{--grid--}}
-                <div class="w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-4 ">
+                <div class="w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-4">
 
 
                     @for($i = 1; $i <= 5; $i++)
                         {{--LIST FOR SM - MD START--}}
                         {{--CARD CONTAINER--}}
-                        <div class="w-full bg-transparent perspective flex items-center odd:justify-start even:justify-end mb-4 group lg:hidden">
+                        <div class="w-full bg-transparent perspective flex items-center odd:justify-start even:justify-end mb-4 group lg:justify-start lg:p-2">
                             {{--CARD--}}
-                            <div id="card-{{$i}}" class="preserve-3d duration-1000 bg-transparent w-[350px] md:w-[400px]">
+                            <div id="card-{{$i}}" class="preserve-3d duration-1000 bg-transparent w-[350px] md:w-[400px] lg:w-full">
                                 {{--FRONT CARD--}}
-                                <div onclick="handleMobileFlip({{$i}})" id="front-{{$i}}" class="relative h-40 md:h-48 rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] pt-2 pb-3 px-4 cursor-pointer hover:shadow-lg">
+                                <div onclick="handleFlip({{$i}})" id="front-{{$i}}" class="relative h-40 md:h-48 rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] pt-2 pb-3 px-4 cursor-pointer hover:shadow-lg lg:h-60 lg:w-full lg:p-4 lg:cursor-default lg:pointer-events-none">
+                                    {{--texture--}}
+                                    <img src="{{asset('assets/images/landing/keluarga-berbinar/texture-card.png')}}"
+                                         alt="texture"
+                                         class="hidden lg:block absolute z-10 scale-y-75 -bottom-8 left-0 ">
+
                                     {{--status--}}
-                                    <span class="absolute top-2 font-semibold text-xs text-white bg-[#04CA00] rounded-full py-1 px-3 group-odd:right-2 group-even:left-2">Aktif</span>
+                                    <span class="absolute top-2 font-semibold text-xs text-white bg-[#04CA00] rounded-full py-1 px-3 group-odd:right-2 group-even:left-2 lg:hidden">Aktif</span>
+                                    <span class="hidden absolute lg:block top-2 right-2 py-1 px-4 font-semibold text-xs text-white bg-[#04CA00] rounded-full ">Aktif</span>
+
+                                    {{--lini masa button--}}
+                                    <button
+                                        onclick=""
+                                        class="hidden lg:block absolute bottom-2 right-2 z-30 lg:pointer-events-auto lg:cursor-pointer">
+                                        <img src="{{asset("assets/images/landing/keluarga-berbinar/lini-masa.png")}}"
+                                             alt=""
+                                             class="size-5 mx-auto">
+                                        <p class="text-center text-white font-semibold text-xs">Lini masa</p>
+                                    </button>
+                                    {{--content--}}
 
                                     {{--content--}}
-                                    <div class="w-full h-full flex items-center justify-between md:justify-start md:space-x-4">
-                                        {{--image--}}
-                                        <div class="relative h-full w-32 md:w-36 overflow-hidden group-even:order-last md:flex md:items-end">
+                                    <div class="w-full h-full flex items-center justify-between md:justify-start md:space-x-4 lg:justify-normal lg:relative lg:z-20">
+                                        {{--image-sm-md--}}
+                                        <div class="relative h-full w-32 md:w-36 overflow-hidden group-even:order-last md:flex md:items-end lg:hidden">
                                             <img
                                                 src="{{asset('assets/images/landing/keluarga-berbinar/image-example.png')}}"
                                                 alt="image-example" class="object-cover">
                                             <span
                                                 class="absolute w-auto py-1 px-2 z-10 bottom-0 left-1/2 -translate-x-1/2 font-semibold text-nowrap tracking-wide text-xs text-white text-center bg-[#654064] rounded-lg shadow-lg">Manajer Divisi</span>
                                         </div>
-                                        {{--info--}}
-                                        <div class="h-full py-1 content-end space-y-2">
+                                        {{--image-lg--}}
+                                        <div class="hidden lg:block relative h-full w-48 py-1 overflow-hidden">
+                                            <img
+                                                src="{{asset('assets/images/landing/keluarga-berbinar/image-example.png')}}"
+                                                alt="image-example" class="object-cover">
+                                            <span
+                                                class="absolute w-auto py-1 px-2 z-10 bottom-2 left-1/2 -translate-x-1/2 font-semibold text-nowrap tracking-wide text-xs text-white text-center bg-[#654064] rounded-lg shadow-lg">Manajer Divisi</span>
+                                        </div>
+                                        {{--info-sm-md--}}
+                                        <div class="h-full py-1 content-end space-y-2 lg:hidden">
                                             <h3 class="font-semibold text-xl text-start md:text-2xl text-white">Barita
                                                 Davitya S.</h3>
                                             <p class="block font-thin text-sm text-white md:text-base text-start">As
@@ -205,22 +230,41 @@
                                                 2024 -
                                                 Sekarang</p>
                                         </div>
+                                        {{--info-lg--}}
+                                        <div class="hidden lg:block h-full py-1 content-start pt-8 space-y-2">
+                                            <h3 class="font-semibold text-2xl text-white">Barita
+                                                Davitya S.</h3>
+                                            <p class="block font-normal text-base text-white">As
+                                                UI/UX
+                                                Designer</p>
+                                            <p class="block font-normal text-base text-white">
+                                                Agu
+                                                2024 -
+                                                Sekarang</p>
+                                            <a href="#" class="hidden xl:block xl:cursor-pointer xl:pointer-events-auto"> <img
+                                                    src="{{ asset('assets/images/landing/keluarga-berbinar/linkedin-fill.png') }}"
+                                                    alt="linkedin" class="size-6"></a>
+                                        </div>
                                     </div>
                                 </div>
 
                                 {{--BACK CARD--}}
-                                <div onclick="handleMobileFlip({{$i}})" id="back-{{$i}}" class="relative hidden min-h-40 md:min-h-48 rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] pt-2 pb-3 px-4 cursor-pointer hover:shadow-lg my-rotate-y-180">
+                                <div onclick="handleFlip({{$i}})" id="back-{{$i}}" class="relative hidden min-h-40 md:min-h-48 lg:min-h-60 rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] pt-2 pb-3 px-4 lg:p-4 cursor-pointer hover:shadow-lg my-rotate-y-180">
+                                    {{--texture--}}
+                                    <img src="{{asset('assets/images/landing/keluarga-berbinar/texture-card.png')}}"
+                                         alt="texture"
+                                         class="hidden lg:block absolute z-10 scale-y-75 -bottom-8 left-0">
+
                                     {{--lini masa--}}
-                                    <span
-                                        class="absolute top-2 font-semibold text-xs text-white bg-[#FF8364] rounded-full py-1 px-3 right-2">Lini Masa</span>
+                                    <span class="absolute top-2 font-semibold text-xs text-white bg-[#FF8364] rounded-full py-1 px-3 right-2">Lini Masa</span>
                                     {{--linkedin--}}
-                                    <a href="#" class="absolute bottom-2 right-3">
+                                    <a href="#" class="absolute bottom-2 right-3 lg:hidden">
                                         <img
                                             src="{{ asset('assets/images/landing/keluarga-berbinar/linkedin-fill.png') }}"
                                             alt="linkedin" class="size-6">
                                     </a>
                                     {{--content--}}
-                                    <div class="">
+                                    <div class="lg:relative lg:z-20">
                                         <h3 class="font-semibold text-xl text-white w-3/4 mb-4">Barita Davitya Suryawati
                                             Makmur Jaya</h3>
                                         <div class="w-full grid grid-cols-1 justify-items-start">
@@ -240,15 +284,15 @@
                         {{--LIST FOR SM - MD END--}}
                     @endfor
 
-                    @for($h = 1; $h <= 5; $h++)
+
                         {{--LIST FOR DESKTOP START--}}
                         {{--CARD CONTAINER--}}
-                        <div class="hidden w-full bg-transparent lg:flex items-center p-2 perspective">
+                        <div class="hidden w-full bg-transparent flex items-center p-2 perspective">
                             {{--CARD--}}
-                            <div id="card-{{$h}}" class="preserve-3d duration-1000 bg-transparent w-full">
+                            <div id="card-" class="preserve-3d duration-1000 bg-transparent w-full">
 
                                 {{--FRONT CARD--}}
-                                <div id="front-{{$h}}" class="relative h-60 w-full rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] hover:shadow-lg p-4">
+                                <div id="front-" class="relative h-60 w-full rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] hover:shadow-lg p-4">
                                     {{--texture--}}
                                     <img src="{{asset('assets/images/landing/keluarga-berbinar/texture-card.png')}}"
                                          alt="texture"
@@ -257,7 +301,7 @@
                                     <span class="absolute top-2 right-2 font-semibold text-sm text-white bg-[#04CA00] rounded-full py-1 px-4">Aktif</span>
                                     {{--lini masa button--}}
                                     <button
-                                        onclick="handleDesktopFlip({{$h}})"
+                                        onclick=""
                                         class="absolute bottom-2 right-2 block z-30">
                                         <img src="{{asset("assets/images/landing/keluarga-berbinar/lini-masa.png")}}"
                                              alt=""
@@ -293,7 +337,7 @@
                                 </div>
 
                                 {{--BACK CARD--}}
-                                <div id="back-{{$h}}" onclick="handleDesktopFlip({{$h}})" class="hidden relative min-h-60 w-full rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] hover:shadow-lg p-4 my-rotate-y-180 cursor-pointer">
+                                <div id="back-" onclick="" class="hidden relative min-h-60 w-full rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] hover:shadow-lg p-4 my-rotate-y-180 cursor-pointer">
                                     {{--texture--}}
                                     <img src="{{asset('assets/images/landing/keluarga-berbinar/texture-card.png')}}"
                                          alt="texture"
@@ -320,7 +364,6 @@
                             </div>
                         </div>
                         {{--LIST FOR DESKTOP END--}}
-                    @endfor
 
                 </div>
             </div>
@@ -328,131 +371,6 @@
     </section>
 
 
-    <script>
-    function handleFlipLG(id) {
-            const card = document.getElementById(`card-${id}`);
-            const back = document.getElementById(`back-${id}`);
-            const front = document.getElementById(`front-${id}`);
-
-            if (!card || !back || !front) {
-                console.error(`Card elements not found for ID: ${id}`);
-                return;
-            }
-
-            card.classList.toggle("my-rotate-y-180");
-
-            if (card.classList.contains("my-rotate-y-180")) {
-                // Show back side after a slight delay
-                setTimeout(() => {
-                    front.classList.add('hidden');
-                }, 300)
-                setTimeout(() => {
-                    back.classList.remove("hidden");
-                }, 300); // Delay to allow rotation to start
-            } else {
-                // Hide back side AFTER animation completes (matching duration: 1000ms)
-                setTimeout(() => {
-                    front.classList.remove('hidden');
-                }, 300)
-                setTimeout(() => {
-                    back.classList.add("hidden");
-                }, 300);
-
-                // setTimeout(() => {
-                //     front.classList.remove("hidden");
-                // }, 100);
-            }
-        }
-    function handleFlip(id) {
-            const card = document.getElementById(`card-${id}`);
-            const back = document.getElementById(`back-${id}`);
-            const front = document.getElementById(`front-${id}`);
-
-            // Ensure elements exist before proceeding
-            if (!card || !back || !front) {
-                console.error(`Card elements not found for ID: ${id}`);
-                return;
-            }
-
-            // Toggle rotation
-            card.classList.toggle("my-rotate-y-180");
-            // front.classList.toggle('hidden');
-
-            if (card.classList.contains("my-rotate-y-180")) {
-                // Show back side after a slight delay
-                setTimeout(() => {
-                    front.classList.add('hidden');
-                }, 300)
-                setTimeout(() => {
-                    back.classList.remove("hidden");
-                }, 300); // Delay to allow rotation to start
-            } else {
-                // Hide back side AFTER animation completes (matching duration: 1000ms)
-                setTimeout(() => {
-                    front.classList.remove('hidden');
-                }, 300)
-                setTimeout(() => {
-                    back.classList.add("hidden");
-                }, 300);
-
-                // setTimeout(() => {
-                //     front.classList.remove("hidden");
-                // }, 100);
-            }
-        }
-
-
-    function handleMobileFlip(id) {
-        const card = document.getElementById(`card-${id}`);
-        const back = document.getElementById(`back-${id}`);
-        const front = document.getElementById(`front-${id}`);
-
-        if (!card || !front || !back) {
-            console.error(`Elements for card ${id} not found`);
-            return;
-        }
-
-        card.classList.toggle("my-rotate-y-180");
-
-        if (card.classList.contains("my-rotate-y-180")) {
-            setTimeout(() => {
-                front.classList.add("hidden");
-                back.classList.remove("hidden");
-            }, 300);
-        } else {
-            setTimeout(() => {
-                back.classList.add("hidden");
-                front.classList.remove("hidden");
-            }, 300);
-        }
-    }
-
-    function handleDesktopFlip(id) {
-        const card = document.getElementById(`card-${id}`);
-        const back = document.getElementById(`back-${id}`);
-        const front = document.getElementById(`front-${id}`);
-
-        if (!card || !front || !back) {
-            console.error(`Elements for card ${id} not found`);
-            return;
-        }
-
-        card.classList.toggle("my-rotate-y-180");
-
-        if (card.classList.contains("my-rotate-y-180")) {
-            setTimeout(() => {
-                front.classList.add("opacity-0", "absolute");
-                back.classList.remove("opacity-0", "absolute");
-            }, 300);
-        } else {
-            setTimeout(() => {
-                back.classList.add("opacity-0", "absolute");
-                front.classList.remove("opacity-0", "absolute");
-            }, 300);
-        }
-    }
-
-    </script>
 
     <script>
         const listDivisi = @json($divisi);
@@ -580,6 +498,31 @@
             // Hide the dropdown menu
             handleToggleDropdownDivision();
             handleShowSubdivisionMenu(divisionKey);
+        }
+
+        function handleFlip(id) {
+            const card = document.getElementById(`card-${id}`);
+            const back = document.getElementById(`back-${id}`);
+            const front = document.getElementById(`front-${id}`);
+
+            if (!card || !front || !back) {
+                console.error(`Elements for card ${id} not found`);
+                return;
+            }
+
+            card.classList.toggle("my-rotate-y-180");
+
+            if (card.classList.contains("my-rotate-y-180")) {
+                setTimeout(() => {
+                    front.classList.add("hidden");
+                    back.classList.remove("hidden");
+                }, 300);
+            } else {
+                setTimeout(() => {
+                    back.classList.add("hidden");
+                    front.classList.remove("hidden");
+                }, 300);
+            }
         }
     </script>
 
