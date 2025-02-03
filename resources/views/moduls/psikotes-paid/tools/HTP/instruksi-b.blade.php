@@ -26,16 +26,16 @@
           B.
         </p>
         <p class="text-black ">
-          Kertas yang sudah terisi gambar pohon silahkan dikesampingkan terlebih dahulu agar tidak mengganggu proses menggambar di sesi yang sekarang.
+          Pada tes ini, <span class="font-bold">tugas Anda adalah menggambar manusia, pohon dan rumah dalam satu kertas tersebut.</span>
         </p>
     </div>
 
-    <p class="text-black mt-5 pl-14">
+    {{-- <p class="text-black mt-5 pl-14">
       Baik jika sudah silahkan balik kertasnya pada bagian yang kosong atau bagian yang tidak ada identitasnya.
-    </p>
+    </p> --}}
 
     <div class="mb-2 flex justify-center gap-6 mt-8">
-      <a href="{{ route('psikotest-paid.tool.BDI.testbdi') }}">
+      <a href="{{ route('psikotest-paid.tool.HTP.instruksi_c') }}">
         <button type="button" class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
             Selanjutnya
         </button>

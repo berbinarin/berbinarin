@@ -421,6 +421,9 @@ Route::prefix('/psikotest-paid')->group(function () {
         // TES HTP
         Route::get('/tool/HTP/A', [HTPController::class, 'showLanding'])->name('psikotest-paid.tool.HTP.showLanding');
         Route::get('/tool/HTP/B', [HTPController::class, 'instruksi_b'])->name('psikotest-paid.tool.HTP.instruksi_b');
+        Route::get('/tool/HTP/C', [HTPController::class, 'instruksi_c'])->name('psikotest-paid.tool.HTP.instruksi_c');
+        Route::get('/tool/HTP/D', [HTPController::class, 'instruksi_d'])->name('psikotest-paid.tool.HTP.instruksi_d');
+        Route::get('/tool/HTP/summary', [HTPController::class, 'summary'])->name('psikotest-paid.tool.HTP.summary');
         
         // TES SSCT
         Route::get('/tool/SSCT', [SSCTController::class, 'showLanding'])->name('psikotest-paid.tool.SSCT.showLanding');
@@ -460,8 +463,8 @@ Route::prefix('/psikotest-paid')->group(function () {
         
         // BDI
         Route::get('/tool/BDI', [LandingController::class, 'LandingBDI'])->name('psikotest-paid.tool.BDI.showLanding');
-        Route::get('/tool/BDI/test', [LandingController::class, 'TestBDI'])->name('psikotest-paid.tool.BDI.testbdi');
-        Route::get('/tool/BDI/end/', [LandingController::class, 'EndBDI'])->name('psikotest-paid.tool.BDI.endbdi');
+        // Route::get('/tool/BDI/test', [LandingController::class, 'TestBDI'])->name('psikotest-paid.tool.BDI.testbdi');
+        // Route::get('/tool/BDI/end/', [LandingController::class, 'EndBDI'])->name('psikotest-paid.tool.BDI.endbdi');
         
         // BIODATA
         // Perusahaan
@@ -631,7 +634,7 @@ Route::prefix('api')->group(function () {
     Route::get('/soal', [SoalBdiController::class, 'index']); // Get all soal and nomor BDI
     Route::post('/soal', [SoalBdiController::class, 'store']); // Add new soal
     Route::get('/soal/{nomor}', [SoalBdiController::class, 'getSoalByNomor']); // Get soal by nomor
-    Route::post('/soal/hitung-hasil', [SoalBdiController::class, 'hitungHasil']); // Calculate hasil based on jawaban
+    Route::post('/soal/hitung-hasil', [SoalBdiController::class, 'hitungHasil'])->name('psikotest-paid.tool.BDI.testbdi'); // Calculate hasil based on jawaban
 
     // Skor BDI Routes
     Route::post('/skor', [SkorBdiController::class, 'store']); // Add new skor

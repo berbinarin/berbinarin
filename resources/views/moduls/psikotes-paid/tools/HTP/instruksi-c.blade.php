@@ -1,5 +1,5 @@
 @extends('moduls.psikotes.layouts.mainn', [
-'title' => 'Instruksi BDI',
+'title' => 'Instruksi HTP',
 'active' => 'one psikotest',
 ])
 
@@ -17,24 +17,25 @@
     </div>
   </div>
 
-  <p class="font-bold text-2xl text-center text-gray-800 mt-16 z-20 relative">Tes 27</p>
+  <p class="font-bold text-2xl text-center text-gray-800 mt-16 z-20 relative">Tes 04</p>
 
   <!-- Card Transparant -->
   <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-6 mt-4 " style="width: 750px;">
-    <p class="text-black mt-4 px-5">
-      Hai, berikut adalah instruksi untuk test BDI
-    </p>
-    <p class="text-black mt-4 px-5">
-      Akan terdapat 4 pernyataan dalam setiap soal. Bacalah setiap pernyataan dan pilih salah satu pernyataan yang paling mencerminkan apa yang Anda rasakan selama beberapa hari ini. Pastikan Anda menjawab pernyataan tanpa ada yang terlewat.
-    </p>
-    <p class="text-black mt-2 px-5">
-      Tidak ada benar atau salah dalam pengerjaan soal ini, jadi silakan Anda menjawab sejujur-jujurnya.
-    </p>
+    <div class="flex">
+        <p class="text-black px-5">
+          C.
+        </p>
+        <p class="text-black ">
+            Apabila sudah selesai, silahkan pada lembaran kertas yang ada identitasnya atau di halaman kertas sebaliknya, <span class="font-bold">tuliskan atau ceritakan gambar yang baru Anda gambar dengan satu kalimat. Satu kalimat yang menggambarkan gambar yang telah anda buat.</span>
+        </p>
+    </div>
+
+    {{-- <p class="text-black mt-5 pl-14">
+      Baik jika sudah silahkan balik kertasnya pada bagian yang kosong atau bagian yang tidak ada identitasnya.
+    </p> --}}
 
     <div class="mb-2 flex justify-center gap-6 mt-8">
-      <a href="{{ route(
-      // 'psikotest-paid.tool.BDI.testbdi'
-      ) }}">
+      <a href="{{ route('psikotest-paid.tool.HTP.instruksi_d') }}">
         <button type="button" class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
             Selanjutnya
         </button>
@@ -44,3 +45,4 @@
 </div>
 
 @endsection
+@include('sweetalert::alert')
