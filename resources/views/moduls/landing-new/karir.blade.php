@@ -50,7 +50,7 @@
 
                 {{--hexagon banner--}}
                 <div class="hidden md:flex md:w-1/2 lg:w-fit relative z-20">
-                    <img src="{{ asset("assets/images/landing/karir/hexagon-new.png") }}" alt=""
+                    <img src="{{ asset("assets/images/landing/karir/hexagon-banner-fix.png") }}" alt=""
                          class="h-96 3xl:h-[600px]">
                 </div>
 
