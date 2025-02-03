@@ -53,6 +53,7 @@ class OCEANController extends Controller
 
   public function submitAnswer(Request $request)
   {
+    $currentQuestionNumber = $request->input('current_question_number');
     $validatedData = $request->validate([
       'test_id' => 'required|exists:test_ocean,id',
       'question_id' => 'required|exists:question_ocean,id',
