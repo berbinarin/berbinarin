@@ -1,0 +1,86 @@
+.bg-mobile {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url('/assets/images/landing/vector-curling-mobile.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1; 
+    
+}
+
+
+.header-produk {
+    position: relative;
+    z-index: 2;
+    background-image: linear-gradient(to right, #e1e9ec, #9CC3D1), url('/assets/images/landing/asset-produk/bg-curl.png');
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+
+}
+
+
+
+.text-gradient {
+    background: linear-gradient(to right, #3986A3, #000000); 
+    background-clip: text;
+    -webkit-background-clip: text; 
+    color: transparent; 
+}
+
+.text-gradient-yellow {
+    background: linear-gradient(to right, #F7B23B, #AD7D29); 
+    background-clip: text;
+    -webkit-background-clip: text; 
+    color: transparent; 
+}
+
+
+@media (min-width: 0px) and (max-width: 640px) {
+    .header-produk {
+        background-image: none; 
+        background-color: #ffffff; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 100px;
+    }
+
+    .bg-mobile {
+        top: -130px; 
+        width: 900px;
+        height: 945px;
+    }
+    
+
+}
+
+@media (min-width: 641px) and (max-width: 767px) {
+    .header-produk {
+        background-image: none; 
+        background-color: #ffffff; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .bg-mobile {
+        top: -160px; 
+        width: 1050px;
+        height: 1050px;
+    }
+    
+}
+
+
+@media (max-width: 1024px) { 
+
+}
+
+@media (min-width: 1280px) { 
+
+}
+
+@media (min-width: 1536px) {
+
+}
