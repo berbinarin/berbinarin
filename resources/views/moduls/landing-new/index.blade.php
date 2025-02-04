@@ -172,7 +172,7 @@
                 @foreach ($products as $product)
                 <div class="swiper-slide">
                     <div class="bg-white rounded-3xl shadow-md flex flex-col justify-center items-center text-center h-auto w-auto">
-                        <div class="bg-white flex justify-center py-7 max-sm:py-5 rounded-t-3xl w-full border-b">
+                        <div class="bg-white flex justify-center py-7 px-7 max-sm:p-5 rounded-t-3xl w-full border-b">
                             <img src="{{ asset($product['vector']) }}" alt="{{ $product['produk'] }}" class="max-sm:h-[110px] max-md:h-[130px] h-36 w-auto">
                         </div>
 
