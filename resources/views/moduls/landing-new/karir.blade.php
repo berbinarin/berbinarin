@@ -397,8 +397,7 @@
             {{--caption END--}}
 
             {{--list START--}}
-            <div
-                class="w-full border-orange-500 py-12 mx-auto flex flex-wrap gap-x-8 gap-y-12 justify-center items-center">
+            <div class="w-full border-orange-500 py-12 mx-auto flex flex-wrap gap-x-8 gap-y-12 justify-center items-center">
 
                 @forelse ($positions->take($positions->count()/2)->chunk(ceil($positions->count() / 2)) as $chunk)
                     @foreach ($chunk as $position)

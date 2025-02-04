@@ -12,6 +12,7 @@ use App\Models\UserPsikotest;
 use App\Models\KonsellingPeer;
 use App\Models\Hiring_Positions;
 use App\Models\KonsellingPsikolog;
+use Illuminate\Support\Facades\Http;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Hiring_Positions_Requirements;
 use App\Models\Hiring_Positions_Job_Descriptions;
@@ -330,57 +331,16 @@ class LandingController extends Controller
             ]
         ];
 
-        return view('moduls.landing-new.keluarga-berbinar')->with('divisi', $divisi);
+        $response = Http::get('http://localhost:3004/dataStaff');
+
+        $data = $response->json();
+
+        //liststaff
+        $staffList = $data['dataStaff'] ?? [];
+
+        return view('moduls.landing-new.keluarga-berbinar')->with(['divisi' => $divisi, 'listStaff' => $data] );
     }
 
-    public function card_flip(Request $request) {
-
-        $divisi = [
-            [
-                'name' => 'Class Product Management',
-                'subdivision' => []
-            ],
-            [
-                'name' => 'Psychological Testing Product Management',
-                'subdivision' => []
-            ],
-            [
-                'name' => 'Secretary & Finance',
-                'subdivision' => []
-            ],
-            [
-                'name' => 'Marketing Strategy & Sales',
-                'subdivision' => []
-            ],
-            [
-                'name' => 'IG Creator',
-                'subdivision' => []
-            ],
-            [
-                'name' => 'Tiktok Creator',
-                'subdivision' => []
-            ],
-            [
-                'name' => 'Graphic Designer',
-                'subdivision' => []
-            ],
-            [
-                'name' => 'Human Resource',
-                'subdivision' => []
-            ],
-            [
-                'name' => 'Web & Mobile App Developer',
-                'subdivision' => [
-                    'UI/UX Design',
-                    'Front-end Developer',
-                    'Back-end Developer',
-                    'Full-stack Developer'
-                ]
-            ]
-        ];
-
-        return view('moduls.landing-new.card')->with('divisi', $divisi);
-    }
 
     public function konseling_new(Request $request)
     {
