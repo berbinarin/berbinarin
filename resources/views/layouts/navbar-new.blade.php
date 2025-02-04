@@ -6,7 +6,7 @@
     </div>
 
     <!-- Burger Menu -->
-    <div class="ml-auto flex lg:hidden">
+    <div class="ml-auto flex md:hidden">
         <button id="burgerMenu" class="text-[#3986A3] focus:outline-none">
             <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <line x1="4" y1="6" x2="20" y2="6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -17,7 +17,7 @@
     </div>
 
     <!-- Navigasi Link -->
-    <div id="navLinks" class="hidden lg:flex ml-auto items-center max-lg:space-x-6 space-x-14">
+    <div id="navLinks" class="hidden md:flex ml-auto items-center max-lg:space-x-7 space-x-14">
         <a href="{{ route('home-new') }}" 
             class="@if ($active == 'Beranda') text-[#3886A3] font-semibold border-b-2 border-[#3886A3] 
                 @else text-gray-600 font-semibold @endif">
@@ -36,11 +36,11 @@
         <a href="#" 
             class="@if ($active == '') text-[#3886A3] font-semibold border-b-2 border-[#3886A3] 
                 @else text-gray-600 font-semibold @endif">
-            Karir
+            Karier
         </a>
         <div>
             <button class="bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-black font-medium py-2 px-6 rounded-full">
-                Hubungi Kami
+                Ajukan Kolaborasi
             </button>
         </div>
     </div>
@@ -66,10 +66,10 @@
     <a href="#" 
         class="@if ($active == '') block text-[#3886A3] font-medium text-2xl py-4 
             @else block text-gray-600 font-medium text-2xl py-4 @endif">
-        Karir
+        Karier
     </a>
     <button class="bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-black font-medium py-2 px-6 rounded-full mt-8">
-        Hubungi Kami
+        Ajukan Kolaborasi
     </button>
     <button id="closeMenu" class="absolute top-4 right-4 text-gray-600 focus:outline-none">
         <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
