@@ -1,5 +1,5 @@
 let valueDisplays = document.querySelectorAll(".num");
-let interval = 3000;
+let interval = 5000;
 
 valueDisplays.forEach((valueDisplay) => {
   let startValue = 0;
@@ -111,46 +111,3 @@ var swiper = new Swiper("#swiperTestimoni", {
         }
     }
 });
-
-// Swiper Testimoni Berbinar
-// var swiper = new Swiper(".swiperTestimoni", {
-//     slidesPerView: 3,  
-//     spaceBetween: 10, 
-//     pagination: {
-//         el: ".swiper-pagination.testimoni",
-//         clickable: true,
-//     },
-//     freeMode: true,
-//     mousewheel: {
-//         forceToAxis: true, 
-//         releaseOnEdges: true, 
-//     },
-//     autoplay: {
-//         delay: 3000,  
-//         disableOnInteraction: false, 
-//     },
-//     speed: 1000, 
-//     loop: true, 
-//     breakpoints: {
-//         640: {
-//             slidesPerView: 2,
-//             spaceBetween: 10,
-//         },
-//         768: {
-//             slidesPerView: 3,
-//             spaceBetween: 10,
-//         },
-//         1024: {
-//             slidesPerView: 3,
-//             spaceBetween: 10,
-//         },
-//         // 1280: {
-//         //     slidesPerView: 3,
-//         //     spaceBetween: 30,
-//         // },
-//         // 1536: {
-//         //     slidesPerView: 4,
-//         //     spaceBetween: 30,
-//         // }
-//     }
-// });
