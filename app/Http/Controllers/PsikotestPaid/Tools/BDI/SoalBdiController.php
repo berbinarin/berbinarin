@@ -46,22 +46,17 @@ class SoalBdiController extends Controller
     {
         $nomorBdi = NomorBdi::where('nomor_bdi', $nomor)->first();
         if (!$nomorBdi) {
-            return response()->json([
-                'message' =>  "Nomor Tes BDI tidak Ditemukan",
-                'sucsess' => false
-            ], 404);
+            // Jika tidak ditemukan, redirect kembali dengan pesan error
+            return redirect()->back()->with('error', 'Nomor Tes BDI tidak Ditemukan');
         }
         $soalBdi = SoalBdi::where('nomor_bdi_id', $nomorBdi->id)->get();
         if ($soalBdi->isEmpty()) {
-            return response()->json([
-                'succes' => false,
-                'message' => 'Soal Tes BDI tidak ditemukan'
-            ]);
+            return redirect()->back()->with('error', 'Soal Tes BDI tidak ditemukan');
         }
-        return response()->json([
-            'success' => true,
-            'nomor_bdi' => $nomorBdi->nomor_bdi,
-            'soal' => $soalBdi
+        // Kirim data nomor tes dan soal ke view yang sama
+        return view('psikotest-paid.tool.BDI.testbdi', [
+            'nomorBdi' => $nomorBdi,
+            'soalBdi'  => $soalBdi
         ]);
     }
 
@@ -86,15 +81,11 @@ class SoalBdiController extends Controller
             }
         }
         if ($hasil) {
-            return response()->json([
-                'success' => true,
-                'total_skor' => $totalSkor,
-                'hasil' => $hasil,
-            ]);
+            // Selain hasil dan totalSkor, jika perlu kamu juga bisa mengirim data nomor/soal
+            // Misalnya kita ingin mengirimkan kembali daftar nomor tes untuk melanjutkan
+            $nomorBdis = NomorBdi::with('SoalBdi')->get();
+            return view('psikotest-paid.tool.BDI.testbdi', compact('nomorBdis', 'totalSkor', 'hasil'));
         }
-        return response()->json([
-            'success' => false,
-            'message' => 'Hasil tidak ditemukan untuk skor ini.',
-        ], 404);
+        return redirect()->back()->with('error', 'Hasil tidak ditemukan untuk skor ini.');
     }
 }
