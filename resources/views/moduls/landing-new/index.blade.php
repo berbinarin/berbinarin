@@ -44,7 +44,7 @@
     <div class="absolute stats-mini max-sm:bottom-[-14rem] bottom-[-5rem] left-1/2 transform -translate-x-1/2 max-sm:w-[93%] max-md:w-[83%] max-lg:w-[88%] w-[75%] bg-white py-8 bg-opacity-85 backdrop-blur-sm max-sm:px-6 px-8 rounded-xl shadow-lg z-20">
         <div class="flex flex-row max-sm:flex-col justify-around text-center max-sm:space-x-0 max-sm:space-y-3 space-x-8">
             <div class="flex flex-col">
-                <span class="num max-sm:text-[33px] text-4xl font-bold text-black" data-val="16">00<span>+</span></span>
+                <span class="num max-sm:text-[33px] text-4xl font-bold text-black" data-val="28">00<span>+</span></span>
                 <span class="text-[#656C70] text-md max-sm:text-[15px]">Pakar dengan pengalaman yang profesional</span>
             </div>
             <div class="-py-8">
@@ -172,16 +172,16 @@
                 @foreach ($products as $product)
                 <div class="swiper-slide">
                     <div class="bg-white rounded-3xl shadow-md flex flex-col justify-center items-center text-center h-auto w-auto">
-                        <div class="bg-gradient-to-b from-[#75BADB] to-[#AFCFDA] flex justify-center py-7 max-sm:py-5 rounded-t-3xl w-full">
+                        <div class="bg-white flex justify-center py-7 max-sm:py-5 rounded-t-3xl w-full border-b">
                             <img src="{{ asset($product['vector']) }}" alt="{{ $product['produk'] }}" class="max-sm:h-[110px] max-md:h-[130px] h-36 w-auto">
                         </div>
 
                         <div class="max-sm:px-3 px-4 max-sm:py-3 py-4 text-center flex flex-col flex-grow">
                             <h2 class="max-sm:text-[16px] text-[17px] font-semibold text-black items-center justify-center flex">{{ $product['produk'] }}</h2>
-                            <p class="max-sm:mt-2 mt-3 max-md:text-sm text-[15px] text-[#70787D] max-sm:leading-tight max-lg:min-h-[90px] min-h-[75px]">
+                            <p class="max-sm:mt-2 mt-3 text-[14px] text-[#70787D] max-sm:leading-tight max-lg:min-h-[90px] min-h-[75px]">
                                 {{ $product['deskripsi'] }}
                             </p>
-                            <a href="#" class="max-md:mt-4 mt-4 bg-[#75BADB] text-white rounded-full max-sm:w-full font-semibold text-sm max-sm:text-[13px] px-4 py-2 shadow self-center">
+                            <a href="{{ $product['link'] }}" class="max-md:mt-4 mt-4 bg-[#75BADB] text-white rounded-full max-sm:w-full font-semibold text-sm max-sm:text-[13px] px-4 py-2 shadow self-center">
                                 Pelajari Selengkapnya
                             </a>
                         </div>
@@ -209,18 +209,15 @@
                         <img src="{{ asset('assets/images/landing/vector-kutip.png') }}" alt="Kutip" class="max-sm:h-7 h-8 w-auto">
     
                         <div class="pt-4 text-center flex flex-col flex-grow">
-                            <p class="max-sm:text-[15px] max-sm:leading-tight max-md:leading-snug text-[16px] text-black font-medium flex-grow text-justify max-lg:min-h-[144px] min-h-[120px]">
+                            <p class="max-sm:text-[14px] max-sm:leading-tight leading-snug text-[16px] text-black font-medium flex-grow text-justify max-sm:min-h-[175px] max-lg:min-h-[220px] max-md:min-h-[198px] min-h-[198px]">
                                 {{ $testimoni['comment'] }}
                             </p>
                         </div>
                         
-                        <div class="flex flex-col items-center max-sm:mt-1 mt-5 max-lg:mt-2 text-center">
+                        <div class="flex flex-col items-center max-sm:mt-1 mt-4 max-lg:mt-2 text-center">
                             <img src="{{ asset($testimoni['image']) }}" alt="Kutip" class="max-sm:h-14 h-[70px] w-auto rounded-full">
-                            <p class="max-sm:text-[15px] text-[17px] text-black font-semibold">
+                            <p class="max-sm:text-[15px] mt-1 text-[17px] text-black font-semibold">
                                 {{ $testimoni['name'] }}
-                            </p>
-                            <p class="text-sm max-sm:text-[13px] text-[#70787D]">
-                                {{ $testimoni['division'] }}
                             </p>
                         </div>
                     </div>
