@@ -71,15 +71,12 @@ use App\Http\Controllers\KeluargaBerbinar\DataJabatanController;
 Route::get('/', [LandingController::class, 'index'])->name('home');
 
 Route::get('/landing-new', [LandingController::class, 'landing_new'])->name('home-new');
-Route::get('/tentang-new', [LandingController::class, 'tentang_new'])->name('tentang-new');
 Route::get('/produk-new', [LandingController::class, 'produk_new'])->name('produk-new');
+Route::get('/karir-new', [LandingController::class, 'karir_new'])->name('karir-new');
 Route::get('/konseling-new', [LandingController::class, 'konseling_new'])->name('konseling-new');
 Route::get('/psikotest-new', [LandingController::class, 'psikotest_new'])->name('psikotest-new');
 Route::get('/kelas-new', [LandingController::class, 'kelas_new'])->name('kelas-new');
-Route::get('/consulting-new', [LandingController::class, 'consulting_new'])->name('consulting-new');
-Route::get('/faq-new', [LandingController::class, 'faq_new'])->name('faq-new');
-Route::get('/term-condition-new', [LandingController::class, 'term_condition_new'])->name('term-condition-new');
-Route::get('/privacy-policy-new', [LandingController::class, 'privacy_policy_new'])->name('privacy-policy-new');
+Route::get('/tentang-new', [LandingController::class, 'tentang_new'])->name('tentang-new');
 
 
 Route::get('/about-us', [LandingController::class, 'tentangKami'])->name('about');
