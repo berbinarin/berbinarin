@@ -57,7 +57,12 @@ class DatabaseSeeder extends Seeder
             LevelEducationSeeder::class,
             FamilyStatusSeeder::class,
             QuestionCategorySeeder::class,
-            QuestionEsssaySeeder::class
+            QuestionEsssaySeeder::class,
+
+            // Data test
+            UserInternshipSeeder::class,
+            NomorBdiSeeder::class,
+            SoalBdiSeeder::class
         ]);
     }
 }

@@ -3,7 +3,7 @@
 }
 
 #swiperProduk {
-    width: 970px; 
+    width: 900px; 
     margin: 20px auto;
     overflow: hidden;
 
@@ -106,7 +106,7 @@
     }
 
     #swiperTestimoni {
-        width: 500px;
+        width: 510px;
     }
 
     .bg-hero {
@@ -120,7 +120,7 @@
     }
 
     #swiperTestimoni {
-        width: 550px;
+        width: 580px;
     }
 
     .swiperContainer {
@@ -128,19 +128,6 @@
         margin: 0px 80px;
     }
 }
-
-/* @media (max-width: 768px) { 
-    .swiper-container.swiperTestimoni {
-        margin: 20px 20px;
-        overflow: hidden;
-        padding-bottom: 10px;
-    }
-
-    .swiper-slide.testimoni {
-        min-width: 250px; 
-        flex-shrink: 0;
-    }
-} */
 
 @media (min-width: 768px) and (max-width: 992px) {
     #swiperProduk {
@@ -148,8 +135,15 @@
         margin: 20px auto;
     }
 
+    .swiperContainer {
+        overflow: hidden;
+        margin: 0px 80px;
+    }
+}
+
+@media (min-width:768px) and (max-width: 1024px) { 
     #swiperTestimoni {
-        width: 800px; 
+        width: 850px; 
         margin: 20px auto;
     }
 
@@ -158,19 +152,6 @@
         margin: 0px 80px;
     }
 }
-
-/* @media (max-width: 1024px) { 
-    .swiper-container.swiperTestimoni {
-        margin: 20px 40px;
-        overflow: hidden;
-        padding-bottom: 10px;
-    }
-
-    .swiper-slide.testimoni {
-        min-width: 250px; 
-        flex-shrink: 0;
-    }
-} */
 
 @media (min-width: 1280px) { 
 

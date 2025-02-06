@@ -71,12 +71,15 @@ use App\Http\Controllers\KeluargaBerbinar\DataJabatanController;
 Route::get('/', [LandingController::class, 'index'])->name('home');
 
 Route::get('/landing-new', [LandingController::class, 'landing_new'])->name('home-new');
+Route::get('/tentang-new', [LandingController::class, 'tentang_new'])->name('tentang-new');
 Route::get('/produk-new', [LandingController::class, 'produk_new'])->name('produk-new');
-Route::get('/karir-new', [LandingController::class, 'karir_new'])->name('karir-new');
 Route::get('/konseling-new', [LandingController::class, 'konseling_new'])->name('konseling-new');
 Route::get('/psikotest-new', [LandingController::class, 'psikotest_new'])->name('psikotest-new');
 Route::get('/kelas-new', [LandingController::class, 'kelas_new'])->name('kelas-new');
-Route::get('/tentang-new', [LandingController::class, 'tentang_new'])->name('tentang-new');
+Route::get('/consulting-new', [LandingController::class, 'consulting_new'])->name('consulting-new');
+Route::get('/faq-new', [LandingController::class, 'faq_new'])->name('faq-new');
+Route::get('/term-condition-new', [LandingController::class, 'term_condition_new'])->name('term-condition-new');
+Route::get('/privacy-policy-new', [LandingController::class, 'privacy_policy_new'])->name('privacy-policy-new');
 
 
 Route::get('/about-us', [LandingController::class, 'tentangKami'])->name('about');
@@ -255,6 +258,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin/positions', [DashboardController::class, 'positions'])->name('dashboard.positions');
     Route::get('/dashboard/admin/positions/edit/{id}', [DashboardController::class, 'editPositions']);
 
+    // MODUL KELUARGA BERBINAR
+    Route::get('/dashboard/admin/berbinar-family', [DashboardController::class, 'berbinarFamily'])->name('dashboard.berbinarFamily');
+    Route::get('/dashboard/admin/berbinar-family/add', [DashboardController::class, 'addBerbinarFamily'])->name('dashboard.berbinarFamily.add');
+    Route::get('/dashboard/admin/berbinar-family/details', [DashboardController::class, 'detailBerbinarFamily'])->name('dashboard.berbinarFamily.details'); // yang ini ntar ada tab layoutnya
+
+    // MODUL MANAGE DIVISION
+    Route::get('/dashboard/admin/manage-division', [DashboardController::class, 'manageDivision'])->name('dashboard.manageDivision');
+    Route::get('/dashboard/admin/manage-division/add', [DashboardController::class, 'addManageDivision'])->name('dashboard.manageDivision.add');
+    Route::get('/dashboard/admin/manage-division/details', [DashboardController::class, 'detailManageDivision'])->name('dashboard.manageDivision.details');
+
     // MODUL INTERNSHIP
     Route::get('/dashboard/admin/internship', [DashboardController::class, 'internship'])->name('dashboard.internship');
     Route::patch('/dashboard/admin/internship/setProcess/{id}', [UserInternshipController::class, 'SetProcess'])->name('dashboard.internship.setProcess');
@@ -409,7 +422,11 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::get('/tool/DAP/summary/{testId}', [DAPController::class, 'showSummary'])->name('psikotest-paid.tool.DAP.summary');
         
         // TES HTP
-        Route::get('/tool/HTP', [HTPController::class, 'showLanding'])->name('psikotest-paid.tool.HTP.showLanding');
+        Route::get('/tool/HTP/A', [HTPController::class, 'showLanding'])->name('psikotest-paid.tool.HTP.showLanding');
+        Route::get('/tool/HTP/B', [HTPController::class, 'instruksi_b'])->name('psikotest-paid.tool.HTP.instruksi_b');
+        Route::get('/tool/HTP/C', [HTPController::class, 'instruksi_c'])->name('psikotest-paid.tool.HTP.instruksi_c');
+        Route::get('/tool/HTP/D', [HTPController::class, 'instruksi_d'])->name('psikotest-paid.tool.HTP.instruksi_d');
+        Route::get('/tool/HTP/summary', [HTPController::class, 'summary'])->name('psikotest-paid.tool.HTP.summary');
         
         // TES SSCT
         Route::get('/tool/SSCT', [SSCTController::class, 'showLanding'])->name('psikotest-paid.tool.SSCT.showLanding');
@@ -448,9 +465,9 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::put('/papi-kostick/soal/{id}', [DashboardPapiKostickController::class, 'updateSoal'])->name('papi-kostick.update-soal');
         
         // BDI
-        Route::get('/tool/BDI', [LandingController::class, 'LandingBDI'])->name('psikotest-paid.tool.BDI.landingbdi');
-        Route::get('/tool/BDI/test', [LandingController::class, 'TestBDI'])->name('psikotest-paid.tool.BDI.testbdi');
-        Route::get('/tool/BDI/end/', [LandingController::class, 'EndBDI'])->name('psikotest-paid.tool.BDI.endbdi');
+        Route::get('/tool/BDI', [LandingController::class, 'LandingBDI'])->name('psikotest-paid.tool.BDI.showLanding');
+        // Route::get('/tool/BDI/test', [LandingController::class, 'TestBDI'])->name('psikotest-paid.tool.BDI.testbdi');
+        // Route::get('/tool/BDI/end/', [LandingController::class, 'EndBDI'])->name('psikotest-paid.tool.BDI.endbdi');
         
         // BIODATA
         // Perusahaan
@@ -620,7 +637,7 @@ Route::prefix('api')->group(function () {
     Route::get('/soal', [SoalBdiController::class, 'index']); // Get all soal and nomor BDI
     Route::post('/soal', [SoalBdiController::class, 'store']); // Add new soal
     Route::get('/soal/{nomor}', [SoalBdiController::class, 'getSoalByNomor']); // Get soal by nomor
-    Route::post('/soal/hitung-hasil', [SoalBdiController::class, 'hitungHasil']); // Calculate hasil based on jawaban
+    Route::post('/soal/hitung-hasil', [SoalBdiController::class, 'hitungHasil'])->name('psikotest-paid.tool.BDI.testbdi'); // Calculate hasil based on jawaban
 
     // Skor BDI Routes
     Route::post('/skor', [SkorBdiController::class, 'store']); // Add new skor

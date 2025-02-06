@@ -74,19 +74,19 @@ class DashboardUserController extends Controller
     // Dashboard Papikostick
     public function dashboardPapikostick()
     {
-        return view('moduls.dashboard.psikotes-paid.dashboardPapikostick');
+        return view('moduls.dashboard.psikotes-paid.tools.papikostick.dashboardPapikostick');
     }
     public function papikostick()
     {
-        return view('moduls.dashboard.psikotes-paid.papikostick');
+        return view('moduls.dashboard.psikotes-paid.tools.papikostick.papikostick');
     }
     public function psikotestData()
     {
-        return view('moduls.dashboard.psikotes-paid.psikotestData');
+        return view('moduls.dashboard.psikotes-paid.tools.papikostick.psikotestData');
     }
     public function psikotestSoal()
     {
-        return view('moduls.dashboard.psikotes-paid.psikotestSoal');
+        return view('moduls.dashboard.psikotes-paid.tools.papikostick.psikotestSoal');
     }
 
     public function userDetail($id)
