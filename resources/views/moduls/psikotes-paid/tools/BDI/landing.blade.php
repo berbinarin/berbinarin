@@ -32,9 +32,7 @@
     </p>
 
     <div class="mb-2 flex justify-center gap-6 mt-8">
-      <a href="{{ route(
-      // 'psikotest-paid.tool.BDI.testbdi'
-      ) }}">
+      <a href="{{ route('psikotest-paid.tool.BDI.testbdi') }}">
         <button type="button" class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
             Selanjutnya
         </button>

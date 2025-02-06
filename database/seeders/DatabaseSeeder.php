@@ -60,9 +60,7 @@ class DatabaseSeeder extends Seeder
             QuestionEsssaySeeder::class,
 
             // Data test
-            UserInternshipSeeder::class,
-            NomorBdiSeeder::class,
-            SoalBdiSeeder::class
+            UserInternshipSeeder::class
         ]);
     }
 }

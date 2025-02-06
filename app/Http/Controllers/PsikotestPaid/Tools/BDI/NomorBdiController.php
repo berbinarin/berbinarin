@@ -21,11 +21,14 @@ class NomorBdiController extends Controller
             $nomorBdi = NomorBdi::create([
                 'nomor_bdi' => $request->nomor_bdi
             ]);
-            // Redirect kembali dengan pesan sukses (bisa juga mengembalikan view)
-            return redirect()->back()->with('success', 'Nomor BDI berhasil ditambahkan!');
+            return response()->json([
+                'message' => 'Nomor BDI berhasil ditambahkan!',
+                'nomorPsikotes' => $nomorBdi,
+                'succes ' => TRUE,
+            ], 201);
         }
-        $nomorBdis = NomorBdi::with('SoalBdi')->get();
-
-        return view('moduls.psikotes-paid.tools.bdi.test', compact('nomorBdis'));
+        return response()->json([
+            'nomorPsikotes' => $nomorBdis
+        ]);
     }
 }

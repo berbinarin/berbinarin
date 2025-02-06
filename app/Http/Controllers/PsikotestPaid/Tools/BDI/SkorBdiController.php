@@ -20,6 +20,10 @@ class SkorBdiController extends Controller
             'skor' => $validated['skor'],
             'hasil' => $validated['hasil']
         ]);
-            return redirect()->back()->with('success', $skor, );
+        return response()->json([
+            'succes' => true,
+            'message' => 'Hasil Dari Tes BDI',
+            'data' => $skor
+        ], 201);
     }
 }

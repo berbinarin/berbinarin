@@ -26,7 +26,7 @@
           A.
         </p>
         <p class="text-black ">
-          Sebelum masuk ke subtes selanjutnya, silahkan kesampingkan dulu kertas yang pertama dan kertas kedua. Kemudian silahkan ambil kertas HVS yang ketiga. pastikan bahwa kertas tersebut telah terisi identitas.
+            Silahkan kesampingkan dulu kertas yang pertama. Kemudian silahkan ambil kertas HVS yang kedua, pastikan bahwa kertas tersebut telah terisi identitas.
         </p>
     </div>
 
