@@ -41,7 +41,7 @@
   </div>
 
   <p class="font-bold text-2xl text-center text-gray-800 mt-0 z-20 relative">Tes 13</p>
-  <p class="font-bold text-sm text-center text-gray-800 mt-0 z-20 relative">Pertanyaan {{ $question_order }}</p>
+  {{-- <p class="font-bold text-sm text-center text-gray-800 mt-0 z-20 relative">Pertanyaan {{ $question_order }}</p> --}}
   <p class="font-bold text-sm text-center text-gray-800 mt-0 z-20 relative">Progress: {{ $progress }}%</p>
 
   <!-- Card Transparant -->
@@ -142,7 +142,8 @@
       let seconds = Math.floor((remaining / 1000) % 60);
       if (minutes < 10) { minutes = `0${minutes}`; }
       if (seconds < 10) { seconds = `0${seconds}`; }
-      timerElement.innerHTML = `${minutes}:${seconds}`;
+      console.log("Waktu sisa",minutes+ '' + seconds)
+      // timerElement.innerHTML = `${minutes}:${seconds}`;
     } else {
       // WAKTU HABIS -> Submit otomatis
       timerElement.innerHTML = 'Waktu habis. Mengirim otomatis...';

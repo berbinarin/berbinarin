@@ -51,10 +51,10 @@
   </div>
 
   <p class="font-bold text-2xl text-center text-gray-800 mt-0 z-20 relative">Tes 17</p>
-  <p class="text-sm text-center text-gray-800 mt-0 z-20 relative">Soal {{ session('current_question_number', 1) }} dari 6</p>
+  {{-- <p class="text-sm text-center text-gray-800 mt-0 z-20 relative">Soal {{ session('current_question_number', 1) }} dari 6</p>
 
   <!-- Timer Display -->
-  <div id="timer" class="text-center mb-6 relative">Waktu Tersisa:</div>
+  <div id="timer" class="text-center mb-6 relative">Waktu Tersisa:</div> --}}
 
   <div class="relative text-center z-10 w-3xl mx-auto p-7 mt-8" style="width: 750px;">
     <form id="question-form" action="{{ route('psikotest-paid.tool.Tes Esai.submitAnswer') }}" method="POST">
@@ -142,7 +142,9 @@
 
     const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
-    timerElement.innerHTML = `Waktu Tersisa: ${minutes}m ${seconds}s`;
+
+    console.log("Waktu sisa",minutes+ '' + seconds)
+    // timerElement.innerHTML = `Waktu Tersisa: ${minutes}m ${seconds}s`;
   }, 1000);
 
   submitButton.addEventListener('click', () => {

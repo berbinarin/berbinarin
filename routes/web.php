@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PsikotestPaid\Tools\EPI\EPIController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
@@ -424,6 +425,11 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::get('/tool/HTP/C', [HTPController::class, 'instruksi_c'])->name('psikotest-paid.tool.HTP.instruksi_c');
         Route::get('/tool/HTP/D', [HTPController::class, 'instruksi_d'])->name('psikotest-paid.tool.HTP.instruksi_d');
         Route::get('/tool/HTP/summary', [HTPController::class, 'summary'])->name('psikotest-paid.tool.HTP.summary');
+
+        // TES EPI
+        Route::get('/tool/EPI', [EPIController::class, 'showLanding'])->name('psikotest-paid.tool.EPI.showLanding');
+        Route::get('/tool/EPI/test', [EPIController::class, 'test'])->name('psikotest-paid.tool.EPI.test');
+        Route::get('/tool/EPI/summary', [EPIController::class, 'summary'])->name('psikotest-paid.tool.EPI.summary');
         
         // TES SSCT
         Route::get('/tool/SSCT', [SSCTController::class, 'showLanding'])->name('psikotest-paid.tool.SSCT.showLanding');

@@ -40,11 +40,12 @@
   </div>
 
   <p class="font-bold text-2xl text-center text-gray-800 mt-0 z-20 relative">Tes 07</p>
-  <h2 class="font-bold text-sm text-center text-gray-800 mt-0 z-20 relative">Soal {{ session('current_question_number', 1) }} dari 44</h2>
+  {{-- <h2 class="font-bold text-sm text-center text-gray-800 mt-0 z-20 relative">Soal {{ session('current_question_number', 1) }} dari 44</h2> --}}
 
-  <div class="mt-4 mb-2 text-center z-20">
+  {{-- Timer --}}
+  {{-- <div class="mt-4 mb-2 text-center z-20">
     <span id="timer" class="text-xl font-semibold text-red-600"></span>
-  </div>
+  </div> --}}
 
   <!-- Card Transparant -->
     <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-7 mt-8" style="width: 750px;">
@@ -152,7 +153,9 @@ const timerInterval = setInterval(() => {
     const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
 
-    timerElement.innerHTML = `Waktu Tersisa: ${minutes}m ${seconds}s`;
+    console.log("Waktu sisa",minutes+ '' + seconds)
+
+    // timerElement.innerHTML = `Waktu Tersisa: ${minutes}m ${seconds}s`;
 }, 1000);
 </script>
 @endsection

@@ -6,7 +6,6 @@
 @section('content')
 <div class="relative h-11/12 md:min-h-screen flex flex-col items-center bg-gray-100 justify-center">
 
-    <!-- bg-internship -->
     <img src="{{ asset('assets/images/psikotes/paid/psikotest-soal-bg.png') }}" alt="Latar Belakang Berbinar"
         class="absolute inset-0 hidden md:block md:w-full md:h-full object-cover z-0">
 
@@ -45,20 +44,17 @@
             <label for="file-upload" class="flex flex-col items-center justify-center w-full h-48 rounded-xl 
                border-2 border-dashed border-blue-500 bg-blue-50
                cursor-pointer hover:bg-blue-100 transition-colors duration-200">
-                <!-- Ikon (bisa diganti Font Icon atau SVG lain) -->
                 <svg class="w-12 h-12 text-blue-400 mb-2" fill="none" stroke="currentColor" stroke-width="1.5"
                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M3 16.5v-1.75a2.75 2.75 0 012.75-2.75h3.75A2.75 2.75 0 0112 12.75v1.75h-4.5a1.25 1.25 0 000 2.5h4.5v1.75a2.75 2.75 0 01-2.75 2.75H5.75A2.75 2.75 0 013 19.25v-1.75zm18 1.75v-1.75a2.75 2.75 0 00-2.75-2.75h-3.75A2.75 2.75 0 0012 16.5v1.75h4.5a1.25 1.25 0 010 2.5H12v1.75a2.75 2.75 0 002.75 2.75h3.75A2.75 2.75 0 0021 22.25v-1.75z" />
                 </svg>
 
-                <!-- Span yang akan diubah menjadi nama file -->
                 <span id="uploadText" class="font-semibold text-blue-600 underline">
                     Click to Upload or Drag & Drop
                 </span>
                 <span class="text-xs text-gray-400">Max. File Size: 15MB</span>
 
-                <!-- Input file disembunyikan, panggil fungsi showFilename() saat 'change' -->
                 <input id="file-upload" type="file" class="hidden" onchange="showFilename()" />
             </label>
         </div>
@@ -73,17 +69,14 @@
         </div>
     </div>
 </div>
-{{-- Script JS sederhana untuk menampilkan nama file --}}
 <script>
     function showFilename() {
         const input = document.getElementById('file-upload');
         const uploadText = document.getElementById('uploadText');
 
         if (input.files && input.files.length > 0) {
-            // Menampilkan nama file yang pertama dipilih
             uploadText.textContent = input.files[0].name;
         } else {
-            // Jika tidak ada file yang dipilih, kembalikan teks default
             uploadText.textContent = "Click to Upload or Drag & Drop";
         }
     }
