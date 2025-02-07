@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap");
 @import "swiper/swiper-bundle.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
-
+.year-active {
+    @apply text-primary bg-white border-3 border-primary shadow-lg;
+}
 
 @keyframes slide {
     from {

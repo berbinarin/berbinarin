@@ -284,6 +284,35 @@ class LandingController extends Controller
         ]);
     }
 
+    function getAvailableDivisionsPerYear($data): array
+    {
+        $divisionsPerYear = [];
+
+        foreach ($data as $staff) {
+            // Extract the year from date_start
+            $year = explode(' ', $staff['date_start'])[1];
+
+            // Initialize the array if the year is not set yet
+            if (!isset($divisionsPerYear[$year])) {
+                $divisionsPerYear[$year] = [];
+            }
+
+            // Add the division to the year if it's not already added
+            if (!in_array($staff['division'], $divisionsPerYear[$year])) {
+                $divisionsPerYear[$year][] = $staff['division'];
+            }
+        }
+
+        // Sort divisions for each year
+        foreach ($divisionsPerYear as &$divisions) {
+            sort($divisions);
+        }
+
+        // Sort years
+        ksort($divisionsPerYear);
+
+        return $divisionsPerYear;
+    }
     public function keluarga_berbinar(Request $request)
     {
 
@@ -338,7 +367,14 @@ class LandingController extends Controller
         //liststaff
         $staffList = $data['dataStaff'] ?? [];
 
-        return view('moduls.landing-new.keluarga-berbinar')->with(['divisi' => $divisi, 'listStaff' => $data] );
+        //available year, e.g ["2019", "2020", "2021"], dummy data start from 2022
+        $availableYears = collect(array_map(fn($staff) => explode(' ', $staff['date_start'])[1], $data))->unique()->sort()->values()->all();
+        $availableDivision = $this->getAvailableDivisionsPerYear($data);
+
+
+
+        return view('moduls.landing-new.keluarga-berbinar')->with(['divisi' => $divisi, 'listStaff' => $data,
+            'availableYears' => $availableYears, 'availableDivision' => $availableDivision]);
     }
 
 
