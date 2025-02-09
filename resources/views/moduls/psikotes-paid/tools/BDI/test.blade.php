@@ -94,9 +94,6 @@
 </div>
 
 <script>
-  // Tambahkan event listener untuk radio button agar:
-  // 1. Menampilkan checkmark pada opsi yang dipilih
-  // 2. Mengisi hidden input 'selected_bobot' dengan nilai bobot dari opsi terpilih
   document.querySelectorAll('input[type="radio"]').forEach(radio => {
       radio.addEventListener('change', function() {
           // Sembunyikan semua checkmark
@@ -104,16 +101,13 @@
               checkmark.classList.add('hidden');
           });
 
-          // Tampilkan checkmark untuk opsi yang dipilih
           if (this.checked) {
               this.closest('label').querySelector('.checkmark').classList.remove('hidden');
-              // Set nilai bobot ke hidden input
               document.getElementById('selected_bobot').value = this.getAttribute('data-bobot');
           }
       });
   });
 
-  // Tambahkan efek hover untuk tiap kartu (card)
   document.querySelectorAll('.card').forEach(card => {
       card.addEventListener('mouseover', function() {
           this.style.transform = 'scale(1.03)';
