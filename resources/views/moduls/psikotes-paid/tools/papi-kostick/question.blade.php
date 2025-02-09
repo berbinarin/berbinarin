@@ -22,15 +22,16 @@
                         class="w-8 h-8 rounded-full ml-2">
                 </div>
             </div>
+            <h1>Test 01</h1>
 
             <!-- Main Content Area -->
             <div class="relative z-10 w-3xl mx-auto bg-none rounded-lg p-6 mt-20" style="width: 750px;">
 
                 <!-- Question Number Circle -->
-                <div
+                {{-- <div
                     class="absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/2 bg-amber-500 text-white rounded-full h-12 w-12 flex items-center justify-center text-lg font-bold">
                     {{ $question_order }}
-                </div>
+                </div> --}}
 
 <!-- Blue and Orange Cards in Horizontal Layout -->
 <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
@@ -102,7 +103,7 @@
         </div>
 
                 <!-- Percentage Line and Next Button -->
-                <div class="flex bg-white rounded-md items-center justify-between mt-24"
+                <div class="flex bg-white rounded-md items-center justify-between mt-10"
                     style="height: 40px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                     <div class="flex items-center ml-6" style="height: 3px; width: 510px; position: relative;">
                         <!-- Black background line -->
@@ -149,7 +150,9 @@
         const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
 
-        timerElement.innerHTML = `Waktu Tersisa: ${minutes}m ${seconds}s`;
+        console.log("Waktu sisa",minutes+ '' + seconds)
+
+        // timerElement.innerHTML = `Waktu Tersisa: ${minutes}m ${seconds}s`;
     }, 1000);
 </script>
 @endsection

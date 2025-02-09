@@ -46,7 +46,6 @@ class SoalBdiController extends Controller
     {
         $nomorBdi = NomorBdi::where('nomor_bdi', $nomor)->first();
         if (!$nomorBdi) {
-            // Jika tidak ditemukan, redirect kembali dengan pesan error
             return redirect()->back()->with('error', 'Nomor Tes BDI tidak Ditemukan');
         }
         $soalBdi = SoalBdi::where('nomor_bdi_id', $nomorBdi->id)->get();
@@ -81,8 +80,6 @@ class SoalBdiController extends Controller
             }
         }
         if ($hasil) {
-            // Selain hasil dan totalSkor, jika perlu kamu juga bisa mengirim data nomor/soal
-            // Misalnya kita ingin mengirimkan kembali daftar nomor tes untuk melanjutkan
             $nomorBdis = NomorBdi::with('SoalBdi')->get();
             return view('psikotest-paid.tool.BDI.testbdi', compact('nomorBdis', 'totalSkor', 'hasil'));
         }

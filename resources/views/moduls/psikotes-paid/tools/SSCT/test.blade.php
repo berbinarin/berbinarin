@@ -51,11 +51,11 @@
   </div>
 
   <p class="font-bold text-2xl text-center text-gray-800 mt-0 z-20 relative">Tes 05</p>
-  <p class="text-sm text-center text-gray-800 mt-0 z-20 relative">Soal {{ session('current_question_number', 1) }} dari 60</p>
+  {{-- <p class="text-sm text-center text-gray-800 mt-0 z-20 relative">Soal {{ session('current_question_number', 1) }} dari 60</p>
 
   <div class="mt-4 mb-2 text-center z-20">
     <span id="timer" class="text-xl font-semibold text-red-600"></span>
-  </div>
+  </div> --}}
 
   <div class="relative text-center z-10 w-3xl mx-auto p-7 mt-8" style="width: 750px;">
     <form id="autoSubmitForm" action="{{ route('psikotest-paid.tool.SSCT.submitAnswer') }}" method="POST">
@@ -103,7 +103,9 @@ const timerInterval = setInterval(() => {
     const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
 
-    timerElement.innerHTML = `Waktu Tersisa: ${minutes}m ${seconds}s`;
+    console.log("Waktu sisa",minutes+ '' + seconds)
+
+    // timerElement.innerHTML = `Waktu Tersisa: ${minutes}m ${seconds}s`;
 }, 1000);
 </script>
 @endsection

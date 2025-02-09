@@ -20,9 +20,9 @@
   <p class="font-bold text-2xl text-center text-gray-800 mt-16 z-20 relative">Tes 02</p>
 
   <!-- Timer -->
-  <div class="mt-4 mb-2 text-center z-20">
+  {{-- <div class="mt-4 mb-2 text-center z-20">
     <span id="timer" class="text-xl font-semibold text-red-600"></span>
-  </div>
+  </div> --}}
 
   <!-- Card Transparant -->
   <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-6 mt-4 " style="width: 750px;">
@@ -100,7 +100,9 @@
         const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
 
-        timerElement.innerHTML = `Waktu Tersisa: ${minutes}m ${seconds}s`;
+        console.log("Waktu sisa",minutes+ '' + seconds)
+
+        // timerElement.innerHTML = `Waktu Tersisa: ${minutes}m ${seconds}s`;
     }, 1000);
 
     function showTimeoutModal() {
