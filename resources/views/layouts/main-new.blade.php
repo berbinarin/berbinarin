@@ -22,6 +22,11 @@
     <link rel="stylesheet" href="{{ asset('assets/css/landing/beranda.css') }}">
     @endif
 
+    {{-- Css Tentang Kami --}}
+    @if ($page === 'Tentang Kami')
+    <link rel="stylesheet" href="{{ asset('assets/css/landing/tentang.css') }}">
+    @endif
+
     {{-- Css Produk Berbinar --}}
     @if ($page === 'Produk Berbinar')
     <link rel="stylesheet" href="{{ asset('assets/css/landing/produk.css') }}">
@@ -42,6 +47,11 @@
     <link rel="stylesheet" href="{{ asset('assets/css/landing/kelas.css') }}">
     @endif
 
+    {{-- Css Produk Consulting --}}
+    @if ($page === 'Consulting')
+    <link rel="stylesheet" href="{{ asset('assets/css/landing/consulting.css') }}">
+    @endif
+
 </head>
 <body class="relative overflow-x-hidden w-full">
     @include('layouts.navbar-new')
@@ -58,6 +68,11 @@
     {{-- Script Beranda --}}
     @if ($page === 'Beranda')
     <script src="{{ asset('assets/js/landing/beranda.js') }}"></script>
+    @endif
+
+    {{-- Script Tentang Kami --}}
+    @if ($page === 'Tentang Kami')
+    <script src="{{ asset('assets/js/landing/tentang.js') }}"></script>
     @endif
 
     {{-- Script Produk Berbinar --}}
@@ -78,6 +93,11 @@
     {{-- Script Produk Kelas --}}
     @if ($page === 'Kelas')
     <script src="{{ asset('assets/js/landing/kelas.js') }}"></script>
+    @endif
+
+    {{-- Script Produk Kelas --}}
+    @if ($page === 'Consulting')
+    <script src="{{ asset('assets/js/landing/consulting.js') }}"></script>
     @endif
 </body>
 </html>
