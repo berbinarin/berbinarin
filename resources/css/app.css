@@ -11,6 +11,14 @@
     @apply text-primary bg-white border-3 border-primary shadow-lg;
 }
 
+.division-active {
+    @apply text-white bg-gradient-to-r from-[#F7B23B] to-[#916823];
+}
+
+.subdivision-active {
+    @apply text-primary bg-white border-primary;
+}
+
 @keyframes slide {
     from {
         transform: translateX(-10%);
