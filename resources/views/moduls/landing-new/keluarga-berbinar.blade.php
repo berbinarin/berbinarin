@@ -131,17 +131,15 @@
 
             {{--list staff--}}
             <div class="container mx-auto p-4 lg:py-4 lg:px-0">
-
-
                 {{--menu subdivisi dekstop--}}
                 <div class="hidden lg:block lg:w-full lg:mb-4">
                     <div id="lg-subdivision-container"
                          class="w-full mx-auto flex justify-start space-x-4 items-center mb-8">
                         {{--dynamic rendering for subdivision menu uf exist--}}
                     </div>
-                    <div
-                        class="w-full mx-auto flex justify-center items-center py-2 bg-primary font-semibold tracking-wide text-base text-white">
-                        UI/UX Designer
+                    <div id="subdivision-banner"
+                         class="hidden w-full mx-auto flex justify-center items-center py-2 bg-primary font-semibold tracking-wide text-base text-white">
+                        {{--dynamic renderin--}}
                     </div>
                 </div>
 
@@ -310,19 +308,23 @@
         //list divisi
         const availableDivision = @json($availableDivision);
 
-
         // selector menu divisi
         const divisionContainer = document.querySelector('#lg-division-container');
 
         // selector menu subdivisi
         const subdivisionContainer = document.querySelector(`#lg-subdivision-container`);
+        const subdivisionBanner = document.querySelector(`#subdivision-banner`);
+
 
         // initial key masing2 selector
         let previousSelectedKeyDivision = null;
         let previousSelectedKeySubdivision = null;
+
+        // desktop
         let previousSelectedKeyYears = 2; // 2024
         let previousSelectedKeyDivisionDesktop = 9; // webdev
         let previousSelectedKeySubdivisionDekstop = 0; // subdivisi pertama
+
 
         // value to apply filter
         let year_value = '';
@@ -331,40 +333,36 @@
 
         function updateYearValue(key) {
             year_value = document.querySelector(`#year-${key}`).textContent.trim();
-            // apply filter and re-render
+            trackChangingValueAccrossRenders();
         }
 
         function updateDivisionValue(key) {
             division_value = document.querySelector(`#division-${key}`).textContent.trim();
-            // apply filter and re-render
+            trackChangingValueAccrossRenders();
         }
 
         function updateSubdivisionValue(key) {
             subdivision_value = document.querySelector(`#subdivision-${key}`).textContent.trim();
+            handleShowSubdivisionBanner();
+            trackChangingValueAccrossRenders();
         }
 
 
-        // HANDLE DEFAULT VALUE
-        document.addEventListener("DOMContentLoaded", function () {
-            const defaultYearElement = document.querySelector(`#year-${previousSelectedKeyYears}`);
-            if (defaultYearElement) {
-                defaultYearElement.classList.add('year-active');
-                updateYearValue(previousSelectedKeyYears)
-            }
-            handleShowDivisionDesktop();
-            const defaultDivision = document.querySelector(`#division-${previousSelectedKeyDivisionDesktop}`);
-            if(defaultDivision){
-                defaultDivision.classList.add('division-active');
-                updateDivisionValue(previousSelectedKeyDivisionDesktop)
-            }
+        function trackChangingValueAccrossRenders() {
+            console.log(`current value for filtering: YEAR: ${year_value} , DIVISION: ${division_value}, SUB-DIVISION: ${subdivision_value}`);
+            console.log(`current key for rendering: YEAR: ${previousSelectedKeyYears}, DIVISION: ${previousSelectedKeyDivisionDesktop}, SUBDIVISION: ${previousSelectedKeySubdivisionDekstop}`)
+        }
 
-            handleShowSubdivisionDesktop();
-            const defaultSubdivision = document.querySelector(`#subdivision-${previousSelectedKeySubdivisionDekstop}`)
-            if(defaultDivision){
-                defaultSubdivision.classList.add('subdivision-active');
-            }
-        })
 
+        //event handler untuk show banner subdivisi
+        function handleShowSubdivisionBanner() {
+            if(previousSelectedKeySubdivisionDekstop !== null){
+                subdivisionBanner.classList.remove('hidden');
+                subdivisionBanner.textContent = subdivision_value;
+            }else {
+                subdivisionBanner.classList.add('hidden');
+            }
+        }
 
         //event handler untuk select subdivisi
         function handleSelectSubdividionDekstop(index) {
@@ -389,7 +387,11 @@
 
         //handle show subdivision menu if exist
         function handleShowSubdivisionDesktop() {
-
+            if (previousSelectedKeyDivisionDesktop === null) {
+                subdivisionContainer.classList.add('hidden');
+                return;
+            }
+            ;
             const current_subdivisions = availableDivision[`${year_value}`][previousSelectedKeyDivisionDesktop]['subdivision'];
             if (current_subdivisions.length === 0) {
                 subdivisionContainer.classList.add('hidden');
@@ -421,6 +423,11 @@
             // cek jika key previous selected sama dengan yang di select, kalau iya return
             if (previousSelectedKeyDivisionDesktop === index) return
 
+            // flush previous selected subdivision and key
+            subdivision_value = '';
+            previousSelectedKeySubdivisionDekstop = null;
+            handleShowSubdivisionBanner();
+
             // hapus styling untuk element yang diselect sebelumnya
             if (previousSelectedKeyDivisionDesktop !== null) {
                 const prevSelectedDivision = document.querySelector(`#division-${previousSelectedKeyDivisionDesktop}`);
@@ -438,11 +445,13 @@
             // set previous selected key dengan index terbaru
             previousSelectedKeyDivisionDesktop = index;
             updateDivisionValue(index);
-            handleShowSubdivisionDesktop(index);
+            handleShowSubdivisionDesktop();
         }
 
         //event handler untuk menampilkan list divisi yang ada di tahun itu
         function handleShowDivisionDesktop() {
+            handleShowSubdivisionDesktop();
+
             const current_divisions = availableDivision[year_value];
 
             divisionContainer.innerHTML = '';
@@ -466,9 +475,20 @@
             })
         }
 
-
+        // event handler untuk select years
         function handleSelectYears(yearsId, key) {
+            // if the same year dont do anything
             if (key === previousSelectedKeyYears) return
+
+            // flush for the division and subdivision
+            division_value = '';
+            previousSelectedKeyDivisionDesktop = null;
+            subdivision_value = '';
+            previousSelectedKeySubdivisionDekstop = null;
+
+            handleShowSubdivisionBanner();
+
+
             // check selectedYear sudah ada atau belum, kalau ada hilangkan style selected
             if (previousSelectedKeyYears !== null) {
                 const prevYear = document.querySelector(`#year-${previousSelectedKeyYears}`);
@@ -481,12 +501,34 @@
             if (currentYearElement) {
                 currentYearElement.classList.add('year-active');
             }
+
             previousSelectedKeyYears = key;
             updateYearValue(key);
             previousSelectedKeyDivisionDesktop = null;
             handleShowDivisionDesktop();
-
         }
+
+        // EVENT ONLOAD
+        document.addEventListener("DOMContentLoaded", function () {
+            const defaultYearElement = document.querySelector(`#year-${previousSelectedKeyYears}`);
+            if (defaultYearElement) {
+                defaultYearElement.classList.add('year-active');
+                updateYearValue(previousSelectedKeyYears)
+            }
+            handleShowDivisionDesktop();
+            const defaultDivision = document.querySelector(`#division-${previousSelectedKeyDivisionDesktop}`);
+            if (defaultDivision) {
+                defaultDivision.classList.add('division-active');
+                updateDivisionValue(previousSelectedKeyDivisionDesktop)
+            }
+
+            handleShowSubdivisionDesktop();
+            const defaultSubdivision = document.querySelector(`#subdivision-${previousSelectedKeySubdivisionDekstop}`)
+            if (defaultSubdivision) {
+                defaultSubdivision.classList.add('subdivision-active');
+                updateSubdivisionValue(previousSelectedKeySubdivisionDekstop);
+            }
+        })
 
 
         // sub-division mobile
@@ -626,6 +668,8 @@
                 }, 300);
             }
         }
+
+
     </script>
 
 @endsection
