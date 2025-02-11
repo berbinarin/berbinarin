@@ -73,7 +73,6 @@
                 </label>
             </div>
 
-
             <script>
                 document.querySelectorAll('input[type="radio"]').forEach(radio => {
                     radio.addEventListener('change', function () {
