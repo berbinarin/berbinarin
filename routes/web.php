@@ -43,7 +43,7 @@ use App\Http\Controllers\PsikotestPaid\Tools\TesEsai\TesEsaiController;
 use App\Http\Controllers\PsikotestPaid\Tools\VAK\DashboardVakController;
 use App\Http\Controllers\PsikotestPaid\Tools\OCEAN\ResultOceanController;
 use App\Http\Controllers\PsikotestPaid\Tools\TesEsai\ResultTesEsaiController;
-use App\Http\Controllers\PsikotestPaid\tools\PapiKostick\PapiKostickController;
+use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\PapiKostickController;
 // use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\ResultPapiKostickController;
 use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\DashboardPapiKostickController;
 // use App\Http\Controllers\PsikotestPaid\PapiKostick\TestController as PapiKostickTestController;
