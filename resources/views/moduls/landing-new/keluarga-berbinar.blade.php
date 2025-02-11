@@ -7,7 +7,7 @@
 
 @section('content')
 
-    {{--        @dd($availableDivision)--}}
+    {{--@dd($availableDivision)--}}
 
     {{--header & selection menu--}}
     <section class="mt-32 w-full mx-auto min-w-96 bg-[#F7F9FA] lg:mt-44">
@@ -38,92 +38,38 @@
                  class="object-cover h-auto min-w-96 w-screen -translate-y-16 sm:-translate-y-24 md:-translate-y-28 lg:-translate-y-20 xl:-translate-y-32 2xl:scale-y-75 2xl:-translate-y-52 3xl:scale-y-75 3xl:-translate-y-54">
         </div>
 
-        {{--[MOBILE] drop down menu-divisi--}}
-        {{--        <div class="w-full px-4 sm:px-14 mb-4 lg:hidden">--}}
-        {{--            <button--}}
-        {{--                onclick="handleToggleDropdownDivision()"--}}
-        {{--                class="mb-4 font-normal text-base text-white bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] rounded-md text-center h-14 px-8 w-full mx-auto hover:shadow-lg hover:bg-opacity-80">--}}
-        {{--                <span id="selected-division">select division</span>--}}
-        {{--            </button>--}}
+        {{--[MOBILE] divisi yang dipilih--}}
+        <div class="w-full px-4 sm:px-14 mb-4 lg:hidden">
+            <button onclick="handleToggleDropdownDivisionMobile()"
+                    class="mb-4 font-normal text-base text-white bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] rounded-md text-center h-14 px-8 w-full mx-auto hover:shadow-lg hover:bg-opacity-80">
+                <span id="selected-division">select division</span>
+            </button>
 
-        {{--            --}}{{-- Dropdown menu for selecting a division --}}
-        {{--            <div id="division-dropdown"--}}
-        {{--                 class="hidden w-full mx-auto flex-col items-center justify-start gap-4 py-2 px-4 bg-gradient-to-b from-transparent to-[#F7B23B33]">--}}
-        {{--                @foreach($divisi as $key => $division)--}}
-        {{--                    <div--}}
-        {{--                        onclick="handleSelectDivision('{{ $division['name'] }}', {{ $key }})"--}}
-        {{--                        id="division-{{ $key }}"--}}
-        {{--                        class="division-item w-full mx-auto px-4 py-4 font-normal bg-transparent text-base text-[#F7B23B] text-center h-14 mb-4 flex items-center justify-center rounded-md border-2 border-[#916823] cursor-pointer">--}}
-        {{--                        <span>{{ $division['name'] }}</span>--}}
-        {{--                    </div>--}}
-        {{--                @endforeach--}}
-        {{--            </div>--}}
+            {{--Dropdown menu for selecting a division--}}
+            <div id="division-dropdown"
+                 class="hidden w-full mx-auto flex-col items-center justify-start gap-4 py-2 px-4 bg-gradient-to-b from-transparent to-[#F7B23B33]">
+                {{--render dropdown menu item dynamically--}}
+            </div>
 
-        {{--        </div>--}}
+        </div>
 
         {{--[MOBILE] drop down menu-subdivisi--}}
-        {{--        <div id="subdivision-menu" class="hidden w-full px-4 mb-4 mx-auto flex-col lg:hidden">--}}
-        {{--            <button--}}
-        {{--                id="subdivision-button"--}}
-        {{--                onclick="handleToggleDropdownSubdivision()"--}}
-        {{--                class="mb-4 font-normal text-base text-[#15323D] bg-[#3986A340] rounded-md text-center h-12 px-8 w-3/4 sm:w-1/2 mx-auto hover:shadow-lg hover:bg-opacity-80 block border-2 border-[#15323D] shadow-md">--}}
-        {{--                <span id="selected-subdivision">Select Subdivision</span>--}}
-        {{--            </button>--}}
+        <div id="subdivision-menu" class="hidden w-full px-4 mb-4 mx-auto flex-col lg:hidden">
+            <button
+                id="subdivision-button"
+                onclick="handleToggleDropdownSubdivisionMobile()"
+                class="mb-4 font-normal text-base text-[#15323D] bg-[#3986A340] rounded-md text-center h-12 px-8 w-3/4 sm:w-1/2 mx-auto hover:shadow-lg hover:bg-opacity-80 block border-2 border-[#15323D] shadow-md">
+                <span id="selected-subdivision">Select Subdivision</span>
+            </button>
 
-        {{--            --}}{{--Dropdown menu for selecting a division--}}
-        {{--            <div id="subdivision-dropdown"--}}
-        {{--                 class="hidden w-full mx-auto flex-col items-center justify-start gap-4 py-2 px-4 bg-gradient-to-b from-white from-20% to-[#3986A333]">--}}
-        {{--                --}}{{--dynamic--}}
-        {{--            </div>--}}
+            {{--Dropdown menu for selecting a division--}}
+            <div id="subdivision-dropdown" class="hidden w-full mx-auto flex-col items-center justify-start gap-4 py-2 px-4 bg-gradient-to-b from-white from-20% to-[#3986A333]">
+                {{--render dropdown menu item dynamically--}}
+            </div>
+        </div>
 
-        {{--        </div>--}}
-
-        <div
-            class="lg:mx-auto lg:flex lg:justify-start lg:items-start lg:space-x-12 xl:pe-14 lg:bg-gradient-to-r lg:from-[#DDEAF0] lg:to-[#F7F9FA] lg:pt-16">
-
-            {{--divisi menu divisi desktop--}}
-            {{--            <div class="hidden lg:block w-3/5 max-w-96 pt-4 ps-2">--}}
-            {{--                <div class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">--}}
-            {{--                    Class Product Management--}}
-            {{--                </div>--}}
-            {{--                <div class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">--}}
-            {{--                    Psychological Testing Product Management--}}
-            {{--                </div>--}}
-            {{--                <div class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">--}}
-            {{--                    Counseling Product Managment--}}
-            {{--                </div>--}}
-            {{--                <div class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">--}}
-            {{--                    Web & Mobile App Developer--}}
-            {{--                </div>--}}
-            {{--                <div class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">--}}
-            {{--                    Secretary & Finance--}}
-            {{--                </div>--}}
-            {{--                <div class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">--}}
-            {{--                    Marketing Strategy & Sales--}}
-            {{--                </div>--}}
-            {{--                <div class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">--}}
-            {{--                    Instagram Creator--}}
-            {{--                </div>--}}
-            {{--                <div class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">--}}
-            {{--                    Tiktok Creator--}}
-            {{--                </div>--}}
-            {{--                <div class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">--}}
-            {{--                    Graphic Designer--}}
-            {{--                </div>--}}
-            {{--                <div class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">--}}
-            {{--                    Human Resource--}}
-            {{--                </div>--}}
-            {{--            </div>--}}
-
-            {{--            <div class="hidden lg:block w-3/5 max-w-96 pt-4 ps-2">--}}
-            {{--                --}}{{--dynamicly render the subdivision menu--}}
-            {{--                @foreach($availableDivision['2022'] as $division)--}}
-            {{--                    <div onclick="handleShowDivisionDesktop()"--}}
-            {{--                        class="w-full h-14 mx-auto font-semibold py-2 ps-4 text-sm text-slate-900 text-start bg-white rounded-full mb-4 flex justify-start items-center hover:text-white hover:bg-gradient-to-r hover:from-[#F7B23B] hover:to-[#916823]">--}}
-            {{--                    </div>--}}
-            {{--                @endforeach--}}
-            {{--            </div>--}}
-
+        <div class="lg:mx-auto lg:flex lg:justify-start lg:items-start lg:space-x-12 xl:pe-14 lg:bg-gradient-to-r lg:from-[#DDEAF0] lg:to-[#F7F9FA] lg:pt-16">
+            {{--MENU DIVISI DESKTOP--}}
             <div id="lg-division-container" class="hidden lg:block w-3/5 max-w-96 pt-4 ps-2">
                 {{--dynamicly render the division menu--}}
             </div>
@@ -148,8 +94,7 @@
                     @foreach($listStaff as $staff)
                         {{--LIST--}}
                         {{--CARD CONTAINER--}}
-                        <div
-                            class="w-full bg-transparent perspective flex items-center odd:justify-start even:justify-end mb-4 group lg:justify-start lg:py-2 lg:px-0 lg:m-0">
+                        <div class="w-full bg-transparent perspective flex items-center odd:justify-start even:justify-end mb-4 group lg:justify-start lg:py-2 lg:px-0 lg:m-0">
                             {{--CARD--}}
                             <div id="card-{{$staff['id']}}"
                                  class="preserve-3d duration-1000 bg-transparent w-[350px] md:w-[400px] lg:w-full">
@@ -293,32 +238,25 @@
     </section>
 
     <script>
-        // selector divisi dummy
-        const listDivisi = @json($divisi);
-        const divisionDropdown = document.querySelector('#division-dropdown');
-        const selectedDivision = document.querySelector('#selected-division');
-
-
-        // selector subdivisi
-        const subdivisionMenu = document.querySelector(`#subdivision-menu`);
-        const subdivisionDropdown = document.querySelector(`#subdivision-dropdown`);
-        const selectedSubdivision = document.querySelector('#selected-subdivision');
-        const subdivisionButton = document.querySelector('#subdivision-button');
-
         //list divisi
         const availableDivision = @json($availableDivision);
 
-        // selector menu divisi
+        // selector menu divisi desktop
         const divisionContainer = document.querySelector('#lg-division-container');
 
-        // selector menu subdivisi
+        // selector menu subdivisi desktop
         const subdivisionContainer = document.querySelector(`#lg-subdivision-container`);
         const subdivisionBanner = document.querySelector(`#subdivision-banner`);
 
+        // selector divisi mobile
+        const divisionDropdown = document.querySelector('#division-dropdown');
+        const selectedDivision = document.querySelector('#selected-division');
 
-        // initial key masing2 selector
-        let previousSelectedKeyDivision = null;
-        let previousSelectedKeySubdivision = null;
+        // selector subdivisi mobile
+        const subdivisionMenu = document.querySelector(`#subdivision-menu`);
+        const subdivisionButton = document.querySelector('#subdivision-button');
+        const selectedSubdivision = document.querySelector('#selected-subdivision');
+        const subdivisionDropdown = document.querySelector(`#subdivision-dropdown`);
 
         // desktop
         let previousSelectedKeyYears = 2; // 2024
@@ -337,29 +275,30 @@
         }
 
         function updateDivisionValue(key) {
-            division_value = document.querySelector(`#division-${key}`).textContent.trim();
+            // division_value = document.querySelector(`#division-${key}`).textContent.trim();
+            division_value = availableDivision[year_value][key]['division']
             trackChangingValueAccrossRenders();
         }
 
         function updateSubdivisionValue(key) {
-            subdivision_value = document.querySelector(`#subdivision-${key}`).textContent.trim();
+            // subdivision_value = document.querySelector(`#subdivision-${key}`).textContent.trim();
+            subdivision_value = availableDivision[year_value][previousSelectedKeyDivisionDesktop]['subdivision'][key];
             handleShowSubdivisionBanner();
             trackChangingValueAccrossRenders();
         }
 
-
+        //debug function
         function trackChangingValueAccrossRenders() {
             console.log(`current value for filtering: YEAR: ${year_value} , DIVISION: ${division_value}, SUB-DIVISION: ${subdivision_value}`);
             console.log(`current key for rendering: YEAR: ${previousSelectedKeyYears}, DIVISION: ${previousSelectedKeyDivisionDesktop}, SUBDIVISION: ${previousSelectedKeySubdivisionDekstop}`)
         }
 
-
         //event handler untuk show banner subdivisi
         function handleShowSubdivisionBanner() {
-            if(previousSelectedKeySubdivisionDekstop !== null){
+            if (previousSelectedKeySubdivisionDekstop !== null) {
                 subdivisionBanner.classList.remove('hidden');
                 subdivisionBanner.textContent = subdivision_value;
-            }else {
+            } else {
                 subdivisionBanner.classList.add('hidden');
             }
         }
@@ -487,6 +426,22 @@
             previousSelectedKeySubdivisionDekstop = null;
 
             handleShowSubdivisionBanner();
+            // (mobile) when dropdown was open close it when the user change the year
+            if(!divisionDropdown.classList.contains('hidden')){
+                divisionDropdown.classList.add('hidden');
+            }
+            selectedDivision.textContent = 'select division';
+
+            subdivisionMenu.classList.add('hidden');
+            // (mobile) when dropdown subdivision open, close it when the user change the year
+            if(!subdivisionDropdown.classList.contains('hidden')){
+                subdivisionDropdown.classList.add('hidden');
+                subdivisionButton.classList.remove('text-white');
+                subdivisionButton.classList.remove('bg-gradient-to-r');
+                subdivisionButton.classList.remove('from-[#74AABF]');
+                subdivisionButton.classList.remove('to-[#15323D]');
+            }
+
 
 
             // check selectedYear sudah ada atau belum, kalau ada hilangkan style selected
@@ -506,6 +461,190 @@
             updateYearValue(key);
             previousSelectedKeyDivisionDesktop = null;
             handleShowDivisionDesktop();
+        }
+
+        function handleShowDivisionMobile() {
+            const current_division = availableDivision[year_value];
+
+            // select the container and empty
+            divisionDropdown.innerHTML = '';
+            current_division.forEach((division, index) => {
+                const divisionElement = document.createElement('div');
+                divisionElement.classList.add('division-item', 'w-full', 'mx-auto',
+                    'px-4', 'py-4',
+                    'font-normal',
+                    'bg-transparent',
+                    'text-base',
+                    'text-[#F7B23B]',
+                    'text-center',
+                    'h-14',
+                    'mb-4',
+                    'flex',
+                    'items-center',
+                    'justify-center',
+                    'rounded-md',
+                    'border-2',
+                    'border-[#916823]',
+                    'cursor-pointer',
+                );
+                if(index === previousSelectedKeyDivisionDesktop){
+                    divisionElement.classList.add('hidden');
+                }
+
+                divisionElement.textContent = division['division'];
+                divisionElement.id = `division-mobile-${index}`;
+
+
+                // todo: add even handler handleSelectDivision
+                divisionElement.addEventListener('click', () => {
+                    handleSelectDivisionMobile(index);
+                })
+
+                divisionDropdown.appendChild(divisionElement);
+
+            })
+        }
+
+        function handleSelectDivisionMobile(index) {
+            if(previousSelectedKeyDivisionDesktop === index) return;
+            selectedSubdivision.textContent = 'Select Subdivision'
+
+            subdivision_value = '';
+            previousSelectedKeySubdivisionDekstop = null;
+
+            // Update the button with the selected division
+            selectedDivision.textContent = document.querySelector(`#division-mobile-${index}`).textContent.trim();
+
+            // Show the previously selected division (if any)
+            if (previousSelectedKeyDivisionDesktop !== null) {
+                const previousSelectedDivisionDropdown = document.querySelector(`#division-mobile-${previousSelectedKeyDivisionDesktop}`);
+                if (previousSelectedDivisionDropdown) {
+                    previousSelectedDivisionDropdown.classList.remove('hidden');
+                }
+            }
+
+            // Hide the currently selected division in the dropdown
+            const selectedDivisionDropdown = document.querySelector(`#division-mobile-${index}`);
+            if (selectedDivisionDropdown) {
+                console.log('selected division dropdown exist!!!');
+                selectedDivisionDropdown.classList.add('hidden');
+            }
+
+            // Update the previous selected key
+            previousSelectedKeyDivisionDesktop = index;
+            updateDivisionValue(index);
+
+            // Hide the dropdown menu
+            handleToggleDropdownDivisionMobile();
+
+            // todo: how sub-division if exist
+            handleShowSubdivisionMenuMobile();
+
+            console.log();
+        }
+
+        function handleToggleDropdownDivisionMobile() {
+            handleShowDivisionMobile();
+            if(divisionDropdown.classList.contains('hidden')){
+                divisionDropdown.classList.remove('hidden')
+            }else {
+                divisionDropdown.classList.add('hidden');
+            }
+        }
+
+        function handleShowSubdivisionMenuMobile() {
+            // const current_subdivisions = availableDivision[];
+            const current_subdivisions = availableDivision[`${year_value}`][previousSelectedKeyDivisionDesktop]['subdivision'];
+            if (current_subdivisions.length > 0) {
+                // Populate the subdivision dropdown dynamically
+                subdivisionDropdown.innerHTML = ''; // Clear previous subdivisions
+                current_subdivisions.forEach((subdivision, index) => {
+                    const subdivisionDiv = document.createElement('div');
+                    subdivisionDiv.classList.add(
+                        'w-3/4',
+                        'mx-auto',
+                        'px-4',
+                        'py-4',
+                        'font-normal',
+                        'bg-transparent',
+                        'text-base',
+                        'text-[#15323D]',
+                        'text-center',
+                        'h-14',
+                        'mb-4',
+                        'flex',
+                        'items-center',
+                        'justify-center',
+                        'rounded-md',
+                        'border-2',
+                        'border-[#15323D]',
+                        'cursor-pointer'
+                    );
+                    if(previousSelectedKeySubdivisionDekstop === index) {
+                        subdivisionDiv.classList.add('hidden');
+                    }
+                    subdivisionDiv.textContent = subdivision;
+                    subdivisionDiv.id = `subdivision-mobile-${index}`;
+
+                    subdivisionDiv.addEventListener('click', () => {
+                        handleSelectSubdivisionMobile(index);
+                    });
+
+                    subdivisionDropdown.appendChild(subdivisionDiv);
+                });
+
+                // Show the subdivision menu
+                subdivisionMenu.classList.remove('hidden');
+            } else {
+                console.log('No subdivisions available for this division.');
+                subdivisionMenu.classList.add('hidden');
+            }
+        }
+
+        function handleSelectSubdivisionMobile(index) {
+            if(previousSelectedKeyDivisionDesktop === index) return;
+
+            // Update the button with the selected subdivision
+            selectedSubdivision.textContent = document.querySelector(`#subdivision-mobile-${index}`).textContent.trim();
+
+            // Unhide the previously selected subdivision, if any
+            if (previousSelectedKeySubdivisionDekstop !== null) {
+                const previousSelectedSubdivisionElement = document.querySelector(`#subdivision-mobile-${previousSelectedKeySubdivisionDekstop}`);
+                if (previousSelectedSubdivisionElement) {
+                    previousSelectedSubdivisionElement.classList.remove('hidden');
+                }
+            }
+
+            // Hide the currently selected subdivision
+            const selectedDiv = document.querySelector(`#subdivision-mobile-${index}`);
+            if (selectedDiv) {
+                selectedDiv.classList.add('hidden');
+            }
+
+            // Update the previous selected key
+            previousSelectedKeySubdivisionDekstop = index;
+            updateSubdivisionValue(index);
+
+            // Hide the subdivision dropdown
+            handleToggleDropdownSubdivisionMobile();
+        }
+
+        function handleToggleDropdownSubdivisionMobile() {
+            // subdivisionDropdown.classList.toggle('hidden');
+            if(subdivisionDropdown.classList.contains('hidden')){
+                subdivisionDropdown.classList.remove('hidden');
+                subdivisionButton.classList.add('text-white');
+                subdivisionButton.classList.add('bg-gradient-to-r');
+                subdivisionButton.classList.add('from-[#74AABF]');
+                subdivisionButton.classList.add('to-[#15323D]');
+            }else{
+                subdivisionDropdown.classList.add('hidden');
+                subdivisionButton.classList.remove('text-white');
+                subdivisionButton.classList.remove('bg-gradient-to-r');
+                subdivisionButton.classList.remove('from-[#74AABF]');
+                subdivisionButton.classList.remove('to-[#15323D]');
+            }
+
         }
 
         // EVENT ONLOAD
@@ -528,121 +667,13 @@
                 defaultSubdivision.classList.add('subdivision-active');
                 updateSubdivisionValue(previousSelectedKeySubdivisionDekstop);
             }
+
+            // load the default data to the selected dropdown
+            // division mobile
+            selectedDivision.textContent = division_value;
+            handleShowSubdivisionMenuMobile()
+            selectedSubdivision.textContent = subdivision_value;
         })
-
-
-        // sub-division mobile
-        function handleShowSubdivisionMenu(key) {
-            const subdivisions = listDivisi[key].subdivision;
-
-            if (subdivisions.length > 0) {
-                // Populate the subdivision dropdown dynamically
-                subdivisionDropdown.innerHTML = ''; // Clear previous subdivisions
-                subdivisions.forEach((subdivision, index) => {
-                    const subdivisionDiv = document.createElement('div');
-                    subdivisionDiv.classList.add(
-                        'w-3/4',
-                        'mx-auto',
-                        'px-4',
-                        'py-4',
-                        'font-normal',
-                        'bg-transparent',
-                        'text-base',
-                        'text-[#15323D]',
-                        'text-center',
-                        'h-14',
-                        'mb-4',
-                        'flex',
-                        'items-center',
-                        'justify-center',
-                        'rounded-md',
-                        'border-2',
-                        'border-[#15323D]',
-                        'cursor-pointer'
-                    );
-                    subdivisionDiv.textContent = subdivision;
-                    subdivisionDiv.id = `subdivision-${index}`;
-
-                    subdivisionDiv.addEventListener('click', () => {
-                        handleSelectSubdivision(subdivision, index);
-                    });
-
-                    subdivisionDropdown.appendChild(subdivisionDiv);
-                });
-
-                // Show the subdivision menu
-                subdivisionMenu.classList.remove('hidden');
-            } else {
-                console.log('No subdivisions available for this division.');
-                subdivisionMenu.classList.add('hidden');
-            }
-        }
-
-        function handleSelectSubdivision(subdivisionName, key) {
-            // Unhide the previously selected subdivision, if any
-            if (previousSelectedKeySubdivision !== null) {
-                const previousSubDiv = document.querySelector(`#subdivision-${previousSelectedKeySubdivision}`);
-                if (previousSubDiv) {
-                    previousSubDiv.classList.remove('hidden');
-                }
-            }
-
-            // Update the button with the selected subdivision
-            selectedSubdivision.textContent = subdivisionName;
-
-            // Hide the currently selected subdivision
-            const selectedDiv = document.querySelector(`#subdivision-${key}`);
-            if (selectedDiv) {
-                selectedDiv.classList.add('hidden');
-            }
-
-            // Update the previous selected key
-            previousSelectedKeySubdivision = key;
-
-            // Hide the subdivision dropdown
-            handleToggleDropdownSubdivision();
-        }
-
-
-        function handleToggleDropdownSubdivision() {
-            subdivisionDropdown.classList.toggle('hidden');
-            subdivisionButton.classList.toggle('text-white');
-            subdivisionButton.classList.toggle('bg-gradient-to-r');
-            subdivisionButton.classList.toggle('from-[#74AABF]');
-            subdivisionButton.classList.toggle('to-[#15323D]');
-
-        }
-
-        function handleToggleDropdownDivision() {
-            // Toggle visibility of the dropdown menu
-            divisionDropdown.classList.toggle('hidden');
-        }
-
-        function handleSelectDivision(divisionName, divisionKey) {
-            // Show the previously selected division (if any)
-            if (previousSelectedKeyDivision !== null) {
-                const previousDiv = document.querySelector(`#division-${previousSelectedKeyDivision}`);
-                if (previousDiv) {
-                    previousDiv.classList.remove('hidden');
-                }
-            }
-
-            // Update the button with the selected division
-            selectedDivision.textContent = divisionName;
-
-            // Hide the currently selected division in the dropdown
-            const selectedDiv = document.querySelector(`#division-${divisionKey}`);
-            if (selectedDiv) {
-                selectedDiv.classList.add('hidden');
-            }
-
-            // Update the previous selected key
-            previousSelectedKeyDivision = divisionKey;
-
-            // Hide the dropdown menu
-            handleToggleDropdownDivision();
-            handleShowSubdivisionMenu(divisionKey);
-        }
 
         function handleFlip(id) {
             const card = document.getElementById(`card-${id}`);
