@@ -19,8 +19,7 @@
 
             <div class="w-full mx-auto flex justify-center items-center mb-4 relative z-10 px-4 sm:px-14">
                 {{--desktop--}}
-                <div
-                    class="w-full grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-1 grid-rows-2 gap-4 px-2 justify-items-center">
+                <div class="w-full grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-1 grid-rows-2 gap-4 px-2 justify-items-center">
                     @foreach($availableYears as $key =>  $year)
                         <button
                             id="year-{{$key}}"
@@ -84,7 +83,7 @@
                         {{--dynamic rendering for subdivision menu uf exist--}}
                     </div>
                     <div id="subdivision-banner"
-                         class="hidden w-full mx-auto flex justify-center items-center py-2 bg-primary font-semibold tracking-wide text-base text-white">
+                         class="w-full mx-auto flex justify-center items-center py-2 bg-primary font-semibold tracking-wide text-base text-white">
                         {{--dynamic renderin--}}
                     </div>
                 </div>
@@ -119,7 +118,7 @@
                                         <img src="{{asset("assets/images/landing/keluarga-berbinar/lini-masa.png")}}"
                                              alt=""
                                              class="size-5 mx-auto">
-                                        <p class="text-center text-white font-semibold text-xs">Lini masa</p>
+                                        <span class="text-center text-white font-semibold text-xs">Lini masa</span>
                                     </button>
                                     {{--content--}}
 
@@ -185,7 +184,7 @@
                                             @endif
                                             <a href="https://www.youtube.com/webprogrammingunpas"
                                                target="_blank"
-                                               class="hidden xl:block xl:cursor-pointer xl:pointer-events-auto"> <img
+                                               class="hidden xl:inline-block xl:cursor-pointer xl:pointer-events-auto w-auto"> <img
                                                     src="{{ asset('assets/images/landing/keluarga-berbinar/linkedin-fill.png') }}"
                                                     alt="linkedin" class="size-6"></a>
                                         </div>
@@ -231,7 +230,6 @@
                         </div>
                         {{--LIST--}}
                     @endforeach
-
                 </div>
             </div>
         </div>
@@ -330,7 +328,6 @@
                 subdivisionContainer.classList.add('hidden');
                 return;
             }
-            ;
             const current_subdivisions = availableDivision[`${year_value}`][previousSelectedKeyDivisionDesktop]['subdivision'];
             if (current_subdivisions.length === 0) {
                 subdivisionContainer.classList.add('hidden');
@@ -416,7 +413,7 @@
 
         // event handler untuk select years
         function handleSelectYears(yearsId, key) {
-            // if the same year dont do anything
+            // if the same year just return
             if (key === previousSelectedKeyYears) return
 
             // flush for the division and subdivision
