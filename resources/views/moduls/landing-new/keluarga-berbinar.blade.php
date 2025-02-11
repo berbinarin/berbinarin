@@ -19,7 +19,8 @@
 
             <div class="w-full mx-auto flex justify-center items-center mb-4 relative z-10 px-4 sm:px-14">
                 {{--desktop--}}
-                <div class="w-full grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-1 grid-rows-2 gap-4 px-2 justify-items-center">
+                <div
+                    class="w-full grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-1 grid-rows-2 gap-4 px-2 justify-items-center">
                     @foreach($availableYears as $key =>  $year)
                         <button
                             id="year-{{$key}}"
@@ -62,12 +63,14 @@
             </button>
 
             {{--Dropdown menu for selecting a division--}}
-            <div id="subdivision-dropdown" class="hidden w-full mx-auto flex-col items-center justify-start gap-4 py-2 px-4 bg-gradient-to-b from-white from-20% to-[#3986A333]">
+            <div id="subdivision-dropdown"
+                 class="hidden w-full mx-auto flex-col items-center justify-start gap-4 py-2 px-4 bg-gradient-to-b from-white from-20% to-[#3986A333]">
                 {{--render dropdown menu item dynamically--}}
             </div>
         </div>
 
-        <div class="lg:mx-auto lg:flex lg:justify-start lg:items-start lg:space-x-12 xl:pe-14 lg:bg-gradient-to-r lg:from-[#DDEAF0] lg:to-[#F7F9FA] lg:pt-16">
+        <div
+            class="lg:mx-auto lg:flex lg:justify-start lg:items-start lg:space-x-12 xl:pe-14 lg:bg-gradient-to-r lg:from-[#DDEAF0] lg:to-[#F7F9FA] lg:pt-16">
             {{--MENU DIVISI DESKTOP--}}
             <div id="lg-division-container" class="hidden lg:block w-3/5 max-w-96 pt-4 ps-2">
                 {{--dynamicly render the division menu--}}
@@ -89,147 +92,8 @@
                 </div>
 
                 {{--grid staff--}}
-                <div class="w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-4">
-                    @foreach($listStaff as $staff)
-                        {{--LIST--}}
-                        {{--CARD CONTAINER--}}
-                        <div class="w-full bg-transparent perspective flex items-center odd:justify-start even:justify-end mb-4 group lg:justify-start lg:py-2 lg:px-0 lg:m-0">
-                            {{--CARD--}}
-                            <div id="card-{{$staff['id']}}"
-                                 class="preserve-3d duration-1000 bg-transparent w-[350px] md:w-[400px] lg:w-full">
-                                {{--FRONT CARD--}}
-                                <div onclick="handleFlip({{$staff['id']}})" id="front-{{$staff['id']}}"
-                                     class="relative h-40 md:h-48 rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] pt-2 pb-3 px-4 cursor-pointer hover:shadow-lg lg:h-60 lg:w-full lg:p-4 lg:cursor-default lg:pointer-events-none">
-                                    {{--texture--}}
-                                    <img src="{{asset('assets/images/landing/keluarga-berbinar/texture-card.png')}}"
-                                         alt="texture"
-                                         class="hidden lg:block absolute z-10 scale-y-75 -bottom-8 left-0 ">
-
-                                    {{--status--}}
-                                    <span
-                                        class="absolute top-2 font-semibold text-xs text-white {{ $staff['status'] ? 'bg-[#04CA00]' : 'bg-[#F7B23B]'}} rounded-full py-1 px-3 group-odd:right-2 group-even:left-2 lg:hidden">{{$staff['status'] ? 'Aktif' : 'Alumni'}}</span>
-                                    <span
-                                        class="hidden absolute lg:block top-2 right-2 py-1 px-4 font-semibold text-xs text-white {{ $staff['status'] ? 'bg-[#04CA00]' : 'bg-[#F7B23B]'}} rounded-full ">{{$staff['status'] ? 'Aktif' : 'Alumni'}}</span>
-
-                                    {{--lini masa button--}}
-                                    <button
-                                        onclick=""
-                                        class="hidden lg:block absolute bottom-2 right-2 z-30 lg:pointer-events-auto lg:cursor-pointer">
-                                        <img src="{{asset("assets/images/landing/keluarga-berbinar/lini-masa.png")}}"
-                                             alt=""
-                                             class="size-5 mx-auto">
-                                        <span class="text-center text-white font-semibold text-xs">Lini masa</span>
-                                    </button>
-                                    {{--content--}}
-
-                                    @php
-                                        $bgDivision = "bg-[#654064]";
-                                        if($staff['subdivision'] === 'UIUX Designer'){
-                                            $bgDivision = 'bg-[#8F7158]';
-                                        }elseif ($staff['subdivision'] === 'Front End Developer'){
-                                            $bgDivision = 'bg-[#718537]';
-                                        }elseif ($staff['subdivision'] === 'Back End Developer'){
-                                            $bgDivision = 'bg-[#4EA596]';
-                                        }elseif ($staff['subdivision'] === 'Full Stack Developer'){
-                                            $bgDivision = 'bg-[#008770]';
-                                        }
-                                    @endphp
-
-                                    {{--content--}}
-                                    <div
-                                        class="w-full h-full flex items-center justify-between md:justify-start md:space-x-4 lg:justify-normal lg:relative lg:z-20">
-                                        {{--image-sm-md--}}
-                                        <div
-                                            class="relative overflow-hidden h-full w-32 md:w-36 group-even:order-last md:flex md:items-end lg:hidden">
-                                            <img
-                                                src="{{asset('assets/images/landing/keluarga-berbinar/image-example.png')}}"
-                                                alt="image-example" class="object-cover">
-                                            <span
-                                                class="absolute w-auto py-1 px-2 z-10 bottom-0 left-1/2 -translate-x-1/2 font-semibold tracking-wide text-xs text-white text-center {{$bgDivision}} rounded-lg shadow-lg">{{$staff['subdivision'] !== '' ? $staff['subdivision'] : $staff['division']}}</span>
-                                        </div>
-                                        {{--image-lg--}}
-                                        <div class="hidden lg:block relative h-full w-48 py-1">
-                                            <img
-                                                src="{{asset('assets/images/landing/keluarga-berbinar/image-example.png')}}"
-                                                alt="image-example" class="object-cover w-48 h-full">
-                                            <span
-                                                class="absolute w-full py-1 px-2 z-10 bottom-2 left-1/2 -translate-x-1/2 font-semibold {{$bgDivision}} tracking-wide text-xs text-white text-center rounded-lg shadow-lg">{{$staff['subdivision'] !== '' ? $staff['subdivision'] : $staff['division']}}</span>
-                                        </div>
-                                        {{--info-sm-md--}}
-                                        <div class="h-full py-1 content-end space-y-2 lg:hidden">
-                                            <h3 class="font-semibold text-xl text-start md:text-2xl text-white">{{$staff['name']}}</h3>
-                                            <p class="block font-thin text-sm text-white md:text-base text-start">
-                                                As {{$staff['division']}}</p>
-                                            @if($staff['status'])
-                                                <p class="block font-thin text-sm text-white md:text-base text-start mb-2">
-                                                    {{$staff['date_start']}} - Sekarang</p>
-                                            @else
-                                                <p class="block font-thin text-sm text-white md:text-base text-start mb-2">
-                                                    {{$staff['date_start']}}</p>
-                                            @endif
-
-                                        </div>
-                                        {{--info-lg--}}
-                                        <div class="hidden lg:block h-full py-1 content-start pt-8 space-y-2">
-                                            <h3 class="font-semibold text-2xl text-white">{{$staff['name']}}</h3>
-                                            <p class="block font-normal text-base text-white">As
-                                                {{$staff['division']}}</p>
-                                            @if($staff['status'])
-                                                <p class="block font-normal text-base text-white">
-                                                    {{$staff['date_start']}} -
-                                                    Sekarang</p>
-                                            @else
-                                                <p class="block font-normal text-base text-white">
-                                                    {{$staff['date_start']}}</p>
-                                            @endif
-                                            <a href="https://www.youtube.com/webprogrammingunpas"
-                                               target="_blank"
-                                               class="hidden xl:inline-block xl:cursor-pointer xl:pointer-events-auto w-auto"> <img
-                                                    src="{{ asset('assets/images/landing/keluarga-berbinar/linkedin-fill.png') }}"
-                                                    alt="linkedin" class="size-6"></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {{--BACK CARD--}}
-                                <div onclick="handleFlip({{$staff['id']}})" id="back-{{$staff['id']}}"
-                                     class="relative hidden min-h-40 md:min-h-48 lg:min-h-60 rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] pt-2 pb-3 px-4 lg:p-4 cursor-pointer hover:shadow-lg my-rotate-y-180">
-                                    {{--texture--}}
-                                    <img src="{{asset('assets/images/landing/keluarga-berbinar/texture-card.png')}}"
-                                         alt="texture"
-                                         class="hidden lg:block absolute z-10 scale-y-75 -bottom-8 left-0">
-
-                                    {{--lini masa--}}
-                                    <span
-                                        class="absolute top-2 font-semibold text-xs text-white bg-[#FF8364] rounded-full py-1 px-3 right-2">Lini Masa</span>
-                                    {{--linkedin--}}
-                                    <a href="https://www.youtube.com/webprogrammingunpas" target="_blank"
-                                       class="absolute bottom-2 right-3 lg:hidden">
-                                        <img
-                                            src="{{ asset('assets/images/landing/keluarga-berbinar/linkedin-fill.png') }}"
-                                            alt="linkedin" class="size-6">
-                                    </a>
-                                    {{--content--}}
-                                    <div class="lg:relative lg:z-20">
-                                        <h3 class="font-semibold text-xl text-white w-3/4 mb-4">{{$staff['name']}}</h3>
-                                        <div class="w-full grid grid-cols-1 lg:grid-cols-2 justify-items-start">
-                                            @foreach($staff['records'] as $record)
-                                                <div class="mb-2 last:mb-0">
-                                                    <h4 class="font-semibold text-lg text-white text-start">
-                                                        As {{$record['division']}}</h4>
-                                                    <p class="font-thin text-base text-white">{{$record['date_start']}}
-                                                        -
-                                                        {{$record['date_end']}}</p>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        {{--LIST--}}
-                    @endforeach
+                <div id="staff-container" class="w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-4">
+                {{--render staff list--}}
                 </div>
             </div>
         </div>
@@ -238,6 +102,17 @@
     <script>
         //list divisi
         const availableDivision = @json($availableDivision);
+
+        // list staff
+        const staffList = @json($listStaff);
+        let filteredStaffList = staffList.sort((a, b) => b.status - a.status);
+        // let filteredStaffList = staffList.filter((staff) => staff.date_start.split(' ')[1] === '2025').sort((a, b) => b.status - a.status);
+        // let filteredStaffList = staffList.filter(staff => staff.status && staff.date_start.split(' ')[1] === '2024');
+        // let filteredStaffList = staffList.filter(staff => staff.date_start.split(' ')[1] === '2024').sort((a, b) => b.status - a.status);
+        // console.log(filteredStaffList);
+
+        // selector list staff
+        const staffContainer = document.querySelector(`#staff-container`);
 
         // selector menu divisi desktop
         const divisionContainer = document.querySelector('#lg-division-container');
@@ -267,14 +142,33 @@
         let division_value = '';
         let subdivision_value = '';
 
+
+
+        function updateFilteredStaffList(){
+            if(year_value){
+                filteredStaffList = staffList.filter((staff) => staff.date_start.split(' ')[1] === year_value).sort((a, b) => b.status - a.status);
+            }
+            if(division_value){
+                filteredStaffList = filteredStaffList.filter((staff) => staff.division === division_value).sort((a, b) => b.status - a.status);
+            }
+            if(subdivision_value){
+                filteredStaffList = filteredStaffList.filter((staff) => staff.subdivision === subdivision_value).sort((a, b) => b.status - a.status);
+            }
+
+            handleRenderList();
+            console.log(filteredStaffList);
+        }
+
         function updateYearValue(key) {
             year_value = document.querySelector(`#year-${key}`).textContent.trim();
+            updateFilteredStaffList();
             trackChangingValueAccrossRenders();
         }
 
         function updateDivisionValue(key) {
             // division_value = document.querySelector(`#division-${key}`).textContent.trim();
             division_value = availableDivision[year_value][key]['division']
+            updateFilteredStaffList();
             trackChangingValueAccrossRenders();
         }
 
@@ -283,6 +177,240 @@
             subdivision_value = availableDivision[year_value][previousSelectedKeyDivisionDesktop]['subdivision'][key];
             handleShowSubdivisionBanner();
             trackChangingValueAccrossRenders();
+            updateFilteredStaffList();
+        }
+
+
+        //render list staff
+        function handleRenderList() {
+            // Clear existing content
+            staffContainer.innerHTML = "";
+
+            // Loop through staffList and create staff cards dynamically
+            filteredStaffList.forEach((staff, index) => {
+                const bgDivision = getDivisionColor(staff.subdivision || staff.division);
+
+                // cardContainer
+                const cardContainer = document.createElement('div');
+                cardContainer.classList.add('staffCardContainer', 'group');
+
+                // card
+                const card = document.createElement('div');
+                card.classList.add('staffCard');
+                card.id = `card-${staff.id}`;
+
+                //front-card START
+                const frontCard = document.createElement('div');
+                frontCard.classList.add('frontCard');
+                frontCard.id = `front-${staff.id}`
+                frontCard.addEventListener('click', () => {
+                    handleFlip(staff.id)
+                });
+
+
+                // texture BOTH FRONT AND BACK
+                const texture = document.createElement('img'); // element
+                texture.src = 'assets/images/landing/keluarga-berbinar/texture-card.png';
+                texture.alt = 'texture';
+                texture.classList.add('texture');
+
+                //adding-front-content 1
+                frontCard.appendChild(texture);
+
+                // status mobile and lg
+                const bgColorStatus = staff.status ? 'bg-[#04CA00]' : 'bg-[#F7B23B]';
+                const textContextStatus = staff.status ? 'Aktif' : 'Alumni';
+                const statusMobile = document.createElement('span'); // element
+                statusMobile.classList.add('statusMobile', bgColorStatus, 'group-odd:right-2', 'group-even:left-2');
+                statusMobile.textContent = textContextStatus;
+
+                const statusDesktop = document.createElement('span'); // element
+                statusDesktop.classList.add('statusDesktop', bgColorStatus);
+                statusDesktop.textContent = textContextStatus;
+
+                //adding-front-content 2
+                frontCard.appendChild(statusMobile);
+                frontCard.appendChild(statusDesktop);
+
+
+                //lini masa button
+                const liniMasaBtn = document.createElement('button'); // element
+                liniMasaBtn.classList.add('liniMasaBtn');
+
+                const liniMasaImg = document.createElement('img');
+                liniMasaImg.src = 'assets/images/landing/keluarga-berbinar/lini-masa.png';
+                liniMasaImg.classList.add('mx-auto', 'size-5');
+                const liniMasaSpan = document.createElement('span');
+                liniMasaSpan.classList.add('text-center', 'text-xs', 'font-semibold', 'text-white');
+                liniMasaSpan.textContent = 'Lini masa';
+
+                liniMasaBtn.innerHTML = '';
+                liniMasaBtn.appendChild(liniMasaImg);
+                liniMasaBtn.appendChild(liniMasaSpan);
+
+
+                // adding-front-content 3
+                frontCard.appendChild(liniMasaBtn);
+
+                // content front
+                const contentFront = document.createElement('div'); // element
+                contentFront.classList.add('contentFront');
+
+                // image sm-md
+                const contentImageSm = `
+                <div class="relative h-full w-32 overflow-hidden group-even:order-last md:flex md:w-36 md:items-end lg:hidden">
+                    <img src="assets/images/landing/keluarga-berbinar/image-example.png"
+                        alt="image-example" class="object-cover">
+                    <span class="${bgDivision} absolute bottom-0 left-1/2 z-10 w-auto -translate-x-1/2 rounded-lg px-2 py-1 text-center text-xs font-semibold tracking-wide text-white shadow-lg">${staff.subdivision ? staff.subdivision : staff.division}</span>
+                 </div>
+                `;
+
+                // image lg
+                const contentImageLg = `
+                <div class="relative hidden h-full w-48 py-1 lg:block">
+                    <img src="assets/images/landing/keluarga-berbinar/image-example.png"
+                        alt="image-example" class="h-full w-48 object-cover">
+                    <span class="${bgDivision} absolute bottom-2 left-1/2 z-10 w-full -translate-x-1/2 rounded-lg px-2 py-1 text-center text-xs font-semibold tracking-wide text-white shadow-lg">${staff.subdivision ? staff.subdivision : staff.division}</span>
+                 </div>`
+
+                const infoSm = `
+                <div class="h-full content-end space-y-2 py-1 lg:hidden">
+                    <h3 class="text-start text-xl font-semibold text-white md:text-2xl">${staff.name}</h3>
+                    <p class="block text-start text-sm font-thin text-white md:text-base">
+                        As ${staff.division}</p>
+                    <p class="mb-2 block text-start text-sm font-thin text-white md:text-base"> ${staff.date_start}${staff.status ? '- Sekarang' : ''}</p>
+               </div>`
+
+                const infoLg = `
+                <div class="hidden h-full content-start space-y-2 py-1 pt-8 lg:block">
+                    <h3 class="text-2xl font-semibold text-white">${staff.name}</h3>
+                    <p class="block text-base font-normal text-white">As
+                        ${staff.division}</p>
+                    <p class="block text-base font-normal text-white">
+                        ${staff.date_start} ${staff.status ? '- Sekarang' : ''}</p>
+                    <a href="https://www.youtube.com/webprogrammingunpas" target="_blank" class="hidden w-auto xl:pointer-events-auto xl:inline-block xl:cursor-pointer">
+                        <img src="assets/images/landing/keluarga-berbinar/linkedin-fill.png" alt="linkedin" class="size-6"></a>
+                </div>`
+
+                const contentHTML = `
+                ${contentImageSm}
+                ${contentImageLg}
+                ${infoSm}
+                ${infoLg}`;
+
+                const fragment = document.createRange().createContextualFragment(contentHTML);
+                contentFront.appendChild(fragment);
+
+                //adding-front-content 4
+                frontCard.appendChild(contentFront);
+
+                //front-card END
+
+
+                //back-card START
+                const backCard = document.createElement('div'); // element
+                backCard.classList.add('relative',  'hidden',  'min-h-40',  'md:min-h-48',  'lg:min-h-60', 'rounded-lg',
+                    'bg-gradient-to-b', 'from-[#3986A3]', 'to-[#15323D]', 'pt-2', 'pb-3', 'px-4', 'lg:p-4',
+                    'cursor-pointer', 'hover:shadow-lg', 'my-rotate-y-180');
+                //debug back-card here
+                // backCard.classList.add('relative', 'min-h-40',  'md:min-h-48',  'lg:min-h-60', 'rounded-lg',
+                //     'bg-gradient-to-b', 'from-[#3986A3]', 'to-[#15323D]', 'pt-2', 'pb-3', 'px-4', 'lg:p-4',
+                //     'cursor-pointer', 'hover:shadow-lg');
+                backCard.id = `back-${staff.id}`
+                backCard.addEventListener('click', () => {
+                    handleFlip(staff.id)
+                })
+
+                //adding-back-content 1
+                backCard.appendChild(texture);
+
+                //lini masa back
+                const liniMasa = document.createElement('span'); // element
+                liniMasa.classList.add('liniMasaBadge');
+                liniMasa.textContent = 'Lini Masa';
+
+                //adding-back-content 2
+                backCard.appendChild(liniMasa);
+
+                // linkedin
+                const linkedInBtn = document.createElement('a'); // element
+                linkedInBtn.href = 'https://www.youtube.com/webprogrammingunpas';
+                linkedInBtn.target = '_blank';
+                linkedInBtn.classList.add('absolute', 'bottom-2', 'right-3', 'lg:hidden');
+
+                const imgLinkedInBtn = document.createElement('img');
+                imgLinkedInBtn.src = 'assets/images/landing/keluarga-berbinar/linkedin-fill.png'
+                imgLinkedInBtn.alt = 'linkedin';
+                imgLinkedInBtn.classList.add('size-6');
+
+                linkedInBtn.appendChild(imgLinkedInBtn);
+
+                //adding-back-content 3
+                backCard.appendChild(linkedInBtn);
+
+
+                const contentBack = document.createElement('div'); // element
+                contentBack.classList.add('lg:relative', 'lg:z-20');
+
+                const nameCardBack = document.createElement('h3');
+                nameCardBack.classList.add('mb-4', 'w-3/4', 'text-xl', 'font-semibold', 'text-white');
+                nameCardBack.textContent = staff.name;
+
+                contentBack.appendChild(nameCardBack);
+
+                const recordContainer = document.createElement('div');
+                recordContainer.classList.add('grid', 'w-full', 'grid-cols-1', 'justify-items-start', 'lg:grid-cols-2');
+
+                const records = staff.records;
+
+                if (records) {
+                    records.forEach((record, index) => {
+                        const recordItemContainer = document.createElement('div');
+                        recordItemContainer.classList.add('mb-2', 'last:mb-0');
+                        recordItemContainer.id = `${staff.id}-record-${index}`
+
+                        const role = document.createElement('h4');
+                        role.classList.add('text-start', 'text-base', 'lg:text-lg', 'font-semibold', 'text-white');
+                        role.textContent = `As ${record.division}`;
+
+                        const timeLine = document.createElement('p');
+                        timeLine.classList.add('text-base', 'font-thin', 'text-white');
+                        timeLine.textContent = `${record.date_start} - ${record.date_end}`;
+
+                        recordItemContainer.appendChild(role);
+                        recordItemContainer.appendChild(timeLine);
+                        recordContainer.appendChild(recordItemContainer)
+                    })
+                }
+
+                contentBack.appendChild(recordContainer);
+
+                // adding-back-content 4
+                backCard.appendChild(contentBack)
+                //back-card END
+
+
+                card.appendChild(frontCard);
+                card.appendChild(backCard);
+                cardContainer.appendChild(card)
+                staffContainer.appendChild(cardContainer)
+            });
+        }
+
+        // ge bgcolor based on division or subdivision
+        function getDivisionColor(subdivision) {
+            switch (subdivision) {
+                case 'UIUX Designer':
+                    return 'bg-[#8F7158]';
+                case 'Front End Developer':
+                    return 'bg-[#718537]';
+                case 'Back End Developer':
+                    return 'bg-[#4EA596]';
+                case 'Full Stack Developer':
+                    return 'bg-[#008770]';
+                default:
+                    return 'bg-[#654064]';
+            }
         }
 
         //debug function
@@ -424,21 +552,20 @@
 
             handleShowSubdivisionBanner();
             // (mobile) when dropdown was open close it when the user change the year
-            if(!divisionDropdown.classList.contains('hidden')){
+            if (!divisionDropdown.classList.contains('hidden')) {
                 divisionDropdown.classList.add('hidden');
             }
             selectedDivision.textContent = 'select division';
 
             subdivisionMenu.classList.add('hidden');
             // (mobile) when dropdown subdivision open, close it when the user change the year
-            if(!subdivisionDropdown.classList.contains('hidden')){
+            if (!subdivisionDropdown.classList.contains('hidden')) {
                 subdivisionDropdown.classList.add('hidden');
                 subdivisionButton.classList.remove('text-white');
                 subdivisionButton.classList.remove('bg-gradient-to-r');
                 subdivisionButton.classList.remove('from-[#74AABF]');
                 subdivisionButton.classList.remove('to-[#15323D]');
             }
-
 
 
             // check selectedYear sudah ada atau belum, kalau ada hilangkan style selected
@@ -484,7 +611,7 @@
                     'border-[#916823]',
                     'cursor-pointer',
                 );
-                if(index === previousSelectedKeyDivisionDesktop){
+                if (index === previousSelectedKeyDivisionDesktop) {
                     divisionElement.classList.add('hidden');
                 }
 
@@ -503,7 +630,7 @@
         }
 
         function handleSelectDivisionMobile(index) {
-            if(previousSelectedKeyDivisionDesktop === index) return;
+            if (previousSelectedKeyDivisionDesktop === index) return;
             selectedSubdivision.textContent = 'Select Subdivision'
 
             subdivision_value = '';
@@ -542,9 +669,9 @@
 
         function handleToggleDropdownDivisionMobile() {
             handleShowDivisionMobile();
-            if(divisionDropdown.classList.contains('hidden')){
+            if (divisionDropdown.classList.contains('hidden')) {
                 divisionDropdown.classList.remove('hidden')
-            }else {
+            } else {
                 divisionDropdown.classList.add('hidden');
             }
         }
@@ -577,7 +704,7 @@
                         'border-[#15323D]',
                         'cursor-pointer'
                     );
-                    if(previousSelectedKeySubdivisionDekstop === index) {
+                    if (previousSelectedKeySubdivisionDekstop === index) {
                         subdivisionDiv.classList.add('hidden');
                     }
                     subdivisionDiv.textContent = subdivision;
@@ -599,7 +726,7 @@
         }
 
         function handleSelectSubdivisionMobile(index) {
-            if(previousSelectedKeyDivisionDesktop === index) return;
+            if (previousSelectedKeyDivisionDesktop === index) return;
 
             // Update the button with the selected subdivision
             selectedSubdivision.textContent = document.querySelector(`#subdivision-mobile-${index}`).textContent.trim();
@@ -628,13 +755,13 @@
 
         function handleToggleDropdownSubdivisionMobile() {
             // subdivisionDropdown.classList.toggle('hidden');
-            if(subdivisionDropdown.classList.contains('hidden')){
+            if (subdivisionDropdown.classList.contains('hidden')) {
                 subdivisionDropdown.classList.remove('hidden');
                 subdivisionButton.classList.add('text-white');
                 subdivisionButton.classList.add('bg-gradient-to-r');
                 subdivisionButton.classList.add('from-[#74AABF]');
                 subdivisionButton.classList.add('to-[#15323D]');
-            }else{
+            } else {
                 subdivisionDropdown.classList.add('hidden');
                 subdivisionButton.classList.remove('text-white');
                 subdivisionButton.classList.remove('bg-gradient-to-r');
@@ -670,6 +797,9 @@
             selectedDivision.textContent = division_value;
             handleShowSubdivisionMenuMobile()
             selectedSubdivision.textContent = subdivision_value;
+
+            updateFilteredStaffList();
+
         })
 
         function handleFlip(id) {

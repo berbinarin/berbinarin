@@ -7,6 +7,7 @@ use App\Models\Test;
 use App\Models\Question;
 use App\Models\Dimension;
 use App\Models\jadwalPeer;
+use DateTime;
 use Illuminate\Http\Request;
 use App\Models\UserPsikotest;
 use App\Models\KonsellingPeer;
@@ -362,64 +363,26 @@ class LandingController extends Controller
     public function keluarga_berbinar(Request $request)
     {
 
-        $divisi = [
-            [
-                'name' => 'Class Product Management',
-                'subdivision' => []
-            ],
-            [
-                'name' => 'Psychological Testing Product Management',
-                'subdivision' => []
-            ],
-            [
-                'name' => 'Secretary & Finance',
-                'subdivision' => []
-            ],
-            [
-                'name' => 'Marketing Strategy & Sales',
-                'subdivision' => []
-            ],
-            [
-                'name' => 'IG Creator',
-                'subdivision' => []
-            ],
-            [
-                'name' => 'Tiktok Creator',
-                'subdivision' => []
-            ],
-            [
-                'name' => 'Graphic Designer',
-                'subdivision' => []
-            ],
-            [
-                'name' => 'Human Resource',
-                'subdivision' => []
-            ],
-            [
-                'name' => 'Web & Mobile App Developer',
-                'subdivision' => [
-                    'UI/UX Design',
-                    'Front-end Developer',
-                    'Back-end Developer',
-                    'Full-stack Developer'
-                ]
-            ]
-        ];
-
         $response = Http::get('http://localhost:3004/dataStaff');
 
         $data = $response->json();
 
         //liststaff
-        $staffList = $data['dataStaff'] ?? [];
+
+        $filteredStaffList = collect($data)->where('id', 1)->values()->all();
 
         //available year, e.g ["2019", "2020", "2021"], dummy data start from 2022
         $availableYears = collect(array_map(fn($staff) => explode(' ', $staff['date_start'])[1], $data))->unique()->sort()->values()->all();
         $availableDivision = $this->getAvailableDivisionsPerYear($data);
 
 
-        return view('moduls.landing-new.keluarga-berbinar')->with(['divisi' => $divisi, 'listStaff' => $data,
-            'availableYears' => $availableYears, 'availableDivision' => $availableDivision]);
+
+        return view('moduls.landing-new.keluarga-berbinar')->with([
+            'listStaff' => $data,
+            'availableYears' => $availableYears,
+            'availableDivision' => $availableDivision,
+            'filteredStaffList' => $filteredStaffList,
+        ]);
     }
 
 
@@ -2011,7 +1974,7 @@ class LandingController extends Controller
         $validatedData['jadwal_pukul'] = $jamMenit;
 
         // Calculate price
-        $date = new \DateTime($validatedData['jadwal_tanggal']);
+        $date = new DateTime($validatedData['jadwal_tanggal']);
         $dayOfWeek = $date->format('N'); // 1 (for Monday) through 7 (for Sunday)
         $isWeekend = ($dayOfWeek == 6 || $dayOfWeek == 7);
         $isWeekday = !$isWeekend;
