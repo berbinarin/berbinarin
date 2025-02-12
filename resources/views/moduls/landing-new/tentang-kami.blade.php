@@ -132,7 +132,9 @@
         <h1 class="text-3xl max-sm:text-2xl text-white font-semibold ">Hubungi Kami</h1>
         <p class="text-lg max-sm:text-[15px] text-white font-light max-sm:leading-snug">Yuk, hubungi kami sekarang untuk mendaftarkan diri dalam layanan Berbinar!</p>
         <div class="flex justify-center mt-6 max-sm:mt-3">
-            <button class="text-black max-sm:text-[15px] font-semibold bg-white py-2 px-5 rounded-xl">Hubungi Sekarang</button>
+            <a href="https://linktr.ee/berbinarinsight" target="_blank">
+                <button class="text-black max-sm:text-[15px] font-semibold bg-white py-2 px-5 rounded-xl">Hubungi Sekarang</button>
+            </a>
         </div>
     </div>
 </div>

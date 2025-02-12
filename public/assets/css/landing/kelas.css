@@ -1,0 +1,90 @@
+.text-gradient {
+    background: linear-gradient(to right, #3886A3, #225062); 
+    background-clip: text;
+    -webkit-background-clip: text; 
+    color: transparent; 
+}
+
+.border-active {
+    border: 1.5px solid #3986A3
+}
+
+#swiperKelas {
+    width: 900px; 
+    margin: 20px auto;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+.swiper-pagination {
+    position: relative;
+    padding-top: 20px;
+}
+
+.swiper-pagination-bullet {
+    background-color: #D0D0D0; 
+    opacity: 1;
+    height: 8px;
+    width: 8px;
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #3886A3; 
+    width: 16px;
+    height: 8px;
+    border-radius: 10px;
+}
+
+.swiper-scrollbar  {
+    --swiper-scrollbar-border-radius: 10px;
+    --swiper-scrollbar-top: auto;
+    --swiper-scrollbar-bottom: 4px;
+    --swiper-scrollbar-left: auto;
+    --swiper-scrollbar-right: 4px;
+    --swiper-scrollbar-sides-offset: 1%;
+    --swiper-scrollbar-bg-color: #D4D4D4;
+    --swiper-scrollbar-drag-bg-color: #9DD4EE;
+    --swiper-scrollbar-size: 10px;
+}
+
+@media (max-width: 640px) {
+    .swiperContainer {
+        overflow: hidden;
+        margin: 0px 16px;
+    }
+
+    #swiperKelas {
+        width: 500px;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 767px) {
+    .swiperContainer {
+        overflow: hidden;
+        margin: 0px 80px;
+    }
+
+    #swiperKelas {
+        width: 550px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    #swiperKelas {
+        width: 800px; 
+        margin: 20px auto;
+    }
+
+    .swiperContainer {
+        overflow: hidden;
+        margin: 0px 80px;
+    }
+}
+
+/* @media (min-width: ) and (max-width: 1024px) {
+    #swiperKelas {
+        width: 800px; 
+        margin: 20px auto;
+    }
+} */

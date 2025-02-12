@@ -6,12 +6,12 @@
 
 @section('content')
 {{-- HERO SECTION --}}
-<section class="relative">
-    <div class="absolute left-0 top-5 max-sm:top-32 z-0">
+<section class="relative max-sm:overflow-x-hidden">
+    <div class="absolute left-0 top-5 max-sm:top-32 z-0 ">
         <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-hero1.svg') }}" alt="Vector" class="h-[500px] max-sm:h-[250px] w-auto">
     </div>
 
-    <div class="absolute right-0 max-sm:-right-20 top-8 max-sm:top-40 z-0">
+    <div class="absolute right-0 max-sm:-right-20 max-md:-right-28 top-8 max-sm:top-40 z-0 ">
         <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-hero2.svg') }}" alt="Vector" class="h-[500px] max-sm:h-[250px] w-auto">
     </div>
 
@@ -66,9 +66,11 @@
                             <p class="text-lg max-sm:text-[17px] font-semibold text-black leading-tight min-h-[45px] max-sm:min-h-[40px] max-lg:min-h-[67px]">{{ $layanan_konseling['category'] }}</p>
                             <p class="text-[30px] max-lg:text-2xl font-semibold text-[#3986A3] mt-3 max-sm:mt-1.5 leading-none">{{ $layanan_konseling['price'] }}<span class="text-[#70787D] text-[18px] align-top">*</span></p>
                             <p class="text-sm text-justify text-[#70787D] mt-5 max-sm:mt-2 flex-grow">{{ $layanan_konseling['description'] }}</p>
-                            <div class="flex justify-center mt-4 max-sm:mt-2 mb-1">
-                                <button class="text-white bg-gradient-to-r text-sm from-[#F7B23B] to-[#AD7D29] py-1.5 px-4 rounded-lg">Mulai Sekarang</button>
-                            </div>
+                            <a href="{{ $layanan_konseling['link'] }}" target="_blank">
+                                <div class="flex justify-center mt-4 max-sm:mt-2 mb-1">
+                                    <button class="text-white bg-gradient-to-r text-sm from-[#F7B23B] to-[#AD7D29] py-1.5 px-4 rounded-lg">Mulai Sekarang</button>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     @endforeach
@@ -90,9 +92,11 @@
         <p class="text-lg max-sm:text-[17px] font-semibold text-black leading-tight max-sm:min-h-[43px] min-h-[67px] customheight">{{ $bundling['category'] }}</p>
         <p class="text-lg max-sm:text-[16px] font-semibold text-[#70787D] mt-3 max-sm:mt-1.5 leading-none"><del>{{ $bundling['discount'] }}</del> <span class="text-white bg-[#EF5350] p-1 rounded-md">10%</span></p>
         <p class="text-[30px] max-sm:text-[22px] font-semibold text-[#3986A3] mt-3 max-sm:mt-1.5 leading-none flex-grow">{{ $bundling['price'] }}</p>
-        <div class="flex justify-center mt-5 max-sm:mt-4 mb-1">
-            <button class="text-white bg-gradient-to-r text-sm from-[#F7B23B] to-[#AD7D29] py-1.5 px-4 rounded-lg">Mulai Sekarang</button>
-        </div>
+        <a href="{{ $bundling['link'] }}" target="_blank">
+            <div class="flex justify-center mt-5 max-sm:mt-4 mb-1">
+                <button class="text-white bg-gradient-to-r text-sm from-[#F7B23B] to-[#AD7D29] py-1.5 px-4 rounded-lg">Mulai Sekarang</button>
+            </div>
+        </a>
     </div>
     @endforeach
 </div>

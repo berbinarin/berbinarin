@@ -25,7 +25,7 @@
                     </h2>
                     <div x-ref="tab" :style="handleToggle()" class="overflow-hidden max-h-0 duration-500 transition-all">
                         <p class="mt-3 max-sm:mt-2 text-[#6F6C90] text-justify max-sm:text-[15px]">
-                            Ada tiga yg menjadi unggulan di Berbinar yaitu <span class="text-[#3986A3] font-bold">psikotes</span>, <span class="text-[#3986A3] font-bold">konseling</span>, dan <span class="text-[#3986A3] font-bold italic">class</span>. Jika SobatBinar yang membutuhkan bantuan konseling psikologis, mentoring  ataupun psikotes untuk persiapan menuju dunia kerja, bisa segera menghubungi Berbinar di <a href="https://wa.me/628214186980" class="font-bold">0821-4186-980</a>
+                            Ada tiga yang menjadi unggulan di Berbinar yaitu <span class="text-[#3986A3] font-bold">psikotes</span>, <span class="text-[#3986A3] font-bold">konseling</span>, dan <span class="text-[#3986A3] font-bold italic">class</span>. Jika SobatBinar yang membutuhkan bantuan konseling psikologis, <span class="italic">mentoring</span> ataupun psikotes untuk persiapan menuju dunia kerja, bisa segera menghubungi Berbinar di <a href="https://wa.me/628214186980" class="font-bold">0821-4186-980</a>
                         </p>
                     </div>
                 </div>

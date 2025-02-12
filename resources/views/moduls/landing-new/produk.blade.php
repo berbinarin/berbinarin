@@ -99,7 +99,7 @@
                 @click="tab = 'moodscantees'" 
                 :class="{'bg-[#3986A3] font-medium text-white': tab === 'moodscantees'}" 
                 class="p-2 rounded-xl text-black font-medium">
-                Moodscan Tees
+                MoodScan Tees
             </button>
             <button 
                 @click="tab = 'emoshuffle'" 
@@ -477,7 +477,7 @@
                     </div>
             
                     <div class="flex justify-start">
-                        <a href="{{ route('psikotest-new') }}">
+                        <a href="https://tokopedia.link/gwgtSs9oUOb" target="_blank">
                             <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 rounded-xl max-sm:w-full">
                                 Lihat Selengkapnya
                             </button>
@@ -516,13 +516,13 @@
                         </p>
                     </div>
             
-                    <div class="flex justify-start">
+                    {{-- <div class="flex justify-start">
                         <a href="{{ route('konseling-new') }}">
                             <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 rounded-xl max-sm:w-full">
                                 Lihat Selengkapnya
                             </button>
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 
