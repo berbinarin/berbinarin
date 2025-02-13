@@ -6,12 +6,12 @@
 
 @section('content')
 {{-- HERO SECTION --}}
-<section class="relative">
-    <div class="absolute left-0 top-5 max-sm:top-32 z-0">
+<section class="relative max-sm:overflow-x-hidden">
+    <div class="absolute left-0 top-5 max-sm:top-32 z-0 ">
         <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-hero1.svg') }}" alt="Vector" class="h-[500px] max-sm:h-[250px] w-auto">
     </div>
 
-    <div class="absolute right-0 max-sm:-right-20 top-8 max-sm:top-40 z-0">
+    <div class="absolute right-0 max-sm:-right-20 max-md:-right-28 top-8 max-sm:top-40 z-0 ">
         <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-hero2.svg') }}" alt="Vector" class="h-[500px] max-sm:h-[250px] w-auto">
     </div>
 
@@ -168,8 +168,6 @@
 
 {{-- TES INDIVIDU --}}
 <section class="relative">
-    <div class="bg-blur-bg-2 rounded-full blur-[100px] w-[300px] h-[300px] absolute top-16 -right-28 z-0"></div>
-
     {{-- TAMPILAN DESKTOP --}}
     <div class="hidden md:block swiperContainer relative z-10">
         <div class="swiper" id="swiperIndividu">
@@ -280,8 +278,6 @@
 
 {{-- PAKET STAFF PERUSAHAAN --}}
 <section class="relative">
-    <div class="bg-blur-bg-2 rounded-full blur-[100px] w-[300px] h-[300px] absolute top-16 -left-28 z-0"></div>
-
     <h2 class="text-center text-3xl max-sm:text-2xl max-sm:mx-4 font-bold text-gradient mt-14 mb-4 relative z-10">Psikotes Perusahaan untuk Staff</h2>  
     <section>
         {{-- TAMPILAN DESKTOP --}}
@@ -498,9 +494,6 @@
 
 {{-- PAKET SUPERVISOR PERUSAHAAN --}}
 <section class="relative">
-    <div class="bg-blur-bg-2 rounded-full blur-[100px] w-[300px] h-[300px] absolute top-24 -left-28 z-0"></div>
-    <div class="bg-blur-bg-2 rounded-full blur-[70px] w-[300px] h-[500px] absolute top-24 -right-20 z-0"></div>
-
     <h2 class="text-center max-md:mt-3 text-3xl max-sm:text-2xl max-sm:mx-4 max-sm:mt-6 font-bold text-gradient mb-4 relative z-10">Psikotes Perusahaan untuk Supervisor</h2>  
     <section>
         {{-- TAMPILAN DESKTOP --}}
@@ -719,7 +712,7 @@
         <div class="absolute inset-0 bg-[#D7E6ED] rounded-3xl flex mix-blend-multiply"></div>
 
         <div class="relative flex flex-col h-full text-left max-md:text-center space-y-3 justify-center">
-            <h1 class="text-5xl max-sm:text-3xl max-md:text-4xl text-black font-semibold ">Psikotes Instansi Pendidikan</h1>
+            <h1 class="text-5xl max-sm:text-3xl max-md:text-4xl text-black font-semibold ">Psikotes Kategori Pendidikan</h1>
             <p class="text-[#3F3F3F] text-justify max-sm:leading-normal max-sm:text-[15px] text-lg max-lg:text-[17px]">
                 Psikotes untuk Instansi Pendidikan digunakan untuk mengenal gaya belajar, cita-cita, jurusan, minat bakat yang sesuai dengan SobatBinar.
             </p>
@@ -737,8 +730,6 @@
 
 {{-- PAKET PSIKOTES INSTANSI PENDIDIKAN --}}
 <section class="relative">
-    <div class="bg-blur-bg-2 rounded-full blur-[70px] w-[300px] h-[300px] absolute top-36 -right-28 z-0"></div>
-
     {{-- TAMPILAN DESKTOP --}}
     <div class="hidden md:block swiperContainer relative z-10">
         <div class="swiper" id="swiperPendidikan">
@@ -866,8 +857,6 @@
 
 {{-- PAKET PSIKOTES KOMUNITAS --}}
 <section class="relative">
-    <div class="bg-blur-bg-2 rounded-full blur-[70px] w-[300px] h-[500px] absolute top-40 -right-28 z-0"></div>
-
     {{-- TAMPILAN DESKTOP --}}
     <div class="hidden md:block swiperContainer relative z-10">
         <div class="swiper" id="swiperKomunitas">
@@ -1000,7 +989,7 @@
                 <div class="swiper-slide">
                     <div class="relative">
                         <img src="{{ asset($dokumentasi['image']) }}" alt="Dokumentasi" class="h-52 w-[345px] object-cover rounded-xl">
-                        <p class="absolute left-4 top-4 bg-[#FEF7EB] text-[#C78E2E] px-2 py-1 rounded-md text-sm">Psikotes Offline</p>
+                        <p class="absolute left-4 top-4 bg-[#FEF7EB] text-[#C78E2E] px-2 py-1 rounded-md text-sm">{{ $dokumentasi['jenis_psikotes'] }}</p>
                     </div>
                 </div>
                 @endforeach
@@ -1016,7 +1005,7 @@
             <div class="swiper-slide">
                 <div class="relative">
                     <img src="{{ asset($dokumentasi['image']) }}" alt="Dokumentasi" class="w-full h-[270px] object-cover rounded-xl">
-                    <p class="absolute left-4 top-4 bg-[#FEF7EB] text-[#C78E2E] px-2 py-1 rounded-md text-sm">Psikotes Offline</p>
+                    <p class="absolute left-4 top-4 bg-[#FEF7EB] text-[#C78E2E] px-2 py-1 rounded-md text-sm">{{ $dokumentasi['jenis_psikotes'] }}</p>
                 </div>
             </div>
             @endforeach
@@ -1090,8 +1079,6 @@
 
 {{-- FAQS --}}
 <section class="z-10 mx-4 max-md:mt-10 sm:mx-20 mb-10 mt-20 relative">
-    <div class="bg-blur-bg-2 rounded-full blur-[90px] w-[300px] h-[300px] absolute -top-7 -left-28 z-0"></div>
-
     <ul class="flex flex-col relative z-10">
         @php
             $index = 0;

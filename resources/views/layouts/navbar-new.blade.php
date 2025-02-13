@@ -68,9 +68,11 @@
             @else block text-gray-600 font-medium text-2xl py-4 @endif">
         Karier
     </a>
-    <button class="bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-black font-medium py-2 px-6 rounded-full mt-8">
-        Ajukan Kolaborasi
-    </button>
+    <a href="https://linktr.ee/berbinarinsight" target="_blank">
+        <button class="bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-black font-medium py-2 px-6 rounded-full mt-8">
+            Ajukan Kolaborasi
+        </button>
+    </a>
     <button id="closeMenu" class="absolute top-4 right-4 text-gray-600 focus:outline-none">
         <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>

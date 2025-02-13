@@ -6,12 +6,12 @@
 
 @section('content')
 {{-- HERO SECTION --}}
-<section class="relative">
-    <div class="absolute left-0 top-5 max-sm:top-32 z-0">
+<section class="relative max-sm:overflow-x-hidden">
+    <div class="absolute left-0 top-5 max-sm:top-32 z-0 ">
         <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-hero1.svg') }}" alt="Vector" class="h-[500px] max-sm:h-[250px] w-auto">
     </div>
 
-    <div class="absolute right-0 max-sm:-right-20 top-8 max-sm:top-40 z-0">
+    <div class="absolute right-0 max-sm:-right-20 max-md:-right-28 top-8 max-sm:top-40 z-0 ">
         <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-hero2.svg') }}" alt="Vector" class="h-[500px] max-sm:h-[250px] w-auto">
     </div>
 
@@ -182,7 +182,7 @@
 
 
 {{-- JADWAL KONSELING PSIKOLOG --}}
-<div class="bg-psikolog relative mt-24 mx-20 max-sm:mx-4 rounded-3xl p-10 bg-cover bg-center h-[330px] max-md:h-[800px] max-md:overflow-hidden">
+<div class="bg-psikolog relative mt-24 mx-20 max-sm:mx-4 rounded-3xl p-10 bg-cover bg-center h-[300px] max-md:h-[800px] max-md:overflow-hidden">
     <img src="/assets/images/landing/vector-curling-mobile.png" alt="Background" class="hidden max-md:flex absolute -top-[150px] left-0 rounded-t-3xl w-[1000px] h-[820px] object-cover">
     <div class="absolute inset-0 bg-[#2D6B8280] rounded-3xl flex max-md:hidden"></div>
 
@@ -351,7 +351,7 @@
             <div class="mt-6 flex flex-1 justify-center">
                 <div class="relative w-full max-w-[270px] mx-auto flex justify-center">
                     <div class="absolute bg-white py-4 px-6 max-sm:px-6 max-md:px-8 max-xl:p-4 rounded-xl shadow-md bg-opacity-90 backdrop-blur-sm">
-                        <p class="text-md font-semibold text-black"><span class="italic">Offline</span>👩‍💻</p>
+                        <p class="text-md font-semibold text-black"><span class="italic">Online</span>👩‍💻</p>
                         <p class="text-sm text-justify text-[#70787D] mt-2">Lakukan dimanapun dan kapanpun melalui zoom meeting</p>
                         <div class="flex flex-row justify-center items-center mt-2">
                             <p class="text-3xl max-lg:text-2xl font-semibold text-[#3986A3]">Rp45.000</p>
@@ -369,9 +369,9 @@
                 <div class="relative w-full max-w-[270px] mx-auto flex justify-center">
                     <div class="absolute bg-white py-4 px-6 max-sm:px-6 max-md:px-8 max-xl:p-4 rounded-xl shadow-md bg-opacity-90 backdrop-blur-sm">
                         <p class="text-md font-semibold text-black"><span class="italic">Offline</span>🗣️</p>
-                        <p class="text-sm text-justify text-[#70787D] mt-2">Lakukan dimanapun dan kapanpun melalui zoom meeting</p>
+                        <p class="text-sm text-justify text-[#70787D] mt-2">Tentukan tempat dan waktu yang nyaman untuk berbicara langsung</p>
                         <div class="flex flex-row justify-center items-center mt-2">
-                            <p class="text-3xl max-lg:text-2xl font-semibold text-[#3986A3]">Rp45.000</p>
+                            <p class="text-3xl max-lg:text-2xl font-semibold text-[#3986A3]">Rp55.000</p>
                             <p class="text-sm text-black">/1jam</p>
                         </div>
 
