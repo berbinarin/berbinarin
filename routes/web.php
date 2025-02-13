@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PsikotestPaid\Tools\EPI\EPIController;
+use App\Http\Controllers\PsikotestPaid\Tools\RMIB\RMIBController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
@@ -433,6 +434,11 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::get('/tool/EPI', [EPIController::class, 'showLanding'])->name('psikotest-paid.tool.EPI.showLanding');
         Route::get('/tool/EPI/test', [EPIController::class, 'test'])->name('psikotest-paid.tool.EPI.test');
         Route::get('/tool/EPI/summary', [EPIController::class, 'summary'])->name('psikotest-paid.tool.EPI.summary');
+
+        // TES RMIB
+        Route::get('/tool/RMIB', [RMIBController::class, 'showLanding'])->name('psikotest-paid.tool.RMIB.showLanding');
+        Route::get('/tool/RMIB/test', [RMIBController::class, 'test'])->name('psikotest-paid.tool.RMIB.test');
+        Route::get('/tool/RMIB/summary', [RMIBController::class, 'summary'])->name('psikotest-paid.tool.RMIB.summary');
         
         // TES SSCT
         Route::get('/tool/SSCT', [SSCTController::class, 'showLanding'])->name('psikotest-paid.tool.SSCT.showLanding');

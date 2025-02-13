@@ -93,6 +93,76 @@
                 <div class="p-5 flex flex-row items-left ">
                     <!-- Gambar berada di sebelah kiri -->
                     <div class="rounded-xl overflow-hidden">
+                        <img src="{{ asset('assets/images/credit-card/Billy-BE.jpg') }}" alt="Foto Profil"
+                             class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">
+                    </div>
+                    <!-- Teks berada di sebelah kanan -->
+                    <div class="ml-5 flex flex-col">
+                        <h5 class="text-xl md:text-xl font-medium">Amri Sabilly</h5>
+                        <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">Back-End <br> Web Developer</h4>
+                        <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-700">Feb 2025 -
+                            Sekarang</h1>
+                        <!--Start Icon-->
+                        <div class="flex flew-row gap-5 flex-wrap mt-5">
+                            <a href="mailto:sabillyamri1@gmail.com" class="flex items-center justify-center"
+                               target="_blank">
+                                <i class='bx bxs-envelope text-slate-500 text-[20px]'></i>
+                            </a>
+                            <a href="https://id.linkedin.com/in/amri-sabilly-1a2a44319" class="flex items-center justify-center"
+                               target="_blank">
+                                <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
+                            </a>
+                            <a href="https://www.instagram.com/amrsab._?igsh=djF5bmxmeHNtcWw1"
+                               class="flex items-center justify-center" target="_blank">
+                                <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
+                            </a>
+                        </div>
+                        <!--End Icon-->
+                    </div>
+                </div>
+            </div>
+            <!-- End Card -->
+
+            <!-- Start Card -->
+            <div class="rounded-xl shadow-lg mr-4">
+                <div class="p-5 flex flex-row items-left ">
+                    <!-- Gambar berada di sebelah kiri -->
+                    <div class="rounded-xl overflow-hidden">
+                        <img src="{{ asset('assets/images/credit-card/Rania-UIUX.jpg') }}" alt="Foto Profil"
+                             class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">
+                    </div>
+                    <!-- Teks berada di sebelah kanan -->
+                    <div class="ml-5 flex flex-col">
+                        <h5 class="text-xl md:text-xl font-medium">Rania Jilan Haniyah</h5>
+                        <h4 class="text-sm md:text-base lg:text-lg font-medium mt-3">UI/UX Designer</h4>
+                        <h1 class="text-xs md:text-sm lg:text-base italic font-medium mt-1 text-gray-700">Feb 2025 -
+                            Sekarang</h1>
+                        <!--Start Icon-->
+                        <div class="flex flew-row gap-5 flex-wrap mt-5">
+                            <a href="mailto:ranihany223@gmail.com" class="flex items-center justify-center"
+                               target="_blank">
+                                <i class='bx bxs-envelope text-slate-500 text-[20px]'></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/rania-jilan-haniyah-27565524a"
+                               class="flex items-center justify-center" target="_blank">
+                                <i class='bx bxl-linkedin text-slate-500 text-[20px]'></i>
+                            </a>
+                            <a href="https://www.instagram.com/ra_haniy/"
+                               class="flex items-center justify-center" target="_blank">
+                                <i class='bx bxl-instagram-alt text-slate-500 text-[20px]'></i>
+                            </a>
+                        </div>
+                        <!--End Icon-->
+                    </div>
+                </div>
+            </div>
+            <!-- End Card -->
+
+            <!-- Start Card -->
+            <div class="rounded-xl shadow-lg mr-4">
+                <div class="p-5 flex flex-row items-left ">
+                    <!-- Gambar berada di sebelah kiri -->
+                    <div class="rounded-xl overflow-hidden">
                         <img src="{{ asset('assets/images/credit-card/Arini-UIUX.jpg') }}" alt="Foto Profil"
                              class="w-40 h-40 object-cover rounded-md md:w-40 md:h-40 md:rounded-md sm:w-20 sm:h-20 sm:rounded-lg">
                     </div>

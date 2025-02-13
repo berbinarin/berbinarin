@@ -8,7 +8,7 @@
     <div {{-- method="POST"
         action="{{ route('psikotest-paid.papi-kostick.submit', ['id' => $id, 'question_order' => $question_order]) }}">
         --}}
-        {{-- @csrf --}}
+        {{-- @csrf --}}>
         <input type="hidden" name="timeout" id="timeout" value="false">
         <!-- Background Image -->
         <img src="{{ asset('assets/images/psikotes/paid/psikotest-soal-bg.png') }}" alt="Latar Belakang Berbinar"
@@ -35,16 +35,17 @@
             </div> --}}
 
             <!-- Blue and Orange Cards in Horizontal Layout -->
-            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+            <h1 class="pb-12 font-bold text-xl">Apakah anda selalu bersemangat ?</h1>
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 w-3/4 mx-auto justify-center items-center">
+                
                 <!-- Blue Card -->
-                <label class="flex-1 rounded-lg p-4 my-8 cursor-pointer relative card"
+                <label class="flex-1 rounded-lg p-4  cursor-pointer relative card"
                     style="background-color: #EF5350; width: 100px; height: 150px; margin-top: 0px; transition: transform 0.2s ease;"
                     onmouseover="this.style.boxShadow='0 6px 12px rgba(239,83,80,0.6), 0 -6px 12px rgba(239,83,80,0.6), -6px 0 12px rgba(239,83,80,0.6), 6px 0 12px rgba(239,83,80,0.6)';"
                     onmouseout="this.style.boxShadow='none';" for="answer_a_">
                     <input type="radio" name="answer" id="answer_a_" value="a" class="hidden" required>
-                    <div class="text-white"
-                        style="margin-left: 5px; margin-top: 20px; margin-right: 5px; height: 70px;">
-
+                    <div class="text-white flex items-center justify-center w-full h-full">
+                        Tidak
                     </div>
                     <!-- Circle Button for Blue Card -->
                     <div class="absolute bottom-2 right-2 w-5 h-5 rounded-full bg-white flex items-center justify-center"
@@ -60,9 +61,8 @@
                     onmouseover="this.style.boxShadow='0 8px 16px rgba(76,175,80,0.6), 0 -8px 16px rgba(76,175,80,0.6), -8px 0 16px rgba(76,175,80,0.6), 8px 0 16px rgba(76,175,80,0.6)';"
                     onmouseout="this.style.boxShadow='none';" for="answer_b_">
                     <input type="radio" name="answer" id="answer_b_" value="b" class="hidden">
-                    <div class="text-white"
-                        style="margin-left: 5px; margin-top: 20px; margin-right: 5px; height: 70px;">
-
+                    <div class="text-white flex items-center justify-center w-full h-full">
+                        Ya
                     </div>
                     <!-- Circle Button for Orange Card -->
                     <div class="absolute bottom-2 right-2 w-5 h-5 rounded-full bg-white flex items-center justify-center"
@@ -72,7 +72,6 @@
                     </div>
                 </label>
             </div>
-
 
             <script>
                 document.querySelectorAll('input[type="radio"]').forEach(radio => {
@@ -120,7 +119,7 @@
                     </div>
                     <!-- Percentage text -->
                     <span class="text-sm text-black"
-                        style="position: absolute; top: 1px;  transform: translateX(-50%); font-size: 8px;">%</span>
+                        style="position: absolute; top: 1px;  transform: translateX(-50%); font-size: 8px;">10%</span>
                 </div>
                 <a href="{{ route('psikotest-paid.tool.EPI.summary') }}">
                     <button {{-- type="submit" --}} type="button"

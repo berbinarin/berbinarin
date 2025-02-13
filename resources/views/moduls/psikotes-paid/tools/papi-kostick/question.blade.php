@@ -35,6 +35,7 @@
 
 <!-- Blue and Orange Cards in Horizontal Layout -->
 <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+
     <!-- Blue Card -->
     <label class="flex-1 rounded-lg p-4 my-8 cursor-pointer relative card"
         style="background-color: #3FA2F6; width: 100px; height: 150px; margin-top: 0px; transition: transform 0.2s ease;"
