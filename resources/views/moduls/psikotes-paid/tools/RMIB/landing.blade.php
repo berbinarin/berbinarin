@@ -1,5 +1,5 @@
 @extends('moduls.psikotes.layouts.mainn', [
-    'title' => 'Instruksi EPI',
+    'title' => 'Instruksi RMIB',
     'active' => 'one psikotest',
 ])
 
@@ -23,38 +23,37 @@
 
     <!-- Card Transparant -->
     <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-6 mt-8"
-        style="width: 750px;">
+        style="width: 900px;">
 
         {{-- <p class="text-black mt-4 px-5">
             Hai {{ $user->fullname }}, berikut adalah instruksi untuk test {{ $tool->name }}
         </p> --}}
         <p class="text-black mt-6 px-5">
-            Berikut ini, terdapat pertanyaan-pertanyaan yang menyangkut tingkah laku, perasaan dan perbuatan Anda. Di
-            bawah setiap pertanyaan disediakan tempat untuk menjawab:
-        <div class="flex justify-center gap-1 font-bold">
-            <span class="text-green-500">YA</span> <b>atau</b> <span class="text-red-500">TIDAK</span>
-        </div>
+            Bayangkan Anda dikelompokkan dengan sebelas orang mahasiswa <b>(PRIA/WANITA)</b> dalam proyek "Wisma Kerja
+            Nyata"
+            (disingkat WKN), yang bertujuan menyadari makna Kelestarian Lingkungan Hidup (KLH). Perjalanan akan
+            berlangsung ke beberapa tempat.
         </p>
-        <p class="text-black mt-2 px-5">
-            Hendaknya Anda mencoba menentukan jawaban manakah yang <b>paling tepat</b> dengan yang Anda rasakan atau
-            Anda
-            lakukan, pilihlah opsi “<span class="text-green-500 font-bold">YA</span>”, jika jawaban Anda adalah YA,
-            dan <b>pilihlah opsi</b> “<span class="text-red-500 font-bold">TIDAK</span>” jika jawaban Anda
-            adalah TIDAK.
+        <p class="text-black mt-4 px-5">
+            Di tempat-tempat tertentu, tim atau "keduabelasan" Anda akan mengerjakan proyek dan mendapat  bantuan
+            ahli-ahli yang akan membimbing dan melatih anggota-anggota tim bila diperlukan. Perusahaan "Supra Motor"
+            telah bersedia menjadi sponsor kegiatan ini.
         </p>
-        <p class="text-black mt-2 px-5">
-            Pilihlah jawaban setiap Anda selesai membaca pertanyaan sehingga <b>Anda tidak perlu untuk melakukan proses
-                pemikiran panjang.</b>
+        <p class="text-black mt-4 px-5">
+            Setiap ada kegiatan tim, anggota-anggota membagi tugas sesuai dengan kesediaan masing-masing. Caranya adalah
+            disajikan daftar tugas, kemudian setiap anggota mengurutkan tugas yang paling ia senangi sampai tugas yang
+            paling tidak ia senangi, tidak peduli apakah dia mampu melakukannya (karena akan dilatih). Yang penting
+            adalah minat dan kesediaan Anda melakukan tugas-tugas tersebut.
         </p>
-        <p class="text-black mt-2 px-5">
-            Untuk menyelesaikan daftar pertanyaan ini diperlukan waktu yang terbatas. Silahkan Anda membaca halaman
-            berikutnya dan mulailah menjawab setiap pertanyaan. <b>Dalam hal ini tidak ada penilaian yang salah terhadap
-                tiap jawaban yang Anda berikan.</b> Pertanyaan-pertanyaan ini bukanlah untuk tes inteligensi atau tes kecakapan,
-            hal ini melainkan semata-mata bertujuan hanya untuk mengukur cara perilaku, perasaan, dan pikiran Anda.
+        <p class="text-black mt-4 px-5">
+            Urutkan pilihan tugas, mulai dari yang paling Anda senangi (nomor 1), nomor 2 Anda senangi, nomor 3, dan
+            seterusnya, sampai pilihan paling akhir nomor 12, ialah yang paling tidak Anda senangi. Kemudian teliti
+            kembali, jangan sampai ada yang Anda lewati, sebab keberhasilan WKN ini sangat tergantung pada kesadaran
+            anggota.‌
         </p>
 
         <div class="mb-4 flex justify-center mt-10">
-            <a href="{{ route('psikotest-paid.tool.EPI.test') }}">
+            <a href="{{ route('psikotest-paid.tool.RMIB.test') }}">
                 <button type="button"
                     class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
                     Selanjutnya
