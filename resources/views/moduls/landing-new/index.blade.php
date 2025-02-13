@@ -19,9 +19,11 @@
                 Berbinar hadir untuk membangun hubungan antara perusahaan dengan klien secara profesional. dan meraih potensi yang terbaik.
             </p>
             <div class="flex justify-start">
-                <button class="mt-4 bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-white font-medium py-2 px-6 rounded-lg w-auto max-sm:w-auto max-sm:text-sm whitespace-nowrap">
-                    Profil Perusahaan
-                </button>
+                <a href="{{ route('tentang-new') }}">
+                    <button class="mt-4 bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-white font-medium py-2 px-6 rounded-lg w-auto max-sm:w-auto max-sm:text-sm whitespace-nowrap">
+                        Profil Perusahaan
+                    </button>
+                </a>
             </div>
         </div>
     </div>
@@ -173,7 +175,7 @@
                 <div class="swiper-slide">
                     <div class="bg-white rounded-3xl shadow-md flex flex-col justify-center items-center text-center h-auto w-auto">
                         <div class="bg-white flex justify-center p-7 max-sm:p-5 rounded-t-3xl w-full border-b">
-                            <img src="{{ asset($product['vector']) }}" alt="{{ $product['produk'] }}" class="max-sm:h-[110px] max-md:h-[130px] h-36 w-auto">
+                            <img src="{{ asset($product['vector']) }}" alt="{{ $product['produk'] }}" class="max-sm:h-[110px] max-md:h-[130px] h-36 w-auto object-contain">
                         </div>
 
                         <div class="max-sm:px-3 px-4 max-sm:py-3 py-4 text-center flex flex-col flex-grow">

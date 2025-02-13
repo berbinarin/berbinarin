@@ -69,7 +69,7 @@ class LandingController extends Controller
             ],
             [
                 'vector' => 'assets/images/landing/asset-beranda/produk/logo-moodscantees.png',
-                'produk' => 'Moodscan Tees',
+                'produk' => 'MoodScan Tees',
                 'deskripsi' => 'Kaos super nyaman yang memiliki desain konsep psikologis juga fitur QR Code untuk menyimpan pesan motivasi agar tampil bergaya.',
                 'link' => route('konseling-new'),
             ],
@@ -920,19 +920,24 @@ class LandingController extends Controller
 
         $dokumentasis = [
             [
-                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi1.png'
+                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi1.png',
+                'jenis_psikotes' => 'Psikotes Offline'
             ],
             [
-                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi2.png'
+                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi2.png',
+                'jenis_psikotes' => 'Psikotes Offline'
             ],
             [
-                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi3.png'
+                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi3.png',
+                'jenis_psikotes' => 'Psikotes Offline'
             ],
             [
-                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi4.png'
+                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi4.png',
+                'jenis_psikotes' => 'Psikotes Online'
             ],
             [
-                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi5.png'
+                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi5.png',
+                'jenis_psikotes' => 'Psikotes Online'
             ],
         ];
 
@@ -1092,37 +1097,44 @@ class LandingController extends Controller
             [
                 'category' => 'Rekrutmen & Seleksi',
                 'price' => 'Rp2.500.000',
-                'description' => 'Membantu perusahaan dalam proses perekrutan calon karyawan baru yang sesuai dengan kebutuhan dan kriteria perusahaan.'
+                'description' => 'Membantu perusahaan dalam proses perekrutan calon karyawan baru yang sesuai dengan kebutuhan dan kriteria perusahaan.',
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
             [
                 'category' => 'Pelatihan & Pengembangan',
                 'price' => 'Rp3.000.000',
-                'description' => 'Rancangan proses untuk meningkatkan pengetahuan, keterampilan, dan sikap karyawan terkait tugas yang diberikan, serta memberi kesempatan untuk memaksimalkan potensi.'
+                'description' => 'Rancangan proses untuk meningkatkan pengetahuan, keterampilan, dan sikap karyawan terkait tugas yang diberikan, serta memberi kesempatan untuk memaksimalkan potensi.',
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
             [
                 'category' => 'Analisis Beban Kerja & Perencanaan Organisasi',
                 'price' => 'Rp3.500.000',
-                'description' => 'Analisis mendalam terkait beban kerja, struktur organisasi, dan perencanaan kebutuhan sumber daya manusia.'
+                'description' => 'Analisis mendalam terkait beban kerja, struktur organisasi, dan perencanaan kebutuhan sumber daya manusia.',
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
             [
                 'category' => 'Coaching',
                 'price' => 'Rp4.000.000',
-                'description' => 'Membantu dalam menggali potensi bisnis/karir, menetapkan tujuan, dan mewujudkannya dengan strategi dari ahlinya.'
+                'description' => 'Membantu dalam menggali potensi bisnis/karir, menetapkan tujuan, dan mewujudkannya dengan strategi dari ahlinya.',
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
             [
                 'category' => 'Penilaian Kinerja',
                 'price' => 'Rp1.500.000',
-                'description' => 'Proses evaluasi kinerja karyawan secara sistematis dan berkesinambungan sebagai umpan balik dan dukungan pengembangan karir.'
+                'description' => 'Proses evaluasi kinerja karyawan secara sistematis dan berkesinambungan sebagai umpan balik dan dukungan pengembangan karir.',
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
             [
                 'category' => 'Kompensasi & Benefit',
                 'price' => 'Rp2.500.000',
-                'description' => 'Perencanaan dan sistem administrasi mengenai kompensasi, tunjangan, program yang bermanfaat untuk menjaga motivasi dan kinerja karyawan.'
+                'description' => 'Perencanaan dan sistem administrasi mengenai kompensasi, tunjangan, program yang bermanfaat untuk menjaga motivasi dan kinerja karyawan.',
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
             [
                 'category' => 'Standar Operasional Prosedur (SOP)',
                 'price' => 'Rp700.000',
-                'description' => 'Panduan standar yang bertujuan memastikan pekerjaan dan kegiatan operasional organisasi.'
+                'description' => 'Panduan standar yang bertujuan memastikan pekerjaan dan kegiatan operasional organisasi.',
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
         ];
 
@@ -1131,16 +1143,19 @@ class LandingController extends Controller
                 'category' => 'Rekrutmen & Seleksi + Pelatihan & Pengembangan',
                 'discount' => 'Rp5.500.000',
                 'price' => 'Rp4.950.000',
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
             [
                 'category' => 'Analisis Beban Kerja & Perencanaan Organisasi + Coaching',
                 'discount' => 'Rp7.500.000',
                 'price' => 'Rp6.750.000',
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
             [
                 'category' => 'Penilaian Kinerja + Kompensasi & Benefit',
                 'discount' => 'Rp4.000.000',
                 'price' => 'Rp3.600.000',
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
         ];
 

@@ -94,12 +94,6 @@
     border: 1.5px solid #3986A3
 }
 
-@media (max-width: 390px) {
-    .bg-psikolog {
-        height: 1150px;
-    }
-}
-
 @media (min-width: 0px) and (max-width: 640px) {
     #swiperKonseling {
         width: 580px;
