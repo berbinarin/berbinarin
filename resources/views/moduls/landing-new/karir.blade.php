@@ -6,6 +6,7 @@
 
 @section('content')
 
+
     {{-- HERO START --}}
     <section class="mt-32 w-full overflow-x-hidden relative mb-12">
 
@@ -41,11 +42,10 @@
                                 class="block"></span> Bagian dari Berbinar!</h1>
                     </div>
                     {{--button--}}
-                    <button
-                        class="py-2 px-4 rounded-lg text-sm md:text-lg lg:text-xl text-white bg-gradient-to-tr from-[#F7B23B] to-[#AD7D29] hover:opacity-80 hover:shadow-lg transition duration-300 mb-12">
+                    <a href="{{route('positions-new')}}" class="inline-block py-2 px-4 rounded-lg text-sm md:text-lg lg:text-xl text-white bg-gradient-to-tr from-[#F7B23B] to-[#AD7D29] hover:opacity-80 hover:shadow-lg transition duration-300 mb-12">
                         Lihat
                         Posisi Tersedia
-                    </button>
+                    </a>
                 </div>
 
                 {{--hexagon banner--}}
@@ -402,7 +402,7 @@
                 @forelse ($positions->take($positions->count()/2)->chunk(ceil($positions->count() / 2)) as $chunk)
                     @foreach ($chunk as $position)
                         {{--card start--}}
-                        <div class="bg-white rounded-xl shadow-benefit-icon w-72 p-2 flex-col">
+                        <div id="{{$position->id}}" class="bg-white rounded-xl shadow-benefit-icon w-72 p-2 flex-col">
                             {{--banner start--}}
                             <div class="w-full h-24 mb-8 relative md:h-32 md:mb-4">
                                 {{--image-banner start--}}
@@ -446,10 +446,11 @@
 
                             {{--button start--}}
                             <div class="w-full flex justify-center items-center mb-4 md:mb-1">
-                                <button
+                                <a
+                                    href="{{route('positions-detail-new', $position->id)}}"
                                     class="w-3/4 py-2 px-2 rounded-lg bg-primary font-normal text-sm text-white text-center hover:opacity-80 hover:shadow-lg md:w-full">
                                     Lihat Selengkapnya
-                                </button>
+                                </a>
                             </div>
                             {{--button end--}}
 
@@ -479,11 +480,11 @@
 
             {{--posissi lainnya start--}}
             <div class="w-full flex items-center justify-center py-4">
-                <button
-                    onclick="window.location.href='{{ route('positions-new') }}'"
+                <a
+                    href="{{route('positions-new')}}"
                     class="font-normal text-base md:text-lg tracking-wide text-white py-3 px-12 md:px-16 rounded-xl bg-gradient-to-r from-[#3986A3] to-[#15323D] font-plusJakartaSans hover:opacity-70 hover:shadow-lg">
                     Posisi Lainnya
-                </button>
+                </a>
             </div>
             {{--posissi lainnya end--}}
 

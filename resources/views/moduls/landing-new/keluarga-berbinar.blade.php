@@ -78,7 +78,7 @@
 
 
             {{--list staff--}}
-            <div class="container mx-auto p-4 lg:py-4 lg:px-0">
+            <div class="container mx-auto p-4 lg:py-4 lg:px-0 ">
                 {{--menu subdivisi dekstop--}}
                 <div class="hidden lg:block lg:w-full lg:mb-4">
                     <div id="lg-subdivision-container"
@@ -156,28 +156,28 @@
             }
 
             handleRenderList();
-            console.log(filteredStaffList);
+            // console.log(filteredStaffList);
         }
 
         function updateYearValue(key) {
             year_value = document.querySelector(`#year-${key}`).textContent.trim();
             updateFilteredStaffList();
-            trackChangingValueAccrossRenders();
+            // trackChangingValueAccrossRenders();
         }
 
         function updateDivisionValue(key) {
             // division_value = document.querySelector(`#division-${key}`).textContent.trim();
             division_value = availableDivision[year_value][key]['division']
             updateFilteredStaffList();
-            trackChangingValueAccrossRenders();
+            // trackChangingValueAccrossRenders();
         }
 
         function updateSubdivisionValue(key) {
             // subdivision_value = document.querySelector(`#subdivision-${key}`).textContent.trim();
             subdivision_value = availableDivision[year_value][previousSelectedKeyDivisionDesktop]['subdivision'][key];
             handleShowSubdivisionBanner();
-            trackChangingValueAccrossRenders();
             updateFilteredStaffList();
+            // trackChangingValueAccrossRenders();
         }
 
 
@@ -187,7 +187,7 @@
             staffContainer.innerHTML = "";
 
             // Loop through staffList and create staff cards dynamically
-            filteredStaffList.forEach((staff, index) => {
+            filteredStaffList.forEach((staff) => {
                 const bgDivision = getDivisionColor(staff.subdivision || staff.division);
 
                 // cardContainer
@@ -199,23 +199,32 @@
                 card.classList.add('staffCard');
                 card.id = `card-${staff.id}`;
 
+                // texture BOTH FRONT AND BACK
+                const textureBack = document.createElement('img'); // element
+                textureBack.src = 'assets/images/landing/keluarga-berbinar/texture-card.png';
+                textureBack.alt = 'texture';
+                textureBack.id = 'back-texture'
+                textureBack.classList.add('texture');
+
+                const textureFront = document.createElement('img');
+                textureFront.src = 'assets/images/landing/keluarga-berbinar/texture-card.png';
+                textureFront.alt = 'texture';
+                textureFront.id = 'front-texture'
+                textureFront.classList.add('texture');
+
+
                 //front-card START
                 const frontCard = document.createElement('div');
-                frontCard.classList.add('frontCard');
+                // frontCard.classList.add('frontCard');
+                frontCard.classList.add('relative', 'h-40', 'cursor-pointer', 'rounded-lg', 'bg-gradient-to-b', 'from-[#3986A3]', 'to-[#15323D]', 'px-4', 'pb-3', 'pt-2', 'hover:shadow-lg', 'md:h-48', 'lg:pointer-events-none', 'lg:h-60', 'lg:w-full', 'lg:cursor-default', 'lg:p-4');
                 frontCard.id = `front-${staff.id}`
                 frontCard.addEventListener('click', () => {
                     handleFlip(staff.id)
                 });
 
 
-                // texture BOTH FRONT AND BACK
-                const texture = document.createElement('img'); // element
-                texture.src = 'assets/images/landing/keluarga-berbinar/texture-card.png';
-                texture.alt = 'texture';
-                texture.classList.add('texture');
-
                 //adding-front-content 1
-                frontCard.appendChild(texture);
+                frontCard.appendChild(textureFront);
 
                 // status mobile and lg
                 const bgColorStatus = staff.status ? 'bg-[#04CA00]' : 'bg-[#F7B23B]';
@@ -303,7 +312,6 @@
 
                 //adding-front-content 4
                 frontCard.appendChild(contentFront);
-
                 //front-card END
 
 
@@ -312,17 +320,13 @@
                 backCard.classList.add('relative',  'hidden',  'min-h-40',  'md:min-h-48',  'lg:min-h-60', 'rounded-lg',
                     'bg-gradient-to-b', 'from-[#3986A3]', 'to-[#15323D]', 'pt-2', 'pb-3', 'px-4', 'lg:p-4',
                     'cursor-pointer', 'hover:shadow-lg', 'my-rotate-y-180');
-                //debug back-card here
-                // backCard.classList.add('relative', 'min-h-40',  'md:min-h-48',  'lg:min-h-60', 'rounded-lg',
-                //     'bg-gradient-to-b', 'from-[#3986A3]', 'to-[#15323D]', 'pt-2', 'pb-3', 'px-4', 'lg:p-4',
-                //     'cursor-pointer', 'hover:shadow-lg');
                 backCard.id = `back-${staff.id}`
                 backCard.addEventListener('click', () => {
                     handleFlip(staff.id)
                 })
 
                 //adding-back-content 1
-                backCard.appendChild(texture);
+                backCard.append(textureBack);
 
                 //lini masa back
                 const liniMasa = document.createElement('span'); // element

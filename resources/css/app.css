@@ -35,7 +35,7 @@
 }
 
 .texture {
-    @apply absolute -bottom-8 left-0 z-10 hidden scale-y-75 lg:block;
+    @apply hidden lg:absolute lg:-bottom-8 lg:left-0 lg:z-10 scale-y-75 lg:block;
 }
 
 .statusMobile {

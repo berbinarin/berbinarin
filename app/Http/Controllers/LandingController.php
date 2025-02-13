@@ -8,6 +8,7 @@ use App\Models\Question;
 use App\Models\Dimension;
 use App\Models\jadwalPeer;
 use DateTime;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Models\UserPsikotest;
 use App\Models\KonsellingPeer;
@@ -123,9 +124,10 @@ class LandingController extends Controller
         return view('moduls.landing-new.produk')->with([]);
     }
 
-    public function karir_new(Request $request)
+    public function karir_new()
     {
         $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->where('is_active', true)->get();
+
 
         $testimonis = [
             [
@@ -197,7 +199,7 @@ class LandingController extends Controller
         ]);
     }
 
-    public function positions_new(Request $request)
+    public function positions_new()
     {
 
         $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->where('is_active', true)->get();
@@ -231,8 +233,21 @@ class LandingController extends Controller
         ]);
     }
 
-    public function positions_detail_new(Request $request)
-    { //add $id if aleady ready fetch from db
+    public function positions_detail_new($id)
+    {
+
+        $position = Hiring_Positions::where('id', $id)->first();
+
+        if (!$position) {
+            return redirect()->back()->with('error', 'Position not found or inactive');
+        }
+
+        // todo: production please fetch actual description & requirments from db
+        //$HiringPositionsJobDescription = Hiring_Positions_Job_Descriptions::where('position_id', $id)->get();
+        //$Hiring_Positions_Requirement = Hiring_Positions_Requirements::where('position_id', $id)->get();
+
+        //dd($position->toArray());
+
         $faqs = [
             [
                 'question' => 'Apakah magang di Berbinar dapat dikonversi ke SKS perkuliahan?',
@@ -256,6 +271,7 @@ class LandingController extends Controller
             ],
         ];
 
+        // for development only
         $deskripsiPejeraan = [
             'Bertanggung jawab proses pengembangan aplikasi',
             'Melakukan manajemen dan maintenance database hostinger',
@@ -266,7 +282,6 @@ class LandingController extends Controller
             'Melakukan testing untuk memastikan fungsionalitas back end atau database.',
             'Membuat report hasil testing yang telah dilakukan.'
         ];
-
         $persyaratan = [
             'Terbuka untuk siswa/siswi SMA, SMK, MA, atau yang Sederajat; mahasiswa/mahasiswi aktif dan fresh-graduate dengan kelulusan maksimal 1 tahun.',
             'Mampu berkomitmen tinggi untuk berkontribusi di Berbinar selama 6 bulan atau 1 tahun.',
@@ -282,41 +297,8 @@ class LandingController extends Controller
             'faqs' => $faqs,
             'deskripsi' => $deskripsiPejeraan,
             'persyaratan' => $persyaratan,
+            'position' => $position,
         ]);
-    }
-
-    function testgetAvailableDivisionsPerYear($data): array
-    {
-        $divisionsPerYear = [];
-
-        foreach ($data as $staff) {
-            // Extract the year from date_start
-            $year = explode(' ', $staff['date_start'])[1];
-
-            // Initialize the array if the year is not set yet
-            if (!isset($divisionsPerYear[$year])) {
-                $divisionsPerYear[$year] = [];
-            }
-
-            // Add the division to the year if it's not already added
-            if (!in_array($staff['division'], $divisionsPerYear[$year])) {
-                $divisionsPerYear[$year][] = $staff['division'];
-            }
-
-            //here i want you to add subdivision if available so the output array would look like
-
-
-        }
-
-        // Sort divisions for each year
-        foreach ($divisionsPerYear as &$divisions) {
-            sort($divisions);
-        }
-
-        // Sort years
-        ksort($divisionsPerYear);
-
-        return $divisionsPerYear;
     }
 
     function getAvailableDivisionsPerYear($data): array
@@ -362,26 +344,35 @@ class LandingController extends Controller
 
     public function keluarga_berbinar(Request $request)
     {
+        // todo: fetch dari db!!
 
-        $response = Http::get('http://localhost:3004/dataStaff');
+        // fetch from api
+        //$response = Http::get('http://localhost:3004/dataStaff');
+        //$data = $response->json();
 
-        $data = $response->json();
 
-        //liststaff
+        // sementara pakai data dummy json dulu
+        $jsonPath = public_path('assets/js/dummyStaff.json');
+        $jsonContent = File::exists($jsonPath) ? File::get($jsonPath) : '[]';
+        $data = json_decode($jsonContent, true)['dataStaff'];
 
-        $filteredStaffList = collect($data)->where('id', 1)->values()->all();
+        // debug data
+        //dd($data)
 
         //available year, e.g ["2019", "2020", "2021"], dummy data start from 2022
-        $availableYears = collect(array_map(fn($staff) => explode(' ', $staff['date_start'])[1], $data))->unique()->sort()->values()->all();
+        $availableYears = collect(array_map(fn($staff) => explode(' ', $staff['date_start'])[1], $data))
+            ->unique()
+            ->sort()
+            ->values()
+            ->all();
+        // available division per year dd to look the data
         $availableDivision = $this->getAvailableDivisionsPerYear($data);
-
-
+        //dd($availableDivision.toArray());
 
         return view('moduls.landing-new.keluarga-berbinar')->with([
             'listStaff' => $data,
             'availableYears' => $availableYears,
             'availableDivision' => $availableDivision,
-            'filteredStaffList' => $filteredStaffList,
         ]);
     }
 

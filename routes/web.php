@@ -65,9 +65,8 @@ Route::get('/landing-new', [LandingController::class, 'landing_new'])->name('hom
 Route::get('/produk-new', [LandingController::class, 'produk_new'])->name('produk-new');
 Route::get('/karir-new', [LandingController::class, 'karir_new'])->name('karir-new');
 Route::get('/karir-new/positions', [LandingController::class, 'positions_new'])->name('positions-new');
-Route::get('/karir-new/positions/detail', [LandingController::class, 'positions_detail_new'])->name('positions-detail-new');
+Route::get('/karir-new/positions/{id}', [LandingController::class, 'positions_detail_new'])->name('positions-detail-new');
 Route::get('/keluarga-berbinar', [LandingController::class, 'keluarga_berbinar'])->name('keluarga-berbinar');
-//Route::get('/flip-card', [LandingController::class, 'card_flip'])->name('card-flip');
 Route::get('/konseling-new', [LandingController::class, 'konseling_new'])->name('konseling-new');
 Route::get('/psikotest-new', [LandingController::class, 'psikotest_new'])->name('psikotest-new');
 Route::get('/kelas-new', [LandingController::class, 'kelas_new'])->name('kelas-new');

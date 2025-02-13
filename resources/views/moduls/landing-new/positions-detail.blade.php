@@ -7,6 +7,8 @@
 
 @section('content')
 
+{{--    @dd($position)--}}
+
     {{--job desc start--}}
     <section class="w-full mx-auto mt-24 lg:mt-32 font-inter overflow-hidden">
 
@@ -15,7 +17,7 @@
             <div class="mx-auto w-full lg:flex lg:flex-wrap lg:justify-center lg:items-center">
                 <div class="w-full p-4 sm:px-16 md:px-14 lg:p-0 relative mb-4 lg:w-1/2 z-20">
                     <div class="w-full rounded-2xl overflow-hidden flex justify-center items-center lg:rounded-3xl">
-                        <img src="{{asset('assets/images/landing/karir/banner/Back End Developer.png')}}"
+                        <img src="{{asset('assets/images/landing/karir/banner/'.$position->name.'.png')}}"
                              alt="banner"
                              class="object-cover w-full h-40 sm:h-48 md:h-60 lg:h-64 xl:h-72">
                     </div>
@@ -26,11 +28,12 @@
                 </div>
                 {{--deskripsi pekerjaan badge--}}
                 <div class="w-full lg:w-1/2 lg:ps-20">
-                    <h1 class="font-semibold text-3xl sm:text-4xl text-center lg:text-start lg:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-[#FBB03B] to-[#956823] [text-shadow:_0_2px_4px_rgb(0_0_0_/_0.25)] mb-4">
-                        Web & Mobile Apps
+                    <h1 class="font-semibold text-3xl sm:text-4xl text-center lg:py-2 lg:text-start lg:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-[#FBB03B] to-[#956823] [text-shadow:_0_2px_4px_rgb(0_0_0_/_0.25)] mb-4">
+                        [divisi name here]
                     </h1>
+                    {{--todo: tambahkan field divisi dan subdivi di table hiring--}}
                     <h2 class="font-semibold text-2xl sm:text-3xl text-center lg:text-start lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#3986A3] to-[#15323D] [text-shadow:_0_2px_4px_rgb(0_0_0_/_0.25)] mb-4">
-                        Back-End Developer
+                        {{$position->name}}
                     </h2>
                     <div class="w-full mx-auto mb-8">
                         <img src="{{asset('assets/images/landing/karir/wave-detail.png')}}" alt="wave-detail"
@@ -38,10 +41,11 @@
                     </div>
 
                     <div class="hidden lg:flex lg:items-center lg:justify-start w-full mx-auto">
-                        <button
-                            class="font-semibold text-lg text-white py-3 px-4 bg-gradient-to-r from-[#FBB03B] to-[#956823] rounded-lg w-full lg:w-3/4 hover:shadow-lg hover:opacity-80">
+                        <a
+                            href="{{route('hiring.position.detail', $position->id)}}"
+                            class="inline-block text-center font-semibold text-lg text-white py-3 px-4 bg-gradient-to-r from-[#FBB03B] to-[#956823] rounded-lg w-full lg:w-3/4 hover:shadow-lg hover:opacity-80">
                             Daftar Sekarang
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -54,6 +58,7 @@
                 <h3 class="font-semibold text-xl sm:text-2xl text-center md:text-start text-transparent bg-clip-text bg-gradient-to-r from-[#3986A3] to-[#15323D] mb-4">
                     Deskripsi Pekerjaan</h3>
                 <ul class="mx-auto mb-4 list-decimal list-outside px-8 md:px-5">
+                    {{--todo: load deskripsi dari db, sesuai masing-masing position--}}
                     @foreach($deskripsi as $deskripsi)
                         <li class="font-normal text-sm mb-2 sm:text-base">{{$deskripsi}}</li>
                     @endforeach
@@ -185,7 +190,7 @@
 
     {{--BANNER KELUARGA BERBINAR START--}}
     <section class="w-full lg:mt-12 mx-auto flex items-center justify-center px-2 md:px-16 mb-12">
-        <a href="#">
+        <a href="{{route('keluarga-berbinar')}}">
             <div class=" cursor-pointer">
                 <img src="{{asset('assets/images/landing/karir/banner-keluarga-berbinar.png')}}"
                      alt="banner keluarga berbinar" class="object-cover">

@@ -66,10 +66,11 @@
 
                         {{--button start--}}
                         <div class="w-full flex justify-center items-center mb-4 md:mb-1">
-                            <button
+                            <a
+                                href="{{route('positions-detail-new', $position->id)}}"
                                 class="w-3/4 py-2 px-2 rounded-lg bg-primary font-normal text-sm text-white text-center hover:opacity-80 hover:shadow-lg md:w-full">
                                 Lihat Selengkapnya
-                            </button>
+                            </a>
                         </div>
                         {{--button end--}}
 
