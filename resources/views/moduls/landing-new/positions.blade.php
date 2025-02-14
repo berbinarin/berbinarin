@@ -158,7 +158,7 @@
 
     {{--BANNER KELUARGA BERBINAR START--}}
     <section class="w-full lg:mt-12 mx-auto flex items-center justify-center px-2 md:px-16 mb-12">
-        <a href="#">
+        <a href="{{route('keluarga-berbinar')}}">
             <div class=" cursor-pointer">
                 <img src="{{asset('assets/images/landing/karir/banner-keluarga-berbinar.png')}}"
                      alt="banner keluarga berbinar" class="object-cover">

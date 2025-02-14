@@ -199,6 +199,11 @@
     </section>
     {{--BANNER KELUARGA BERBINAR END--}}
 
+    <script>
+        const positionsObj = @json($position);
+        console.log(positionsObj);
+    </script>
+
     {{-- SCRIPT ACCORDION FAQS --}}
     <script>
         document.addEventListener('alpine:init', () => {
