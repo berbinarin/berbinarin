@@ -29,11 +29,11 @@
                 {{--deskripsi pekerjaan badge--}}
                 <div class="w-full lg:w-1/2 lg:ps-20">
                     <h1 class="font-semibold text-3xl sm:text-4xl text-center lg:py-2 lg:text-start lg:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-[#FBB03B] to-[#956823] [text-shadow:_0_2px_4px_rgb(0_0_0_/_0.25)] mb-4">
-                        [divisi name here]
+                        {{$position->name}}
                     </h1>
                     {{--todo: tambahkan field divisi dan subdivi di table hiring--}}
                     <h2 class="font-semibold text-2xl sm:text-3xl text-center lg:text-start lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#3986A3] to-[#15323D] [text-shadow:_0_2px_4px_rgb(0_0_0_/_0.25)] mb-4">
-                        {{$position->name}}
+                        {{$position->divisi}}
                     </h2>
                     <div class="w-full mx-auto mb-8">
                         <img src="{{asset('assets/images/landing/karir/wave-detail.png')}}" alt="wave-detail"
@@ -64,10 +64,11 @@
                     @endforeach
                 </ul>
                 <div class="flex lg:hidden lg:items-center lg:justify-start w-full mx-auto px-4 sm:px-10 mb-4">
-                    <button
-                        class="font-normal text-lg text-white py-3 px-4 bg-gradient-to-r from-[#FBB03B] to-[#956823] rounded-lg w-full lg:w-3/4 hover:shadow-lg hover:opacity-80">
+                    <a
+                        href="{{route('hiring.position.detail', $position->id)}}"
+                        class="inline-block text-center font-normal text-lg text-white py-3 px-4 bg-gradient-to-r from-[#FBB03B] to-[#956823] rounded-lg w-full lg:w-3/4 hover:shadow-lg hover:opacity-80">
                         Daftar Sekarang
-                    </button>
+                    </a>
                 </div>
             </div>
 
