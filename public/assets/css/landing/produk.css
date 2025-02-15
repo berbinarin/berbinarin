@@ -2,19 +2,23 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    width: 100vw; 
+    max-width: 100%; 
+    height: 100vh; 
     background-image: url('/assets/images/landing/vector-curling-mobile.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 1; 
-    
+    overflow: hidden;
 }
+
 
 
 .header-produk {
     position: relative;
     z-index: 2;
-    background-image: linear-gradient(to right, #e1e9ec, #9CC3D1), url('/assets/images/landing/vector-curling.png');
+    background-image: linear-gradient(to right, #e1e9ec, #9CC3D1), url('/assets/images/landing/asset-produk/bg-curl.png');
     background-blend-mode: multiply;
     background-size: cover;
     background-position: center;
@@ -29,6 +33,14 @@
     -webkit-background-clip: text; 
     color: transparent; 
 }
+
+.text-gradient-yellow {
+    background: linear-gradient(to right, #F7B23B, #AD7D29); 
+    background-clip: text;
+    -webkit-background-clip: text; 
+    color: transparent; 
+}
+
 
 @media (min-width: 0px) and (max-width: 640px) {
     .header-produk {

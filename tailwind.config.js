@@ -22,7 +22,6 @@ export default {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
-
     ],
     theme: {
         borderWidth: {
@@ -66,7 +65,10 @@ export default {
                 "blur-bg-2": "#C7F8FF",
                 "blur-black": "rgba(0, 0, 0, 0.54)",
                 "card-box": "#F7F7F7",
-                "remote": '#9E9E9E'
+                "remote": '#9E9E9E',
+                "viewdata": "#3B82F6",
+                "editdata-dashboardBtn": "#E9B306",
+                "deletedata-dashboardBtn": "#EF4444"
             },
             opacity: {
                 54: ".54",

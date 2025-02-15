@@ -8,6 +8,7 @@
         <form method="POST"
             action="{{ route('psikotest-paid.papi-kostick.submit', ['id' => $id, 'question_order' => $question_order]) }}">
             @csrf
+        <input type="hidden" name="timeout" id="timeout" value="false">
             <!-- Background Image -->
             <img src="{{ asset('assets/images/psikotes/paid/psikotest-soal-bg.png') }}" alt="Latar Belakang Berbinar"
                 class="absolute inset-0 hidden md:block md:w-full md:h-full object-cover z-0">
@@ -21,18 +22,20 @@
                         class="w-8 h-8 rounded-full ml-2">
                 </div>
             </div>
+            <h1>Test 01</h1>
 
             <!-- Main Content Area -->
             <div class="relative z-10 w-3xl mx-auto bg-none rounded-lg p-6 mt-20" style="width: 750px;">
 
                 <!-- Question Number Circle -->
-                <div
+                {{-- <div
                     class="absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/2 bg-amber-500 text-white rounded-full h-12 w-12 flex items-center justify-center text-lg font-bold">
                     {{ $question_order }}
-                </div>
+                </div> --}}
 
 <!-- Blue and Orange Cards in Horizontal Layout -->
 <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+
     <!-- Blue Card -->
     <label class="flex-1 rounded-lg p-4 my-8 cursor-pointer relative card"
         style="background-color: #3FA2F6; width: 100px; height: 150px; margin-top: 0px; transition: transform 0.2s ease;"
@@ -95,8 +98,13 @@
                     });
                 </script>
 
+        <!-- Timer -->
+        <div class="mt-4 mb-2 text-center z-20">
+            <span id="timer" class="text-xl font-semibold text-red-600"></span>
+        </div>
+
                 <!-- Percentage Line and Next Button -->
-                <div class="flex bg-white rounded-md items-center justify-between mt-24"
+                <div class="flex bg-white rounded-md items-center justify-between mt-10"
                     style="height: 40px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                     <div class="flex items-center ml-6" style="height: 3px; width: 510px; position: relative;">
                         <!-- Black background line -->
@@ -119,4 +127,33 @@
             </div>
         </form>
     </div>
+<script>
+    // Total durasi (misalnya 90 menit = 90 * 60 * 1000 milidetik)
+    const totalDuration = 45 * 60 * 1000;
+
+    let startTime = localStorage.getItem('startTimePapiKostick') || new Date().getTime();
+    localStorage.setItem('startTimePapiKostick', startTime);
+
+    const timerElement = document.getElementById('timer');
+
+    const timerInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const elapsed = now - startTime;
+        const remaining = totalDuration - elapsed;
+
+        if (remaining <= 0) {
+            clearInterval(timerInterval);
+            localStorage.removeItem('startTimePapiKostick');
+            document.getElementById('timeout').value = true;
+            document.querySelector('form').submit();
+        }
+
+        const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+        console.log("Waktu sisa",minutes+ '' + seconds)
+
+        // timerElement.innerHTML = `Waktu Tersisa: ${minutes}m ${seconds}s`;
+    }, 1000);
+</script>
 @endsection

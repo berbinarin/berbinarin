@@ -11,8 +11,12 @@ use Database\Seeders\PsikotestPaid\OCEAN\QuestionOceanSeeder;
 use Database\Seeders\PsikotestPaid\SSCT\QuestionSsctSeeder;
 use Database\Seeders\PsikotestPaid\TesEsai\QuestionTesEsaiSeeder;
 use Database\Seeders\PsikotestPaid\UserPsikotestPaidSeeder;
+use Database\Seeders\PsikotestPaid\Biodata\LevelEducationSeeder;
+use Database\Seeders\PsikotestPaid\Biodata\FamilyStatusSeeder;
+use Database\Seeders\PsikotestPaid\Biodata\QuestionCategorySeeder;
 use Illuminate\Database\Seeder;
 use App\Models\PsikotestPaid\CategoryPsikotestType;
+use Database\Seeders\PsikotestPaid\Biodata\QuestionEsssaySeeder;
 use Database\Seeders\PsikotestPaid\PsikotestToolSeeder;
 use Database\Seeders\PsikotestPaid\PsikotestTypeSeeder;
 use Database\Seeders\PsikotestPaid\CategoryPsikotestTypeSeeder;
@@ -50,7 +54,18 @@ class DatabaseSeeder extends Seeder
             QuestionSsctSeeder::class,
             CategoryQuestionVakSeeder::class,
             QuestionVakSeeder::class,
-            HiringSeeder::class,
+            LevelEducationSeeder::class,
+            FamilyStatusSeeder::class,
+            QuestionCategorySeeder::class,
+            QuestionEsssaySeeder::class,
+
+            // Data test
+            UserInternshipSeeder::class,
+            NomorBdiSeeder::class,
+            SoalBdiSeeder::class,
+
+            // hiring seeder
+            HiringSeeder::class
         ]);
     }
 }

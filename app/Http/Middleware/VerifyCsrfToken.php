@@ -12,6 +12,11 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+        'api/psikotest-paid/post-company',
+        'api/psikotest-paid/post-education',
+        'api/psikotest-paid/post-community',
+        'api/psikotest-paid/post-individual',
+        'api/psikotest-paid/post-clinical',
+        'api/*',
     ];
 }

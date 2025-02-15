@@ -3,14 +3,14 @@
 }
 
 #swiperProduk {
-    width: 900px; 
+    width: 900px;
     margin: 20px auto;
     overflow: hidden;
 
 }
 
 #swiperTestimoni {
-    width: 900px; 
+    width: 900px;
     margin: 20px auto;
     overflow: hidden;
     padding-bottom: 10px;
@@ -23,7 +23,7 @@
 }
 
 .swiper-pagination-bullet {
-    background-color: #D0D0D0; 
+    background-color: #D0D0D0;
     opacity: 1;
     height: 8px;
     width: 8px;
@@ -31,7 +31,7 @@
 }
 
 .swiper-pagination-bullet-active {
-    background-color: #3886A3; 
+    background-color: #3886A3;
     width: 16px;
     height: 8px;
     border-radius: 10px;
@@ -50,14 +50,26 @@
 }
 
 /* Custom Responsive breakpoint */
-@media (max-width: 450px) {
-    .judul-450px {
+@media (max-width: 400px) {
+    .judul-mini {
         font-size: 33px;
     }
 
-    .deskripsi-450px {
-        padding-right: 0;
+    .deskripsi-mini {
         font-size: 14px;
+    }
+
+    /* .bg-mini {
+        height: 100vh;
+    } */
+
+    .stats-mini {
+        position: absolute;
+        bottom: -270px
+    }
+
+    .text-mini {
+        margin-top: 310px;
     }
 }
 
@@ -94,7 +106,7 @@
     }
 
     #swiperTestimoni {
-        width: 500px;
+        width: 510px;
     }
 
     .bg-hero {
@@ -108,7 +120,7 @@
     }
 
     #swiperTestimoni {
-        width: 550px;
+        width: 580px;
     }
 
     .swiperContainer {
@@ -116,28 +128,10 @@
         margin: 0px 80px;
     }
 }
-
-/* @media (max-width: 768px) { 
-    .swiper-container.swiperTestimoni {
-        margin: 20px 20px;
-        overflow: hidden;
-        padding-bottom: 10px;
-    }
-
-    .swiper-slide.testimoni {
-        min-width: 250px; 
-        flex-shrink: 0;
-    }
-} */
 
 @media (min-width: 768px) and (max-width: 992px) {
-    #swiperKelas {
-        width: 800px; 
-        margin: 20px auto;
-    }
-
-    #swiperTestimoni {
-        width: 800px; 
+    #swiperProduk {
+        width: 800px;
         margin: 20px auto;
     }
 
@@ -147,20 +141,19 @@
     }
 }
 
-/* @media (max-width: 1024px) { 
-    .swiper-container.swiperTestimoni {
-        margin: 20px 40px;
+@media (min-width:768px) and (max-width: 1024px) {
+    #swiperTestimoni {
+        width: 850px;
+        margin: 20px auto;
+    }
+
+    .swiperContainer {
         overflow: hidden;
-        padding-bottom: 10px;
+        margin: 0px 80px;
     }
+}
 
-    .swiper-slide.testimoni {
-        min-width: 250px; 
-        flex-shrink: 0;
-    }
-} */
-
-@media (min-width: 1280px) { 
+@media (min-width: 1280px) {
 
 }
 

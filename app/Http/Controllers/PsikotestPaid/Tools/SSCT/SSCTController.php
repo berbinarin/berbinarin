@@ -55,12 +55,12 @@ class SSCTController extends Controller
         $validatedData = $request->validate([
             'test_id' => 'required|exists:test_ssct,id',
             'question_id' => 'required|exists:question_ssct,id',
-            'answer' => 'required|string'
+            'answer' => 'nullable|string'
         ]);
 
         $testId = $validatedData['test_id'];
         $questionId = $validatedData['question_id'];
-        $answer = $validatedData['answer'];
+        $answer = $validatedData['answer']??NULL;
         $userId = Auth::guard('psikotestpaid')->id();
 
         AnswerSsct::create([
@@ -71,7 +71,8 @@ class SSCTController extends Controller
         ]);
 
         $currentQuestionNumber = $request->input('current_question_number');
-        if ($currentQuestionNumber < 60) {
+        $timeout = $request->input('timeout');
+        if ($currentQuestionNumber < 60 && $timeout == "false") {
             return redirect()->route('psikotest-paid.tool.SSCT.showTest', ['testId' => $testId])
                 ->with('current_question_number', $currentQuestionNumber + 1);
         } else {

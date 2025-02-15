@@ -226,14 +226,14 @@
                         </div>
                         <form action="{{ route('post-peer-jadwal') }}" method="POST">
                             @csrf
-                            <div class="mt-6 mx-0 sm:mx-20 md:mx-30 lg:mx-0 justify-items-start">
-                                <div class="datekons mt-4">
+                            <div class="mt-6 mx-0 justify-items-start">
+                                <div class="datekons mt-4 w-full">
                                     <p class="text-left text-[#555555]">Tanggal Konseling</p>
                                     <input required name="jadwal_tanggal" id="jadwal_tanggal"
                                         value="{{ old('jadwal_tanggal', $konseling->jadwal_tanggal ?? '') }}" type="date"
                                         class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg p-4 mt-3">
                                 </div>
-                                <div class="daykons mt-4">
+                                <div class="daykons mt-4 w-full">
                                     <p class="text-left text-[#555555]">Pilih Hari Konseling</p>
                                     <select disabled name="hari" id="hari"
                                         class="appearance-none bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1">
@@ -247,14 +247,14 @@
                                         <option value="minggu">Minggu</option>
                                     </select>
                                 </div>
-                                <div class="timekons mt-4">
+                                <div class="timekons mt-4 w-full">
                                     <p for="jadwal" class="text-left text-[#555555]">Pilih Jam Konseling</p>
                                     <select name="jadwal_pukul" id="jadwal_pukul"
                                         class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1">
                                         <option value="default" selected disabled>Pilih Jam</option>
                                     </select>
                                 </div>
-                                <div class="metodekons mt-4">
+                                <div class="metodekons mt-4 w-full">
                                     <p class="text-left text-[#555555]">Metode Konseling</p>
                                     <select name="metode" id="metode"
                                         class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1"
@@ -264,28 +264,25 @@
                                         <option value="offline">Offline</option>
                                     </select>
                                 </div>
-                                <div class="daerahkons mt-4" id="daerah-container" style="display: none;">
+                                <div class="daerahkons mt-4 w-full" id="daerah-container" style="display: none;">
                                     <p class="text-left text-[#555555]">Pilih Daerah</p>
                                     <select name="daerah" id="daerah"
                                         class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg px-3 mt-1">
-                                        <option value="Bekasi">Bekasi</option>
                                         <option value="Tangerang Selatan">Tangerang Selatan</option>
-                                        <option value="Padang">Padang</option>
-                                        <option value="Jakarta">Jakarta</option>
-                                        <option value="Wonogiri">Wonogiri</option>
                                         <option value="Malang">Malang</option>
+                                        <option value="Surabaya">Surabaya</option>
                                     </select>
                                 </div>
-                                <div class="hargakons mt-4">
+                                <div class="hargakons mt-4 w-full">
                                     <p class="text-left text-[#555555]">Harga</p>
                                     <input readonly name="harga" id="harga"
                                         value="{{ old('harga', $konseling->harga ?? 0) }}" type="number"
                                         class="bg-[#F1F3F6] text-[#555555] border-2 h-12 w-full rounded-lg p-4 mt-3">
                                 </div>
                             </div>
-                            <div class="text-right">
+                            <div class="text-right w-full">
                                 <button type="submit"
-                                    class="button-next inline-block rounded-lg w-fit my-6 px-5 py-3 text-base font-medium text-white">
+                                    class="button-next inline-block rounded-lg w-full my-6 px-5 py-3 text-base font-medium text-white">
                                     Selanjutnya
                                 </button>
                             </div>
@@ -294,7 +291,7 @@
                     <div class="w-screen hidden lg:block decoration__conreg">
                         <div class="flex mx-auto justify-center align-items-center">
                             <img src="{{ asset('assets/images/konseling/regist/Ilustrasi1.png') }}" alt="Ilustrasi-Test"
-                                class="absolute mx-auto mt-14 w-[550px] z-10">
+                                class="absolute m-auto w-[550px] z-10">
                             <div
                                 class="decoration__img__conreg mx-auto rounded-3xl mt-[24rem] w-[500px] h-[200px] border-4 bg-white z-0">
                             </div>
@@ -380,5 +377,22 @@
                 hargaInput.value = '';
             }
         }
+    </script>
+    <script>
+        // Mendapatkan tanggal saat ini
+        const now = new Date();
+
+        // Menambahkan 7 hari ke tanggal sekarang
+        now.setDate(now.getDate() + 7);
+
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // Bulan dalam format dua digit
+        const day = String(now.getDate()).padStart(2, '0'); // Tanggal dalam format dua digit
+
+        // Format tanggal sesuai format min yang diharapkan untuk input type date (YYYY-MM-DD)
+        const minDate = `${year}-${month}-${day}`;
+
+        // Mengatur atribut min pada input date
+        document.getElementById("jadwal_tanggal").setAttribute("min", minDate);
     </script>
 @endsection

@@ -10,7 +10,7 @@
 
     <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
 
-    @vite(['resources/css/app.css'])
+    @vite('resources/css/app.css')
     <link rel="stylesheet" href="{{ asset('assets/css/landing-new.css') }}">
 
     {{-- Css Swiper --}}
@@ -22,8 +22,14 @@
         <link rel="stylesheet" href="{{ asset('assets/css/landing/beranda.css') }}">
     @endif
 
+    {{--css Karir--}}
     @if($page === 'Karir')
         <link rel="stylesheet" href="{{asset('assets/css/landing/karir.css')}}">
+    @endif
+
+    {{-- Css Tentang Kami --}}
+    @if ($page === 'Tentang Kami')
+        <link rel="stylesheet" href="{{ asset('assets/css/landing/tentang.css') }}">
     @endif
 
     {{-- Css Produk Berbinar --}}
@@ -46,6 +52,11 @@
         <link rel="stylesheet" href="{{ asset('assets/css/landing/kelas.css') }}">
     @endif
 
+    {{-- Css Produk Consulting --}}
+    @if ($page === 'Consulting')
+        <link rel="stylesheet" href="{{ asset('assets/css/landing/consulting.css') }}">
+    @endif
+
 </head>
 <body class="relative overflow-x-hidden w-full">
 @include('layouts.navbar-new')
@@ -57,6 +68,7 @@
 @if($page !== 'keluarga-berbinar')
     @include('layouts.footer-new')
 @endif
+
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -66,8 +78,9 @@
     <script src="{{ asset('assets/js/landing/beranda.js') }}"></script>
 @endif
 
-@if($page === 'Karir')
-    <script src="{{asset('assets/js/landing/karir.js')}}"></script>
+{{-- Script Tentang Kami --}}
+@if ($page === 'Tentang Kami')
+    <script src="{{ asset('assets/js/landing/tentang.js') }}"></script>
 @endif
 
 {{-- Script Produk Berbinar --}}
@@ -88,6 +101,11 @@
 {{-- Script Produk Kelas --}}
 @if ($page === 'Kelas')
     <script src="{{ asset('assets/js/landing/kelas.js') }}"></script>
+@endif
+
+{{-- Script Produk Kelas --}}
+@if ($page === 'Consulting')
+    <script src="{{ asset('assets/js/landing/consulting.js') }}"></script>
 @endif
 </body>
 </html>

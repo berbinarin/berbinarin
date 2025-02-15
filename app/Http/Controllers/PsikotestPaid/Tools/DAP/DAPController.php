@@ -82,6 +82,6 @@ class DAPController extends Controller
 
     public function showSummary($testId)
     {
-        return view('moduls.psikotes-paid.tools.tes-esai.summary', ['testId' => $testId]);
+        return view('moduls.psikotes-paid.tools.DAP.summary', ['testId' => $testId]);
     }
 }

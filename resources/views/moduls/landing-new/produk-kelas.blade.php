@@ -6,12 +6,12 @@
 
 @section('content')
 {{-- HERO SECTION --}}
-<section class="relative">
-    <div class="absolute left-0 top-5 max-sm:top-32 z-0">
+<section class="relative max-sm:overflow-hidden">
+    <div class="absolute left-0 top-5 max-sm:top-32 z-0 ">
         <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-hero1.svg') }}" alt="Vector" class="h-[500px] max-sm:h-[250px] w-auto">
     </div>
 
-    <div class="absolute right-0 max-sm:-right-20 top-8 max-sm:top-40 z-0">
+    <div class="absolute right-0 max-sm:-right-20 max-md:-right-28 top-8 max-sm:top-40 z-0 ">
         <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-hero2.svg') }}" alt="Vector" class="h-[500px] max-sm:h-[250px] w-auto">
     </div>
 
@@ -26,23 +26,23 @@
                 </a>
 
                 <div class="hidden max-md:flex max-lg:flex-none items-center justify-center w-full lg:w-auto lg:order-2">
-                    <img src="{{ asset('assets/images/landing/asset-kelas/hero.png') }}" alt="Kelas" class="h-[340px] max-sm:h-[320px] w-auto">
+                    <img src="{{ asset('assets/images/landing/asset-kelas/hero.png') }}" alt="Class" class="h-[340px] max-sm:h-[320px] w-auto object-contain">
                 </div>
                 
                 <div class="lg:order-3">
-                    <h2 class="text-5xl max-sm:text-3xl font-bold text-gradient py-2">Kelas</h2>  
+                    <h2 class="text-5xl max-sm:text-3xl font-bold text-gradient py-2">Berbinar Class</h2>  
                 </div>
 
                 <div class="lg:order-4">
-                    <p class="text-[#70787D] text-justify max-sm:text-[15px] text-lg max-lg:text-[17px]">
-                        Dengan mengikuti kelas dari Berbinar, Anda dapat meningkatkan soft skill dan hard skill yang dimiliki untuk meningkatkan kemampuan bersaing. 
-                        Webinar dapat memperluas wawasan keilmuan dan keterampilan yang berasal dari ahli yang sudah berpengalaman di bidangnya.
+                    <p class="text-[#70787D] text-justify max-sm:leading-normal max-sm:text-[15px] text-lg max-lg:text-[17px]">
+                        Layanan yang bertujuan untuk membantu suatu perusahaan/komunitas/organisasi yang berkaitan dengan Sumber Daya Manusia. 
+                        Layanan ini menekankan pada proses consulting oleh Human Resource yang berpengalaman agar pengetahuan yang diberikan dapat diterima dan dimengerti dengan baik oleh klien.
                     </p>
                 </div>
             </div>
 
             <div class="flex max-md:hidden flex-initial max-lg:flex-1 items-center justify-center w-full lg:w-auto">
-                <img src="{{ asset('assets/images/landing/asset-kelas/hero.png') }}" alt="Kelas" class="h-[340px] max-lg:h-[320px] w-auto">
+                <img src="{{ asset('assets/images/landing/asset-kelas/hero.png') }}" alt="Class" class="h-[340px] max-lg:h-[320px] w-auto object-contain">
             </div>
         </div>
     </div>

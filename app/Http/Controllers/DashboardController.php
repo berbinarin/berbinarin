@@ -20,6 +20,9 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Hiring_Positions_Requirements;
 use App\Models\PsikotestPaid\UserPsikotestPaid;
 use App\Models\Hiring_Positions_Job_Descriptions;
+use App\Models\PsikotestPaid\Biodata\Education;
+use App\Models\PsikotestPaid\Biodata\Family;
+use App\Models\PsikotestPaid\Biodata\LevelEducation;
 
 
 class DashboardController extends Controller
@@ -110,6 +113,38 @@ class DashboardController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
         return view('moduls.dashboard.hr.internship.internship', ['Internship' => $internships]);
+    }
+
+    // <---View Keluarga Berbinar--->
+
+    public function berbinarFamily()
+    {
+        return view('moduls.dashboard.hr.berbinar-family.berbinarFamily');
+    }
+
+    public function addBerbinarFamily()
+    {
+        return view('moduls.dashboard.hr.berbinar-family.addBerbinarFamily');
+    }
+
+    public function detailBerbinarFamily()
+    {
+        return view('moduls.dashboard.hr.berbinar-family.detailBerbinarFamily');
+    }
+
+    public function manageDivision()
+    {
+        return view('moduls.dashboard.hr.manage-division.manageDivision');
+    }
+
+    public function addManageDivision()
+    {
+        return view('moduls.dashboard.hr.manage-division.addDivision');
+    }
+
+    public function detailManageDivision()
+    {
+        return view('moduls.dashboard.hr.manage-division.detailDivision');
     }
 
     public function internshipDataDetails($id)
@@ -665,60 +700,5 @@ class DashboardController extends Controller
     public function psikotesPaidTestimoniShow()
     {
         return view('moduls.dashboard.psikotes-paid.testi-detail');
-    }
-
-    public function psikotesPaidDashboardTes()
-    {
-        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dashboardtes');
-    }
-
-    public function psikotesPaidBAUM()
-    {
-        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.baum');
-    }
-
-    public function psikotesPaidHTP()
-    {
-        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.htp');
-    }
-
-    public function psikotesPaidDAP()
-    {
-        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dap');
-    }
-
-    public function psikotesPaidDashboardEsai()
-    {
-        return view('moduls.dashboard.psikotes-paid.dashboardesai');
-    }
-
-    public function psikotesPaidPengumpulan()
-    {
-        return view('moduls.dashboard.psikotes-paid.pengumpulan');
-    }
-
-    public function dashboardVAK()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.vak.dashboardVAK');
-    }
-
-    public function jawabanVAK()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.vak.jawabanVAK');
-    }
-
-    public function detailVAK()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.vak.detailVAK');
-    }
-
-    public function dashboardSSCT()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.ssct.dashboardSSCT');
-    }
-
-    public function jawabanSSCT()
-    {
-        return view('moduls.dashboard.psikotes-paid.tools.ssct.jawabanSSCT');
     }
 }
