@@ -26,7 +26,7 @@
           B.
         </p>
         <p class="text-black ">
-          Pada tes ini, <span class="font-bold">tugas Anda adalah menggambar manusia, pohon dan rumah dalam satu kertas tersebut.</span>
+          Pada tes ini, <span class="font-bold">{{ $questions[session('current_question_number', 1) - 1]->question }}</span>
         </p>
     </div>
 
@@ -35,7 +35,7 @@
     </p> --}}
 
     <div class="mb-2 flex justify-center gap-6 mt-8">
-      <a href="{{ route('psikotest-paid.tool.HTP.instruksi_c') }}">
+      <a href="{{ route('psikotest-paid.tool.HTP.instruksi_c',['testId'=>$test->id]) }}">
         <button type="button" class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
             Selanjutnya
         </button>
