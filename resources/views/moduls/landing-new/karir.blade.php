@@ -6,7 +6,6 @@
 
 @section('content')
 
-
     {{-- HERO START --}}
     <section class="mt-32 w-full overflow-x-hidden relative mb-12">
 
@@ -42,7 +41,8 @@
                                 class="block"></span> Bagian dari Berbinar!</h1>
                     </div>
                     {{--button--}}
-                    <a href="{{route('positions-new')}}" class="inline-block py-2 px-4 rounded-lg text-sm md:text-lg lg:text-xl text-white bg-gradient-to-tr from-[#F7B23B] to-[#AD7D29] hover:opacity-80 hover:shadow-lg transition duration-300 mb-12">
+                    <a href="{{route('positions-new')}}"
+                       class="inline-block py-2 px-4 rounded-lg text-sm md:text-lg lg:text-xl text-white bg-gradient-to-tr from-[#F7B23B] to-[#AD7D29] hover:opacity-80 hover:shadow-lg transition duration-300 mb-12">
                         Lihat
                         Posisi Tersedia
                     </a>
@@ -397,7 +397,8 @@
             {{--caption END--}}
 
             {{--list START--}}
-            <div class="w-full border-orange-500 py-12 mx-auto flex flex-wrap gap-x-8 gap-y-12 justify-center items-center">
+            <div
+                class="w-full border-orange-500 py-12 mx-auto flex flex-wrap gap-x-8 gap-y-12 justify-center items-center">
 
                 @forelse ($positions->take($positions->count()/2)->chunk(ceil($positions->count() / 2)) as $chunk)
                     @foreach ($chunk as $position)
@@ -494,7 +495,7 @@
 
     {{--TESTIMONI MAGANG START--}}
     <section class="w-full mt-16 lg:mt-32 mx-auto flex items-center justify-center">
-        <div class="container mx-auto md:mx-14">
+        <div class="container mx-auto md:mx-14 ">
             {{--caption START--}}
             <div class="w-full mx-auto mb-10 md:mb-16">
                 <h2 class="font-semibold text-3xl bg-clip-text text-center tracking-wide md:tracking-normal md:text-4xl lg:text-5xl text-transparent bg-gradient-to-r from-[#1C4352] to-[#3986A3] font-plusJakartaSans mb-4 lg:tracking-wide py-1">
@@ -504,29 +505,29 @@
             {{--caption END--}}
 
             {{--testimoni irul--}}
-            <div class="swiperContainer">
-                <div class="swiper" id="swiperTestimoni">
-                    <div class="swiper-wrapper max-sm:pb-8 pb-1">
+            <div class="swiperContainer px-4 sm:px-0">
+                <div class="swiper" id="swiperTestimoniKarir">
+                    <div class="swiper-wrapper pb-12">
                         @foreach ($testimonis as $testimoni)
                             <div class="swiper-slide">
                                 <div
-                                    class="bg-white rounded-3xl shadow-md flex flex-col justify-center text-center items-center h-auto w-auto p-5 max-sm:max-w-[240px] max-sm:max-h-[390px]">
+                                    class="relative bg-white rounded-3xl shadow-md h-96 md:h-[480px] w-full max-w-sm px-4 pt-4 pb-2">
                                     <img src="{{ asset('assets/images/landing/vector-kutip.png') }}" alt="Kutip"
-                                         class="max-sm:h-7 h-8 w-auto">
+                                         class="max-sm:h-7 h-8 w-auto block mx-auto mb-4">
 
-                                    <div class="py-4 text-center flex flex-col flex-grow">
-                                        <p class="max-sm:text-[15px] text-[16px] text-black font-medium flex-grow text-justify max-sm:min-h-[135px] min-h-[120px]">
-                                            {{ $testimoni['comment'] }}
+                                    <div class="py-4 text-center">
+                                        <p class="font-medium text-justify text-sm text-black line-clamp-6 xl:line-clamp-[11]">
+                                            "{{ $testimoni['comment'] }}"
                                         </p>
                                     </div>
 
-                                    <div class="flex flex-col items-center max-sm:mt-3 mt-3 text-center">
+                                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 w-full">
                                         <img src="{{ asset($testimoni['image']) }}" alt="Kutip"
-                                             class="-mt-3 max-sm:h-[62px] max-sm:w-[62px] h-[70px] w-[70px] rounded-full object-cover">
-                                        <p class="max-sm:text-[15px] text-[17px] text-black font-semibold">
+                                             class="-mt-3 max-sm:h-[62px] max-sm:w-[62px] h-[70px] w-[70px] rounded-full object-cover mx-auto mb-4">
+                                        <p class="text-base text-black font-semibold block text-center mx-auto mb-2">
                                             {{ $testimoni['name'] }}
                                         </p>
-                                        <p class="text-sm text-[#70787D]">
+                                        <p class="text-sm text-[#70787D] block text-center mx-auto">
                                             {{ $testimoni['division'] }}
                                         </p>
                                     </div>
@@ -534,10 +535,6 @@
                             </div>
                         @endforeach
                     </div>
-
-                    <div class="swiper-pagination hidden sm:block"></div>
-                    <div class="swiper-scrollbar block sm:hidden"></div>
-
                 </div>
             </div>
             {{--testimoni irul--}}
@@ -547,7 +544,7 @@
     {{--TESTIMONI MAGANG END--}}
 
     {{-- FAQS START --}}
-    <section class="z-10 mx-4 mt-16 lg:mt-32 my-14 sm:mx-20">
+    <section class="z-10 mx-4 mt-16 my-14 sm:mx-20">
         <ul class="flex flex-col">
             @php
                 $index = 0;
@@ -602,7 +599,7 @@
     {{-- FAQS END --}}
 
     {{--BANNER KELUARGA BERBINAR START--}}
-    <section class="w-full lg:mt-12 mx-auto flex items-center justify-center px-2 md:px-16 mb-12">
+    <section class="w-full mx-auto flex items-center justify-center px-2 md:px-16 mb-12">
         <a href="{{route('keluarga-berbinar')}}">
             <div class=" cursor-pointer">
                 <img src="{{asset('assets/images/landing/karir/banner-keluarga-berbinar.png')}}"

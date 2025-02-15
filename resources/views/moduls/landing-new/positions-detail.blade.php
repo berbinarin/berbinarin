@@ -92,7 +92,7 @@
                     <img
                         src="{{asset("assets/images/landing/karir/banner/detail/icon-user.png")}}"
                         alt="icon-location"
-                        class="size-4 sm:size-5"> Back-End Developer
+                        class="size-4 sm:size-5"> {{$position->divisi}}
                 </div>
                 <div
                     class="flex gap-2 justify-start items-center font-normal text-sm sm:text-base mb-4 md:mb-6 lg:mb-8">

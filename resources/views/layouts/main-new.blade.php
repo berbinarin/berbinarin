@@ -73,6 +73,7 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+
 {{-- Script Beranda --}}
 @if ($page === 'Beranda')
     <script src="{{ asset('assets/js/landing/beranda.js') }}"></script>
@@ -86,6 +87,11 @@
 {{-- Script Produk Berbinar --}}
 @if ($page === 'Produk Berbinar')
     <script src="{{ asset('assets/js/landing/produk.js') }}"></script>
+@endif
+
+{{--scirpt Karir--}}
+@if($page === 'Karir')
+    <script src="{{asset('assets/js/landing/karir.js')}}"></script>
 @endif
 
 {{-- Script Produk Konseling --}}
