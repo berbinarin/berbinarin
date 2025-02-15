@@ -35,7 +35,7 @@
     </p> --}}
 
     <div class="mb-2 flex justify-center gap-6 mt-8">
-      <a href="{{ route('psikotest-paid.tool.HTP.instruksi_d') }}">
+      <a href="{{ route('psikotest-paid.tool.HTP.instruksi_d',['testId'=>$test->id]) }}">
         <button type="button" class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
             Selanjutnya
         </button>
