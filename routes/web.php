@@ -431,10 +431,12 @@ Route::prefix('/psikotest-paid')->group(function () {
 
         // TES HTP
         Route::get('/tool/HTP/A', [HTPController::class, 'showLanding'])->name('psikotest-paid.tool.HTP.showLanding');
-        Route::get('/tool/HTP/B', [HTPController::class, 'instruksi_b'])->name('psikotest-paid.tool.HTP.instruksi_b');
-        Route::get('/tool/HTP/C', [HTPController::class, 'instruksi_c'])->name('psikotest-paid.tool.HTP.instruksi_c');
-        Route::get('/tool/HTP/D', [HTPController::class, 'instruksi_d'])->name('psikotest-paid.tool.HTP.instruksi_d');
-        Route::get('/tool/HTP/summary', [HTPController::class, 'summary'])->name('psikotest-paid.tool.HTP.summary');
+        Route::post('/tool/HTP/start', [HTPController::class, 'startTest'])->name('psikotest-paid.tool.HTP.startTest');
+        Route::get('/tool/HTP/B/{testId}', [HTPController::class, 'instruksi_b'])->name('psikotest-paid.tool.HTP.instruksi_b');
+        Route::get('/tool/HTP/C/{testId}', [HTPController::class, 'instruksi_c'])->name('psikotest-paid.tool.HTP.instruksi_c');
+        Route::get('/tool/HTP/D/{testId}', [HTPController::class, 'instruksi_d'])->name('psikotest-paid.tool.HTP.instruksi_d');
+        Route::post('/tool/HTP/submit-answer', [HTPController::class, 'submitAnswer'])->name('psikotest-paid.tool.HTP.submitAnswer');
+        Route::get('/tool/HTP/summary/{testId}', [HTPController::class, 'summary'])->name('psikotest-paid.tool.HTP.summary');
 
         // TES EPI
         Route::get('/tool/EPI', [EPIController::class, 'showLanding'])->name('psikotest-paid.tool.EPI.showLanding');
