@@ -21,6 +21,7 @@ use App\Http\Controllers\PsikotestFree\FeedbackController;
 use App\Http\Controllers\PsikotestFree\QuestionController;
 use App\Http\Controllers\HiringGeneralRequirementsController;
 use App\Http\Controllers\Internship\UserInternshipController;
+
 // use App\Http\Controllers\PsikotestPaid\RedirectToolController;
 use App\Http\Controllers\HiringPositionsRequirementsController;
 use App\Http\Controllers\PsikotestPaid\DashboardUserController;
@@ -28,11 +29,13 @@ use App\Http\Controllers\PsikotestPaid\PsikotestToolController;
 use App\Http\Controllers\PsikotestPaid\Tools\DAP\DAPController;
 use App\Http\Controllers\PsikotestPaid\Tools\HTP\HTPController;
 use App\Http\Controllers\PsikotestPaid\Tools\VAK\VakController;
+
 // use App\Http\Controllers\UserPsikotestController;
 use App\Http\Controllers\HiringPositionsJobDescriptionController;
 use App\Http\Controllers\PsikotestPaid\Tools\BAUM\BAUMController;
 use App\Http\Controllers\PsikotestPaid\Tools\SSCT\SSCTController;
 use App\Http\Controllers\PsikotestFree\UserPsikotestFreeController;
+
 // use App\Http\Controllers\UserInternshipController;
 // use App\Http\Controllers\PsikotestPaid\PsikotestPaidTestController;
 use App\Http\Controllers\PsikotestPaid\Tools\OCEAN\OCEANController;
@@ -45,8 +48,10 @@ use App\Http\Controllers\PsikotestPaid\Tools\VAK\DashboardVakController;
 use App\Http\Controllers\PsikotestPaid\Tools\OCEAN\ResultOceanController;
 use App\Http\Controllers\PsikotestPaid\Tools\TesEsai\ResultTesEsaiController;
 use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\PapiKostickController;
+
 // use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\ResultPapiKostickController;
 use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\DashboardPapiKostickController;
+
 // use App\Http\Controllers\PsikotestPaid\PapiKostick\TestController as PapiKostickTestController;
 // use App\Http\Controllers\PsikotestPaid\PapiKostick\QuestionController as PapiKostickQuestionController;
 use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserCompanyController;
@@ -59,6 +64,7 @@ use App\Http\Controllers\PsikotestPaid\Tools\BDI\SoalBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\SkorBdiController;
 use App\Http\Controllers\KeluargaBerbinar\DataStaffController;
 use App\Http\Controllers\KeluargaBerbinar\DataJabatanController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,8 +88,10 @@ Route::get('/consulting-new', [LandingController::class, 'consulting_new'])->nam
 Route::get('/faq-new', [LandingController::class, 'faq_new'])->name('faq-new');
 Route::get('/term-condition-new', [LandingController::class, 'term_condition_new'])->name('term-condition-new');
 Route::get('/privacy-policy-new', [LandingController::class, 'privacy_policy_new'])->name('privacy-policy-new');
-
-
+Route::get('/karir-new', [LandingController::class, 'karir_new'])->name('karir-new');
+Route::get('/karir-new/positions', [LandingController::class, 'positions_new'])->name('positions-new');
+Route::get('/karir-new/positions/{id}', [LandingController::class, 'positions_detail_new'])->name('positions-detail-new');
+Route::get('/keluarga-berbinar', [LandingController::class, 'keluarga_berbinar'])->name('keluarga-berbinar');
 Route::get('/about-us', [LandingController::class, 'tentangKami'])->name('about');
 Route::get('/products', [LandingController::class, 'products'])->name('products');
 Route::get('/counseling', [LandingController::class, 'konseling'])->name('counseling');
@@ -322,7 +330,6 @@ Route::get('/psikotest/free/{test_id}/{user_id}/results', [ResultController::cla
 Route::post('/psikotest/free/{test_id}/{user_id}/finish-test', [ResultController::class, 'finishTest'])->name('result.finishTest');
 
 
-
 // MODUL PSIKOTEST
 Route::get('/psikotest/home', [LandingController::class, 'psikotestHome'])->name('psikotestHome');
 // Route::get('/psikotest/free/test', [LandingController::class, 'psikotestFreeTest'])->name('psikotestFreeTest');
@@ -342,7 +349,6 @@ Route::get('/psikotest/test', [LandingController::class, 'psikotestTest'])->name
 Route::get('/psikotest/motive', [LandingController::class, 'psikotestMotive'])->name('psikotestMotive');
 Route::get('/psikotest/signup-success', [LandingController::class, 'psikotestSignupSuccess'])->name('psikotestSignupSuccess');
 Route::get('/psikotest/individual', [LandingController::class, 'psikotestIndividual'])->name('psikotestIndividual');
-
 
 
 Route::get('/feedback/{test_id}/{user_id}', [FeedbackController::class, 'show'])->name('feedback.psikotest.show');
@@ -408,21 +414,21 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::post('/verify-token', [PsikotestToolController::class, 'verifyToken'])->name('psikotest-tools.verify-token');
 
         // ROUTE UNTUK TIAP TOOLS!
-        
+
         // TES BAUM
         Route::get('/tool/BAUM', [BAUMController::class, 'showLanding'])->name('psikotest-paid.tool.BAUM.showLanding');
         Route::post('/tool/BAUM/start', [BAUMController::class, 'startTest'])->name('psikotest-paid.tool.BAUM.startTest');
         Route::get('/tool/BAUM/test/{testId}', [BAUMController::class, 'showTest'])->name('psikotest-paid.tool.BAUM.showTest');
         Route::post('/tool/BAUM/submit-answer', [BAUMController::class, 'submitAnswer'])->name('psikotest-paid.tool.BAUM.submitAnswer');
         Route::get('/tool/BAUM/summary/{testId}', [BAUMController::class, 'showSummary'])->name('psikotest-paid.tool.BAUM.summary');
-        
+
         // TES DAP
         Route::get('/tool/DAP', [DAPController::class, 'showLanding'])->name('psikotest-paid.tool.DAP.showLanding');
         Route::post('/tool/DAP/start', [DAPController::class, 'startTest'])->name('psikotest-paid.tool.DAP.startTest');
         Route::get('/tool/DAP/test/{testId}', [DAPController::class, 'showTest'])->name('psikotest-paid.tool.DAP.showTest');
         Route::post('/tool/DAP/submit-answer', [DAPController::class, 'submitAnswer'])->name('psikotest-paid.tool.DAP.submitAnswer');
         Route::get('/tool/DAP/summary/{testId}', [DAPController::class, 'showSummary'])->name('psikotest-paid.tool.DAP.summary');
-        
+
         // TES HTP
         Route::get('/tool/HTP/A', [HTPController::class, 'showLanding'])->name('psikotest-paid.tool.HTP.showLanding');
         Route::get('/tool/HTP/B', [HTPController::class, 'instruksi_b'])->name('psikotest-paid.tool.HTP.instruksi_b');
@@ -439,7 +445,7 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::get('/tool/RMIB', [RMIBController::class, 'showLanding'])->name('psikotest-paid.tool.RMIB.showLanding');
         Route::get('/tool/RMIB/test', [RMIBController::class, 'test'])->name('psikotest-paid.tool.RMIB.test');
         Route::get('/tool/RMIB/summary', [RMIBController::class, 'summary'])->name('psikotest-paid.tool.RMIB.summary');
-        
+
         // TES SSCT
         Route::get('/tool/SSCT', [SSCTController::class, 'showLanding'])->name('psikotest-paid.tool.SSCT.showLanding');
         Route::post('/tool/SSCT/start', [SSCTController::class, 'startTest'])->name('psikotest-paid.tool.SSCT.startTest');
@@ -461,26 +467,26 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::post('/tool/OCEAN/submit-answer', [OCEANController::class, 'submitAnswer'])->name('psikotest-paid.tool.OCEAN.submitAnswer');
         Route::get('/tool/OCEAN/summary/{testId}', [OCEANController::class, 'showSummary'])->name('psikotest-paid.tool.OCEAN.summary');
         Route::post('/tool/OCEAN/calculate-result', [ResultOceanController::class, 'calculateAndStoreResult'])->name('psikotest-paid.tool.OCEAN.calculateResult');
-        
+
         // PAPI KOSTICK
         Route::get('/tool/papi-kostick', [PapiKostickController::class, 'showLanding'])->name('psikotest-paid.tool.PAPI Kostick.showLanding');
         Route::post('/start', [PapiKostickController::class, 'startTest'])->name('psikotest-paid.papi-kostick.start');
         Route::get('/{id}/question/{question_order}', [PapiKostickController::class, 'showQuestions'])->name('psikotest-paid.papi-kostick.questions');
         Route::post('/{id}/question/{question_order}', [PapiKostickController::class, 'submitAnswers'])->name('psikotest-paid.papi-kostick.submit');
         Route::get('/{id}/complete', [PapiKostickController::class, 'completeTest'])->name('psikotest-paid.papi-kostick.complete');
-        
+
         // DASHBOARD PAPI KOSTICK
         Route::get('/respondents', [DashboardPapiKostickController::class, 'allResponden'])->name('psikotest-paid.papi-kostick.data');
         Route::get('/respondents/{id}', [DashboardPapiKostickController::class, 'detailResponden'])->name('psikotest-paid.papi-kostick.detail');
         Route::get('/papi-kostick/soal', [DashboardPapiKostickController::class, 'allSoal'])->name('papi-kostick.soal');
         Route::get('/papi-kostick/soal/{id}/edit', [DashboardPapiKostickController::class, 'editSoal'])->name('papi-kostick.edit-soal');
         Route::put('/papi-kostick/soal/{id}', [DashboardPapiKostickController::class, 'updateSoal'])->name('papi-kostick.update-soal');
-        
+
         // BDI
         Route::get('/tool/BDI', [LandingController::class, 'LandingBDI'])->name('psikotest-paid.tool.BDI.showLanding');
         // Route::get('/tool/BDI/test', [LandingController::class, 'TestBDI'])->name('psikotest-paid.tool.BDI.testbdi');
         // Route::get('/tool/BDI/end/', [LandingController::class, 'EndBDI'])->name('psikotest-paid.tool.BDI.endbdi');
-        
+
         // BIODATA
         // Perusahaan
         Route::get('/tool/bio-company', [UserCompanyController::class, 'showLanding'])->name('psikotest-paid.tool.BIODATA_PERUSAHAAN.showLanding');
@@ -616,7 +622,7 @@ Route::get('/endOCEAN', [LandingController::class, 'endOCEAN'])->name('endOCEAN'
 // Web Routes (Untuk tampilan di browser)
 Route::middleware(['web'])->group(function () {
     Route::match(['get', 'post'], '/nomor-bdi', [NomorBdiController::class, 'index'])->name('nomor_bdi.index');
-    Route::get('/soalBdi/{nomor}',[SoalBdiController::class, 'getSoalByNomor']);
+    Route::get('/soalBdi/{nomor}', [SoalBdiController::class, 'getSoalByNomor']);
 });
 
 Route::prefix('data-staff')->group(function () {

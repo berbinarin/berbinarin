@@ -18,7 +18,7 @@
                             <p class="absolute left-4 top-4 bg-[#FEF7EB] text-[#C78E2E] px-2 py-1 rounded-md text-sm">Workshop</p>
                         </div>
                     </div>
-                    
+
                     <div class="swiper-slide produkBerbinar">
                         <div class="relative">
                             <img src="{{ asset('assets/images/landing/asset-produk/workshop.JPG') }}" alt="Workshop" class="h-72 w-full object-cover rounded-xl">
@@ -37,7 +37,7 @@
         </section>
 
         <p class="text-[#3F3F3F] text-justify max-sm:text-[15px] text-lg">
-            Adanya kesulitan dalam jangkauan bagi masyarakat mengenai mahalnya biaya konsultasi yang tentunya menjadi penghalang untuk mengakses bantuan profesional. 
+            Adanya kesulitan dalam jangkauan bagi masyarakat mengenai mahalnya biaya konsultasi yang tentunya menjadi penghalang untuk mengakses bantuan profesional.
             Kini <span class="font-bold">Berbinar Insightful Indonesia</span> hadir dalam memberikan layanan konseling, psikotes, kelas edukasi, dan consulting professional yang dirancang fleksibel tanpa beban biaya tinggi juga menyesuaikan kebutuhan klien sebagai prioritas perusahaan.
         </p>
     </div>
@@ -71,65 +71,65 @@
       <div x-data="{ tab: 'konseling' }" class="mx-auto">
         <!-- Tab Navigation -->
         <div class="flex justify-between max-md:justify-center mb-4 p-2 bg-white shadow-md flex-wrap max-w-[680px] rounded-2xl items-center mx-auto max-sm:mx-4 max-md:mx-20 max-sm:max-w-full">
-            <button 
-                @click="tab = 'konseling'" 
-                :class="{'bg-[#3986A3] font-medium text-white': tab === 'konseling'}" 
+            <button
+                @click="tab = 'konseling'"
+                :class="{'bg-[#3986A3] font-medium text-white': tab === 'konseling'}"
                 class="p-2 rounded-xl text-black font-medium">
                 Konseling
             </button>
-            <button 
-                @click="tab = 'psikotes'" 
-                :class="{'bg-[#3986A3] font-medium text-white': tab === 'psikotes'}" 
+            <button
+                @click="tab = 'psikotes'"
+                :class="{'bg-[#3986A3] font-medium text-white': tab === 'psikotes'}"
                 class="p-2 rounded-xl text-black font-medium">
                 Psikotes
             </button>
-            <button 
-                @click="tab = 'class'" 
-                :class="{'bg-[#3986A3] font-medium text-white': tab === 'class'}" 
+            <button
+                @click="tab = 'class'"
+                :class="{'bg-[#3986A3] font-medium text-white': tab === 'class'}"
                 class="p-2 rounded-xl text-black font-medium italic">
                 Class
             </button>
-            <button 
-                @click="tab = 'consulting'" 
-                :class="{'bg-[#3986A3] font-medium text-white': tab === 'consulting'}" 
+            <button
+                @click="tab = 'consulting'"
+                :class="{'bg-[#3986A3] font-medium text-white': tab === 'consulting'}"
                 class="p-2 rounded-xl text-black font-medium italic">
                 Consulting
             </button>
-            <button 
-                @click="tab = 'moodscantees'" 
-                :class="{'bg-[#3986A3] font-medium text-white': tab === 'moodscantees'}" 
+            <button
+                @click="tab = 'moodscantees'"
+                :class="{'bg-[#3986A3] font-medium text-white': tab === 'moodscantees'}"
                 class="p-2 rounded-xl text-black font-medium">
                 MoodScan Tees
             </button>
-            <button 
-                @click="tab = 'emoshuffle'" 
-                :class="{'bg-[#3986A3] font-medium text-white': tab === 'emoshuffle'}" 
+            <button
+                @click="tab = 'emoshuffle'"
+                :class="{'bg-[#3986A3] font-medium text-white': tab === 'emoshuffle'}"
                 class="p-2 rounded-xl text-black font-medium">
                 EmoShuffle
             </button>
         </div>
-    
+
         <!-- Card Layout -->
         <div class="max-sm:mx-4 mx-20 my-8 max-sm:mt-4 max-sm:mb-8 rounded-3xl shadow-md border relative items-center overflow-hidden transition-all duration-300 ease-in-out">
         {{-- <div class="max-sm:mx-4 mx-14 my-8 rounded-3xl shadow-md border min-h-[400px] max-xl:min-h-[440px] max-lg:min-h-[670px] max-md:min-h-[680px] max-sm:min-h-[690px] relative items-center overflow-hidden"> --}}
             {{-- <div :class="{
-                'min-h-[400px] max-xl:min-h-[440px] max-lg:min-h-[670px] max-md:min-h-[680px] max-sm:min-h-[690px]': tab === 'konseling', 
-                'min-h-[700px]': tab === 'psikotes', 
+                'min-h-[400px] max-xl:min-h-[440px] max-lg:min-h-[670px] max-md:min-h-[680px] max-sm:min-h-[690px]': tab === 'konseling',
+                'min-h-[700px]': tab === 'psikotes',
                 'min-h-[400px]': tab === 'kelas'
-            }" 
+            }"
             class="max-sm:mx-4 mx-14 my-8 rounded-3xl shadow-md border relative items-center overflow-hidden transition-all duration-300 ease-in-out"> --}}
 
 
-            
-            
+
+
             <!-- BERBINAR KONSELING -->
-            <div 
-                x-show="tab === 'konseling'" 
+            <div
+                x-show="tab === 'konseling'"
                 x-transition:enter="transition ease-out duration-300 transform"
-                x-transition:enter-start="translate-x-full opacity-0" 
+                x-transition:enter-start="translate-x-full opacity-0"
                 x-transition:enter-end="translate-x-0 opacity-100"
                 x-transition:leave="transition ease-in duration-300 transform"
-                x-transition:leave-start="translate-x-0 opacity-100" 
+                x-transition:leave-start="translate-x-0 opacity-100"
                 x-transition:leave-end="-translate-x-full opacity-0"
                 x-cloak
                 class="p-8 max-sm:p-4">
@@ -186,7 +186,7 @@
                             </li>
                         </ul>
                     </div>
-            
+
                     <div class="flex justify-start">
                         <a href="{{ route('konseling-new') }}">
                             <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 rounded-xl max-sm:w-full">
@@ -196,15 +196,15 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- BERBINAR PSIKOTES -->
-            <div 
-                x-show="tab === 'psikotes'" 
+            <div
+                x-show="tab === 'psikotes'"
                 x-transition:enter="transition ease-out duration-300 transform"
-                x-transition:enter-start="translate-x-full opacity-0" 
+                x-transition:enter-start="translate-x-full opacity-0"
                 x-transition:enter-end="translate-x-0 opacity-100"
                 x-transition:leave="transition ease-in duration-300 transform"
-                x-transition:leave-start="translate-x-0 opacity-100" 
+                x-transition:leave-start="translate-x-0 opacity-100"
                 x-transition:leave-end="-translate-x-full opacity-0"
                 x-cloak
                 class="p-8 max-sm:p-4">
@@ -251,7 +251,7 @@
                             </li>
                         </ul>
                     </div>
-            
+
                     <div class="flex justify-start">
                         <a href="{{ route('psikotest-new') }}">
                             <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 rounded-xl max-sm:w-full">
@@ -261,15 +261,15 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- BERBINAR CLASS -->
-            <div 
-                x-show="tab === 'class'" 
+            <div
+                x-show="tab === 'class'"
                 x-transition:enter="transition ease-out duration-300 transform"
-                x-transition:enter-start="translate-x-full opacity-0" 
+                x-transition:enter-start="translate-x-full opacity-0"
                 x-transition:enter-end="translate-x-0 opacity-100"
                 x-transition:leave="transition ease-in duration-300 transform"
-                x-transition:leave-start="translate-x-0 opacity-100" 
+                x-transition:leave-start="translate-x-0 opacity-100"
                 x-transition:leave-end="-translate-x-full opacity-0"
                 x-cloak
                 class="p-8 max-sm:p-4">
@@ -326,7 +326,7 @@
                             </li>
                         </ul>
                     </div>
-            
+
                     <div class="flex justify-start">
                         <a href="{{ route('kelas-new') }}">
                             <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 rounded-xl max-sm:w-full">
@@ -338,13 +338,13 @@
             </div>
 
             <!-- BERBINAR CONSULTING -->
-            <div 
-                x-show="tab === 'consulting'" 
+            <div
+                x-show="tab === 'consulting'"
                 x-transition:enter="transition ease-out duration-300 transform"
-                x-transition:enter-start="translate-x-full opacity-0" 
+                x-transition:enter-start="translate-x-full opacity-0"
                 x-transition:enter-end="translate-x-0 opacity-100"
                 x-transition:leave="transition ease-in duration-300 transform"
-                x-transition:leave-start="translate-x-0 opacity-100" 
+                x-transition:leave-start="translate-x-0 opacity-100"
                 x-transition:leave-end="-translate-x-full opacity-0"
                 x-cloak
                 class="p-8 max-sm:p-4">
@@ -413,7 +413,7 @@
                             </li>
                         </ul>
                     </div>
-            
+
                     <div class="flex justify-start">
                         <a href="{{ route('consulting-new') }}">
                             <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 rounded-xl max-sm:w-full">
@@ -425,13 +425,13 @@
             </div>
 
             <!-- BERBINAR MOODSCAN TEES -->
-            <div 
-                x-show="tab === 'moodscantees'" 
+            <div
+                x-show="tab === 'moodscantees'"
                 x-transition:enter="transition ease-out duration-300 transform"
-                x-transition:enter-start="translate-x-full opacity-0" 
+                x-transition:enter-start="translate-x-full opacity-0"
                 x-transition:enter-end="translate-x-0 opacity-100"
                 x-transition:leave="transition ease-in duration-300 transform"
-                x-transition:leave-start="translate-x-0 opacity-100" 
+                x-transition:leave-start="translate-x-0 opacity-100"
                 x-transition:leave-end="-translate-x-full opacity-0"
                 x-cloak
                 class="p-8 max-sm:p-4">
@@ -449,7 +449,7 @@
                         </div>
                         <p class="text-[#70787D] max-sm:text-[15px] text-justify">
                             MoodScan Tees adalah kaos nyaman dengan desain psikologis hasil kolaborasi ciamik antara Berbinar Insightful Indonesia dengan Esize. Tidak hanya tampil gaya, kaos ini juga dapat memberikan kebahagiaan dan dukungan psikologis setiap kali dikenakan.<br>
-                            Hanya mulai dari Rp 79.900, kamu sudah bisa mendapatkan kaos MoodScan Tees yang siap mendukung dan menginspirasimu sepanjang hari! 
+                            Hanya mulai dari Rp 79.900, kamu sudah bisa mendapatkan kaos MoodScan Tees yang siap mendukung dan menginspirasimu sepanjang hari!
                         </p>
                         <h1 class="text-2xl max-sm:text-xl font-bold text-gradient-yellow mb-2 max-sm:mb-0 mt-2">Fitur</h1>
                         <ul class="space-y-3 max-sm:space-y-1 list-disc pl-5 text-[#3F3F3F] marker:text-[#3986A3] max-sm:text-[15px] text-justify">
@@ -475,7 +475,7 @@
                             </li>
                         </ul>
                     </div>
-            
+
                     <div class="flex justify-start">
                         <a href="https://tokopedia.link/gwgtSs9oUOb" target="_blank">
                             <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 rounded-xl max-sm:w-full">
@@ -488,13 +488,13 @@
 
 
             <!-- BERBINAR EMOSHUFFLE -->
-            <div 
-                x-show="tab === 'emoshuffle'" 
+            <div
+                x-show="tab === 'emoshuffle'"
                 x-transition:enter="transition ease-out duration-300 transform"
-                x-transition:enter-start="translate-x-full opacity-0" 
+                x-transition:enter-start="translate-x-full opacity-0"
                 x-transition:enter-end="translate-x-0 opacity-100"
                 x-transition:leave="transition ease-in duration-300 transform"
-                x-transition:leave-start="translate-x-0 opacity-100" 
+                x-transition:leave-start="translate-x-0 opacity-100"
                 x-transition:leave-end="-translate-x-full opacity-0"
                 x-cloak
                 class="p-8 max-sm:p-4">
@@ -515,7 +515,7 @@
                             EmoShuffle hadir untuk menjadi pengingat akan pentingnya merawat kesehatan mental kita dengan mengurangi stress, tekanan, dan kecemasan dalam setiap pengguna.
                         </p>
                     </div>
-            
+
                     {{-- <div class="flex justify-start">
                         <a href="{{ route('konseling-new') }}">
                             <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 rounded-xl max-sm:w-full">
