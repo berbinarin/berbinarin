@@ -1,4 +1,22 @@
 /** @type {import('tailwindcss').Config} */
+import forms from '@tailwindcss/forms';
+import plugin from "tailwindcss/plugin.js";
+
+
+const Myclass = plugin(function ({addUtilities}) {
+    addUtilities({
+        ".my-rotate-y-180": {
+            transform: "rotateY(180deg)",
+        },
+        ".preserve-3d": {
+            transformStyle: "preserve-3d",
+        },
+        ".perspective": {
+            perspective: "1000px",
+        },
+    });
+});
+
 export default {
     content: [
         "./resources/**/*.blade.php",
@@ -15,10 +33,25 @@ export default {
             6: "6px",
             8: "8px",
         },
+        fontFamily: {
+            inter: ["Inter", "serif"]
+        },
         extend: {
+            screens: {
+                "xs": '470px', // Tambahkan breakpoint kustom
+                "3xl": '1440px' // 4k
+
+            },
+            boxShadow: {
+                'benefit-icon': '0px 0px 15px 0px #0000001A',
+                'primary-light': '0px 5px 15px 0px #3986A333',
+                'magang': '0px 0px 15px 0px #F7B23B4D',
+                'subdivisi': '0px 0px 15px 0px #15323D'
+            },
             fontFamily: {
                 poppins: ["Poppins", "sans-serif"],
                 plusJakartaSans: ["Plus Jakarta Sans", "sans-serif"],
+                inter: ['Inter']
             },
             backgroundImage: {
                 "primary-linear":
@@ -32,14 +65,15 @@ export default {
                 "blur-bg-2": "#C7F8FF",
                 "blur-black": "rgba(0, 0, 0, 0.54)",
                 "card-box": "#F7F7F7",
+                "remote": '#9E9E9E',
                 "viewdata": "#3B82F6",
                 "editdata-dashboardBtn": "#E9B306",
                 "deletedata-dashboardBtn": "#EF4444"
             },
             opacity: {
                 54: ".54",
-            },
+            }
         },
     },
-    plugins: [require("@tailwindcss/forms")],
+    plugins: [forms, Myclass],
 };

@@ -7,11 +7,14 @@ use App\Models\Test;
 use App\Models\Question;
 use App\Models\Dimension;
 use App\Models\jadwalPeer;
+use DateTime;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Models\UserPsikotest;
 use App\Models\KonsellingPeer;
 use App\Models\Hiring_Positions;
 use App\Models\KonsellingPsikolog;
+use Illuminate\Support\Facades\Http;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Hiring_Positions_Requirements;
 use App\Models\Hiring_Positions_Job_Descriptions;
@@ -1247,6 +1250,285 @@ class LandingController extends Controller
         return view('moduls.landing-new.privacy-policy')->with([]);
     }
 
+
+    public function karir_new()
+    {
+        $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->where('is_active', true)->get();
+
+
+        $testimonis = [
+            [
+                'comment' => 'Banyak ilmu dan pengalaman baru yang didapat di Berbinar. Bukan hanya terkait hardskill, tapi juga softskill seperti kedisiplinan, kerjasama tim, dan komunikasi. Temen-temen disini juga ramah dan asik-asik semua. Magang di Berbinar bisa jadi opsi terbaik buat yang baru mau terjun ke dunia kerja biar nggak terlalu kaget.',
+                'name' => 'Khalisah Oktavia',
+                'image' => 'assets/images/landing/karir/testimoni/magang-oktavia.png',
+                'division' => 'Secretary and Finance',
+            ]
+            ,
+            [
+                'comment' => 'Selama bekerja di Berbinar, saya selalu merasa tertantang keluar dari zona nyaman dan menjadi "the best version of yourself". Selain itu, banyak hal yang saya pelajari sebagai posisi manager yaitu task management, mengatur waktu, mengeluarkan ide baru dan pendapat.',
+                'name' => 'Ismail Ridwan Arayana',
+                'image' => 'assets/images/landing/karir/testimoni/magang-arayana.png',
+                'division' => 'Human Resource',
+            ],
+            [
+                'comment' => 'Lingkungan yang suportif, kesempatan bagi yang kurang pengalaman supaya bisa memiliki pengalaman yang sangat berharga.',
+                'name' => 'Hairul Anam',
+                'image' => 'assets/images/landing/karir/testimoni/magang-irul.png',
+                'division' => 'Web and Mobile Apps Developer',
+            ],
+            [
+                'comment' => 'They said: Never forget your first company. YAA Will Never Forget You! Aku selalu bersyukur pernah menjadi bagian perjalanan Berbinar. Langkah pertama yang membawaku sejauh ini . Walaupun perjalanannya tidak sempurna, tapi disini ku mendapatkan banyak pengalaman, teman dan pembelajaran. Senang sekali bertemu orang-orang profesional yang menyenangkan. Best Experience Ever!',
+                'name' => 'Alifa Fatimatun Nazar',
+                'image' => 'assets/images/landing/karir/testimoni/magang-alifa.png',
+                'division' => 'Tiktok Creator',
+            ],
+            [
+                'comment' => 'Magang di Berbinar sebagai Counseling Product Management memberi saya pengalaman luar biasa, terutama sebagai peer counselor. Saya belajar mendengarkan dengan empati, mendukung klien, sekaligus memahami pengelolaan layanan kesehatan mental. Selain memperkuat soft skill seperti komunikasi dan empati, saya juga mengasah keterampilan strategis dalam merancang program konseling. Berbinar adalah tempat yang sempurna untuk berkembang di bidang kesehatan mental!',
+                'name' => "Shafiyyah Muthi'ah",
+                'image' => 'assets/images/landing/karir/testimoni/magang-shfiyyah.png',
+                'division' => 'Counseling Product Management',
+            ],
+            [
+                'comment' => 'Banyak insight yang didapat, workflow juga jelas dan terstruktur. Anggotanya juga baik dan suportif juga sangat membantu karena saling backup jika terdapat kendala. Selama magang disini saya nyaman karena manfaatnya banyak sekali.',
+                'name' => 'Kiara Allegria',
+                'image' => 'assets/images/landing/karir/testimoni/magang-kiara.png',
+                'division' => 'Instagram Creator',
+            ],
+            [
+                'comment' => 'Selama magang di Berbinar sebagai Graphic Designer, saya banyak belajar hal-hal baru. Tim desain sangat solid dan kolaboratif, selalu bertukar pikiran untuk menghasilkan karya terbaik.',
+                'name' => 'Fadhilah Putri Haryanti',
+                'image' => 'assets/images/landing/karir/testimoni/magang-fadhillah.png',
+                'division' => 'Graphic Designer',
+            ],
+            [
+                'comment' => 'Ini honest review ya. Di waktu awal join itu masih bingung harus adaptasi dan kayak amaze sama rekan se-tim. Soalnya waktu aku cek daily report mereka itu progres kerjaannya bagus dan terstruktur banget. Terus aku juga amaze sama culture perusahaan yang sangat menjunjung tinggi kedisiplinan. Nah dari kebiasaan ngerjain tugas sebelum deadline, ngisi daily report tepat waktu, rutin ikut weekly meeting itu sekarang ngebentuk aku jadi sosok yang amat disiplin dan tanggung jawab terhadap tugas yang diberikan. Ohiya rekan se-tim ku asik dan seru banget orang-orangnya, kadang kita kalau udah selesai bahas kerjaan juga coba main game buat cooling down xixi. And next, I think buat pekerjaannya itu ngga terlalu memberatkan kita-kita yang masih pemula ini karena nantinya di awal bakal ada training sama manager divisi terus juga terkait jobdesc sebenarnya bisa dikerjakan kapan-kapan aja (fleksibel) tapi tetep harus inget deadline yang dikasih hehee',
+                'name' => 'Wilda Maulidiyah',
+                'image' => 'assets/images/landing/karir/testimoni/magang-wilda.png',
+                'division' => 'Marketing Strategist & Sales',
+            ],
+            [
+                'comment' => 'Berbinar itu jadi tempat pertama kali aku magang dan pengalamannya magang di Berbinar itu seru, menegangkan waktu pertama kali melayani klien, work flownya gak nyangka secepet itu dan untungnya aku bisa adaptasi, banyak belajar lagi tentang alat tes, staf-staf di Berbinar juga baik-baik, pokoknya ini jadi pengalaman magang yang seru dan challenging untuk aku',
+                'name' => 'Talitha Aurelia Artedi',
+                'image' => 'assets/images/landing/karir/testimoni/magang-talitha.png',
+                'division' => 'Psychological Testing Product Management',
+            ],
+            [
+                'comment' => 'Seru banget, ketemu temen-temen baru dari berbagai daerah. intern di Berbinar juga bikin lebih produktif karena ada daily report wajib yang harus diisi tiap harinya. Lovee banget intinya sama Berbinar.',
+                'name' => 'Safitri',
+                'image' => 'assets/images/landing/karir/testimoni/magang-safitri.png',
+                'division' => 'Class Product Management',
+            ],
+        ];
+
+        $faqs = [
+            [
+                'question' => 'Apakah magang di Berbinar dapat dikonversi ke SKS perkuliahan?',
+                'answer' => 'Apabila SobatBinar nantinya menghendaki untuk mengkonversikan magang di Berbinar ke SKS atau KRS perkuliahan, SobatBinar bisa mengajukan proposal kerjasama, seperti MoU atau MoA kepada Berbinar.'
+            ],
+            [
+                'question' => 'Pengumuman kelulusan magang diberitahukan kapan dan melalui media apa?',
+                'answer' => 'Untuk tahapan kelulusan dari proses rekrutmen akan dikabarkan secara talent pool, dimana SobatBinar akan dihubungi oleh tim rekruter saat posisi pekerjaan sedang kosong melalui e-mail atau WhatsApp.'
+            ],
+            [
+                'question' => 'Apakah ada peraturan perusahaan mengenai jam kerja magang?',
+                'answer' => 'Sesuai peraturan perusahaan, staf Berbinar bekerja minimal 16 jam/minggu dan maksimal 21 jam/minggu, namun jam kerja akan disesuaikan kembali secara fleksibel apabila terdapat pekerjaan yang bersifat urgent atau genting.'
+            ],
+            [
+                'question' => 'Bagaimana sistem magang di Berbinar?',
+                'answer' => 'Sistem magang di Berbinar saat ini masih bersifat work from anywhere dan unpaid (tidak dibayar).'
+            ],
+            [
+                'question' => 'Berapa lama durasi magang di Berbinar?',
+                'answer' => 'Terdapat 2 pilihan durasi magang di Berbinar, yaitu selama 6 bulan atau 1 tahun.'
+            ],
+        ];
+
+
+        return view('moduls.landing-new.karir')->with([
+            'testimonis' => $testimonis,
+            'faqs' => $faqs,
+            'positions' => $positions
+        ]);
+    }
+
+    public function positions_new()
+    {
+
+        $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->where('is_active', true)->get();
+
+        $faqs = [
+            [
+                'question' => 'Apakah magang di Berbinar dapat dikonversi ke SKS perkuliahan?',
+                'answer' => 'Apabila SobatBinar nantinya menghendaki untuk mengkonversikan magang di Berbinar ke SKS atau KRS perkuliahan, SobatBinar bisa mengajukan proposal kerjasama, seperti MoU atau MoA kepada Berbinar.'
+            ],
+            [
+                'question' => 'Pengumuman kelulusan magang diberitahukan kapan dan melalui media apa?',
+                'answer' => 'Untuk tahapan kelulusan dari proses rekrutmen akan dikabarkan secara talent pool, dimana SobatBinar akan dihubungi oleh tim rekruter saat posisi pekerjaan sedang kosong melalui e-mail atau WhatsApp.'
+            ],
+            [
+                'question' => 'Apakah ada peraturan perusahaan mengenai jam kerja magang?',
+                'answer' => 'Sesuai peraturan perusahaan, staf Berbinar bekerja minimal 16 jam/minggu dan maksimal 21 jam/minggu, namun jam kerja akan disesuaikan kembali secara fleksibel apabila terdapat pekerjaan yang bersifat urgent atau genting.'
+            ],
+            [
+                'question' => 'Bagaimana sistem magang di Berbinar?',
+                'answer' => 'Sistem magang di Berbinar saat ini masih bersifat work from anywhere dan unpaid (tidak dibayar).'
+            ],
+            [
+                'question' => 'Berapa lama durasi magang di Berbinar?',
+                'answer' => 'Terdapat 2 pilihan durasi magang di Berbinar, yaitu selama 6 bulan atau 1 tahun.'
+            ],
+        ];
+
+        return view('moduls.landing-new.positions')->with([
+            'faqs' => $faqs,
+            'positions' => $positions,
+        ]);
+    }
+
+    public function positions_detail_new($id)
+    {
+
+        $position = Hiring_Positions::where('id', $id)->first();
+
+        if (!$position) {
+            return redirect()->back()->with('error', 'Position not found or inactive');
+        }
+
+        // todo: production please fetch actual description & requirments from db
+        //$HiringPositionsJobDescription = Hiring_Positions_Job_Descriptions::where('position_id', $id)->get();
+        //$Hiring_Positions_Requirement = Hiring_Positions_Requirements::where('position_id', $id)->get();
+
+        //dd($position->toArray());
+
+        $faqs = [
+            [
+                'question' => 'Apakah magang di Berbinar dapat dikonversi ke SKS perkuliahan?',
+                'answer' => 'Apabila SobatBinar nantinya menghendaki untuk mengkonversikan magang di Berbinar ke SKS atau KRS perkuliahan, SobatBinar bisa mengajukan proposal kerjasama, seperti MoU atau MoA kepada Berbinar.'
+            ],
+            [
+                'question' => 'Pengumuman kelulusan magang diberitahukan kapan dan melalui media apa?',
+                'answer' => 'Untuk tahapan kelulusan dari proses rekrutmen akan dikabarkan secara talent pool, dimana SobatBinar akan dihubungi oleh tim rekruter saat posisi pekerjaan sedang kosong melalui e-mail atau WhatsApp.'
+            ],
+            [
+                'question' => 'Apakah ada peraturan perusahaan mengenai jam kerja magang?',
+                'answer' => 'Sesuai peraturan perusahaan, staf Berbinar bekerja minimal 16 jam/minggu dan maksimal 21 jam/minggu, namun jam kerja akan disesuaikan kembali secara fleksibel apabila terdapat pekerjaan yang bersifat urgent atau genting.'
+            ],
+            [
+                'question' => 'Bagaimana sistem magang di Berbinar?',
+                'answer' => 'Sistem magang di Berbinar saat ini masih bersifat work from anywhere dan unpaid (tidak dibayar).'
+            ],
+            [
+                'question' => 'Berapa lama durasi magang di Berbinar?',
+                'answer' => 'Terdapat 2 pilihan durasi magang di Berbinar, yaitu selama 6 bulan atau 1 tahun.'
+            ],
+        ];
+
+        // for development only
+        $deskripsiPejeraan = [
+            'Bertanggung jawab proses pengembangan aplikasi',
+            'Melakukan manajemen dan maintenance database hostinger',
+            'Melakukan report jika website sedang mengalami troubleshooting dan debugging',
+            'Membuat ERD (Entity Relationship Diagram) atau alur database untuk memtakan struktur dan hubungan antar tabel dalam database',
+            'Melakukan wiring test atau menyambungkan dengan front end website.',
+            'Menulis kode back end untuk mengolah data dan menjalankan logika aplikasi',
+            'Melakukan testing untuk memastikan fungsionalitas back end atau database.',
+            'Membuat report hasil testing yang telah dilakukan.'
+        ];
+        $persyaratan = [
+            'Terbuka untuk siswa/siswi SMA, SMK, MA, atau yang Sederajat; mahasiswa/mahasiswi aktif dan fresh-graduate dengan kelulusan maksimal 1 tahun.',
+            'Mampu berkomitmen tinggi untuk berkontribusi di Berbinar selama 6 bulan atau 1 tahun.',
+            'Mampu bekerja secara mandiri maupun bekerja secara tim.',
+            'Mampu bekerja di bawah tekanan dan deadline',
+            'Memiliki kemampuan manajemen waktu dan komunikasi yang baik.',
+            'Tertarik untuk mempelajari hal baru.',
+            'Tertarik pada bidang psikologi / kesehatan mental.',
+            'Memiliki ketertarikan pada kepemimpinan dan pengembangan skill.'
+        ];
+
+        return view('moduls.landing-new.positions-detail')->with([
+            'faqs' => $faqs,
+            'deskripsi' => $deskripsiPejeraan,
+            'persyaratan' => $persyaratan,
+            'position' => $position,
+        ]);
+    }
+
+    function getAvailableDivisionsPerYear($data): array
+    {
+        $divisionsPerYear = [];
+
+        foreach ($data as $staff) {
+            // Extract the year from date_start
+            $year = explode(' ', $staff['date_start'])[1];
+
+            // Initialize the array if the year is not set yet
+            if (!isset($divisionsPerYear[$year])) {
+                $divisionsPerYear[$year] = [];
+            }
+
+            // Check if division already exists in that year
+            $existingDivisionKey = array_search($staff['division'], array_column($divisionsPerYear[$year], 'division'));
+
+            if ($existingDivisionKey === false) {
+                // If division does not exist, add it with an empty subdivision array
+                $divisionsPerYear[$year][] = [
+                    'division' => $staff['division'],
+                    'subdivision' => !empty($staff['subdivision']) ? [$staff['subdivision']] : []
+                ];
+            } else {
+                // If division exists and subdivision is not empty, add it if not already present
+                if (!empty($staff['subdivision']) && !in_array($staff['subdivision'], $divisionsPerYear[$year][$existingDivisionKey]['subdivision'])) {
+                    $divisionsPerYear[$year][$existingDivisionKey]['subdivision'][] = $staff['subdivision'];
+                }
+            }
+        }
+
+        // Sort divisions for each year
+        foreach ($divisionsPerYear as &$divisions) {
+            usort($divisions, fn($a, $b) => strcmp($a['division'], $b['division']));
+        }
+
+        // Sort years
+        ksort($divisionsPerYear);
+
+        return $divisionsPerYear;
+    }
+
+    public function keluarga_berbinar(Request $request)
+    {
+        // todo: fetch dari db!!
+
+        // fetch from api
+        //$response = Http::get('http://localhost:3004/dataStaff');
+        //$data = $response->json();
+
+
+        // sementara pakai data dummy json dulu
+        $jsonPath = public_path('assets/js/dummyStaff.json');
+        $jsonContent = File::exists($jsonPath) ? File::get($jsonPath) : '[]';
+        $data = json_decode($jsonContent, true)['dataStaff'];
+
+        // debug data
+        //dd($data)
+
+        //available year, e.g ["2019", "2020", "2021"], dummy data start from 2022
+        $availableYears = collect(array_map(fn($staff) => explode(' ', $staff['date_start'])[1], $data))
+            ->unique()
+            ->sort()
+            ->values()
+            ->all();
+        // available division per year dd to look the data
+        $availableDivision = $this->getAvailableDivisionsPerYear($data);
+        //dd($availableDivision.toArray());
+
+        return view('moduls.landing-new.keluarga-berbinar')->with([
+            'listStaff' => $data,
+            'availableYears' => $availableYears,
+            'availableDivision' => $availableDivision,
+        ]);
+    }
+
+
     public function index(Request $request)
     {
         $products = [
@@ -1585,7 +1867,7 @@ class LandingController extends Controller
             ],
             [
                 'question' => 'Proses pembelajarannya ribet gak, ya?',
-                'answer' => "Mudah, kok! Peserta bisa akses video pembelajarannya kapanpun dan dimanapun. Peserta hanya perlu melalui proses berikut: 
+                'answer' => "Mudah, kok! Peserta bisa akses video pembelajarannya kapanpun dan dimanapun. Peserta hanya perlu melalui proses berikut:
                 Selesaikan video pembelajaran dan mengisi post-test, Melakukan personal mentoring bersama mentor, Klaim sertifikat dan peserta dapat memilih untuk lanjut ke layanan konseling dan psikotes.
                 "
             ],
@@ -1761,7 +2043,7 @@ class LandingController extends Controller
         $faqs = [
             [
                 'question' => 'Apakah Internship Berbinar dapat dikonversi ke SKS perkuliahan?',
-                'answer' => 'Apabila SobatBinar nantinya menghendaki untuk mengkonversikan internship Berbinar ke SKS atau KRS perkuliahan, SobatBinar bisa mengajukan proposal kerjasama, seperti MoU atau MoA kepada Berbinar. 
+                'answer' => 'Apabila SobatBinar nantinya menghendaki untuk mengkonversikan internship Berbinar ke SKS atau KRS perkuliahan, SobatBinar bisa mengajukan proposal kerjasama, seperti MoU atau MoA kepada Berbinar.
                 '
             ],
             [
@@ -1839,7 +2121,7 @@ class LandingController extends Controller
         $faqs = [
             [
                 'question' => 'Apakah Internship Berbinar dapat dikonversi ke SKS perkuliahan?',
-                'answer' => 'Apabila SobatBinar nantinya menghendaki untuk mengkonversikan internship Berbinar ke SKS atau KRS perkuliahan, SobatBinar bisa mengajukan proposal kerjasama, seperti MoU atau MoA kepada Berbinar. 
+                'answer' => 'Apabila SobatBinar nantinya menghendaki untuk mengkonversikan internship Berbinar ke SKS atau KRS perkuliahan, SobatBinar bisa mengajukan proposal kerjasama, seperti MoU atau MoA kepada Berbinar.
                 '
             ],
             [
@@ -2140,7 +2422,7 @@ class LandingController extends Controller
         $validatedData['jadwal_pukul'] = $jamMenit;
 
         // Calculate price
-        $date = new \DateTime($validatedData['jadwal_tanggal']);
+        $date = new DateTime($validatedData['jadwal_tanggal']);
         $dayOfWeek = $date->format('N'); // 1 (for Monday) through 7 (for Sunday)
         $isWeekend = ($dayOfWeek == 6 || $dayOfWeek == 7);
         $isWeekday = !$isWeekend;
@@ -2292,10 +2574,12 @@ class LandingController extends Controller
     {
         return view('moduls.psikotes-paid.instruksi');
     }
+
     public function soal()
     {
         return view('moduls.psikotes-paid.soal');
     }
+
     public function end()
     {
         return view('moduls.psikotes-paid.end');
@@ -2372,15 +2656,18 @@ class LandingController extends Controller
         return view('moduls.dashboard.psikotes-paid.data-test');
     }
 
-    public function LandingBDI(){
+    public function LandingBDI()
+    {
         return view('moduls.psikotes-paid.tools.bdi.landing');
     }
 
-    public function TestBDI(){
+    public function TestBDI()
+    {
         return view('moduls.psikotes-paid.tools.bdi.test');
     }
 
-    public function EndBDI(){
+    public function EndBDI()
+    {
         return view('moduls.psikotes-paid.tools.bdi.summary');
     }
 }

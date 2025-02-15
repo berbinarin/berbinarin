@@ -39,7 +39,7 @@
                     <source media="(max-width: 767px)" srcset="{{ asset('assets/images/product-berbinar/psikotest-mobile.png') }}" class="description absolute top-0 flex flex-col items-start">
                     <!-- view desktop -->
                     <source media="(min-width: 768px)" srcset="{{ asset('assets/images/product-berbinar/2-psikotes.png') }}" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
-                    <img src="{{ asset('assets/images/product-berbinar/2.png') }}" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
+                    <img src="{{ asset('assets/images/product-berbinar/Secretary and Finance.png') }}" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                 </picture>
             </div>
             <div class="swiper-slide relative">
@@ -48,7 +48,7 @@
                     <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Kelas.png') }}" class="description absolute top-0 flex flex-col items-start">
                     <!-- view desktop -->
                     <source media="(min-width: 768px)" srcset="{{ asset('assets/images/product-berbinar/3-kelas.png') }}" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
-                    <img src="{{ asset('assets/images/product-berbinar/3.png') }}" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
+                    <img src="{{ asset('assets/images/product-berbinar/Researcher.png') }}" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                 </picture>
             </div>
             <div class="swiper-slide relative">
@@ -57,7 +57,7 @@
                     <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Webinar.png') }}" class="description absolute top-0 flex flex-col items-start">
                     <!-- view desktop -->
                     <source media="(min-width: 768px)" srcset="{{ asset('assets/images/product-berbinar/4-webinar.png') }}" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
-                    <img src="{{ asset('assets/images/product-berbinar/4.png') }}" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
+                    <img src="{{ asset('assets/images/product-berbinar/Full Stack Developer.png') }}" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                 </picture>
             </div>
         </div>
