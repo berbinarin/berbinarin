@@ -57,7 +57,7 @@
                     <source media="(max-width: 767px)" srcset="{{ asset('assets/images/produk/Webinar.png') }}" class="description absolute top-0 flex flex-col items-start">
                     <!-- view desktop -->
                     <source media="(min-width: 768px)" srcset="{{ asset('assets/images/product-berbinar/4-webinar.png') }}" class="description absolute top-0 flex flex-col items-start px-[1.5rem] py-[2rem] gap-40">
-                    <img src="{{ asset('assets/images/product-berbinar/Full Stack Developer.png') }}" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
+                    <img src="{{ asset('assets/images/product-berbinar/Full-Stack Developer.png') }}" title="Slider's Image" alt="Slider's Image" class="-z-50 absolute" />
                 </picture>
             </div>
         </div>
