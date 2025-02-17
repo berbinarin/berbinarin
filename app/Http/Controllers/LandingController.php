@@ -1445,11 +1445,12 @@ class LandingController extends Controller
 //            'Memiliki ketertarikan pada kepemimpinan dan pengembangan skill.'
 //        ];
 
+
         return view('moduls.landing-new.positions-detail')->with([
             'faqs' => $faqs,
             'position' => $position,
             'HiringPositionsJobDescription' => $HiringPositionsJobDescription,
-            'HiringPositionsRequirement' => $Hiring_Positions_Requirement,
+            'Hiring_Positions_Requirement' => $Hiring_Positions_Requirement,
         ]);
     }
 
