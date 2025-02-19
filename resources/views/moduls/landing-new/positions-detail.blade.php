@@ -9,6 +9,7 @@
 
     {{--    @dd($position)--}}
 
+
     {{--job desc start--}}
     <section class="w-full mx-auto mt-24 lg:mt-32 font-inter overflow-hidden">
         {{--banner & CTA start--}}
@@ -16,8 +17,13 @@
             <div class="mx-auto w-full lg:flex lg:flex-wrap lg:justify-center lg:items-center">
                 <div class="w-full p-4 sm:px-16 md:px-14 lg:p-0 relative mb-4 lg:w-1/2 z-20">
                     <div class="w-full rounded-2xl overflow-hidden flex justify-center items-center lg:rounded-3xl">
+                        @php
+                            if(isset($position)){
+                                $imageName = ($position->name === 'UI/UX Designer') ? 'UIUX Designer' : $position->name;
+                            }
+                        @endphp
                         <img
-                            src="{{asset('assets/images/landing/karir/banner/'.$position->name === 'UI/UX Designer' ? 'UIUX Designer' : $position->name.'.png')}}"
+                            src="{{asset('assets/images/landing/karir/banner/'.$imageName.'.png')}}"
                             alt="banner"
                             class="object-cover w-full h-40 sm:h-48 md:h-60 lg:h-64 xl:h-72">
                     </div>
@@ -58,8 +64,8 @@
                 <h3 class="font-semibold text-xl sm:text-2xl text-center md:text-start text-transparent bg-clip-text bg-gradient-to-r from-[#3986A3] to-[#15323D] mb-4">
                     Deskripsi Pekerjaan</h3>
                 <ul class="mx-auto mb-4 list-decimal list-outside px-8 md:px-5">
-                    @foreach($HiringPositionsJobDescription as $deskripsi)
-                        <li class="font-normal text-sm mb-2 sm:text-base">{{$deskripsi}}</li>
+                    @foreach ($position -> HiringPositionsJobDescription as $responsibility)
+                        <li class="font-normal text-sm mb-2 sm:text-base">{{ $responsibility->job_description}}</li>
                     @endforeach
                 </ul>
                 <div class="flex lg:hidden lg:items-center lg:justify-start w-full mx-auto px-4 sm:px-10 mb-4">
@@ -122,8 +128,8 @@
                 <h3 class="font-semibold text-xl sm:text-2xl md:text-4xl text-center text-transparent bg-clip-text bg-gradient-to-r from-[#3986A3] to-[#15323D] mb-4">
                     Persyaratan</h3>
                 <ul class="mx-auto mb-4 list-decimal list-outside px-8 md:px-5">
-                    @foreach($HiringPositionsRequirement as $persyaratan)
-                        <li class="font-normal text-sm mb-2 sm:text-base">{{$persyaratan}}</li>
+                    @foreach ($position -> Hiring_Positions_Requirement as $requirement)
+                        <li class="font-normal text-sm mb-2 sm:text-base">{{ $requirement->requirement }}</li>
                     @endforeach
                 </ul>
             </div>
