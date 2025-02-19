@@ -238,6 +238,20 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/data-test/BDI/data', [DashboardUserController::class, 'dataBDI'])->name('dashboard.psikotespaid.databdi');
         Route::get('/data-test/BDI/data/detail', [DashboardUserController::class, 'detailBDI'])->name('dashboard.psikotespaid.detailbdi');
 
+        // Dashboard DASS-42
+        Route::get('/data-test/Dass-42', [DashboardUserController::class, 'dashboardDass42'])->name('dashboard.psikotespaid.dass42');
+        Route::get('/data-test/Dass-42/data', [DashboardUserController::class, 'dataDass42'])->name('dashboard.psikotespaid.datadass42');
+        Route::get('/data-test/Dass-42/data/detail', [DashboardUserController::class, 'detailDass42'])->name('dashboard.psikotespaid.detaildass42');
+
+        // Dashboard EPI
+        Route::get('/data-test/EPI', [DashboardUserController::class, 'dashboardEPI'])->name('dashboard.psikotespaid.epi');
+        Route::get('/data-test/EPI/data', [DashboardUserController::class, 'dataEPI'])->name('dashboard.psikotespaid.dataepi');
+        Route::get('/data-test/EPI/data/detail', [DashboardUserController::class, 'detailEPI'])->name('dashboard.psikotespaid.detailepi');
+
+        // Dashboard RMIB
+        Route::get('/data-test/RMIB', [DashboardUserController::class, 'dashboardRMIB'])->name('dashboard.psikotespaid.rmib');
+        Route::get('/data-test/RMIB/data', [DashboardUserController::class, 'dataRMIB'])->name('dashboard.psikotespaid.datarmib');
+        Route::get('/data-test/RMIB/data/detail', [DashboardUserController::class, 'detailRMIB'])->name('dashboard.psikotespaid.detailrmib');
 
         Route::post('/data-test/{id}/generate-token', [DashboardUserController::class, 'generateToken'])->name('dashboard.psikotespaid.generate-token');
         Route::get('/price-list', [DashboardUserController::class, 'priceList'])->name('dashboard.psikotespaid.price-list');

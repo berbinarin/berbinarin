@@ -544,4 +544,49 @@ class DashboardUserController extends Controller
     {
         return view('moduls.dashboard.psikotes-paid.tools.bdi.detailBDI');
     }
+
+    public function dashboardDass42()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.dass42.dashboardDASS');
+    }
+
+    public function dataDass42()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.dass42.jawabanDASS');
+    }
+
+    public function detailDass42()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.dass42.detailDASS');
+    }
+
+    public function dashboardEPI()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.epi.dashboardEPI');
+    }
+
+    public function dataEPI()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.epi.jawabanEPI');
+    }
+
+    public function detailEPI()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.epi.detailEPI');
+    }
+
+    public function dashboardRMIB()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.rmib.dashboardRMIB');
+    }
+
+    public function dataRMIB()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.rmib.jawabanRMIB');
+    }
+
+    public function detailRMIB()
+    {
+        return view('moduls.dashboard.psikotes-paid.tools.rmib.detailRMIB');
+    }
 }

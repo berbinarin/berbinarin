@@ -48,10 +48,39 @@
             </a>
         </li>
 
+        {{-- $title dashboard baru diberi diisini untuk sidebarnya --}}
+
         @elseif ($title === 'Dashboard VAK' || $title === 'Jawaban VAK' || $title === 'Detail Jawaban VAK')
         <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
             <a href="{{ route('dashboard.psikotespaid.dashboardVAK') }}" class=" flex flex-row items-center @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="fi fi-tr-chart-line-up text-xl mr-2  @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-lg font-bold ml-4 leading-5">Dashboard</span>
+            </a>
+        </li>
+
+        @elseif ($title === 'Dashboard EPI' || $title === 'Jawaban EPI' || $title === 'Detail Jawaban EPI')
+        <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
+        rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.epi') }}" class=" flex flex-row items-center @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="fi fi-tr-chart-line-up text-xl mr-2  @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-lg font-bold ml-4 leading-5">Dashboard</span>
+            </a>
+        </li>
+
+        @elseif ($title === 'Dashboard RMIB' || $title === 'Jawaban RMIB' || $title === 'Detail Jawaban RMIB')
+        <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
+        rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.epi') }}" class=" flex flex-row items-center @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="fi fi-tr-chart-line-up text-xl mr-2  @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-lg font-bold ml-4 leading-5">Dashboard</span>
+            </a>
+        </li>
+        
+        @elseif ($title === 'Dashboard Dass42' || $title === 'Jawaban Dass42' || $title === 'Detail Jawaban Dass42')
+        <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
+        rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.dass42') }}" class=" flex flex-row items-center @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
                 <i class="fi fi-tr-chart-line-up text-xl mr-2  @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif text-lg"></i>
                 <span class="text-lg font-bold ml-4 leading-5">Dashboard</span>
             </a>
@@ -214,7 +243,6 @@
         @endif
 
 
-
         @if (auth()->user()->role == 'PsikotestFree')
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.psikotestfree.data') }}" class=" flex flex-row items-center @if ($modul === 'Psikotest Free Data') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
@@ -232,8 +260,6 @@
         </li>
         @endif
 
-
-
         @if (auth()->user()->role == 'BerbinarPlus')
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.berbinarplus.data') }}" class=" flex flex-row items-center @if ($modul === 'Berbinar Plus User Data') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
@@ -243,9 +269,8 @@
         </li>
         @endif
 
-
-
-        @if ((((((((((((((((((((((((((((auth()->user()->role == 'PsikotestPaid' && $title != 'Dashboard Tes') && $title != 'BAUM') && $title != 'HTP') && $title != 'DAP' ) && $title != 'Dashboard Esai') && $title != 'Pengumpulan') && $title != 'Dashboard VAK' ) && $title != 'Jawaban VAK') && $title != 'Detail Jawaban VAK') && $title != 'Dashboard SSCT') && $title != 'Jawaban SSCT') && $title != 'Dashboard Alat Tes Biodata') && $title != 'Tes Biodata Perusahaan') && $title != 'Tes Biodata Pendidikan') && $title != 'Tes Biodata Komunitas') && $title != 'Tes Biodata Individual') && $title != 'Tes Biodata Klinis') && $title != 'Table Biodata Perusahaan') && $title != 'Table Biodata Pendidikan') && $title != 'Table Biodata Komunitas') && $title != 'Table Biodata Individual') && $title != 'Table Biodata Klinis') && $title != 'Dashboard OCEAN') && $title != 'Dashboard BDI') && $title != 'Jawaban OCEAN') && $title != 'Jawaban BDI') && $title != 'Detail Jawaban OCEAN') && $title != 'Detail Jawaban BDI' && $title != 'Dashboard Papikostick' && $title != 'User Data Papikostick' && $title != 'Soal Papikostick')
+        {{-- Nambahin menu sidebar ini diberi != agar tampil --}}
+        @if ((((((((((((((((((((((((((((auth()->user()->role == 'PsikotestPaid' && $title != 'Dashboard Tes') && $title != 'BAUM') && $title != 'HTP') && $title != 'DAP' ) && $title != 'Dashboard Esai') && $title != 'Pengumpulan') && $title != 'Dashboard VAK' ) && $title != 'Jawaban VAK') && $title != 'Detail Jawaban VAK') && $title != 'Dashboard SSCT') && $title != 'Jawaban SSCT') && $title != 'Dashboard Alat Tes Biodata') && $title != 'Tes Biodata Perusahaan') && $title != 'Tes Biodata Pendidikan') && $title != 'Tes Biodata Komunitas') && $title != 'Tes Biodata Individual') && $title != 'Tes Biodata Klinis') && $title != 'Table Biodata Perusahaan') && $title != 'Table Biodata Pendidikan') && $title != 'Table Biodata Komunitas') && $title != 'Table Biodata Individual') && $title != 'Table Biodata Klinis') && $title != 'Dashboard OCEAN') && $title != 'Dashboard BDI') && $title != 'Jawaban OCEAN') && $title != 'Jawaban BDI') && $title != 'Detail Jawaban OCEAN') && $title != 'Detail Jawaban BDI' && $title != 'Dashboard Papikostick' && $title != 'User Data Papikostick' && $title != 'Soal Papikostick' && $title != 'Dashboard Dass42' && $title != 'Jawaban Dass42' && $title != 'Detail Jawaban Dass42' && $title != 'Dashboard EPI' && $title != 'Jawaban EPI' && $title != 'Detail Jawaban EPI' && $title != 'Dashboard RMIB' && $title != 'Jawaban RMIB' && $title != 'Detail Jawaban RMIB')
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.psikotespaid.data') }}" class=" flex items-center @if ($modul === 'Psikotest Paid Data') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
                 <i class="fi fi-br-ballot text-xl mr-2 @if ($modul === 'Psikotest Paid Data') text-primary @else text-gray-700 @endif text-lg"></i>
@@ -397,13 +422,37 @@
         </a>
     </li>
 
-
+    {{-- disini tambahan sub menu sidebar dari dashboard yg baru --}}
 
         @elseif ($title === 'Dashboard VAK' || $title === 'Jawaban VAK' || $title === 'Detail Jawaban VAK')
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.psikotespaid.jawabanVAK') }}" class=" flex flex-row items-center @if ($modul === 'Psikotest Paid VAK') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
                 <i class="bx bx-receipt text-xl mr-2 @if ($modul === 'Psikotest Paid VAK') text-primary @else text-gray-700 @endif text-lg"></i>
                 <span class="text-base font-bold ml-4 leading-5">Respon</span>
+            </a>
+        </li>
+
+        @elseif ($title === 'Dashboard Dass42' || $title === 'Jawaban Dass42' || $title === 'Detail Jawaban Dass42')
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.datadass42') }}" class=" flex flex-row items-center @if ($modul === 'Psikotest Paid Dass42') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bx-receipt text-xl mr-2 @if ($modul === 'Psikotest Paid Dass42') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base font-bold ml-4 leading-5">Pengumpulan</span>
+            </a>
+        </li>
+
+        @elseif ($title === 'Dashboard EPI' || $title === 'Jawaban EPI' || $title === 'Detail Jawaban EPI')
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.dataepi') }}" class=" flex flex-row items-center @if ($modul === 'Psikotest Paid EPI') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bx-receipt text-xl mr-2 @if ($modul === 'Psikotest Paid Dass42') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base font-bold ml-4 leading-5">Pengumpulan</span>
+            </a>
+        </li>
+
+        @elseif ($title === 'Dashboard RMIB' || $title === 'Jawaban RMIB' || $title === 'Detail Jawaban RMIB')
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.psikotespaid.datarmib') }}" class=" flex flex-row items-center @if ($modul === 'Psikotest Paid RMIB') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bx-receipt text-xl mr-2 @if ($modul === 'Psikotest Paid Dass42') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base font-bold ml-4 leading-5">Pengumpulan</span>
             </a>
         </li>
 
@@ -464,8 +513,8 @@
         </li>
         @endif
 
-
-        @if ($title === 'Dashboard Tes' || $title === 'BAUM' || $title === 'DAP' || $title === 'HTP' || $title === 'Dashboard Esai' || $title === 'Pengumpulan' || $title === 'Dashboard VAK' || $title === 'Jawaban VAK' || $title === 'Dashboard SSCT' || $title === 'Jawaban SSCT' || $title === 'Dashboard Alat Tes Biodata' || $title === 'Tes Biodata Perusahaan' || $title === 'Tes Biodata Pendidikan' || $title === 'Tes Biodata Komunitas' || $title === 'Tes Biodata Individual' || $title === 'Tes Biodata Klinis'  || $title === 'Table Biodata Klinis' || $title === 'Dashboard OCEAN' || $title === 'Dashboard BDI' || $title === 'Jawaban OCEAN' || $title === 'Jawaban BDI' || $title === 'Dashboard Papikostick' || $title === 'User Data Papikostick' || $title === 'Soal Papikostick')
+        {{-- klo nambahin button kembali, tambahin $title disini --}}
+        @if ($title === 'Dashboard Tes' || $title === 'BAUM' || $title === 'DAP' || $title === 'HTP' || $title === 'Dashboard Esai' || $title === 'Pengumpulan' || $title === 'Dashboard VAK' || $title === 'Jawaban VAK' || $title === 'Dashboard SSCT' || $title === 'Jawaban SSCT' || $title === 'Dashboard Alat Tes Biodata' || $title === 'Tes Biodata Perusahaan' || $title === 'Tes Biodata Pendidikan' || $title === 'Tes Biodata Komunitas' || $title === 'Tes Biodata Individual' || $title === 'Tes Biodata Klinis'  || $title === 'Table Biodata Klinis' || $title === 'Dashboard OCEAN' || $title === 'Dashboard BDI' || $title === 'Jawaban OCEAN' || $title === 'Jawaban BDI' || $title === 'Dashboard Papikostick' || $title === 'User Data Papikostick' || $title === 'Soal Papikostick' || $title === 'Dashboard Dass42' || $title === 'Jawaban Dass42' || $title === 'Detail Jawaban Dass42' || $title === 'Dashboard EPI' || $title === 'Jawaban EPI' || $title === 'Detail Jawaban EPI' || $title === 'Dashboard RMIB' || $title === 'Jawaban RMIB' || $title === 'Detail Jawaban RMIB')
         <li class="mt-20 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard') }}" class=" flex flex-col items-center">
                 <button type="submit" class="fixed bottom-5 left-14  bg-blue-500 text-white rounded-full px-6 py-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">
