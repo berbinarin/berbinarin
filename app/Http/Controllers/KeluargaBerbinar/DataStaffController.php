@@ -4,14 +4,15 @@ namespace App\Http\Controllers\KeluargaBerbinar;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\KeluargaBerbinar\DataJabatan;
 use App\Models\KeluargaBerbinar\DataStaff;
 
 class DataStaffController extends Controller
 {
     public function index()
     {
-        $dataStaff = DataStaff::all();
-        return view('data_staff.index', compact('dataStaff'));
+        $berbinarFamily = DataStaff::with('dataJabatan')->get();
+        return view('moduls.dashboard.hr.berbinar-family.berbinarFamily', compact('berbinarFamily'));
     }
 
     public function create()
