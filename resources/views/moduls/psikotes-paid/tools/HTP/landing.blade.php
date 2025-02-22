@@ -31,11 +31,14 @@
     </div>
 
     <div class="mb-2 flex justify-center gap-6 mt-8">
-      <a href="{{ route('psikotest-paid.tool.HTP.instruksi_b') }}">
-        <button type="button" class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
-            Selanjutnya
-        </button>
-      </a>
+      <form action="{{ route('psikotest-paid.tool.HTP.startTest') }}" method="post">
+        @csrf
+        <input type="hidden" name="user_id" value="{{ $user->id }}">
+        <input type="hidden" name="tool_id" value="{{ $tool->id }}">
+        <button type="submit" class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+          Selanjutnya
+      </button>
+      </form>
     </div>
   </div>
 </div>

@@ -135,6 +135,16 @@
                                                     class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
                                                     <i class='bx bx-home-alt text-white'> Dashboard</i>
                                                 </a>
+                                            @elseif ($tool->name === 'Dass-42')
+                                                <a href="{{ route('dashboard.psikotespaid.dass42') }}"
+                                                    class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
+                                                    <i class='bx bx-home-alt text-white'> Dashboard</i>
+                                                </a>
+                                            @elseif ($tool->name === 'RMIB')
+                                                <a href="{{ route('dashboard.psikotespaid.rmib') }}"
+                                                    class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
+                                                    <i class='bx bx-home-alt text-white'> Dashboard</i>
+                                                </a>
                                             @else
                                                 <button type="button"
                                                     class="focus:ring-2 focus:ring-offset-2 mt-0 inline-flex items-start justify-start p-3 bg-green-500 hover:bg-green-500 rounded-3xl">
