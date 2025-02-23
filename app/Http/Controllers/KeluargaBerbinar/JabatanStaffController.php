@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\KeluargaBerbinar\DataJabatan;
 use App\Models\KeluargaBerbinar\DataStaff;
 
-class DataJabatanController extends Controller
+class JabatanStaffController extends Controller
 {
     public function createByStaffId(Request $request, $staffId)
     {
@@ -65,4 +65,5 @@ class DataJabatanController extends Controller
         $tahun = DataJabatan::selectRaw('YEAR(awal_menjabat) as tahun')->distinct()->orderBy('tahun', 'asc')->get();
         return view('data_jabatan.tahun', compact('tahun'));
     }
+
 }

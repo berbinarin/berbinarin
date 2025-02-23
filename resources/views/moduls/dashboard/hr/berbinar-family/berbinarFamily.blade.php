@@ -57,16 +57,16 @@
                                 class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider sticky-col sticky-col-1">
                                 No</th>
                             <th
-                                class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider sticky-col sticky-col-2">
+                                class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider sticky-col sticky-col-2 ">
                                 Nama Lengkap</th>
                             <th
-                                class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider">
+                                class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider " >
                                 Posisi</th>
                             <th
-                                class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider w-80">
+                                class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider ">
                                 Divisi</th>
                             <th
-                                class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider w-80">
+                                class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider ">
                                 Waktu Menjabat</th>
                             <th
                                 class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider">
@@ -74,49 +74,33 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Tes Dummy data -->
-                        @php
-                            $dummyData = [
-                                [
-                                    'id' => 1,
-                                    'nama_lengkap' => 'John Doe',
-                                    'posisi' => 'Ketua Organisasi',
-                                    'divisi' => 'Divisi Internal',
-                                    'waktu_menjabat' => '2023 - 2024',
-                                ],
-                                [
-                                    'id' => 2,
-                                    'nama_lengkap' => 'Jane Smith',
-                                    'posisi' => 'Wakil Ketua',
-                                    'divisi' => 'Divisi Eksternal',
-                                    'waktu_menjabat' => '2023 - 2024',
-                                ],
-                                [
-                                    'id' => 3,
-                                    'nama_lengkap' => 'Samuel Green',
-                                    'posisi' => 'Sekretaris',
-                                    'divisi' => 'Divisi Administrasi',
-                                    'waktu_menjabat' => '2023 - 2025',
-                                ],
-                            ];
-                        @endphp
-
-                        @foreach($dummyData as $index => $item)
+                        @foreach($berbinarFamily as $index => $item)
                             <tr class="border-b border-gray-200 hover:bg-gray-100">
                                 <td class="px-6 py-4 whitespace-no-wrap sticky-col sticky-col-1">
                                     {{ $index + 1 }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap sticky-col sticky-col-2">
-                                    {{ $item['nama_lengkap'] }}
+                                    {{ $item->nama_lengkap }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap">
-                                    {{ $item['posisi'] }}
+                                    {{ optional($item->dataJabatan->first())->posisi ?? 'Tidak Ada Jabatan' }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap w-80">
-                                    {{ $item['divisi'] }}
+                                    {{ optional($item->dataJabatan->first())->divisi ?? 'Tidak Ada Divisi' }}
                                 </td>
-                                <td class="px-6 py-4 whitespace-no-wrap w-80">
-                                    {{ $item['waktu_menjabat'] }}
+                                <td class="px-6 py-4 whitespace-no-wrap">
+                                    @if($item->dataJabatan->isNotEmpty())
+                                        @php
+                                            $jabatanPertama = $item->dataJabatan->first();
+                                            $awal = \Carbon\Carbon::parse($jabatanPertama->awal_menjabat)->format('Y');
+                                            $akhir = $jabatanPertama->akhir_menjabat 
+                                                        ? \Carbon\Carbon::parse($jabatanPertama->akhir_menjabat)->format('Y') 
+                                                        : 'Sekarang';
+                                        @endphp
+                                        {{ $awal }} - {{ $akhir }}
+                                    @else
+                                        Tidak Ada Data
+                                    @endif
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap flex justify-center items-center gap-2">
                                     <a href="{{ route('dashboard.berbinarFamily.details') }}"
@@ -138,6 +122,7 @@
                             </tr>
                         @endforeach
                     </tbody>
+                    
                 </table>
             </div>
         </div>
