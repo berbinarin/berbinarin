@@ -30,9 +30,36 @@
                     <div class="overflow-y-auto flex-1" style="max-height: 400px;">
                         <div class="pb-10">
                             <h2 class="font-semibold text-2xl">Morgan Vero</h2>
-                            <p class="mt-4">Ada 2 design card di figma mengbingung
+                            <p class="mt-4">Berikut merupakan 3 peringkat kategori dengan nilai terendah, yaitu <b>Outdoor, Mechanical, Aesthetic, Social, Medical, Scientific</b> dan <b>Computational.</b></p>
+                            <div>
+                                {{-- Dalam sini  --}}
+                                <?php
+                                // Dummy data
+                                $categories = [
+                                    ['name' => 'Outdoor',       'point' => 13],
+                                    ['name' => 'Mechanical',    'point' => 9],
+                                    ['name' => 'Aesthetic',     'point' => 9],
+                                    ['name' => 'Social',        'point' => 9],
+                                    ['name' => 'Medical',       'point' => 9],
+                                    ['name' => 'Scientific',    'point' => 9],
+                                    ['name' => 'Computational', 'point' => 13],
+                                ];
+
+                                usort($categories, function ($a, $b) {
+                                    return $b['point'] <=> $a['point'];
+                                });
+                                ?>
+                                <ul>
+                                    <?php foreach ($categories as $index => $cat): ?>
+                                        <li>
+                                            <span class="mr-2"><?= $index + 1 ?>.</span>
+                                            
+                                            <span><?= $cat['name'] ?> (<?= $cat['point'] ?> poin)</span>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
                         </div>
-                        
                     </div>
                 </div>
 
