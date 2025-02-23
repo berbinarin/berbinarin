@@ -83,18 +83,18 @@
                                     {{ $item->nama_lengkap }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap">
-                                    {{ $item->dataJabatan ? $item->dataJabatan->posisi : 'Tidak Ada Jabatan' }}
+                                    {{ optional($item->dataJabatan->first())->posisi ?? 'Tidak Ada Jabatan' }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap w-80">
-                                    {{ $item->dataJabatan ? $item->dataJabatan->divisi : 'Tidak Ada Divisi' }}
+                                    {{ optional($item->dataJabatan->first())->divisi ?? 'Tidak Ada Divisi' }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap">
-                                    @if($item->dataJabatan)
+                                    @if($item->dataJabatan->isNotEmpty())
                                         @php
-                                            // Logic membuat rentang awal - akhir jabatan
-                                            $awal = \Carbon\Carbon::parse($item->dataJabatan->awal_menjabat)->format('Y');
-                                            $akhir = $item->dataJabatan->akhir_menjabat 
-                                                        ? \Carbon\Carbon::parse($item->dataJabatan->akhir_menjabat)->format('Y') 
+                                            $jabatanPertama = $item->dataJabatan->first();
+                                            $awal = \Carbon\Carbon::parse($jabatanPertama->awal_menjabat)->format('Y');
+                                            $akhir = $jabatanPertama->akhir_menjabat 
+                                                        ? \Carbon\Carbon::parse($jabatanPertama->akhir_menjabat)->format('Y') 
                                                         : 'Sekarang';
                                         @endphp
                                         {{ $awal }} - {{ $akhir }}
@@ -102,7 +102,6 @@
                                         Tidak Ada Data
                                     @endif
                                 </td>
-                                
                                 <td class="px-6 py-4 whitespace-no-wrap flex justify-center items-center gap-2">
                                     <a href="{{ route('dashboard.berbinarFamily.details') }}"
                                         class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-2 focus:outline-none rounded hover:bg-blue-700"
@@ -123,6 +122,7 @@
                             </tr>
                         @endforeach
                     </tbody>
+                    
                 </table>
             </div>
         </div>
