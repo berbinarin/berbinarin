@@ -61,7 +61,7 @@
                                 Nama Lengkap</th>
                             <th
                                 class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider " >
-                                Posisi</th>
+                                Status</th>
                             <th
                                 class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider ">
                                 Divisi</th>

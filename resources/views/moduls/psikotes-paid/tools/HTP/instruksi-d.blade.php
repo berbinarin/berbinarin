@@ -34,22 +34,19 @@
                 </p>
             </div>
 
-            {{-- Bagian ini --}}
             <!-- Upload Section -->
-            {{-- Bagian ini --}}
-            {{-- Bagian ini --}}
-            {{-- Bagian Upload Section --}}
-            <form action="{{ route('psikotest-paid.tool.HTP.submitAnswer') }}" method="post" enctype="multipart/form-data">
+            <form id="autoSubmitForm" action="{{ route('psikotest-paid.tool.HTP.submitAnswer') }}" method="post" enctype="multipart/form-data">
                 <div class="mt-6">
                     @csrf
+                    <input type="hidden" name="timeout" id="timeout" value="">
                     <input type="hidden" name="test_id" value="{{ $test->id }}">
                     <input type="hidden" name="question_id"
                         value="{{ $questions[session('current_question_number', 1) - 1]->id }}">
                     <!-- Label sebagai area klik -->
                     <label for="file-upload"
                         class="flex flex-col items-center justify-center w-full h-48 rounded-xl 
-                border-2 border-dashed border-blue-500 bg-blue-50
-                cursor-pointer hover:bg-blue-100 transition-colors duration-200">
+                                border-2 border-dashed border-blue-500 bg-blue-50
+                                cursor-pointer hover:bg-blue-100 transition-colors duration-200">
                         <svg class="w-12 h-12 text-blue-400 mb-2" fill="none" stroke="currentColor" stroke-width="1.5"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -86,6 +83,35 @@
                 uploadText.textContent = "Click to Upload or Drag & Drop";
             }
         }
+        const totalDuration = 7 * 60 * 1000; 
+  
+        let startTime = localStorage.getItem('startTime');
+        if(!startTime) {
+            startTime = new Date().getTime();
+            localStorage.setItem('startTime', startTime);
+        }
+
+        const timerInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const elapsed = now - startTime;
+            const remaining = totalDuration - elapsed;
+
+            if (remaining <= 0) {
+            clearInterval(timerInterval);
+            localStorage.removeItem('startTime');
+
+            document.getElementById('timeout').value = "true";
+
+            document.getElementById('autoSubmitForm').submit();
+            } else {
+                document.getElementById('timeout').value = "false";
+            }
+
+            const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+            console.log(`Waktu sisa: ${minutes}m ${seconds}s`);
+
+        }, 1000);
     </script>
 @endsection
 @include('sweetalert::alert')

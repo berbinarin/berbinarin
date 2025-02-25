@@ -61,32 +61,59 @@ class HTPController extends Controller
     $questions = QuestionHtp::all();
     return view('moduls.psikotes-paid.tools.htp.instruksi-d',['test' => $test, 'questions' => $questions]);
   }
+
   public function submitAnswer(Request $request)
-    {
+{
+    // Ambil nilai timeout
+    $isTimeout = $request->input('timeout'); 
+
+    if ($isTimeout === 'true') {
         $validatedData = $request->validate([
-            'test_id' => 'required|exists:test_htp,id',
+            'test_id'     => 'required|exists:test_htp,id',
+            'question_id' => 'required|exists:question_htp,id',
+        ]);
+    } else {
+        $validatedData = $request->validate([
+            'test_id'     => 'required|exists:test_htp,id',
             'question_id' => 'required|exists:question_htp,id',
             'answer_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,JPG,PNG,JPEG|max:2048'
         ]);
+    }
 
-        $testId = $validatedData['test_id'];
-        $questionId = $validatedData['question_id'];
-        $userId = Auth::guard('psikotestpaid')->id();
+    $testId = $validatedData['test_id'];
+    $questionId = $validatedData['question_id'];
+    $userId = Auth::guard('psikotestpaid')->id();
 
+    if ($isTimeout === 'true') {
+        // Jika timeout, mungkin kita mau simpan jawaban default
+        // (misal "tidak ada" atau path tertentu)
+        // Atau sekadar menandai bahwa user tidak sempat upload
+        $path = '';
+
+        AnswerHtp::create([
+            'test_htp_id'     => $testId,
+            'question_htp_id' => $questionId,
+            'answer'          => $path,
+            'user_id'         => $userId
+        ]);
+        return redirect()->route('psikotest-paid.tool.OCEAN.summary', ['testId' => $testId]);
+    } else {
+        // Bukan timeout, user sempat upload file
         if ($request->hasFile('answer_image')) {
             $image = $request->file('answer_image');
             $path = $image->store('res/HTP', 'public');
 
             AnswerHtp::create([
-                'test_htp_id' => $testId,
+                'test_htp_id'     => $testId,
                 'question_htp_id' => $questionId,
-                'answer' => $path,
-                'user_id' => $userId
+                'answer'          => $path,
+                'user_id'         => $userId
             ]);
         }
-
-        return redirect()->route('psikotest-paid.tool.HTP.summary', ['testId' => $testId]);
     }
+    return redirect()->route('psikotest-paid.tool.HTP.summary', ['testId' => $testId]);
+}
+
 
   public function summary()
   {

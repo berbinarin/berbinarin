@@ -42,6 +42,24 @@
     </div>
   </div>
 </div>
+<script>
+  const totalDuration = 7 * 60 * 1000; 
 
+  let startTime = localStorage.getItem('startTime') || new Date().getTime();
+  localStorage.setItem('startTime', startTime);
+
+  const timerInterval = setInterval(() => {
+    const now = new Date().getTime();
+    const elapsed = now - startTime;
+    const remaining = totalDuration - elapsed;
+
+    const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+    console.log(`Waktu sisa: ${minutes}m ${seconds}s`);
+
+  }, 1000);
+
+</script>
 @endsection
 @include('sweetalert::alert')

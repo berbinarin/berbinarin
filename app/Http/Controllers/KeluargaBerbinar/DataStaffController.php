@@ -133,7 +133,7 @@ class DataStaffController extends Controller
         ]);
         // dd($validated['riwayat_jabatan']);
         
-        // Simpan data riwayat jabatan jika ada
+        // ini ga kesimpen bejirr
         if (!empty($validated['riwayat_jabatan'])) {
             $dataStaff->dataJabatan()->createMany($validated['riwayat_jabatan']);
         }
