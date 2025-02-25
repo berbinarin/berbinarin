@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\PsikotestPaid\Tools\EPI\EPIController;
 use App\Http\Controllers\PsikotestPaid\Tools\RMIB\RMIBController;
 use Illuminate\Http\Request;
@@ -65,7 +65,8 @@ use App\Http\Controllers\PsikotestPaid\Tools\BDI\SkorBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\DASS\DASSController;
 
 use App\Http\Controllers\KeluargaBerbinar\DataStaffController;
-use App\Http\Controllers\KeluargaBerbinar\DataJabatanController;
+
+use App\Http\Controllers\KeluargaBerbinar\JabatanStaffController;
 
 /*
 |--------------------------------------------------------------------------
@@ -285,7 +286,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin/positions/edit/{id}', [DashboardController::class, 'editPositions']);
 
     // MODUL KELUARGA BERBINAR
-    Route::get('/dashboard/admin/berbinar-family', [DashboardController::class, 'berbinarFamily'])->name('dashboard.berbinarFamily');
+    Route::get('/dashboard/admin/berbinar-family', [DataStaffController::class, 'index'])->name('dashboard.berbinarFamily');
     Route::get('/dashboard/admin/berbinar-family/add', [DashboardController::class, 'addBerbinarFamily'])->name('dashboard.berbinarFamily.add');
     Route::get('/dashboard/admin/berbinar-family/details', [DashboardController::class, 'detailBerbinarFamily'])->name('dashboard.berbinarFamily.details'); // yang ini ntar ada tab layoutnya
 
@@ -659,15 +660,15 @@ Route::prefix('data-staff')->group(function () {
 
     // Route untuk Data Jabatan
     Route::prefix('jabatan')->group(function () {
-        Route::get('/', [DataJabatanController::class, 'index'])->name('data_jabatan.index');
-        Route::get('/create/{staffId}', [DataJabatanController::class, 'createByStaffId'])->name('data_jabatan.create');
-        Route::post('/store/{staffId}', [DataJabatanController::class, 'storeByStaffId'])->name('data_jabatan.store');
-        Route::get('/edit/{staffId}/{jabatanId}', [DataJabatanController::class, 'edit'])->name('data_jabatan.edit');
-        Route::put('/update/{staffId}/{jabatanId}', [DataJabatanController::class, 'update'])->name('data_jabatan.update');
-        Route::delete('/destroy/{staffId}/{jabatanId}', [DataJabatanController::class, 'destroy'])->name('data_jabatan.destroy');
-        Route::get('/divisi', [DataJabatanController::class, 'getDivisi'])->name('data_jabatan.divisi');
-        Route::get('/sub-divisi', [DataJabatanController::class, 'getSubDivisi'])->name('data_jabatan.sub_divisi');
-        Route::get('/tahun', [DataJabatanController::class, 'getTahun'])->name('data_jabatan.tahun');
+        Route::get('/', [JabatanStaffController::class, 'index'])->name('data_jabatan.index');
+        Route::get('/create/{staffId}', [JabatanStaffController::class, 'createByStaffId'])->name('data_jabatan.create');
+        Route::post('/store/{staffId}', [JabatanStaffController::class, 'storeByStaffId'])->name('data_jabatan.store');
+        Route::get('/edit/{staffId}/{jabatanId}', [JabatanStaffController::class, 'edit'])->name('data_jabatan.edit');
+        Route::put('/update/{staffId}/{jabatanId}', [JabatanStaffController::class, 'update'])->name('data_jabatan.update');
+        Route::delete('/destroy/{staffId}/{jabatanId}', [JabatanStaffController::class, 'destroy'])->name('data_jabatan.destroy');
+        Route::get('/divisi', [JabatanStaffController::class, 'getDivisi'])->name('data_jabatan.divisi');
+        Route::get('/sub-divisi', [JabatanStaffController::class, 'getSubDivisi'])->name('data_jabatan.sub_divisi');
+        Route::get('/tahun', [JabatanStaffController::class, 'getTahun'])->name('data_jabatan.tahun');
     });
 });
 
@@ -684,3 +685,13 @@ Route::prefix('api')->group(function () {
     Route::post('/skor', [SkorBdiController::class, 'store']); // Add new skor
 });
 
+//Route get image from storage
+Route::get('/image/{path}', function ($path) {
+    $path = storage_path("app/public/" . $path);
+
+    if (!file_exists($path)) {
+        abort(404);
+    }
+
+    return response()->file($path);
+})->where('path', '.*');

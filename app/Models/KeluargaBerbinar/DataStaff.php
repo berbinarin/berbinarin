@@ -16,8 +16,14 @@ class DataStaff extends Model
         'foto',
         'motm',
     ];
+
     public function dataJabatan()
-    {
-        return $this->hasOne(DataJabatan::class, 'data_staff_id');  // Menyesuaikan dengan nama kolom foreign key
+    {   
+        return $this->hasMany(DataJabatan::class, 'data_staff_id');
     }
+
+    // public function dataJabatan()
+    // {
+    //     return $this->hasOne(DataJabatan::class, 'data_staff_id');  // Menyesuaikan dengan nama kolom foreign key
+    // }
 }

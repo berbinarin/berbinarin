@@ -515,7 +515,7 @@
                                         @foreach ($ext_detail as $item)
                                             <tr class="border-b">
                                                 <td class="text-center p-4">{{ $item->question_ocean_id }}</td>
-                                                <td class="text-center p-4">{{ in_array($item->question_ocean_id, [2, 6, 7, 8, 9, 12, 18, 21, 23, 27, 31, 35, 37, 41]) ? (6 - $item->answer) : $item->answer; }}</td>
+                                                <td class="text-center p-4">{{ in_array($item->question_ocean_id, [2, 6, 7, 8, 9, 12, 18, 21, 23, 27, 31, 35, 37, 41]) ? (6 - $item->answer) : $item->answer }}</td>
                                                 <td class="p-4">{{ $mapping[$item->answer] ?? "Nilai Tidak Valid" }}</td>
                                             </tr>
                                         @endforeach
@@ -538,7 +538,7 @@
                                         @foreach ($agr_detail as $item)
                                             <tr class="border-b">
                                                 <td class="text-center p-4">{{ $item->question_ocean_id }}</td>
-                                                <td class="text-center p-4">{{ in_array($item->question_ocean_id, [2, 6, 7, 8, 9, 12, 18, 21, 23, 27, 31, 35, 37, 41]) ? (6 - $item->answer) : $item->answer; }}</td>
+                                                <td class="text-center p-4">{{ in_array($item->question_ocean_id, [2, 6, 7, 8, 9, 12, 18, 21, 23, 27, 31, 35, 37, 41]) ? (6 - $item->answer) : $item->answer }}</td>
                                                 <td class="p-4">{{ $mapping[$item->answer] ?? "Nilai Tidak Valid" }}</td>
                                             </tr>
                                         @endforeach
@@ -561,7 +561,7 @@
                                         @foreach ($neu_detail as $item)
                                             <tr class="border-b">
                                                 <td class="text-center p-4">{{ $item->question_ocean_id }}</td>
-                                                <td class="text-center p-4">{{ in_array($item->question_ocean_id, [2, 6, 7, 8, 9, 12, 18, 21, 23, 27, 31, 35, 37, 41]) ? (6 - $item->answer) : $item->answer; }}</td>
+                                                <td class="text-center p-4">{{ in_array($item->question_ocean_id, [2, 6, 7, 8, 9, 12, 18, 21, 23, 27, 31, 35, 37, 41]) ? (6 - $item->answer) : $item->answer }}</td>
                                                 <td class="p-4">{{ $mapping[$item->answer] ?? "Nilai Tidak Valid" }}</td>
                                             </tr>
                                         @endforeach
@@ -584,7 +584,7 @@
                                         @foreach ($con_detail as $item)
                                             <tr class="border-b">
                                                 <td class="text-center p-4">{{ $item->question_ocean_id }}</td>
-                                                <td class="text-center p-4">{{ in_array($item->question_ocean_id, [2, 6, 7, 8, 9, 12, 18, 21, 23, 27, 31, 35, 37, 41]) ? (6 - $item->answer) : $item->answer; }}</td>
+                                                <td class="text-center p-4">{{ in_array($item->question_ocean_id, [2, 6, 7, 8, 9, 12, 18, 21, 23, 27, 31, 35, 37, 41]) ? (6 - $item->answer) : $item->answer }}</td>
                                                 <td class="p-4">{{ $mapping[$item->answer] ?? "Nilai Tidak Valid" }}</td>
                                             </tr>
                                         @endforeach
@@ -607,7 +607,7 @@
                                         @foreach ($ope_detail as $item)
                                             <tr class="border-b">
                                                 <td class="text-center p-4">{{ $item->question_ocean_id }}</td>
-                                                <td class="text-center p-4">{{ in_array($item->question_ocean_id, [2, 6, 7, 8, 9, 12, 18, 21, 23, 27, 31, 35, 37, 41]) ? (6 - $item->answer) : $item->answer; }}</td>
+                                                <td class="text-center p-4">{{ in_array($item->question_ocean_id, [2, 6, 7, 8, 9, 12, 18, 21, 23, 27, 31, 35, 37, 41]) ? (6 - $item->answer) : $item->answer }}</td>
                                                 <td class="p-4">{{ $mapping[$item->answer] ?? "Nilai Tidak Valid" }}</td>
                                             </tr>
                                         @endforeach
