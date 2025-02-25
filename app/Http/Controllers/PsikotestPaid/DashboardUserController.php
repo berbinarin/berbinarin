@@ -19,6 +19,15 @@ use App\Models\PsikotestPaid\Biodata\UserEducation;
 use App\Models\PsikotestPaid\OCEAN\TestOcean;
 use App\Models\PsikotestPaid\OCEAN\AnswerOcean;
 use App\Models\PsikotestPaid\OCEAN\ResultOcean;
+use App\Models\PsikotestPaid\BAUM\AnswerBaum;
+use App\Models\PsikotestPaid\BAUM\QuestionBaum;
+use App\Models\PsikotestPaid\BAUM\TestBaum;
+use App\Models\PsikotestPaid\HTP\AnswerHtp;
+use App\Models\PsikotestPaid\HTP\QuestionHtp;
+use App\Models\PsikotestPaid\HTP\TestHtp;
+use App\Models\PsikotestPaid\DAP\AnswerDap;
+use App\Models\PsikotestPaid\DAP\QuestionDap;
+use App\Models\PsikotestPaid\DAP\TestDap;
 
 class DashboardUserController extends Controller
 {
@@ -262,22 +271,35 @@ class DashboardUserController extends Controller
 
     public function psikotesPaidBAUM()
     {
-        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.baum');
+        $test_baum = TestBaum::with('PsikotestPaidTest.userPsikotestPaid', 'answerBaum.questionBaum');
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.baum', [
+            'test_baum' => $test_baum->latest()->get(),
+        ]);
     }
 
     public function psikotesPaidHTP()
     {
-        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.htp');
+        $test_htp = TestHtp::with('PsikotestPaidTest.userPsikotestPaid', 'answerHtp.questionHtp');
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.htp', [
+            'test_htp' => $test_htp->latest()->get(),
+        ]);
     }
 
     public function psikotesPaidDAP()
     {
-        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dap');
+        $test_dap = TestDap::with('PsikotestPaidTest.userPsikotestPaid', 'answerDap.questionDap');
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dap',[
+            'test_dap' => $test_dap->latest()->get(),
+        ]);
     }
 
     public function psikotesPaidDashboardTes()
     {
-        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dashboardtes');
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dashboardtes',[
+            'test_baum' => TestBaum::count(),
+            'test_htp' => TestHtp::count(),
+            'test_dap' => TestDap::count(),
+        ]);
     }
 
     public function psikotesPaidDashboardEsai()
@@ -317,7 +339,7 @@ class DashboardUserController extends Controller
 
     public function psikotesPaidDashboardBiodata()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.dashboardbiodata',[
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.dashboardbiodata', [
             'count_company_users' => UserCompany::count(),
             'count_education_users' => UserEducation::count(),
             'count_individual_users' => UserIndividual::count(),
@@ -328,24 +350,24 @@ class DashboardUserController extends Controller
 
     public function BiodataPerusahaan()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan',[
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.perusahaan', [
             'user_companies' => UserCompany::latest()->get(),
         ]);
     }
 
     public function TablePerusahaan($id)
     {
-        $user_company = UserCompany::with('educations.level_education','answer_essays.question_essay');
+        $user_company = UserCompany::with('educations.level_education', 'answer_essays.question_essay');
         $user_company = $user_company->find($id);
         $educations = $user_company->educations;
         $answers = $user_company->answer_essays;
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.tableperusahaan',[
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.tableperusahaan', [
             'user_company' => $user_company,
             'educations' => $educations,
             'answers' => $answers
         ]);
     }
-    
+
     public function BiodataPendidikan()
     {
         return view('moduls.dashboard.psikotes-paid.tools.biodata.pendidikan', [
@@ -355,11 +377,11 @@ class DashboardUserController extends Controller
 
     public function TablePendidikan($id)
     {
-        $user_education = UserEducation::with('educations.level_education','answer_essays.question_essay');
+        $user_education = UserEducation::with('educations.level_education', 'answer_essays.question_essay');
         $user_education = $user_education->find($id);
         $educations = $user_education->educations;
         $answers = $user_education->answer_essays;
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.tablependidikan',[
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.tablependidikan', [
             'user_education' => $user_education,
             'educations' => $educations,
             'answers' => $answers
@@ -368,20 +390,20 @@ class DashboardUserController extends Controller
 
     public function BiodataKomunitas()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas',[
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.komunitas', [
             'user_communities' => UserCommunity::latest()->get(),
         ]);
     }
 
     public function TableKomunitas($id)
     {
-        $user_community = UserCommunity::with('educations.level_education','answer_essays.question_essay', 'courses', 'experiences');
+        $user_community = UserCommunity::with('educations.level_education', 'answer_essays.question_essay', 'courses', 'experiences');
         $user_community = $user_community->find($id);
         $educations = $user_community->educations;
         $answers = $user_community->answer_essays;
         $courses = $user_community->courses;
         $experiences = $user_community->experiences;
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.tablekomunitas',[
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.tablekomunitas', [
             'user_community' => $user_community,
             'educations' => $educations,
             'answers' => $answers,
@@ -392,14 +414,14 @@ class DashboardUserController extends Controller
 
     public function BiodataIndividual()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual',[
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.individual', [
             'user_individuals' => UserIndividual::latest()->get(),
         ]);
     }
 
     public function TableIndividual($id)
     {
-        $user_individual = UserIndividual::with('educations.level_education','answer_essays.question_essay');
+        $user_individual = UserIndividual::with('educations.level_education', 'answer_essays.question_essay');
         $user_individual = $user_individual->find($id);
         $educations = $user_individual->educations;
         $answers = $user_individual->answer_essays;
@@ -412,21 +434,21 @@ class DashboardUserController extends Controller
 
     public function BiodataKlinis()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis',[
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.klinis', [
             'user_clinicals' => UserClinical::latest()->get(),
         ]);
     }
 
     public function TableKlinis($id)
     {
-        $user_clinical = UserClinical::with('educations.level_education','answer_essays.question_essay', 'families.family_status');
+        $user_clinical = UserClinical::with('educations.level_education', 'answer_essays.question_essay', 'families.family_status');
         $user_clinical = $user_clinical->find($id);
         $educations = $user_clinical->educations;
         $answers = $user_clinical->answer_essays;
         $partner = $user_clinical->families->whereIn('family_status_id', [2, 3])->first();
-        $father = $user_clinical->families->where('gender','Laki-laki')->whereIn('family_status_id', [1, 4, 5, 6, 7, 8])->first();
-        $mother = $user_clinical->families->where('gender','Perempuan')->whereIn('family_status_id', [1, 4, 5, 6, 7, 8])->first();
-        return view('moduls.dashboard.psikotes-paid.tools.biodata.tableklinis',[
+        $father = $user_clinical->families->where('gender', 'Laki-laki')->whereIn('family_status_id', [1, 4, 5, 6, 7, 8])->first();
+        $mother = $user_clinical->families->where('gender', 'Perempuan')->whereIn('family_status_id', [1, 4, 5, 6, 7, 8])->first();
+        return view('moduls.dashboard.psikotes-paid.tools.biodata.tableklinis', [
             'user_clinical' => $user_clinical,
             'educations' => $educations,
             'answers' => $answers,
@@ -438,17 +460,17 @@ class DashboardUserController extends Controller
 
     public function OCEAN()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.ocean.dashboardOCEAN',[
-            'tool_id' => PsikotestTool::where('name','OCEAN')->first()->id,
+        return view('moduls.dashboard.psikotes-paid.tools.ocean.dashboardOCEAN', [
+            'tool_id' => PsikotestTool::where('name', 'OCEAN')->first()->id,
             'numb_user' => TestOcean::count(),
         ]);
     }
-    
+
     public function dataOCEAN()
     {
         $test_ocean = TestOcean::with('PsikotestPaidTest.userPsikotestPaid', 'answerOcean');
         // dd($test_ocean->latest()->get()[0]->PsikotestPaidTest->userPsikotestPaid);
-        return view('moduls.dashboard.psikotes-paid.tools.ocean.jawabanOCEAN',[
+        return view('moduls.dashboard.psikotes-paid.tools.ocean.jawabanOCEAN', [
             'test_ocean' => $test_ocean->latest()->get(),
 
         ]);
@@ -456,9 +478,9 @@ class DashboardUserController extends Controller
 
     public function detailOCEAN($id)
     {
-        $test_ocean = TestOcean::with('PsikotestPaidTest.userPsikotestPaid','answerOcean.questionOcean.dimensionOcean')->find($id); //Find id test
+        $test_ocean = TestOcean::with('PsikotestPaidTest.userPsikotestPaid', 'answerOcean.questionOcean.dimensionOcean')->find($id); //Find id test
         $user_psikotest_paid = $test_ocean->psikotestPaidTest->userPsikotestPaid(); //User Psikotest Paid
-        $answer_ocean = $test_ocean->answerOcean(); 
+        $answer_ocean = $test_ocean->answerOcean();
         $agreeableness = $test_ocean->answerOcean()->whereHas('questionOcean.dimensionOcean', function ($query) {
             $query->where('name', 'agreeableness');
         })->get();
@@ -480,48 +502,48 @@ class DashboardUserController extends Controller
         $percent_con = ResultOcean::where('test_ocean_id', $id)->first()->conscientiousness;
         $percent_ope = ResultOcean::where('test_ocean_id', $id)->first()->openness;
         // dd($extraversion->where('answer', 4)->count());
-        return view('moduls.dashboard.psikotes-paid.tools.ocean.detailOCEAN',[
+        return view('moduls.dashboard.psikotes-paid.tools.ocean.detailOCEAN', [
             'name' => $test_ocean->PsikotestPaidTest->UserPsikotestPaid->fullname,
-            'ext_1' => round($extraversion->where('answer', 1)->count()/8 * 100,1),
-            'ext_2' => round($extraversion->where('answer', 2)->count()/8 * 100,1),
-            'ext_3' => round($extraversion->where('answer', 3)->count()/8 * 100,1),
-            'ext_4' => round($extraversion->where('answer', 4)->count()/8 * 100,1),
-            'ext_5' => round($extraversion->where('answer', 5)->count()/8 * 100,1),
+            'ext_1' => round($extraversion->where('answer', 1)->count() / 8 * 100, 1),
+            'ext_2' => round($extraversion->where('answer', 2)->count() / 8 * 100, 1),
+            'ext_3' => round($extraversion->where('answer', 3)->count() / 8 * 100, 1),
+            'ext_4' => round($extraversion->where('answer', 4)->count() / 8 * 100, 1),
+            'ext_5' => round($extraversion->where('answer', 5)->count() / 8 * 100, 1),
             'perc_ext' => $percent_ext,
             'avg_ext' => $percent_ext * 5 / 100,
-            'sum_ext' => round($percent_ext * 5 / 100 * 8,0),
-            'agr_1' => round($agreeableness->where('answer', 1)->count()/9 * 100,1),
-            'agr_2' => round($agreeableness->where('answer', 2)->count()/9 * 100,1),
-            'agr_3' => round($agreeableness->where('answer', 3)->count()/9 * 100,1),
-            'agr_4' => round($agreeableness->where('answer', 4)->count()/9 * 100,1),
-            'agr_5' => round($agreeableness->where('answer', 5)->count()/9 * 100,1),
+            'sum_ext' => round($percent_ext * 5 / 100 * 8, 0),
+            'agr_1' => round($agreeableness->where('answer', 1)->count() / 9 * 100, 1),
+            'agr_2' => round($agreeableness->where('answer', 2)->count() / 9 * 100, 1),
+            'agr_3' => round($agreeableness->where('answer', 3)->count() / 9 * 100, 1),
+            'agr_4' => round($agreeableness->where('answer', 4)->count() / 9 * 100, 1),
+            'agr_5' => round($agreeableness->where('answer', 5)->count() / 9 * 100, 1),
             'perc_agr' => $percent_agr,
             'avg_agr' => $percent_agr * 5 / 100,
-            'sum_agr' => round($percent_agr * 5 / 100 * 9,0),
-            'neu_1' => round($neuroticism->where('answer', 1)->count()/8 * 100,1),
-            'neu_2' => round($neuroticism->where('answer', 2)->count()/8 * 100,1),
-            'neu_3' => round($neuroticism->where('answer', 3)->count()/8 * 100,1),
-            'neu_4' => round($neuroticism->where('answer', 4)->count()/8 * 100,1),
-            'neu_5' => round($neuroticism->where('answer', 5)->count()/8 * 100,1),
+            'sum_agr' => round($percent_agr * 5 / 100 * 9, 0),
+            'neu_1' => round($neuroticism->where('answer', 1)->count() / 8 * 100, 1),
+            'neu_2' => round($neuroticism->where('answer', 2)->count() / 8 * 100, 1),
+            'neu_3' => round($neuroticism->where('answer', 3)->count() / 8 * 100, 1),
+            'neu_4' => round($neuroticism->where('answer', 4)->count() / 8 * 100, 1),
+            'neu_5' => round($neuroticism->where('answer', 5)->count() / 8 * 100, 1),
             'perc_neu' => $percent_neu,
             'avg_neu' => $percent_neu * 5 / 100,
-            'sum_neu' => round($percent_neu * 5 / 100 * 8,0),
-            'con_1' => round($conscientiousness->where('answer', 1)->count()/9 * 100,1),
-            'con_2' => round($conscientiousness->where('answer', 2)->count()/9 * 100,1),
-            'con_3' => round($conscientiousness->where('answer', 3)->count()/9 * 100,1),
-            'con_4' => round($conscientiousness->where('answer', 4)->count()/9 * 100,1),
-            'con_5' => round($conscientiousness->where('answer', 5)->count()/9 * 100,1),
+            'sum_neu' => round($percent_neu * 5 / 100 * 8, 0),
+            'con_1' => round($conscientiousness->where('answer', 1)->count() / 9 * 100, 1),
+            'con_2' => round($conscientiousness->where('answer', 2)->count() / 9 * 100, 1),
+            'con_3' => round($conscientiousness->where('answer', 3)->count() / 9 * 100, 1),
+            'con_4' => round($conscientiousness->where('answer', 4)->count() / 9 * 100, 1),
+            'con_5' => round($conscientiousness->where('answer', 5)->count() / 9 * 100, 1),
             'perc_con' => $percent_con,
             'avg_con' => $percent_con * 5 / 100,
-            'sum_con' => round($percent_con * 5 / 100 * 9,0),
-            'ope_1' => round($openness->where('answer', 1)->count()/10 * 100,1),
-            'ope_2' => round($openness->where('answer', 2)->count()/10 * 100,1),
-            'ope_3' => round($openness->where('answer', 3)->count()/10 * 100,1),
-            'ope_4' => round($openness->where('answer', 4)->count()/10 * 100,1),
-            'ope_5' => round($openness->where('answer', 5)->count()/10 * 100,1),
+            'sum_con' => round($percent_con * 5 / 100 * 9, 0),
+            'ope_1' => round($openness->where('answer', 1)->count() / 10 * 100, 1),
+            'ope_2' => round($openness->where('answer', 2)->count() / 10 * 100, 1),
+            'ope_3' => round($openness->where('answer', 3)->count() / 10 * 100, 1),
+            'ope_4' => round($openness->where('answer', 4)->count() / 10 * 100, 1),
+            'ope_5' => round($openness->where('answer', 5)->count() / 10 * 100, 1),
             'perc_ope' => $percent_ope,
             'avg_ope' => $percent_ope * 5 / 100,
-            'sum_ope' => round($percent_ope * 5 / 100 * 10,0),
+            'sum_ope' => round($percent_ope * 5 / 100 * 10, 0),
             'ext_detail' => $extraversion,
             'agr_detail' => $agreeableness,
             'neu_detail' => $neuroticism,

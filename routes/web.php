@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\PsikotestPaid\Tools\EPI\EPIController;
 use App\Http\Controllers\PsikotestPaid\Tools\RMIB\RMIBController;
 use Illuminate\Http\Request;
@@ -685,3 +685,13 @@ Route::prefix('api')->group(function () {
     Route::post('/skor', [SkorBdiController::class, 'store']); // Add new skor
 });
 
+//Route get image from storage
+Route::get('/image/{path}', function ($path) {
+    $path = storage_path("app/public/" . $path);
+
+    if (!file_exists($path)) {
+        abort(404);
+    }
+
+    return response()->file($path);
+})->where('path', '.*');
