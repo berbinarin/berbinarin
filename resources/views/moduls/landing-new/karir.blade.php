@@ -354,7 +354,7 @@
                     {{--captions--}}
                     <div class="ps-2 w-64 md:mt-10 md:pb-0 md:w-full md:flex-col md:items-center">
                         <h3 class="font-semibold text-lg text-primary text-start mb-2 md:text-center md:text-xl">
-                            Satuan Kredit Partisipasi</h3>
+                            Satuan Kredit Prestasi</h3>
                         <p class="text-sm text-start md:text-base md:tracking-normal md:text-center">Mendapatkan
                             pengakuan konversi magang melalui SKP.<span class="text-red-500">*</span></p>
                     </div>
@@ -409,7 +409,9 @@
                                 {{--image-banner start--}}
                                 <div class="w-full h-full rounded-t-lg overflow-hidden">
                                     @php
-                                        $imageName = ($position->name === 'UI/UX Designer') ? 'UIUX Designer' : $position->name;
+                                        if(isset($position)){
+                                            $imageName = ($position->name === 'UI/UX Designer') ? 'UIUX Designer' : $position->name;
+                                        }
                                     @endphp
                                     <img
                                         src="{{ asset('assets/images/landing/karir/banner/'.$imageName.'.png') }}"
