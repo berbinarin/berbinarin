@@ -64,6 +64,7 @@ use App\Http\Controllers\PsikotestPaid\Tools\BDI\SoalBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\SkorBdiController;
 use App\Http\Controllers\KeluargaBerbinar\DataStaffController;
 use App\Http\Controllers\KeluargaBerbinar\DataJabatanController;
+use App\Http\Controllers\KeluargaBerbinarin\TableStaffController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,7 +92,6 @@ Route::get('/privacy-policy-new', [LandingController::class, 'privacy_policy_new
 Route::get('/karir-new', [LandingController::class, 'karir_new'])->name('karir-new');
 Route::get('/karir-new/positions', [LandingController::class, 'positions_new'])->name('positions-new');
 Route::get('/karir-new/positions/{id}', [LandingController::class, 'positions_detail_new'])->name('positions-detail-new');
-Route::get('/keluarga-berbinar', [LandingController::class, 'keluarga_berbinar'])->name('keluarga-berbinar');
 Route::get('/about-us', [LandingController::class, 'tentangKami'])->name('about');
 Route::get('/products', [LandingController::class, 'products'])->name('products');
 Route::get('/counseling', [LandingController::class, 'konseling'])->name('counseling');
@@ -112,6 +112,13 @@ Route::get('/work-with-us', [LandingController::class, 'workWithUs'])->name('wor
 Route::get('/class', [LandingController::class, 'class'])->name('class');
 Route::get('/class/webinar', [LandingController::class, 'classWebinar'])->name('webinar');
 Route::get('/class/bisikan', [LandingController::class, 'classBisikan'])->name('bisikan');
+
+
+// Keluarga Berbinar New
+Route::prefix('keluarga-berbinar')->group(function () {
+    Route::get('/', [TableStaffController::class, 'keluarga_berbinar'])->name('keluarga-berbinar');
+});
+
 
 //DASHBOARD ADMIN E-LEARNING PSIKOTEST
 Route::get('/psikotestData', [DashboardController::class, 'psikotestData'])->name('psikotes.dashboard.psikotestData');
@@ -285,8 +292,12 @@ Route::group(['middleware' => ['auth']], function () {
     // MODUL KELUARGA BERBINAR
     Route::get('/dashboard/admin/berbinar-family', [DashboardController::class, 'berbinarFamily'])->name('dashboard.berbinarFamily');
     Route::get('/dashboard/admin/berbinar-family/add', [DashboardController::class, 'addBerbinarFamily'])->name('dashboard.berbinarFamily.add');
-    Route::get('/dashboard/admin/berbinar-family/details', [DashboardController::class, 'detailBerbinarFamily'])->name('dashboard.berbinarFamily.details'); // yang ini ntar ada tab layoutnya
-
+    Route::get('/dashboard/berbinarFamily/detail/{id}', [DashboardController::class, 'detailBerbinarFamily'])->name('dashboard.berbinarFamily.details');
+    Route::get('/dashboard/admin/berbinar-family/tampil', [DashboardController::class, 'tampilBerbinarFamily'])->name('dashboard.berbinarFamily.tampil');
+    Route::post('/dashboard/admin/berbinar-family/submit', [DashboardController::class, 'submitBerbinarFamily'])->name('dashboard.berbinarFamily.submit');
+    Route::get('/dashboard/berbinarFamily/edit/{id}', [DashboardController::class, 'editBerbinarFamily'])->name('dashboard.berbinarFamily.edit');
+    Route::put('/dashboard/berbinarFamily/update/{id}', [DashboardController::class, 'updateBerbinarFamily'])->name('dashboard.berbinarFamily.update');
+    Route::delete('/dashboard/berbinarFamily/delete/{id}', [DashboardController::class, 'deleteBerbinarFamily'])->name('dashboard.berbinarFamily.delete');
     // MODUL MANAGE DIVISION
     Route::get('/dashboard/admin/manage-division', [DashboardController::class, 'manageDivision'])->name('dashboard.manageDivision');
     Route::get('/dashboard/admin/manage-division/add', [DashboardController::class, 'addManageDivision'])->name('dashboard.manageDivision.add');
@@ -534,7 +545,6 @@ Route::prefix('/psikotest-paid')->group(function () {
             Route::get('/{id}/complete', [VakController::class, 'completeTest'])->name('psikotest-paid.VAK.complete');
         });
     });
-
 });
 
 //buat alat tes nya msh ku taruh diluar ya, blm tau mau ku taruh dimana ~latief
@@ -676,4 +686,3 @@ Route::prefix('api')->group(function () {
     // Skor BDI Routes
     Route::post('/skor', [SkorBdiController::class, 'store']); // Add new skor
 });
-

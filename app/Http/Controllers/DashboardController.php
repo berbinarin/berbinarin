@@ -23,7 +23,8 @@ use App\Models\Hiring_Positions_Job_Descriptions;
 use App\Models\PsikotestPaid\Biodata\Education;
 use App\Models\PsikotestPaid\Biodata\Family;
 use App\Models\PsikotestPaid\Biodata\LevelEducation;
-
+use App\Models\TableStaff;
+use App\Models\TableRecord;
 
 class DashboardController extends Controller
 {
@@ -119,7 +120,8 @@ class DashboardController extends Controller
 
     public function berbinarFamily()
     {
-        return view('moduls.dashboard.hr.berbinar-family.berbinarFamily');
+        $staffs = TableStaff::all();
+        return view('moduls.dashboard.hr.berbinar-family.berbinarFamily', compact('staffs'));
     }
 
     public function addBerbinarFamily()
@@ -127,10 +129,112 @@ class DashboardController extends Controller
         return view('moduls.dashboard.hr.berbinar-family.addBerbinarFamily');
     }
 
-    public function detailBerbinarFamily()
+    public function deleteBerbinarFamily($id)
     {
-        return view('moduls.dashboard.hr.berbinar-family.detailBerbinarFamily');
+        $staff = TableStaff::findOrFail($id);
+        $staff->records()->delete(); // Hapus semua records terkait
+        $staff->delete(); // Hapus staff
+
+        return redirect()->route('dashboard.berbinarFamily')->with('success', 'Data staff berhasil dihapus.');
     }
+
+    public function detailBerbinarFamily($id)
+    {
+        $staff = TableStaff::with('records')->findOrFail($id);
+        return view('moduls.dashboard.hr.berbinar-family.detailBerbinarFamily', compact('staff'));
+    }
+
+    public function editBerbinarFamily($id)
+    {
+        $staff = TableStaff::with('records')->findOrFail($id);
+        return view('moduls.dashboard.hr.berbinar-family.editBerbinarFamily', compact('staff'));
+    }
+
+    public function updateBerbinarFamily(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'linkedin' => 'required|string|max:255',
+            'division.*' => 'required|string|max:255',
+            'sub_division.*' => 'nullable|string|max:255',
+            'date_start.*' => 'required|date',
+            'date_end.*' => 'required|date',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:1024', // Validasi untuk unggah foto
+            'motm' => 'required|string|in:yes,no', // Validasi untuk motm
+        ]);
+
+        $staff = TableStaff::findOrFail($id);
+
+        // Simpan file foto jika ada
+        if ($request->hasFile('photo')) {
+            $photoPath = $request->file('photo')->store('photos', 'public');
+            $staff->photo = $photoPath;
+        }
+
+        // Update data staff
+        $staff->update([
+            'name' => $validatedData['name'],
+            'linkedin' => $validatedData['linkedin'],
+            'motm' => $validatedData['motm'],
+        ]);
+
+        // Hapus data riwayat jabatan lama
+        $staff->records()->delete();
+
+        // Simpan data riwayat jabatan baru
+        foreach ($validatedData['division'] as $index => $division) {
+            TableRecord::create([
+                'staff_id' => $staff->id,
+                'division' => $division,
+                'subdivision' => $validatedData['sub_division'][$index] ?? null, // Gunakan nilai null jika tidak ada
+                'date_start' => $validatedData['date_start'][$index],
+                'date_end' => $validatedData['date_end'][$index],
+            ]);
+        }
+
+        return redirect()->route('dashboard.berbinarFamily')->with('success', 'Data staff berhasil diperbarui.');
+    }
+
+    public function submitBerbinarFamily(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'linkedin' => 'required|string|max:255',
+            'division.*' => 'required|string|max:255',
+            'sub_division.*' => 'required|string|max:255',
+            'date_start.*' => 'required|date',
+            'date_end.*' => 'required|date',
+            'photo' => 'required|image|mimes:jpeg,png,jpg|max:1024', // Validasi untuk unggah foto
+            'motm' => 'required|string|in:yes,no', // Validasi untuk motm
+        ]);
+
+        // Simpan file foto
+        $photoPath = $request->file('photo')->store('photos', 'public');
+
+        // Simpan data staff
+        $staff = TableStaff::create([
+            'name' => $validatedData['name'],
+            'linkedin' => $validatedData['linkedin'],
+            'status' => 1, // Menggunakan nilai integer untuk status
+            'photo' => $photoPath, // Simpan path foto
+            'motm' => $validatedData['motm'], // Simpan nilai motm
+        ]);
+
+        // Simpan data riwayat jabatan
+        foreach ($validatedData['division'] as $index => $division) {
+            TableRecord::create([
+                'staff_id' => $staff->id,
+                'division' => $division,
+                'subdivision' => $validatedData['sub_division'][$index] ?? null, // Gunakan nilai null jika tidak ada
+                'date_start' => $validatedData['date_start'][$index],
+                'date_end' => $validatedData['date_end'][$index],
+            ]);
+        }
+
+        return redirect()->route('dashboard.berbinarFamily')->with('success', 'Data staff berhasil ditambahkan.');
+    }
+
+    public function tampilBerbinarFamily() {}
 
     public function manageDivision()
     {
