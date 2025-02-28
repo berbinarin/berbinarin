@@ -63,9 +63,6 @@ use App\Http\Controllers\PsikotestPaid\Tools\BDI\NomorBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\SoalBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\SkorBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\DASS\DASSController;
-
-use App\Http\Controllers\KeluargaBerbinar\DataStaffController;
-use App\Http\Controllers\KeluargaBerbinar\DataJabatanController;
 use App\Http\Controllers\KeluargaBerbinarin\TableStaffController;
 
 use App\Http\Controllers\KeluargaBerbinar\JabatanStaffController;
@@ -294,14 +291,19 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin/positions/edit/{id}', [DashboardController::class, 'editPositions']);
 
     // MODUL KELUARGA BERBINAR
-    Route::get('/dashboard/admin/berbinar-family', [DashboardController::class, 'berbinarFamily'])->name('dashboard.berbinarFamily');
-    Route::get('/dashboard/admin/berbinar-family/add', [DashboardController::class, 'addBerbinarFamily'])->name('dashboard.berbinarFamily.add');
-    Route::get('/dashboard/berbinarFamily/detail/{id}', [DashboardController::class, 'detailBerbinarFamily'])->name('dashboard.berbinarFamily.details');
-    Route::get('/dashboard/admin/berbinar-family/tampil', [DashboardController::class, 'tampilBerbinarFamily'])->name('dashboard.berbinarFamily.tampil');
-    Route::post('/dashboard/admin/berbinar-family/submit', [DashboardController::class, 'submitBerbinarFamily'])->name('dashboard.berbinarFamily.submit');
-    Route::get('/dashboard/berbinarFamily/edit/{id}', [DashboardController::class, 'editBerbinarFamily'])->name('dashboard.berbinarFamily.edit');
-    Route::put('/dashboard/berbinarFamily/update/{id}', [DashboardController::class, 'updateBerbinarFamily'])->name('dashboard.berbinarFamily.update');
-    Route::delete('/dashboard/berbinarFamily/delete/{id}', [DashboardController::class, 'deleteBerbinarFamily'])->name('dashboard.berbinarFamily.delete');
+    Route::prefix('dashboard/admin/berbinar-family')->group(function () {
+        Route::get('/', [DashboardController::class, 'berbinarFamily'])->name('dashboard.berbinarFamily');
+        Route::get('/add', [DashboardController::class, 'addBerbinarFamily'])->name('dashboard.berbinarFamily.add');
+        Route::get('/tampil', [DashboardController::class, 'tampilBerbinarFamily'])->name('dashboard.berbinarFamily.tampil');
+        Route::post('/submit', [DashboardController::class, 'submitBerbinarFamily'])->name('dashboard.berbinarFamily.submit');
+    });
+    
+    Route::prefix('dashboard/berbinarFamily')->group(function () {
+        Route::get('/detail/{id}', [DashboardController::class, 'detailBerbinarFamily'])->name('dashboard.berbinarFamily.details');
+        Route::get('/edit/{id}', [DashboardController::class, 'editBerbinarFamily'])->name('dashboard.berbinarFamily.edit');
+        Route::put('/update/{id}', [DashboardController::class, 'updateBerbinarFamily'])->name('dashboard.berbinarFamily.update');
+        Route::delete('/delete/{id}', [DashboardController::class, 'deleteBerbinarFamily'])->name('dashboard.berbinarFamily.delete');
+    });
     // MODUL MANAGE DIVISION
     Route::get('/dashboard/admin/manage-division', [DashboardController::class, 'manageDivision'])->name('dashboard.manageDivision');
     Route::get('/dashboard/admin/manage-division/add', [DashboardController::class, 'addManageDivision'])->name('dashboard.manageDivision.add');
@@ -660,27 +662,8 @@ Route::middleware(['web'])->group(function () {
     Route::get('/soalBdi/{nomor}', [SoalBdiController::class, 'getSoalByNomor']);
 });
 
-// Route::prefix('data-staff')->group(function () {
-//     Route::get('/', [DataStaffController::class, 'index'])->name('data_staff.index');
-//     Route::get('/create', [DataStaffController::class, 'create'])->name('data_staff.create');
-//     Route::post('/store', [DataStaffController::class, 'store'])->name('data_staff.store');
-//     Route::get('/edit/{id}', [DataStaffController::class, 'edit'])->name('data_staff.edit');
-//     Route::put('/update/{id}', [DataStaffController::class, 'update'])->name('data_staff.update');
-//     Route::delete('/destroy/{id}', [DataStaffController::class, 'destroy'])->name('data_staff.destroy');
-//     Route::get('/motm', [DataStaffController::class, 'showMotm'])->name('data_staff.motm_view');
-//     // Route untuk Data Jabatan
-//     Route::prefix('jabatan')->group(function () {
-//         Route::get('/', [JabatanStaffController::class, 'index'])->name('data_jabatan.index');
-//         Route::get('/create/{staffId}', [JabatanStaffController::class, 'createByStaffId'])->name('data_jabatan.create');
-//         Route::post('/store/{staffId}', [JabatanStaffController::class, 'storeByStaffId'])->name('data_jabatan.store');
-//         Route::get('/edit/{staffId}/{jabatanId}', [JabatanStaffController::class, 'edit'])->name('data_jabatan.edit');
-//         Route::put('/update/{staffId}/{jabatanId}', [JabatanStaffController::class, 'update'])->name('data_jabatan.update');
-//         Route::delete('/destroy/{staffId}/{jabatanId}', [JabatanStaffController::class, 'destroy'])->name('data_jabatan.destroy');
-//         Route::get('/divisi', [JabatanStaffController::class, 'getDivisi'])->name('data_jabatan.divisi');
-//         Route::get('/sub-divisi', [JabatanStaffController::class, 'getSubDivisi'])->name('data_jabatan.sub_divisi');
-//         Route::get('/tahun', [JabatanStaffController::class, 'getTahun'])->name('data_jabatan.tahun');
-//     });
-// });
+
+
 
 
 // API Routes (Tanpa CSRF Protection)
