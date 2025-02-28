@@ -60,64 +60,60 @@
                                 class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider sticky-col sticky-col-2 ">
                                 Nama Lengkap</th>
                             <th
-                                class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider " >
-                                Posisi</th>
-                            <th
-                                class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider ">
+                                class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider">
                                 Divisi</th>
                             <th
-                                class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider ">
+                                class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider">
                                 Waktu Menjabat</th>
+                            
                             <th
                                 class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider">
                                 Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($berbinarFamily as $index => $item)
+                        @foreach($staffs as $index => $staff)
                             <tr class="border-b border-gray-200 hover:bg-gray-100">
                                 <td class="px-6 py-4 whitespace-no-wrap sticky-col sticky-col-1">
                                     {{ $index + 1 }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap sticky-col sticky-col-2">
-                                    {{ $item->nama_lengkap }}
+                                    {{ $staff->name }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap">
-                                    {{ optional($item->dataJabatan->first())->posisi ?? 'Tidak Ada Jabatan' }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-no-wrap w-80">
-                                    {{ optional($item->dataJabatan->first())->divisi ?? 'Tidak Ada Divisi' }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-no-wrap">
-                                    @if($item->dataJabatan->isNotEmpty())
-                                        @php
-                                            $jabatanPertama = $item->dataJabatan->first();
-                                            $awal = \Carbon\Carbon::parse($jabatanPertama->awal_menjabat)->format('Y');
-                                            $akhir = $jabatanPertama->akhir_menjabat 
-                                                        ? \Carbon\Carbon::parse($jabatanPertama->akhir_menjabat)->format('Y') 
-                                                        : 'Sekarang';
-                                        @endphp
-                                        {{ $awal }} - {{ $akhir }}
+                                    @if($staff->records->isNotEmpty())
+                                        {{ $staff->records->first()->division }}
                                     @else
-                                        Tidak Ada Data
+                                        -
+                                    @endif
+                                </td>
+                                <td class="px-6 py-4 whitespace-no-wrap">
+                                    @if($staff->records->isNotEmpty())
+                                        {{ \Carbon\Carbon::parse($staff->records->first()->date_start)->format('Y') }} - {{ \Carbon\Carbon::parse($staff->records->last()->date_end)->format('Y') }}
+                                    @else
+                                        -
                                     @endif
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap flex justify-center items-center gap-2">
-                                    <a href="{{ route('dashboard.berbinarFamily.details') }}"
+                                    <a href="{{ route('dashboard.berbinarFamily.details', $staff->id) }}"
                                         class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-2 focus:outline-none rounded hover:bg-blue-700"
                                         style="background-color: #3B82F6;">
                                         <i class='bx bx-show text-white'></i>
                                     </a>
-                                    <a href="#"
+                                    <a href="{{ route('dashboard.berbinarFamily.edit', $staff->id) }}"
                                         class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-2 focus:outline-none rounded hover:bg-yellow-700"
                                         style="background-color: #E9B306;">
                                         <i class='bx bx-edit-alt text-black'></i>
                                     </a>
-                                    <a href="#"
-                                        class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-2 focus:outline-none rounded hover:bg-red-700"
-                                        style="background-color: #EF4444;">
-                                        <i class='bx bx-trash-alt text-white'></i>
-                                    </a>
+                                    <form action="{{ route('dashboard.berbinarFamily.delete', $staff->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-2 focus:outline-none rounded hover:bg-red-700"
+                                            style="background-color: #EF4444;">
+                                            <i class='bx bx-trash-alt text-white'></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
