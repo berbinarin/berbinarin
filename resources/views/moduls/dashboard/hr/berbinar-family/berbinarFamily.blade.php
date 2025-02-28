@@ -57,7 +57,7 @@
                                 class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider sticky-col sticky-col-1">
                                 No</th>
                             <th
-                                class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider sticky-col sticky-col-2">
+                                class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider sticky-col sticky-col-2 ">
                                 Nama Lengkap</th>
                             <th
                                 class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider">
@@ -118,6 +118,7 @@
                             </tr>
                         @endforeach
                     </tbody>
+                    
                 </table>
             </div>
         </div>

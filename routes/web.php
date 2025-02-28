@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\PsikotestPaid\Tools\EPI\EPIController;
 use App\Http\Controllers\PsikotestPaid\Tools\RMIB\RMIBController;
 use Illuminate\Http\Request;
@@ -62,9 +62,13 @@ use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserIndividualController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\NomorBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\SoalBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\SkorBdiController;
+use App\Http\Controllers\PsikotestPaid\Tools\DASS\DASSController;
+
 use App\Http\Controllers\KeluargaBerbinar\DataStaffController;
 use App\Http\Controllers\KeluargaBerbinar\DataJabatanController;
 use App\Http\Controllers\KeluargaBerbinarin\TableStaffController;
+
+use App\Http\Controllers\KeluargaBerbinar\JabatanStaffController;
 
 /*
 |--------------------------------------------------------------------------
@@ -513,6 +517,11 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::get('/tool/BDI', [LandingController::class, 'LandingBDI'])->name('psikotest-paid.tool.BDI.showLanding');
         // Route::get('/tool/BDI/test', [LandingController::class, 'TestBDI'])->name('psikotest-paid.tool.BDI.testbdi');
         // Route::get('/tool/BDI/end/', [LandingController::class, 'EndBDI'])->name('psikotest-paid.tool.BDI.endbdi');
+        
+        // TES DASS-42
+        Route::get('/tool/DASS', [DASSController::class, 'showLanding'])->name('psikotest-paid.tool.Dass-42.showLanding');
+        Route::get('/tool/DASS/test', [DASSController::class, 'showTest'])->name('psikotest-paid.tool.Dass-42.showTest');
+        Route::get('/tool/DASS/summary', [DASSController::class, 'showSummary'])->name('psikotest-paid.tool.Dass-42.showSummary');
 
         // BIODATA
         // Perusahaan
@@ -651,28 +660,27 @@ Route::middleware(['web'])->group(function () {
     Route::get('/soalBdi/{nomor}', [SoalBdiController::class, 'getSoalByNomor']);
 });
 
-Route::prefix('data-staff')->group(function () {
-    Route::get('/', [DataStaffController::class, 'index'])->name('data_staff.index');
-    Route::get('/create', [DataStaffController::class, 'create'])->name('data_staff.create');
-    Route::post('/store', [DataStaffController::class, 'store'])->name('data_staff.store');
-    Route::get('/edit/{id}', [DataStaffController::class, 'edit'])->name('data_staff.edit');
-    Route::put('/update/{id}', [DataStaffController::class, 'update'])->name('data_staff.update');
-    Route::delete('/destroy/{id}', [DataStaffController::class, 'destroy'])->name('data_staff.destroy');
-    Route::get('/motm', [DataStaffController::class, 'showMotm'])->name('data_staff.motm_view');
-
-    // Route untuk Data Jabatan
-    Route::prefix('jabatan')->group(function () {
-        Route::get('/', [DataJabatanController::class, 'index'])->name('data_jabatan.index');
-        Route::get('/create/{staffId}', [DataJabatanController::class, 'createByStaffId'])->name('data_jabatan.create');
-        Route::post('/store/{staffId}', [DataJabatanController::class, 'storeByStaffId'])->name('data_jabatan.store');
-        Route::get('/edit/{staffId}/{jabatanId}', [DataJabatanController::class, 'edit'])->name('data_jabatan.edit');
-        Route::put('/update/{staffId}/{jabatanId}', [DataJabatanController::class, 'update'])->name('data_jabatan.update');
-        Route::delete('/destroy/{staffId}/{jabatanId}', [DataJabatanController::class, 'destroy'])->name('data_jabatan.destroy');
-        Route::get('/divisi', [DataJabatanController::class, 'getDivisi'])->name('data_jabatan.divisi');
-        Route::get('/sub-divisi', [DataJabatanController::class, 'getSubDivisi'])->name('data_jabatan.sub_divisi');
-        Route::get('/tahun', [DataJabatanController::class, 'getTahun'])->name('data_jabatan.tahun');
-    });
-});
+// Route::prefix('data-staff')->group(function () {
+//     Route::get('/', [DataStaffController::class, 'index'])->name('data_staff.index');
+//     Route::get('/create', [DataStaffController::class, 'create'])->name('data_staff.create');
+//     Route::post('/store', [DataStaffController::class, 'store'])->name('data_staff.store');
+//     Route::get('/edit/{id}', [DataStaffController::class, 'edit'])->name('data_staff.edit');
+//     Route::put('/update/{id}', [DataStaffController::class, 'update'])->name('data_staff.update');
+//     Route::delete('/destroy/{id}', [DataStaffController::class, 'destroy'])->name('data_staff.destroy');
+//     Route::get('/motm', [DataStaffController::class, 'showMotm'])->name('data_staff.motm_view');
+//     // Route untuk Data Jabatan
+//     Route::prefix('jabatan')->group(function () {
+//         Route::get('/', [JabatanStaffController::class, 'index'])->name('data_jabatan.index');
+//         Route::get('/create/{staffId}', [JabatanStaffController::class, 'createByStaffId'])->name('data_jabatan.create');
+//         Route::post('/store/{staffId}', [JabatanStaffController::class, 'storeByStaffId'])->name('data_jabatan.store');
+//         Route::get('/edit/{staffId}/{jabatanId}', [JabatanStaffController::class, 'edit'])->name('data_jabatan.edit');
+//         Route::put('/update/{staffId}/{jabatanId}', [JabatanStaffController::class, 'update'])->name('data_jabatan.update');
+//         Route::delete('/destroy/{staffId}/{jabatanId}', [JabatanStaffController::class, 'destroy'])->name('data_jabatan.destroy');
+//         Route::get('/divisi', [JabatanStaffController::class, 'getDivisi'])->name('data_jabatan.divisi');
+//         Route::get('/sub-divisi', [JabatanStaffController::class, 'getSubDivisi'])->name('data_jabatan.sub_divisi');
+//         Route::get('/tahun', [JabatanStaffController::class, 'getTahun'])->name('data_jabatan.tahun');
+//     });
+// });
 
 
 // API Routes (Tanpa CSRF Protection)
@@ -686,3 +694,14 @@ Route::prefix('api')->group(function () {
     // Skor BDI Routes
     Route::post('/skor', [SkorBdiController::class, 'store']); // Add new skor
 });
+
+//Route get image from storage
+Route::get('/image/{path}', function ($path) {
+    $path = storage_path("app/public/" . $path);
+
+    if (!file_exists($path)) {
+        abort(404);
+    }
+
+    return response()->file($path);
+})->where('path', '.*');
