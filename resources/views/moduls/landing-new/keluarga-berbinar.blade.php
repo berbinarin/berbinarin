@@ -102,7 +102,6 @@
     <script>
         //list divisi
         const availableDivision = @json($availableDivision);
-
         // list staff
         const staffList = @json($listStaff);
         let filteredStaffList = staffList.sort((a, b) => b.status - a.status);
@@ -133,9 +132,8 @@
 
         // desktop
         let previousSelectedKeyYears = 2; // 2024
-        let previousSelectedKeyDivisionDesktop = 9; // webdev
+        let previousSelectedKeyDivisionDesktop = 3; // webdev
         let previousSelectedKeySubdivisionDekstop = 0; // subdivisi pertama
-
 
         // value to apply filter
         let year_value = '';
@@ -198,6 +196,7 @@
                 const card = document.createElement('div');
                 card.classList.add('staffCard');
                 card.id = `card-${staff.id}`;
+
 
                 // texture BOTH FRONT AND BACK
                 const textureBack = document.createElement('img'); // element
@@ -268,7 +267,7 @@
                 // image sm-md
                 const contentImageSm = `
                 <div class="relative h-full w-32 overflow-hidden group-even:order-last md:flex md:w-36 md:items-end lg:hidden">
-                    <img src="assets/images/landing/keluarga-berbinar/image-example.png"
+                    <img src="{{ asset('storage') }}/${staff.photo}"
                         alt="image-example" class="object-cover">
                     <span class="${bgDivision} absolute bottom-0 left-1/2 z-10 w-auto -translate-x-1/2 rounded-lg px-2 py-1 text-center text-xs font-semibold tracking-wide text-white shadow-lg">${staff.subdivision ? staff.subdivision : staff.division}</span>
                  </div>
@@ -277,11 +276,12 @@
                 // image lg
                 const contentImageLg = `
                 <div class="relative hidden h-full w-48 py-1 lg:block">
-                    <img src="assets/images/landing/keluarga-berbinar/image-example.png"
+                    <img src="{{ asset('storage') }}/${staff.photo}"
                         alt="image-example" class="h-full w-48 object-cover">
                     <span class="${bgDivision} absolute bottom-2 left-1/2 z-10 w-full -translate-x-1/2 rounded-lg px-2 py-1 text-center text-xs font-semibold tracking-wide text-white shadow-lg">${staff.subdivision ? staff.subdivision : staff.division}</span>
                  </div>`
 
+                 console.log(staff.photo);
                 const infoSm = `
                 <div class="h-full content-end space-y-2 py-1 lg:hidden">
                     <h3 class="text-start text-xl font-semibold text-white md:text-2xl">${staff.name}</h3>
@@ -297,7 +297,7 @@
                         ${staff.division}</p>
                     <p class="block text-base font-normal text-white">
                         ${staff.date_start} ${staff.status ? '- Sekarang' : ''}</p>
-                    <a href="https://www.youtube.com/webprogrammingunpas" target="_blank" class="hidden w-auto xl:pointer-events-auto xl:inline-block xl:cursor-pointer">
+                    <a href="${staff.linkedin}" target="_blank" class="hidden w-auto xl:pointer-events-auto xl:inline-block xl:cursor-pointer">
                         <img src="assets/images/landing/keluarga-berbinar/linkedin-fill.png" alt="linkedin" class="size-6"></a>
                 </div>`
 
