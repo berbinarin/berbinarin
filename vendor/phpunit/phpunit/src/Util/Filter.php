@@ -21,6 +21,8 @@ use PHPUnit\Framework\PhptAssertionFailedError;
 use Throwable;
 
 /**
+ * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
+ *
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
 final class Filter
@@ -89,10 +91,10 @@ final class Filter
             $script = '';
         }
 
-        return is_file($file) &&
+        return $fileIsNotPrefixed &&
+               $file !== $script &&
                self::fileIsExcluded($file, $excludeList) &&
-               $fileIsNotPrefixed &&
-               $file !== $script;
+               is_file($file);
     }
 
     private static function fileIsExcluded(string $file, ExcludeList $excludeList): bool

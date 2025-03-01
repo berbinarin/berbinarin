@@ -22,6 +22,8 @@ use ReflectionException;
 use ReflectionMethod;
 
 /**
+ * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
+ *
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
 final class TestSuiteBuilder
@@ -31,18 +33,6 @@ final class TestSuiteBuilder
      */
     public static function from(FrameworkTestSuite $testSuite): TestSuite
     {
-        $groups = [];
-
-        foreach ($testSuite->groupDetails() as $groupName => $tests) {
-            if (!isset($groups[$groupName])) {
-                $groups[$groupName] = [];
-            }
-
-            foreach ($tests as $test) {
-                $groups[$groupName][] = $test::class;
-            }
-        }
-
         $tests = [];
 
         self::process($testSuite, $tests);

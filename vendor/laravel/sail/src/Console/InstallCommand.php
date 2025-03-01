@@ -4,8 +4,10 @@ namespace Laravel\Sail\Console;
 
 use Illuminate\Console\Command;
 use RuntimeException;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Process\Process;
 
+#[AsCommand(name: 'sail:install')]
 class InstallCommand extends Command
 {
     use Concerns\InteractsWithDockerComposeServices;
@@ -17,7 +19,8 @@ class InstallCommand extends Command
      */
     protected $signature = 'sail:install
                 {--with= : The services that should be included in the installation}
-                {--devcontainer : Create a .devcontainer configuration directory}';
+                {--devcontainer : Create a .devcontainer configuration directory}
+                {--php=8.4 : The PHP version that should be used}';
 
     /**
      * The console command description.

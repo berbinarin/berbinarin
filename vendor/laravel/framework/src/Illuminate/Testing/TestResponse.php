@@ -310,7 +310,7 @@ class TestResponse implements ArrayAccess
     public function assertLocation($uri)
     {
         PHPUnit::assertEquals(
-            app('url')->to($uri), app('url')->to($this->headers->get('Location'))
+            app('url')->to($uri), app('url')->to($this->headers->get('Location', ''))
         );
 
         return $this;
@@ -324,7 +324,7 @@ class TestResponse implements ArrayAccess
      */
     public function assertDownload($filename = null)
     {
-        $contentDisposition = explode(';', $this->headers->get('content-disposition'));
+        $contentDisposition = explode(';', $this->headers->get('content-disposition', ''));
 
         if (trim($contentDisposition[0]) !== 'attachment') {
             PHPUnit::fail(
@@ -799,7 +799,7 @@ class TestResponse implements ArrayAccess
      * @param  array|null  $responseData
      * @return $this
      */
-    public function assertJsonStructure(array $structure = null, $responseData = null)
+    public function assertJsonStructure(?array $structure = null, $responseData = null)
     {
         $this->decodeResponseJson()->assertStructure($structure, $responseData);
 
@@ -1651,7 +1651,7 @@ class TestResponse implements ArrayAccess
      */
     protected function appendExceptionToException($exceptionToAppend, $exception)
     {
-        $exceptionMessage = $exceptionToAppend->getMessage();
+        $exceptionMessage = is_string($exceptionToAppend) ? $exceptionToAppend : $exceptionToAppend->getMessage();
 
         $exceptionToAppend = (string) $exceptionToAppend;
 

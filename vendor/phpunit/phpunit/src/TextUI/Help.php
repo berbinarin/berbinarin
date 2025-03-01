@@ -23,6 +23,8 @@ use PHPUnit\Util\Color;
 use SebastianBergmann\Environment\Console;
 
 /**
+ * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
+ *
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
 final class Help
@@ -47,7 +49,7 @@ final class Help
         foreach ($this->elements() as $options) {
             foreach ($options as $option) {
                 if (isset($option['arg'])) {
-                    $this->lengthOfLongestOptionName = max($this->lengthOfLongestOptionName, isset($option['arg']) ? strlen($option['arg']) : 0);
+                    $this->lengthOfLongestOptionName = max($this->lengthOfLongestOptionName, strlen($option['arg']));
                 }
             }
         }
@@ -206,9 +208,11 @@ final class Help
                 ['arg'    => '--stop-on-incomplete', 'desc' => 'Stop after first incomplete test'],
                 ['spacer' => ''],
 
+                ['arg'    => '--fail-on-empty-test-suite', 'desc' => 'Signal failure using shell exit code when no tests were run'],
                 ['arg'    => '--fail-on-warning', 'desc' => 'Signal failure using shell exit code when a warning was triggered'],
                 ['arg'    => '--fail-on-risky', 'desc' => 'Signal failure using shell exit code when a test was considered risky'],
                 ['arg'    => '--fail-on-deprecation', 'desc' => 'Signal failure using shell exit code when a deprecation was triggered'],
+                ['arg'    => '--fail-on-phpunit-deprecation', 'desc' => 'Signal failure using shell exit code when a PHPUnit deprecation was triggered'],
                 ['arg'    => '--fail-on-notice', 'desc' => 'Signal failure using shell exit code when a notice was triggered'],
                 ['arg'    => '--fail-on-skipped', 'desc' => 'Signal failure using shell exit code when a test was skipped'],
                 ['arg'    => '--fail-on-incomplete', 'desc' => 'Signal failure using shell exit code when a test was marked incomplete'],
@@ -237,6 +241,7 @@ final class Help
                 ['arg'    => '--display-incomplete', 'desc' => 'Display details for incomplete tests'],
                 ['arg'    => '--display-skipped', 'desc' => 'Display details for skipped tests'],
                 ['arg'    => '--display-deprecations', 'desc' => 'Display details for deprecations triggered by tests'],
+                ['arg'    => '--display-phpunit-deprecations', 'desc' => 'Display details for PHPUnit deprecations'],
                 ['arg'    => '--display-errors', 'desc' => 'Display details for errors triggered by tests'],
                 ['arg'    => '--display-notices', 'desc' => 'Display details for notices triggered by tests'],
                 ['arg'    => '--display-warnings', 'desc' => 'Display details for warnings triggered by tests'],
@@ -267,6 +272,8 @@ final class Help
                 ['arg' => '--coverage-html <dir>', 'desc' => 'Write code coverage report in HTML format to directory'],
                 ['arg' => '--coverage-php <file>', 'desc' => 'Write serialized code coverage data to file'],
                 ['arg' => '--coverage-text=<file>', 'desc' => 'Write code coverage report in text format to file [default: standard output]'],
+                ['arg' => '--only-summary-for-coverage-text', 'desc' => 'Option for code coverage report in text format: only show summary'],
+                ['arg' => '--show-uncovered-for-coverage-text', 'desc' => 'Option for code coverage report in text format: show uncovered files'],
                 ['arg' => '--coverage-xml <dir>', 'desc' => 'Write code coverage report in XML format to directory'],
                 ['arg' => '--warm-coverage-cache', 'desc' => 'Warm static analysis cache'],
                 ['arg' => '--coverage-filter <dir>', 'desc' => 'Include <dir> in code coverage reporting'],

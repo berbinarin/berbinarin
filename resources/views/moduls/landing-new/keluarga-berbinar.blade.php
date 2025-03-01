@@ -7,7 +7,7 @@
 
 @section('content')
 
-    {{--@dd($availableDivision)--}}
+    {{--    @dd($listStaff)--}}
 
     {{--header & selection menu--}}
     <section class="mt-32 w-full mx-auto min-w-96 bg-[#F7F9FA] lg:mt-44">
@@ -93,7 +93,7 @@
 
                 {{--grid staff--}}
                 <div id="staff-container" class="w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-4">
-                {{--render staff list--}}
+                    {{--render staff list--}}
                 </div>
             </div>
         </div>
@@ -104,6 +104,7 @@
         const availableDivision = @json($availableDivision);
         // list staff
         const staffList = @json($listStaff);
+        // console.log(staffList[9]);
         let filteredStaffList = staffList.sort((a, b) => b.status - a.status);
         // let filteredStaffList = staffList.filter((staff) => staff.date_start.split(' ')[1] === '2025').sort((a, b) => b.status - a.status);
         // let filteredStaffList = staffList.filter(staff => staff.status && staff.date_start.split(' ')[1] === '2024');
@@ -141,15 +142,14 @@
         let subdivision_value = '';
 
 
-
-        function updateFilteredStaffList(){
-            if(year_value){
+        function updateFilteredStaffList() {
+            if (year_value) {
                 filteredStaffList = staffList.filter((staff) => staff.date_start.split(' ')[1] === year_value).sort((a, b) => b.status - a.status);
             }
-            if(division_value){
+            if (division_value) {
                 filteredStaffList = filteredStaffList.filter((staff) => staff.division === division_value).sort((a, b) => b.status - a.status);
             }
-            if(subdivision_value){
+            if (subdivision_value) {
                 filteredStaffList = filteredStaffList.filter((staff) => staff.subdivision === subdivision_value).sort((a, b) => b.status - a.status);
             }
 
@@ -240,7 +240,6 @@
                 frontCard.appendChild(statusMobile);
                 frontCard.appendChild(statusDesktop);
 
-
                 //lini masa button
                 const liniMasaBtn = document.createElement('button'); // element
                 liniMasaBtn.classList.add('liniMasaBtn');
@@ -255,7 +254,6 @@
                 liniMasaBtn.innerHTML = '';
                 liniMasaBtn.appendChild(liniMasaImg);
                 liniMasaBtn.appendChild(liniMasaSpan);
-
 
                 // adding-front-content 3
                 frontCard.appendChild(liniMasaBtn);
@@ -281,13 +279,13 @@
                     <span class="${bgDivision} absolute bottom-2 left-1/2 z-10 w-full -translate-x-1/2 rounded-lg px-2 py-1 text-center text-xs font-semibold tracking-wide text-white shadow-lg">${staff.subdivision ? staff.subdivision : staff.division}</span>
                  </div>`
 
-                 console.log(staff.photo);
+                // console.log(staff.photo);
                 const infoSm = `
                 <div class="h-full content-end space-y-2 py-1 lg:hidden">
                     <h3 class="text-start text-xl font-semibold text-white md:text-2xl">${staff.name}</h3>
                     <p class="block text-start text-sm font-thin text-white md:text-base">
                         As ${staff.division}</p>
-                    <p class="mb-2 block text-start text-sm font-thin text-white md:text-base"> ${staff.date_start}${staff.status ? '- Sekarang' : ''}</p>
+                    <p class="mb-2 block text-start text-sm font-thin text-white md:text-base"> ${staff.date_start}${staff.status ? '- Sekarang' : `- ${staff.records[staff.records.length - 1].date_end}`}</p>
                </div>`
 
                 const infoLg = `
@@ -296,7 +294,7 @@
                     <p class="block text-base font-normal text-white">As
                         ${staff.division}</p>
                     <p class="block text-base font-normal text-white">
-                        ${staff.date_start} ${staff.status ? '- Sekarang' : ''}</p>
+                        ${staff.date_start} ${staff.status ? '- Sekarang' : `- ${staff.records[staff.records.length - 1].date_end}`}</p>
                     <a href="${staff.linkedin}" target="_blank" class="hidden w-auto xl:pointer-events-auto xl:inline-block xl:cursor-pointer">
                         <img src="assets/images/landing/keluarga-berbinar/linkedin-fill.png" alt="linkedin" class="size-6"></a>
                 </div>`
@@ -317,7 +315,7 @@
 
                 //back-card START
                 const backCard = document.createElement('div'); // element
-                backCard.classList.add('relative',  'hidden',  'min-h-40',  'md:min-h-48',  'lg:min-h-60', 'rounded-lg',
+                backCard.classList.add('relative', 'hidden', 'min-h-40', 'md:min-h-48', 'lg:min-h-60', 'rounded-lg',
                     'bg-gradient-to-b', 'from-[#3986A3]', 'to-[#15323D]', 'pt-2', 'pb-3', 'px-4', 'lg:p-4',
                     'cursor-pointer', 'hover:shadow-lg', 'my-rotate-y-180');
                 backCard.id = `back-${staff.id}`
@@ -667,8 +665,6 @@
 
             // todo: how sub-division if exist
             handleShowSubdivisionMenuMobile();
-
-            console.log();
         }
 
         function handleToggleDropdownDivisionMobile() {
