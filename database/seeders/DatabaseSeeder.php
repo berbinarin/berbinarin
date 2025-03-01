@@ -68,13 +68,14 @@ class DatabaseSeeder extends Seeder
             NomorBdiSeeder::class,
             SoalBdiSeeder::class,
 
-
             // hiring seeder
             HiringSeeder::class,
             // Dashboard
             DataStaffSeeder::class,
-            DataJabatanSeeder::class
+            DataJabatanSeeder::class,
 
+            // TableStaffSeeder
+            TableStaffSeeder::class,
         ]);
     }
 }

@@ -69,6 +69,7 @@ class TableStaffController extends Controller
                 return $record->date_end === null || Carbon::parse($record->date_end)->greaterThanOrEqualTo(now());
             });
 
+
             return [
                 'id' => $staff->id, // Tambahkan ID Staff
                 'name' => $staff->name,
