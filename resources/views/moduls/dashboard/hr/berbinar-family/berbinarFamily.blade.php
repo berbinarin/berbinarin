@@ -67,7 +67,7 @@
                                 Divisi</th>
                             <th
                                 class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider ">
-                                Waktu Menjabat</th>
+                                Prestasi</th>
                             <th
                                 class="px-6 py-3 bg-white text-center text-base leading-4 font-bold text-black tracking-wider">
                                 Action</th>
@@ -85,10 +85,11 @@
                                 <td class="px-6 py-4 whitespace-no-wrap">
                                     {{ optional($item->dataJabatan->first())->posisi ?? 'Tidak Ada Jabatan' }}
                                 </td>
-                                <td class="px-6 py-4 whitespace-no-wrap w-80">
+                                <td class="px-6 py-4 whitespace-no-wrap ">
                                     {{ optional($item->dataJabatan->first())->divisi ?? 'Tidak Ada Divisi' }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap">
+                                    {{-- Diisini harusnya prestasi coba diganti --}}
                                     @if($item->dataJabatan->isNotEmpty())
                                         @php
                                             $jabatanPertama = $item->dataJabatan->first();
