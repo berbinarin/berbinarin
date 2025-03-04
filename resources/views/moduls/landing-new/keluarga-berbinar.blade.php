@@ -267,7 +267,7 @@
                 // image sm-md
                 const contentImageSm = `
                 <div class="relative h-full w-32 overflow-hidden group-even:order-last md:flex md:w-36 md:items-end lg:hidden">
-                    <img src="{{ asset('storage') }}/${staff.photo}"
+                    <img src="/image/${staff.photo}"
                         alt="image-example" class="object-cover">
                     <span class="${bgDivision} absolute bottom-0 left-1/2 z-10 w-auto -translate-x-1/2 rounded-lg px-2 py-1 text-center text-xs font-semibold tracking-wide text-white shadow-lg">${staff.subdivision ? staff.subdivision : staff.division}</span>
                  </div>
@@ -276,7 +276,7 @@
                 // image lg
                 const contentImageLg = `
                 <div class="relative hidden h-full w-48 py-1 lg:block">
-                    <img src="{{ asset('storage') }}/${staff.photo}"
+                    <img src="/image/${staff.photo}"
                         alt="image-example" class="h-full w-48 object-cover">
                     <span class="${bgDivision} absolute bottom-2 left-1/2 z-10 w-full -translate-x-1/2 rounded-lg px-2 py-1 text-center text-xs font-semibold tracking-wide text-white shadow-lg">${staff.subdivision ? staff.subdivision : staff.division}</span>
                  </div>`
