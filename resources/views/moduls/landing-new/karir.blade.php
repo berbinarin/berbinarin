@@ -6,6 +6,7 @@
 
 @section('content')
 
+
     {{-- HERO START --}}
     <section class="mt-32 w-full overflow-x-hidden relative mb-12">
 
@@ -66,30 +67,15 @@
     </section>
     {{-- HERO END --}}
 
-    {{--infinite horizontal scroll--}}
+    {{--profile slider--}}
     <section class="w-full overflow-hidden">
         <div class="w-full mx-auto">
             <div class="flex gap-1">
-                <div class="flex gap-4 profile-slide">
-                    @for($i = 1; $i <= 35; $i++)
-                        <div class="bg-primary rounded-full w-14 h-14 lg:w-20 lg:h-20 overflow-hidden"><img
-                                src="{{ asset("assets/images/landing/karir/profile-dummy.jpeg") }}"
-                                alt="profile dummy" class="object-cover">
-                        </div>
-                    @endfor
-                    @for($i = 1; $i <= 35; $i++)
-                        <div class="bg-primary rounded-full w-14 h-14 lg:w-20 lg:h-20 overflow-hidden">
-                            <img
-                                src="{{ asset("assets/images/landing/karir/profile-dummy.jpeg") }}"
-                                alt="profile dummy" class="object-cover">
-                        </div>
-                    @endfor
-                </div>
-
+                <x-profile-slider :listImage="$list_image"/>
             </div>
         </div>
     </section>
-    {{--infinite horizontal scroll--}}
+    {{--profile slider--}}
 
     {{--ALUR PENDAFTARAN START--}}
     <section class="w-full mt-16 lg:mt-32 mx-auto overflow-hidden flex items-center justify-center">
