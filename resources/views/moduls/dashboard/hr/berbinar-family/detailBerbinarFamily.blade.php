@@ -40,27 +40,10 @@
         </div>
         <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-md shadow-gray-400 shadow-lg">
             <div class="mt-4 mb-4 overflow-x-auto">
-                <nav class="flex mb-4 gap-4">
-                    <button class="px-4 py-2 text-white bg-blue-500 rounded-lg focus:outline-none" onclick="showSection('dataDiri')">Data Diri</button>
-                    <button class="px-4 py-2 text-white bg-blue-500 rounded-lg focus:outline-none" onclick="showSection('riwayatJabatan')">Riwayat Jabatan</button>
-                </nav>
-                <div id="dataDiri">
-                    @include('moduls.dashboard.hr.berbinar-family.data-detail.dataDiri', ['staff' => $staff])
-                </div>
-                <div id="riwayatJabatan" class="hidden">
-                    @include('moduls.dashboard.hr.berbinar-family.data-detail.riwayatJabatan', ['records' => $staff->records])
-                </div>
+                @include('moduls.dashboard.hr.berbinar-family.tabLayout', ['staff' => $staff, 'records' => $records])
             </div>
         </div>
     </div>
 </section>
-
-<script>
-    function showSection(sectionId) {
-        document.getElementById('dataDiri').classList.add('hidden');
-        document.getElementById('riwayatJabatan').classList.add('hidden');
-        document.getElementById(sectionId).classList.remove('hidden');
-    }
-</script>
 
 @endsection
