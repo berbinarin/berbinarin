@@ -8,10 +8,10 @@ This functionality is currently [soft-deprecated](https://phpunit.de/backward-co
 
 #### Assertions, Constraints, and Expectations
 
-| Issue                                                             | Description                                    | Since  | Replacement |
-|-------------------------------------------------------------------|------------------------------------------------|--------|-------------|
-| [#5472](https://github.com/sebastianbergmann/phpunit/issues/5472) | `TestCase::assertStringNotMatchesFormat()`     | 10.4.0 |             |
-| [#5472](https://github.com/sebastianbergmann/phpunit/issues/5472) | `TestCase::assertStringNotMatchesFormatFile()` | 10.4.0 |             |
+| Issue                                                             | Description                                  | Since  | Replacement |
+|-------------------------------------------------------------------|----------------------------------------------|--------|-------------|
+| [#5472](https://github.com/sebastianbergmann/phpunit/issues/5472) | `Assert::assertStringNotMatchesFormat()`     | 10.4.0 |             |
+| [#5472](https://github.com/sebastianbergmann/phpunit/issues/5472) | `Assert::assertStringNotMatchesFormatFile()` | 10.4.0 |             |
 
 #### Test Double API
 
@@ -86,6 +86,7 @@ This functionality is currently [hard-deprecated](https://phpunit.de/backward-co
 
 #### Miscellaneous
 
-| Issue                                                             | Description                                                                                                                       | Since  | Replacement |
-|-------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|--------|-------------|
-| [#5100](https://github.com/sebastianbergmann/phpunit/issues/5100) | Support for non-static data provider methods, non-public data provider methods, and data provider methods that declare parameters | 10.0.0 |             |
+| Issue                                                             | Description                                                                                                                                               | Since   | Replacement |
+|-------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|---------|-------------|
+| [#5100](https://github.com/sebastianbergmann/phpunit/issues/5100) | Support for non-static data provider methods, non-public data provider methods, and data provider methods that declare parameters                         | 10.0.0  |             |
+| [#5812](https://github.com/sebastianbergmann/phpunit/pull/5812)   | Support for string array keys in data sets returned by data provider methods that do not match the parameter names of the test method(s) that use(s) them | 10.5.18 |             |

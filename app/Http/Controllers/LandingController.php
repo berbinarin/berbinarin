@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Soal;
+use App\Models\TableStaff;
 use App\Models\Test;
 use App\Models\Question;
 use App\Models\Dimension;
@@ -1255,6 +1256,8 @@ class LandingController extends Controller
     {
         $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->where('is_active', true)->get();
 
+        //get list of field photo where the motm field is true
+        $list_image = TableStaff::where('motm', 'yes')->pluck('photo');
 
         $testimonis = [
             [
@@ -1343,11 +1346,11 @@ class LandingController extends Controller
             ],
         ];
 
-
         return view('moduls.landing-new.karir')->with([
             'testimonis' => $testimonis,
             'faqs' => $faqs,
-            'positions' => $positions
+            'positions' => $positions,
+            'list_image' => $list_image
         ]);
     }
 
@@ -1454,7 +1457,7 @@ class LandingController extends Controller
         ]);
     }
 
-    
+
     public function index(Request $request)
     {
         $products = [
