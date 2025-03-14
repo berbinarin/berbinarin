@@ -141,7 +141,9 @@ class DashboardController extends Controller
     public function detailBerbinarFamily($id)
     {
         $staff = TableStaff::with('records')->findOrFail($id);
-        return view('moduls.dashboard.hr.berbinar-family.detailBerbinarFamily', compact('staff'));
+        $records = $staff->records;
+
+        return view('moduls.dashboard.hr.berbinar-family.detailBerbinarFamily', compact('staff', 'records'));
     }
 
     public function editBerbinarFamily($id)
