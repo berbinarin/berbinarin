@@ -1,4 +1,3 @@
-// swiper
 var swiper = new Swiper("#swiperTestimoniKarir", {
     slidesPerView: 3,
     spaceBetween: 30,
@@ -37,3 +36,4 @@ var swiper = new Swiper("#swiperTestimoniKarir", {
         },
     },
 });
+
