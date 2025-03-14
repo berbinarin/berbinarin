@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\Arteri\ArteriController;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\PsikotestPaid\Tools\EPI\EPIController;
 use App\Http\Controllers\PsikotestPaid\Tools\RMIB\RMIBController;
@@ -90,6 +92,7 @@ Route::get('/consulting-new', [LandingController::class, 'consulting_new'])->nam
 Route::get('/faq-new', [LandingController::class, 'faq_new'])->name('faq-new');
 Route::get('/term-condition-new', [LandingController::class, 'term_condition_new'])->name('term-condition-new');
 Route::get('/privacy-policy-new', [LandingController::class, 'privacy_policy_new'])->name('privacy-policy-new');
+Route::get('/arteri', [ArteriController::class, 'index'])->name('arteri');
 Route::get('/karir-new', [LandingController::class, 'karir_new'])->name('karir-new');
 Route::get('/karir-new/positions', [LandingController::class, 'positions_new'])->name('positions-new');
 Route::get('/karir-new/positions/{id}', [LandingController::class, 'positions_detail_new'])->name('positions-detail-new');
@@ -99,6 +102,7 @@ Route::get('/counseling', [LandingController::class, 'konseling'])->name('counse
 Route::get('/counseling/pdf/{filename}', [PDFController::class, 'show'])->name('pdf.show');
 Route::get('/psikotest', [LandingController::class, 'psikotest'])->name('psikotest');
 Route::get('/psikotest/homepage', [LandingController::class, 'homepage'])->name('homepage');
+
 
 Route::get('/artikel', [LandingController::class, 'artikel'])->name('artikel');
 
@@ -297,7 +301,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/tampil', [DashboardController::class, 'tampilBerbinarFamily'])->name('dashboard.berbinarFamily.tampil');
         Route::post('/submit', [DashboardController::class, 'submitBerbinarFamily'])->name('dashboard.berbinarFamily.submit');
     });
-    
+
     Route::prefix('dashboard/berbinarFamily')->group(function () {
         Route::get('/detail/{id}', [DashboardController::class, 'detailBerbinarFamily'])->name('dashboard.berbinarFamily.details');
         Route::get('/edit/{id}', [DashboardController::class, 'editBerbinarFamily'])->name('dashboard.berbinarFamily.edit');
@@ -519,7 +523,7 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::get('/tool/BDI', [LandingController::class, 'LandingBDI'])->name('psikotest-paid.tool.BDI.showLanding');
         // Route::get('/tool/BDI/test', [LandingController::class, 'TestBDI'])->name('psikotest-paid.tool.BDI.testbdi');
         // Route::get('/tool/BDI/end/', [LandingController::class, 'EndBDI'])->name('psikotest-paid.tool.BDI.endbdi');
-        
+
         // TES DASS-42
         Route::get('/tool/DASS', [DASSController::class, 'showLanding'])->name('psikotest-paid.tool.Dass-42.showLanding');
         Route::get('/tool/DASS/test', [DASSController::class, 'showTest'])->name('psikotest-paid.tool.Dass-42.showTest');

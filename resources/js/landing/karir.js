@@ -1,3 +1,4 @@
+// swiper
 var swiper = new Swiper("#swiperTestimoniKarir", {
     slidesPerView: 3,
     spaceBetween: 30,
@@ -11,7 +12,7 @@ var swiper = new Swiper("#swiperTestimoniKarir", {
         forceToAxis: true,
         sensitivity: 0.5,
         thresholdDelta: 30,
-        thresholdTime: 400
+        thresholdTime: 400,
     },
     pagination: {
         el: ".swiper-pagination",
@@ -33,7 +34,6 @@ var swiper = new Swiper("#swiperTestimoniKarir", {
         1280: {
             slidesPerView: 3,
             spaceBetween: 15,
-        }
-    }
+        },
+    },
 });
-
