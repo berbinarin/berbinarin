@@ -29,11 +29,7 @@
             Apabila sudah selesai, silahkan pada lembaran kertas yang ada identitasnya atau di halaman kertas sebaliknya, <span class="font-bold">tuliskan atau ceritakan gambar yang baru Anda gambar dengan satu kalimat. Satu kalimat yang menggambarkan gambar yang telah anda buat.</span>
         </p>
     </div>
-
-    {{-- <p class="text-black mt-5 pl-14">
-      Baik jika sudah silahkan balik kertasnya pada bagian yang kosong atau bagian yang tidak ada identitasnya.
-    </p> --}}
-
+    
     <div class="mb-2 flex justify-center gap-6 mt-8">
       <a href="{{ route('psikotest-paid.tool.HTP.instruksi_d',['testId'=>$test->id]) }}">
         <button type="button" class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">

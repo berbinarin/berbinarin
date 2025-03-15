@@ -254,6 +254,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/data-test/RMIB/data', [DashboardUserController::class, 'dataRMIB'])->name('dashboard.psikotespaid.datarmib');
         Route::get('/data-test/RMIB/data/detail', [DashboardUserController::class, 'detailRMIB'])->name('dashboard.psikotespaid.detailrmib');
 
+        // Dashboard Arteri
+        Route::get('/arteri', [DashboardUserController::class, 'dashboardArteri'])->name('dashboard.arteri');
+        Route::get('/arteri/draft', [DashboardUserController::class, 'draftArteri'])->name('dashboard.arteri.draft');
+        Route::get('/arteri/postingan', [DashboardUserController::class, 'postinganArteri'])->name('dashboard.arteri.postingan');
+
         Route::post('/data-test/{id}/generate-token', [DashboardUserController::class, 'generateToken'])->name('dashboard.psikotespaid.generate-token');
         Route::get('/price-list', [DashboardUserController::class, 'priceList'])->name('dashboard.psikotespaid.price-list');
         Route::post('/price-list', [DashboardUserController::class, 'storePriceList'])->name('dashboard.psikotespaid.add-price-list');

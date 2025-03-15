@@ -589,4 +589,19 @@ class DashboardUserController extends Controller
     {
         return view('moduls.dashboard.psikotes-paid.tools.rmib.detailRMIB');
     }
+
+    public function dashboardArteri()
+    {
+        return view('moduls.dashboard.arteri.dashboard');
+    }
+
+    public function draftArteri()
+    {
+        return view('moduls.dashboard.arteri.draft');
+    }
+
+    public function postinganArteri()
+    {
+        return view('moduls.dashboard.arteri.postingan');
+    }
 }
