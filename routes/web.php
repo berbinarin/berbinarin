@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\PsikotestPaid\Tools\EPI\EPIController;
 use App\Http\Controllers\PsikotestPaid\Tools\RMIB\RMIBController;
@@ -64,7 +65,7 @@ use App\Http\Controllers\PsikotestPaid\Tools\BDI\SoalBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\SkorBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\DASS\DASSController;
 use App\Http\Controllers\KeluargaBerbinarin\TableStaffController;
-
+use App\Http\Controllers\ArticleController\DashboardArticle;
 use App\Http\Controllers\KeluargaBerbinar\JabatanStaffController;
 
 /*
@@ -114,11 +115,21 @@ Route::get('/class', [LandingController::class, 'class'])->name('class');
 Route::get('/class/webinar', [LandingController::class, 'classWebinar'])->name('webinar');
 Route::get('/class/bisikan', [LandingController::class, 'classBisikan'])->name('bisikan');
 
-
-// Keluarga Berbinar New
-Route::prefix('keluarga-berbinar')->group(function () {
-    Route::get('/', [TableStaffController::class, 'keluarga_berbinar'])->name('keluarga-berbinar');
+Route::prefix('dashboard/admin/berbinar-family')->group(function () {
+    Route::get('/', [DashboardController::class, 'berbinarFamily'])->name('dashboard.berbinarFamily');
+    Route::get('/add', [DashboardController::class, 'addBerbinarFamily'])->name('dashboard.berbinarFamily.add');
+    Route::get('/tampil', [DashboardController::class, 'tampilBerbinarFamily'])->name('dashboard.berbinarFamily.tampil');
+    Route::post('/submit', [DashboardController::class, 'submitBerbinarFamily'])->name('dashboard.berbinarFamily.submit');
 });
+
+
+// MODUL ARTIKEL
+
+Route::prefix('dashboard/admin/article')->group(function () {
+    Route::get('/draft', [DashboardArticle::class, 'draftArticle'])->name('dashboard.article.draft');
+    Route::get('/postingan', [DashboardArticle::class, 'postinganArticle'])->name('dashboard.article.postingan');
+});
+
 
 
 //DASHBOARD ADMIN E-LEARNING PSIKOTEST
@@ -201,6 +212,7 @@ Route::get('/dashboard/login', [DashboardController::class, 'login'])->name('das
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/admin/faqs', [DashboardController::class, 'faqs'])->name('dashboard.faqs');
+    Route::get('/dashboard/admin/artikel', [DashboardController::class, 'artikel'])->name('dashboard.artikel');
 
     //PSIKOTEST PAID
     Route::prefix('/dashboard/admin/psikotest-paid')->group(function () {
@@ -297,7 +309,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/tampil', [DashboardController::class, 'tampilBerbinarFamily'])->name('dashboard.berbinarFamily.tampil');
         Route::post('/submit', [DashboardController::class, 'submitBerbinarFamily'])->name('dashboard.berbinarFamily.submit');
     });
-    
+
+    // HALAMAN DEPAN Keluarga Berbinar 
+    Route::prefix('keluarga-berbinar')->group(function () {
+        Route::get('/', [TableStaffController::class, 'keluarga_berbinar'])->name('keluarga-berbinar');
+    });
+
+    // DASHBOARD KELUARGA BERBINAR
     Route::prefix('dashboard/berbinarFamily')->group(function () {
         Route::get('/detail/{id}', [DashboardController::class, 'detailBerbinarFamily'])->name('dashboard.berbinarFamily.details');
         Route::get('/edit/{id}', [DashboardController::class, 'editBerbinarFamily'])->name('dashboard.berbinarFamily.edit');
@@ -519,7 +537,7 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::get('/tool/BDI', [LandingController::class, 'LandingBDI'])->name('psikotest-paid.tool.BDI.showLanding');
         // Route::get('/tool/BDI/test', [LandingController::class, 'TestBDI'])->name('psikotest-paid.tool.BDI.testbdi');
         // Route::get('/tool/BDI/end/', [LandingController::class, 'EndBDI'])->name('psikotest-paid.tool.BDI.endbdi');
-        
+
         // TES DASS-42
         Route::get('/tool/DASS', [DASSController::class, 'showLanding'])->name('psikotest-paid.tool.Dass-42.showLanding');
         Route::get('/tool/DASS/test', [DASSController::class, 'showTest'])->name('psikotest-paid.tool.Dass-42.showTest');

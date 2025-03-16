@@ -32,7 +32,7 @@ class DashboardController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except(['login']);
-        $this->middleware('role:Admin,HR,Konselling,PsikotestFree,PsikotestPaid')->except(['login']);
+        $this->middleware('role:Admin,HR,Konselling,PsikotestFree,PsikotestPaid,BerbinarSatu')->except(['login']);
     }
     public function index()
     {
@@ -100,6 +100,11 @@ class DashboardController extends Controller
     public function faqs()
     {
         return view('moduls.dashboard.faqs');
+    }
+
+    public function artikel()
+    {
+        return view('moduls.dashboard.berbinar-satu.bebinarsatuuser');
     }
 
     public function positions()

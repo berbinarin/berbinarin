@@ -22,7 +22,8 @@ class Role
             Auth::user()->role == 'Konselling' ||
             Auth::user()->role == 'PsikotestFree' ||
             Auth::user()->role == 'BerbinarPlus' ||
-            Auth::user()->role == 'PsikotestPaid'
+            Auth::user()->role == 'PsikotestPaid' ||
+            Auth::user()->role == 'BerbinarSatu'
         ) {
             return $next($request);
         } else {
