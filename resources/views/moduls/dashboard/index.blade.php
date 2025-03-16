@@ -61,6 +61,14 @@
                         @else
                             <p class="text-disabled"></p>
                         @endif
+                        @if (Auth::user()->role == 'BerbinarSatu')
+                            <p tabindex="0"
+                                class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
+                                Dashboard Arteri</p>
+                            <p class="text-base text-disabled">Dashboard ini memberikan informasi jumlah artikel dalam draft dan yang telah diupload.</p>
+                        @else
+                            <p class="text-disabled"></p>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -215,7 +223,19 @@
                         </div>
                     </div>
                 </div>
+                @elseif (Auth::user()->role == 'BerbinarSatu')
+                <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                    <div
+                        class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                        <i class='bx bx-user text-2xl'></i>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-bold">45</span>
+                        <span class="block text-gray-500">Artikel</span>
+                    </div>
+                </div>
             @endif
+            
 
         </div>
     </section>

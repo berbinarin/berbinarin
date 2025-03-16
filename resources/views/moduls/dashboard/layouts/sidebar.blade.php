@@ -277,6 +277,22 @@
         </li>
         @endif
 
+        @if (auth()->user()->role == 'BerbinarSatu')
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.article.draft') }}" class=" flex flex-row items-center @if ($modul === 'Berbinar Plus User Data') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bx-file text-xl mr-2 @if ($modul === ' BerbinarSatu') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base font-bold ml-4 leading-5">Draft</span>
+            </a>
+        </li>
+
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.article.postingan') }}" class=" flex flex-row items-center @if ($modul === 'Berbinar Plus User Data') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bx-upload text-xl mr-2 @if ($modul === ' BerbinarSatu') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base font-bold ml-4 leading-5">Postingan</span>
+            </a>
+        </li>
+        @endif
+
         {{-- Nambahin menu sidebar ini diberi != agar tampil --}}
         @if ((((((((((((((((((((((((((((auth()->user()->role == 'PsikotestPaid' && $title != 'Dashboard Tes') && $title != 'BAUM') && $title != 'HTP') && $title != 'DAP' ) && $title != 'Dashboard Esai') && $title != 'Pengumpulan') && $title != 'Dashboard VAK' ) && $title != 'Jawaban VAK') && $title != 'Detail Jawaban VAK') && $title != 'Dashboard SSCT') && $title != 'Jawaban SSCT') && $title != 'Dashboard Alat Tes Biodata') && $title != 'Tes Biodata Perusahaan') && $title != 'Tes Biodata Pendidikan') && $title != 'Tes Biodata Komunitas') && $title != 'Tes Biodata Individual') && $title != 'Tes Biodata Klinis') && $title != 'Table Biodata Perusahaan') && $title != 'Table Biodata Pendidikan') && $title != 'Table Biodata Komunitas') && $title != 'Table Biodata Individual') && $title != 'Table Biodata Klinis') && $title != 'Dashboard OCEAN') && $title != 'Dashboard BDI') && $title != 'Jawaban OCEAN') && $title != 'Jawaban BDI') && $title != 'Detail Jawaban OCEAN') && $title != 'Detail Jawaban BDI' && $title != 'Dashboard Papikostick' && $title != 'User Data Papikostick' && $title != 'Soal Papikostick' && $title != 'Dashboard Dass42' && $title != 'Jawaban Dass42' && $title != 'Detail Jawaban Dass42' && $title != 'Dashboard EPI' && $title != 'Jawaban EPI' && $title != 'Detail Jawaban EPI' && $title != 'Dashboard RMIB' && $title != 'Jawaban RMIB' && $title != 'Detail Jawaban RMIB' && $title != 'Dashboard Arteri' && $title != 'Draft Arteri' && $title != 'Postingan Arteri')
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">

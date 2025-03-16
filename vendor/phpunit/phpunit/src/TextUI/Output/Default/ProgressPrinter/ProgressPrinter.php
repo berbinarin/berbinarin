@@ -33,6 +33,8 @@ use PHPUnit\TextUI\Output\Printer;
 use PHPUnit\Util\Color;
 
 /**
+ * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
+ *
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
 final class ProgressPrinter
@@ -104,7 +106,7 @@ final class ProgressPrinter
         }
 
         if ($this->source->restrictNotices() &&
-            !(new SourceFilter)->includes($this->source, $event->file())) {
+            !SourceFilter::instance()->includes($event->file())) {
             return;
         }
 
@@ -122,7 +124,7 @@ final class ProgressPrinter
         }
 
         if ($this->source->restrictNotices() &&
-            !(new SourceFilter)->includes($this->source, $event->file())) {
+            !SourceFilter::instance()->includes($event->file())) {
             return;
         }
 
@@ -140,7 +142,7 @@ final class ProgressPrinter
         }
 
         if ($this->source->restrictDeprecations() &&
-            !(new SourceFilter)->includes($this->source, $event->file())) {
+            !SourceFilter::instance()->includes($event->file())) {
             return;
         }
 
@@ -158,7 +160,7 @@ final class ProgressPrinter
         }
 
         if ($this->source->restrictDeprecations() &&
-            !(new SourceFilter)->includes($this->source, $event->file())) {
+            !SourceFilter::instance()->includes($event->file())) {
             return;
         }
 
@@ -186,7 +188,7 @@ final class ProgressPrinter
         }
 
         if ($this->source->restrictWarnings() &&
-            !(new SourceFilter)->includes($this->source, $event->file())) {
+            !SourceFilter::instance()->includes($event->file())) {
             return;
         }
 
@@ -204,7 +206,7 @@ final class ProgressPrinter
         }
 
         if ($this->source->restrictWarnings() &&
-            !(new SourceFilter)->includes($this->source, $event->file())) {
+            !SourceFilter::instance()->includes($event->file())) {
             return;
         }
 

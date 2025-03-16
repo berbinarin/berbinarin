@@ -29,37 +29,45 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="data-consume">
-                                <td class="text-center">1</td>
-                                <td>Morgan Vero</td>
-                                <td class="text-center">morganvero@gmail.com</td>
-                                <td class="text-center">18-04-2024</td>
-                                <td class="px-6 py-4 whitespace-no-wrap text-center text-center">
-                                    <button onclick="toggleModal('view-modal')" type="button"
-                                        class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-blue-500 hover:bg-blue-500 focus:outline-none rounded">
-                                        <p class="font-medium leading-none text-white">Lihat Gambar</p>
-                                    </button>
-                                </td>
-                            </tr>
-                            {{-- modal delete job description --}}
-                            <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="view-modal">
-                                <div class="relative w-auto my-6 mx-auto max-w-3xl">
-                                    <!--content-->
-                                    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                                        <div class="relative p-6 flex-auto">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuaPhxgtyaCQStpttEXIZj4VctG9goIoOAtQ&s" alt="">
-                                                <!--footer-->
-                                                <div class="flex items-center justify-end pt-3 border-t border-solid border-blueGray-200 rounded-b">
-                                                        <button class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 focus:outline-none rounded" 
-                                                        type="button" onclick="toggleModal('view-modal')" style="background-color: #6083F2;">
-                                                        <p class="font-medium leading-none text-white">Kembali</p>
-                                                    </button>
+                            @foreach ($test_dap as $item)
+                                    <tr class="data-consume">
+                                        <td class="text-center">{{ $loop->iteration }}</td>
+                                        <td>{{ $item->PsikotestPaidTest->userPsikotestPaid->fullname }}</td>
+                                        <td class="text-center">{{ $item->PsikotestPaidTest->userPsikotestPaid->email }}</td>
+                                        <td class="text-center">{{ $item->created_at->format('d-m-Y') }}</td>
+                                        <td class="px-6 py-4 whitespace-no-wrap text-center text-center">
+                                            <button onclick="toggleModal('view-modal-{{ $loop->iteration }}')" type="button"
+                                                class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-blue-500 hover:bg-blue-500 focus:outline-none rounded">
+                                                <p class="font-medium leading-none text-white">Lihat Gambar</p>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    {{-- modal delete job description --}}
+                                    <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center"
+                                        id="view-modal-{{ $loop->iteration }}">
+                                        <div class="relative w-auto my-6 mx-auto max-w-3xl">
+                                            <!--content-->
+                                            <div
+                                                class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                                                <div class="relative p-6 flex-auto">
+                                                    <img src="{{ url('/image/'.$item->answerDap->where('question_dap_id', 1)->first()?->answer) }}"
+                                                        alt="">
+                                                    <!--footer-->
+                                                    <div
+                                                        class="flex items-center justify-end pt-3 border-t border-solid border-blueGray-200 rounded-b">
+                                                        <button
+                                                            class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 focus:outline-none rounded"
+                                                            type="button" onclick="toggleModal('view-modal-{{ $loop->iteration }}')"
+                                                            style="background-color: #6083F2;">
+                                                            <p class="font-medium leading-none text-white">Kembali</p>
+                                                        </button>
+                                                    </div>
+                                                    </form>
                                                 </div>
-                                            </form>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                @endforeach
                             
                             <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="view-modal-backdrop"></div>
                         </tbody>

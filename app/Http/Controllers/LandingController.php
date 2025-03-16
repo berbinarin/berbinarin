@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Soal;
+use App\Models\TableStaff;
 use App\Models\Test;
 use App\Models\Question;
 use App\Models\Dimension;
@@ -1255,6 +1256,8 @@ class LandingController extends Controller
     {
         $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->where('is_active', true)->get();
 
+        //get list of field photo where the motm field is true
+        $list_image = TableStaff::where('motm', 'yes')->pluck('photo');
 
         $testimonis = [
             [
@@ -1343,11 +1346,11 @@ class LandingController extends Controller
             ],
         ];
 
-
         return view('moduls.landing-new.karir')->with([
             'testimonis' => $testimonis,
             'faqs' => $faqs,
-            'positions' => $positions
+            'positions' => $positions,
+            'list_image' => $list_image
         ]);
     }
 
@@ -1451,81 +1454,6 @@ class LandingController extends Controller
             'position' => $position,
             'HiringPositionsJobDescription' => $HiringPositionsJobDescription,
             'Hiring_Positions_Requirement' => $Hiring_Positions_Requirement,
-        ]);
-    }
-
-    function getAvailableDivisionsPerYear($data): array
-    {
-        $divisionsPerYear = [];
-
-        foreach ($data as $staff) {
-            // Extract the year from date_start
-            $year = explode(' ', $staff['date_start'])[1];
-
-            // Initialize the array if the year is not set yet
-            if (!isset($divisionsPerYear[$year])) {
-                $divisionsPerYear[$year] = [];
-            }
-
-            // Check if division already exists in that year
-            $existingDivisionKey = array_search($staff['division'], array_column($divisionsPerYear[$year], 'division'));
-
-            if ($existingDivisionKey === false) {
-                // If division does not exist, add it with an empty subdivision array
-                $divisionsPerYear[$year][] = [
-                    'division' => $staff['division'],
-                    'subdivision' => !empty($staff['subdivision']) ? [$staff['subdivision']] : []
-                ];
-            } else {
-                // If division exists and subdivision is not empty, add it if not already present
-                if (!empty($staff['subdivision']) && !in_array($staff['subdivision'], $divisionsPerYear[$year][$existingDivisionKey]['subdivision'])) {
-                    $divisionsPerYear[$year][$existingDivisionKey]['subdivision'][] = $staff['subdivision'];
-                }
-            }
-        }
-
-        // Sort divisions for each year
-        foreach ($divisionsPerYear as &$divisions) {
-            usort($divisions, fn($a, $b) => strcmp($a['division'], $b['division']));
-        }
-
-        // Sort years
-        ksort($divisionsPerYear);
-
-        return $divisionsPerYear;
-    }
-
-    public function keluarga_berbinar(Request $request)
-    {
-        // todo: fetch dari db!!
-
-        // fetch from api
-        //$response = Http::get('http://localhost:3004/dataStaff');
-        //$data = $response->json();
-
-
-        // sementara pakai data dummy json dulu
-        $jsonPath = public_path('assets/js/dummyStaff.json');
-        $jsonContent = File::exists($jsonPath) ? File::get($jsonPath) : '[]';
-        $data = json_decode($jsonContent, true)['dataStaff'];
-
-        // debug data
-        //dd($data)
-
-        //available year, e.g ["2019", "2020", "2021"], dummy data start from 2022
-        $availableYears = collect(array_map(fn($staff) => explode(' ', $staff['date_start'])[1], $data))
-            ->unique()
-            ->sort()
-            ->values()
-            ->all();
-        // available division per year dd to look the data
-        $availableDivision = $this->getAvailableDivisionsPerYear($data);
-        //dd($availableDivision.toArray());
-
-        return view('moduls.landing-new.keluarga-berbinar')->with([
-            'listStaff' => $data,
-            'availableYears' => $availableYears,
-            'availableDivision' => $availableDivision,
         ]);
     }
 

@@ -23,7 +23,6 @@
 
 .staffCardContainer {
     @apply perspective mb-4 flex w-full items-center bg-transparent odd:justify-start even:justify-end lg:m-0 lg:justify-start lg:px-0 lg:py-2;
-    /* group */
 }
 
 .staffCard {
@@ -40,7 +39,6 @@
 
 .statusMobile {
     @apply absolute top-2 rounded-full px-3 py-1 text-xs font-semibold text-white lg:hidden;
-    /* group-odd:right-2 group-even:left-2 */
 }
 
 .statusDesktop {
@@ -55,15 +53,9 @@
     @apply flex h-full w-full items-center justify-between md:justify-start md:space-x-4 lg:relative lg:z-20 lg:justify-normal;
 }
 
-/*.backCard {*/
-/*    @apply relative hidden min-h-40 md:min-h-48 lg:min-h-60 rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] pt-2 pb-3 px-4 lg:p-4 cursor-pointer hover:shadow-lg my-rotate-y-180 !block;*/
-/*}*/
-
 .liniMasaBadge {
     @apply absolute right-2 top-2 rounded-full bg-[#FF8364] px-3 py-1 text-xs font-semibold text-white;
 }
-
-
 
 @keyframes slide {
     from {
@@ -75,15 +67,6 @@
 }
 
 .profile-slide {
-    animation: 300s slide linear infinite;
+    animation: 100s slide linear infinite;
 }
-
-
-/*.division-border-gradient {*/
-/*    border-width: 2px;*/
-/*    border-style: solid;*/
-/*    border-image-source: linear-gradient(90deg, #F7B23B 0%, #916823 100%); !*because of this*!*/
-/*    border-image-slice: 1; !* Ensures the gradient covers the full border *!*/
-/*}*/
-
 
