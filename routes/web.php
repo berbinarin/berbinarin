@@ -126,6 +126,9 @@ Route::prefix('dashboard/admin/berbinar-family')->group(function () {
 // MODUL ARTIKEL
 
 Route::prefix('dashboard/admin/article')->group(function () {
+    Route::get('/', [DashboardArticle::class, 'dashboardArticle'])->name('dashboard.article');
+    Route::get('/create', [DashboardArticle::class, 'addArticle'])->name('dashboard.article.create');
+    Route::get('/update', [DashboardArticle::class, 'updateArticle'])->name('dashboard.article.update');
     Route::get('/draft', [DashboardArticle::class, 'draftArticle'])->name('dashboard.article.draft');
     Route::get('/postingan', [DashboardArticle::class, 'postinganArticle'])->name('dashboard.article.postingan');
 });
@@ -212,7 +215,7 @@ Route::get('/dashboard/login', [DashboardController::class, 'login'])->name('das
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/admin/faqs', [DashboardController::class, 'faqs'])->name('dashboard.faqs');
-    Route::get('/dashboard/admin/artikel', [DashboardController::class, 'artikel'])->name('dashboard.artikel');
+    Route::get('/dashboard/admin/artikel', [DashboardUserController::class, 'dashboardArteri'])->name('dashboard.arteri');
 
     //PSIKOTEST PAID
     Route::prefix('/dashboard/admin/psikotest-paid')->group(function () {
@@ -274,9 +277,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/data-test/RMIB/data/detail', [DashboardUserController::class, 'detailRMIB'])->name('dashboard.psikotespaid.detailrmib');
 
         // Dashboard Arteri
-        Route::get('/arteri', [DashboardUserController::class, 'dashboardArteri'])->name('dashboard.arteri');
-        Route::get('/arteri/draft', [DashboardUserController::class, 'draftArteri'])->name('dashboard.arteri.draft');
-        Route::get('/arteri/postingan', [DashboardUserController::class, 'postinganArteri'])->name('dashboard.arteri.postingan');
+        // Route::get('/arteri', [DashboardUserController::class, 'dashboardArteri'])->name('dashboard.arteri');
+        // Route::get('/arteri/draft', [DashboardUserController::class, 'draftArteri'])->name('dashboard.arteri.draft');
+        // Route::get('/arteri/postingan', [DashboardUserController::class, 'postinganArteri'])->name('dashboard.arteri.postingan');
 
         Route::post('/data-test/{id}/generate-token', [DashboardUserController::class, 'generateToken'])->name('dashboard.psikotespaid.generate-token');
         Route::get('/price-list', [DashboardUserController::class, 'priceList'])->name('dashboard.psikotespaid.price-list');
