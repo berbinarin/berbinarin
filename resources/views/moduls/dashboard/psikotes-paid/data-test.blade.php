@@ -15,7 +15,7 @@
                             Data Test Psikotes Paid</p>
                         <p class="text-disabled py-2">Fitur ini menampilkan informasi data test dari user yang telah
                             mengerjakan psikotes Berbinar.</p>
-                            <a href="{{ route('dashboard.arteri') }}"><button class="bg-blue-300 p-2">Arteri</button></a>
+                            {{-- <a href="{{ route('dashboard.arteri') }}"><button class="bg-blue-300 p-2">Arteri</button></a> --}}
                             
                     </div>
                 </div>

@@ -20,9 +20,10 @@
             <div class="grid grid-cols-3 gap-5 h-1/2">
                 <div class="text-white rounded-lg flex flex-col justify-between p-6 relative" style="background-color: #48576A;">
                     <h3 class="block text-2xl font-bold">Buat Artikel</h3>
-                    <a>
-                        <button>
-                            <i class="bx bx-plus-circle text-8xl hover:text-gray-300"></i>
+                    <a href="{{ route('dashboard.article.create') }}">
+                        <button class="flex gap-2 items-center hover:text-gray-300">
+                            <i class="bx bx-plus-circle text-8xl"></i>
+                            <p class="text-4xl">Tambahkan</p>
                         </button>
                     </a>
                 </div>
