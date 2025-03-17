@@ -46,20 +46,20 @@ class HTPController extends Controller
   {
     $test = TestHtp::where('id', $testId)->firstOrFail();
     $questions = QuestionHtp::all();
-    return view('moduls.psikotes-paid.tools.htp.instruksi-b',['test' => $test, 'questions' => $questions]);
+    return view('moduls.psikotes-paid.tools.HTP.instruksi-b',['test' => $test, 'questions' => $questions]);
   }
 
   public function instruksi_c($testId)
   {
     $test = TestHtp::where('id', $testId)->firstOrFail();
-    return view('moduls.psikotes-paid.tools.htp.instruksi-c',['test' => $test]);
+    return view('moduls.psikotes-paid.tools.HTP.instruksi-c',['test' => $test]);
   }
 
   public function instruksi_d($testId)
   {
     $test = TestHtp::where('id', $testId)->firstOrFail();
     $questions = QuestionHtp::all();
-    return view('moduls.psikotes-paid.tools.htp.instruksi-d',['test' => $test, 'questions' => $questions]);
+    return view('moduls.psikotes-paid.tools.HTP.instruksi-d',['test' => $test, 'questions' => $questions]);
   }
 
   public function submitAnswer(Request $request)
@@ -117,6 +117,6 @@ class HTPController extends Controller
 
   public function summary()
   {
-    return view('moduls.psikotes-paid.tools.htp.summary');
+    return view('moduls.psikotes-paid.tools.HTP.summary');
   }
 }

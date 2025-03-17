@@ -30,6 +30,7 @@ abstract class AbstractStream
     protected $in;
     /** @var resource|null */
     protected $out;
+    protected $err;
 
     private string $debug = '';
 
@@ -68,7 +69,7 @@ abstract class AbstractStream
 
     public function terminate(): void
     {
-        $this->stream = $this->out = $this->in = null;
+        $this->stream = $this->err = $this->out = $this->in = null;
     }
 
     public function readLine(): string
@@ -79,11 +80,10 @@ abstract class AbstractStream
 
         $line = @fgets($this->out);
         if ('' === $line || false === $line) {
-            $metas = stream_get_meta_data($this->out);
-            if ($metas['timed_out']) {
+            if (stream_get_meta_data($this->out)['timed_out']) {
                 throw new TransportException(sprintf('Connection to "%s" timed out.', $this->getReadConnectionDescription()));
             }
-            if ($metas['eof']) {
+            if (feof($this->out)) { // don't use "eof" metadata, it's not accurate on Windows
                 throw new TransportException(sprintf('Connection to "%s" has been closed unexpectedly.', $this->getReadConnectionDescription()));
             }
             if (false === $line) {

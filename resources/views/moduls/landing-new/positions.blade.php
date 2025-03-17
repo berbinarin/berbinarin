@@ -27,8 +27,13 @@
                         <div class="w-full h-24 mb-8 relative md:h-32 md:mb-4">
                             {{--image-banner start--}}
                             <div class="w-full h-full rounded-t-lg overflow-hidden">
+                                @php
+                                    if(isset($position)){
+                                        $imageName = ($position->name === 'UI/UX Designer') ? 'UIUX Designer' : $position->name;
+                                    }
+                                @endphp
                                 <img
-                                    src="{{ asset('assets/images/landing/karir/banner/'.$position->name.'.png') }}"
+                                    src="{{ asset('assets/images/landing/karir/banner/'.$imageName.'.png') }}"
                                     alt="1"
                                     class="object-cover h-full w-full">
                             </div>
