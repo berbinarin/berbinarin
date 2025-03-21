@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\PsikotestPaid\Tools\EPI\EPIController;
 use App\Http\Controllers\PsikotestPaid\Tools\RMIB\RMIBController;
@@ -62,7 +63,7 @@ use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserIndividualController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\NomorBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\SoalBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\SkorBdiController;
-use App\Http\Controllers\PsikotestPaid\Tools\DASS\DASSController;
+use App\Http\Controllers\PsikotestPaid\Tools\DASS\DassController;
 use App\Http\Controllers\KeluargaBerbinarin\TableStaffController;
 
 use App\Http\Controllers\KeluargaBerbinar\JabatanStaffController;
@@ -249,7 +250,7 @@ Route::group(['middleware' => ['auth']], function () {
         // Dashboard DASS-42
         Route::get('/data-test/Dass-42', [DashboardUserController::class, 'dashboardDass42'])->name('dashboard.psikotespaid.dass42');
         Route::get('/data-test/Dass-42/data', [DashboardUserController::class, 'dataDass42'])->name('dashboard.psikotespaid.datadass42');
-        Route::get('/data-test/Dass-42/data/detail', [DashboardUserController::class, 'detailDass42'])->name('dashboard.psikotespaid.detaildass42');
+        Route::get('/data-test/Dass-42/data/{psikotest_paid_test_id}/detail', [DashboardUserController::class, 'detailDass42'])->name('dashboard.psikotespaid.detaildass42');
 
         // Dashboard EPI
         Route::get('/data-test/EPI', [DashboardUserController::class, 'dashboardEPI'])->name('dashboard.psikotespaid.epi');
@@ -297,7 +298,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/tampil', [DashboardController::class, 'tampilBerbinarFamily'])->name('dashboard.berbinarFamily.tampil');
         Route::post('/submit', [DashboardController::class, 'submitBerbinarFamily'])->name('dashboard.berbinarFamily.submit');
     });
-    
+
     Route::prefix('dashboard/berbinarFamily')->group(function () {
         Route::get('/detail/{id}', [DashboardController::class, 'detailBerbinarFamily'])->name('dashboard.berbinarFamily.details');
         Route::get('/edit/{id}', [DashboardController::class, 'editBerbinarFamily'])->name('dashboard.berbinarFamily.edit');
@@ -519,11 +520,13 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::get('/tool/BDI', [LandingController::class, 'LandingBDI'])->name('psikotest-paid.tool.BDI.showLanding');
         // Route::get('/tool/BDI/test', [LandingController::class, 'TestBDI'])->name('psikotest-paid.tool.BDI.testbdi');
         // Route::get('/tool/BDI/end/', [LandingController::class, 'EndBDI'])->name('psikotest-paid.tool.BDI.endbdi');
-        
+
         // TES DASS-42
-        Route::get('/tool/DASS', [DASSController::class, 'showLanding'])->name('psikotest-paid.tool.Dass-42.showLanding');
-        Route::get('/tool/DASS/test', [DASSController::class, 'showTest'])->name('psikotest-paid.tool.Dass-42.showTest');
-        Route::get('/tool/DASS/summary', [DASSController::class, 'showSummary'])->name('psikotest-paid.tool.Dass-42.showSummary');
+        Route::get('/tool/DASS', [DassController::class, 'showLanding'])->name('psikotest-paid.tool.Dass-42.showLanding');
+        Route::get('tool/DASS/start', [DassController::class, 'startTest'])->name('psikotest-paid.tool.Dass-42.startTest');
+        Route::get('/tool/DASS/{psikotest_paid_test_id}/question/{question_dass}', [DassController::class, 'showQuestion'])->name('psikotest-paid.tool.Dass-42.showQuestion');
+        Route::post('/tool/DASS/{psikotest_paid_test_id}/question/{question_dass}', [DassController::class, 'submitAnswer'])->name('psikotest-paid.tool.Dass-42.submitAnswer');
+        Route::get('/tool/DASS/summary', [DassController::class, 'showSummary'])->name('psikotest-paid.tool.Dass-42.showSummary');
 
         // BIODATA
         // Perusahaan

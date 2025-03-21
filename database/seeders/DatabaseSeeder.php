@@ -62,20 +62,20 @@ class DatabaseSeeder extends Seeder
             QuestionCategorySeeder::class,
             QuestionEsssaySeeder::class,
             QuestionHtpSeeder::class,
+            QuestionDassSeeder::class,
 
             // Data test
             UserInternshipSeeder::class,
             NomorBdiSeeder::class,
             SoalBdiSeeder::class,
 
+
             // hiring seeder
             HiringSeeder::class,
             // Dashboard
             DataStaffSeeder::class,
-            DataJabatanSeeder::class,
+            DataJabatanSeeder::class
 
-            // TableStaffSeeder
-            TableStaffSeeder::class,
         ]);
     }
 }
