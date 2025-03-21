@@ -15,17 +15,17 @@
     <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
 
     @vite("resources/css/app.css")
-    {{-- add custom css [VITE]--}}
+    {{-- add custom css [VITE] --}}
     @if ($page === "Arteri")
         @vite("resources/css/landing/arteri.css")
     @endif
 
-    @if($page === "Karir")
-        @vite("resources/css/landing/karir.css")
-        @vite("resources/js/landing/karir.js")
-    @endif
+    {{-- @if ($page === "Karir") --}}
+    {{-- @vite("resources/css/landing/karir.css") --}}
+    {{-- @vite("resources/js/landing/karir.js") --}}
+    {{-- @endif --}}
 
-    @if($page === "keluarga-berbinar")
+    @if ($page === "keluarga-berbinar")
         @vite("resources/css/landing/keluarga-berbinar.css")
     @endif
 
@@ -51,6 +51,24 @@
     {{-- Css Produk Berbinar --}}
     @if ($page === "Produk Berbinar")
         <link rel="stylesheet" href="{{ asset("assets/css/landing/produk.css") }}" />
+    @endif
+
+    {{-- css Karier --}}
+    @if ($page === "Karir")
+        <link rel="stylesheet" href="{{ asset("assets/css/landing/karir.css") }}" />
+    @endif
+
+    {{-- css Arteri --}}
+    {{--    @if ($page === "Arteri")--}}
+    {{--        <link rel="stylesheet" href="{{ asset("assets/css/landing/arteri.test.css") }}" />--}}
+    {{--    @endif--}}
+
+    {{-- css keluarga-berbinar --}}
+    @if ($page === "keluarga-berbinar")
+        <link
+            rel="stylesheet"
+            href="{{ asset("assets/css/landing/keluarga-berbinar.css") }}"
+        />
     @endif
 
     {{-- Css Produk Konseling --}}
@@ -101,6 +119,14 @@
 {{-- Script Produk Berbinar --}}
 @if ($page === "Produk Berbinar")
     <script src="{{ asset("assets/js/landing/produk.js") }}"></script>
+@endif
+
+@if ($page === "Karir")
+    <script src="{{ asset("assets/js/landing/karir.js") }}"></script>
+@endif
+
+@if ($page === "Arteri")
+    <script src="{{ asset("assets/js/landing/arteri.js") }}"></script>
 @endif
 
 {{-- Script Produk Konseling --}}

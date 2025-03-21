@@ -43,7 +43,7 @@
         <a href="{{route('arteri')}}"
            class="@if ($active == 'Arteri') text-[#3886A3] font-semibold border-b-2 border-[#3886A3]
                 @else text-gray-600 font-semibold @endif">
-            Arteri
+            ArteRi
         </a>
         <div>
             <button class="bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-black font-medium py-2 px-6 rounded-full">
@@ -78,7 +78,7 @@
     <a href="{{route('arteri')}}"
        class="@if ($active == 'Arteri') block text-[#3886A3] font-medium text-2xl py-4
             @else block text-gray-600 font-medium text-2xl py-4 @endif">
-        Arteri
+        ArteRi
     </a>
     <a href="https://linktr.ee/berbinarinsight" target="_blank">
         <button class="bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-black font-medium py-2 px-6 rounded-full mt-8">
