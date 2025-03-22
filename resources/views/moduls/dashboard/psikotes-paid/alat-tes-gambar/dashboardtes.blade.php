@@ -25,28 +25,28 @@
                         style="background-color: #6482AD;">
                         <h3 class="block text-2xl font-bold">BAUM</h3>
                         <div>
-                            <p class="block text-4xl text-white font-bold">360</p>
+                            <p class="block text-4xl text-white font-bold">{{ $test_baum }}</p>
                             <p>User</p>
                         </div>
-                        <span class="absolute p-6 bottom-2 right-2 text-xl">11</span>
+                        <span class="absolute p-6 bottom-2 right-2 text-xl">2</span>
                     </div>
                     <div class="text-white p-8 rounded-lg flex flex-col justify-between relative"
                         style="background-color: #7FA1C3;">
                         <h3 class="block text-2xl font-bold">DAP</h3>
                         <div>
-                            <p class="block text-4xl text-white font-bold">360</p>
+                            <p class="block text-4xl text-white font-bold">{{ $test_dap }}</p>
                             <p>User</p>
                         </div>
-                        <span class="absolute p-6 bottom-2 right-2 text-xl">20</span>
+                        <span class="absolute p-6 bottom-2 right-2 text-xl">3</span>
                     </div>
                     <div class="text-white p-8 rounded-lg flex flex-col justify-between relative"
                         style="background-color: #85B3E2;">
                         <h3 class="block text-2xl font-bold">HTP</h3>
                         <div>
-                            <p class="block text-4xl text-white font-bold">360</p>
+                            <p class="block text-4xl text-white font-bold">{{ $test_htp }}</p>
                             <p>User</p>
                         </div>
-                        <span class="absolute p-6 bottom-2 right-2 text-xl">15</span>
+                        <span class="absolute p-6 bottom-2 right-2 text-xl">4</span>
                     </div>
                 </div>
             </div>

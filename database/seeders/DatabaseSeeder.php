@@ -16,6 +16,8 @@ use Database\Seeders\PsikotestPaid\Biodata\FamilyStatusSeeder;
 use Database\Seeders\PsikotestPaid\Biodata\QuestionCategorySeeder;
 use Illuminate\Database\Seeder;
 use App\Models\PsikotestPaid\CategoryPsikotestType;
+use Database\Seeders\Dashboard_HR\DataJabatanSeeder;
+use Database\Seeders\Dashboard_HR\DataStaffSeeder;
 use Database\Seeders\PsikotestPaid\Biodata\QuestionEsssaySeeder;
 use Database\Seeders\PsikotestPaid\PsikotestToolSeeder;
 use Database\Seeders\PsikotestPaid\PsikotestTypeSeeder;
@@ -67,7 +69,13 @@ class DatabaseSeeder extends Seeder
             SoalBdiSeeder::class,
 
             // hiring seeder
-            HiringSeeder::class
+            HiringSeeder::class,
+            // Dashboard
+            DataStaffSeeder::class,
+            DataJabatanSeeder::class,
+
+            // TableStaffSeeder
+            TableStaffSeeder::class,
         ]);
     }
 }

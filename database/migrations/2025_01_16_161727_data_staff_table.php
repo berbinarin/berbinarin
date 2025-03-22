@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_lengkap');
             $table->string('linkedin');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->enum('motm', ['yes', 'no'])->default('no'); // Isi dengan nilai yang sesuai
             $table->timestamps();
         });

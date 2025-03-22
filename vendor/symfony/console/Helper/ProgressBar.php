@@ -183,9 +183,9 @@ final class ProgressBar
         $this->messages[$name] = $message;
     }
 
-    public function getMessage(string $name = 'message'): string
+    public function getMessage(string $name = 'message'): ?string
     {
-        return $this->messages[$name];
+        return $this->messages[$name] ?? null;
     }
 
     public function getStartTime(): int
@@ -229,7 +229,7 @@ final class ProgressBar
 
     public function getRemaining(): float
     {
-        if (!$this->step) {
+        if (0 === $this->step || $this->step === $this->startingStep) {
             return 0;
         }
 
