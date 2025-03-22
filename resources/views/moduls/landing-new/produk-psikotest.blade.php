@@ -154,9 +154,11 @@
             <p class="text-[#3F3F3F] text-justify max-sm:text-[15px] max-sm:leading-normal text-lg max-lg:text-[17px]">
                 Psikotes individu dapat memprediksi potensi yang dimiliki dalam kaitannya dengan pencapaian hasil belajar atau kemampuan di masa yang akan datang.
             </p>
-            <div class="flex justify-start max-md:justify-center z-10">
-                <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar Psikotes Individu</button>
-            </div>
+            <a href="{{ route('psikotes-new/daftar-psikotes') }}">
+                <div class="flex justify-start max-md:justify-center z-10">
+                    <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar Psikotes Individu</button>
+                </div>
+            </a>
         </div>
 
         <div class="absolute bottom-3 right-3 z-0">
@@ -264,9 +266,11 @@
             <p class="text-[#3F3F3F] text-justify max-sm:text-[15px] max-sm:leading-normal text-lg max-lg:text-[17px]">
                 Psikotes untuk supervisor digunakan untuk melihat potensi, kelebihan dan kekurangan, serta kecenderungan kepribadian seorang kandidat dan melihat apakah kandidat tersebut cocok ditempatkan di suatu posisi pekerjaan.
             </p>
-            <div class="flex justify-start max-md:justify-center z-10">
-                <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar Psikotes Perusahaan</button>
-            </div>
+            <a href="{{ route('psikotes-new/daftar-psikotes') }}">
+                <div class="flex justify-start max-md:justify-center z-10">
+                    <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar Psikotes Perusahaan</button>
+                </div>
+            </a>
         </div>
 
         <div class="absolute bottom-3 right-3 z-0">
@@ -716,9 +720,11 @@
             <p class="text-[#3F3F3F] text-justify max-sm:leading-normal max-sm:text-[15px] text-lg max-lg:text-[17px]">
                 Psikotes untuk Instansi Pendidikan digunakan untuk mengenal gaya belajar, cita-cita, jurusan, minat bakat yang sesuai dengan SobatBinar.
             </p>
-            <div class="flex justify-start max-md:justify-center z-10">
-                <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar Psikotes Instansi Pendidikan</button>
-            </div>
+            <a href="{{ route('psikotes-new/daftar-psikotes') }}">
+                <div class="flex justify-start max-md:justify-center z-10">
+                    <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar Psikotes Instansi Pendidikan</button>
+                </div>
+            </a>
         </div>
         
         <div class="absolute bottom-3 right-3 z-0">
@@ -843,9 +849,11 @@
             <p class="text-[#3F3F3F] text-justify max-sm:leading-normal max-sm:text-[15px] text-lg max-lg:text-[17px]">
                 Psikotes untuk Komunitas ini bertujuan untuk mengetahui kesiapan pernikahan, menjadi orang tua, kecocokan bersama pasangan, tingkat stress, depresi, kecemasan, memori, dan dimensia.
             </p>
-            <div class="flex justify-start max-md:justify-center z-10">
-                <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar Psikotes Komunitas</button>
-            </div>
+            <a href="{{ route('psikotes-new/daftar-psikotes') }}">
+                <div class="flex justify-start max-md:justify-center z-10">
+                    <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar Psikotes Komunitas</button>
+                </div>
+            </a>
         </div>
 
         <div class="absolute bottom-3 right-3 z-0">
@@ -1045,9 +1053,11 @@
                 </div>
             </div>
 
-            <div class="flex justify-start max-md:justify-center z-10">
-                <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar Psikotes Komunitas</button>
-            </div>
+            <a href="{{ route('psikotes-new/daftar-psikotes') }}">
+                <div class="flex justify-start max-md:justify-center z-10">
+                    <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar Psikotes Komunitas</button>
+                </div>
+            </a>
         </div>
         
         <div class="absolute bottom-3 right-3 z-0">

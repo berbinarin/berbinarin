@@ -1096,46 +1096,46 @@ class LandingController extends Controller
 
     public function consulting_new(Request $request)
     {
-        $layanan_konselings = [
+        $layanan_consultings = [
             [
                 'category' => 'Rekrutmen & Seleksi',
-                'price' => 'Rp2.500.000',
+                'price' => 'Rp1.800.000',
                 'description' => 'Membantu perusahaan dalam proses perekrutan calon karyawan baru yang sesuai dengan kebutuhan dan kriteria perusahaan.',
                 'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
             [
                 'category' => 'Pelatihan & Pengembangan',
-                'price' => 'Rp3.000.000',
+                'price' => 'Rp1.500.000',
                 'description' => 'Rancangan proses untuk meningkatkan pengetahuan, keterampilan, dan sikap karyawan terkait tugas yang diberikan, serta memberi kesempatan untuk memaksimalkan potensi.',
                 'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
             [
                 'category' => 'Analisis Beban Kerja & Perencanaan Organisasi',
-                'price' => 'Rp3.500.000',
+                'price' => 'Rp1.800.000',
                 'description' => 'Analisis mendalam terkait beban kerja, struktur organisasi, dan perencanaan kebutuhan sumber daya manusia.',
                 'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
             [
                 'category' => 'Coaching',
-                'price' => 'Rp4.000.000',
+                'price' => 'Rp2.000.000',
                 'description' => 'Membantu dalam menggali potensi bisnis/karir, menetapkan tujuan, dan mewujudkannya dengan strategi dari ahlinya.',
                 'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
             [
                 'category' => 'Penilaian Kinerja',
-                'price' => 'Rp1.500.000',
+                'price' => 'Rp2.150.000',
                 'description' => 'Proses evaluasi kinerja karyawan secara sistematis dan berkesinambungan sebagai umpan balik dan dukungan pengembangan karir.',
                 'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
             [
                 'category' => 'Kompensasi & Benefit',
-                'price' => 'Rp2.500.000',
+                'price' => 'Rp1.780.000',
                 'description' => 'Perencanaan dan sistem administrasi mengenai kompensasi, tunjangan, program yang bermanfaat untuk menjaga motivasi dan kinerja karyawan.',
                 'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
             [
                 'category' => 'Standar Operasional Prosedur (SOP)',
-                'price' => 'Rp700.000',
+                'price' => 'Rp1.600.000',
                 'description' => 'Panduan standar yang bertujuan memastikan pekerjaan dan kegiatan operasional organisasi.',
                 'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
@@ -1143,27 +1143,33 @@ class LandingController extends Controller
 
         $bundlings = [
             [
-                'category' => 'Rekrutmen & Seleksi + Pelatihan & Pengembangan',
-                'discount' => 'Rp5.500.000',
-                'price' => 'Rp4.950.000',
+                'category' => 'Rekrutmen & Seleksi + SOP',
+                'discount' => 'Rp3.400.000',
+                'price' => 'Rp3.060.000',
                 'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
             [
-                'category' => 'Analisis Beban Kerja & Perencanaan Organisasi + Coaching',
-                'discount' => 'Rp7.500.000',
-                'price' => 'Rp6.750.000',
+                'category' => 'Analisis Beban Kerja & Perencanaan Organisasi + Penilaian Kerja',
+                'discount' => 'Rp3.950.000',
+                'price' => 'Rp3.555.000',
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
+            ],
+            [
+                'category' => 'Pelatihan & Pengembangan + Coaching',
+                'discount' => 'Rp3.500.000',
+                'price' => 'Rp3.150.000',
                 'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
             [
                 'category' => 'Penilaian Kinerja + Kompensasi & Benefit',
-                'discount' => 'Rp4.000.000',
-                'price' => 'Rp3.600.000',
+                'discount' => 'Rp3.930.000',
+                'price' => 'Rp3.537.000',
                 'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
             ],
         ];
 
         return view('moduls.landing-new.produk-consulting')->with([
-            'layanan_konselings' => $layanan_konselings,
+            'layanan_consultings' => $layanan_consultings,
             'bundlings' => $bundlings
         ]);
     }
@@ -1529,6 +1535,79 @@ class LandingController extends Controller
         ]);
     }
 
+    public function daftar_konseling(Request $request) {
+        $konselings = [
+            [
+                'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
+                'nama' => 'Psikolog',
+                'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
+                'link' => route('konseling-new/jadwal-konseling')
+            ],
+            [
+                'image' => 'assets/images/landing/asset-konseling/vector/peercounselor.png',
+                'nama' => 'Peer Counselor',
+                'deskripsi' => 'Konseling bersama Peer Conselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
+                'link' => route('konseling-new/jadwal-konseling')
+            ],
+        ];
+
+        return view('moduls.landing-new.daftar-konseling')->with([
+            'konselings' => $konselings
+        ]);
+    }
+
+    public function jadwal_konseling(Request $request) {
+        return view('moduls.landing-new.jadwal-konseling')->with([]);
+    }
+
+    public function data_diri_konseling(Request $request) {
+        return view('moduls.landing-new.data-diri')->with([]);
+    }
+
+    public function cerita_konseling(Request $request) {
+        return view('moduls.landing-new.cerita')->with([]);
+    }
+
+    public function summary_konseling(Request $request) {
+        return view('moduls.landing-new.summary-konseling')->with([]);
+    }
+
+    public function daftar_psikotes(Request $request) {
+        $layanan_psikotes = [
+            [
+                'image' => 'assets/images/landing/asset-psikotes/illustrasi/individu.png',
+                'name' => 'Individu'
+            ],
+            [
+                'image' => 'assets/images/landing/asset-psikotes/illustrasi/perusahaan.png',
+                'name' => 'Perusahaan'
+            ],
+            [
+                'image' => 'assets/images/landing/asset-psikotes/illustrasi/komunitas.png',
+                'name' => 'Komunitas'
+            ],
+            [
+                'image' => 'assets/images/landing/asset-psikotes/illustrasi/Pendidikan.png',
+                'name' => 'Pendidikan'
+            ],
+        ];
+
+        return view('moduls.landing-new.daftar-psikotes')->with([
+            'layanan_psikotes' => $layanan_psikotes 
+        ]);
+    }
+
+    public function jadwal_psikotes(Request $request) {
+        return view('moduls.landing-new.jadwal-psikotes')->with([]);
+    }
+
+    public function data_diri_psikotes(Request $request) {
+        return view('moduls.landing-new.data-diri-psikotes')->with([]);
+    }
+
+    public function summary_psikotes(Request $request) {
+        return view('moduls.landing-new.summary-psikotes')->with([]);
+    }
 
     public function index(Request $request)
     {
