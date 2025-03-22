@@ -288,14 +288,14 @@ class DashboardUserController extends Controller
     public function psikotesPaidDAP()
     {
         $test_dap = TestDap::with('PsikotestPaidTest.userPsikotestPaid', 'answerDap.questionDap');
-        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dap',[
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dap', [
             'test_dap' => $test_dap->latest()->get(),
         ]);
     }
 
     public function psikotesPaidDashboardTes()
     {
-        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dashboardtes',[
+        return view('moduls.dashboard.psikotes-paid.alat-tes-gambar.dashboardtes', [
             'test_baum' => TestBaum::count(),
             'test_htp' => TestHtp::count(),
             'test_dap' => TestDap::count(),
@@ -589,7 +589,8 @@ class DashboardUserController extends Controller
 
     public function dataEPI()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.epi.jawabanEPI');
+        $users = UserPsikotestPaid::all();
+        return view('moduls.dashboard.psikotes-paid.tools.epi.jawabanEPI', compact('users'));
     }
 
     public function detailEPI()

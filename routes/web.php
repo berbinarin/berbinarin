@@ -124,7 +124,6 @@ Route::prefix('dashboard/admin/berbinar-family')->group(function () {
 
 
 // MODUL ARTIKEL
-
 Route::prefix('dashboard/admin/article')->group(function () {
     Route::get('/', [DashboardArticle::class, 'dashboardArticle'])->name('dashboard.article');
     Route::get('/create', [DashboardArticle::class, 'addArticle'])->name('dashboard.article.create');
@@ -215,6 +214,7 @@ Route::get('/dashboard/login', [DashboardController::class, 'login'])->name('das
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/admin/faqs', [DashboardController::class, 'faqs'])->name('dashboard.faqs');
+    // Dashboard Artikel
     Route::get('/dashboard/admin/artikel', [DashboardUserController::class, 'dashboardArteri'])->name('dashboard.arteri');
 
     //PSIKOTEST PAID

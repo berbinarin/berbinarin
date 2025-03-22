@@ -29,13 +29,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($users as $index => $user)
                             <tr class="data-consume">
-                                <td class="text-center">1</td>
-                                <td>Morgan Vero</td>
-                                <td class="text-center">morganvero@gmail.com</td>
-                                <td class="text-center">18-04-2024</td>
+                                <td class="text-center">{{ $index + 1 }}</td>
+                                <td>{{ $user->fullname }}</td>
+                                <td class="text-center">{{ $user->email }}</td>
+                                <td class="text-center">{{ \Carbon\Carbon::parse($user->created_at)->format('d-m-Y') }}</td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-center">
-                                    <a href="{{ route('dashboard.psikotespaid.detailepi') }}">
+                                    <a href="{{ route('dashboard.psikotespaid.detailepi', $user->id) }}">
                                     <button type="button"
                                         class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-blue-500 hover:bg-blue-500 focus:outline-none rounded">
                                         <p class="font-medium leading-none text-white">Lihat Jawaban</p>
@@ -43,6 +44,7 @@
                                     </a>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
