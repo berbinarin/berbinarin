@@ -63,7 +63,9 @@
                         </ol>
                         <div class="flex justify-end gap-x-3 mt-4">
                             <button id="closeModal" class="px-4 py-1.5 max-sm:text-[15px] font-medium rounded-md bg-transparent border-[1.5px] text-black border-[#225062]">Kembali</button>
-                            <button id="" class="px-4 py-1.5 text-white max-sm:text-[15px] font-medium rounded-md bg-gradient-to-r from-[#3986A3] to-[#225062]">Daftar</button>
+                            <a href="{{ route('konseling-new/daftar-konseling') }}">
+                                <button id="" class="px-4 py-1.5 text-white max-sm:text-[15px] font-medium rounded-md bg-gradient-to-r from-[#3986A3] to-[#225062]">Daftar</button>
+                            </a>
                         </div>
                     </div>
                 </div>
