@@ -22,10 +22,10 @@
                     style="background-color: #6482AD;">
                     <h3 class="block text-2xl font-bold">EPI</h3>
                     <div>
-                        <p class="block text-4xl text-white font-bold">360</p>
+                        <p class="block text-4xl text-white font-bold">{{ $totalUsers }}</p>
                         <p>User</p>
                     </div>
-                    <span class="absolute p-6 bottom-2 right-2 text-xl">13</span>
+                    <span class="absolute p-6 bottom-2 right-2 text-xl">{{ $totalTests }}</span>
                 </div>
             </div>
         </div>

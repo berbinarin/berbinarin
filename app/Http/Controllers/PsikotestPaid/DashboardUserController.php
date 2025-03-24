@@ -28,6 +28,7 @@ use App\Models\PsikotestPaid\HTP\TestHtp;
 use App\Models\PsikotestPaid\DAP\AnswerDap;
 use App\Models\PsikotestPaid\DAP\QuestionDap;
 use App\Models\PsikotestPaid\DAP\TestDap;
+use App\Models\PsikotestPaid\EPI\EpiAnswer;
 
 class DashboardUserController extends Controller
 {
@@ -584,7 +585,10 @@ class DashboardUserController extends Controller
 
     public function dashboardEPI()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.epi.dashboardEPI');
+        $totalUsers = UserPsikotestPaid::count();
+        $totalTests = EpiAnswer::distinct('user_id')->count('user_id');
+
+        return view('moduls.dashboard.psikotes-paid.tools.epi.dashboardEPI', compact('totalUsers', 'totalTests'));
     }
 
     public function dataEPI()
@@ -593,9 +597,32 @@ class DashboardUserController extends Controller
         return view('moduls.dashboard.psikotes-paid.tools.epi.jawabanEPI', compact('users'));
     }
 
-    public function detailEPI()
+    public function detailEPI($userId)
     {
-        return view('moduls.dashboard.psikotes-paid.tools.epi.detailEPI');
+        $user = UserPsikotestPaid::findOrFail($userId);
+        $answers = EpiAnswer::where('user_id', $userId)->with('question')->get();
+
+        $categoryScores = [
+            'Extroversion' => 0,
+            'Neuroticism' => 0,
+            'Lie' => 0,
+        ];
+
+        foreach ($answers as $answer) {
+            $categoryScores[$answer->question->category] += $answer->points;
+        }
+
+        $highestCategory = array_keys($categoryScores, max($categoryScores))[0];
+        $highestScore = max($categoryScores);
+        $conclusion = $highestCategory == 'Extroversion' ? 'Introversi' : 'Ekstroversi';
+
+        $categoryColors = [
+            'Extroversion' => 'blue',
+            'Neuroticism' => 'purple',
+            'Lie' => 'red',
+        ];
+
+        return view('moduls.dashboard.psikotes-paid.tools.epi.detailEPI', compact('user', 'answers', 'categoryScores', 'highestCategory', 'highestScore', 'conclusion', 'categoryColors'));
     }
 
     public function dashboardRMIB()

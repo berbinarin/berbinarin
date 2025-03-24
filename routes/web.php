@@ -269,8 +269,8 @@ Route::group(['middleware' => ['auth']], function () {
         // Dashboard EPI
         Route::get('/data-test/EPI', [DashboardUserController::class, 'dashboardEPI'])->name('dashboard.psikotespaid.epi');
         Route::get('/data-test/EPI/data', [DashboardUserController::class, 'dataEPI'])->name('dashboard.psikotespaid.dataepi');
-        Route::get('/data-test/EPI/data/detail', [DashboardUserController::class, 'detailEPI'])->name('dashboard.psikotespaid.detailepi');
-
+        Route::get('/data-test/EPI/data/detail/{userId}', [DashboardUserController::class, 'detailEPI'])->name('dashboard.psikotespaid.detailepi');
+        
         // Dashboard RMIB
         Route::get('/data-test/RMIB', [DashboardUserController::class, 'dashboardRMIB'])->name('dashboard.psikotespaid.rmib');
         Route::get('/data-test/RMIB/data', [DashboardUserController::class, 'dataRMIB'])->name('dashboard.psikotespaid.datarmib');
@@ -498,6 +498,7 @@ Route::prefix('/psikotest-paid')->group(function () {
         // TES EPI
         Route::get('/tool/EPI', [EPIController::class, 'showLanding'])->name('psikotest-paid.tool.EPI.showLanding');
         Route::get('/tool/EPI/test', [EPIController::class, 'test'])->name('psikotest-paid.tool.EPI.test');
+        Route::post('/epi/submit', [EPIController::class, 'submitTest'])->name('psikotest-paid.epi.submit');
         Route::get('/tool/EPI/summary', [EPIController::class, 'summary'])->name('psikotest-paid.tool.EPI.summary');
 
         // TES RMIB

@@ -14,6 +14,7 @@ class CreateEpiAnswersTable extends Migration
         Schema::create('epi_answers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('user_psikotest_paids')->onDelete('cascade');
+            $table->string('fullname');
             $table->foreignId('question_id')->constrained('epi_questions')->onDelete('cascade');
             $table->enum('answer', ['yes', 'no']);
             $table->integer('points');

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\PsikotestPaid\EPI;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,7 +10,7 @@ class EpiAnswer extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'question_id', 'answer', 'points'];
+    protected $fillable = ['user_id', 'fullname', 'question_id', 'answer', 'points'];
 
     public function question()
     {

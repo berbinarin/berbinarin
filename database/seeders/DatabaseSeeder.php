@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\EpiQuestion;
 use Database\Seeders\PsikotestPaid\BAUM\QuestionBaumSeeder;
 use Database\Seeders\PsikotestPaid\DAP\QuestionDapSeeder;
 use Database\Seeders\PsikotestPaid\OCEAN\DimensionOceanSeeder;
@@ -26,6 +27,7 @@ use Database\Seeders\PsikotestPaid\PapiKostick\QuestionPapiKostickSeeder;
 use Database\Seeders\PsikotestPaid\VAK\CategoryQuestionVakSeeder;
 use Database\Seeders\PsikotestPaid\VAK\QuestionVakSeeder;
 use Database\Seeders\PsikotestPaid\HTP\QuestionHtpSeeder;
+use Database\Seeders\PsikotestPaid\EPI\EpiQuestionSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -62,6 +64,7 @@ class DatabaseSeeder extends Seeder
             QuestionCategorySeeder::class,
             QuestionEsssaySeeder::class,
             QuestionHtpSeeder::class,
+            EpiQuestionSeeder::class,
 
             // Data test
             UserInternshipSeeder::class,
