@@ -22,13 +22,18 @@ class DashboardArticle extends Controller
     {
         return view('moduls.dashboard.arteri.form-edit');
     }
-    public function draftArticle()
+    public function kategoriArticle()
     {
-        return view('moduls.dashboard.arteri.draft');
+        return view('moduls.dashboard.arteri.kategori');
     }
 
     public function postinganArticle()
     {
         return view('moduls.dashboard.arteri.postingan');
+    }
+
+    public function penulisArticle()
+    {
+        return view('moduls.dashboard.arteri.penulis');
     }
 }

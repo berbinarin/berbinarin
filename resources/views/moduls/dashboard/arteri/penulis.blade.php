@@ -1,8 +1,9 @@
 @extends('moduls.dashboard.layouts.main', [
     'title' => 'Dashboard Arteri',
     'active' => 'Dashboard',
-    'modul' => 'Draft',
+    'modul' => 'Penulis',
 ])
+
 @section('content-dashboard')
 <section class="flex w-full">
     <div class="flex flex-col w-full">
@@ -11,8 +12,14 @@
                 <div>
                     <p tabindex="0"
                         class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
-                        Draft Arteri</p>
-                    <p class="w-2/4 text-disabled">Halaman yang menampilkan kumpulan artikel yang belum di publikasi dan masih dalam status draft</p>
+                        Data Penulis</p>
+                    <p class="w-2/4 text-disabled">Menampilkan daftar penulis , memungkinkan admin untuk mengelola kontributor dan kontennya.</p>
+                    <a href="">
+                        <button type="button"
+                            class="focus:ring-2 focus:ring-offset-2  mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded-lg">
+                            <p class=" font-medium leading-none text-dark">Tambah Penulis</p>
+                        </button>
+                    </a>
                 </div>
             </div>
             <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-md">
@@ -21,20 +28,19 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th class="text-left">Judul</th>
-                                <th>Terakhir update</th>
-                                <th>Status</th>
+                                <th>Profil</th>
+                                <th class="text-left">Nama Penulis</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         @php
                             $articles = [
-                                ['id' => 1, 'title' => 'Sedih Berkepanjangan & Kehilangan Motivasi, Apakah Tanda Depresi?', 'date' => '18-04-2024'],
-                                ['id' => 2, 'title' => 'Artikel Tips atasi demotivation part 1', 'date' => '18-04-2024'],
-                                ['id' => 3, 'title' => 'Sedih Berkepanjangan & Kehilangan Motivasi, Apakah Tanda Depresi?', 'date' => '18-04-2024'],
-                                ['id' => 4, 'title' => 'Artikel Tips atasi demotivation part 1', 'date' => '18-04-2024'],
-                                ['id' => 5, 'title' => 'Sedih Berkepanjangan & Kehilangan Motivasi, Apakah Tanda Depresi?', 'date' => '18-04-2024'],
-                                ['id' => 6, 'title' => 'Artikel Tips atasi demotivation part 1', 'date' => '18-04-2024'],
+                                ['id' => 1, 'title' => 'Class Of Product Management', 'date' => 'Julian Alvarez'],
+                                ['id' => 2, 'title' => 'Graphic Designer', 'date' => 'Julian Alvarez'],
+                                ['id' => 3, 'title' => 'Class Of Product Management', 'date' => 'Julian Alvarez'],
+                                ['id' => 4, 'title' => 'Graphic Designer', 'date' => 'Julian Alvarez'],
+                                ['id' => 5, 'title' => 'Class Of Product Management', 'date' => 'Julian Alvarez'],
+                                ['id' => 6, 'title' => 'Graphic Designer', 'date' => 'Julian Alvarez'],
                             ];
                         @endphp
 
@@ -42,14 +48,10 @@
                             @foreach($articles as $article)
                                 <tr class="data-consume">
                                     <td class="text-center font-bold">{{ $article['id'] }}.</td>
-                                    <td class="break-words whitespace-normal" style="max-width: 300px">{{ $article['title'] }}</td>
-                                    <td class="text-center">{{ $article['date'] }}</td>
-                                    <td class="px-6 py-4 whitespace-no-wrap text-center">
-                                        <button type="button"
-                                            class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-center justify-center py-2 px-4 focus:outline-none rounded-3xl bg-blue-400">
-                                            <p class="font-medium leading-none text-white">Draft</p>
-                                        </button>
+                                    <td class="flex justify-center">
+                                        <img src="{{ asset('assets/images/avatar.png') }}"/>
                                     </td>
+                                    <td class="break-words whitespace-normal font-semibold" style="min-width: 300px">{{ $article['date'] }}</td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-center">
                                         <div class="flex justify-center items-center gap-2">
                                             <a href="{{ route('dashboard.article.update') }}"

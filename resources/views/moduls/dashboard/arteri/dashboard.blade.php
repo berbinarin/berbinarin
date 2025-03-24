@@ -23,7 +23,6 @@
                     <a href="{{ route('dashboard.article.create') }}">
                         <button class="flex gap-2 items-center hover:text-gray-300">
                             <i class="bx bx-plus-circle text-8xl"></i>
-                            <p class="text-4xl">Tambahkan</p>
                         </button>
                     </a>
                 </div>
