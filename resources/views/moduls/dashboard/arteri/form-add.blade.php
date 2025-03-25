@@ -49,7 +49,7 @@ id="modal-id">
                     <div class="flex flex-col gap-7">
                         <div class="col-span-3">
                             <label for="name"
-                                class="block text-lg font-semibold leading-6 text-gray-500 ">Nama</label>
+                                class="block text-lg font-semibold leading-6 text-gray-500 ">Judul</label>
                             <div class="mt-2">
                                 <input type="text" name="fullname" id="fullname"
                                     class="block w-full rounded-md border-0 py-3 px-3 text-black shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary text-base sm:leading-6">
