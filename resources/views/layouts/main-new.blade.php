@@ -16,26 +16,31 @@
 
     @vite("resources/css/app.css")
     {{-- add custom css [VITE] --}}
-    @if ($page === "Arteri")
-        @vite("resources/css/landing/arteri.css")
+
+    {{-- css karir --}}
+    @if ($page === "Karir")
+        @vite("resources/css/landing/karir.css")
     @endif
 
-    {{-- @if ($page === "Karir") --}}
-    {{-- @vite("resources/css/landing/karir.css") --}}
-    {{-- @vite("resources/js/landing/karir.js") --}}
-    {{-- @endif --}}
-
+    {{-- css keluarga berbinar --}}
     @if ($page === "keluarga-berbinar")
         @vite("resources/css/landing/keluarga-berbinar.css")
     @endif
 
-    <link rel="stylesheet" href="{{ asset("assets/css/landing-new.css") }}" />
+    {{-- css arteri --}}
+    @if ($page === "Arteri")
+        @vite("resources/css/landing/arteri.css")
+    @endif
+
+    {{-- css arteri detail --}}
+    @if($page === 'Arteri Detail')
+        @vite("resources/css/landing/arteri-detail.css")
+    @endif
+
+    {{-- <link rel="stylesheet" href="{{ asset("assets/css/landing-new.css") }}" /> --}}
 
     {{-- Css Swiper --}}
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
     {{-- Css Beranda --}}
@@ -53,23 +58,14 @@
         <link rel="stylesheet" href="{{ asset("assets/css/landing/produk.css") }}" />
     @endif
 
-    {{-- css Karier --}}
-    @if ($page === "Karir")
-        <link rel="stylesheet" href="{{ asset("assets/css/landing/karir.css") }}" />
-    @endif
-
-    {{-- css Arteri --}}
-    {{--    @if ($page === "Arteri")--}}
-    {{--        <link rel="stylesheet" href="{{ asset("assets/css/landing/arteri.test.css") }}" />--}}
-    {{--    @endif--}}
-
+    {{--  --}}
     {{-- css keluarga-berbinar --}}
-    @if ($page === "keluarga-berbinar")
-        <link
-            rel="stylesheet"
-            href="{{ asset("assets/css/landing/keluarga-berbinar.css") }}"
-        />
-    @endif
+    {{-- @if ($page === "keluarga-berbinar") --}}
+    {{-- <link --}}
+    {{-- rel="stylesheet" --}}
+    {{-- href="{{ asset("assets/css/landing/keluarga-berbinar.css") }}" --}}
+    {{-- /> --}}
+    {{-- @endif --}}
 
     {{-- Css Produk Konseling --}}
     @if ($page === "Konseling")
@@ -121,12 +117,14 @@
     <script src="{{ asset("assets/js/landing/produk.js") }}"></script>
 @endif
 
+{{-- script karir --}}
 @if ($page === "Karir")
-    <script src="{{ asset("assets/js/landing/karir.js") }}"></script>
+    @vite("resources/js/landing/karir.js")
 @endif
 
+{{-- script arteri --}}
 @if ($page === "Arteri")
-    <script src="{{ asset("assets/js/landing/arteri.js") }}"></script>
+    @vite("resources/js/landing/arteri.js")
 @endif
 
 {{-- Script Produk Konseling --}}

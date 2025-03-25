@@ -93,6 +93,7 @@ Route::get('/faq-new', [LandingController::class, 'faq_new'])->name('faq-new');
 Route::get('/term-condition-new', [LandingController::class, 'term_condition_new'])->name('term-condition-new');
 Route::get('/privacy-policy-new', [LandingController::class, 'privacy_policy_new'])->name('privacy-policy-new');
 Route::get('/arteri', [ArteriController::class, 'index'])->name('arteri');
+Route::get('/arteri/{id}', [ArteriController::class, 'show'])->name('arteri-detail');
 Route::get('/karir-new', [LandingController::class, 'karir_new'])->name('karir-new');
 Route::get('/karir-new/positions', [LandingController::class, 'positions_new'])->name('positions-new');
 Route::get('/karir-new/positions/{id}', [LandingController::class, 'positions_detail_new'])->name('positions-detail-new');

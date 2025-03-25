@@ -1,4 +1,6 @@
 @tailwind base;
+
+
 @layer base {
     /*.swiper-slide {*/
     /*    @apply border border-white;*/
@@ -14,6 +16,7 @@
     .filter-container .active {
         @apply bg-primary text-white
     }
+
 }
 
 
