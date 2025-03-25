@@ -56,11 +56,11 @@
                                                 style="background-color: #E9B306;">
                                                 <i class='bx bx-edit-alt text-white'></i>
                                             </a>
-                                            <a href="#"
+                                            <button onclick="toggleModal('modal-id')" type="button"
                                                 class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-2 focus:outline-none rounded hover:bg-red-700"
                                                 style="background-color: #EF4444;">
                                                 <i class='bx bx-trash-alt text-white'></i>
-                                            </a>
+                                            </button>
                                         </div>
                                     </td>
                                 </tr>
@@ -71,4 +71,6 @@
             </div>
         </div>
     </div>
+</section>
+@include('moduls.dashboard.arteri.warning')  
 @endsection

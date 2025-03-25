@@ -10,17 +10,15 @@
     <div class="flex flex-col w-full h-full">
         <div class="py-4 md:pt-12 md:pb-7">
             <div>
-                <p 
-                    class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
-                    Edit Artikel</p>
+                <p class="font-bold text-red-700">( Fitur save tidak ada, sebaiknya jangan pindah halaman saat perubahan berlangsung ! )</p>
                     <a>
                         <button type="button"
                             class="focus:ring-2 focus:ring-offset-2  mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded-lg">
-                            <p class=" font-medium leading-none text-dark">Simpan</p>
+                            <p class=" font-medium leading-none text-dark">Update</p>
                         </button>
                     </a>
                     <a>
-                        <button type="button"
+                        <button onclick="toggleModal('modal-id')" type="button"
                             class="focus:ring-2 focus:ring-offset-2  mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white focus:outline-none rounded-lg" style="background-color: #EF4444;">
                             <p class=" font-medium leading-none text-dark">Hapus</p>
                         </button>
@@ -36,6 +34,7 @@
         </div>
     </div>
 </section>
+@include('moduls.dashboard.arteri.warning') 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.tiny.cloud/1/7y3v8c74x8ldew9lmmmw5hxivw4c8b24gw9xzlljbol4bt6r/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
@@ -60,63 +59,6 @@
         });
     });
 </script>
-
 @endsection
-
-{{-- Kode dibawah ini mungkin bisa jadi referensi untuk BE klo mo simpan valuenya sebagai content HTML --}}
-
-{{-- ganti ini di div yg child nya ada textarea  --}}
-
-{{-- <form action="{{ route('artikel.store') }}" method="POST">
-    @csrf
-    <label for="judul">Judul Artikel</label>
-    <input type="text" name="judul" id="judul" class="border p-2" />
-
-    <label for="my-editor">Isi Artikel</label>
-    <textarea id="my-editor" name="content"></textarea>
-    
-    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Simpan</button>
-</form> --}}
-
-{{-- controllernya kurang lebih kek gni  --}}
-
-{{-- namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use App\Models\Artikel; // Model
-
-class ArtikelController extends Controller
-{
-    public function store(Request $request)
-    {
-        // 1. Validasi jika perlu
-        $validatedData = $request->validate([
-            'judul' => 'required|string|max:255',
-            'content' => 'required|string',
-        ]);
-
-        // 2. Simpan ke database
-        Artikel::create([
-            'judul' => $validatedData['judul'],
-            'isi' => $validatedData['content'], // atau 'content'
-        ]);
-
-        // 3. Redirect atau tampilkan pesan sukses
-        return redirect()->route('artikel.index')->with('success', 'Artikel berhasil disimpan!');
-    }
-} --}}
-
-{{-- bentuk migrasinya gini mungkin  --}}
-
-{{-- // database/migrations/xxxx_xx_xx_create_artikels_table.php
-public function up()
-{
-    Schema::create('artikels', function (Blueprint $table) {
-        $table->id();
-        $table->string('judul');
-        $table->longText('isi'); // longText cocok untuk HTML
-        $table->timestamps();
-    });
-} --}}
 
 

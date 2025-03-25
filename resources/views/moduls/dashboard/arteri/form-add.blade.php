@@ -56,27 +56,26 @@ id="modal-id">
                             </div>
                         </div>
                         <div class="col-span-3">
-                            {{-- ini ngebug gabisa upload  --}}
                             <label for="sampul"
                             class="block text-lg font-semibold leading-6 text-gray-500 ">Unggah Sampul</label>
-                            <div for="file-upload"
+                            <label for="file-upload"
                                 class="flex flex-col items-center justify-center w-full h-48 rounded-md
                                         border-2 mt-2
                                         cursor-pointer hover:bg-gray-100 transition-colors duration-200">
-                                <svg class="w-12 h-12 text-blue-400 mb-2" fill="none" stroke="currentColor" stroke-width="1.5"
+                                <svg id="upload-icon" class="w-12 h-12 text-gray-400 mb-2" fill="none" stroke="currentColor" stroke-width="1.5"
                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M3 16.5v-1.75a2.75 2.75 0 012.75-2.75h3.75A2.75 2.75 0 0112 12.75v1.75h-4.5a1.25 1.25 0 000 2.5h4.5v1.75a2.75 2.75 0 01-2.75 2.75H5.75A2.75 2.75 0 013 19.25v-1.75zm18 1.75v-1.75a2.75 2.75 0 00-2.75-2.75h-3.75A2.75 2.75 0 0012 16.5v1.75h4.5a1.25 1.25 0 010 2.5H12v1.75a2.75 2.75 0 002.75 2.75h3.75A2.75 2.75 0 0021 22.25v-1.75z" />
                                 </svg>
         
-                                <span id="uploadText" class="font-semibold text-blue-600 underline">
+                                <span id="uploadText" class="font-semibold text-gray-500 underline">
                                     Click to Upload or Drag & Drop
                                 </span>
-                                <span class="text-xs text-gray-400">Max. File Size: 15MB</span>
+                                <span id="sizeFile" class="text-xs text-gray-400">Max. File Size: 5MB</span>
         
                                 <input id="file-upload" name="answer_image" type="file" class="hidden"
                                     onchange="showFilename()" />
-                            </div>
+                            </label>
                         </div>
                         <div class="grid grid-cols-6 gap-4">
                             <div class="col-span-3">
@@ -108,7 +107,7 @@ id="modal-id">
                     </div>
                     <!--footer-->
                     <div
-                        class="flex items-center justify-center pt-7 border-t border-solid border-blueGray-200 rounded-b gap-5">
+                        class="flex items-center justify-center pt-7 rounded-b gap-5">
                         <button type="submit" name="submit"
                             class="inline-flex px-6 py-3 bg-primary hover:bg-primary focus:outline-none rounded">
                             <p class="text-base font-semibold leading-none text-white">
@@ -130,16 +129,22 @@ id="modal-id">
 
 <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center"
     id="modal-id">  
-                                
+
     <script>
         function showFilename() {
             const input = document.getElementById('file-upload');
             const uploadText = document.getElementById('uploadText');
+            const uploadIcon = document.getElementById('upload-icon');
+            const idSize = document.getElementById('sizeFile');
 
             if (input.files && input.files.length > 0) {
                 uploadText.textContent = input.files[0].name;
+                uploadIcon.classList.add('hidden'); 
+                idSize.classList.add('hidden'); 
             } else {
                 uploadText.textContent = "Click to Upload or Drag & Drop";
+                uploadIcon.classList.remove('hidden'); 
+                idSize.classList.remove('hidden'); 
             }
         }
         function toggleModal(modalId) {
