@@ -1,7 +1,7 @@
 @extends('moduls.dashboard.layouts.main', [
     'title' => 'Dashboard Arteri',
     'active' => 'Dashboard',
-    'modul' => '',
+    'modul' => 'Postingan',
 ])
 
 @section('content-dashboard')

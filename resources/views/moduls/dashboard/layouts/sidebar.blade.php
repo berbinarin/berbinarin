@@ -286,14 +286,14 @@
         </li>
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.article.kategori') }}" class=" flex flex-row items-center @if ($modul === 'Draft') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-                <i class="bx bx-clipboard text-xl mr-2 @if ($modul === 'Draft') text-primary @else text-gray-700 @endif text-lg"></i>
+                <i class="bx bxs-category-alt text-xl mr-2 @if ($modul === 'Draft') text-primary @else text-gray-700 @endif text-lg"></i>
                 <span class="text-base font-bold ml-4 leading-5">Kategori</span>
             </a>
         </li>
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.article.postingan') }}" class=" flex flex-row items-center @if ($modul === 'Postingan') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
                 <i class="bx bx-cloud-upload text-xl mr-2 @if ($modul === 'Postingan') text-primary @else text-gray-700 @endif text-lg"></i>
-                <span class="text-base font-bold ml-4 leading-5">Postingan</span>
+                <span class="text-base font-bold ml-4 leading-5">Artikel</span>
             </a>
         </li>
         @endif

@@ -12,7 +12,7 @@
                 <div>
                     <p tabindex="0"
                         class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
-                        Postingan</p>
+                        Artikel</p>
                     <p class="w-2/4 text-disabled">Halaman yang menampilkan kumpulan artikel yang sudah di publikasikan dalam website Berbinar</p>
                     <a href="{{ route('dashboard.article.create') }}">
                         <button type="button"
@@ -61,6 +61,11 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-center">
                                         <div class="flex justify-center items-center gap-2">
+                                            <a href="{{ route('dashboard.article.detail') }}"
+                                                class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-2 focus:outline-none rounded hover:bg-yellow-700"
+                                                style="background-color: #04CA00;">
+                                                <i class='bx bx-show-alt text-white'></i>
+                                            </a>
                                             <a href="{{ route('dashboard.article.update') }}"
                                                 class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-2 focus:outline-none rounded hover:bg-yellow-700"
                                                 style="background-color: #E9B306;">

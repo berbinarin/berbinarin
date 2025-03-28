@@ -42,4 +42,9 @@ class DashboardArticle extends Controller
     {
         return view('moduls.dashboard.arteri.penulis');
     }
+    
+    public function detailArticle()
+    {
+        return view('moduls.dashboard.arteri.detail');
+    }
 }

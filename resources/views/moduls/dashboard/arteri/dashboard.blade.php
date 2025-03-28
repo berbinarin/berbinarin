@@ -11,39 +11,33 @@
             <div>
                 <p 
                     class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
-                    Dashboard Arteri</p>
-                <p class="w-2/4 text-disabled">Dashboard ini memberikan informasi jumlah artikel dalam draft dan yang telah diupload.</p>
+                    Dashboard ArteRi</p>
+                <p class="w-2/4 text-disabled">Dashboard ini menampilkan ringkasan statistik, daftar artikel, penulis, dan kategori.</p>
             </div>
         </div>  
 
         <div class="rounded-lg shadow-md w-full p-10 bg-white box-border overflow-hidden" style="height:65%">
-            <div class="grid grid-cols-3 gap-5 h-1/2">
+            <div class="grid grid-cols-3 gap-5 h-full">
                 <div class="text-white rounded-lg flex flex-col justify-between p-6 relative" style="background-color: #48576A;">
-                    <h3 class="block text-2xl font-bold">Buat Artikel</h3>
-                    <a href="{{ route('dashboard.article.create') }}">
-                        <button class="flex gap-2 items-center hover:text-gray-300">
-                            <i class="bx bx-plus-circle text-8xl"></i>
-                        </button>
-                    </a>
-                </div>
-                <div class="text-white rounded-lg flex flex-col justify-between p-6 relative" style="background-color: #6482AD;">
-                    <h3 class="block text-2xl font-bold">Draft Arteri</h3>
-                    <div>
-                        <p class="block text-4xl font-bold">12</p>
-                        <p>Draft</p>
+                    <h3 class="block text-2xl font-bold">Artikel</h3>
+                    <div class="absolute p-6 bottom-2 right-2 flex flex-col gap-4 font-semibold">
+                        <p class="text-end text-5xl">30</p>
+                        <p>Postingan Artikel</p>
                     </div>
-                    <span class="absolute p-6 bottom-2 right-2 text-xl">13</span>
                 </div>
-            </div>
-
-            <div class="grid grid-cols-2 gap-5 h-1/2 mt-5">
+                <div class="text-white rounded-lg flex flex-col justify-between p-6 relative" style="background-color: #A2ACBD;">
+                    <h3 class="block text-2xl font-bold">Penulis Artikel</h3>
+                    <div class="absolute p-6 bottom-2 right-2 flex flex-col gap-4 font-semibold">
+                        <p class="text-end text-5xl">30</p>
+                        <p>Penulis</p>
+                    </div>
+                </div>
                 <div class="text-white rounded-lg flex flex-col justify-between p-6 relative" style="background-color: #9E866A;">
-                    <h3 class="block text-2xl font-bold">Terupload</h3>
-                    <div>
-                        <p class="block text-4xl font-bold">12</p>
-                        <p>Artikel Terupload</p>
+                    <h3 class="block text-2xl font-bold">Kategori Artikel</h3>
+                    <div class="absolute p-6 bottom-2 right-2 flex flex-col gap-4 font-semibold">
+                        <p class="text-end text-5xl">30</p>
+                        <p>Kategori</p>
                     </div>
-                    <span class="absolute p-6 bottom-2 right-2 text-xl">26</span>
                 </div>
             </div>
         </div>
