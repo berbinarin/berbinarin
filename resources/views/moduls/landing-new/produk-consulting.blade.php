@@ -60,13 +60,13 @@
         <div class="swiperContainer">
             <div class="swiper" id="swiperConsulting">
                 <div class="swiper-wrapper">
-                    @foreach ($layanan_konselings as $layanan_konseling)
+                    @foreach ($layanan_consultings as $layanan_consulting)
                     <div class="swiper-slide">
                         <div class="bg-white py-4 px-6 max-sm:py-3 max-sm:px-4 rounded-xl shadow-md bg-opacity-90 backdrop-blur-sm h-full flex min-h-[313px] max-sm:min-h-[300px] max-lg:min-h-[375px] max-lg:w-full max-xl:w-[95%] flex-col">
-                            <p class="text-lg max-sm:text-[17px] font-semibold text-black leading-tight min-h-[45px] max-sm:min-h-[40px] max-lg:min-h-[67px]">{{ $layanan_konseling['category'] }}</p>
-                            <p class="text-[30px] max-lg:text-2xl font-semibold text-[#3986A3] mt-3 max-sm:mt-1.5 leading-none">{{ $layanan_konseling['price'] }}<span class="text-[#70787D] text-[18px] align-top">*</span></p>
-                            <p class="text-sm text-justify text-[#70787D] mt-5 max-sm:mt-2 flex-grow">{{ $layanan_konseling['description'] }}</p>
-                            <a href="{{ $layanan_konseling['link'] }}" target="_blank">
+                            <p class="text-lg max-sm:text-[17px] font-semibold text-black leading-tight min-h-[45px] max-sm:min-h-[40px] max-lg:min-h-[67px]">{{ $layanan_consulting['category'] }}</p>
+                            <p class="text-[30px] max-lg:text-2xl font-semibold text-[#3986A3] mt-3 max-sm:mt-1.5 leading-none">{{ $layanan_consulting['price'] }}<span class="text-[#70787D] text-[18px] align-top">*</span></p>
+                            <p class="text-sm text-justify text-[#70787D] mt-5 max-sm:mt-2 flex-grow">{{ $layanan_consulting['description'] }}</p>
+                            <a href="{{ $layanan_consulting['link'] }}" target="_blank">
                                 <div class="flex justify-center mt-4 max-sm:mt-2 mb-1">
                                     <button class="text-white bg-gradient-to-r text-sm from-[#F7B23B] to-[#AD7D29] py-1.5 px-4 rounded-lg">Mulai Sekarang</button>
                                 </div>
@@ -83,22 +83,26 @@
     </div>
 </div>
 
-<section class="my-10">
+<section class="my-10 relative">
     <p class="max-sm:text-[29px] text-4xl font font-semibold text-black text-center mb-5 mt-5 max-sm:my-4 max-sm:mx-2 mx-20 relative z-10">Paket <span class="italic">Bundling</span></p>
 
-    <div class="flex flex-wrap justify-center gap-5 w-full max-sm:px-4 px-5">
-    @foreach ($bundlings as $bundling)
-    <div class="bg-white shadow-md p-5 max-sm:p-3 flex flex-col rounded-xl text-center w-[300px] max-sm:w-full"> <!-- Sesuaikan lebar card -->
-        <p class="text-lg max-sm:text-[17px] font-semibold text-black leading-tight max-sm:min-h-[43px] min-h-[67px] customheight">{{ $bundling['category'] }}</p>
-        <p class="text-lg max-sm:text-[16px] font-semibold text-[#70787D] mt-3 max-sm:mt-1.5 leading-none"><del>{{ $bundling['discount'] }}</del> <span class="text-white bg-[#EF5350] p-1 rounded-md">10%</span></p>
-        <p class="text-[30px] max-sm:text-[22px] font-semibold text-[#3986A3] mt-3 max-sm:mt-1.5 leading-none flex-grow">{{ $bundling['price'] }}</p>
-        <a href="{{ $bundling['link'] }}" target="_blank">
-            <div class="flex justify-center mt-5 max-sm:mt-4 mb-1">
-                <button class="text-white bg-gradient-to-r text-sm from-[#F7B23B] to-[#AD7D29] py-1.5 px-4 rounded-lg">Mulai Sekarang</button>
+    <div class="mx-40 max-lg:mx-20 max-sm:mx-4">
+        <div class="grid sm:grid-cols-2 grid-cols-1 justify-center gap-5 w-full">
+            @foreach ($bundlings as $bundling)
+            <div class="bg-white shadow-md p-5 max-sm:p-3 flex flex-col rounded-xl text-center"> 
+                <p class="text-lg max-sm:text-[17px] font-semibold text-black leading-tight max-sm:min-h-[43px] min-h-[43px] customheight">{{ $bundling['category'] }}</p>
+                <p class="text-lg max-sm:text-[16px] font-semibold text-[#70787D] mt-3 max-sm:mt-1.5 leading-none"><del>{{ $bundling['discount'] }}</del> <span class="text-white bg-[#EF5350] p-1 rounded-md">10%</span></p>
+                <p class="text-[30px] max-sm:text-[22px] font-semibold text-[#3986A3] mt-3 max-sm:mt-1.5 leading-none flex-grow">{{ $bundling['price'] }}</p>
+                <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-divider.svg') }}" alt="Vector" class="sm:my-4 my-2 w-full">
+                <a href="{{ $bundling['link'] }}" target="_blank">
+                    <div class="flex justify-center mb-1">
+                        <button class="text-white bg-gradient-to-r text-sm from-[#F7B23B] to-[#AD7D29] py-1.5 px-4 rounded-lg">Mulai Sekarang</button>
+                    </div>
+                </a>
             </div>
-        </a>
+            @endforeach
+        </div>
+        <p class="text-[16px] max-sm:text-[14px] text-[#4F4F4F] mt-2 text-left">*Harga masih bisa dinegosiasikan dan menyesuaikan dengan benefit yang ingin didapatkan.</p>
     </div>
-    @endforeach
-</div>
 </section>
 @endsection
