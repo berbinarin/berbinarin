@@ -15,6 +15,7 @@ class CreateEpiQuestionsTable extends Migration
             $table->id();
             $table->string('statement');
             $table->enum('category', ['Extroversion', 'Neuroticism', 'Lie']);
+            $table->enum('answer_key', ['yes', 'no']);
             $table->timestamps();
         });
     }

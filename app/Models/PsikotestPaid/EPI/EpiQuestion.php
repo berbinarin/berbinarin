@@ -9,7 +9,7 @@ class EpiQuestion extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['statement', 'category'];
+    protected $fillable = ['statement', 'category', 'answer_key'];
 
     public function answers()
     {

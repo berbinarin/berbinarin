@@ -10,7 +10,7 @@ class EpiAnswer extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'fullname', 'question_id', 'answer', 'points'];
+    protected $fillable = ['user_id', 'fullname', 'question_id', 'answer', 'points', 'conclusion'];
 
     public function question()
     {

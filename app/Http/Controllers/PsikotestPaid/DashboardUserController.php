@@ -598,32 +598,81 @@ class DashboardUserController extends Controller
     }
 
     public function detailEPI($userId)
-    {
-        $user = UserPsikotestPaid::findOrFail($userId);
-        $answers = EpiAnswer::where('user_id', $userId)->with('question')->get();
+{
+    $user = UserPsikotestPaid::findOrFail($userId); // Ambil data pengguna berdasarkan ID
+    $answers = EpiAnswer::where('user_id', $userId)->with('question')->get(); // Ambil jawaban pengguna
 
-        $categoryScores = [
-            'Extroversion' => 0,
-            'Neuroticism' => 0,
-            'Lie' => 0,
-        ];
+    // Inisialisasi skor kategori
+    $categoryScores = [
+        'Extraversion' => 0,
+        'Neuroticism' => 0,
+        'Lie' => 0,
+    ];
 
-        foreach ($answers as $answer) {
-            $categoryScores[$answer->question->category] += $answer->points;
-        }
-
-        $highestCategory = array_keys($categoryScores, max($categoryScores))[0];
-        $highestScore = max($categoryScores);
-        $conclusion = $highestCategory == 'Extroversion' ? 'Introversi' : 'Ekstroversi';
-
-        $categoryColors = [
-            'Extroversion' => 'blue',
-            'Neuroticism' => 'purple',
-            'Lie' => 'red',
-        ];
-
-        return view('moduls.dashboard.psikotes-paid.tools.epi.detailEPI', compact('user', 'answers', 'categoryScores', 'highestCategory', 'highestScore', 'conclusion', 'categoryColors'));
+    // Hitung total poin per kategori
+    foreach ($answers as $answer) {
+        $categoryScores[$answer->question->category] += $answer->points;
     }
+
+    // Tentukan kategori dengan skor tertinggi
+    $highestCategory = array_keys($categoryScores, max($categoryScores))[0];
+    $highestScore = max($categoryScores);
+
+    // Tentukan kesimpulan berdasarkan kategori dengan skor tertinggi
+    $conclusion = $this->getConclusionForHighestCategory($highestCategory, $highestScore);
+
+    // Warna untuk setiap kategori (untuk visualisasi)
+    $categoryColors = [
+        'Extraversion' => 'blue',
+        'Neuroticism' => 'purple',
+        'Lie' => 'red',
+    ];
+
+    return view('moduls.dashboard.psikotes-paid.tools.epi.detailEPI', compact(
+        'user',
+        'answers',
+        'categoryScores',
+        'highestCategory',
+        'highestScore',
+        'conclusion',
+        'categoryColors'
+    ));
+}
+
+/**
+ * Tentukan kesimpulan berdasarkan kategori dengan skor tertinggi.
+ */
+private function getConclusionForHighestCategory($category, $score)
+{
+    switch ($category) {
+        case 'Lie':
+            if ($score <= 3) {
+                return 'Saint';
+            } elseif ($score == 4) {
+                return 'Mean';
+            } else {
+                return 'Taking';
+            }
+        case 'Extraversion':
+            if ($score <= 12) {
+                return 'Introversi';
+            } elseif ($score == 13) {
+                return 'Mean';
+            } else {
+                return 'Ekstroversi';
+            }
+        case 'Neuroticism':
+            if ($score <= 9) {
+                return 'Stabilitas';
+            } elseif ($score >= 10 && $score <= 13) {
+                return 'Mean';
+            } else {
+                return 'Neurotisisme';
+            }
+        default:
+            return 'Unknown';
+    }
+}
 
     public function dashboardRMIB()
     {

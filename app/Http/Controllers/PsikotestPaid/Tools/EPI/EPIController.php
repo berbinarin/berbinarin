@@ -20,46 +20,100 @@ class EPIController extends Controller
         $questions = EpiQuestion::all();
         return view('moduls.psikotes-paid.tools.epi.test', compact('questions'));
     }
-
     public function submitTest(Request $request)
     {
-        $user = Auth::user();
-        $userId = $user->id;
-        $fullname = $user->fullname;
+        $userId = Auth::id(); 
         $answers = $request->input('answers');
-        $totalPoints = 0;
 
+        // Inisialisasi total poin per kategori
+        $categoryPoints = [
+            'Lie' => 0,
+            'Extraversion' => 0,
+            'Neuroticism' => 0,
+        ];
+
+        // Simpan jawaban dan hitung poin per kategori
         foreach ($answers as $questionId => $answer) {
             $question = EpiQuestion::find($questionId);
-            $points = 0;
+            $points = $this->calculatePoints($questionId, $answer);
 
-            // poin berdasarkan kategori dan jawaban
-            if ($answer == 'yes') {
-                switch ($question->category) {
-                    case 'Extroversion':
-                        $points = 3;
-                        break;
-                    case 'Neuroticism':
-                        $points = 2;
-                        break;
-                    case 'Lie':
-                        $points = 1;
-                        break;
-                }
-            }
+            // Tambahkan poin ke kategori terkait
+            $categoryPoints[$question->category] += $points;
+            $conclusion = $this->getConclusionForCategory($question->category, $categoryPoints[$question->category]);
 
+            // Simpan jawaban ke database
             EpiAnswer::create([
                 'user_id' => $userId,
+                'fullname' => Auth::user()->fullname, 
                 'question_id' => $questionId,
-                'fullname' => $fullname,
                 'answer' => $answer,
                 'points' => $points,
+                'conclusion' => $conclusion, // Kesimpulan akan dihitung di bawah
             ]);
-
-            $totalPoints += $points;
         }
 
+
+        // Redirect ke halaman summary
         return redirect()->route('psikotest-paid.tool.EPI.summary');
+    }
+
+
+    private function getConclusionForCategory($category, $totalPoints)
+    {
+        switch ($category) {
+            case 'Lie':
+                return $this->getLieConclusion($totalPoints);
+            case 'Extraversion':
+                return $this->getExtraversionConclusion($totalPoints);
+            case 'Neuroticism':
+                return $this->getNeuroticismConclusion($totalPoints);
+            default:
+                return 'Unknown';
+        }
+    }
+
+    private function calculatePoints($questionId, $answer)
+    {
+        $question = EpiQuestion::find($questionId);
+
+        // Jika jawaban sesuai poin 1, jika tidak poin 0
+        return $question->answer_key === $answer ? 1 : 0;
+    }
+
+    // Hitung kesimpulan untuk kategori Lie.
+    private function getLieConclusion($totalPoints)
+    {
+        if ($totalPoints <= 3) {
+            return 'Saint';
+        } elseif ($totalPoints == 4) {
+            return 'Mean';
+        } else {
+            return 'Taking';
+        }
+    }
+
+    // Hitung kesimpulan untuk kategori Extraversion.
+    private function getExtraversionConclusion($totalPoints)
+    {
+        if ($totalPoints <= 12) {
+            return 'Introversi';
+        } elseif ($totalPoints == 13) {
+            return 'Mean';
+        } else {
+            return 'Extraversi';
+        }
+    }
+
+    // Hitung kesimpulan untuk kategori Neuroticism.
+    private function getNeuroticismConclusion($totalPoints)
+    {
+        if ($totalPoints <= 9) {
+            return 'Stabilitas';
+        } elseif ($totalPoints >= 10 && $totalPoints <= 13) {
+            return 'Mean';
+        } else {
+            return 'Neurotisisme';
+        }
     }
 
     public function summary()

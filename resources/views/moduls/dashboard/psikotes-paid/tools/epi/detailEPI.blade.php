@@ -42,7 +42,7 @@
                                 @foreach ($categoryScores as $category => $score)
                                     <div class="flex items-center pb-4">
                                         <div
-                                            class="bg-{{ $categoryColors[$category] }}-300 h-10 w-[{{ $score * 50 }}px] rounded-r-lg ml-1">
+                                            class="bg-{{ $categoryColors[$category] }}-300 h-10 w-[{{ $score * 20}}px] rounded-r-lg ml-1">
                                         </div>
                                         <span class="ml-2 text-gray-700 font-medium">{{ $score }} poin</span>
                                     </div>

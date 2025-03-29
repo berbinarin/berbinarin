@@ -18,6 +18,7 @@ class CreateEpiAnswersTable extends Migration
             $table->foreignId('question_id')->constrained('epi_questions')->onDelete('cascade');
             $table->enum('answer', ['yes', 'no']);
             $table->integer('points');
+            $table->string('conclusion');
             $table->timestamps();
         });
     }
