@@ -132,17 +132,16 @@ Route::prefix('dashboard/admin/berbinar-family')->group(function () {
     Route::post('/submit', [DashboardController::class, 'submitBerbinarFamily'])->name('dashboard.berbinarFamily.submit');
 });
 
-
 // MODUL ARTIKEL
 Route::prefix('dashboard/admin/article')->group(function () {
     Route::get('/', [DashboardArticle::class, 'dashboardArticle'])->name('dashboard.article');
     Route::get('/create', [DashboardArticle::class, 'addArticle'])->name('dashboard.article.create');
     Route::get('/update', [DashboardArticle::class, 'updateArticle'])->name('dashboard.article.update');
-    Route::get('/draft', [DashboardArticle::class, 'draftArticle'])->name('dashboard.article.draft');
+    Route::get('/kategori', [DashboardArticle::class, 'kategoriArticle'])->name('dashboard.article.kategori');
     Route::get('/postingan', [DashboardArticle::class, 'postinganArticle'])->name('dashboard.article.postingan');
+    Route::get('/penulis', [DashboardArticle::class, 'penulisArticle'])->name('dashboard.article.penulis');
+    Route::get('/detail', [DashboardArticle::class, 'detailArticle'])->name('dashboard.article.detail');
 });
-
-
 
 //DASHBOARD ADMIN E-LEARNING PSIKOTEST
 Route::get('/psikotestData', [DashboardController::class, 'psikotestData'])->name('psikotes.dashboard.psikotestData');

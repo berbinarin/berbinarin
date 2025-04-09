@@ -54,16 +54,16 @@
                         @if (Auth::user()->role == 'PsikotestPaid')
                         <p 
                         class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
-                        Dashboard Arteri</p>
-                    <p class="w-2/4 text-disabled">Dashboard ini memberikan informasi jumlah artikel dalam draft dan yang telah diupload.</p>
+                        Dashboard PsikotestPaid</p>
+                    <p class="w-2/4 text-disabled">Dashboard </p>
                         @else
                             <p class="text-disabled"></p>
                         @endif
                         @if (Auth::user()->role == 'BerbinarSatu')
                             <p tabindex="0"
                                 class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
-                                Dashboard Arteri</p>
-                            <p class="text-base text-disabled">Dashboard ini memberikan informasi jumlah artikel dalam draft dan yang telah diupload.</p>
+                                Dashboard ArteRi</p>
+                            <p class="text-base text-disabled">Dashboard ini menampilkan ringkasan statistik, daftar artikel, penulis, dan kategori.</p>
                         @else
                             <p class="text-disabled"></p>
                         @endif
@@ -222,35 +222,28 @@
                     </div>
                 </div>
                 @elseif (Auth::user()->role == 'BerbinarSatu')
-                <div class="relative flex-grow bg-white shadow-md p-10 overflow-hidden" style="width: 1200px; height: 459px">
-                    <div class="grid grid-cols-3 gap-5 h-1/2">
+                <div class="relative flex-grow bg-white shadow-md p-10 overflow-hidden" style="width: 1150px; height: 470px">
+                    <div class="grid grid-cols-3 gap-5 h-full">
                         <div class="text-white rounded-lg flex flex-col justify-between p-6 relative" style="background-color: #48576A;">
                             <h3 class="block text-2xl font-bold">Buat Artikel</h3>
-                            <a href="{{ route('dashboard.article.create') }}">
-                                <button class="flex gap-2 items-center hover:text-gray-300">
-                                    <i class="bx bx-plus-circle text-8xl"></i>
-                                    <p class="text-4xl">Tambahkan</p>
-                                </button>
-                            </a>
+                            <div class="absolute p-6 bottom-2 right-2 flex flex-col gap-4 font-semibold">
+                                <p class="text-end text-5xl">30</p>
+                                <p>Postingan Artikel</p>
+                            </div>
                         </div>
                         <div class="text-white rounded-lg flex flex-col justify-between p-6 relative" style="background-color: #6482AD;">
                             <h3 class="block text-2xl font-bold">Draft Arteri</h3>
-                            <div>
-                                <p class="block text-4xl font-bold">12</p>
-                                <p>Draft</p>
+                            <div class="absolute p-6 bottom-2 right-2 flex flex-col gap-4 font-semibold">
+                                <p class="text-end text-5xl">30</p>
+                                <p>Postingan Artikel</p>
                             </div>
-                            <span class="absolute p-6 bottom-2 right-2 text-xl">13</span>
                         </div>
-                    </div>
-        
-                    <div class="grid grid-cols-2 gap-5 h-1/2 mt-5">
                         <div class="text-white rounded-lg flex flex-col justify-between p-6 relative" style="background-color: #9E866A;">
                             <h3 class="block text-2xl font-bold">Terupload</h3>
-                            <div>
-                                <p class="block text-4xl font-bold">12</p>
-                                <p>Artikel Terupload</p>
+                            <div class="absolute p-6 bottom-2 right-2 flex flex-col gap-4 font-semibold">
+                                <p class="text-end text-5xl">30</p>
+                                <p>Postingan Artikel</p>
                             </div>
-                            <span class="absolute p-6 bottom-2 right-2 text-xl">26</span>
                         </div>
                     </div>
                 </div>
