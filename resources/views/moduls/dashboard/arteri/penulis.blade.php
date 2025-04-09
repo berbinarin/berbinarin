@@ -52,11 +52,11 @@
                                     <td class="break-words whitespace-normal font-semibold" style="min-width: 300px">{{ $article['date'] }}</td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-center">
                                         <div class="flex justify-center items-center gap-2">
-                                            <a href="{{ route('dashboard.article.update') }}"
+                                            <button onclick="bukaModalTambahPenulis()" type="button"
                                                 class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-2 focus:outline-none rounded hover:bg-yellow-700"
                                                 style="background-color: #E9B306;">
                                                 <i class='bx bx-edit-alt text-white'></i>
-                                            </a>
+                                            </button>
                                             <button onclick="bukaModalHapus({{ $article['id'] }})" type="button"
                                                 class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-2 focus:outline-none rounded hover:bg-red-700"
                                                 style="background-color: #EF4444;">

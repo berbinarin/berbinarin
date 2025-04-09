@@ -225,31 +225,29 @@
                 <div class="relative flex-grow bg-white shadow-md p-10 overflow-hidden" style="width: 1150px; height: 470px">
                     <div class="grid grid-cols-3 gap-5 h-full">
                         <div class="text-white rounded-lg flex flex-col justify-between p-6 relative" style="background-color: #48576A;">
-                            <h3 class="block text-2xl font-bold">Buat Artikel</h3>
+                            <h3 class="block text-2xl font-bold">Artikel</h3>
                             <div class="absolute p-6 bottom-2 right-2 flex flex-col gap-4 font-semibold">
                                 <p class="text-end text-5xl">30</p>
                                 <p>Postingan Artikel</p>
                             </div>
                         </div>
                         <div class="text-white rounded-lg flex flex-col justify-between p-6 relative" style="background-color: #6482AD;">
-                            <h3 class="block text-2xl font-bold">Draft Arteri</h3>
+                            <h3 class="block text-2xl font-bold">Penulis Arteri</h3>
                             <div class="absolute p-6 bottom-2 right-2 flex flex-col gap-4 font-semibold">
                                 <p class="text-end text-5xl">30</p>
-                                <p>Postingan Artikel</p>
+                                <p>Penulis</p>
                             </div>
                         </div>
                         <div class="text-white rounded-lg flex flex-col justify-between p-6 relative" style="background-color: #9E866A;">
-                            <h3 class="block text-2xl font-bold">Terupload</h3>
+                            <h3 class="block text-2xl font-bold">Kategori Artikel</h3>
                             <div class="absolute p-6 bottom-2 right-2 flex flex-col gap-4 font-semibold">
                                 <p class="text-end text-5xl">30</p>
-                                <p>Postingan Artikel</p>
+                                <p>Kategori</p>
                             </div>
                         </div>
                     </div>
                 </div>
             @endif
-            
-
         </div>
     </section>
 @endsection

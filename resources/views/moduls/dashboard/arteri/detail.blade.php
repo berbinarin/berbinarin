@@ -8,12 +8,12 @@
 
 <section class="flex w-full">
     <div class="flex flex-col w-full">
-        <div class="py-4 md:pt-12 md:pb-7">
+        <div class="py-4 md:pt-12 md:pb-7 w-full">
             <div class="pb-5">
                 <div class="flex items-center justify-between mb-2 gap-2">
                     <p tabindex="0"
                         class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 ">
-                        Detail Division Data</p>
+                        Detail Artikel</p>
                         <a href="{{ route('dashboard.article.update') }}">
                             <button type="button"
                                 class="focus:ring-2 focus:ring-offset-2  mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded-lg">
@@ -22,19 +22,23 @@
                         </a>
                 </div>
             </div>
-            <div class="flex flex-col gap-4" style="color: #9B9B9B">
-                <div class="flex flex-col gap-2">
+            <div class="flex gap-10 w-full" style="color: #9B9B9B">
+                <div class="flex flex-col gap-2 w-full">
                     <p>Kredensial</p>
-                    <div class="bg-white text-black rounded-md px-2 py-4">
-                        <p class="">Judul : <span class="font-semibold">Artikel Tips atasi demotivation Part 2</span></p>
-                        <p class="">Penulis : <span class="">Artikel Tips atasi demotivation Part 2</span></p>
-                        <p class="">Kategori : <span class="">Artikel Tips atasi demotivation Part 2</span></p>
+                    <div class="bg-white text-black rounded-md p-6 shadow-md shadow-black flex flex-col gap-2">
+                        <p class="">Judul : <span class="font-bold text-xl">Artikel Tips atasi demotivation Part 2</span></p>
+                        <p class="">Penulis : <span class="font-semibold">Artikel Tips atasi demotivation Part 2</span></p>
+                        <p class="">Kategori : <span class="font-semibold">Artikel Tips atasi demotivation Part 2</span></p>
                     </div>
                 </div>
-                <div class="flex flex-col gap-2" style="color: #9B9B9B">
+                <div class="flex flex-col gap-2 w-full" style="color: #9B9B9B">
                     <p>Sampul</p>
-                    <img class="rounded" style="width: 400px; height: 225px;"/>
+                    <img src="{{ asset('assets/images/abstractwallpaper.png') }}" class="rounded object-cover shadow-md shadow-black" style="height: 300px;"/>
                 </div>
+            </div>
+            <div class="bg-white shadow-md shadow-black px-20 py-8 w-full mt-5">
+                <h1 class="text-center">Lorem ipsum dolor sit amet consectetur. Nulla erat commodo viverra in non sagittis cum. Id aliquam scelerisque lorem ut elementum orci</h1>
+                {{-- isi konten lain-lain yg di pass dari BE  --}}
             </div>
         </div>
 </section>
