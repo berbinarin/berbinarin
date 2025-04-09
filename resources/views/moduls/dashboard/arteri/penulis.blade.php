@@ -31,33 +31,23 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        @php
-                            $articles = [
-                                ['id' => 1, 'title' => 'Class Of Product Management', 'date' => 'Julian Alvarez'],
-                                ['id' => 2, 'title' => 'Graphic Designer', 'date' => 'Julian Alvarez'],
-                                ['id' => 3, 'title' => 'Class Of Product Management', 'date' => 'Julian Alvarez'],
-                                ['id' => 4, 'title' => 'Graphic Designer', 'date' => 'Julian Alvarez'],
-                                ['id' => 5, 'title' => 'Class Of Product Management', 'date' => 'Julian Alvarez'],
-                                ['id' => 6, 'title' => 'Graphic Designer', 'date' => 'Julian Alvarez'],
-                            ];
-                        @endphp
-
                         <tbody>
-                            @foreach($articles as $article)
+                            @foreach($authors as $index => $author)
                                 <tr class="data-consume">
-                                    <td class="text-center font-bold">{{ $article['id'] }}.</td>
+                                    <td class="text-center font-bold">{{ $index + 1 }}.</td>
                                     <td class="flex justify-center">
-                                        <img src="{{ asset('assets/images/avatar.png') }}"/>
+                                        <img src="{{ asset('storage/' . $author->profil_image) }}" alt="Foto Profil" class="w-12 h-12 rounded-full"/>
                                     </td>
-                                    <td class="break-words whitespace-normal font-semibold" style="min-width: 300px">{{ $article['date'] }}</td>
+                                    <td class="break-words whitespace-normal font-semibold" style="min-width: 300px">{{ $author->name_author }}</td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-center">
                                         <div class="flex justify-center items-center gap-2">
-                                            <a href="{{ route('dashboard.article.update') }}"
+                                            {{-- Untuk edit blom bisa menunggu slicing selesai --}}
+                                            <a href=""
                                                 class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-2 focus:outline-none rounded hover:bg-yellow-700"
                                                 style="background-color: #E9B306;">
                                                 <i class='bx bx-edit-alt text-white'></i>
                                             </a>
-                                            <button onclick="bukaModalHapus({{ $article['id'] }})" type="button"
+                                            <button onclick="bukaModalHapus({{ $author->id }})" type="button"
                                                 class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-2 focus:outline-none rounded hover:bg-red-700"
                                                 style="background-color: #EF4444;">
                                                 <i class='bx bx-trash-alt text-white'></i>
@@ -90,7 +80,7 @@ id="tambah-penulis-modal">
             </div>
             <!--body-->
             <div class="relative px-6 pb-6 flex-auto">
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('dashboard.article.addpenulis') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-6">
                         <div class="flex justify-center mb-4">
@@ -101,7 +91,7 @@ id="tambah-penulis-modal">
                                 <label for="foto_profil" class="absolute bottom-0 right-0 bg-primary text-white p-1 rounded-full cursor-pointer">
                                     <i class='bx bx-pencil'></i>
                                 </label>
-                                <input type="file" id="foto_profil" name="foto_profil" class="hidden" accept="image/*" onchange="previewImage(event)">
+                                <input type="file" id="foto_profil" name="profil_image" class="hidden" accept="image/*" onchange="previewImage(event)">
                             </div>
                         </div>
                         
@@ -109,7 +99,7 @@ id="tambah-penulis-modal">
                             Nama Penulis
                         </label>
                         <input class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-100" 
-                            id="nama_penulis" type="text" name="nama_penulis" placeholder="Masukkan nama penulis" required>
+                            id="nama_penulis" type="text" name="name_author" placeholder="Masukkan nama penulis" required>
                     </div>
                     
                     <div class="flex items-center justify-between gap-3">
@@ -143,6 +133,7 @@ id="hapus-modal">
                     <p class="pt-5">Apakah Anda yakin ingin menghapus penulis ini?</p>
                     <!--footer-->
                     <form method="POST" action=""
+                        id="delete-penulis-form"
                         class="flex items-center justify-center pt-7 rounded-b gap-5">
                         @csrf
                         @method('DELETE')
@@ -212,37 +203,21 @@ function tutupModalTambahPenulis() {
 
 // Fungsi untuk modal Hapus
 function bukaModalHapus(penulisId) {
-    var modal = document.getElementById('hapus-modal');
-    var backdrop = document.getElementById('hapus-modal-backdrop');
-    var deleteInput = document.getElementById('delete_penulis_id');
-    
-    if (modal && backdrop) {
-        // Jika ada ID penulis, isi input hidden dengan ID tersebut
-        if (penulisId && deleteInput) {
-            deleteInput.value = penulisId;
-        }
-        
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-        backdrop.classList.remove('hidden');
-        backdrop.classList.add('flex');
-    } else {
-        console.error('Modal hapus atau backdrop tidak ditemukan');
-    }
+    const form = document.getElementById('delete-penulis-form');
+    form.action = `/dashboard/admin/article/penulis/${penulisId}`;
+
+    // Tampilkan modal hapus
+    document.getElementById('hapus-modal').classList.remove('hidden');
+    document.getElementById('hapus-modal').classList.add('flex');
+    document.getElementById('hapus-modal-backdrop').classList.remove('hidden');
+    document.getElementById('hapus-modal-backdrop').classList.add('flex');
 }
 
 function tutupModalHapus() {
-    var modal = document.getElementById('hapus-modal');
-    var backdrop = document.getElementById('hapus-modal-backdrop');
-    
-    if (modal && backdrop) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        backdrop.classList.add('hidden');
-        backdrop.classList.remove('flex');
-    } else {
-        console.error('Modal hapus atau backdrop tidak ditemukan');
-    }
+    document.getElementById('hapus-modal').classList.add('hidden');
+    document.getElementById('hapus-modal').classList.remove('flex');
+    document.getElementById('hapus-modal-backdrop').classList.add('hidden');
+    document.getElementById('hapus-modal-backdrop').classList.remove('flex');
 }
 </script>
 @endsection

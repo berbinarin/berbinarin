@@ -4,21 +4,23 @@ namespace App\Models\PsikotestPaid\EPI;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\PsikotestPaid\UserPsikotestPaid; // Sesuaikan dengan path folder yang benar
+use App\Models\PsikotestPaid\UserPsikotestPaid;
+use App\Models\PsikotestPaid\PsikotestPaidTest;
 
 class EpiAnswer extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'fullname', 'question_id', 'answer', 'points', 'conclusion'];
+    protected $fillable = ['psikotest_paid_test_id', 'question_id', 'answer', 'points', 'conclusion'];
 
     public function question()
     {
         return $this->belongsTo(EpiQuestion::class, 'question_id');
     }
 
-    public function user()
+    public function psikotestPaidTest()
     {
-        return $this->belongsTo(UserPsikotestPaid::class, 'user_id');
+        return $this->belongsTo(PsikotestPaidTest::class, 'psikotest_paid_test_id');
     }
+
 }

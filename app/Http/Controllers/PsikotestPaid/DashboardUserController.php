@@ -29,6 +29,15 @@ use App\Models\PsikotestPaid\DAP\AnswerDap;
 use App\Models\PsikotestPaid\DAP\QuestionDap;
 use App\Models\PsikotestPaid\DAP\TestDap;
 use App\Models\PsikotestPaid\EPI\EpiAnswer;
+use App\Models\PsikotestPaid\TesEsai\AnswerTesEsai;
+use App\Models\PsikotestPaid\TesEsai\TestTesEsai;
+use App\Models\PsikotestPaid\PsikotestPaidTest;
+use App\Models\PsikotestPaid\VAK\AnswerVak;
+use App\Models\PsikotestPaid\VAK\QuestionVak;
+use App\Models\PsikotestPaid\VAK\ResultVak;
+use App\Models\PsikotestPaid\VAK\TestVak;
+use LDAP\Result;
+use App\Models\Test;
 
 class DashboardUserController extends Controller
 {
@@ -305,27 +314,115 @@ class DashboardUserController extends Controller
 
     public function psikotesPaidDashboardEsai()
     {
-        return view('moduls.dashboard.psikotes-paid.dashboardesai');
+        $totalJumlahPengguna = TestTesEsai::whereHas('answerTesEsai')
+            ->distinct('psikotest_paid_test_id')
+            ->count('psikotest_paid_test_id');
+        $totalJawaban = TestTesEsai::withCount('answerTesEsai')->get()->sum('answer_tes_esai_count');
+        return view('moduls.dashboard.psikotes-paid.dashboardesai', compact('totalJumlahPengguna', 'totalJawaban'));
     }
 
     public function psikotesPaidPengumpulan()
     {
-        return view('moduls.dashboard.psikotes-paid.pengumpulan');
+        // Data jawaban esai beserta pengguna terkait
+        $answers = AnswerTesEsai::with([
+            'testTesEsai.psikotestPaidTest.userPsikotestPaid',
+            'questionTesEsai'
+        ])->get();
+
+        return view('moduls.dashboard.psikotes-paid.pengumpulan', compact('answers'));
     }
 
     public function dashboardVAK()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.vak.dashboardVAK');
+        $respondens = PsikotestPaidTest::where('psikotest_tool_id', 13)
+            ->count();
+
+        $testVakIds = TestVak::whereIn('psikotest_paid_test_id', function ($query) {
+            $query->select('id')
+                ->from('psikotest_paid_tests')
+                ->where('psikotest_tool_id', 13);
+        })->pluck('id');
+
+        // Hitung total semua jawaban 
+        $totalJawaban = AnswerVak::whereIn('test_vak_id', $testVakIds)->count();
+
+        return view('moduls.dashboard.psikotes-paid.tools.vak.dashboardVAK', compact('respondens', 'totalJawaban'));
     }
 
     public function jawabanVAK()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.vak.jawabanVAK');
+        $respondens = PsikotestPaidTest::with('userPsikotestPaid')
+            ->where('psikotest_tool_id', 13)
+            ->get();
+        return view('moduls.dashboard.psikotes-paid.tools.vak.jawabanVAK', compact('respondens'));
     }
 
-    public function detailVAK()
+    public function detailVAK($id)
     {
-        return view('moduls.dashboard.psikotes-paid.tools.vak.detailVAK');
+        $responden = PsikotestPaidTest::with('userPsikotestPaid')->findOrFail($id);
+        $testVak = TestVak::where('psikotest_paid_test_id', $responden->id)->first();
+        $result = $testVak ? ResultVak::where('test_vak_id', $testVak->id)->first() : null;
+
+        $visual = $result ? $result->visual : 0;
+        $auditory = $result ? $result->auditori : 0;
+        $kinestetik = $result ? $result->kinestetik : 0;
+
+        // Menentukan kecenderungan belajar
+        if ($visual >= $auditory) {
+            $terpilih = 'visual';
+        } else {
+            $terpilih = 'auditory';
+        }
+
+        if ($terpilih === 'visual' && $visual >= $kinestetik) {
+            $description = 'Kecenderungan siswa untuk menerima informasi dalam belajar dengan menggunakan indera penglihatan. Gaya belajar ini mengakses citra visual seperti warna, gambar, dan video.';
+        } elseif ($terpilih === 'auditory' && $auditory >= $kinestetik) {
+            $description = 'Kecenderungan siswa untuk menerima informasi dalam belajar dengan melibatkan indera pendengaran.';
+        } else {
+            $description = 'Kecenderungan siswa untuk menerima informasi dalam belajar dengan melibatkan gerakan/psikomotorik.';
+        }
+
+        // Ambil jawaban berdasarkan kategori dari database dan format jawaban
+        $answers = $testVak ? [
+            1 => AnswerVak::whereHas('questionVak', function ($query) {
+                $query->where('category_question_vak_id', 1);
+            })->with('questionVak')->where('test_vak_id', $testVak->id)->get()->map(function ($answer) {
+                $answer->formatted_answer = $this->formatAnswer($answer->answer);
+                return $answer;
+            }),
+            2 => AnswerVak::whereHas('questionVak', function ($query) {
+                $query->where('category_question_vak_id', 2);
+            })->with('questionVak')->where('test_vak_id', $testVak->id)->get()->map(function ($answer) {
+                $answer->formatted_answer = $this->formatAnswer($answer->answer);
+                return $answer;
+            }),
+            3 => AnswerVak::whereHas('questionVak', function ($query) {
+                $query->where('category_question_vak_id', 3);
+            })->with('questionVak')->where('test_vak_id', $testVak->id)->get()->map(function ($answer) {
+                $answer->formatted_answer = $this->formatAnswer($answer->answer);
+                return $answer;
+            }),
+        ] : [];
+
+
+        $userName = $responden->userPsikotestPaid->fullname;
+
+        return view('moduls.dashboard.psikotes-paid.tools.vak.detailVAK', compact('responden', 'result', 'description', 'answers', 'userName', 'visual', 'auditory', 'kinestetik'));
+    }
+
+    // Format jawaban
+    private function formatAnswer($answer)
+    {
+        switch ($answer) {
+            case 1:
+                return 'Kurang Sesuai';
+            case 2:
+                return 'Cukup Sesuai';
+            case 3:
+                return 'Sangat Sesuai';
+            default:
+                return 'Tidak Valid';
+        }
     }
 
     public function dashboardSSCT()
@@ -585,94 +682,121 @@ class DashboardUserController extends Controller
 
     public function dashboardEPI()
     {
-        $totalUsers = UserPsikotestPaid::count();
-        $totalTests = EpiAnswer::distinct('user_id')->count('user_id');
+        // Jumlah semua user yang sudah mengerjakan EPI
+        $totalCompletedTests = PsikotestPaidTest::where('psikotest_tool_id', 27)
+            ->whereHas('epiAnswers')
+            ->count();
 
-        return view('moduls.dashboard.psikotes-paid.tools.epi.dashboardEPI', compact('totalUsers', 'totalTests'));
+        $totalAnswers = EpiAnswer::count();
+
+        return view('moduls.dashboard.psikotes-paid.tools.epi.dashboardEPI', [
+            'totalUsers' => $totalCompletedTests,
+            'totalAnswers' => $totalAnswers,
+        ]);
     }
 
     public function dataEPI()
     {
-        $users = UserPsikotestPaid::all();
-        return view('moduls.dashboard.psikotes-paid.tools.epi.jawabanEPI', compact('users'));
+        // Data jawaban EPI beserta pengguna terkait
+        $tests = PsikotestPaidTest::where('psikotest_tool_id', 27)
+            ->with(['userPsikotestPaid', 'epiAnswers'])
+            ->get();
+
+        return view('moduls.dashboard.psikotes-paid.tools.epi.jawabanEPI', compact('tests'));
     }
 
-    public function detailEPI($userId)
-{
-    $user = UserPsikotestPaid::findOrFail($userId); // Ambil data pengguna berdasarkan ID
-    $answers = EpiAnswer::where('user_id', $userId)->with('question')->get(); // Ambil jawaban pengguna
+    public function detailEPI($testId)
+    {
+        $test = PsikotestPaidTest::findOrFail($testId);
+        $user = $test->userPsikotestPaid;
 
-    // Inisialisasi skor kategori
-    $categoryScores = [
-        'Extraversion' => 0,
-        'Neuroticism' => 0,
-        'Lie' => 0,
-    ];
+        $answers = EpiAnswer::with('question')
+            ->where('psikotest_paid_test_id', $testId)
+            ->get();
 
-    // Hitung total poin per kategori
-    foreach ($answers as $answer) {
-        $categoryScores[$answer->question->category] += $answer->points;
+        $categoryScores = [
+            'Lie' => 0,
+            'Extraversion' => 0,
+            'Neuroticism' => 0,
+        ];
+
+        // Hitung poin per kategori
+        foreach ($answers as $answer) {
+            $category = $answer->question->category;
+            if (isset($categoryScores[$category])) {
+                $categoryScores[$category] += $answer->points;
+            }
+        }
+
+        // Hitung kesimpulan per kategori
+        $conclusions = [
+            'Lie' => $this->getLieConclusion($categoryScores['Lie']),
+            'Extraversion' => $this->getExtraversionConclusion($categoryScores['Extraversion']),
+            'Neuroticism' => $this->getNeuroticismConclusion($categoryScores['Neuroticism']),
+        ];
+
+        // Hitung kategori tertinggi
+        $highestCategory = collect($categoryScores)->sortDesc()->keys()->first();
+        $highestScore = $categoryScores[$highestCategory];
+        $overallConclusion = $this->getConclusionForHighestCategory($highestCategory, $highestScore);
+
+        $categoryColors = [
+            'Lie' => 'red',
+            'Extraversion' => 'blue',
+            'Neuroticism' => 'green',
+        ];
+
+        return view('moduls.dashboard.psikotes-paid.tools.epi.detailEPI', compact(
+            'user',
+            'answers',
+            'categoryScores',
+            'conclusions',
+            'highestCategory',
+            'highestScore',
+            'overallConclusion',
+            'categoryColors'
+        ));
     }
 
-    // Tentukan kategori dengan skor tertinggi
-    $highestCategory = array_keys($categoryScores, max($categoryScores))[0];
-    $highestScore = max($categoryScores);
 
-    // Tentukan kesimpulan berdasarkan kategori dengan skor tertinggi
-    $conclusion = $this->getConclusionForHighestCategory($highestCategory, $highestScore);
-
-    // Warna untuk setiap kategori (untuk visualisasi)
-    $categoryColors = [
-        'Extraversion' => 'blue',
-        'Neuroticism' => 'purple',
-        'Lie' => 'red',
-    ];
-
-    return view('moduls.dashboard.psikotes-paid.tools.epi.detailEPI', compact(
-        'user',
-        'answers',
-        'categoryScores',
-        'highestCategory',
-        'highestScore',
-        'conclusion',
-        'categoryColors'
-    ));
-}
-
-/**
- * Tentukan kesimpulan berdasarkan kategori dengan skor tertinggi.
- */
-private function getConclusionForHighestCategory($category, $score)
-{
-    switch ($category) {
-        case 'Lie':
-            if ($score <= 3) {
-                return 'Saint';
-            } elseif ($score == 4) {
-                return 'Mean';
-            } else {
-                return 'Taking';
-            }
-        case 'Extraversion':
-            if ($score <= 12) {
-                return 'Introversi';
-            } elseif ($score == 13) {
-                return 'Mean';
-            } else {
-                return 'Ekstroversi';
-            }
-        case 'Neuroticism':
-            if ($score <= 9) {
-                return 'Stabilitas';
-            } elseif ($score >= 10 && $score <= 13) {
-                return 'Mean';
-            } else {
-                return 'Neurotisisme';
-            }
-        default:
-            return 'Unknown';
+    // Kesimpulan berdasarkan kategori tertinggi
+    private function getConclusionForHighestCategory($category, $score)
+    {
+        switch ($category) {
+            case 'Lie':
+                return $this->getLieConclusion($score);
+            case 'Extraversion':
+                return $this->getExtraversionConclusion($score);
+            case 'Neuroticism':
+                return $this->getNeuroticismConclusion($score);
+            default:
+                return 'Unknown';
+        }
     }
-}
+
+    // Kesimpulan berdasarkan total poin LIE
+    private function getLieConclusion($totalPoints)
+    {
+        if ($totalPoints <= 3) return 'Saint';
+        elseif ($totalPoints == 4) return 'Mean';
+        else return 'Taking';
+    }
+
+    // Kesimpulan berdasarkan total poin EXTRAVERSION
+    private function getExtraversionConclusion($totalPoints)
+    {
+        if ($totalPoints <= 12) return 'Introversi';
+        elseif ($totalPoints == 13) return 'Mean';
+        else return 'Ekstraversi';
+    }
+
+    // Kesimpulan berdasarkan total poin NEUROTICISM
+    private function getNeuroticismConclusion($totalPoints)
+    {
+        if ($totalPoints <= 9) return 'Stabilitas';
+        elseif ($totalPoints <= 13) return 'Mean';
+        else return 'Neurotisisme';
+    }
 
     public function dashboardRMIB()
     {
@@ -687,20 +811,5 @@ private function getConclusionForHighestCategory($category, $score)
     public function detailRMIB()
     {
         return view('moduls.dashboard.psikotes-paid.tools.rmib.detailRMIB');
-    }
-
-    public function dashboardArteri()
-    {
-        return view('moduls.dashboard.arteri.dashboard');
-    }
-
-    public function draftArteri()
-    {
-        return view('moduls.dashboard.arteri.draft');
-    }
-
-    public function postinganArteri()
-    {
-        return view('moduls.dashboard.arteri.postingan');
     }
 }

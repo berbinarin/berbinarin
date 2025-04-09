@@ -33,7 +33,7 @@
                                 <p class="mt-4">Kategori yang paling tinggi nilainya adalah <b>{{ $highestCategory }}</b> dengan
                                     skor
                                     <b>{{ $highestScore }}
-                                        poin.</b> Sehingga di dapatkan kesimpulan hasil adalah <b>{{ $conclusion }}</b>.
+                                        poin.</b> Sehingga di dapatkan kesimpulan hasil adalah <b>{{ $overallConclusion }}</b>.
                                 </p>
                             </div>
                             <div class="mb-4 relative" style="padding-left: 0;">

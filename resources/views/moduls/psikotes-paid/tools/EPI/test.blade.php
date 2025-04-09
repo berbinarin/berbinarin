@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="relative h-11/12 md:min-h-screen flex flex-col items-center bg-gray-100 justify-center">
-        <form method="POST" action="{{ route('psikotest-paid.epi.submit') }}">
+        <form method="POST" action="{{ route('psikotest-paid.tool.EPI.submit') }}">
             @csrf
             <input type="hidden" name="timeout" id="timeout" value="false">
 
@@ -27,6 +27,7 @@
                 @foreach ($questions as $index => $question)
                     <div class="question-slide {{ $index === 0 ? 'active' : 'hidden' }}" data-index="{{ $index }}">
                         <h1 class="pb-12 font-bold text-xl">{{ $question->statement }}</h1>
+                        <input type="hidden" name="test_id" value="{{ $test->id }}"> <!-- Pastikan test_id dikirim -->
 
                         <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 w-3/4 mx-auto justify-center items-center">
                             <label class="flex-1 rounded-lg p-4 cursor-pointer relative card"

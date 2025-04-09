@@ -25,7 +25,7 @@
                         <p class="block text-4xl text-white font-bold">{{ $totalUsers }}</p>
                         <p>User</p>
                     </div>
-                    <span class="absolute p-6 bottom-2 right-2 text-xl">{{ $totalTests }}</span>
+                    <span class="absolute p-6 bottom-2 right-2 text-xl">{{ $totalAnswers }}</span>
                 </div>
             </div>
         </div>
