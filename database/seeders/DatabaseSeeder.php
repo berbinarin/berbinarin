@@ -28,7 +28,9 @@ use Database\Seeders\PsikotestPaid\VAK\CategoryQuestionVakSeeder;
 use Database\Seeders\PsikotestPaid\VAK\QuestionVakSeeder;
 use Database\Seeders\PsikotestPaid\HTP\QuestionHtpSeeder;
 use Database\Seeders\PsikotestPaid\EPI\EpiQuestionSeeder;
-
+use Database\Seeders\Articles\AuthorSeeder;
+use Database\Seeders\Articles\CategorySeeder;
+use Database\Seeders\Articles\ArticleSeeder;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -65,6 +67,11 @@ class DatabaseSeeder extends Seeder
             QuestionEsssaySeeder::class,
             QuestionHtpSeeder::class,
             EpiQuestionSeeder::class,
+
+            // Articles Seeder
+            AuthorSeeder::class,
+            CategorySeeder::class,
+            ArticleSeeder::class,
 
             // Data test
             UserInternshipSeeder::class,

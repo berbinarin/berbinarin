@@ -21,21 +21,21 @@
                 <div class="text-white rounded-lg flex flex-col justify-between p-6 relative" style="background-color: #48576A;">
                     <h3 class="block text-2xl font-bold">Artikel</h3>
                     <div class="absolute p-6 bottom-2 right-2 flex flex-col gap-4 font-semibold">
-                        <p class="text-end text-5xl">30</p>
+                        <p class="text-end text-5xl">{{ $articleCount }}</p>
                         <p>Postingan Artikel</p>
                     </div>
                 </div>
                 <div class="text-white rounded-lg flex flex-col justify-between p-6 relative" style="background-color: #A2ACBD;">
                     <h3 class="block text-2xl font-bold">Penulis Artikel</h3>
                     <div class="absolute p-6 bottom-2 right-2 flex flex-col gap-4 font-semibold">
-                        <p class="text-end text-5xl">30</p>
+                        <p class="text-end text-5xl">{{ $authorCount }}</p>
                         <p>Penulis</p>
                     </div>
                 </div>
                 <div class="text-white rounded-lg flex flex-col justify-between p-6 relative" style="background-color: #9E866A;">
                     <h3 class="block text-2xl font-bold">Kategori Artikel</h3>
                     <div class="absolute p-6 bottom-2 right-2 flex flex-col gap-4 font-semibold">
-                        <p class="text-end text-5xl">30</p>
+                        <p class="text-end text-5xl">{{ $categoryCount }}</p>
                         <p>Kategori</p>
                     </div>
                 </div>

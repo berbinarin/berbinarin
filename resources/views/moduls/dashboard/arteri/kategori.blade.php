@@ -39,11 +39,13 @@
                                         <td class="text-center">{{ $category->articles_count }}</td>
                                         <td class="px-6 py-4 whitespace-no-wrap text-center">
                                             <div class="flex justify-center items-center gap-2">
-                                                <a href="{{ route('dashboard.article.update', $category->id) }}"
+                                                <button
+                                                    onclick="bukaModalEdit({{ $category->id }}, '{{ $category->name_category }}')"
+                                                    type="button"
                                                     class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-2 focus:outline-none rounded hover:bg-yellow-700"
                                                     style="background-color: #E9B306;">
                                                     <i class='bx bx-edit-alt text-white'></i>
-                                                </a>
+                                                </button>
                                                 <button onclick="bukaModalHapus({{ $category->id }})" type="button"
                                                     class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-2 focus:outline-none rounded hover:bg-red-700"
                                                     style="background-color: #EF4444;">
@@ -112,6 +114,55 @@
     </div>
     <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="tambah-kategori-backdrop"></div>
 
+    <!-- Modal untuk Edit Kategori -->
+    <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center"
+        id="edit-kategori-modal">
+        <div class="relative my-5 mx-auto justify-center items-center" style="width: 500px">
+            <div
+                class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                <div class="flex items-center justify-between p-5 border-b border-solid border-gray-300 rounded-t">
+                    <div class="flex justify-center gap-3">
+                        <img src="{{ asset('assets/images/svg-icon/kategori-icon.png') }}" />
+                        <h3 class="text-xl font-semibold">Edit Kategori</h3>
+                    </div>
+                    <button
+                        class="p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                        onclick="tutupModalEdit()">
+                        <span class="text-black h-6 w-6 text-2xl block">×</span>
+                    </button>
+                </div>
+                <div class="relative p-6 flex-auto">
+                    <form method="POST" action="" id="edit-category-form">
+                        @csrf
+                        @method('PUT')
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="edit_nama_kategori">
+                                Nama Kategori
+                            </label>
+                            <input
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="edit_nama_kategori" type="text" name="name_category"
+                                placeholder="Masukkan nama kategori" required>
+                        </div>
+                        <div class="flex items-center justify-end pt-6 border-t border-solid border-gray-300 rounded-b">
+                            <button
+                                class="background-transparent font-bold px-6 py-2 text-base outline-none focus:outline-none mr-2 mb-1 border border-black rounded"
+                                type="button" onclick="tutupModalEdit()">
+                                Batal
+                            </button>
+                            <button type="submit" name="submit"
+                                class="inline-flex px-6 py-3 bg-primary hover:bg-primary focus:outline-none rounded">
+                                <p class="text-base font-semibold leading-none text-white">
+                                    Simpan</p>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="edit-kategori-backdrop"></div>
+
     <!-- Modal untuk Konfirmasi Hapus -->
     <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center"
         id="hapus-modal">
@@ -125,7 +176,8 @@
                         <img class="w-16" src="{{ asset('assets/images/warning.png') }}" />
                         <p class="pt-5">Apakah Anda yakin ingin menghapus item ini?</p>
                         <!--footer-->
-                        <form method="POST" action="" id="delete-category-form" class="flex items-center justify-center pt-7 rounded-b gap-5">
+                        <form method="POST" action="" id="delete-category-form"
+                            class="flex items-center justify-center pt-7 rounded-b gap-5">
                             @csrf
                             @method('DELETE')
                             <input type="hidden" name="category_id" id="delete_category_id" value="">
@@ -185,6 +237,28 @@
             document.getElementById('hapus-modal').classList.remove('flex');
             document.getElementById('hapus-modal-backdrop').classList.add('hidden');
             document.getElementById('hapus-modal-backdrop').classList.remove('flex');
+        }
+
+        function bukaModalEdit(categoryId, categoryName) {
+            const form = document.getElementById('edit-category-form');
+            const namaKategoriInput = document.getElementById('edit_nama_kategori');
+
+            // Isi form action dan input dengan data kategori
+            form.action = `/dashboard/admin/article/kategori/${categoryId}`;
+            namaKategoriInput.value = categoryName;
+
+            // Tampilkan modal
+            document.getElementById('edit-kategori-modal').classList.remove('hidden');
+            document.getElementById('edit-kategori-modal').classList.add('flex');
+            document.getElementById('edit-kategori-backdrop').classList.remove('hidden');
+            document.getElementById('edit-kategori-backdrop').classList.add('flex');
+        }
+
+        function tutupModalEdit() {
+            document.getElementById('edit-kategori-modal').classList.add('hidden');
+            document.getElementById('edit-kategori-modal').classList.remove('flex');
+            document.getElementById('edit-kategori-backdrop').classList.add('hidden');
+            document.getElementById('edit-kategori-backdrop').classList.remove('flex');
         }
     </script>
 @endsection

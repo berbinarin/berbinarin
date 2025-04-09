@@ -11,20 +11,24 @@ use App\Models\Articles\Article;
 
 class DashboardArticle extends Controller
 {
-    //
+    // public function __construct()
+    // {
+    //     $this->middleware('auth')->except(['login']);
+    //     $this->middleware('role:Admin,HR,Konselling,PsikotestFree,PsikotestPaid,BerbinarSatu')->except(['login']);
+    // }
 
     public function dashboardArticle()
     {
-        return view('moduls.dashboard.arteri.dashboard');
+        $articleCount = Article::count();
+        $authorCount = Author::count();
+        $categoryCount = Category::count();
+    
+        return view('moduls.dashboard.arteri.dashboard', compact('articleCount', 'authorCount', 'categoryCount'));
     }
 
     public function addArticle()
     {
-
-        // Mengambil semua data kategori 
         $categories = Category::all();
-
-        // Mengambil semua data penulis
         $authors = Author::all();
 
         return view('moduls.dashboard.arteri.form-add', compact('categories', 'authors'));
@@ -65,20 +69,32 @@ class DashboardArticle extends Controller
 
     public function updateArticleStore(Request $request, $id)
     {
-
-        // Sementara Edit untuk bagian content karena slicing belom selesai
         $request->validate([
+            'title' => 'required|string|max:255',
+            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
+            'author_id' => 'required|exists:author_article,id',
+            'category_id' => 'required|exists:categories_article,id',
             'content' => 'required|string',
         ]);
 
         $article = Article::findOrFail($id);
 
-        // Perbarui hanya kolom content
+        if ($request->hasFile('cover_image')) {
+            if ($article->cover_image) {
+                Storage::disk('public')->delete($article->cover_image);
+            }
+            $article->cover_image = $request->file('cover_image')->store('uploads/articles', 'public');
+        }
+
         $article->update([
+            'title' => $request->input('title'),
+            'cover_image' => $article->cover_image,
+            'author_id' => $request->input('author_id'),
+            'category_id' => $request->input('category_id'),
             'content' => $request->input('content'),
         ]);
 
-        return redirect()->route('dashboard.article.postingan')->with('success', 'Konten artikel berhasil diperbarui!');
+        return redirect()->route('dashboard.article.postingan')->with('success', 'Artikel berhasil diperbarui!');
     }
 
     public function kategoriArticle()
@@ -156,9 +172,38 @@ class DashboardArticle extends Controller
         return redirect()->route('dashboard.article.penulis')->with('success', 'Penulis berhasil dihapus!');
     }
 
-    public function detailArticle()
+    public function updatePenulis(Request $request, $id)
     {
-        return view('moduls.dashboard.arteri.detail');
+        $request->validate([
+            'name_author' => 'required|string|max:255',
+            'profil_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $author = Author::findOrFail($id);
+
+        // Perbarui foto profil jika ada
+        if ($request->hasFile('profil_image')) {
+            if ($author->profil_image) {
+                Storage::disk('public')->delete($author->profil_image);
+            }
+            $author->profil_image = $request->file('profil_image')->store('uploads/penulis', 'public');
+        }
+
+        // Perbarui data penulis
+        $author->update([
+            'name_author' => $request->input('name_author'),
+            'profil_image' => $author->profil_image,
+        ]);
+
+        return redirect()->route('dashboard.article.penulis')->with('success', 'Penulis berhasil diperbarui!');
+    }
+
+    public function detailArticle($id)
+    {
+        // Ambil artikel berdasarkan ID
+        $article = Article::with('category', 'author')->findOrFail($id);
+
+        return view('moduls.dashboard.arteri.detail', compact('article'));
     }
 
     public function deleteArticle($id)
@@ -172,5 +217,21 @@ class DashboardArticle extends Controller
         $article->delete();
 
         return redirect()->route('dashboard.article.postingan')->with('success', 'Artikel berhasil dihapus!');
+    }
+
+    public function updateCategory(Request $request, $id)
+    {
+        $request->validate([
+            'name_category' => 'required|string|max:255',
+        ]);
+
+        $category = Category::findOrFail($id);
+
+        // Perbarui nama kategori
+        $category->update([
+            'name_category' => $request->input('name_category'),
+        ]);
+
+        return redirect()->route('dashboard.article.kategori')->with('success', 'Kategori berhasil diperbarui!');
     }
 }

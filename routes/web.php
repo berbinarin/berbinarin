@@ -67,6 +67,7 @@ use App\Http\Controllers\PsikotestPaid\Tools\DASS\DASSController;
 use App\Http\Controllers\KeluargaBerbinarin\TableStaffController;
 use App\Http\Controllers\ArticleController\DashboardArticle;
 use App\Http\Controllers\KeluargaBerbinarin\DashboardKeluargaBerbinar;
+use App\Http\Controllers\ArticleController\LandingArticle;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -109,8 +110,6 @@ Route::get('/psikotes-new/jadwal-psikotes', [LandingController::class, 'jadwal_p
 Route::get('/psikotes-new/data-diri-psikotes', [LandingController::class, 'data_diri_psikotes'])->name('psikotes-new/data-diri-psikotes');
 Route::get('/psikotes-new/summary-psikotes', [LandingController::class, 'summary_psikotes'])->name('psikotes-new/summary-psikotes');
 
-
-Route::get('/artikel', [LandingController::class, 'artikel'])->name('artikel');
 
 Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
 
@@ -164,8 +163,16 @@ Route::prefix('dashboard/admin/article')->group(function () {
     Route::delete('/delete/{id}', [DashboardArticle::class, 'deleteArticle'])->name('dashboard.article.delete');
     Route::post('/kategori_store', [DashboardArticle::class, 'addCategory'])->name('dashboard.article.kategori.add');
     Route::delete('/kategori/{id}', [DashboardArticle::class, 'deleteCategory'])->name('dashboard.article.kategori.delete');
+    Route::put('/kategori/{id}', [DashboardArticle::class, 'updateCategory'])->name('dashboard.article.kategori.update');
     Route::post('addPenulis', [DashboardArticle::class, 'addPenulis'])->name('dashboard.article.addpenulis');
     Route::delete('/penulis/{id}', [DashboardArticle::class, 'deletePenulis'])->name('dashboard.article.deletepenulis');
+    Route::put('/penulisUpdate/{id}', [DashboardArticle::class, 'updatePenulis'])->name('dashboard.article.updatepenulis');
+});
+
+// LANDING ARTIKEL
+Route::prefix('articles')->group(function () {
+    Route::get('/', [LandingArticle::class, 'index'])->name('moduls.landing-new.index-article');
+    Route::get('/{id}', [LandingArticle::class, 'show'])->name('moduls.landing-new.detail-article');
 });
 
 //DASHBOARD ADMIN E-LEARNING PSIKOTEST
@@ -248,8 +255,6 @@ Route::get('/dashboard/login', [DashboardController::class, 'login'])->name('das
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/admin/faqs', [DashboardController::class, 'faqs'])->name('dashboard.faqs');
-    // Dashboard Artikel
-    Route::get('/dashboard/admin/artikel', [DashboardUserController::class, 'dashboardArteri'])->name('dashboard.arteri');
 
     //PSIKOTEST PAID
     Route::prefix('/dashboard/admin/psikotest-paid')->group(function () {
