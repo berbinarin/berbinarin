@@ -311,7 +311,7 @@
                 <!-- <label for="tiktokFive" class="block text-lg font-medium text-gray-700">Motivasi Mendaftar Internship Berbinar</label> -->
                 <p class="text-xs">Terima kasih sudah mendaftar. Pastikan bahwa seluruh data <br> telah benar, link dapat diakses, dan jangan lupa tekan tombol <br> kirim di bawah ini 😆</p>
                 <p class="text-xs mt-4 mb-4">Jika ada pertanyaan lebih lanjut, bisa hubungi WA di bawah ini:<br>
-                  Ridwan (<a href="https://wa.me/6281288757094" class="text-blue-500">081288757094</a>)<br>
+                  Rival (<a href="https://wa.me/62895411933342" class="text-blue-500">0895411933342</a>)<br>
                   Laila (<a href="https://wa.me/6281542288773" class="text-blue-500">081542288773</a>)<br>
                   Amel (<a href="https://wa.me/6285264351885" class="text-blue-500">085264351885</a>)<br>
                   Nurul (<a href="https://wa.me/6283182356031" class="text-blue-500">083182356031</a>)<br>
