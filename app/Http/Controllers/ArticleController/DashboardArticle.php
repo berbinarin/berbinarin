@@ -27,7 +27,7 @@ class DashboardArticle extends Controller
     }
 
     public function addArticle()
-    {
+    { 
         $categories = Category::all();
         $authors = Author::all();
 
@@ -203,6 +203,7 @@ class DashboardArticle extends Controller
         // Ambil artikel berdasarkan ID
         $article = Article::with('category', 'author')->findOrFail($id);
 
+        // Kirim data artikel ke view
         return view('moduls.dashboard.arteri.detail', compact('article'));
     }
 
