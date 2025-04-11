@@ -29,6 +29,8 @@ use App\Models\PsikotestPaid\DAP\AnswerDap;
 use App\Models\PsikotestPaid\DAP\QuestionDap;
 use App\Models\PsikotestPaid\DAP\TestDap;
 use App\Models\PsikotestPaid\PsikotestPaidTest;
+use App\Models\PsikotestPaid\RMIB\CategoryStatementRmib;
+use App\Models\PsikotestPaid\RMIB\TestRmib;
 
 class DashboardUserController extends Controller
 {
@@ -677,11 +679,34 @@ class DashboardUserController extends Controller
 
     public function dataRMIB()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.rmib.jawabanRMIB');
+        $testRmib = TestRmib::all();
+
+        return view('moduls.dashboard.psikotes-paid.tools.rmib.jawabanRMIB', compact('testRmib'));
     }
 
-    public function detailRMIB()
+    public function detailRMIB(TestRmib $testRmib)
     {
-        return view('moduls.dashboard.psikotes-paid.tools.rmib.detailRMIB');
+        $categories = CategoryStatementRmib::all();
+
+        $answers = $testRmib->answerRmib;
+        $answerCategories = collect(['outdoor', 'mechanical', 'computational', 'science', 'personal_contact', 'aesthetic', 'musical', 'literacy', 'social_service', 'clerical', 'practical', 'medical'])
+            ->mapWithKeys(function ($category) use ($answers) {
+                return [$category => $answers->sum($category)];
+            })->sort();
+
+        $lowestCategories = collect();
+        $uniqueValues = $answerCategories->unique()->take(3)->toArray();
+
+        foreach ($uniqueValues as $value) {
+            $categoriesWithValue = $answerCategories->filter(function ($item) use ($value) {
+                return $item === $value;
+            })->keys()->toArray();
+
+            foreach ($categoriesWithValue as $category) {
+                $lowestCategories->put($category, $value);
+            }
+        }
+
+        return view('moduls.dashboard.psikotes-paid.tools.rmib.detailRMIB', compact('categories', 'lowestCategories', 'testRmib'));
     }
 }

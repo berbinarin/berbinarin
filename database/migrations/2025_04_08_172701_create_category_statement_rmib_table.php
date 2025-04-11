@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('answer_dass', function (Blueprint $table) {
+        Schema::create('category_statement_rmib', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('test_dass_id')->constrained('test_dass')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->foreignId('question_dass_id')->constrained('question_dass')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->tinyInteger('answer')->nullable();
+            $table->string('name');
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('answer_d_a_s_s');
+        Schema::dropIfExists('category_statement_rmibs');
     }
 };

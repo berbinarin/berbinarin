@@ -2,7 +2,7 @@
 
 namespace App\Models\PsikotestPaid;
 
-use App\Models\AnswerDass;
+use App\Models\PsikotestPaid\DASS\AnswerDass;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\PsikotestPaid\VAK\TestVak;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

@@ -12,7 +12,7 @@ class AnswerDass extends Model
     protected $table = 'answer_dass';
 
     protected $fillable = [
-        'psikotest_paid_test_id',
+        'test_dass_id',
         'question_dass_id',
         'answer'
     ];

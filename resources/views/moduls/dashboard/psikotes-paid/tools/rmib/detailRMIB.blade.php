@@ -4,6 +4,8 @@
     'modul' => 'Psikotest Paid RMIB',
 ])
 
+@php use Illuminate\Support\Str; @endphp
+
 @section('content-dashboard')
 <section class="flex w-full">
     <div class="flex flex-col w-full">
@@ -29,45 +31,56 @@
                     style="width: 40%">
                     <div class="overflow-y-auto flex-1" style="max-height: 400px;">
                         <div class="pb-10">
-                            <h2 class="font-semibold text-2xl">Morgan Vero</h2>
-                            <p class="mt-4">Berikut merupakan 3 peringkat kategori dengan nilai terendah, yaitu <b>Outdoor, Mechanical, Aesthetic, Social, Medical, Scientific</b> dan <b>Computational.</b></p>
+                            <h2 class="font-semibold text-2xl">{{ $testRmib->psikotestPaidTest->userPsikotestPaid->fullname }}</h2>
+                            <p class="mt-4">Berikut merupakan {{ $lowestCategories->count() }} peringkat kategori dengan nilai terendah, yaitu 
+                                
+                            @foreach ($lowestCategories as $category => $point)
+                                @if ($lowestCategories->count() - $loop->iteration == 0)
+                                    dan <b>{{ Str::of($category)->replace('_', ' ')->title() }}</b>
+                                @else
+                                    <b>{{ Str::of($category)->replace('_', ' ')->title() }}</b>,
+                                @endif
+                            @endforeach
+                            
+                                
+                            </p>
                             <div>
                                 {{-- Dalam sini  --}}
-                                <?php
-                                // Dummy data
-                                $categories = [
-                                    ['name' => 'Outdoor',       'point' => 13],
-                                    ['name' => 'Mechanical',    'point' => 9],
-                                    ['name' => 'Aesthetic',     'point' => 9],
-                                    ['name' => 'Social',        'point' => 9],
-                                    ['name' => 'Medical',       'point' => 9],
-                                    ['name' => 'Scientific',    'point' => 9],
-                                    ['name' => 'Computational', 'point' => 13],
-                                ];
-
-                                usort($categories, function ($a, $b) {
-                                    return $b['point'] <=> $a['point'];
-                                });
-                                ?>
-                                <ul class="flex flex-col gap-2 pt-4">
-                                    <?php foreach ($categories as $index => $cat): ?>
-                                        <li class="flex gap-2 items-center">
-                                            <div class="bg-primary px-2 py-1 flex justify-center rounded-full">
-                                                <span class="text-white"><?= $index + 1 ?>.</span>
-                                            </div>
-                                            <div class="flex justify-between w-full">
-                                                <p class="pl-2"><?= $cat['name'] ?></p>
-                                                
-                                                <p class="pr-20 font-bold"> <?= $cat['point'] ?> poin</p>
-                                            </div>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
+                            
+                            <ul class="flex flex-col gap-2 pt-4">
+                                @php
+                                    $lastPoint = null;
+                                    $rank = 0;
+                                @endphp
+                                @foreach ($lowestCategories as $category => $point)
+                                    @php
+                                        if ($point !== $lastPoint) {
+                                            $rank++;
+                                            $lastPoint = $point;
+                                        }
+                                    @endphp
+                                    <li class="flex gap-2 items-center">
+                                        <div class="bg-primary px-2 py-1 flex justify-center rounded-full">
+                                            <span class="text-white">{{ $rank }}.</span>
+                                        </div>
+                                        <div class="flex justify-between w-full">
+                                            <p class="pl-2">{{ Str::of($category)->replace('_', ' ')->title() }}</p>
+                                            <p class="pr-20 font-bold">{{ $point }} poin</p>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                            
                             </div>
                             <h2 class="font-semibold text-2xl pt-4">Kesimpulan</h2>
-                            <h3 class="font-semibold text-xl text-primary-alt pt-2">Outdoor</h3>
-                            <p>Pekerjaan yang aktivitasnya dilakukan diluar atau udara terbuka, atau pekerjaan yang tidak berhubungan dengan hal-hal yang rutin sifatnya.
-                                Contoh: petani, penjaga hutan, guru olah raga</p>
+                            <ul>
+                                @foreach ($lowestCategories as $category => $value)
+                                <li>
+                                    <h3 class="font-semibold text-xl text-primary-alt pt-2">{{ Str::of($category)->replace('_', ' ')->title() }}</h3>
+                                    <p>{!! optional($categories->where('name', Str::of($category)->replace('_', ' '))->first())->description !!}</p>
+                                </li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
                 </div>

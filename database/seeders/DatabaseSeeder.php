@@ -63,6 +63,9 @@ class DatabaseSeeder extends Seeder
             QuestionEsssaySeeder::class,
             QuestionHtpSeeder::class,
             QuestionDassSeeder::class,
+            QuestionRmibSeeder::class,
+            CategoryStatementRmibSeeder::class,
+            StatementRmibSeeder::class,
 
             // Data test
             UserInternshipSeeder::class,
