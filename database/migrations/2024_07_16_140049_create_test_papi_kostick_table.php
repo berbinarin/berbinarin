@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('test_papi_kosticks', function (Blueprint $table) {
+        Schema::create('test_papi_kostick', function (Blueprint $table) {
             $table->id();
             $table->foreignId('psikotest_paid_test_id')->constrained('psikotest_paid_tests')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('test_papi_kosticks');
+        Schema::dropIfExists('test_papi_kostick');
     }
 };

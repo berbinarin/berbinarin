@@ -13,7 +13,7 @@ class QuestionPapiKostickSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('question_papi_kosticks')->insert([
+        DB::table('question_papi_kostick')->insert([
             [
                 'id' => 1,
                 'a' => 'Saya seorang pekerja keras',

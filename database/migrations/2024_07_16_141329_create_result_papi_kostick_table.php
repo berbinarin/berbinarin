@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('result_papi_kosticks', function (Blueprint $table) {
+        Schema::create('result_papi_kostick', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('test_papi_kostick_id')->constrained('test_papi_kosticks')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('test_papi_kostick_id')->constrained('test_papi_kostick')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('A');
             $table->integer('N');
             $table->integer('G');
@@ -43,6 +43,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('result_papi_kosticks');
+        Schema::dropIfExists('result_papi_kostick');
     }
 };

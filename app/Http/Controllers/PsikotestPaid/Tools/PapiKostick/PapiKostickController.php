@@ -21,14 +21,13 @@ class PapiKostickController extends Controller
         return view('moduls.psikotes-paid.tools.papi-kostick.landing', ['user' => $user, 'tool' => $tool]);
     }
 
-    public function startTest(Request $request)
+    public function startTest(PsikotestTool $psikotestTool)
     {
         $user = Auth::guard('psikotestpaid')->user();
-        $tool = PsikotestTool::where('name', 'PAPI Kostick')->firstOrFail();
 
         $psikotestPaidTest = PsikotestPaidTest::create([
             'user_psikotest_paid_id' => $user->id,
-            'psikotest_tool_id' => $tool->id,
+            'psikotest_tool_id' => $psikotestTool->id,
             'status_progress' => false,
         ]);
 
@@ -36,85 +35,70 @@ class PapiKostickController extends Controller
             'psikotest_paid_test_id' => $psikotestPaidTest->id,
         ]);
 
-        $request->session()->put('papikostick', $testPapiKostick->id);
-
-        return redirect()->route('psikotest-paid.papi-kostick.questions', ['id' => $testPapiKostick->id, 'question_order' => 1]);
+        return redirect()->route('psikotest-paid.papi-kostick.showQuestion', ['psikotestTool' => $psikotestTool->id, 'testPapiKostick' => $testPapiKostick->id, 'questionPapiKostick' => 1]);
     }
 
-    public function showQuestions($id, $question_order)
+    public function showQuestion(PsikotestTool $psikotestTool, TestPapiKostick $testPapiKostick, QuestionPapiKostick $questionPapiKostick)
     {
-        if (!session()->has('papikostick') || session('papikostick') != $id) {
-            return redirect()->route('psikotest-paid.tool.PAPI Kostick.showLanding');
-        }
+        $totalQuestions = $questionPapiKostick->count();
+        $progress = round(($questionPapiKostick->id / $totalQuestions) * 100);
 
-        $question = QuestionPapiKostick::where('id', $question_order)->firstOrFail();
+        $existingAnswer = AnswerPapiKostick::where('test_papi_kostick_id', $testPapiKostick->id)
+            ->where('question_papi_kostick_id', $questionPapiKostick->id)->first();
 
-        $totalQuestions = QuestionPapiKostick::count();
-        $progress = round(($question_order / $totalQuestions) * 100);
-
-        return view('moduls.psikotes-paid.tools.papi-kostick.question', compact('question', 'id', 'question_order', 'progress'));
+        return view('moduls.psikotes-paid.tools.papi-kostick.question', compact('questionPapiKostick', 'psikotestTool', 'testPapiKostick', 'existingAnswer', 'progress'));
     }
 
-    public function submitAnswers(Request $request, $id, $question_order)
+    public function submitAnswers(Request $request, PsikotestTool $psikotestTool, TestPapiKostick $testPapiKostick, QuestionPapiKostick $questionPapiKostick)
     {
-        if (!session()->has('papikostick') || session('papikostick') != $id) {
-            return redirect()->route('psikotest-paid.tool.PAPI Kostick.showLanding');
-        }
 
         // Cek apakah timeout terjadi
         if ($request->input('timeout') === "true") {
-            $this->calculateAndStoreResult($id);
+            $this->calculateAndStoreResult($testPapiKostick->id);
 
             // Update the status_progress to true
-            $psikotestPaidTest = PsikotestPaidTest::where('id', $id)->first();
+            $psikotestPaidTest = PsikotestPaidTest::where('id', $testPapiKostick->psikotestPaidTest->id)->first();
             if ($psikotestPaidTest) {
                 $psikotestPaidTest->update(['status_progress' => true]);
             }
 
-            return redirect()->route('psikotest-paid.papi-kostick.complete', ['id' => $id]);
+            return redirect()->route('psikotest-paid.papi-kostick.complete', []);
         }
 
-        $question = QuestionPapiKostick::where('id', $question_order)->firstOrFail();
-
-        $existingAnswer = AnswerPapiKostick::where('test_papi_kostick_id', $id)
-            ->where('question_papi_kostick_id', $question->id)
+        $existingAnswer = AnswerPapiKostick::where('test_papi_kostick_id', $testPapiKostick->id)
+            ->where('question_papi_kostick_id', $questionPapiKostick->id)
             ->first();
-
-        $answer = $request->input('answer');
-        $answerValue = $answer === 'a' ? 1 : ($answer === 'b' ? 2 : 0);
 
         if ($existingAnswer) {
             $existingAnswer->update([
-                'answer' => $answerValue,
+                'answer' => $request->answer,
             ]);
         } else {
             AnswerPapiKostick::create([
-                'test_papi_kostick_id' => $id,
-                'question_papi_kostick_id' => $question->id,
-                'answer' => $answerValue,
+                'test_papi_kostick_id' => $testPapiKostick->id,
+                'question_papi_kostick_id' => $questionPapiKostick->id,
+                'answer' => $request->answer,
             ]);
         }
 
-        $next_question_order = $question_order + 1;
-
-        if ($next_question_order > 90) {
-            $this->calculateAndStoreResult($id);
+        if ($questionPapiKostick->id >= 90) {
+            $this->calculateAndStoreResult($testPapiKostick->id);
 
             // Update the status_progress to true
-            $psikotestPaidTest = PsikotestPaidTest::where('id', $id)->first();
+            $psikotestPaidTest = PsikotestPaidTest::where('id', $testPapiKostick->psikotestPaidTest->id)->first();
             if ($psikotestPaidTest) {
                 $psikotestPaidTest->update(['status_progress' => true]);
             }
 
-            return redirect()->route('psikotest-paid.papi-kostick.complete', ['id' => $id]);
+            return redirect()->route('psikotest-paid.papi-kostick.summary', ['psikotestTool' => $psikotestTool->id, 'testPapiKostick' => $testPapiKostick->id]);
         }
 
-        return redirect()->route('psikotest-paid.papi-kostick.questions', ['id' => $id, 'question_order' => $next_question_order]);
+        return redirect()->route('psikotest-paid.papi-kostick.showQuestion', ['psikotestTool' => $psikotestTool->id, 'testPapiKostick' => $testPapiKostick->id, 'questionPapiKostick' => $questionPapiKostick->id + 1]);
     }
 
-    private function calculateAndStoreResult($id)
+    private function calculateAndStoreResult($testPapiKostickId)
     {
-        $answers = AnswerPapiKostick::where('test_papi_kostick_id', $id)->get();
+        $answers = AnswerPapiKostick::where('test_papi_kostick_id', $testPapiKostickId)->get();
 
         $scores = [
             'A' => 0,
@@ -143,7 +127,7 @@ class PapiKostickController extends Controller
             $this->calculateScore($answer, $scores);
         }
 
-        ResultPapiKostick::create(array_merge(['test_papi_kostick_id' => $id], $scores));
+        ResultPapiKostick::create(array_merge(['test_papi_kostick_id' => $testPapiKostickId], $scores));
     }
 
     private function calculateScore($answer, &$scores)
@@ -426,16 +410,12 @@ class PapiKostickController extends Controller
         }
     }
 
-    public function completeTest($id)
+    public function summary($id)
     {
         if (!session()->has('papikostick') || session('papikostick') != $id) {
             return redirect()->route('psikotest-paid.tool.PAPI Kostick.showLanding');
         }
 
-        $result = ResultPapiKostick::where('test_papi_kostick_id', $id)->firstOrFail();
-
-        session()->forget('papikostick');
-
-        return view('moduls.psikotes-paid.tools.papi-kostick.complete', compact('result'));
+        return view('moduls.psikotes-paid.tools.papi-kostick.summary');
     }
 }

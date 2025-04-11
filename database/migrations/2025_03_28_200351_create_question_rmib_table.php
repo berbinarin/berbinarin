@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
 return new class extends Migration
 {
     /**
@@ -11,10 +10,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('question_papi_kosticks', function (Blueprint $table) {
+        Schema::create('question_rmib', function (Blueprint $table) {
             $table->id();
-            $table->text('a');
-            $table->text('b');
+            $table->string('subtest');
+            $table->text('instruction');
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('question_papi_kosticks');
+        Schema::dropIfExists('question_rmibs');
     }
 };
