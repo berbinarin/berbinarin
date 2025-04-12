@@ -133,9 +133,10 @@
             {{-- container --}}
             @for ($k = 1; $k <= 9; $k++)
                 {{-- card --}}
+                <a href="/arteri/{{$k}}">
                 <div
                     class="relative rounded-xl border border-[#606060]/20 px-5 py-3 shadow-md lg:border-none lg:px-0 lg:py-0 lg:shadow-none"
-                    onclick="handleDetailArticle({{ $k }})"
+                    {{--                    onclick="handleDetailArticle({{ $k }})"--}}
                 >
                     {{-- badge kategori --}}
                     <span
@@ -182,6 +183,7 @@
                         </p>
                     </div>
                 </div>
+                </a>
             @endfor
         </div>
     </section>

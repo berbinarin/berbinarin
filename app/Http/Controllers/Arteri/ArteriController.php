@@ -28,15 +28,11 @@ class ArteriController extends Controller
             'author' => "Talitha Dwi Arini",
             'body' => '
             <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
-
             <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
-
             <blockquote>
                 <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt.</p>
             </blockquote>
-
             <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
-
             <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
         ',
         ];
