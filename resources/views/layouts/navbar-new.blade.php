@@ -46,9 +46,11 @@
             ArteRi
         </a>
         <div>
-            <button class="bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-black font-medium py-2 px-6 rounded-full">
-                Ajukan Kolaborasi
-            </button>
+            <a href="https://linktr.ee/berbinarinsight" target="_blank">
+                <button class="bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-black font-medium py-2 px-6 rounded-full">
+                    Ajukan Kolaborasi
+                </button>
+            </a>
         </div>
     </div>
 </nav>

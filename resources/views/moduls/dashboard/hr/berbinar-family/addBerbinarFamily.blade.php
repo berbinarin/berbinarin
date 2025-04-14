@@ -64,7 +64,7 @@
                                     class="py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-transparent focus:ring-0 shadow-sm "
                                     placeholder="John Doe" required />
                             </div>
-                            <div class="flex flex-col gap-2 w-full">
+                            <div class="flex flex-col gap-2 w-full mt-5">
                                 <p class="text-lg font-semibold flex gap-1">
                                     LinkedIn<i class="bx bxs-star text-xs text-red-600 "></i></p>
                                 <input type="text" name="linkedin"
@@ -109,6 +109,7 @@
                                                 Product Management</option>
                                             <option value="Class Product Management" class="text-black">Class Product
                                                 Management</option>
+                                                <option value="Psychological Testing Product Management" class="text-black">Psychological Testing Product Management</option>
                                         </select>
                                     </div>
 
@@ -124,6 +125,10 @@
                                             <option value="Frontend" class="text-black">Frontend</option>
                                             <option value="Backend" class="text-black">Backend</option>
                                             <option value="Fullstack" class="text-black">Fullstack</option>
+                                            <option value="UIUX Designer" class="text-black">UIUX Designer</option>                                            
+                                            <option value="HR Recruitment" class="text-black">HR Recruitment</option>
+                                            <option value="HR Training and Development" class="text-black">HR Training and Development</option>
+                                            <option value="HR Performance Appraisal" class="text-black">HR Performance Appraisal</option>
                                         </select>
                                     </div>
 
@@ -175,8 +180,7 @@
                                             <option value="Marketing Strategist and Sales" class="text-black">Marketing
                                                 Strategist and Sales</option>
                                             <option value="Graphic Designer" class="text-black">Graphic Designer</option>
-                                            <option value="Instagram Creator" class="text-black">Instagram Creator
-                                            </option>
+                                            <option value="Instagram Creator" class="text-black">Instagram Creator</option>
                                             <option value="Web & Mobile App Developer" class="text-black">Web & Mobile App
                                                 Developer</option>
                                             <option value="X Creator" class="text-black">X Creator</option>
@@ -187,6 +191,7 @@
                                                 Product Management</option>
                                             <option value="Class Product Management" class="text-black">Class Product
                                                 Management</option>
+                                                <option value="Psychological Testing Product Management" class="text-black">Psychological Testing Product Management</option>
                                         </select>
                                     </div>
 
@@ -202,6 +207,11 @@
                                             <option value="Frontend" class="text-black">Frontend</option>
                                             <option value="Backend" class="text-black">Backend</option>
                                             <option value="Fullstack" class="text-black">Fullstack</option>
+                                            <option value="UIUX Designer" class="text-black">UIUX Designer</option>                                            
+                                            <option value="HR Recruitment" class="text-black">HR Recruitment</option>
+                                            <option value="HR Training and Development" class="text-black">HR Training and Development</option>
+                                            <option value="HR Performance Appraisal" class="text-black">HR Performance Appraisal</option>
+                                        </select>
                                         </select>
                                     </div>
 

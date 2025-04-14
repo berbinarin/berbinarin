@@ -103,6 +103,16 @@ Route::get('/counseling', [LandingController::class, 'konseling'])->name('counse
 Route::get('/counseling/pdf/{filename}', [PDFController::class, 'show'])->name('pdf.show');
 Route::get('/psikotest', [LandingController::class, 'psikotest'])->name('psikotest');
 Route::get('/psikotest/homepage', [LandingController::class, 'homepage'])->name('homepage');
+Route::get('/konseling-new/daftar-konseling', [LandingController::class, 'daftar_konseling'])->name('konseling-new/daftar-konseling');
+Route::get('/konseling-new/jadwal-konseling', [LandingController::class, 'jadwal_konseling'])->name('konseling-new/jadwal-konseling');
+Route::get('/konseling-new/data-diri-konseling', [LandingController::class, 'data_diri_konseling'])->name('konseling-new/data-diri-konseling');
+Route::get('/konseling-new/cerita-konseling', [LandingController::class, 'cerita_konseling'])->name('konseling-new/cerita-konseling');
+Route::get('/konseling-new/summary-konseling', [LandingController::class, 'summary_konseling'])->name('konseling-new/summary-konseling');
+Route::get('/psikotes-new/daftar-psikotes', [LandingController::class, 'daftar_psikotes'])->name('psikotes-new/daftar-psikotes');
+Route::get('/psikotes-new/jadwal-psikotes', [LandingController::class, 'jadwal_psikotes'])->name('psikotes-new/jadwal-psikotes');
+Route::get('/psikotes-new/data-diri-psikotes', [LandingController::class, 'data_diri_psikotes'])->name('psikotes-new/data-diri-psikotes');
+Route::get('/psikotes-new/summary-psikotes', [LandingController::class, 'summary_psikotes'])->name('psikotes-new/summary-psikotes');
+
 
 
 Route::get('/artikel', [LandingController::class, 'artikel'])->name('artikel');

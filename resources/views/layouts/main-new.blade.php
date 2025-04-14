@@ -11,6 +11,7 @@
         type="image/x-icon"
     />
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
     <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
 
@@ -68,23 +69,23 @@
     {{-- @endif --}}
 
     {{-- Css Produk Konseling --}}
-    @if ($page === "Konseling")
-        <link rel="stylesheet" href="{{ asset("assets/css/landing/konseling.css") }}" />
+    @if ($page === 'Konseling')
+        <link rel="stylesheet" href="{{ asset('assets/css/landing/konseling.css') }}">
     @endif
 
     {{-- Css Produk Psikotes --}}
-    @if ($page === "Psikotes")
-        <link rel="stylesheet" href="{{ asset("assets/css/landing/psikotes.css") }}" />
+    @if ($page === 'Psikotes')
+        <link rel="stylesheet" href="{{ asset('assets/css/landing/psikotes.css') }}">
     @endif
 
     {{-- Css Produk Kelas --}}
-    @if ($page === "Kelas")
-        <link rel="stylesheet" href="{{ asset("assets/css/landing/kelas.css") }}" />
+    @if ($page === 'Kelas')
+        <link rel="stylesheet" href="{{ asset('assets/css/landing/kelas.css') }}">
     @endif
 
     {{-- Css Produk Consulting --}}
-    @if ($page === "Consulting")
-        <link rel="stylesheet" href="{{ asset("assets/css/landing/consulting.css") }}" />
+    @if ($page === 'Consulting')
+        <link rel="stylesheet" href="{{ asset('assets/css/landing/consulting.css') }}">
     @endif
 </head>
 <body class="relative w-full overflow-x-hidden">
@@ -97,6 +98,8 @@
 @if ($page !== "keluarga-berbinar")
     @include("layouts.footer-new")
 @endif
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

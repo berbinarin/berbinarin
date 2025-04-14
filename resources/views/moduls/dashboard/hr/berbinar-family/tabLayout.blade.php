@@ -15,11 +15,11 @@
     </ul>
     <!-- Konten Tab: Data Diri -->
     <div x-show="tab === 'data-diri'" class="pt-8">
-        @include('moduls.dashboard.hr.berbinar-family.data-detail.dataDiri')
+        @include('moduls.dashboard.hr.berbinar-family.data-detail.dataDiri', ['staff' => $staff])
     </div>
 
     <!-- Konten Tab: Riwayat Jabatan -->
     <div x-show="tab === 'riwayat-jabatan'" class="pt-8">
-        @include('moduls.dashboard.hr.berbinar-family.data-detail.riwayatJabatan')
+        @include('moduls.dashboard.hr.berbinar-family.data-detail.riwayatJabatan', ['records' => $records])
     </div>
 </div>
