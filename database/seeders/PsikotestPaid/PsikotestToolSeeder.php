@@ -117,6 +117,10 @@ class PsikotestToolSeeder extends Seeder
             [
                 'id' => 26,
                 'name' => 'BIODATA_KLINIS'
+            ],
+            [
+                'id' => 27,
+                'name' => 'EPI'
             ]
         ]);
     }
