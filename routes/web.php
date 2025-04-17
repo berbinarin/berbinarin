@@ -146,7 +146,7 @@ Route::prefix('keluarga-berbinar')->group(function () {
 
 
 // ARTIKEL
-Route::prefix('dashboard/admin/article')->group(function () {
+Route::prefix('dashboard/admin/artikel')->group(function () {
 
     // MODUL DASHBOARD ADMIN ARTIKEL
     Route::get('/', [DashboardArticle::class, 'dashboardArticle'])->name('dashboard.article');
@@ -170,7 +170,7 @@ Route::prefix('dashboard/admin/article')->group(function () {
 });
 
 // LANDING ARTIKEL
-Route::prefix('articles')->group(function () {
+Route::prefix('artikel')->group(function () {
     Route::get('/', [LandingArticle::class, 'index'])->name('moduls.landing-new.index-article');
     Route::get('/{id}', [LandingArticle::class, 'show'])->name('moduls.landing-new.detail-article');
 });

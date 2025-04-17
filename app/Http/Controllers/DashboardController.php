@@ -25,6 +25,9 @@ use App\Models\PsikotestPaid\Biodata\Family;
 use App\Models\PsikotestPaid\Biodata\LevelEducation;
 use App\Models\TableStaff;
 use App\Models\TableRecord;
+use App\Models\Articles\Article;
+use App\Models\Articles\Author;
+use App\Models\Articles\Category;
 
 class DashboardController extends Controller
 {
@@ -74,6 +77,13 @@ class DashboardController extends Controller
 
         $community = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeCommunity)->count();
 
+        $articleCount = Article::count();
+
+        $authorCount = Author::count();
+
+        $categoryCount = Category::count();
+
+        
         return view('moduls.dashboard.index', [
             "PeerConsellorSchedule" => $PeerConsellorSchedule,
             "PeerConsellorData" => $PeerConsellorData,
@@ -89,6 +99,9 @@ class DashboardController extends Controller
             'educationalInstitution' => $educationalInstitution,
             'corporate' => $corporate,
             'community' => $community,
+            'articleCount' => $articleCount,
+            'authorCount' => $authorCount,
+            'categoryCount' => $categoryCount,
         ]);
     }
 
@@ -136,6 +149,14 @@ class DashboardController extends Controller
         return view('moduls.dashboard.hr.manage-division.detailDivision');
     }
 
+    public function dashboardArteri()
+    {
+        $articleCount = Article::count();
+        $authorCount = Author::count();
+        $categoryCount = Category::count();
+    
+        return view('moduls.dashboard.arteri.dashboard', compact('articleCount', 'authorCount', 'categoryCount'));
+    }
     public function internshipDataDetails($id)
     {
         // Menggunakan findOrFail untuk menangani kasus jika tidak ada data dengan ID yang sesuai

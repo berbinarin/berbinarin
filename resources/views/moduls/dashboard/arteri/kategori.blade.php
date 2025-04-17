@@ -244,7 +244,7 @@
             const namaKategoriInput = document.getElementById('edit_nama_kategori');
 
             // Isi form action dan input dengan data kategori
-            form.action = `/dashboard/admin/article/kategori/${categoryId}`;
+            form.action = `/dashboard/admin/artikel/kategori/${categoryId}`;
             namaKategoriInput.value = categoryName;
 
             // Tampilkan modal

@@ -308,7 +308,7 @@
             const namaPenulisInput = document.getElementById('edit_nama_penulis');
             const avatarPreview = document.getElementById('edit-preview-avatar');
 
-            form.action = `/dashboard/admin/article/penulisUpdate/${penulisId}`;
+            form.action = `/dashboard/admin/artikel/penulisUpdate/${penulisId}`;
             namaPenulisInput.value = penulisName;
             avatarPreview.src = penulisImageUrl || "{{ asset('assets/images/svg-icon/user.svg') }}";
 
