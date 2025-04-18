@@ -11,6 +11,7 @@
     const addSubDivisiButton = document.getElementById('addSubDivisiButton');
     const subDivisiTemplate = document.getElementById('subDivisiTemplate');
 
+    // Add subdivision button
     addSubDivisiButton.addEventListener('click', function () {
         if (subDivisiTemplate) {
             const clone = subDivisiTemplate.content.cloneNode(true);
