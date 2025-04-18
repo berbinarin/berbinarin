@@ -8,9 +8,16 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
     const subDivisiContainer = document.getElementById('subDivisiContainer');
-    const deletedSubDivisionsInput = document.getElementById('deletedSubDivisions');
+    const addSubDivisiButton = document.getElementById('addSubDivisiButton');
+    const subDivisiTemplate = document.getElementById('subDivisiTemplate');
 
-    // Hapus sub divisi
+    addSubDivisiButton.addEventListener('click', function () {
+        if (subDivisiTemplate) {
+            const clone = subDivisiTemplate.content.cloneNode(true);
+            subDivisiContainer.appendChild(clone);
+        }
+    });
+
     subDivisiContainer.addEventListener('click', function (e) {
         if (e.target.closest('.btn-delete-subdivisi')) {
             const button = e.target.closest('.btn-delete-subdivisi');
@@ -18,18 +25,18 @@
             const subDivisiId = button.getAttribute('data-id');
 
             if (subDivisiId) {
-                // Tambahkan ID sub divisi yang dihapus ke input hidden
+                const deletedSubDivisionsInput = document.getElementById('deletedSubDivisions');
                 const deletedIds = deletedSubDivisionsInput.value ? deletedSubDivisionsInput.value.split(',') : [];
                 deletedIds.push(subDivisiId);
                 deletedSubDivisionsInput.value = deletedIds.join(',');
             }
 
-            // Hapus elemen dari DOM
             if (row) {
                 row.remove();
             }
         }
     });
+
 });
 </script>
 
