@@ -23,8 +23,10 @@ use App\Models\Hiring_Positions_Job_Descriptions;
 use App\Models\PsikotestPaid\Biodata\Education;
 use App\Models\PsikotestPaid\Biodata\Family;
 use App\Models\PsikotestPaid\Biodata\LevelEducation;
-use App\Models\TableStaff;
-use App\Models\TableRecord;
+use App\Models\KeluargaBerbinar\Division;
+use App\Models\KeluargaBerbinar\SubDivision;
+use App\Models\KeluargaBerbinar\TableRecord;
+use App\Models\KeluargaBerbinar\TableStaff;
 
 class DashboardController extends Controller
 {
@@ -120,20 +122,23 @@ class DashboardController extends Controller
 
     public function berbinarFamily()
     {
-        $staffs = TableStaff::all();
+        $staffs = TableStaff::with(['records.division', 'records.subDivision'])->get();
+
         return view('moduls.dashboard.hr.berbinar-family.berbinarFamily', compact('staffs'));
     }
 
     public function addBerbinarFamily()
     {
-        return view('moduls.dashboard.hr.berbinar-family.addBerbinarFamily');
+        $divisions = Division::with('subDivisions')->get();
+
+        return view('moduls.dashboard.hr.berbinar-family.addBerbinarFamily', compact('divisions'));
     }
 
     public function deleteBerbinarFamily($id)
     {
         $staff = TableStaff::findOrFail($id);
-        $staff->records()->delete(); // Hapus semua records terkait
-        $staff->delete(); // Hapus staff
+        $staff->records()->delete();
+        $staff->delete();
 
         return redirect()->route('dashboard.berbinarFamily')->with('success', 'Data staff berhasil dihapus.');
     }
@@ -148,51 +153,52 @@ class DashboardController extends Controller
 
     public function editBerbinarFamily($id)
     {
-        $staff = TableStaff::with('records')->findOrFail($id);
-        return view('moduls.dashboard.hr.berbinar-family.editBerbinarFamily', compact('staff'));
+        $staff = TableStaff::with('records.division', 'records.subDivision')->findOrFail($id);
+        $divisions = Division::with('subDivisions')->get(); // Ambil semua divisi beserta sub divisinya
+
+        return view('moduls.dashboard.hr.berbinar-family.editBerbinarFamily', compact('staff', 'divisions'));
     }
 
     public function updateBerbinarFamily(Request $request, $id)
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'linkedin' => 'required|string|max:255',
-            'division.*' => 'required|string|max:255',
-            'sub_division.*' => 'nullable|string|max:255',
-            'date_start.*' => 'required|date',
-            'date_end.*' => 'required|date',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:1024', // Validasi untuk unggah foto
-            'motm' => 'required|string|in:yes,no', // Validasi untuk motm
+            'linkedin' => 'required|url',
+            'motm' => 'required|in:yes,no',
+            'photo' => 'nullable|image|mimes:jpg,png|max:1024',
+            'division' => 'required|array',
+            'sub_division' => 'nullable|array',
+            'date_start' => 'required|array',
+            'date_end' => 'required|array',
         ]);
 
         $staff = TableStaff::findOrFail($id);
 
-        // Simpan file foto jika ada
         if ($request->hasFile('photo')) {
             $photoPath = $request->file('photo')->store('photos', 'public');
             $staff->photo = $photoPath;
         }
 
-        // Update data staff
         $staff->update([
             'name' => $validatedData['name'],
             'linkedin' => $validatedData['linkedin'],
             'motm' => $validatedData['motm'],
         ]);
 
-        // Hapus data riwayat jabatan lama
         $staff->records()->delete();
 
-        // Simpan data riwayat jabatan baru
-        foreach ($validatedData['division'] as $index => $division) {
+        foreach ($validatedData['division'] as $index => $divisionId) {
+            $subDivisionId = $validatedData['sub_division'][$index] ?? null;
+
             TableRecord::create([
                 'staff_id' => $staff->id,
-                'division' => $division,
-                'subdivision' => $validatedData['sub_division'][$index] ?? null, // Gunakan nilai null jika tidak ada
+                'division_id' => $divisionId,
+                'subdivision_id' => $subDivisionId,
                 'date_start' => $validatedData['date_start'][$index],
                 'date_end' => $validatedData['date_end'][$index],
             ]);
         }
+
 
         return redirect()->route('dashboard.berbinarFamily')->with('success', 'Data staff berhasil diperbarui.');
     }
@@ -201,33 +207,35 @@ class DashboardController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'linkedin' => 'required|string|max:255',
-            'division.*' => 'required|string|max:255',
-            'sub_division.*' => 'required|string|max:255',
-            'date_start.*' => 'required|date',
-            'date_end.*' => 'required|date',
-            'photo' => 'required|image|mimes:jpeg,png,jpg|max:1024', // Validasi untuk unggah foto
-            'motm' => 'required|string|in:yes,no', // Validasi untuk motm
+            'linkedin' => 'required|url',
+            'motm' => 'required|in:yes,no',
+            'photo' => 'nullable|image|mimes:jpg,png|max:1024',
+            'division' => 'required|array',
+            'sub_division' => 'nullable|array',
+            'date_start' => 'required|array',
+            'date_end' => 'required|array',
         ]);
 
-        // Simpan file foto
-        $photoPath = $request->file('photo')->store('photos', 'public');
-
-        // Simpan data staff
-        $staff = TableStaff::create([
+        $staffData = [
             'name' => $validatedData['name'],
             'linkedin' => $validatedData['linkedin'],
-            'status' => 1, // Menggunakan nilai integer untuk status
-            'photo' => $photoPath, // Simpan path foto
-            'motm' => $validatedData['motm'], // Simpan nilai motm
-        ]);
+            'motm' => $validatedData['motm'],
+        ];
 
-        // Simpan data riwayat jabatan
-        foreach ($validatedData['division'] as $index => $division) {
+        if ($request->hasFile('photo')) {
+            $staffData['photo'] = $request->file('photo')->store('photos', 'public');
+        }
+
+        $staff = TableStaff::create($staffData);
+
+
+        foreach ($validatedData['division'] as $index => $divisionId) {
+            $subDivisionId = $validatedData['sub_division'][$index] ?? null;
+
             TableRecord::create([
                 'staff_id' => $staff->id,
-                'division' => $division,
-                'subdivision' => $validatedData['sub_division'][$index] ?? null, // Gunakan nilai null jika tidak ada
+                'division_id' => $divisionId,
+                'subdivision_id' => $subDivisionId,
                 'date_start' => $validatedData['date_start'][$index],
                 'date_end' => $validatedData['date_end'][$index],
             ]);
@@ -240,7 +248,9 @@ class DashboardController extends Controller
 
     public function manageDivision()
     {
-        return view('moduls.dashboard.hr.manage-division.manageDivision');
+        $divisions = Division::with('subDivisions')->get();
+
+        return view('moduls.dashboard.hr.manage-division.manageDivision', compact('divisions'));
     }
 
     public function addManageDivision()
@@ -248,9 +258,114 @@ class DashboardController extends Controller
         return view('moduls.dashboard.hr.manage-division.addDivision');
     }
 
-    public function detailManageDivision()
+    public function storeManageDivision(Request $request)
     {
-        return view('moduls.dashboard.hr.manage-division.detailDivision');
+        $validatedData = $request->validate([
+            'divisi' => 'required|string|max:255|unique:divisions,nama_divisi',
+            'subdivisi' => 'nullable|array',
+        ]);
+
+        $division = Division::create([
+            'nama_divisi' => $validatedData['divisi'],
+        ]);
+
+        if (!empty($validatedData['subdivisi'])) {
+            foreach ($validatedData['subdivisi'] as $subdivisi) {
+                if (empty($subdivisi)) {
+                    continue;
+                }
+
+                $existingSubDivision = SubDivision::where('division_id', $division->id)
+                    ->where('nama_subdivisi', $subdivisi)
+                    ->first();
+
+                if ($existingSubDivision) {
+                    return redirect()->back()->withErrors([
+                        'subdivisi' => "Sub divisi '{$subdivisi}' sudah ada di divisi '{$division->nama_divisi}'.",
+                    ])->withInput();
+                }
+
+                SubDivision::create([
+                    'division_id' => $division->id,
+                    'nama_subdivisi' => $subdivisi,
+                ]);
+            }
+        }
+
+        return redirect()->route('dashboard.manageDivision')->with('success', 'Divisi dan sub divisi berhasil ditambahkan.');
+    }
+    public function detailManageDivision($id)
+    {
+        $division = Division::with('subDivisions')->findOrFail($id);
+
+        return view('moduls.dashboard.hr.manage-division.detailDivision', compact('division'));
+    }
+
+    public function editManageDivision($id)
+    {
+        $division = Division::with('subDivisions')->findOrFail($id);
+
+        return view('moduls.dashboard.hr.manage-division.editDivision', compact('division'));
+    }
+
+    public function updateManageDivision(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'divisi' => 'required|string|max:255|unique:divisions,nama_divisi,' . $id,
+            'subdivisi' => 'nullable|array',
+            'subdivisi.*' => 'nullable|string|max:255',
+            'deleted_subdivisions' => 'nullable|string',
+        ]);
+
+        $division = Division::findOrFail($id);
+        $division->update([
+            'nama_divisi' => $validatedData['divisi'],
+        ]);
+
+        if (!empty($validatedData['deleted_subdivisions'])) {
+            $deletedIds = explode(',', $validatedData['deleted_subdivisions']);
+            SubDivision::whereIn('id', $deletedIds)->delete();
+        }
+
+        if (!empty($validatedData['subdivisi'])) {
+            foreach ($validatedData['subdivisi'] as $subdivisi) {
+                if (!empty($subdivisi)) {
+                    SubDivision::updateOrCreate(
+                        ['division_id' => $division->id, 'nama_subdivisi' => $subdivisi],
+                        ['nama_subdivisi' => $subdivisi]
+                    );
+                }
+            }
+        }
+
+        return redirect()->route('dashboard.manageDivision')->with('success', 'Divisi berhasil diperbarui.');
+    }
+
+    public function deleteManageDivision($id)
+    {
+        $division = Division::with('subDivisions')->findOrFail($id);
+
+        $isUsedInRecords = TableRecord::where('division_id', $division->id)
+            ->orWhereIn('subdivision_id', $division->subDivisions->pluck('id'))
+            ->exists();
+
+        if ($isUsedInRecords) {
+            return redirect()->route('dashboard.manageDivision')->with('error', 'Divisi atau sub divisi ini sedang digunakan dan tidak dapat dihapus.');
+        }
+
+        $division->subDivisions()->delete();
+
+        $division->delete();
+
+        return redirect()->route('dashboard.manageDivision')->with('success', 'Divisi berhasil dihapus.');
+    }
+
+    public function deleteSubDivision($id)
+    {
+        $subDivision = SubDivision::findOrFail($id);
+        $subDivision->delete();
+
+        return response()->json(['success' => true]);
     }
 
     public function internshipDataDetails($id)

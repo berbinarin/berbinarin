@@ -83,11 +83,7 @@
                                         {{ $staff->name }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap">
-                                        @if ($staff->records->isNotEmpty())
-                                            {{ $staff->records->first()->division }}
-                                        @else
-                                            -
-                                        @endif
+                                        {{ $staff->records->first()?->division?->nama_divisi ?? '-' }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap">
                                         @if ($staff->records->isNotEmpty())

@@ -10,10 +10,10 @@ return new class extends Migration {
         Schema::create('table_record', function (Blueprint $table) {
             $table->id();
             $table->foreignId('staff_id')->constrained('table_staff')->onDelete('cascade');
-            $table->string('division'); // Divisi pada periode tertentu
-            $table->string('subdivision')->nullable(); // Sub-divisi (bisa kosong)
-            $table->date('date_start'); // Tanggal mulai kerja di divisi tersebut
-            $table->date('date_end')->nullable(); // Tanggal selesai kerja (bisa kosong)
+            $table->string('division'); 
+            $table->string('subdivision')->nullable(); 
+            $table->date('date_start'); 
+            $table->date('date_end')->nullable(); 
             $table->timestamps();
         });
     }
