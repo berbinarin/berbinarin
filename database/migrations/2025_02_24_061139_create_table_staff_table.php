@@ -11,9 +11,9 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->boolean('status')->default(false);
-            $table->string('linkedin')->nullable(); // Menyimpan URL LinkedIn
-            $table->string('photo')->nullable(); // Menyimpan path foto
-            $table->enum('motm', ['yes', 'no'])->default('no'); // Menandai MOTM 
+            $table->string('linkedin')->nullable(); 
+            $table->string('photo')->nullable(); 
+            $table->enum('motm', ['yes', 'no'])->default('no'); 
             $table->timestamps();
         });
     }
