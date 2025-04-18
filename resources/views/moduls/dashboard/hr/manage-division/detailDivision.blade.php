@@ -22,18 +22,12 @@
                     Keluarga Berbinar. Data tersebut meliputi nama divisi dan subdivisi jika ada.</p>
             </div>
             <div class="flex items-center gap-5 pb-8">
-                <a href="#">
+                <a href="{{ route('dashboard.manageDivision.edit', $division->id) }}">
                     <button type="button"
-                        class="focus:ring-2 focus:ring-offset-2  mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded-lg">
-                        <p class=" font-medium leading-none text-dark">Edit</p>
+                        class="focus:ring-2 focus:ring-offset-2 mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded-lg">
+                        <p class="font-medium leading-none text-dark">Edit</p>
                     </button>
-                </a>
-                <a href="#">
-                    <button type="button"
-                        class="focus:ring-2 focus:ring-offset-2  mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-red-400 focus:outline-none rounded-lg">
-                        <p class=" font-medium leading-none text-dark">Hapus</p>
-                    </button>
-                </a>
+                </a>                
             </div>
             <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-md shadow-gray-400 shadow-lg">
                 <div class="mt-4 mb-4 overflow-x-auto">
@@ -43,40 +37,28 @@
                             <ul class="font-semibold pt-3 grid grid-cols-3 gap-x-10 gap-y-5">
                                 <li>
                                     <p class="text-gray-400">Nama Divisi</p>
-                                    <p class="text-black">John Doe</p>
+                                    <p class="text-black">{{ $division->nama_divisi }}</p>
                                 </li>
                             </ul>
                         </div>
                         <div>
                             <h1 class="text-2xl font-bold ">Sub Divisi</h1>
                             <ul class="font-semibold pt-3 grid grid-cols-3 gap-x-10 gap-y-5">
-                                <li class="flex items-center gap-3">
-                                    <div class="px-2 py-1 rounded-full bg-primary">
-                                        <h1 class="text-white text-sm">1.</h1>
-                                    </div>
-                                    <div class="">
-                                        <p class="text-gray-400">Nama Sub Divisi</p>
-                                        <p class="text-black">John Doe</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <div class="px-2 py-1 rounded-full bg-primary">
-                                        <h1 class="text-white text-sm">2.</h1>
-                                    </div>
-                                    <div class="">
-                                        <p class="text-gray-400">Nama Sub Divisi</p>
-                                        <p class="text-black">John Doe</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-center gap-3">
-                                    <div class="px-2 py-1 rounded-full bg-primary">
-                                        <h1 class="text-white text-sm">3.</h1>
-                                    </div>
-                                    <div class="">
-                                        <p class="text-gray-400">Nama Sub Divisi</p>
-                                        <p class="text-black">John Doe</p>
-                                    </div>
-                                </li>
+                                @forelse ($division->subDivisions as $index => $subDivision)
+                                    <li class="flex items-center gap-3">
+                                        <div class="px-2 py-1 rounded-full bg-primary">
+                                            <h1 class="text-white text-sm">{{ $index + 1 }}.</h1>
+                                        </div>
+                                        <div class="">
+                                            <p class="text-gray-400">Nama Sub Divisi</p>
+                                            <p class="text-black">{{ $subDivision->nama_subdivisi }}</p>
+                                        </div>
+                                    </li>
+                                @empty
+                                    <li>
+                                        <p class="text-gray-400">Tidak ada sub divisi.</p>
+                                    </li>
+                                @endforelse
                             </ul>
                         </div>
                     </div>
