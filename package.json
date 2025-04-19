@@ -23,6 +23,7 @@
     "dependencies": {
         "aos": "^2.3.4",
         "sweetalert2": "^11.6.13",
-        "swiper": "^11.2.1"
+        "swiper": "^11.2.1",
+        "tailwind-scrollbar-hide": "^2.0.0"
     }
 }

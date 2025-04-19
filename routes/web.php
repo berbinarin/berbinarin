@@ -69,6 +69,7 @@ use App\Http\Controllers\KeluargaBerbinarin\TableStaffController;
 use App\Http\Controllers\ArticleController\DashboardArticle;
 use App\Http\Controllers\KeluargaBerbinarin\DashboardKeluargaBerbinar;
 use App\Http\Controllers\ArticleController\LandingArticle;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -92,8 +93,6 @@ Route::get('/consulting-new', [LandingController::class, 'consulting_new'])->nam
 Route::get('/faq-new', [LandingController::class, 'faq_new'])->name('faq-new');
 Route::get('/term-condition-new', [LandingController::class, 'term_condition_new'])->name('term-condition-new');
 Route::get('/privacy-policy-new', [LandingController::class, 'privacy_policy_new'])->name('privacy-policy-new');
-Route::get('/arteri', [ArteriController::class, 'index'])->name('arteri');
-Route::get('/arteri/{id}', [ArteriController::class, 'show'])->name('arteri-detail');
 Route::get('/karir-new', [LandingController::class, 'karir_new'])->name('karir-new');
 Route::get('/karir-new/positions', [LandingController::class, 'positions_new'])->name('positions-new');
 Route::get('/karir-new/positions/{id}', [LandingController::class, 'positions_detail_new'])->name('positions-detail-new');
@@ -174,8 +173,9 @@ Route::prefix('dashboard/admin/article')->group(function () {
 
 // LANDING ARTIKEL
 Route::prefix('articles')->group(function () {
-    Route::get('/', [LandingArticle::class, 'index'])->name('moduls.landing-new.index-article');
-    Route::get('/{id}', [LandingArticle::class, 'show'])->name('moduls.landing-new.detail-article');
+    Route::get('/', [LandingArticle::class, 'index'])->name('arteri');
+    Route::get('/category/{slug}', [LandingArticle::class, 'category'])->name('arteri.category');
+    Route::get('/{id}', [LandingArticle::class, 'show'])->name('arteri.detail');
 });
 
 //DASHBOARD ADMIN E-LEARNING PSIKOTEST
@@ -707,9 +707,6 @@ Route::middleware(['web'])->group(function () {
     Route::match(['get', 'post'], '/nomor-bdi', [NomorBdiController::class, 'index'])->name('nomor_bdi.index');
     Route::get('/soalBdi/{nomor}', [SoalBdiController::class, 'getSoalByNomor']);
 });
-
-
-
 
 
 // API Routes (Tanpa CSRF Protection)

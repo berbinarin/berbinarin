@@ -14,17 +14,17 @@ class AuthorSeeder extends Seeder
     {
         Author::create([
             'name_author' => 'John Doe',
-            'profil_image' => 'uploads/penulis/john_doe.jpg',
+            'profil_image' => 'uploads/penulis/user1.png',
         ]);
 
         Author::create([
             'name_author' => 'Jane Smith',
-            'profil_image' => 'uploads/penulis/jane_smith.jpg',
+            'profil_image' => 'uploads/penulis/user2.png',
         ]);
 
         Author::create([
             'name_author' => 'Alice Johnson',
-            'profil_image' => 'uploads/penulis/alice_johnson.jpg',
+            'profil_image' => 'uploads/penulis/user3.png',
         ]);
     }
 }

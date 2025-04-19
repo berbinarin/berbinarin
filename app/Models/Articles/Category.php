@@ -9,9 +9,9 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $table = 'categories_article'; 
-    protected $fillable = ['name_category']; 
-    protected $guarded = ['id']; 
+    protected $table = 'categories_article';
+    protected $fillable = ['name_category', 'slug'];
+    protected $guarded = ['id'];
 
     /**
      * Relasi ke model Article.

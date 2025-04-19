@@ -8,6 +8,7 @@ use App\Models\Articles\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Articles\Article;
+use Illuminate\Support\Str;
 
 class DashboardArticle extends Controller
 {
@@ -22,12 +23,12 @@ class DashboardArticle extends Controller
         $articleCount = Article::count();
         $authorCount = Author::count();
         $categoryCount = Category::count();
-    
+
         return view('moduls.dashboard.arteri.dashboard', compact('articleCount', 'authorCount', 'categoryCount'));
     }
 
     public function addArticle()
-    { 
+    {
         $categories = Category::all();
         $authors = Author::all();
 
@@ -111,6 +112,7 @@ class DashboardArticle extends Controller
 
         Category::create([
             'name_category' => $request->input('name_category'),
+            'slug' => Str::slug($request->input('name_category')),
         ]);
 
         return redirect()->route('dashboard.article.kategori')->with('success', 'Kategori berhasil ditambahkan!');

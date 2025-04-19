@@ -1,25 +1,30 @@
-/** @type {import('tailwindcss').Config} */
-import forms from '@tailwindcss/forms';
+/** @type {import("tailwindcss").Config} */
+import forms from "@tailwindcss/forms";
 import plugin from "tailwindcss/plugin.js";
 import typography from "@tailwindcss/typography";
+import scrollbarhide from "tailwind-scrollbar-hide";
 
-
-const Myclass = plugin(function ({addUtilities}) {
-    addUtilities({
-        ".my-rotate-y-180": {
-            transform: "rotateY(180deg)",
-        },
-        ".preserve-3d": {
-            transformStyle: "preserve-3d",
-        },
-        ".perspective": {
-            perspective: "1000px",
-        },
-    });
+const Myclass = plugin(function ({ addUtilities }) {
+  addUtilities({
+    ".my-rotate-y-180": {
+      transform: "rotateY(180deg)",
+    },
+    ".preserve-3d": {
+      transformStyle: "preserve-3d",
+    },
+    ".perspective": {
+      perspective: "1000px",
+    },
+  });
 });
 
 export default {
-  content: ["./resources/**/*.blade.php", "./resources/**/*.js", "./resources/**/*.vue"],
+  content: [
+    "./resources/**/*.blade.php",
+    "./resources/**/*.js",
+    "./resources/**/*.vue",
+    "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
+  ],
   theme: {
     borderWidth: {
       DEFAULT: "1px",
@@ -70,5 +75,5 @@ export default {
       },
     },
   },
-  plugins: [forms, Myclass, typography],
+  plugins: [forms, Myclass, typography, scrollbarhide],
 };

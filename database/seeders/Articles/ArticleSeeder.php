@@ -14,26 +14,50 @@ class ArticleSeeder extends Seeder
     {
         Article::create([
             'title' => 'Teknologi Masa Depan',
-            'category_id' => 1, 
-            'author_id' => 1, 
-            'cover_image' => 'uploads/articles/teknologi_masa_depan.jpg',
-            'content' => '<p>Artikel tentang teknologi masa depan...</p>',
+            'category_id' => 1,
+            'author_id' => 1,
+            'cover_image' => 'uploads/articles/pendidikan_era_digital.jpg',
+            'content' => '
+            <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
+            <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
+            <blockquote>
+                <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt.</p>
+            </blockquote>
+            <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
+            <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
+        ',
         ]);
 
         Article::create([
             'title' => 'Tips Hidup Sehat',
-            'category_id' => 2, 
-            'author_id' => 2, 
-            'cover_image' => 'uploads/articles/tips_hidup_sehat.jpg',
-            'content' => '<p>Artikel tentang tips hidup sehat...</p>',
+            'category_id' => 2,
+            'author_id' => 2,
+            'cover_image' => 'uploads/articles/pendidikan_era_digital.jpg',
+            'content' => '
+            <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
+            <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
+            <blockquote>
+                <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt.</p>
+            </blockquote>
+            <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
+            <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
+        ',
         ]);
 
         Article::create([
             'title' => 'Pendidikan di Era Digital',
-            'category_id' => 3, 
-            'author_id' => 3, 
+            'category_id' => 3,
+            'author_id' => 3,
             'cover_image' => 'uploads/articles/pendidikan_era_digital.jpg',
-            'content' => '<p>Artikel tentang pendidikan di era digital...</p>',
+            'content' => '
+            <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
+            <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
+            <blockquote>
+                <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt.</p>
+            </blockquote>
+            <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
+            <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
+        ',
         ]);
     }
 }
