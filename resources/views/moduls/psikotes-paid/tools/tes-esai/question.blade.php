@@ -1,5 +1,5 @@
 @extends('moduls.psikotes.layouts.mainn', [
-'title' => 'Soal SSCT',
+'title' => 'Test 18',
 'active' => 'one psikotest',
 ])
 
@@ -57,21 +57,17 @@
   <div id="timer" class="text-center mb-6 relative">Waktu Tersisa:</div> --}}
 
   <div class="relative text-center z-10 w-3xl mx-auto p-7 mt-8" style="width: 750px;">
-    <form id="question-form" action="{{ route('psikotest-paid.tool.Tes Esai.submitAnswer') }}" method="POST">
+    <form id="question-form" action="{{ route('psikotest-paid.tool.Tes Esai.submit', ['testTesEsai' => $testTesEsai->id, 'questionTesEsai' => $questionTesEsai->id]) }}" method="POST">
     @csrf
-    <input type="hidden" name="timeout" id="timeout">
-    <input type="hidden" name="page" id="page" value="{{ session('current_question_number')??0 }}">
-    <input type="hidden" name="test_id" value="{{ $test->id }}">
-    <input type="hidden" name="question_id" value="{{ $questions[session('current_question_number', 1) - 1]->id }}">
-    <input type="hidden" name="current_question_number" value="{{ session('current_question_number', 1) }}">
+    {{-- <input type="hidden" name="timeout" id="timeout" value=""> --}}
     <div class="mb-4">
         <label class="block text-gray-700 text-lg mb-8" for="question">
-            {{ $questions[session('current_question_number', 1) - 1]->question }}
+            {{ $questionTesEsai->question }}
         </label>
-        <textarea name="answer" rows="4" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none"></textarea>
+        <textarea name="answer" rows="4" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" required>{{ optional($existingAnswer)->answer }}</textarea>
     </div>
-    <button type="button" id="submit-button" class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600" disabled>
-        Selanjutnya
+    <button id="submit-button" class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+        {{ $questionTesEsai->id >= 6 ? 'Selesai' : 'Selanjutnya' }}
     </button>
     </form>
   </div>
@@ -105,74 +101,74 @@
   <div id="view-modal-backdrop" class="hidden opacity-50 fixed inset-0 z-40 bg-black"></div>
   
 <script>
-  const minDuration = 0.1 * 60 * 1000; // Minimum time 10 minutes
-  const maxDuration = 0.3 * 60 * 1000; // Maximum time 20 minutes
+  // const minDuration = 0.1 * 60 * 1000; // Minimum time 10 minutes
+  // const maxDuration = 0.3 * 60 * 1000; // Maximum time 20 minutes
   
-  let startTime = localStorage.getItem('startTime') || new Date().getTime();
-  localStorage.setItem('startTime', startTime);
+  // let startTime = localStorage.getItem('startTime') || new Date().getTime();
+  // localStorage.setItem('startTime', startTime);
   
-  const timerElement = document.getElementById('timer');
-  const submitButton = document.getElementById('submit-button');
-  const form = document.getElementById('question-form');
+  // const timerElement = document.getElementById('timer');
+  // const submitButton = document.getElementById('submit-button');
+  // const form = document.getElementById('question-form');
     
-  const timerInterval = setInterval(() => {
-    const now = new Date().getTime();
-    const elapsed = now - startTime;
-    const remaining = maxDuration - elapsed;
-    const timeout = document.getElementById('timeout');
-    const page = document.getElementById('page');
+  // const timerInterval = setInterval(() => {
+  //   const now = new Date().getTime();
+  //   const elapsed = now - startTime;
+  //   const remaining = maxDuration - elapsed;
+  //   const timeout = document.getElementById('timeout');
+  //   const page = document.getElementById('page');
 
-    if (remaining <= 0) {
-      clearInterval(timerInterval);
-      localStorage.removeItem('startTime');
-      timeout.value = 2;
-      form.submit();
-    } else {
-      timeout.value = 1;
-    }
+  //   if (remaining <= 0) {
+  //     clearInterval(timerInterval);
+  //     localStorage.removeItem('startTime');
+  //     timeout.value = 2;
+  //     form.submit();
+  //   } else {
+  //     timeout.value = 1;
+  //   }
 
-    if (elapsed < minDuration && page.value == 6) {
-      timeout.value = 0;
-      // showTimeoutModal();
-      submitButton.disabled = false;
-    } else {
-      timeout.value = 1;
-      submitButton.disabled = false;
-    }
+  //   if (elapsed < minDuration && page.value == 6) {
+  //     timeout.value = 0;
+  //     // showTimeoutModal();
+  //     submitButton.disabled = false;
+  //   } else {
+  //     timeout.value = 1;
+  //     submitButton.disabled = false;
+  //   }
 
-    const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+  //   const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+  //   const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
 
-    console.log("Waktu sisa",minutes+ '' + seconds)
-    // timerElement.innerHTML = `Waktu Tersisa: ${minutes}m ${seconds}s`;
-  }, 1000);
+  //   console.log("Waktu sisa",minutes+ '' + seconds)
+  //   // timerElement.innerHTML = `Waktu Tersisa: ${minutes}m ${seconds}s`;
+  // }, 1000);
 
-  submitButton.addEventListener('click', () => {
-    const elapsed = new Date().getTime() - startTime;
+  // submitButton.addEventListener('click', () => {
+  //   const elapsed = new Date().getTime() - startTime;
 
-    if (elapsed < minDuration && page.value == 6) {
-      showTimeoutModal();
-    } else {
-      form.submit();
-    }
-  });
+  //   if (elapsed < minDuration && page.value == 6) {
+  //     showTimeoutModal();
+  //   } else {
+  //     form.submit();
+  //   }
+  // });
 
-  function showTimeoutModal() {
-    const modal = document.getElementById('view-modal');
-    const backdrop = document.getElementById('view-modal-backdrop');
+  // function showTimeoutModal() {
+  //   const modal = document.getElementById('view-modal');
+  //   const backdrop = document.getElementById('view-modal-backdrop');
     
-    modal.classList.remove('hidden');
-    backdrop.classList.remove('hidden');
+  //   modal.classList.remove('hidden');
+  //   backdrop.classList.remove('hidden');
 
-    localStorage.removeItem('startTime');
-  }
+  //   localStorage.removeItem('startTime');
+  // }
 
-  function toggleModal(modalId) {
-    const modal = document.getElementById(modalId);
-    const backdrop = document.getElementById(`${modalId}-backdrop`);
+  // function toggleModal(modalId) {
+  //   const modal = document.getElementById(modalId);
+  //   const backdrop = document.getElementById(`${modalId}-backdrop`);
 
-    modal.classList.toggle('hidden');
-    backdrop.classList.toggle('hidden');
-  }
+  //   modal.classList.toggle('hidden');
+  //   backdrop.classList.toggle('hidden');
+  // }
 </script>
 @endsection

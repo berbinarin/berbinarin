@@ -59,14 +59,11 @@
   
 
   <div class="relative text-center z-10 w-3xl mx-auto p-7 mt-8" style="width: 750px;">
-    <form action="{{ route('psikotest-paid.tool.DAP.submitAnswer') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('psikotest-paid.tool.DAP.submit', ['testDap' => $testDap, 'questionDap' => $questionDap]) }}" method="POST" enctype="multipart/form-data">
       @csrf
-      <input type="hidden" name="test_id" value="{{ $test->id }}">
-      <input type="hidden" name="question_id" value="{{ $questions[session('current_question_number', 1) - 1]->id }}">
-      <input type="hidden" name="current_question_number" value="{{ session('current_question_number', 1) }}">
       <div class="mb-4">
           <label class="block text-gray-700 text-sm font-bold mb-8" for="question">
-              {{ $questions[session('current_question_number', 1) - 1]->question }}
+              {{ $questionDap->question }}
           </label>
           <input type="file" name="answer_image" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" required>
       </div>

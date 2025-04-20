@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <p class="font-bold text-2xl text-center text-gray-800 mt-24 z-20 relative">Tes {{ $tool->id }}</p>
+    <p class="font-bold text-2xl text-center text-gray-800 mt-24 z-20 relative">Tes {{ $psikotestTool->id }}</p>
 
     <div class="relative text-justify z-10 max-sm:w-[90%] max-lg:w-[75%] w-[60%] h-auto mx-auto bg-white shadow-lg rounded-xl sm:p-10 p-4 mt-4 mb-10">
         <p class="text-black max-sm:text-[15px]">
@@ -38,7 +38,7 @@
         </p>
 
         <div class="flex justify-center mt-6">
-            <a href="{{ route('psikotest-paid.tool.Dass-42.startTest') }}">
+            <a href="{{ route('psikotest-paid.tool.Dass-42.start') }}">
                 <button type="button"
                     class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
                     Selanjutnya

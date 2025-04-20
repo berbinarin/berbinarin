@@ -29,14 +29,11 @@
     {{-- <p class="text-black mt-4 px-5 text-center mb-4">
         Soal {{ session('current_question_number', 1) }} dari 1
     </p> --}}
-    <form action="{{ route('psikotest-paid.tool.BAUM.submitAnswer') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('psikotest-paid.tool.BAUM.submit', ['testBaum' => $testBaum->id, 'questionBaum' => $questionBaum->id]) }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <input type="hidden" name="test_id" value="{{ $test->id }}">
-        <input type="hidden" name="question_id" value="{{ $questions[session('current_question_number', 1) - 1]->id }}">
-        <input type="hidden" name="current_question_number" value="{{ session('current_question_number', 1) }}">
         <div class="mb-4">
             <label class="block text-black p-4 text-center" for="question">
-                {{ $questions[session('current_question_number', 1) - 1]->question }}
+                {{ $questionBaum->question }}
             </label>
             <input type="file" name="answer_image" class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" required>
         </div>

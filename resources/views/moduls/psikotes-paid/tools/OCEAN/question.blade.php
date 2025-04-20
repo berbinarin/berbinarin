@@ -50,51 +50,49 @@
   <!-- Card Transparant -->
     <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-7 mt-8" style="width: 750px;">
     
-        <form id="autoSubmitForm" action="{{ route('psikotest-paid.tool.OCEAN.submitAnswer') }}" method="POST">
+        <form id="autoSubmitForm" action="{{ route('psikotest-paid.tool.OCEAN.submit', ['testOcean' => $testOcean, 'questionOcean' => $questionOcean]) }}" method="POST">
             @csrf
-            <input type="hidden" name="timeout" id="timeout" value="">
-            <input type="hidden" name="test_id" value="{{ $test->id }}">
-            <input type="hidden" name="question_id" value="{{ $questions[session('current_question_number', 1) - 1]->id }}">
-            <input type="hidden" name="current_question_number" value="{{ session('current_question_number', 1) }}">
+            <input type="hidden" name="timeout" id="timeout" value="false">
+
             <div class="mb-4">
                 <label class="block text-gray-700 text-lg text-center mb-2" for="question">
-                    {{ $questions[session('current_question_number', 1) - 1]->question }}
+                    {{ $questionOcean->question }}
                 </label>
                 <div class="flex justify-center gap-4">
                     <div class="flex justify-center space-x-4 mt-8 gap-3">
                         <label class="flex flex-col items-center">
-                            <input type="radio" name="answer" value="1" class="hidden peer" required>
-                            <div id="option-1" class="option w-12 h-12 rounded-full border-4 border-gray-400 flex items-center justify-center cursor-pointer">
+                            <input type="radio" name="answer" value="1" class="hidden peer" {{ optional($existingAnswer)->answer === 1 ? 'checked' : '' }} required>
+                            <div id="option-1" class="{{ optional($existingAnswer)->answer === 1 ? 'selected' : '' }} option w-12 h-12 rounded-full border-4 border-gray-400 flex items-center justify-center cursor-pointer">
                             1
                             </div>
                             <span class="mt-4 text-xs text-gray-500 text-center">Sangat <br>tidak <br>sesuai</span>
                         </label>    
                         
                         <label class="flex flex-col items-center">
-                            <input type="radio" name="answer" value="2" class="hidden peer" required>
-                            <div id="option-2" class="option w-12 h-12 rounded-full border-4 border-gray-400 flex items-center justify-center cursor-pointer">
+                            <input type="radio" name="answer" value="2" class="hidden peer" {{ optional($existingAnswer)->answer === 2 ? 'checked' : '' }} required>
+                            <div id="option-2" class="{{ optional($existingAnswer)->answer === 2 ? 'selected' : '' }} option w-12 h-12 rounded-full border-4 border-gray-400 flex items-center justify-center cursor-pointer">
                             2
                             </div>
                             <span class="mt-4 text-xs text-gray-500 text-center">Tidak <br>sesuai</span>
                         </label>
                         
                         <label class="flex flex-col items-center">
-                            <input type="radio" name="answer" value="3" class="hidden peer" required>
-                            <div id="option-3" class="option w-12 h-12 rounded-full border-4 border-gray-400 flex items-center justify-center cursor-pointer">
+                            <input type="radio" name="answer" value="3" class="hidden peer" {{ optional($existingAnswer)->answer === 3 ? 'checked' : '' }} required>
+                            <div id="option-3" class="{{ optional($existingAnswer)->answer === 3 ? 'selected' : '' }} option w-12 h-12 rounded-full border-4 border-gray-400 flex items-center justify-center cursor-pointer">
                             3
                             </div>
                             <span class="mt-4 text-xs text-gray-500 text-center">Netral</span>
                         </label>
                         <label class="flex flex-col items-center">
-                            <input type="radio" name="answer" value="4" class="hidden peer" required>
-                            <div id="option-4" class="option w-12 h-12 rounded-full border-4 border-gray-400 flex items-center justify-center cursor-pointer">
+                            <input type="radio" name="answer" value="4" class="hidden peer" {{ optional($existingAnswer)->answer === 4 ? 'checked' : '' }} required>
+                            <div id="option-4" class="{{ optional($existingAnswer)->answer === 4 ? 'selected' : '' }} option w-12 h-12 rounded-full border-4 border-gray-400 flex items-center justify-center cursor-pointer">
                             4
                             </div>
                             <span class="mt-4 text-xs text-gray-500 text-center">Sesuai</span>
                         </label>
                         <label class="flex flex-col items-center">
-                            <input type="radio" name="answer" value="5" class="hidden peer" required>
-                            <div id="option-5" class="option w-12 h-12 rounded-full border-4 border-gray-400 flex items-center justify-center cursor-pointer">
+                            <input type="radio" name="answer" value="5" class="hidden peer" {{ optional($existingAnswer)->answer === 5 ? 'checked' : '' }} required>
+                            <div id="option-5" class="{{ optional($existingAnswer)->answer === 5 ? 'selected' : '' }} option w-12 h-12 rounded-full border-4 border-gray-400 flex items-center justify-center cursor-pointer">
                             5
                             </div>
                             <span class="mt-4 text-xs text-gray-500 text-center">Sangat <br>sesuai</span>
@@ -104,7 +102,7 @@
             </div>
             <div class="flex rounded-md justify-center mt-6" style="height: 40px;">
                 <button type="submit" class="px-4 py-1 bg-blue-500 text-base mr-2 text-white rounded-full hover:bg-blue-600">
-                  Selanjutnya
+                  {{ $questionOcean->id >= 44 ? 'Selesai' : 'Selanjutnya' }}
                 </button>
             </div>
         </form>

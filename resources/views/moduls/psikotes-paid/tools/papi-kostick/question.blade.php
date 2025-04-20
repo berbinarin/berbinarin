@@ -128,11 +128,10 @@
         </form>
     </div>
 <script>
-    // Total durasi (misalnya 90 menit = 90 * 60 * 1000 milidetik)
     const totalDuration = 45 * 60 * 1000;
 
-    let startTime = localStorage.getItem('startTimePapiKostick') || new Date().getTime();
-    localStorage.setItem('startTimePapiKostick', startTime);
+    let startTime = localStorage.getItem('startTime') || new Date().getTime();
+    localStorage.setItem('startTime', startTime);
 
     const timerElement = document.getElementById('timer');
 
@@ -143,7 +142,7 @@
 
         if (remaining <= 0) {
             clearInterval(timerInterval);
-            localStorage.removeItem('startTimePapiKostick');
+            localStorage.removeItem('startTime');
             document.getElementById('timeout').value = true;
             document.querySelector('form').submit();
         }

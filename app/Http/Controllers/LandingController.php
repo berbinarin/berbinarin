@@ -2741,7 +2741,7 @@ class LandingController extends Controller
 
     public function LandingBDI()
     {
-        return view('moduls.psikotes-paid.tools.bdi.landing');
+        return view('moduls.psikotes-paid.tools.BDI.landing');
     }
 
     public function TestBDI()

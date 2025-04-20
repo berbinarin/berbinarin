@@ -17,8 +17,8 @@ class PapiKostickController extends Controller
     public function showLanding()
     {
         $user = Auth::guard('psikotestpaid')->user();
-        $tool = PsikotestTool::where('name', 'PAPI Kostick')->firstOrFail();
-        return view('moduls.psikotes-paid.tools.papi-kostick.landing', ['user' => $user, 'tool' => $tool]);
+        $psikotestTool = PsikotestTool::where('name', 'PAPI Kostick')->firstOrFail();
+        return view('moduls.psikotes-paid.tools.papi-kostick.landing', compact('user', 'psikotestTool'));
     }
 
     public function startTest(PsikotestTool $psikotestTool)
@@ -55,14 +55,7 @@ class PapiKostickController extends Controller
         // Cek apakah timeout terjadi
         if ($request->input('timeout') === "true") {
             $this->calculateAndStoreResult($testPapiKostick->id);
-
-            // Update the status_progress to true
-            $psikotestPaidTest = PsikotestPaidTest::where('id', $testPapiKostick->psikotestPaidTest->id)->first();
-            if ($psikotestPaidTest) {
-                $psikotestPaidTest->update(['status_progress' => true]);
-            }
-
-            return redirect()->route('psikotest-paid.papi-kostick.complete', []);
+            return redirect()->route('psikotest-paid.papi-kostick.summary', []);
         }
 
         $existingAnswer = AnswerPapiKostick::where('test_papi_kostick_id', $testPapiKostick->id)
@@ -83,13 +76,6 @@ class PapiKostickController extends Controller
 
         if ($questionPapiKostick->id >= 90) {
             $this->calculateAndStoreResult($testPapiKostick->id);
-
-            // Update the status_progress to true
-            $psikotestPaidTest = PsikotestPaidTest::where('id', $testPapiKostick->psikotestPaidTest->id)->first();
-            if ($psikotestPaidTest) {
-                $psikotestPaidTest->update(['status_progress' => true]);
-            }
-
             return redirect()->route('psikotest-paid.papi-kostick.summary', ['psikotestTool' => $psikotestTool->id, 'testPapiKostick' => $testPapiKostick->id]);
         }
 
@@ -410,11 +396,10 @@ class PapiKostickController extends Controller
         }
     }
 
-    public function summary($id)
+    public function summary(TestPapiKostick $testPapiKostick)
     {
-        if (!session()->has('papikostick') || session('papikostick') != $id) {
-            return redirect()->route('psikotest-paid.tool.PAPI Kostick.showLanding');
-        }
+        $psikotestPaidTest = PsikotestPaidTest::where('id', $testPapiKostick->psikotestPaidTest->id)->first();
+        $psikotestPaidTest->update(['status_progress' => true]);
 
         return view('moduls.psikotes-paid.tools.papi-kostick.summary');
     }

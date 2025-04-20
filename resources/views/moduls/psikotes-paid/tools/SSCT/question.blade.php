@@ -58,20 +58,17 @@
   </div> --}}
 
   <div class="relative text-center z-10 w-3xl mx-auto p-7 mt-8" style="width: 750px;">
-    <form id="autoSubmitForm" action="{{ route('psikotest-paid.tool.SSCT.submitAnswer') }}" method="POST">
+    <form id="autoSubmitForm" action="{{ route('psikotest-paid.tool.SSCT.submit', ['testSsct' => $testSsct, 'questionSsct' => $questionSsct]) }}" method="POST">
       @csrf
-      <input type="hidden" name="timeout" id="timeout" value="">
-      <input type="hidden" name="test_id" value="{{ $test->id }}">
-      <input type="hidden" name="question_id" value="{{ $questions[session('current_question_number', 1) - 1]->id }}">
-      <input type="hidden" name="current_question_number" value="{{ session('current_question_number', 1) }}">
+      <input type="hidden" name="timeout" id="timeout" value="false">
       <div class="mb-4">
           <label class="block text-lg mt-7 px-8 mb-8" for="question">
-              {{ $questions[session('current_question_number', 1) - 1]->question }}
+              {{ $questionSsct->question }}
           </label>
-          <textarea name="answer" rows="1" placeholder="Ketik disini..." class="input-field rounded-lg w-1/2" required></textarea>
+          <textarea name="answer" rows="1" placeholder="Ketik disini..." class="input-field rounded-lg w-1/2" required autofocus>{{ optional($existingAnswer)->answer }}</textarea>
       </div>
       <button type="submit" class="w-xl bg-primary  items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
-          Selanjutnya
+          {{ $questionSsct->id >= 60 ? 'Selesai' : 'Selanjutnya' }}
       </button>
     </form>
   </div>

@@ -56,7 +56,7 @@ class PsikotestToolController extends Controller
       if ($tool->token === $token) {
           $path = 'psikotest-paid.tool.' . $tool->name . '.showLanding';
           Alert::toast('Valid Token!', 'success')->autoClose(5000);
-          return redirect()->route($path, $tool->id);
+          return redirect()->route($path);
       }
       Alert::toast('Invalid Token!', 'error')->autoClose(5000);
       return back();

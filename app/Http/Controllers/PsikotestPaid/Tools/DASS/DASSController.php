@@ -16,18 +16,18 @@ class DassController extends Controller
     public function showLanding()
     {
         $user = Auth::guard('psikotestpaid')->user();
-        $tool = PsikotestTool::where('name', 'Dass-42')->firstOrFail();
-        return view('moduls.psikotes-paid.tools.DASS.landing', ['user' => $user, 'tool' => $tool]);
+        $psikotestTool = PsikotestTool::where('name', 'Dass-42')->firstOrFail();
+        return view('moduls.psikotes-paid.tools.DASS.landing', compact('user', 'psikotestTool'));
     }
 
-    public function startTest()
+    public function start()
     {
         $user = Auth::guard('psikotestpaid')->user();
-        $tool = PsikotestTool::where('name', 'Dass-42')->firstOrFail();
+        $psikotestTool = PsikotestTool::where('name', 'Dass-42')->firstOrFail();
 
         $psikotestPaidTest = PsikotestPaidTest::create([
             'user_psikotest_paid_id' => $user->id,
-            'psikotest_tool_id' => $tool->id,
+            'psikotest_tool_id' => $psikotestTool->id,
             'status_progress' => false,
         ]);
 
@@ -35,29 +35,29 @@ class DassController extends Controller
             'psikotest_paid_test_id' => $psikotestPaidTest->id,
         ]);
 
-        return redirect()->route('psikotest-paid.tool.Dass-42.showTest', ['testDass' => $testDass->id])
+        return redirect()->route('psikotest-paid.tool.Dass-42.showQuestion', ['testDass' => $testDass->id, 'questionDass' => 1])
             ->with('current_question_number', 1);
     }
 
-    public function showTest(Request $request, TestDass $testDass)
+    public function showQuestion(TestDass $testDass, QuestionDass $questionDass)
     {
+        $existingAnswer = AnswerDass::where('test_dass_id', $testDass->id)
+        ->where('question_dass_id', $questionDass->id)
+        ->first();
 
-        $questions = QuestionDass::all();
+        $progress = round(session('current_question_number') / 21 * 100);
 
-        $progress = round(session('current_question_number') / $questions->count() * 100);
-
-        return view('moduls.psikotes-paid.tools.DASS.question', ['test' => $testDass, 'questions' => $questions, 'progress' => $progress]);
+        return view('moduls.psikotes-paid.tools.DASS.question', compact('testDass', 'questionDass', 'existingAnswer', 'progress'));
     }
 
-    public function submitAnswer(Request $request)
+    public function submit(Request $request, TestDass $testDass, QuestionDass $questionDass)
     {
-
         $validateData = $request->validate([
             'answer' => 'string'
         ]);
 
-        $existingAnswer = AnswerDass::where('psikotest_paid_test_id', $psikotest_paid_test_id)
-            ->where('question_dass_id', $question_dass->id)
+        $existingAnswer = AnswerDass::where('test_dass_id', $testDass->id)
+            ->where('question_dass_id', $questionDass->id)
             ->first();
 
         if ($existingAnswer) {
@@ -66,21 +66,24 @@ class DassController extends Controller
             ]);
         } else {
             AnswerDass::create([
-                'psikotest_paid_test_id' => $psikotest_paid_test_id,
-                'question_dass_id' => $question_dass->id,
+                'test_dass_id' => $testDass->id,
+                'question_dass_id' => $questionDass->id,
                 'answer' => $validateData['answer'],
             ]);
         }
 
-        if ($question_dass->question_order == QuestionDass::count()) {
-            return redirect()->route('psikotest-paid.tool.Dass-42.showSummary');
+        if ($questionDass->question_order == QuestionDass::count()) {
+            return redirect()->route('psikotest-paid.tool.Dass-42.summary', ['testDass' => $testDass->id]);
         } else {
-            return redirect()->route('psikotest-paid.tool.Dass-42.showTest', ['psikotest_paid_test_id' => $psikotest_paid_test_id, 'question_dass' => $question_dass->question_order + 1]);
+            return redirect()->route('psikotest-paid.tool.Dass-42.showQuestion', ['testDass' => $testDass->id, 'questionDass' => $questionDass->id + 1]);
         }
     }
 
-    public function showSummary()
+    public function summary(TestDass $testDass)
     {
+        $psikotestPaidTest = PsikotestPaidTest::where('id', $testDass->psikotestPaidTest->id)->first();
+        $psikotestPaidTest->update(['status_progress' => true]);
+
         return view('moduls.psikotes-paid.tools.DASS.summary');
     }
 }
