@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Arteri\ArteriController;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\PsikotestPaid\Tools\EPI\EPIController;
 use App\Http\Controllers\PsikotestPaid\Tools\RMIB\RMIBController;
@@ -65,8 +66,9 @@ use App\Http\Controllers\PsikotestPaid\Tools\BDI\SoalBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\SkorBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\DASS\DassController;
 use App\Http\Controllers\KeluargaBerbinarin\TableStaffController;
-
-use App\Http\Controllers\KeluargaBerbinar\JabatanStaffController;
+use App\Http\Controllers\ArticleController\DashboardArticle;
+use App\Http\Controllers\KeluargaBerbinarin\DashboardKeluargaBerbinar;
+use App\Http\Controllers\ArticleController\LandingArticle;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,8 +102,16 @@ Route::get('/counseling', [LandingController::class, 'konseling'])->name('counse
 Route::get('/counseling/pdf/{filename}', [PDFController::class, 'show'])->name('pdf.show');
 Route::get('/psikotest', [LandingController::class, 'psikotest'])->name('psikotest');
 Route::get('/psikotest/homepage', [LandingController::class, 'homepage'])->name('homepage');
+Route::get('/konseling-new/daftar-konseling', [LandingController::class, 'daftar_konseling'])->name('konseling-new/daftar-konseling');
+Route::get('/konseling-new/jadwal-konseling', [LandingController::class, 'jadwal_konseling'])->name('konseling-new/jadwal-konseling');
+Route::get('/konseling-new/data-diri-konseling', [LandingController::class, 'data_diri_konseling'])->name('konseling-new/data-diri-konseling');
+Route::get('/konseling-new/cerita-konseling', [LandingController::class, 'cerita_konseling'])->name('konseling-new/cerita-konseling');
+Route::get('/konseling-new/summary-konseling', [LandingController::class, 'summary_konseling'])->name('konseling-new/summary-konseling');
+Route::get('/psikotes-new/daftar-psikotes', [LandingController::class, 'daftar_psikotes'])->name('psikotes-new/daftar-psikotes');
+Route::get('/psikotes-new/jadwal-psikotes', [LandingController::class, 'jadwal_psikotes'])->name('psikotes-new/jadwal-psikotes');
+Route::get('/psikotes-new/data-diri-psikotes', [LandingController::class, 'data_diri_psikotes'])->name('psikotes-new/data-diri-psikotes');
+Route::get('/psikotes-new/summary-psikotes', [LandingController::class, 'summary_psikotes'])->name('psikotes-new/summary-psikotes');
 
-Route::get('/artikel', [LandingController::class, 'artikel'])->name('artikel');
 
 Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
 
@@ -115,12 +125,58 @@ Route::get('/class', [LandingController::class, 'class'])->name('class');
 Route::get('/class/webinar', [LandingController::class, 'classWebinar'])->name('webinar');
 Route::get('/class/bisikan', [LandingController::class, 'classBisikan'])->name('bisikan');
 
+// KELUARGA BERBINAR
+Route::prefix('dashboard/admin/berbinar-family')->group(function () {
 
-// Keluarga Berbinar New
+    //MODUL DASBOARD ADMIN KELUARGA BERBINAR
+    Route::get('/', [DashboardKeluargaBerbinar::class, 'berbinarFamily'])->name('dashboard.berbinarFamily');
+    Route::get('/add', [DashboardKeluargaBerbinar::class, 'addBerbinarFamily'])->name('dashboard.berbinarFamily.add');
+    Route::get('/tampil', [DashboardKeluargaBerbinar::class, 'tampilBerbinarFamily'])->name('dashboard.berbinarFamily.tampil');
+    Route::get('/detail/{id}', [DashboardKeluargaBerbinar::class, 'detailBerbinarFamily'])->name('dashboard.berbinarFamily.details');
+    Route::get('/edit/{id}', [DashboardKeluargaBerbinar::class, 'editBerbinarFamily'])->name('dashboard.berbinarFamily.edit');
+
+    //CRUD
+    Route::post('/submit', [DashboardKeluargaBerbinar::class, 'submitBerbinarFamily'])->name('dashboard.berbinarFamily.submit');
+    Route::put('/update/{id}', [DashboardKeluargaBerbinar::class, 'updateBerbinarFamily'])->name('dashboard.berbinarFamily.update');
+    Route::delete('/delete/{id}', [DashboardKeluargaBerbinar::class, 'deleteBerbinarFamily'])->name('dashboard.berbinarFamily.delete');
+});
+
+// HALAMAN DEPAN Keluarga Berbinar
 Route::prefix('keluarga-berbinar')->group(function () {
     Route::get('/', [TableStaffController::class, 'keluarga_berbinar'])->name('keluarga-berbinar');
 });
 
+
+// ARTIKEL
+Route::prefix('dashboard/admin/artikel')->group(function () {
+
+    // MODUL DASHBOARD ADMIN ARTIKEL
+    Route::get('/', [DashboardArticle::class, 'dashboardArticle'])->name('dashboard.article');
+    Route::get('/create', [DashboardArticle::class, 'addArticle'])->name('dashboard.article.create');
+    Route::get('/update/{id}', [DashboardArticle::class, 'updateArticle'])->name('dashboard.article.update');
+    Route::get('/kategori', [DashboardArticle::class, 'kategoriArticle'])->name('dashboard.article.kategori');
+    Route::get('/postingan', [DashboardArticle::class, 'postinganArticle'])->name('dashboard.article.postingan');
+    Route::get('/penulis', [DashboardArticle::class, 'penulisArticle'])->name('dashboard.article.penulis');
+    Route::get('/detail/{id}', [DashboardArticle::class, 'detailArticle'])->name('dashboard.article.detail');
+
+    // CRUD
+    Route::post('/store', [DashboardArticle::class, 'store'])->name('dashboard.article.store');
+    Route::post('/update/ArticleStore/{id}', [DashboardArticle::class, 'updateArticleStore'])->name('dashboard.article.update.store');
+    Route::delete('/delete/{id}', [DashboardArticle::class, 'deleteArticle'])->name('dashboard.article.delete');
+    Route::post('/kategori_store', [DashboardArticle::class, 'addCategory'])->name('dashboard.article.kategori.add');
+    Route::delete('/kategori/{id}', [DashboardArticle::class, 'deleteCategory'])->name('dashboard.article.kategori.delete');
+    Route::put('/kategori/{id}', [DashboardArticle::class, 'updateCategory'])->name('dashboard.article.kategori.update');
+    Route::post('addPenulis', [DashboardArticle::class, 'addPenulis'])->name('dashboard.article.addpenulis');
+    Route::delete('/penulis/{id}', [DashboardArticle::class, 'deletePenulis'])->name('dashboard.article.deletepenulis');
+    Route::put('/penulisUpdate/{id}', [DashboardArticle::class, 'updatePenulis'])->name('dashboard.article.updatepenulis');
+});
+
+// LANDING ARTIKEL
+Route::prefix('articles')->group(function () {
+    Route::get('/', [LandingArticle::class, 'index'])->name('arteri');
+    Route::get('/category/{slug}', [LandingArticle::class, 'category'])->name('arteri.category');
+    Route::get('/{id}', [LandingArticle::class, 'show'])->name('arteri.detail');
+});
 
 //DASHBOARD ADMIN E-LEARNING PSIKOTEST
 Route::get('/psikotestData', [DashboardController::class, 'psikotestData'])->name('psikotes.dashboard.psikotestData');
@@ -226,7 +282,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/data-test/pengumpulan', [DashboardUserController::class, 'psikotesPaidPengumpulan'])->name('dashboard.psikotespaid.pengumpulan');
         Route::get('/data-test/dashboardVAK', [DashboardUserController::class, 'dashboardVAK'])->name('dashboard.psikotespaid.dashboardVAK');
         Route::get('/data-test/dashboardVAK/jawaban', [DashboardUserController::class, 'jawabanVAK'])->name('dashboard.psikotespaid.jawabanVAK');
-        Route::get('/data-test/dashboardVAK/jawaban/detail', [DashboardUserController::class, 'detailVAK'])->name('dashboard.psikotespaid.detailVAK');
+        Route::get('/data-test/dashboardVAK/jawaban/detail/{id}', [DashboardUserController::class, 'detailVAK'])->name('dashboard.psikotespaid.detailVAK');
         Route::get('/data-test/dashboardSSCT', [DashboardUserController::class, 'dashboardSSCT'])->name('dashboard.psikotespaid.dashboardSSCT');
         Route::get('/data-test/dashboardSSCT/jawaban', [DashboardUserController::class, 'jawabanSSCT'])->name('dashboard.psikotespaid.jawabanSSCT');
         Route::get('/data-test/dashboardbiodata', [DashboardUserController::class, 'psikotesPaidDashboardBiodata'])->name('dashboard.psikotespaid.dashboardbiodata');
@@ -257,12 +313,13 @@ Route::group(['middleware' => ['auth']], function () {
         // Dashboard EPI
         Route::get('/data-test/EPI', [DashboardUserController::class, 'dashboardEPI'])->name('dashboard.psikotespaid.epi');
         Route::get('/data-test/EPI/data', [DashboardUserController::class, 'dataEPI'])->name('dashboard.psikotespaid.dataepi');
-        Route::get('/data-test/EPI/data/detail', [DashboardUserController::class, 'detailEPI'])->name('dashboard.psikotespaid.detailepi');
+        Route::get('/data-test/EPI/data/detail/{testId}', [DashboardUserController::class, 'detailEPI'])->name('dashboard.psikotespaid.detailepi');
 
         // Dashboard RMIB
         Route::get('/data-test/RMIB', [DashboardUserController::class, 'dashboardRMIB'])->name('dashboard.psikotespaid.rmib');
         Route::get('/data-test/RMIB/data', [DashboardUserController::class, 'dataRMIB'])->name('dashboard.psikotespaid.datarmib');
         Route::get('/data-test/RMIB/data/{testRmib}/detail', [DashboardUserController::class, 'detailRMIB'])->name('dashboard.psikotespaid.detailrmib');
+
 
         Route::post('/data-test/{id}/generate-token', [DashboardUserController::class, 'generateToken'])->name('dashboard.psikotespaid.generate-token');
         Route::get('/price-list', [DashboardUserController::class, 'priceList'])->name('dashboard.psikotespaid.price-list');
@@ -481,8 +538,10 @@ Route::prefix('/psikotest-paid')->group(function () {
 
         // TES EPI
         Route::get('/tool/EPI', [EPIController::class, 'showLanding'])->name('psikotest-paid.tool.EPI.showLanding');
-        Route::get('/tool/EPI/test', [EPIController::class, 'test'])->name('psikotest-paid.tool.EPI.test');
-        Route::get('/tool/EPI/summary', [EPIController::class, 'summary'])->name('psikotest-paid.tool.EPI.summary');
+        Route::post('/tool/EPI/start', [EPIController::class, 'startTest'])->name('psikotest-paid.tool.EPI.start');
+        Route::get('/tool/EPI/test/{testId}', [EPIController::class, 'showTest'])->name('psikotest-paid.tool.EPI.showTest');
+        Route::post('/tool/EPI/submit', [EPIController::class, 'submitAnswer'])->name('psikotest-paid.tool.EPI.submit');
+        Route::get('/tool/EPI/summary/{testId}', [EPIController::class, 'summary'])->name('psikotest-paid.tool.EPI.summary');
 
         // TES RMIB
         Route::get('/tool/RMIB', [RMIBController::class, 'showLanding'])->name('psikotest-paid.tool.RMIB.showLanding');
@@ -668,9 +727,6 @@ Route::middleware(['web'])->group(function () {
     Route::match(['get', 'post'], '/nomor-bdi', [NomorBdiController::class, 'index'])->name('nomor_bdi.index');
     Route::get('/soalBdi/{nomor}', [SoalBdiController::class, 'getSoalByNomor']);
 });
-
-
-
 
 
 // API Routes (Tanpa CSRF Protection)

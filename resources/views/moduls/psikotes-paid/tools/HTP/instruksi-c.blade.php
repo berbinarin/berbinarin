@@ -29,11 +29,7 @@
             Apabila sudah selesai, silahkan pada lembaran kertas yang ada identitasnya atau di halaman kertas sebaliknya, <span class="font-bold">tuliskan atau ceritakan gambar yang baru Anda gambar dengan satu kalimat. Satu kalimat yang menggambarkan gambar yang telah anda buat.</span>
         </p>
     </div>
-
-    {{-- <p class="text-black mt-5 pl-14">
-      Baik jika sudah silahkan balik kertasnya pada bagian yang kosong atau bagian yang tidak ada identitasnya.
-    </p> --}}
-
+    
     <div class="mb-2 flex justify-center gap-6 mt-8">
       <a href="{{ route('psikotest-paid.tool.HTP.instruksi_d',['testId'=>$test->id]) }}">
         <button type="button" class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
@@ -43,6 +39,28 @@
     </div>
   </div>
 </div>
+
+<script>
+  const totalDuration = 7 * 60 * 1000; 
+  
+  let startTime = localStorage.getItem('startTime');
+  if(!startTime) {
+    startTime = new Date().getTime();
+    localStorage.setItem('startTime', startTime);
+  }
+
+  const timerInterval = setInterval(() => {
+    const now = new Date().getTime();
+    const elapsed = now - startTime;
+    const remaining = totalDuration - elapsed;
+
+    // Debug di Console
+    const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+    console.log(`Waktu sisa: ${minutes}m ${seconds}s`);
+
+  }, 1000);
+</script>
 
 @endsection
 @include('sweetalert::alert')

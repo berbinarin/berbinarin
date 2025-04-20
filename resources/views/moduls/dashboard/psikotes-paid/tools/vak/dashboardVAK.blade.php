@@ -20,10 +20,10 @@
                 <div class="text-white rounded-lg flex flex-col justify-between p-6 h-1/2 w-1/2 relative" style="background-color: #6482AD;">
                     <h3 class="block text-2xl font-bold">VAK</h3>
                         <div>
-                            <p class="block text-4xl text-white font-bold">360</p>
+                            <p class="block text-4xl text-white font-bold">{{ $respondens }}</p>
                             <p>User</p>
                         </div>
-                    <span class="absolute p-6 bottom-2 right-2 text-xl">13</span>
+                    <span class="absolute p-6 bottom-2 right-2 text-xl">{{ $totalJawaban }}</span>
                 </div>
             </div>
         </div>

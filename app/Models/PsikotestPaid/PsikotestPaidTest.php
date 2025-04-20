@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\PsikotestPaid\VAK\TestVak;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\PsikotestPaid\PapiKostick\TestPapiKostick;
+use App\Models\PsikotestPaid\TesEsai\TestTesEsai;
+use App\Models\PsikotestPaid\EPI\EpiAnswer;
 
 class PsikotestPaidTest extends Model
 {
@@ -43,5 +45,15 @@ class PsikotestPaidTest extends Model
     public function testVak()
     {
         return $this->hasMany(TestVak::class);
+    }
+
+    public function epiAnswers()
+    {
+        return $this->hasMany(EpiAnswer::class, 'psikotest_paid_test_id');
+    }
+
+    public function testTesEsai()
+    {
+        return $this->hasMany(TestTesEsai::class, 'psikotest_paid_test_id');
     }
 }

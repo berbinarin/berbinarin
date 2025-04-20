@@ -19,7 +19,7 @@ class AnswerTesEsai extends Model
 
     public function testTesEsai()
     {
-        return $this->belongsTo(TestTesEsai::class);
+        return $this->belongsTo(TestTesEsai::class, 'test_tes_esai_id');
     }
     public function questionTesEsai()
     {

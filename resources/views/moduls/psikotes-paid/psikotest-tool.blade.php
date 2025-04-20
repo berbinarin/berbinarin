@@ -1,4 +1,4 @@
-<!-- resources/views/moduls/psikotes-paid/psikotest-tools/index.blade.php -->
+<!-- resources/views/moduls/psikotes-paid/psikotest-tools/arteri.blade.php -->
 
 <!DOCTYPE html>
 <html lang="en">

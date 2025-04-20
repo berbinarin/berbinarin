@@ -54,7 +54,8 @@ class AuthController extends Controller
                 auth()->user()->role == 'Konselling' ||
                 auth()->user()->role == 'PsikotestFree' ||
                 auth()->user()->role == 'BerbinarPlus' ||
-                auth()->user()->role == 'PsikotestPaid'
+                auth()->user()->role == 'PsikotestPaid' ||
+                auth()->user()->role == 'BerbinarSatu'
             ) {
                 Alert::toast('Login Sucessfully!', 'success')->autoClose(5000);;
                 return redirect()->route('dashboard');
