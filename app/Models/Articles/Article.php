@@ -9,9 +9,9 @@ class Article extends Model
 {
     use HasFactory;
 
-    protected $table = 'artikel';
-    protected $guarded = ['id']; 
+    protected $guarded = ['id'];
     protected $fillable = ['title', 'category_id', 'author_id', 'cover_image', 'content'];
+
     /**
      * Relasi ke model Category.
      * Satu artikel memiliki satu kategori.

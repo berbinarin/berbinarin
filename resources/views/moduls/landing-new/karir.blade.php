@@ -8,6 +8,7 @@
 )
 
 @section("content")
+
     {{-- HERO START --}}
     <section class="relative mb-12 mt-24 w-full overflow-x-hidden">
         {{-- hexagon texture atas --}}

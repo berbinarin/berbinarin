@@ -1,0 +1,25 @@
+
+.prose p {
+    @apply text-slate-900 text-justify
+}
+
+.prose blockquote {
+    @apply border-l-4 border-cyan-500 px-8 text-gray-700 relative lg:max-w-6xl text-xl md:text-2xl lg:text-3xl
+}
+
+/* Adding quote symbols */
+.prose blockquote p {
+    @apply relative inline-block text-stone-900 not-italic
+}
+
+.prose blockquote p::before {
+    content: '\201C'; /* Opening quote */
+    @apply text-cyan-500 text-4xl absolute left-[-1rem] top-[-0.5rem];
+}
+
+.prose blockquote p::after {
+    content: '\201E'; /* Closing quote */
+    @apply text-cyan-500 text-4xl absolute right-[-1rem] bottom-[-0.5rem];
+}
+
+

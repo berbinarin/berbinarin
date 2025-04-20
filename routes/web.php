@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Arteri\ArteriController;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\PsikotestPaid\Tools\EPI\EPIController;
 use App\Http\Controllers\PsikotestPaid\Tools\RMIB\RMIBController;
@@ -68,6 +69,7 @@ use App\Http\Controllers\KeluargaBerbinarin\TableStaffController;
 use App\Http\Controllers\ArticleController\DashboardArticle;
 use App\Http\Controllers\KeluargaBerbinarin\DashboardKeluargaBerbinar;
 use App\Http\Controllers\ArticleController\LandingArticle;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -132,14 +134,14 @@ Route::prefix('dashboard/admin/berbinar-family')->group(function () {
     Route::get('/tampil', [DashboardKeluargaBerbinar::class, 'tampilBerbinarFamily'])->name('dashboard.berbinarFamily.tampil');
     Route::get('/detail/{id}', [DashboardKeluargaBerbinar::class, 'detailBerbinarFamily'])->name('dashboard.berbinarFamily.details');
     Route::get('/edit/{id}', [DashboardKeluargaBerbinar::class, 'editBerbinarFamily'])->name('dashboard.berbinarFamily.edit');
-    
+
     //CRUD
     Route::post('/submit', [DashboardKeluargaBerbinar::class, 'submitBerbinarFamily'])->name('dashboard.berbinarFamily.submit');
     Route::put('/update/{id}', [DashboardKeluargaBerbinar::class, 'updateBerbinarFamily'])->name('dashboard.berbinarFamily.update');
     Route::delete('/delete/{id}', [DashboardKeluargaBerbinar::class, 'deleteBerbinarFamily'])->name('dashboard.berbinarFamily.delete');
 });
 
-// HALAMAN DEPAN Keluarga Berbinar 
+// HALAMAN DEPAN Keluarga Berbinar
 Route::prefix('keluarga-berbinar')->group(function () {
     Route::get('/', [TableStaffController::class, 'keluarga_berbinar'])->name('keluarga-berbinar');
 });
@@ -156,7 +158,7 @@ Route::prefix('dashboard/admin/artikel')->group(function () {
     Route::get('/postingan', [DashboardArticle::class, 'postinganArticle'])->name('dashboard.article.postingan');
     Route::get('/penulis', [DashboardArticle::class, 'penulisArticle'])->name('dashboard.article.penulis');
     Route::get('/detail/{id}', [DashboardArticle::class, 'detailArticle'])->name('dashboard.article.detail');
-    
+
     // CRUD
     Route::post('/store', [DashboardArticle::class, 'store'])->name('dashboard.article.store');
     Route::post('/update/ArticleStore/{id}', [DashboardArticle::class, 'updateArticleStore'])->name('dashboard.article.update.store');
@@ -170,9 +172,10 @@ Route::prefix('dashboard/admin/artikel')->group(function () {
 });
 
 // LANDING ARTIKEL
-Route::prefix('artikel')->group(function () {
-    Route::get('/', [LandingArticle::class, 'index'])->name('moduls.landing-new.index-article');
-    Route::get('/{id}', [LandingArticle::class, 'show'])->name('moduls.landing-new.detail-article');
+Route::prefix('articles')->group(function () {
+    Route::get('/', [LandingArticle::class, 'index'])->name('arteri');
+    Route::get('/category/{slug}', [LandingArticle::class, 'category'])->name('arteri.category');
+    Route::get('/{id}', [LandingArticle::class, 'show'])->name('arteri.detail');
 });
 
 //DASHBOARD ADMIN E-LEARNING PSIKOTEST
@@ -704,9 +707,6 @@ Route::middleware(['web'])->group(function () {
     Route::match(['get', 'post'], '/nomor-bdi', [NomorBdiController::class, 'index'])->name('nomor_bdi.index');
     Route::get('/soalBdi/{nomor}', [SoalBdiController::class, 'getSoalByNomor']);
 });
-
-
-
 
 
 // API Routes (Tanpa CSRF Protection)
