@@ -110,6 +110,12 @@ class DashboardArticle extends Controller
             'name_category' => 'required|string|max:255',
         ]);
 
+        if (Category::where('name_category', $request->input('name_category'))->exists()) {
+            return redirect()->back()->withErrors([
+                'error' => 'Nama kategori sudah ada. Silakan gunakan nama lain.',
+            ]);
+        }
+
         Category::create([
             'name_category' => $request->input('name_category'),
             'slug' => Str::slug($request->input('name_category')),
@@ -121,6 +127,15 @@ class DashboardArticle extends Controller
     public function deleteCategory($id)
     {
         $category = Category::findOrFail($id);
+
+        // Periksa apakah kategori sedang digunakan dalam artikel
+        if ($category->articles()->exists()) {
+            return redirect()->back()->withErrors([
+                'error' => 'Kategori ini tidak dapat dihapus karena masih digunakan dalam artikel.',
+            ]);
+        }
+
+        // Hapus kategori jika tidak digunakan
         $category->delete();
 
         return redirect()->route('dashboard.article.kategori')->with('success', 'Kategori berhasil dihapus!');
@@ -137,8 +152,8 @@ class DashboardArticle extends Controller
 
     public function penulisArticle()
     {
-        //Mengambil semua data pada tabel author_article
-        $authors = Author::all();
+        $authors = Author::withCount('articles')->get();
+
         return view('moduls.dashboard.arteri.penulis', compact('authors'));
     }
 
@@ -149,7 +164,12 @@ class DashboardArticle extends Controller
             'profil_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Menyimpan foto profil penulis
+        if (Author::where('name_author', $request->input('name_author'))->exists()) {
+            return redirect()->back()->withErrors([
+                'error' => 'Nama penulis sudah ada. Silakan gunakan nama lain.',
+            ]);
+        }
+
         $fotoProfil = null;
         if ($request->hasFile('profil_image')) {
             $fotoProfil = $request->file('profil_image')->store('uploads/penulis', 'public');
@@ -166,11 +186,19 @@ class DashboardArticle extends Controller
     {
         $author = Author::findOrFail($id);
 
+        // Periksa apakah penulis sedang digunakan dalam artikel
+        if ($author->articles()->exists()) {
+            return redirect()->back()->withErrors([
+                'error' => 'Penulis ini tidak dapat dihapus karena masih digunakan dalam artikel.',
+            ]);
+        }
+
         if ($author->profil_image) {
             Storage::disk('public')->delete($author->profil_image);
         }
-        $author->delete();
 
+        // Hapus penulis
+        $author->delete();
         return redirect()->route('dashboard.article.penulis')->with('success', 'Penulis berhasil dihapus!');
     }
 
@@ -180,6 +208,12 @@ class DashboardArticle extends Controller
             'name_author' => 'required|string|max:255',
             'profil_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        if (Author::where('name_author', $request->input('name_author'))->where('id', '!=', $id)->exists()) {
+            return redirect()->back()->withErrors([
+                'error' => 'Nama penulis sudah ada. Silakan gunakan nama lain.',
+            ]);
+        }
 
         $author = Author::findOrFail($id);
 
@@ -227,6 +261,12 @@ class DashboardArticle extends Controller
         $request->validate([
             'name_category' => 'required|string|max:255',
         ]);
+
+        if (Category::where('name_category', $request->input('name_category'))->where('id', '!=', $id)->exists()) {
+            return redirect()->back()->withErrors([
+                'error' => 'Nama kategori sudah ada. Silakan gunakan nama lain.',
+            ]);
+        }
 
         $category = Category::findOrFail($id);
 
