@@ -248,16 +248,6 @@ class LandingController extends Controller
                 'image' => 'assets/images/landing/asset-konseling/image/psikolog/danny.png'
             ],
             [
-                'name' => 'B. Primandini Y. H.',
-                'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/primandini.png'
-            ],
-            [
-                'name' => 'Yusandi Rezki Fadhli',
-                'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/yusandi.png'
-            ],
-            [
                 'name' => 'Satria Kamal Agassi',
                 'title' => 'S.Psi., M.Psi., Psikolog',
                 'image' => 'assets/images/landing/asset-konseling/image/psikolog/satria.png'
@@ -286,6 +276,16 @@ class LandingController extends Controller
                 'name' => 'Ramadhani Lucky Al Kahfi',
                 'title' => 'S.Psi., M.Psi., Psikolog',
                 'image' => 'assets/images/landing/asset-konseling/image/psikolog/ramadhani.png'
+            ],
+            [
+                'name' => 'Alto Kusumo Andrian',
+                'title' => 'S.Psi., M.Psi., Psikolog',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/alto.jpg'
+            ],
+            [
+                'name' => 'Saraswati Stefannie Doho',
+                'title' => 'S.Psi., M.Psi., Psikolog',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/saras.jpg'
             ]
         ];
 
@@ -399,6 +399,11 @@ class LandingController extends Controller
                 'name' => 'Najwa Chana Indica',
                 'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/najwa.png',
                 'region' => 'Malang'
+            ],
+            [
+                'name' => 'Ezra Renita Sitorus',
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/ezra.jpg',
+                'region' => 'Madura'
             ]
         ];
 
@@ -2598,5 +2603,10 @@ class LandingController extends Controller
     public function EndBDI()
     {
         return view('moduls.psikotes-paid.tools.bdi.summary');
+    }
+
+    public function emo()
+    {
+        return view('moduls.landing-new.emo');
     }
 }

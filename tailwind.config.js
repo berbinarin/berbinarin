@@ -21,6 +21,8 @@ export default {
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
+        "./resources/**/*.php",
+        "./resources/**/*.html",
         "./resources/**/*.vue",
     ],
     theme: {
@@ -56,6 +58,7 @@ export default {
             backgroundImage: {
                 "primary-linear":
                     "linear-gradient(249deg, #3986A3 0%, #0087C9 100%)",
+                "section-bg": "url('/assets/images/landing/produk/emo/price-bg.png')",
             },
             colors: {
                 primary: "#3986a3",

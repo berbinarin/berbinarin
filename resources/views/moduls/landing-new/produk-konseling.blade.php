@@ -145,7 +145,7 @@
     <div class="relative justify-center text-center mx-[320px] max-sm:mt-12 max-sm:mx-3 max-xl:mx-12 mt-8 z-10">
         <h1 class="max-sm:text-[29px] text-4xl font font-semibold text-black">Psikolog <span class="bg-[#3886A3] text-white px-2 ">Berbinar</span></h1>
         <p class="text-[#70787D] max-sm:text-[15px] text-lg mt-2 max-sm:leading-snug">
-            Tim kami terdiri dari psikolog berpengalaman, membantu Anda menavigasi hidup dengan bijaksana, memberikan dukungan emosional
+            Tim kami terdiri dari peer counselor berpengalaman, membantu Anda menavigasi hidup dengan bijaksana, memberikan dukungan emosional
         </p>
     </div>
 

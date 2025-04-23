@@ -88,3 +88,26 @@
 @media (min-width: 1536px) {
 
 }
+
+.swiper-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.swiper-slide {
+    width: 100%;
+    opacity: 0.5;
+    transform: scale(0.85);
+    transition: all 0.3s ease;
+}
+
+.swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background: linear-gradient(to right, #1C4352, #3986A3);
+    border-radius: 9999px;
+}

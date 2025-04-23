@@ -88,6 +88,7 @@ Route::get('/konseling-new', [LandingController::class, 'konseling_new'])->name(
 Route::get('/psikotest-new', [LandingController::class, 'psikotest_new'])->name('psikotest-new');
 Route::get('/kelas-new', [LandingController::class, 'kelas_new'])->name('kelas-new');
 Route::get('/consulting-new', [LandingController::class, 'consulting_new'])->name('consulting-new');
+
 Route::get('/faq-new', [LandingController::class, 'faq_new'])->name('faq-new');
 Route::get('/term-condition-new', [LandingController::class, 'term_condition_new'])->name('term-condition-new');
 Route::get('/privacy-policy-new', [LandingController::class, 'privacy_policy_new'])->name('privacy-policy-new');
@@ -100,8 +101,8 @@ Route::get('/counseling', [LandingController::class, 'konseling'])->name('counse
 Route::get('/counseling/pdf/{filename}', [PDFController::class, 'show'])->name('pdf.show');
 Route::get('/psikotest', [LandingController::class, 'psikotest'])->name('psikotest');
 Route::get('/psikotest/homepage', [LandingController::class, 'homepage'])->name('homepage');
-
 Route::get('/artikel', [LandingController::class, 'artikel'])->name('artikel');
+Route::get('/emo', [LandingController::class, 'emo'])->name('emo');
 
 Route::get('/contact', [LandingController::class, 'contact'])->name('contact');
 
@@ -687,9 +688,8 @@ Route::middleware(['web'])->group(function () {
     Route::get('/soalBdi/{nomor}', [SoalBdiController::class, 'getSoalByNomor']);
 });
 
-
-
-
+// EMO
+// Route::get('/emo', [EmoController::class, 'index'])->name('emo.index');
 
 // API Routes (Tanpa CSRF Protection)
 Route::prefix('api')->group(function () {
