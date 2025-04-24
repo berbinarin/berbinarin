@@ -1,7 +1,7 @@
 <div>
     <h2 class="text-3xl font-bold text-primary-alt">Data Diri</h2>
     <p class="pt-5 pb-2 text-gray-400 font-semibold">Foto Pribadi</p>
-    <img src="/image/{{ $staff->photo }}" loading="lazy"
+    <img src="/image/{{ $staff->photo }}" loading="lazy" alt="Tidak ada foto"
         class="max-h-28 max-w-28 w-28 h-28 object-cover object-center rounded-lg" />
     <ul class="font-semibold pt-5 grid grid-cols-3 gap-x-10 gap-y-5">
         <li>

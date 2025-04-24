@@ -239,7 +239,6 @@ class DashboardArticle extends Controller
         // Ambil artikel berdasarkan ID
         $article = Article::with('category', 'author')->findOrFail($id);
 
-        // Kirim data artikel ke view
         return view('moduls.dashboard.arteri.detail', compact('article'));
     }
 
@@ -270,7 +269,6 @@ class DashboardArticle extends Controller
 
         $category = Category::findOrFail($id);
 
-        // Perbarui nama kategori
         $category->update([
             'name_category' => $request->input('name_category'),
         ]);

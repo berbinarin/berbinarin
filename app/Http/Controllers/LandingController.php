@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Soal;
-use App\Models\TableStaff;
+use App\Models\KeluargaBerbinar\TableStaff;
 use App\Models\Test;
 use App\Models\Question;
 use App\Models\Dimension;

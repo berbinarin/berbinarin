@@ -6,21 +6,44 @@
 
 @section('content-dashboard')
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const addRiwayatButton = document.getElementById('addRiwayatButton');
             const riwayatContainer = document.getElementById('riwayatContainer');
             const riwayatTemplate = document.getElementById('riwayatTemplate');
 
-            addRiwayatButton.addEventListener('click', function() {
+            addRiwayatButton.addEventListener('click', function () {
                 const clone = riwayatTemplate.content.cloneNode(true);
                 riwayatContainer.appendChild(clone);
             });
 
-            riwayatContainer.addEventListener('click', function(e) {
+            riwayatContainer.addEventListener('click', function (e) {
                 if (e.target.closest('.btn-delete-riwayat')) {
                     const row = e.target.closest('.riwayat-row');
                     if (row) {
                         row.remove();
+                    }
+                }
+            });
+
+            // Filter sub divisi berdasarkan divisi yang dipilih
+            const divisions = @json($divisions);
+
+            document.addEventListener('change', function (e) {
+                if (e.target.classList.contains('division-select')) {
+                    const divisionId = e.target.value;
+                    const subDivisionSelect = e.target.closest('.riwayat-row').querySelector('.sub-division-select');
+
+                    subDivisionSelect.innerHTML =
+                        '<option value="" disabled selected class="text-black">Pilih subdivisi</option>';
+
+                    const selectedDivision = divisions.find(division => division.id == divisionId);
+                    if (selectedDivision) {
+                        selectedDivision.sub_divisions.forEach(function (subDivision) {
+                            const option = document.createElement('option');
+                            option.value = subDivision.id;
+                            option.textContent = subDivision.nama_subdivisi;
+                            subDivisionSelect.appendChild(option);
+                        });
                     }
                 }
             });
@@ -49,13 +72,12 @@
                     <div class="mt-4 mb-4 overflow-x-auto">
                         <h1 class="text-2xl font-bold">Data Diri</h1>
                         <p class="text-lg font-semibold flex gap-1 pt-5">
-                            Foto Pribadi<i class="bx bxs-star text-xs text-red-600"></i></p>
+                            Foto Pribadi<i class="text-xs text-red-600"></i></p>
                         <p class="text-lg text-gray-400 pb-3">Ukuran foto maksimal 1 MB dengan resolusi minimal 300x300
                             piksel.
                             Format file yang diperbolehkan: JPG, PNG.</p>
                         <input type="file" name="photo"
-                            class="py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-transparent focus:ring-0 shadow-sm"
-                            required />
+                            class="py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-transparent focus:ring-0 shadow-sm"/>
                         <div class="pt-5 flex gap-10 w-full">
                             <div class="flex flex-col gap-2 w-full">
                                 <p class="text-lg font-semibold flex gap-1">
@@ -90,45 +112,25 @@
                                             Divisi<i class="bx bxs-star text-xs text-red-600"></i>
                                         </p>
                                         <select name="division[]"
-                                            class="py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500 shadow-sm text-gray-500"
+                                            class="division-select py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500 shadow-sm text-gray-500"
                                             required>
                                             <option value="" disabled selected class="text-black">Pilih divisi
                                             </option>
-                                            <option value="TikTok Creator" class="text-black">TikTok Creator</option>
-                                            <option value="Marketing Strategist and Sales" class="text-black">Marketing
-                                                Strategist and Sales</option>
-                                            <option value="Graphic Designer" class="text-black">Graphic Designer</option>
-                                            <option value="Instagram Creator" class="text-black">Instagram Creator</option>
-                                            <option value="Web & Mobile App Developer" class="text-black">Web & Mobile App
-                                                Developer</option>
-                                            <option value="X Creator" class="text-black">X Creator</option>
-                                            <option value="Human Resource" class="text-black">Human Resource</option>
-                                            <option value="Secretary and Finance" class="text-black">Secretary and Finance
-                                            </option>
-                                            <option value="Counseling Product Management" class="text-black">Counseling
-                                                Product Management</option>
-                                            <option value="Class Product Management" class="text-black">Class Product
-                                                Management</option>
-                                                <option value="Psychological Testing Product Management" class="text-black">Psychological Testing Product Management</option>
+                                            @foreach ($divisions as $division)
+                                                <option value="{{ $division->id }}" class="text-black">
+                                                    {{ $division->nama_divisi }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
 
                                     <div class="flex flex-col gap-2 w-full">
                                         <p class="text-lg font-semibold flex gap-1">
-                                            Sub divisi<i class="bx bxs-star text-xs text-red-600"></i>
+                                            Sub divisi<i class="text-xs text-red-600"></i>
                                         </p>
                                         <select name="sub_division[]"
-                                            class="py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500 shadow-sm text-gray-500"
-                                            >
+                                            class="sub-division-select py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500 shadow-sm text-gray-500">
                                             <option value="" disabled selected class="text-black">Pilih subdivisi
                                             </option>
-                                            <option value="Frontend" class="text-black">Frontend</option>
-                                            <option value="Backend" class="text-black">Backend</option>
-                                            <option value="Fullstack" class="text-black">Fullstack</option>
-                                            <option value="UIUX Designer" class="text-black">UIUX Designer</option>                                            
-                                            <option value="HR Recruitment" class="text-black">HR Recruitment</option>
-                                            <option value="HR Training and Development" class="text-black">HR Training and Development</option>
-                                            <option value="HR Performance Appraisal" class="text-black">HR Performance Appraisal</option>
                                         </select>
                                     </div>
 
@@ -136,31 +138,18 @@
                                         <p class="text-lg font-semibold flex gap-1">
                                             Awal Menjabat<i class="bx bxs-star text-xs text-red-600"></i>
                                         </p>
-                                        <div class="flex items-center w-full">
-                                            <div
-                                                class="rounded-lg border border-gray-300 focus:outline-none focus:border-transparent focus:ring-0 shadow-sm flex justify-between w-full mr-3">
-                                                <input type="date" name="date_start[]"
-                                                    class="border-none rounded-lg text-gray-500 w-full" required />
-                                            </div>
-                                            <button type="button" class="btn-delete-riwayat">
-                                                <i
-                                                    class="bx bxs-trash-alt text-lg px-2 py-1 border border-red-700 text-red-700 rounded-lg"></i>
-                                            </button>
-                                        </div>
+                                        <input type="date" name="date_start[]"
+                                            class="py-2 px-3 rounded-lg border-gray-300" required />
                                     </div>
 
                                     <div class="flex flex-col gap-2 w-full">
                                         <p class="text-lg font-semibold flex gap-1">
                                             Akhir Menjabat<i class="bx bxs-star text-xs text-red-600"></i>
                                         </p>
-                                        <div
-                                            class="rounded-lg border border-gray-300 focus:outline-none focus:border-transparent focus:ring-0 shadow-sm flex justify-between">
-                                            <input type="date" name="date_end[]"
-                                                class="border-none rounded-lg text-gray-500 w-full" required />
-                                        </div>
+                                        <input type="date" name="date_end[]" class="py-2 px-3 rounded-lg border-gray-300"
+                                            required />
                                     </div>
                                 </div>
-                                <div class="w-1/6"></div>
                             </div>
                         </div>
 
@@ -172,46 +161,25 @@
                                             Divisi<i class="bx bxs-star text-xs text-red-600"></i>
                                         </p>
                                         <select name="division[]"
-                                            class="py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500 shadow-sm text-gray-500"
+                                            class="division-select py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500 shadow-sm text-gray-500"
                                             required>
                                             <option value="" disabled selected class="text-black">Pilih divisi
                                             </option>
-                                            <option value="TikTok Creator" class="text-black">TikTok Creator</option>
-                                            <option value="Marketing Strategist and Sales" class="text-black">Marketing
-                                                Strategist and Sales</option>
-                                            <option value="Graphic Designer" class="text-black">Graphic Designer</option>
-                                            <option value="Instagram Creator" class="text-black">Instagram Creator</option>
-                                            <option value="Web & Mobile App Developer" class="text-black">Web & Mobile App
-                                                Developer</option>
-                                            <option value="X Creator" class="text-black">X Creator</option>
-                                            <option value="Human Resource" class="text-black">Human Resource</option>
-                                            <option value="Secretary and Finance" class="text-black">Secretary and Finance
-                                            </option>
-                                            <option value="Counseling Product Management" class="text-black">Counseling
-                                                Product Management</option>
-                                            <option value="Class Product Management" class="text-black">Class Product
-                                                Management</option>
-                                                <option value="Psychological Testing Product Management" class="text-black">Psychological Testing Product Management</option>
+                                            @foreach ($divisions as $division)
+                                                <option value="{{ $division->id }}" class="text-black">
+                                                    {{ $division->nama_divisi }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
 
                                     <div class="flex flex-col gap-2 w-full">
                                         <p class="text-lg font-semibold flex gap-1">
-                                            Sub divisi<i class="bx bxs-star text-xs text-red-600"></i>
+                                            Sub divisi<i class="text-xs text-red-600"></i>
                                         </p>
                                         <select name="sub_division[]"
-                                            class="py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500 shadow-sm text-gray-500"
-                                            >
+                                            class="sub-division-select py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500 shadow-sm text-gray-500">
                                             <option value="" disabled selected class="text-black">Pilih subdivisi
                                             </option>
-                                            <option value="Frontend" class="text-black">Frontend</option>
-                                            <option value="Backend" class="text-black">Backend</option>
-                                            <option value="Fullstack" class="text-black">Fullstack</option>
-                                            <option value="UIUX Designer" class="text-black">UIUX Designer</option>                                            
-                                            <option value="HR Recruitment" class="text-black">HR Recruitment</option>
-                                            <option value="HR Training and Development" class="text-black">HR Training and Development</option>
-                                            <option value="HR Performance Appraisal" class="text-black">HR Performance Appraisal</option>
-                                        </select>
                                         </select>
                                     </div>
 
@@ -219,31 +187,18 @@
                                         <p class="text-lg font-semibold flex gap-1">
                                             Awal Menjabat<i class="bx bxs-star text-xs text-red-600"></i>
                                         </p>
-                                        <div class="flex items-center w-full">
-                                            <div
-                                                class="rounded-lg border border-gray-300 focus:outline-none focus:border-transparent focus:ring-0 shadow-sm flex justify-between w-full mr-3">
-                                                <input type="date" name="date_start[]"
-                                                    class="border-none rounded-lg text-gray-500 w-full" required />
-                                            </div>
-                                            <button type="button" class="btn-delete-riwayat">
-                                                <i
-                                                    class="bx bxs-trash-alt text-lg px-2 py-1 border border-red-700 text-red-700 rounded-lg"></i>
-                                            </button>
-                                        </div>
+                                        <input type="date" name="date_start[]"
+                                            class="py-2 px-3 rounded-lg border-gray-300" required />
                                     </div>
 
                                     <div class="flex flex-col gap-2 w-full">
                                         <p class="text-lg font-semibold flex gap-1">
                                             Akhir Menjabat<i class="bx bxs-star text-xs text-red-600"></i>
                                         </p>
-                                        <div
-                                            class="rounded-lg border border-gray-300 focus:outline-none focus:border-transparent focus:ring-0 shadow-sm flex justify-between">
-                                            <input type="date" name="date_end[]"
-                                                class="border-none rounded-lg text-gray-500 w-full" required />
-                                        </div>
+                                        <input type="date" name="date_end[]"
+                                            class="py-2 px-3 rounded-lg border-gray-300" required />
                                     </div>
                                 </div>
-                                <div class="w-1/6"></div>
                             </div>
                         </template>
 
