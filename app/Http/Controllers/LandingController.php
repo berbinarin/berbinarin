@@ -1352,7 +1352,7 @@ class LandingController extends Controller
             ],
         ];
 
-        return view('moduls.landing-new.karir')->with([
+            return view('moduls.landing-new.karir')->with([
             'testimonis' => $testimonis,
             'faqs' => $faqs,
             'positions' => $positions,
