@@ -1169,9 +1169,59 @@ class LandingController extends Controller
             ],
         ];
 
+        $alur_pendaftaran = [
+            [
+                'title' => "Pengisian Link Google Form",
+                'description' => "klik mulai sekarang pada layanan berbinar consulting dan isi data diri sobatbinar secara lengkap dan jelas sesuai yang tersedia dalam link",
+                'link' => "assets/images/landing/asset-consulting/link-google-form.png"
+            ],
+            [
+                'title' => "Konfirmasi Pendaftaran",
+                'description' => "lakukan konfirmasi kepada (cp) tim berbinar dan tunggu 1x24 jam untuk dapatkan informasi selengkapnya",
+                'link' => "assets/images/landing/asset-consulting/check-mark-pendaftaran.png"
+            ],
+            [
+                'title' => "Informasi Jadwal dan Pembayaran",
+                'description' => "(cp) tim berbinar akan melakukan konfirmasi untuk pemberitahuan mengenai ketersediaan jadwal consulting dan melakukan pembayaran pada rekening bank yang tersedia",
+                'link' => "assets/images/landing/asset-consulting/jadwal-dan-pembayaran.png"
+            ],
+            [
+                'title' => "Verifikasi Pembayaran",
+                'description' => "kirimkan bukti pembayaran kepada (cp) tim berbinar untuk melakukan pengecekan",
+                'link' => "assets/images/landing/asset-consulting/check-mark-pembayaran.png"
+            ],
+            [
+                'title' => "Jadwal pelaksanaan",
+                'description' => "(cp) tim berbinar akan mengirimkan jadwal yang telah ditentukan beserta dengan link yang akan diakses dan teknis pelaksanaan",
+                'link' => "assets/images/landing/asset-consulting/jadwal-pelaksanaan.png"
+            ],
+            [
+                'title' => "Pelaksanaan Layanan Consulting",
+                'description' => "setelah mengetahui keseluruhan informasi, sobatbinar bisa memulai layanan consulting bersama konsultan sesuai jadwal yang telah ditentukan",
+                'link' => "assets/images/landing/asset-consulting/layanan-consulting.png"
+            ]
+        ];
+
+        $faqs = [
+            [
+                'question' => 'Apakah saya bisa mendapatkan tawaran paket bundling di setiap minggunya dalam satu bulan?',
+                'answer' => 'Tidak, paket bundling hanya tersedia pada tiap minggu pertama di bulan genap saja. SobatBinar bisa dapatkan informasi lebih lengkap dengan mengunjungi website atau seluruh media sosial Berbinar Insightful Indonesia.'
+            ],
+            [
+                'question' => 'Bagaimana keamanan database bagi perusahaan/komunitas/organisasi yang menggunakan layanan consulting?',
+                'answer' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, '
+            ],
+            [
+                'question' => 'Berapa jumlah karyawan yang bisa melakukan pendaftaran pada layanan consulting?',
+                'answer' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, '
+            ]
+        ];
+
         return view('moduls.landing-new.produk-consulting')->with([
             'layanan_consultings' => $layanan_consultings,
-            'bundlings' => $bundlings
+            'bundlings' => $bundlings,
+            'alur_pendaftaran' => $alur_pendaftaran,
+            'faqs' => $faqs,
         ]);
     }
 
@@ -1596,7 +1646,7 @@ class LandingController extends Controller
         ];
 
         return view('moduls.landing-new.daftar-psikotes')->with([
-            'layanan_psikotes' => $layanan_psikotes 
+            'layanan_psikotes' => $layanan_psikotes
         ]);
     }
 
