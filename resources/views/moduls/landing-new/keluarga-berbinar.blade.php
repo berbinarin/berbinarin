@@ -197,7 +197,9 @@
                 const filteredRecord = staff.records.find(record => {
                 const yearStart = parseInt(record.year_start);
                 const yearEnd = record.year_end ? parseInt(record.year_end) : new Date().getFullYear();
-                return year_value >= yearStart && year_value <= yearEnd;
+                const matchYear = year_value >= yearStart && year_value <= yearEnd;
+                const matchDivision = division_value ? record.division === division_value : true;
+                return matchYear && matchDivision;
                 });
                 const division = filteredRecord ? filteredRecord.division : staff.division;
                 const subdivision = filteredRecord ? filteredRecord.subdivision : staff.subdivision;
@@ -316,7 +318,7 @@
                     <p class="block text-base font-normal text-white">As
                         ${division}</p>
                     <p class="block text-base font-normal text-white">
-                ${dateStart}${isAlumni ? ` - ${dateEnd}` : '- Sekarang'}</p>
+                        ${dateStart}${isAlumni ? ` - ${dateEnd}` : '- Sekarang'}</p>
                     <a href="${staff.linkedin}" target="_blank" class="hidden w-auto xl:pointer-events-auto xl:inline-block xl:cursor-pointer">
                         <img src="assets/images/landing/keluarga-berbinar/linkedin-fill.png" alt="linkedin" class="size-6"></a>
                 </div>`
