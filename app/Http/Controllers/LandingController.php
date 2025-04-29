@@ -1026,12 +1026,12 @@ class LandingController extends Controller
         $products = [
             [
                 'vector' => 'assets/images/landing/asset-kelas/produk/vector-webinar.png',
-                'produk' => 'Webinar',
+                'produk' => '101 Class Journey',
                 'deskripsi' => 'Memperluas wawasan keilmuan dan keterampilan yang berasal dari ahli',
             ],
             [
                 'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
-                'produk' => 'Bisikan (Live Instagram)',
+                'produk' => 'BISIKAN',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
             ],
             [
@@ -1053,9 +1053,8 @@ class LandingController extends Controller
 
         $faqs = [
             [
-                'question' => 'Durasi kelasnya berapa lama?',
-                'answer' => 'Peserta diberikan waktu sekitar ± 7 hari untuk menyelesaikan seluruh rangkaian kelas BERBINAR+. Apabila peserta melanjutkan ke layanan konseling dan psikotes, akan ada informasi lebih lanjut.
-            '
+                'question' => 'Apakah semua kelas berbayar?',
+                'answer' => 'Tidak. Kelas Berbinar seperti BISIKAN dan BERARTY dapat diakses secara gratis. Namun, program seperti Premium Class dan beberapa Berbinar+ memerlukan biaya.'
             ],
             [
                 'question' => 'Apakah boleh ikut lebih dari satu kelas?',
@@ -1089,9 +1088,46 @@ class LandingController extends Controller
             ],
         ];
 
+        $participants = [
+            [
+                'name' => 'Mahasiswa',
+                'icon' => '🎓'
+            ],
+            [
+                'name' => 'Pelajar',
+                'icon' => '🎓'
+            ],
+            [
+                'name' => 'Fresh Graduate',
+                'icon' => '👩‍🎓'
+            ],
+            [
+                'name' => 'Job Seeker',
+                'icon' => '💼'
+            ],
+            [
+                'name' => 'Pencari Magang (Internship)',
+                'icon' => '🧳'
+            ],
+            [
+                'name' => 'Pencari Beasiswa',
+                'icon' => '🎯'
+            ],
+            [
+                'name' => 'Freelancer',
+                'icon' => '🧑‍🎨'
+            ],
+            [
+                'name' => 'Karyawan',
+                'icon' => '👩‍💻'
+            ]
+
+        ];
+
         return view('moduls.landing-new.produk-kelas')->with([
             'faqs' => $faqs,
             'products' => $products,
+            'participants' => $participants,
         ]);
     }
 
@@ -1209,11 +1245,11 @@ class LandingController extends Controller
             ],
             [
                 'question' => 'Bagaimana keamanan database bagi perusahaan/komunitas/organisasi yang menggunakan layanan consulting?',
-                'answer' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, '
+                'answer' => 'Keamanan Database Perusahaan/Komunitas/Organisasi milik SobatBinar pada layanan Consulting dapat dipastikan bergaransi aman. Karena Berbinar Insightful Indonesia termasuk dalam Perusahaan Layanan Psikolog yang diatur dalam Kode Etik Himpunan Psikologi Indonesia.'
             ],
             [
                 'question' => 'Berapa jumlah karyawan yang bisa melakukan pendaftaran pada layanan consulting?',
-                'answer' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, '
+                'answer' => 'Jumlah karyawan yang bisa SobatBinar ajukan saat pendaftaran layanan consulting dengan minimal 10 hingga lebih dari 100 karyawan.'
             ]
         ];
 

@@ -6,7 +6,7 @@
 
 @section('content')
 {{-- HERO SECTION --}}
-<section class="relative max-sm:overflow-x-hidden">
+<section class="relative max-md:overflow-x-hidden">
     <div class="absolute left-0 top-5 max-sm:top-32 z-0 ">
         <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-hero1.svg') }}" alt="Vector" class="h-[500px] max-sm:h-[250px] w-auto">
     </div>
@@ -146,16 +146,16 @@
 
 {{-- BANNER PSIKOTES INDIVIDU --}}
 <section class="relative w-full">
-    <div class="bg-individu relative mt-24 mx-20 max-sm:mx-4 rounded-3xl p-10 max-sm:p-5 h-auto z-10">
+    <h1 class="max-sm:text-[29px] text-4xl font font-semibold text-black text-center my-8 max-sm:my-4 max-sm:mx-2 mx-20 relative z-10">Jelajahi Produk Psikotes <span class="bg-primary text-white px-2 ">Berbinar</span></h1>
+    <div class="relative bg-individu mt-12 mx-20 max-sm:mx-4 rounded-3xl p-10 max-sm:p-5 h-auto z-10">
         <div class="absolute inset-0 bg-[#D7E6ED] rounded-3xl flex mix-blend-multiply"></div>
-
         <div class="relative flex flex-col h-full text-left max-md:text-center space-y-3 justify-center">
-            <h1 class="text-5xl max-sm:text-3xl max-md:text-4xl text-black font-semibold ">Psikotes Individu</h1>
+            <h1 class="text-5xl max-sm:text-3xl max-md:text-4xl text-transparent bg-clip-text bg-gradient-to-l from-[#CF942E] to-[#F7B23B] sm:text-black font-semibold">Psikotes Individu</h1>
             <p class="text-[#3F3F3F] text-justify max-sm:text-[15px] max-sm:leading-normal text-lg max-lg:text-[17px]">
                 Psikotes individu dapat memprediksi potensi yang dimiliki dalam kaitannya dengan pencapaian hasil belajar atau kemampuan di masa yang akan datang.
             </p>
             <a href="{{ route('psikotes-new/daftar-psikotes') }}">
-                <div class="flex justify-start max-md:justify-center z-10">
+                <div class="flex justify-start max-md:justify-center relative z-10">
                     <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar Psikotes Individu</button>
                 </div>
             </a>
@@ -262,12 +262,12 @@
         <div class="absolute inset-0 bg-[#D7E6ED] rounded-3xl flex mix-blend-multiply"></div>
 
         <div class="relative flex flex-col h-full text-left max-md:text-center space-y-3 justify-center">
-            <h1 class="text-5xl max-sm:text-3xl max-md:text-4xl text-black font-semibold ">Psikotes Perusahaan</h1>
+            <h1 class="text-5xl max-sm:text-3xl max-md:text-4xl text-transparent bg-clip-text bg-gradient-to-l from-[#CF942E] to-[#F7B23B] sm:text-black font-semibold ">Psikotes Perusahaan</h1>
             <p class="text-[#3F3F3F] text-justify max-sm:text-[15px] max-sm:leading-normal text-lg max-lg:text-[17px]">
                 Psikotes untuk supervisor digunakan untuk melihat potensi, kelebihan dan kekurangan, serta kecenderungan kepribadian seorang kandidat dan melihat apakah kandidat tersebut cocok ditempatkan di suatu posisi pekerjaan.
             </p>
             <a href="{{ route('psikotes-new/daftar-psikotes') }}">
-                <div class="flex justify-start max-md:justify-center z-10">
+                <div class="flex justify-start max-md:justify-center relative z-10">
                     <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar Psikotes Perusahaan</button>
                 </div>
             </a>
@@ -716,12 +716,12 @@
         <div class="absolute inset-0 bg-[#D7E6ED] rounded-3xl flex mix-blend-multiply"></div>
 
         <div class="relative flex flex-col h-full text-left max-md:text-center space-y-3 justify-center">
-            <h1 class="text-5xl max-sm:text-3xl max-md:text-4xl text-black font-semibold ">Psikotes Kategori Pendidikan</h1>
+            <h1 class="text-5xl max-sm:text-3xl max-md:text-4xl text-transparent bg-clip-text bg-gradient-to-l from-[#CF942E] to-[#F7B23B] sm:text-black font-semibold ">Psikotes Kategori Pendidikan</h1>
             <p class="text-[#3F3F3F] text-justify max-sm:leading-normal max-sm:text-[15px] text-lg max-lg:text-[17px]">
                 Psikotes untuk Instansi Pendidikan digunakan untuk mengenal gaya belajar, cita-cita, jurusan, minat bakat yang sesuai dengan SobatBinar.
             </p>
             <a href="{{ route('psikotes-new/daftar-psikotes') }}">
-                <div class="flex justify-start max-md:justify-center z-10">
+                <div class="flex justify-start max-md:justify-center relative z-10">
                     <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar Psikotes Instansi Pendidikan</button>
                 </div>
             </a>
@@ -845,12 +845,12 @@
         <div class="absolute inset-0 bg-[#D7E6ED] rounded-3xl flex mix-blend-multiply"></div>
 
         <div class="relative flex flex-col h-full text-left max-md:text-center space-y-3 justify-center">
-            <h1 class="text-5xl max-sm:text-3xl max-md:text-4xl text-black font-semibold ">Psikotes Kategori Komunitas</h1>
+            <h1 class="text-5xl max-sm:text-3xl max-md:text-4xl text-transparent bg-clip-text bg-gradient-to-l from-[#CF942E] to-[#F7B23B] sm:text-black font-semibold ">Psikotes Kategori Komunitas</h1>
             <p class="text-[#3F3F3F] text-justify max-sm:leading-normal max-sm:text-[15px] text-lg max-lg:text-[17px]">
                 Psikotes untuk Komunitas ini bertujuan untuk mengetahui kesiapan pernikahan, menjadi orang tua, kecocokan bersama pasangan, tingkat stress, depresi, kecemasan, memori, dan dimensia.
             </p>
             <a href="{{ route('psikotes-new/daftar-psikotes') }}">
-                <div class="flex justify-start max-md:justify-center z-10">
+                <div class="flex justify-start max-md:justify-center relative z-10">
                     <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar Psikotes Komunitas</button>
                 </div>
             </a>
@@ -1028,7 +1028,7 @@
         <div class="absolute inset-0 bg-[#D7E6ED] rounded-3xl flex mix-blend-multiply"></div>
 
         <div class="relative flex flex-col h-full text-left max-md:text-center space-y-4 justify-center">
-            <h1 class="text-4xl max-sm:text-3xl max-md:text-4xl text-black font-semibold italic mb-2">Active Campaign Empowerment (ACE)</h1>
+            <h1 class="text-4xl max-sm:text-3xl max-md:text-4xl text-transparent bg-clip-text bg-gradient-to-l from-[#CF942E] to-[#F7B23B] sm:text-black font-semibold italic mb-2">Active Campaign Empowerment (ACE)</h1>
             <div class="text-[#3F3F3F] text-justify max-sm:leading-normal max-sm:text-[15px] text-lg max-lg:text-[17px] flex flex-col max-sm:gap-y-1 gap-y-3">
                 <p>Rangkaian acara tahunan dari Berbinar yang dirancang untuk mengenalkan produk psikotes kami secara lebih luas kepada khalayak.
                 Event ini menjadi wadah bagi siapa saja yang ingin memperluas wawasan di bidang psikologi sekaligus memahami lebih dalam pentingnya pengenalan diri untuk pengembangan pribadi maupun profesional.</p>

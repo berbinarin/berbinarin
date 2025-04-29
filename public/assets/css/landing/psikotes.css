@@ -1,9 +1,10 @@
 .text-gradient {
-    background: linear-gradient(to right, #3886A3, #225062); 
+    background: linear-gradient(to right, #3886A3, #225062);
     background-clip: text;
-    -webkit-background-clip: text; 
-    color: transparent; 
+    -webkit-background-clip: text;
+    color: transparent;
 }
+
 
 .bg-individu {
     position: relative;
@@ -11,6 +12,7 @@
     background-size: cover;
     background-position: center;
 }
+
 
 .bg-perusahaan {
     position: relative;
@@ -80,7 +82,7 @@
 }
 
 #swiperTestimoni {
-    width: 900px; 
+    width: 900px;
     margin: 20px auto;
     overflow: hidden;
     padding-bottom: 10px;
@@ -92,7 +94,7 @@
 }
 
 .swiper-pagination-bullet {
-    background-color: #D0D0D0; 
+    background-color: #D0D0D0;
     opacity: 1;
     height: 8px;
     width: 8px;
@@ -100,13 +102,13 @@
 }
 
 .swiper-pagination-bullet-active {
-    background-color: #3886A3; 
+    background-color: #3886A3;
     width: 16px;
     height: 8px;
     border-radius: 10px;
 }
 
-.swiper-scrollbar  {
+.swiper-scrollbar {
     --swiper-scrollbar-border-radius: 10px;
     --swiper-scrollbar-top: auto;
     --swiper-scrollbar-bottom: 4px;
@@ -120,8 +122,8 @@
 
 .bg-wave {
     background-image: url('/assets/images/landing/asset-konseling/vector/vector-wave.svg');
-    background-repeat: no-repeat; 
-    background-position: center; 
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .border-active {
@@ -130,19 +132,30 @@
 
 @media (min-width: 0px) and (max-width: 465px) {
     .dynamic-height {
-        min-height: 40px; 
+        min-height: 40px;
         align-items: center;
         display: flex;
     }
 
     .dynamic-height-3 {
-        min-height: 55px; 
+        min-height: 55px;
         align-items: center;
         display: flex;
     }
 }
 
 @media (max-width: 640px) {
+
+    .bg-perusahaan,
+    .bg-pendidikan,
+    .bg-komunitas,
+    .bg-individu {
+        position: relative;
+        background-image: url('/assets/images/landing/asset-psikotes/bg-mobile-texture.png');
+        background-size: cover;
+        background-position: center;
+    }
+
     #swiperTestimoni {
         width: 500px;
     }
@@ -211,7 +224,7 @@
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-    
+
 
     .swiperContainer {
         margin: 0px 80px;
