@@ -14,74 +14,66 @@ use Illuminate\Support\Facades\Auth;
 
 class DAPController extends Controller
 {
-  public function showLanding(){
-    $user = Auth::guard('psikotestpaid')->user();
-    $tool = PsikotestTool::where('name', 'DAP')->firstOrFail();
-    return view('moduls.psikotes-paid.tools.DAP.landing', ['user' => $user, 'tool' => $tool]);
-  }
-  public function startTest(Request $request)
+    public function showLanding()
     {
-        $userId = $request->user_id;
-        $toolId = $request->tool_id;
+        $user = Auth::guard('psikotestpaid')->user();
+        $psikotestTool = PsikotestTool::where('name', 'DAP')->firstOrFail();
+        return view('moduls.psikotes-paid.tools.DAP.landing', compact('user', 'psikotestTool'));
+    }
+    public function start()
+    {
+
+        $user = Auth::guard('psikotestpaid')->user();
+        $psikotestTool = PsikotestTool::where('name', 'DAP')->firstOrFail();
 
         // Create a new entry in the psikotest_paid_tests table
         $paidTest = PsikotestPaidTest::create([
-            'user_psikotest_paid_id' => $userId,
-            'psikotest_tool_id' => $toolId
+            'user_psikotest_paid_id' => $user->id,
+            'psikotest_tool_id' => $psikotestTool->id
         ]);
 
-        $test = TestDap::create([
+        $testDap = TestDap::create([
             'psikotest_paid_test_id' => $paidTest->id,
         ]);
 
         // Redirect to the test page
-        return redirect()->route('psikotest-paid.tool.DAP.showTest', ['testId' => $test->id]);
+        return redirect()->route('psikotest-paid.tool.DAP.showQuestion', ['testDap' => $testDap, 'questionDap' => 1]);
     }
 
-    public function showTest($testId)
+    public function showQuestion(TestDap $testDap, QuestionDap $questionDap)
     {
-        $test = TestDap::where('id', $testId)->firstOrFail();
-        $questions = QuestionDap::all();
-
-        return view('moduls.psikotes-paid.tools.DAP.test', ['test' => $test, 'questions' => $questions]);
+        return view('moduls.psikotes-paid.tools.DAP.question', compact('testDap', 'questionDap'));
     }
 
-    public function submitAnswer(Request $request)
+    public function submit(Request $request, TestDap $testDap, QuestionDap $questionDap)
     {
         $validatedData = $request->validate([
-            'test_id' => 'required|exists:test_dap,id',
-            'question_id' => 'required|exists:question_dap,id',
             'answer_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,JPG,PNG,JPEG|max:2048'
         ]);
-
-        $testId = $validatedData['test_id'];
-        $questionId = $validatedData['question_id'];
-        $userId = Auth::guard('psikotestpaid')->id();
 
         if ($request->hasFile('answer_image')) {
             $image = $request->file('answer_image');
             $path = $image->store('res/DAP', 'public');
 
             AnswerDap::create([
-                'test_dap_id' => $testId,
-                'question_dap_id' => $questionId,
+                'test_dap_id' => $testDap->id,
+                'question_dap_id' => $questionDap->id,
                 'answer' => $path,
-                'user_id' => $userId
             ]);
         }
-
-        $currentQuestionNumber = $request->input('current_question_number');
-        if ($currentQuestionNumber < 2) {
-            return redirect()->route('psikotest-paid.tool.DAP.showTest', ['testId' => $testId])
-                ->with('current_question_number', $currentQuestionNumber + 1);
+        if ($questionDap->id < 2) {
+            return redirect()->route('psikotest-paid.tool.DAP.showQuestion', ['testDap' => $testDap->id, 'questionDap' => $questionDap->id + 1])
+                ->with('current_question_number', $questionDap->id + 1);
         } else {
-            return redirect()->route('psikotest-paid.tool.DAP.summary', ['testId' => $testId]);
+            return redirect()->route('psikotest-paid.tool.DAP.summary', ['testDap' => $testDap->id]);
         }
-        
     }
 
-    public function showSummary($testId)
+    public function summary(TestDap $testDap)
     {
-        return view('moduls.psikotes-paid.tools.DAP.summary', ['testId' => $testId]);
+        $psikotestPaidTest = PsikotestPaidTest::where('id', $testDap->psikotestPaidTest->id)->first();
+        $psikotestPaidTest->update(['status_progress' => true]);
+
+        return view('moduls.psikotes-paid.tools.DAP.summary');
     }
 }

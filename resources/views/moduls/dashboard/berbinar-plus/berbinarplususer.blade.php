@@ -37,11 +37,11 @@
                       John Doe
                     </div>
                   </td>
-                  <td class="px-6 py-4 whitespace-no-wrap text-center text-center"><a href="#" class="text-black hover:text-blue-700">https://bit.ly/3VgAQQC</a></td>
-                  <td class="px-6 py-4 whitespace-no-wrap text-center text-center">
+                  <td class="px-6 py-4 whitespace-no-wrap text-center"><a href="#" class="text-black hover:text-blue-700">https://bit.ly/3VgAQQC</a></td>
+                  <td class="px-6 py-4 whitespace-no-wrap text-center">
                     <button class="bg-gray-100 text-black px-4 py-2 rounded">Detail</button>
                   </td>
-                  <td class="px-6 py-4 whitespace-no-wrap text-center  text-center">
+                  <td class="px-6 py-4 whitespace-no-wrap text-center">
                     <button class="bg-primary-alt text-white px-4 py-2 rounded">Accept</button>
                   </td>
                 </tr>

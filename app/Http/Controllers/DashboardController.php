@@ -23,6 +23,9 @@ use App\Models\Hiring_Positions_Job_Descriptions;
 use App\Models\PsikotestPaid\Biodata\Education;
 use App\Models\PsikotestPaid\Biodata\Family;
 use App\Models\PsikotestPaid\Biodata\LevelEducation;
+use App\Models\Articles\Article;
+use App\Models\Articles\Author;
+use App\Models\Articles\Category;
 use App\Models\KeluargaBerbinar\Division;
 use App\Models\KeluargaBerbinar\SubDivision;
 use App\Models\KeluargaBerbinar\TableRecord;
@@ -34,7 +37,7 @@ class DashboardController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except(['login']);
-        $this->middleware('role:Admin,HR,Konselling,PsikotestFree,PsikotestPaid')->except(['login']);
+        $this->middleware('role:Admin,HR,Konselling,PsikotestFree,PsikotestPaid,BerbinarSatu')->except(['login']);
     }
     public function index()
     {
@@ -76,6 +79,13 @@ class DashboardController extends Controller
 
         $community = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeCommunity)->count();
 
+        $articleCount = Article::count();
+
+        $authorCount = Author::count();
+
+        $categoryCount = Category::count();
+
+        
         return view('moduls.dashboard.index', [
             "PeerConsellorSchedule" => $PeerConsellorSchedule,
             "PeerConsellorData" => $PeerConsellorData,
@@ -91,6 +101,9 @@ class DashboardController extends Controller
             'educationalInstitution' => $educationalInstitution,
             'corporate' => $corporate,
             'community' => $community,
+            'articleCount' => $articleCount,
+            'authorCount' => $authorCount,
+            'categoryCount' => $categoryCount,
         ]);
     }
 
@@ -102,6 +115,11 @@ class DashboardController extends Controller
     public function faqs()
     {
         return view('moduls.dashboard.faqs');
+    }
+
+    public function artikel()
+    {
+        return view('moduls.dashboard.berbinar-satu.bebinarsatuuser');
     }
 
     public function positions()
@@ -368,6 +386,14 @@ class DashboardController extends Controller
         return response()->json(['success' => true]);
     }
 
+    public function dashboardArteri()
+    {
+        $articleCount = Article::count();
+        $authorCount = Author::count();
+        $categoryCount = Category::count();
+    
+        return view('moduls.dashboard.arteri.dashboard', compact('articleCount', 'authorCount', 'categoryCount'));
+    }
     public function internshipDataDetails($id)
     {
         // Menggunakan findOrFail untuk menangani kasus jika tidak ada data dengan ID yang sesuai

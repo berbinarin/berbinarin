@@ -5,7 +5,7 @@
 ])
 
 @section('content-dashboard')
-    <section class="flex w-full">
+    <section class="flex w-full pb-10">
         <div class="flex flex-col w-full">
             <div class="w-full">
                 <div class="py-4 md:pt-12 md:pb-7">
@@ -29,23 +29,24 @@
                         style="width: 40%">
                         <div class="overflow-y-auto flex-1" style="max-height: 400px;">
                             <div class="pb-10">
-                                <h2 class="font-semibold text-2xl">Morgan Vero</h2>
+                                <h2 class="font-semibold text-2xl">{{ $psikotest_paid_test_id->userPsikotestPaid->fullname }}</h2>
                                 <p class="mt-4">Kategori yang paling tinggi nilainya adalah <b>Anxiety</b> dengan
-                                    skor <b>13 poin</b>. Sehingga di dapatkan kesimpulan berupa Anxiety tipe Moderate.</p>
+                                    skor <b>{{ $depressionPoint }} poin</b>. Sehingga di dapatkan kesimpulan berupa <b>Anxiety</b> tipe <b>Moderate</b>.</p>
                             </div>
                             <div class="space-y-4 mb-4 relative" style="padding-left: 0;">
                                 {{-- Diagram --}}
                                 <div class="flex items-center">
-                                    <div class="bg-blue-300 h-10 w-[250px] rounded-r-lg ml-1"></div>
-                                    <span class="ml-2 text-gray-700 font-medium">6 poin</span>
+                                    <div class="bg-blue-300 h-10 rounded-r-lg ml-1" style="width: {{ ($depressionPoint / 61) * 100 . '%' }}">
+                                </div>
+                                    <span class="ml-2 text-gray-700 font-medium">{{ $depressionPoint }} poin</span>
                                 </div>
                                 <div class="flex items-center">
-                                    <div class="bg-purple-300 h-10 w-[300px] rounded-r-lg ml-1"></div>
-                                    <span class="ml-2 text-gray-700 font-medium">13 poin</span>
+                                    <div class="bg-purple-300 h-10 rounded-r-lg ml-1"  style="width: {{ ($anxietyPoint / 61) * 100 . '%' }}"></div>
+                                    <span class="ml-2 text-gray-700 font-medium">{{ $anxietyPoint }} poin</span>
                                 </div>
                                 <div class="flex items-center pb-4">
-                                    <div class="bg-red-300 h-10 w-[100px] rounded-r-lg ml-1"></div>
-                                    <span class="ml-2 text-gray-700 font-medium">3 poin</span>
+                                    <div class="bg-red-300 h-10 rounded-r-lg ml-1"  style="width: {{ ($stressPoint / 61) * 100 . '%' }}"></div>
+                                    <span class="ml-2 text-gray-700 font-medium">{{ $stressPoint }} poin</span>
                                 </div>
 
                                 {{-- Garis Pinggir --}}
@@ -70,9 +71,9 @@
                                 </div>
                                 <div class="pt-2">
                                     <p class="text-lg text-gray-700 mb-4">
-                                        Total poin pada Depression: <b>32 poin</b><br>
-                                        Total poin pada Anxiety: <b>32 poin</b><br>
-                                        Total poin pada Stress: <b>32 poin</b><br>
+                                        Total poin pada Depression: <b>{{ $depressionPoint }}poin</b><br>
+                                        Total poin pada Anxiety: <b>{{ $anxietyPoint }}poin</b><br>
+                                        Total poin pada Stress: <b>{{ $stressPoint }}poin</b><br>
                                     </p>
                                 </div>
                             </div>
@@ -100,43 +101,16 @@
                             <div class="overflow-y-auto" style="max-height: 350px;">
                                 <table class="w-full text-lg border-collapse table-fixed">
                                     <tbody class="border-b flex flex-col">
+                                        @foreach ($dassDataAnswer as $data)
                                         <tr class="border-b">
+                                            
                                             <td class="p-4" style="width: 50%">
-                                                Saya merasa bahwa diri saya menjadi marah karena hal-hal sepele.
+                                                {{ $data->questionDass->question }}
                                             </td>
-                                            <td class="text-center p-4" style="width: 25%">Depression</td>
-                                            <td class="p-4 text-center" style="width: 25%">3</td>
+                                            <td class="text-center p-4" style="width: 25%">{{  $data->questionDass->category  }}</td>
+                                            <td class="p-4 text-center" style="width: 25%">{{ $data->answer }}</td>
                                         </tr>
-                                        <tr class="border-b">
-                                            <td class="p-4" style="width: 50%">
-                                                Saya merasa bibir saya sering kering.
-                                            </td>
-                                            <td class="text-center p-4" style="width: 25%">Anxiety</td>
-                                            <td class="p-4 text-center" style="width: 25%">2</td>
-                                        </tr>
-                                        <tr class="border-b">
-                                            <td class="p-4" style="width: 50%">
-                                                Saya sama sekali tidak dapat merasakan perasaan positif.
-                                            </td>
-                                            <td class="text-center p-4" style="width: 25%">Setress</td>
-                                            <td class="p-4 text-center" style="width: 25%">1</td>
-                                        </tr>
-                                        <tr class="border-b">
-                                            <td class="p-4" style="width: 50%">
-                                                Saya mengalami kesulitan bernafas (misalnya: seringkali terengah-engah
-                                                atau tidak dapat bernafas padahal tidak melakukan aktivitas fisik
-                                                sebelumnya).
-                                            </td>
-                                            <td class="text-center p-4" style="width: 25%">Anxiety</td>
-                                            <td class="p-4 text-center" style="width: 25%">3</td>
-                                        </tr>
-                                        <tr class="border-b">
-                                            <td class="p-4" style="width: 50%">
-                                                Saya merasa bahwa diri saya menjadi marah karena hal-hal sepele.
-                                            </td>
-                                            <td class="text-center p-4" style="width: 25%">Depression</td>
-                                            <td class="p-4 text-center" style="width: 25%">3</td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

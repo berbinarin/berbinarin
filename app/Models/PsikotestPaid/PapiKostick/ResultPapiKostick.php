@@ -9,7 +9,7 @@ class ResultPapiKostick extends Model
 {
     use HasFactory;
 
-    protected $table = 'result_papi_kosticks';
+    protected $table = 'result_papi_kostick';
 
     protected $fillable = [
         'test_papi_kostick_id', 'A', 'N', 'G', 'C', 'D', 'R', 'T', 'V', 'W', 'F', 'L', 'P', 'I', 'S', 'B', 'O', 'X', 'E', 'K', 'Z',

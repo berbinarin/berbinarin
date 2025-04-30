@@ -16,71 +16,72 @@ class TesEsaiController extends Controller
     public function showLanding()
     {
         $user = Auth::guard('psikotestpaid')->user();
-        $tool = PsikotestTool::where('name', 'Tes Esai')->firstOrFail();
-        return view('moduls.psikotes-paid.tools.tes-esai.landing', ['user' => $user, 'tool' => $tool]);
+        $psikotestTool = PsikotestTool::where('name', 'Tes Esai')->firstOrFail();
+        return view('moduls.psikotes-paid.tools.tes-esai.landing', compact('user', 'psikotestTool'));
     }
 
-    public function startTest(Request $request)
+    public function start()
     {
-        $userId = $request->user_id;
-        $toolId = $request->tool_id;
+        $user = Auth::guard('psikotestpaid')->user();
+        $psikotestTool = PsikotestTool::where('name', 'Tes Esai')->firstOrFail();
 
         // Create a new entry in the psikotest_paid_tests table
         $paidTest = PsikotestPaidTest::create([
-            'user_psikotest_paid_id' => $userId,
-            'psikotest_tool_id' => $toolId
+            'user_psikotest_paid_id' => $user->id,
+            'psikotest_tool_id' => $psikotestTool->id
         ]);
 
         // Create a new entry in the test_tes_esai table
-        $test = TestTesEsai::create([
+        $testTesEsai = TestTesEsai::create([
             'psikotest_paid_test_id' => $paidTest->id,
             'tool' => 'Tes Esai',
-            'user_id' => $userId
+            'user_id' => $user->id
         ]);
 
         // Redirect to the test page
-        return redirect()->route('psikotest-paid.tool.Tes Esai.showTest', ['testId' => $test->id]);
+        return redirect()->route('psikotest-paid.tool.Tes Esai.showQuestion', ['testTesEsai' => $testTesEsai->id, 'questionTesEsai' => 1]);
     }
 
-    public function showTest($testId)
+    public function showQuestion(TestTesEsai $testTesEsai, QuestionTesEsai $questionTesEsai)
     {
-        $test = TestTesEsai::where('id', $testId)->firstOrFail();
-        $questions = QuestionTesEsai::all();
+        $existingAnswer = AnswerTesEsai::where('test_tes_esai_id', $testTesEsai->id)
+            ->where('question_tes_esai_id', $questionTesEsai->id)->first();
 
-        return view('moduls.psikotes-paid.tools.tes-esai.test', ['test' => $test, 'questions' => $questions]);
+        return view('moduls.psikotes-paid.tools.tes-esai.question', compact('testTesEsai', 'questionTesEsai', 'existingAnswer'));
     }
 
-    public function submitAnswer(Request $request)
+    public function submit(Request $request, TestTesEsai $testTesEsai, QuestionTesEsai $questionTesEsai)
     {
-        $validatedData = $request->validate([
-            'test_id' => 'required|exists:test_tes_esai,id',
-            'question_id' => 'required|exists:question_tes_esai,id',
+        $validateData = $request->validate([
             'answer' => 'nullable|string'
         ]);
 
-        $testId = $validatedData['test_id'];
-        $questionId = $validatedData['question_id'];
-        $answer = $validatedData['answer']??NULL;
-        $userId = Auth::guard('psikotestpaid')->id();
+        $existingAnswer = AnswerTesEsai::where('test_tes_esai_id', $testTesEsai->id)
+            ->where('question_tes_esai_id', $questionTesEsai->id)->first();
 
-        AnswerTesEsai::create([
-            'test_tes_esai_id' => $testId,
-            'question_tes_esai_id' => $questionId,
-            'answer' => $answer,
-            'user_id' => $userId
-        ]);
-
-        $currentQuestionNumber = $request->input('current_question_number');
-        $timeout = $request->input('timeout');
-        if ($currentQuestionNumber < 6 && $timeout != "2") {
-            return redirect()->route('psikotest-paid.tool.Tes Esai.showTest', ['testId' => $testId])
-                ->with('current_question_number', $currentQuestionNumber + 1);
+        if ($existingAnswer) {
+            $existingAnswer->update([
+                'answer' => $validateData['answer']
+            ]);
         } else {
-            return redirect()->route('psikotest-paid.tool.Tes Esai.summary', ['testId' => $testId]);
+            AnswerTesEsai::create([
+                'test_tes_esai_id' => $testTesEsai->id,
+                'question_tes_esai_id' => $questionTesEsai->id,
+                'answer' => $validateData['answer'],
+            ]);
+        }
+
+        if ($questionTesEsai->id < 6) {
+            return redirect()->route('psikotest-paid.tool.Tes Esai.showQuestion', ['testTesEsai' => $testTesEsai->id, 'questionTesEsai' => $questionTesEsai->id + 1]);
+        } else {
+            return redirect()->route('psikotest-paid.tool.Tes Esai.summary', ['testTesEsai' => $testTesEsai]);
         }
     }
-    public function showSummary($testId)
+    public function summary(TestTesEsai $testTesEsai)
     {
-        return view('moduls.psikotes-paid.tools.tes-esai.summary', ['testId' => $testId]);
+        $psikotestPaidTest = PsikotestPaidTest::where('id', $testTesEsai->psikotestPaidTest->id)->first();
+        $psikotestPaidTest->update(['status_progress' => true]);
+
+        return view('moduls.psikotes-paid.tools.tes-esai.summary');
     }
 }

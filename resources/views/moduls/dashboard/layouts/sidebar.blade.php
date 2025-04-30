@@ -50,6 +50,15 @@
 
         {{-- $title dashboard baru diberi diisini untuk sidebarnya --}}
 
+        @elseif ($title === 'Dashboard Arteri' || $title === 'Draft Arteri' || $title === 'Postingan Arteri')
+        <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
+        rounded-lg">
+            <a href="{{ route('dashboard.article') }}" class=" flex flex-row items-center @if ($modul === 'Main Dashboard') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="fi fi-tr-chart-line-up text-xl mr-2  @if ($modul === 'Main Dashboard') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-lg font-bold ml-4 leading-5">Dashboard</span>
+            </a>
+        </li>
+
         @elseif ($title === 'Dashboard VAK' || $title === 'Jawaban VAK' || $title === 'Detail Jawaban VAK')
         <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
@@ -71,7 +80,7 @@
         @elseif ($title === 'Dashboard RMIB' || $title === 'Jawaban RMIB' || $title === 'Detail Jawaban RMIB')
         <li class="mt-1 p-2 hover:text-primary dark-hover:text-blue-300
         rounded-lg">
-            <a href="{{ route('dashboard.psikotespaid.epi') }}" class=" flex flex-row items-center @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+            <a href="{{ route('dashboard.psikotespaid.rmib') }}" class=" flex flex-row items-center @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
                 <i class="fi fi-tr-chart-line-up text-xl mr-2  @if ($modul === 'Dashboard Tes') text-primary @else text-gray-700 @endif text-lg"></i>
                 <span class="text-lg font-bold ml-4 leading-5">Dashboard</span>
             </a>
@@ -168,7 +177,6 @@
                 <i class='bx bx-question-mark text-gray-700 text-lg'></i>
                 <span class="text-base mt-2">FAQs</span>
             </a>
-
         </li>
         @endif
 
@@ -269,15 +277,35 @@
         </li>
         @endif
 
+        @if (auth()->user()->role == 'BerbinarSatu')
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.article.penulis') }}" class=" flex flex-row items-center @if ($modul === 'Penulis') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bxs-user-pin text-xl mr-2 @if ($modul === 'Penulis') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base font-bold ml-4 leading-5">Penulis</span>
+            </a>
+        </li>
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.article.kategori') }}" class=" flex flex-row items-center @if ($modul === 'Draft') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bxs-category-alt text-xl mr-2 @if ($modul === 'Draft') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base font-bold ml-4 leading-5">Kategori</span>
+            </a>
+        </li>
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.article.postingan') }}" class=" flex flex-row items-center @if ($modul === 'Postingan') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bx-cloud-upload text-xl mr-2 @if ($modul === 'Postingan') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base font-bold ml-4 leading-5">Artikel</span>
+            </a>
+        </li>
+        @endif
+
         {{-- Nambahin menu sidebar ini diberi != agar tampil --}}
-        @if ((((((((((((((((((((((((((((auth()->user()->role == 'PsikotestPaid' && $title != 'Dashboard Tes') && $title != 'BAUM') && $title != 'HTP') && $title != 'DAP' ) && $title != 'Dashboard Esai') && $title != 'Pengumpulan') && $title != 'Dashboard VAK' ) && $title != 'Jawaban VAK') && $title != 'Detail Jawaban VAK') && $title != 'Dashboard SSCT') && $title != 'Jawaban SSCT') && $title != 'Dashboard Alat Tes Biodata') && $title != 'Tes Biodata Perusahaan') && $title != 'Tes Biodata Pendidikan') && $title != 'Tes Biodata Komunitas') && $title != 'Tes Biodata Individual') && $title != 'Tes Biodata Klinis') && $title != 'Table Biodata Perusahaan') && $title != 'Table Biodata Pendidikan') && $title != 'Table Biodata Komunitas') && $title != 'Table Biodata Individual') && $title != 'Table Biodata Klinis') && $title != 'Dashboard OCEAN') && $title != 'Dashboard BDI') && $title != 'Jawaban OCEAN') && $title != 'Jawaban BDI') && $title != 'Detail Jawaban OCEAN') && $title != 'Detail Jawaban BDI' && $title != 'Dashboard Papikostick' && $title != 'User Data Papikostick' && $title != 'Soal Papikostick' && $title != 'Dashboard Dass42' && $title != 'Jawaban Dass42' && $title != 'Detail Jawaban Dass42' && $title != 'Dashboard EPI' && $title != 'Jawaban EPI' && $title != 'Detail Jawaban EPI' && $title != 'Dashboard RMIB' && $title != 'Jawaban RMIB' && $title != 'Detail Jawaban RMIB')
+        @if ((((((((((((((((((((((((((((auth()->user()->role == 'PsikotestPaid' && $title != 'Dashboard Tes') && $title != 'BAUM') && $title != 'HTP') && $title != 'DAP' ) && $title != 'Dashboard Esai') && $title != 'Pengumpulan') && $title != 'Dashboard VAK' ) && $title != 'Jawaban VAK') && $title != 'Detail Jawaban VAK') && $title != 'Dashboard SSCT') && $title != 'Jawaban SSCT') && $title != 'Dashboard Alat Tes Biodata') && $title != 'Tes Biodata Perusahaan') && $title != 'Tes Biodata Pendidikan') && $title != 'Tes Biodata Komunitas') && $title != 'Tes Biodata Individual') && $title != 'Tes Biodata Klinis') && $title != 'Table Biodata Perusahaan') && $title != 'Table Biodata Pendidikan') && $title != 'Table Biodata Komunitas') && $title != 'Table Biodata Individual') && $title != 'Table Biodata Klinis') && $title != 'Dashboard OCEAN') && $title != 'Dashboard BDI') && $title != 'Jawaban OCEAN') && $title != 'Jawaban BDI') && $title != 'Detail Jawaban OCEAN') && $title != 'Detail Jawaban BDI' && $title != 'Dashboard Papikostick' && $title != 'User Data Papikostick' && $title != 'Soal Papikostick' && $title != 'Dashboard Dass42' && $title != 'Jawaban Dass42' && $title != 'Detail Jawaban Dass42' && $title != 'Dashboard EPI' && $title != 'Jawaban EPI' && $title != 'Detail Jawaban EPI' && $title != 'Dashboard RMIB' && $title != 'Jawaban RMIB' && $title != 'Detail Jawaban RMIB' && $title != 'Dashboard Arteri' && $title != 'Draft Arteri' && $title != 'Postingan Arteri')
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
             <a href="{{ route('dashboard.psikotespaid.data') }}" class=" flex items-center @if ($modul === 'Psikotest Paid Data') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
                 <i class="fi fi-br-ballot text-xl mr-2 @if ($modul === 'Psikotest Paid Data') text-primary @else text-gray-700 @endif text-lg"></i>
                 <span class="text-base font-bold ml-4 leading-5">Data<br>Pendaftar</span>
             </a>
         </li>
-
 
         <!-- Psikotest Data INIIIIIIIII -->
         <!-- @php
@@ -299,26 +327,6 @@
         $activeText = ($modul === 'psikotestSoal' || $modul === 'psikotestData' || $modul === 'papikostick' || $modul === 'Dashboard Papikostick') ? 'Soal' : 'Data Test';
         $textColor = $modul === 'psikotestSoal' ? 'text-primary' : 'text-gray-700';
         @endphp -->
-
-        {{-- <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
-            <a href="{{ route('dashboard.psikotespaid.dashboardtes') }}" class=" flex flex-col items-center @if ($modul === 'Dashboard Tes Grafis') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-                <i class="bx bx-server  @if ($modul === 'Dashboard Tes Grafis') text-primary @else text-gray-700 @endif text-lg"></i>
-                <span class="text-base mt-2 text-center">Database</span>
-            </a>
-        </li>
-
-        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
-            <a href="{{ route('dashboard.psikotespaid.dashboardesai') }}" class=" flex flex-col items-center @if ($modul === 'Dashboard Tes Esai') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-                <i class="bx bx-server  @if ($modul === 'Dashboard Tes Esai') text-primary @else text-gray-700 @endif text-lg"></i>
-                <span class="text-base mt-2 text-center">Esai</span>
-            </a>
-        </li> --}}
-
-        {{-- @php (punya kakfat yang bikin if nya ga abis2)
-        // Tentukan apakah modul saat ini termasuk dalam daftar yang perlu disembunyikan
-        if (!$hidePriceList)
-        $hidePriceList = in_array($modul, ['psikotestSoal', 'psikotestData', 'Dashboard Papikostick', 'papikostick']);
-        @endphp --}}
 
         <li class="my-5 p-2 hover:text-primary dark:hover:text-blue-300 rounded-lg relative">
         <!-- Dropdown Button -->
@@ -423,6 +431,20 @@
     </li>
 
     {{-- disini tambahan sub menu sidebar dari dashboard yg baru --}}
+
+        {{-- @elseif ($title === 'Dashboard Arteri' || $title === 'Draft Arteri' || $title === 'Postingan Arteri')
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.arteri.draft') }}" class=" flex flex-row items-center @if ($modul === 'Draft') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bx-clipboard text-xl mr-2 @if ($modul === 'Draft') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base font-bold ml-4 leading-5">Draft</span>
+            </a>
+        </li>
+        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
+            <a href="{{ route('dashboard.arteri.postingan') }}" class=" flex flex-row items-center @if ($modul === 'Postingan') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
+                <i class="bx bx-cloud-upload text-xl mr-2 @if ($modul === 'Postingan') text-primary @else text-gray-700 @endif text-lg"></i>
+                <span class="text-base font-bold ml-4 leading-5">Postingan</span>
+            </a>
+        </li> --}}
 
         @elseif ($title === 'Dashboard VAK' || $title === 'Jawaban VAK' || $title === 'Detail Jawaban VAK')
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">

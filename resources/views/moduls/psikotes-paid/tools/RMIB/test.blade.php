@@ -6,14 +6,14 @@
 @section('content')
 <div class="relative h-11/12 md:min-h-screen flex flex-col items-center bg-gray-100 justify-center">
     <!-- Mulai form/div -->
-    <div>
-        {{--
-        method="POST"
-        action="{{ route('psikotest-paid.papi-kostick.submit', ['id' => $id, 'question_order' => $question_order]) }}"
+    <form
+        method="post"
+        action="{{ route('psikotest-paid.tool.RMIB.submitAnswer', $testRmib) }}">
         @csrf
-        --}}
+       
 
         <input type="hidden" name="timeout" id="timeout" value="false">
+        <input type="hidden" name="current_question_number" id="timeout" value="{{ session('current_question_number') }}">
 
         <!-- Background Image -->
         <img src="{{ asset('assets/images/psikotes/paid/psikotest-soal-bg.png') }}" alt="Latar Belakang Berbinar"
@@ -34,34 +34,17 @@
             Test 24
         </h1> --}}
 
+        
         <!-- Main Content Area -->
         <div class="relative z-10 w-3xl mx-auto  p-6" style="width: 1100px;">
             <div class="bg-white bg-opacity-50 shadow-lg rounded-lg px-6 py-10">
-                <h1 class="text-red-500 text-center font-bold text-lg">INSTRUKSI A</h1>
-                <p class="mt-5">Tim mengadakan persiapan perjalanan. Rapat-rapat perlu diadakan. Dana dari sponsor,
-                    kendaraan, peralatan dan sebagainya perlu diurus.</p>
-
-                <p class="mt-3">Bacalah terlebih dahulu semua tugas yang ada, lalu urutkan tugas yang paling Anda
-                    senangi
-                    dengan menuliskan urutannya (contoh untuk tugas yang paling Anda senangi, tulislah “1”). Pastikan
-                    tidak
-                    ada pekerjaan yang mendapat urutan yang sama.</p>
-
-                @php
-                    // Dummy data pernyataan tugas
-                    $tasks = [
-                        'Menyetir mobil antar-jemput dari satu tempat ke tempat lain bagi para anggota yang sibuk dengan urusan, dari satu tempat ke tempat lain.',
-                        'Menyiapkan peralatan perjalanan dan perlengkapan rapat.',
-                        'Mengatur jadwal rapat dan koordinasi tim.',
-                        'Mencari sponsor dan dana tambahan untuk perjalanan.',
-                        'Memastikan kendaraan dalam kondisi prima.'
-                    ];
-                @endphp
+                <h1 class="text-red-500 text-center font-bold text-lg">INSTRUKSI {{ $questions[session('current_question_number') - 1]->subtest }}</h1>
+                <p class="mt-5">{!! $questions[session('current_question_number') - 1]->instruction !!}</p>
 
                 <div class="grid grid-cols-2 gap-2 mt-4" style="max-height: 200px; overflow:auto; padding:8px; grid-template-columns: 5% 90%;">
                     <!-- Kolom kiri: Nomor statis -->
                     <div class="flex flex-col gap-3">
-                        @for ($i = 1; $i <= count($tasks); $i++)
+                        @for ($i = 1; $i <= count($questions[session('current_question_number') - 1]->statements); $i++)
                             <div class="h-10 flex items-center justify-center border bg-gray-200 rounded-md text-blue-400">
                                 {{ $i }}
                             </div>
@@ -69,21 +52,43 @@
                     </div>
                     <!-- Kolom kanan: Daftar tugas yang bisa di-drag -->
                     <div id="sortable-list" class="flex flex-col gap-3">
-                        @foreach ($tasks as $task)
-                            <div class="h-10 flex items-center px-2 drag-item cursor-move bg-white rounded-md">
-                                {{ $task }}
-                            </div>
-                        @endforeach
+                        @foreach ($questions[session('current_question_number') - 1]->statements as $statement)
+                        <div id="statement-{{ $statement->id }}" class="h-10 flex items-center px-2 drag-item cursor-move bg-white rounded-md"
+                             data-id="{{ $statement->category->name }}">
+                            {{ $user->gender == 'laki-laki' ? $statement->male_statement : $statement->female_statement }}
+                        </div>
+                    @endforeach                    
                     </div>
                 </div>
+                <input type="hidden" name="ordered_statements" id="ordered_statements">
+                <input type="hidden" name="question_rmib_id" value="{{ $questions[session('current_question_number') - 1]->id }}">
+
 
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
                 <script>
                     document.addEventListener('DOMContentLoaded', function () {
-                        var el = document.getElementById('sortable-list');
-                        Sortable.create(el, {
-                            animation: 150,     
-                            handle: '.drag-item' // Hanya elemen dengan class ini yang dapat dijadikan pegangan drag
+                        const el = document.getElementById('sortable-list');
+                        const orderedStatements = document.getElementById('ordered_statements');
+
+                        const sortable = Sortable.create(el, {
+                            animation: 150,
+                            handle: '.drag-item',
+                            dataIdAttr: 'data-id',
+                            onEnd: function () {
+                                const order = sortable.toArray();
+                                orderedStatements.value = JSON.stringify(order);
+                            }
+                        });
+
+                        const initialOrder = sortable.toArray();
+                        orderedStatements.value = JSON.stringify(initialOrder);
+
+                        const form = el.closest('form');
+                        form.addEventListener('submit', function () {
+                            if (!orderedStatements.value || orderedStatements.value === '[]') {
+                                const currentOrder = sortable.toArray();
+                                orderedStatements.value = JSON.stringify(currentOrder);
+                            }
                         });
                     });
                 </script>
@@ -105,17 +110,15 @@
                     <span class="text-sm text-black"
                         style="position: absolute; top: 1px; transform: translateX(-50%); font-size: 8px;">1%</span>
                 </div>
-                <a href="{{ route('psikotest-paid.tool.RMIB.summary') }}">
-                    <button {{-- type="submit" --}} type="button"
-                        class="px-4 py-1 bg-blue-500 text-sm mr-2 text-white rounded-lg hover:bg-blue-600">Soal
-                        Berikutnya</button>
-                </a>
+                    <button type="submit" type="button"
+                        class="px-4 py-1 bg-blue-500 text-sm mr-2 text-white rounded-lg hover:bg-blue-600">
+                        {{ session('current_question_number') >= 8 ? 'Selesai' : 'Soal Berikutnya'  }}
+                    </button>
             </div>
 
             <!-- Konten utama di sini -->
         </div>
         <!-- Percentage Line and Next Button -->
-
-    </div>
+    </form>
 </div>
 @endsection

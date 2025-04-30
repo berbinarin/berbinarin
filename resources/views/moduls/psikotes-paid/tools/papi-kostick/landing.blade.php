@@ -42,7 +42,7 @@
             </p>
 
             <div class="mb-4 flex justify-center mt-10">
-                <form action="{{ route('psikotest-paid.papi-kostick.start') }}" method="POST">
+                <form action="{{ route('psikotest-paid.papi-kostick.start', $psikotestTool->id) }}" method="POST">
                     @csrf
                     <button type="submit"
                         class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Selanjutnya</button>

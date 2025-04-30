@@ -74,7 +74,7 @@
                     </div>
                     <button onclick="toggleModal('modal-id')" type="button"
                         class="focus:ring-2 focus:ring-offset-2  mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded">
-                        <p class=" font-medium leading-none text-dark">Tambah Data</p>
+                        <p class="font-medium leading-none text-dark">Tambah Data</p>
                     </button>
                 </div>
             </div>
@@ -259,7 +259,7 @@
                 modal.style.display = "block";
             } else {
                 modal.style.display = "none";
-            }
+            }}
         </script>
 
         <script type="text/javascript">
