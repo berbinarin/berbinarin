@@ -22,7 +22,7 @@
   <!-- Card Transparant -->
   <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-6 mt-4 " style="width: 750px;">
     <p class="text-black mt-2 px-5">
-      Hai {{ $user->fullname }}, berikut adalah instruksi untuk test {{ $tool->name }}
+      Hai {{ $user->fullname }}, berikut adalah instruksi untuk test 02
     </p>
     <p class="text-black mt-2 px-5">
       Silahkan <b>menyiapkan 3 lembar kertas HVS berukuran A4 dan pensil HB</b> seperti yang telah diinfokan sebelumnya. 
@@ -48,10 +48,8 @@
       <button onclick="window.history.back();" class="bg-gray-500 hover:bg-gray-700 text-white py-2 px-4 rounded-full">
         Kembali
       </button>
-      <form action="{{ route('psikotest-paid.tool.BAUM.startTest') }}" method="POST" class="inline">
+      <form action="{{ route('psikotest-paid.tool.BAUM.start', ['psikotestTool' => $psikotestTool->id]) }}" method="POST" class="inline">
         @csrf
-        <input type="hidden" name="user_id" value="{{ $user->id }}">
-        <input type="hidden" name="tool_id" value="{{ $tool->id }}">
         <button type="submit" class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
             Selanjutnya
         </button>

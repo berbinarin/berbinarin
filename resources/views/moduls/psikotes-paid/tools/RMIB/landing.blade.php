@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <p class="font-bold text-2xl text-center text-gray-800 mt-16 z-20 relative">Tes XX</p>
+    <p class="font-bold text-2xl text-center text-gray-800 mt-16 z-20 relative">Tes {{ $tool->id }}</p>
 
     <!-- Card Transparant -->
     <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-6 mt-8"
@@ -29,7 +29,8 @@
             Hai {{ $user->fullname }}, berikut adalah instruksi untuk test {{ $tool->name }}
         </p> --}}
         <p class="text-black mt-6 px-5">
-            Bayangkan Anda dikelompokkan dengan sebelas orang mahasiswa <b>(PRIA/WANITA)</b> dalam proyek "Wisma Kerja
+            
+            Bayangkan Anda dikelompokkan dengan sebelas orang mahasiswa <b>{{ $user->gender == 'laki-laki' ? 'PRIA' : 'WANITA' }}</b> dalam proyek "Wisma Kerja
             Nyata"
             (disingkat WKN), yang bertujuan menyadari makna Kelestarian Lingkungan Hidup (KLH). Perjalanan akan
             berlangsung ke beberapa tempat.
@@ -51,19 +52,12 @@
             kembali, jangan sampai ada yang Anda lewati, sebab keberhasilan WKN ini sangat tergantung pada kesadaran
             anggota.‌
         </p>
-
         <div class="mb-4 flex justify-center mt-10">
-            <a href="{{ route('psikotest-paid.tool.RMIB.test') }}">
-                <button type="button"
-                    class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
-                    Selanjutnya
-                </button>
-            </a>
-            {{-- <form action="{{ route('psikotest-paid.papi-kostick.start') }}" method="POST">
+            <form action="{{ route('psikotest-paid.tool.RMIB.startTest') }}" method="POST">
                 @csrf
                 <button type="submit"
                     class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Selanjutnya</button>
-            </form> --}}
+            </form>
         </div>
 
     </div>

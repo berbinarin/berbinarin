@@ -9,7 +9,7 @@ class AnswerPapiKostick extends Model
 {
     use HasFactory;
 
-    protected $table = 'answer_papi_kosticks';
+    protected $table = 'answer_papi_kostick';
 
     protected $fillable = [
         'test_papi_kostick_id',

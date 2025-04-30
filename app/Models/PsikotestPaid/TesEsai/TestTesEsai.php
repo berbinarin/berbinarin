@@ -18,7 +18,7 @@ class TestTesEsai extends Model
 
     public function psikotestPaidTest()
     {
-        return $this->belongsTo(PsikotestPaidTest::class);
+        return $this->belongsTo(PsikotestPaidTest::class, 'psikotest_paid_test_id');
     }
 
     public function answerTesEsai()

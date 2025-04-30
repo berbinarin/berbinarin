@@ -14,73 +14,80 @@ use Illuminate\Support\Facades\Auth;
 
 class SSCTController extends Controller
 {
-  public function showLanding(){
-    $user = Auth::guard('psikotestpaid')->user();
-    $tool = PsikotestTool::where('name', 'SSCT')->firstOrFail();
-    return view('moduls.psikotes-paid.tools.SSCT.landing', ['user' => $user, 'tool' => $tool]);
-  }
-
-  public function startTest(Request $request)
+    public function showLanding()
     {
-        $userId = $request->user_id;
-        $toolId = $request->tool_id;
+        $user = Auth::guard('psikotestpaid')->user();
+        $psikotestTool = PsikotestTool::where('name', 'SSCT')->firstOrFail();
+        return view('moduls.psikotes-paid.tools.SSCT.landing', compact('user', 'psikotestTool'));
+    }
 
-        // Create a new entry in the psikotest_paid_tests table
+    public function start()
+    {
+
+        $user = Auth::guard('psikotestpaid')->user();
+        $psikotestTool = PsikotestTool::where('name', 'SSCT')->firstOrFail();
+
         $paidTest = PsikotestPaidTest::create([
-            'user_psikotest_paid_id' => $userId,
-            'psikotest_tool_id' => $toolId
+            'user_psikotest_paid_id' => $user->id,
+            'psikotest_tool_id' => $psikotestTool->id
         ]);
 
-        // Create a new entry in the test_ssct table
-        $test = TestSsct::create([
+        $testSsct = TestSsct::create([
             'psikotest_paid_test_id' => $paidTest->id,
-            'tool' => 'SSCT',
-            'user_id' => $userId
         ]);
 
         // Redirect to the test page
-        return redirect()->route('psikotest-paid.tool.SSCT.showTest', ['testId' => $test->id]);
+        return redirect()->route('psikotest-paid.tool.SSCT.showQuestion', ['testSsct' => $testSsct->id, 'questionSsct' => 1]);
     }
 
-    public function showTest($testId)
+    public function showQuestion(TestSsct $testSsct, QuestionSsct $questionSsct)
     {
-        $test = TestSsct::where('id', $testId)->firstOrFail();
-        $questions = QuestionSsct::all();
+        $existingAnswer = AnswerSsct::where('test_ssct_id', $testSsct->id)
+            ->where('question_ssct_id', $questionSsct->id)
+            ->first();
 
-        return view('moduls.psikotes-paid.tools.SSCT.test', ['test' => $test, 'questions' => $questions]);
+        return view('moduls.psikotes-paid.tools.SSCT.question', compact('testSsct', 'questionSsct', 'existingAnswer'));
     }
 
-    public function submitAnswer(Request $request)
+    public function submit(Request $request, TestSsct $testSsct, QuestionSsct $questionSsct)
     {
         $validatedData = $request->validate([
-            'test_id' => 'required|exists:test_ssct,id',
-            'question_id' => 'required|exists:question_ssct,id',
             'answer' => 'nullable|string'
         ]);
 
-        $testId = $validatedData['test_id'];
-        $questionId = $validatedData['question_id'];
-        $answer = $validatedData['answer']??NULL;
-        $userId = Auth::guard('psikotestpaid')->id();
+        $answer = $validatedData['answer'];
 
-        AnswerSsct::create([
-            'test_ssct_id' => $testId,
-            'question_ssct_id' => $questionId,
-            'answer' => $answer,
-            'user_id' => $userId
-        ]);
+        $existingAnswer = AnswerSsct::where('test_ssct_id', $testSsct->id)
+            ->where('question_ssct_id', $questionSsct->id)
+            ->first();
 
-        $currentQuestionNumber = $request->input('current_question_number');
-        $timeout = $request->input('timeout');
-        if ($currentQuestionNumber < 60 && $timeout == "false") {
-            return redirect()->route('psikotest-paid.tool.SSCT.showTest', ['testId' => $testId])
-                ->with('current_question_number', $currentQuestionNumber + 1);
+        if ($existingAnswer) {
+            $existingAnswer->update([
+                'answer' => $answer
+            ]);
         } else {
-            return redirect()->route('psikotest-paid.tool.SSCT.summary', ['testId' => $testId]);
+            AnswerSsct::create([
+                'test_ssct_id' => $testSsct->id,
+                'question_ssct_id' => $questionSsct->id,
+                'answer' => $answer
+            ]);
+        }
+
+        $timeout = $request->input('timeout');
+
+        if ($questionSsct->id < 60 && $timeout == "false") {
+            return redirect()->route('psikotest-paid.tool.SSCT.showQuestion', ['testSsct' => $testSsct->id, 'questionSsct' => $questionSsct->id + 1]);
+        } else {
+            return redirect()->route('psikotest-paid.tool.SSCT.summary', ['testSsct' => $testSsct->id]);
         }
     }
-    public function showSummary($testId)
+    public function summary(TestSsct $testSsct)
     {
-        return view('moduls.psikotes-paid.tools.SSCT.summary', ['testId' => $testId]);
+        $psikotestPaidTest = PsikotestPaidTest::where('id', $testSsct->psikotestPaidTest->id);
+        $psikotestPaidTest->update([
+            'status_progress' => true
+        ]);
+        
+        return view('moduls.psikotes-paid.tools.SSCT.summary');
     }
 }

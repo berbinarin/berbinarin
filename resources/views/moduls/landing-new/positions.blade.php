@@ -33,7 +33,7 @@
                                     }
                                 @endphp
                                 <img
-                                    src="{{ asset('assets/images/landing/karir/banner/'.$imageName.'.png') }}"
+                                    src="{{ asset('assets/images/landing/karir/banner/'.$imageName.'.jpg') }}"
                                     alt="1"
                                     class="object-cover h-full w-full">
                             </div>
