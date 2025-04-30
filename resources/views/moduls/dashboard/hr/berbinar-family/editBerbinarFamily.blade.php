@@ -24,6 +24,30 @@
                     }
                 }
             });
+
+            // Filter sub divisi berdasarkan divisi yang dipilih
+            const divisions = @json($divisions);
+
+            document.addEventListener('change', function(e) {
+                if (e.target.classList.contains('division-select')) {
+                    const divisionId = e.target.value;
+                    const subDivisionSelect = e.target.closest('.riwayat-row').querySelector(
+                        '.sub-division-select');
+
+                    subDivisionSelect.innerHTML =
+                        '<option value="" disabled selected class="text-black">Pilih subdivisi</option>';
+
+                    const selectedDivision = divisions.find(division => division.id == divisionId);
+                    if (selectedDivision) {
+                        selectedDivision.sub_divisions.forEach(function(subDivision) {
+                            const option = document.createElement('option');
+                            option.value = subDivision.id;
+                            option.textContent = subDivision.nama_subdivisi;
+                            subDivisionSelect.appendChild(option);
+                        });
+                    }
+                }
+            });
         });
     </script>
 
@@ -44,19 +68,20 @@
                 </div>
             </div>
             <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-md shadow-gray-400 shadow-lg">
-                <form action="{{ route('dashboard.berbinarFamily.update', $staff->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('dashboard.berbinarFamily.update', $staff->id) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="mt-4 mb-4 overflow-x-auto">
                         <h1 class="text-2xl font-bold">Data Diri</h1>
                         <p class="text-lg font-semibold flex gap-1 pt-5">
-                            Foto Pribadi<i class="bx bxs-star text-xs text-red-600"></i></p>
+                            Foto Pribadi<i class="text-xs text-red-600"></i></p>
                         <p class="text-lg text-gray-400 pb-3">Ukuran foto maksimal 1 MB dengan resolusi minimal 300x300
                             piksel.
                             Format file yang diperbolehkan: JPG, PNG.</p>
                         <input type="file" name="photo"
                             class="py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-transparent focus:ring-0 shadow-sm" />
-                        <div class="pt-5 flex gap-10 w-full">
+                        <div class="pt-5 flex gap-10 w-full mb-4">
                             <div class="flex flex-col gap-2 w-full">
                                 <p class="text-lg font-semibold flex gap-1">
                                     Nama Lengkap<i class="bx bxs-star text-xs text-red-600 "></i></p>
@@ -77,13 +102,15 @@
                             <p class="text-lg font-semibold flex gap-1">
                                 MOTM (Member of the Month)<i class="bx bxs-star text-xs text-red-600"></i></p>
                             <div class="flex items-center">
-                                <input type="radio" name="motm" value="yes" class="mr-2" {{ $staff->motm == 'yes' ? 'checked' : '' }} required /> Ya
-                                <input type="radio" name="motm" value="no" class="ml-4 mr-2" {{ $staff->motm == 'no' ? 'checked' : '' }} required /> Tidak
+                                <input type="radio" name="motm" value="yes" class="mr-2"
+                                    {{ $staff->motm == 'yes' ? 'checked' : '' }} required /> Ya
+                                <input type="radio" name="motm" value="no" class="ml-4 mr-2"
+                                    {{ $staff->motm == 'no' ? 'checked' : '' }} required /> Tidak
                             </div>
                         </div>
                         <h1 class="text-2xl font-bold pt-10">Riwayat Jabatan</h1>
                         <div id="riwayatContainer">
-                            @foreach($staff->records as $record)
+                            @foreach ($staff->records as $record)
                                 <div class="flex pb-5 riwayat-row">
                                     <div class="pt-5 grid grid-cols-2 lg:grid-cols-2 gap-x-10 gap-y-5 w-full">
                                         <div class="flex flex-col gap-2 w-full">
@@ -91,34 +118,35 @@
                                                 Divisi<i class="bx bxs-star text-xs text-red-600"></i>
                                             </p>
                                             <select name="division[]"
-                                                class="py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500 shadow-sm text-gray-500"
+                                                class="division-select py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500 shadow-sm text-gray-500"
                                                 required>
                                                 <option value="" disabled selected class="text-black">Pilih divisi
                                                 </option>
-                                                <option value="TikTok Creator" class="text-black" {{ $record->division == 'TikTok Creator' ? 'selected' : '' }}>TikTok Creator</option>
-                                                <option value="Marketing Strategist and Sales" class="text-black" {{ $record->division == 'Marketing Strategist and Sales' ? 'selected' : '' }}>Marketing Strategist and Sales</option>
-                                                <option value="Graphic Designer" class="text-black" {{ $record->division == 'Graphic Designer' ? 'selected' : '' }}>Graphic Designer</option>
-                                                <option value="Instagram Creator" class="text-black" {{ $record->division == 'Instagram Creator' ? 'selected' : '' }}>Instagram Creator</option>
-                                                <option value="Web & Mobile App Developer" class="text-black" {{ $record->division == 'Web & Mobile App Developer' ? 'selected' : '' }}>Web & Mobile App Developer</option>
-                                                <option value="X Creator" class="text-black" {{ $record->division == 'X Creator' ? 'selected' : '' }}>X Creator</option>
-                                                <option value="Human Resource" class="text-black" {{ $record->division == 'Human Resource' ? 'selected' : '' }}>Human Resource</option>
-                                                <option value="Secretary and Finance" class="text-black" {{ $record->division == 'Secretary and Finance' ? 'selected' : '' }}>Secretary and Finance</option>
-                                                <option value="Counseling Product Management" class="text-black" {{ $record->division == 'Counseling Product Management' ? 'selected' : '' }}>Counseling Product Management</option>
-                                                <option value="Class Product Management" class="text-black" {{ $record->division == 'Class Product Management' ? 'selected' : '' }}>Class Product Management</option>
+                                                @foreach ($divisions as $division)
+                                                    <option value="{{ $division->id }}" class="text-black"
+                                                        {{ $record->division_id == $division->id ? 'selected' : '' }}>
+                                                        {{ $division->nama_divisi }}
+                                                    </option>
+                                                @endforeach
                                             </select>
                                         </div>
 
                                         <div class="flex flex-col gap-2 w-full">
                                             <p class="text-lg font-semibold flex gap-1">
-                                                Sub divisi<i class="bx bxs-star text-xs text-red-600"></i>
+                                                Sub divisi<i class="text-xs text-red-600"></i>
                                             </p>
                                             <select name="sub_division[]"
-                                                class="py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500 shadow-sm text-gray-500">
+                                                class="sub-division-select py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500 shadow-sm text-gray-500">
                                                 <option value="" disabled selected class="text-black">Pilih subdivisi
                                                 </option>
-                                                <option value="Frontend" class="text-black" {{ $record->subdivision == 'Frontend' ? 'selected' : '' }}>Frontend</option>
-                                                <option value="Backend" class="text-black" {{ $record->subdivision == 'Backend' ? 'selected' : '' }}>Backend</option>
-                                                <option value="Fullstack" class="text-black" {{ $record->subdivision == 'Fullstack' ? 'selected' : '' }}>Fullstack</option>
+                                                @if ($record->division && $record->division->subDivisions)
+                                                    @foreach ($record->division->subDivisions as $subDivision)
+                                                        <option value="{{ $subDivision->id }}" class="text-black"
+                                                            {{ $record->subdivision_id == $subDivision->id ? 'selected' : '' }}>
+                                                            {{ $subDivision->nama_subdivisi }}
+                                                        </option>
+                                                    @endforeach
+                                                @endif
                                             </select>
                                         </div>
 
@@ -129,7 +157,8 @@
                                             <div class="flex items-center w-full">
                                                 <div
                                                     class="rounded-lg border border-gray-300 focus:outline-none focus:border-transparent focus:ring-0 shadow-sm flex justify-between w-full mr-3">
-                                                    <input type="date" name="date_start[]" value="{{ $record->date_start }}"
+                                                    <input type="date" name="date_start[]"
+                                                        value="{{ $record->date_start }}"
                                                         class="border-none rounded-lg text-gray-500 w-full" required />
                                                 </div>
                                                 <button type="button" class="btn-delete-riwayat">
@@ -163,40 +192,32 @@
                                             Divisi<i class="bx bxs-star text-xs text-red-600"></i>
                                         </p>
                                         <select name="division[]"
-                                            class="py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500 shadow-sm text-gray-500"
+                                            class="division-select py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500 shadow-sm text-gray-500"
                                             required>
                                             <option value="" disabled selected class="text-black">Pilih divisi
                                             </option>
-                                            <option value="TikTok Creator" class="text-black">TikTok Creator</option>
-                                            <option value="Marketing Strategist and Sales" class="text-black">Marketing
-                                                Strategist and Sales</option>
-                                            <option value="Graphic Designer" class="text-black">Graphic Designer</option>
-                                            <option value="Instagram Creator" class="text-black">Instagram Creator
-                                            </option>
-                                            <option value="Web & Mobile App Developer" class="text-black">Web & Mobile App
-                                                Developer</option>
-                                            <option value="X Creator" class="text-black">X Creator</option>
-                                            <option value="Human Resource" class="text-black">Human Resource</option>
-                                            <option value="Secretary and Finance" class="text-black">Secretary and Finance
-                                            </option>
-                                            <option value="Counseling Product Management" class="text-black">Counseling
-                                                Product Management</option>
-                                            <option value="Class Product Management" class="text-black">Class Product
-                                                Management</option>
+                                            @foreach ($divisions as $division)
+                                                <option value="{{ $division->id }}" class="text-black"
+                                                    {{ $record->division_id == $division->id ? 'selected' : '' }}>
+                                                    {{ $division->nama_divisi }}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
 
                                     <div class="flex flex-col gap-2 w-full">
                                         <p class="text-lg font-semibold flex gap-1">
-                                            Sub divisi<i class="bx bxs-star text-xs text-red-600"></i>
+                                            Sub divisi<i class="text-xs text-red-600"></i>
                                         </p>
-                                        <select name="sub_division[]"
-                                            class="py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500 shadow-sm text-gray-500">
-                                            <option value="" disabled selected class="text-black">Pilih subdivisi
-                                            </option>
-                                            <option value="Frontend" class="text-black">Frontend</option>
-                                            <option value="Backend" class="text-black">Backend</option>
-                                            <option value="Fullstack" class="text-black">Fullstack</option>
+                                        <select name="sub_division[]" class="sub-division-select py-2 px-3 rounded-lg border-gray-300 focus:outline-none focus:border-blue-500 shadow-sm text-gray-500">
+                                            <option value="" disabled selected class="text-black">Pilih subdivisi</option>
+                                            @if ($record->division && $record->division->subDivisions)
+                                                @foreach ($record->division->subDivisions as $subDivision)
+                                                    <option value="{{ $subDivision->id }}" class="text-black" {{ $record->subdivision_id == $subDivision->id ? 'selected' : '' }}>
+                                                        {{ $subDivision->nama_subdivisi }}
+                                                    </option>
+                                                @endforeach
+                                            @endif
                                         </select>
                                     </div>
 

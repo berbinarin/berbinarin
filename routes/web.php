@@ -367,7 +367,12 @@ Route::group(['middleware' => ['auth']], function () {
     // MODUL MANAGE DIVISION
     Route::get('/dashboard/admin/manage-division', [DashboardController::class, 'manageDivision'])->name('dashboard.manageDivision');
     Route::get('/dashboard/admin/manage-division/add', [DashboardController::class, 'addManageDivision'])->name('dashboard.manageDivision.add');
-    Route::get('/dashboard/admin/manage-division/details', [DashboardController::class, 'detailManageDivision'])->name('dashboard.manageDivision.details');
+    Route::get('/dashboard/manage-division/{id}/detail', [DashboardController::class, 'detailManageDivision'])->name('dashboard.manageDivision.details');
+    Route::post('/dashboard/manage-division/store', [DashboardController::class, 'storeManageDivision'])->name('dashboard.manageDivision.store');
+    Route::get('/dashboard/manage-division/{id}/edit', [DashboardController::class, 'editManageDivision'])->name('dashboard.manageDivision.edit');
+    Route::post('/dashboard/manage-division/{id}/update', [DashboardController::class, 'updateManageDivision'])->name('dashboard.manageDivision.update');
+    Route::delete('/dashboard/manage-division/{id}/delete', [DashboardController::class, 'deleteManageDivision'])->name('dashboard.manageDivision.delete');
+    Route::delete('/dashboard/manage-division/delete/{id}', [DashboardController::class, 'deleteSubDivision'])->name('dashboard.manageDivision.deleteSubDivision');
 
     // MODUL INTERNSHIP
     Route::get('/dashboard/admin/internship', [DashboardController::class, 'internship'])->name('dashboard.internship');
@@ -587,8 +592,13 @@ Route::prefix('/psikotest-paid')->group(function () {
 
         // BDI
         Route::get('/tool/BDI', [LandingController::class, 'LandingBDI'])->name('psikotest-paid.tool.BDI.showLanding');
-        Route::get('/tool/BDI/test', [LandingController::class, 'TestBDI'])->name('psikotest-paid.tool.BDI.testbdi');
-        Route::get('/tool/BDI/end/', [LandingController::class, 'EndBDI'])->name('psikotest-paid.tool.BDI.endbdi');
+        // Route::get('/tool/BDI/test', [LandingController::class, 'TestBDI'])->name('psikotest-paid.tool.BDI.testbdi');
+        // Route::get('/tool/BDI/end/', [LandingController::class, 'EndBDI'])->name('psikotest-paid.tool.BDI.endbdi');
+
+        // TES DASS-42
+        Route::get('/tool/DASS', [DASSController::class, 'showLanding'])->name('psikotest-paid.tool.Dass-42.showLanding');
+        Route::get('/tool/DASS/test', [DASSController::class, 'showTest'])->name('psikotest-paid.tool.Dass-42.showTest');
+        Route::get('/tool/DASS/summary', [DASSController::class, 'showSummary'])->name('psikotest-paid.tool.Dass-42.showSummary');
 
         // BIODATA
         // Perusahaan
