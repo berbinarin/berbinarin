@@ -2607,11 +2607,55 @@ class LandingController extends Controller
 
     public function emo()
     {
-        return view('moduls.landing-new.emo');
+        $faqs = [
+            [
+                'ask' => 'Apa perbedaan Standar dan Eksklusif?',
+                'answer' => 'Perbedaan terletak pada kemasannya: EmoShuffle Standar menggunakan box biasa dengan penutup manual, sedangkan EmoShuffle Eksklusif hadir dalam kemasan box magnetik yang lebih premium.'
+            ],
+            [
+                'ask' => 'Apakah EmoShuffle bisa digunakan sebagai terapi?',
+                'answer' => 'EmoShuffle bukan alat diagnosis atau terapi medis. Permainan ini merupakan media edukatif dan rekreatif yang dirancang untuk mendukung kesadaran diri dan ekspresi emosi secara positif, sebagai bagian dari upaya menjaga kesehatan mental.'
+            ],
+            [
+                'ask' => 'Apa saja isi dalam satu box EmoShuffle?',
+                'answer' => 'Satu box EmoShuffle berisi 55 kartu, terdiri dari 45 kartu pertanyaan, 5 kartu kutipan inspiratif, dan 5 kartu aksi “Do It Now!”. Seluruhnya dilengkapi dengan panduan bermain untuk memudahkan penggunaan baik secara individu maupun kelompok.'
+            ],
+        ];
+        return view('moduls.landing-new.emo', compact('faqs'));
     }
 
     public function premiumClass()
     {
-        return view('moduls.landing-new.produk-premium-class');
+        $faqs = [
+            [
+                'ask' => 'Apakah hasil tugas dapat saya lampirkan sebagai portofolio?',
+                'answer' => 'entu, SobatBinar diperbolehkan menggunakan tugas yang dikerjakan selama kelas sebagai bagian dari portofolio. Ini bisa menjadi bukti nyata atas keterampilan yang telah dipelajari dan dikembangkan selama mengikuti program Premium Class'
+            ],
+            [
+                'ask' => 'Bisakah saya menjadwalkan ulang sesi kelas ketika saya berhalangan hadir?',
+                'answer' => ' Ya, penjadwalan ulang kelas dapat dilakukan berdasarkan kesepakatan dengan mentor. SobatBinar disarankan memberi konfirmasi sebelumnya agar proses penjadwalan berjalan lancar dan sesuai ketentuan yang berlaku.'
+            ],
+            [
+                'ask' => 'Kapan sertifikat akan diberikan?',
+                'answer' => 'Setelah pembelajaran berakhir serta telah menyelesaikan tugas dengan baik maka SobatBinar dapat memperoleh sertifikat.'
+            ],
+            [
+                'ask' => 'Apakah ada batas waktu untuk mengerjakan studi kasus?',
+                'answer' => 'Ya, studi kasus memiliki batas waktu penyelesaian yang telah ditentukan. Informasi mengenai deadline akan disampaikan di awal kelas dan tercantum dalam panduan program.'
+            ],
+            [
+                'ask' => 'Apakah mentor tersedia setiap waktu untuk menjawab pertanyaan saya?',
+                'answer' => 'Mentor tidak tersedia setiap waktu. Namun, SobatBinar tetap dapat mengajukan pertanyaan kapan saja, dan mentor akan merespons sesuai dengan jadwal atau jam operasional yang telah ditentukan.'
+            ],
+        ];
+        return view('moduls.landing-new.produk-premium-class', compact('faqs'));
+    }
+    public function bisikan()
+    {
+        return view('moduls.landing-new.produk-bisikan');
+    }
+    public function berarty()
+    {
+        return view('moduls.landing-new.produk-berarty');
     }
 }

@@ -306,19 +306,43 @@
             </div>
         </div>
     </section>
-    <section class="mb-12 w-full">
-        <div class="px-6 md:px-16 flex flex-col gap-6 md:pt-44" style="padding-top: 40px">
-            <div class="md:py-8 md:px-16 p-4 border border-[#3986A3] rounded-lg bg-white">
-                <h1 class="text-xl pb-2 md:pb-0 border-b border-b-black" style="border-bottom: none">Apa perbedaan Standar dan Eksklusif?</h1>
-                <p class="md:pr-24 md:pt-10 leading-relaxed text-[#6F6C90]">Keduanya memiliki ukuran kartu 9 x 5,5 cm, dicetak di atas art paper 260 gsm, dan berisi 55 kartu per set. Perbedaan terletak pada kemasannya: EmoShuffle Standar menggunakan box biasa dengan penutup manual, sedangkan EmoShuffle Eksklusif hadir dalam kemasan box magnetik yang lebih premium.</p>
-            </div>
-            <div class="md:py-8 md:px-16 p-4 border rounded-lg shadow-md shadow-black bg-white">
-                <h1 class="text-xl">Apakah EmoShuffle bisa digunakan sebagai terapi?</h1>
-            </div>
-            <div class="md:py-8 md:px-16 p-4 border rounded-lg shadow-md shadow-black bg-white">
-                <h1 class="text-xl">Apa saja isi dalam satu box EmoShuffle?</h1>
-            </div>
-        </div>
+    <section class="z-10 mx-4 sm:mx-20" style="padding-top: 150px; padding-bottom: 100px">
+        <ul class="flex flex-col">
+            @php
+                $index = 0;
+            @endphp
+            @foreach ($faqs as $faq)
+                <li class="border bg-white py-2 shadow-sm rounded-lg my-2" x-data="accordion({{ $index }})" :class="isActive()">
+                    <div class="flex flex-row mx-2 sm:mx-5">
+                        <div class="flex flex-col w-full p-3 max-sm:p-2">
+                            <h2 @click="handleClick()" class="font-medium cursor-pointer text-lg max-sm:text-[16.5px]">
+                                <span>{{ $faq['ask'] }}</span>
+                            </h2>
+                            <div x-ref="tab" :style="handleToggle()" class="overflow-hidden max-h-0 duration-500 transition-all">
+                                <p class="mt-3 max-sm:mt-2 text-[#6F6C90] text-justify max-sm:text-[15px]">{{ $faq['answer'] }}</p>
+                            </div>
+                        </div>
+    
+                        <div class="items-center ml-6 hidden sm:flex">
+                            <template x-if="$store.accordion.tab === idx">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 20L4 4M20 4L4 20" stroke="#3986A3" stroke-width="3" stroke-linecap="round"/>
+                                </svg>   
+                            </template>
+                            <template x-if="$store.accordion.tab !== idx">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_7503_13741)">
+                                    <path d="M22.3996 8L11.9996 19.2L1.59961 8" stroke="#3986A3" stroke-width="3" stroke-linecap="square"/></g><defs><clipPath id="clip0_7503_13741"><rect width="24" height="24" fill="white"/></clipPath></defs>
+                                </svg>                                
+                            </template>
+                        </div>
+                    </div>
+                    
+                </li>
+                @php
+                    $index++;
+                @endphp
+            @endforeach
+        </ul>
     </section>
     <div class="flex justify-center items-center relative" style="padding-top: 100px; height: 350px">
         <img src="{{ asset("assets/images/landing/produk/emo/footer.png") }}"/>
@@ -436,5 +460,80 @@
             });
         });
     </script>
+
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('accordion', {
+            tab: 0
+        });
+
+        Alpine.data('accordion', (idx) => ({
+            init() {
+                this.idx = idx;
+            },
+            idx: -1,
+            handleClick() {
+                this.$store.accordion.tab = this.$store.accordion.tab === this.idx ? 0 : this.idx;
+            },
+            handleRotate() {
+                return this.$store.accordion.tab === this.idx ? 'rotate-180' : '';
+            },
+            handleToggle() {
+                return this.$store.accordion.tab === this.idx ?
+                    `max-height: ${this.$refs.tab.scrollHeight}px` : '';
+            },
+            isActive() {
+                return this.$store.accordion.tab === this.idx ? 'border-active' : '';
+            },
+        }));
+    })
+</script>
+
+<script>
+    document.getElementById('openModal').addEventListener('click', function() {
+        document.getElementById('modal').classList.remove('hidden');
+    });
+
+    document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('modal').classList.add('hidden');
+    });
+
+    allModals = ['.modal1', '.modal2', '.modal3'];
+    const modalin = document.querySelector('.modalin');
+    const header = document.querySelector('.header');
+    const hero = document.querySelector('.hero');
+
+    const openModal = (modal) => {
+        const modalOpen = document.querySelector(modal);
+        modalOpen.classList.remove('hidden');
+        modalin.classList.remove('hidden');
+        header.classList.remove('fixed');
+        hero.style.height = '33rem';
+    }
+
+    const closeModal = (modal) => {
+        const modalClose = document.querySelector(modal);
+        modalClose.classList.add('hidden');
+        modalin.classList.add('hidden');
+        header.classList.add('fixed');
+        hero.style.height = '';
+    }
+
+    document.querySelectorAll('.openModal').forEach(button => {
+        button.addEventListener('click', () => {
+            const modalIndex = button.dataset.modalIndex;
+            openModal(allModals[modalIndex]);
+        });
+    });
+
+
+    document.querySelectorAll('.closeModal').forEach(button => {
+        button.addEventListener('click', () => {
+            const modalIndex = button.dataset.modalIndex;
+            closeModal(allModals[modalIndex]);
+        });
+    });
+
+</script>
 
 @endsection

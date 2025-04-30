@@ -382,9 +382,7 @@
                 </div>
             </div>
         </div>
-        
     </div>
-
 </div>
 
 {{-- TESTIMONI USER --}}
@@ -422,8 +420,624 @@
     </div>
 </section>
 
+<section class="mb-12 mt-10 w-full hidden md:block">
+    <div class="relative left-1/2" style=" min-height: 400px; width: 90%; transform: translateX(-50%)">
+        <img src="{{ asset("assets/images/landing/produk/konseling/banner-12.png") }}" class="object-cover w-full h-full absolute rounded-3xl" style="z-index: -20;" />
+        <div class="absolute inset-0 rounded-3xl" style="opacity: 0.7; z-index: -19; background-color: #B3CEDB"></div>
+        <div class="px-10 pt-10 w-full flex-col flex justify-center">
+            <h1 class="bg-clip-text font-[inter] font-semibold text-black lg:text-4xl lg:tracking-wide italic">Berbinar For U</h1>
+            <p class="bg-clip-text font-[inter] text-black text-2xl lg:tracking-wide italic pt-5">Layanan yang menjadi <b>wadah curhatan</b> bagi SobatBinar secara <b>online</b> dan <b>GRATIS</b> yang akan dijawab langsung oleh Psikolog Berbinar secara anonim.</p>
+            <div class="flex pt-5">
+                <p class="text-white bg-[#F7B23B] rounded-2xl p-2">Dilaksanakan 2 bulan sekali</p>
+            </div>
+            <h1 class="bg-clip-text font-[inter] font-semibold text-black text-2xl lg:tracking-wide italic pt-5">Alur Pendaftaran</h1>
+            <div class="px-8 relative" style="bottom: -50px">
+                <!-- Swiper wrapper -->
+                <div class="swiper premiumClassSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Card 1 -->
+                        <div class="swiper-slide">
+                            <div class="flex flex-col gap-6">
+                                <div class="relative w-full h-16 flex items-center justify-center drop-shadow-lg">
+                                    <div class="absolute w-16 h-16 inset-0 rounded-full justify-self-center" style="background: linear-gradient(to bottom, #74AABF 0%, #3986A3 23%, #163641 100%)"></div>
+                                    <span class="relative text-4xl font-bold text-white">1</span>
+                                </div>
+                                <div class="bg-white py-6 px-8 rounded-2xl relative shadow-md shadow-black" style="opacity: 0.9">
+                                    <div class="flex flex-col text-sm text-start text-[#70787D] pt-5">
+                                        <h1 style="min-height: 100px">Calon peserta mengisi formulir pendaftaran awal melalui tautan yang disediakan https://bit.ly/BerbinarForUBatch11. (akan diganti setiap batch)</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 2 -->
+                        <div class="swiper-slide">
+                            <div class="flex flex-col gap-6">
+                                <div class="relative w-full h-16 flex items-center justify-center drop-shadow-lg">
+                                    <div class="absolute w-16 h-16 inset-0 rounded-full justify-self-center" style="background: linear-gradient(to bottom, #74AABF 0%, #3986A3 23%, #163641 100%)"></div>
+                                    <span class="relative text-4xl font-bold text-white">2</span>
+                                </div>
+                                <div class="bg-white py-6 px-8 rounded-2xl relative shadow-md shadow-black" style="opacity: 0.9">
+                                    <div class="flex flex-col text-sm text-start text-[#70787D] pt-5">
+                                        <h1 style="min-height: 100px">Data yang dimasukkan akan diverifikasi untuk menentukan peserta yang memenuhi kriteria.</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 3 -->
+                        <div class="swiper-slide">
+                            <div class="flex flex-col gap-6">
+                                <div class="relative w-full h-16 flex items-center justify-center drop-shadow-lg">
+                                    <div class="absolute w-16 h-16 inset-0 rounded-full justify-self-center" style="background: linear-gradient(to bottom, #74AABF 0%, #3986A3 23%, #163641 100%)"></div>
+                                    <span class="relative text-4xl font-bold text-white">3</span>
+                                </div>
+                                <div class="bg-white py-6 px-8 rounded-2xl relative shadow-md shadow-black" style="opacity: 0.9">
+                                    <div class="flex flex-col text-sm text-start text-[#70787D] pt-5">
+                                        <h1 style="min-height: 100px">Tim akan meninjau data dari Google Form untuk memilih peserta yang lolos</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 4 -->
+                        <div class="swiper-slide">
+                            <div class="flex flex-col gap-6">
+                                <div class="relative w-full h-16 flex items-center justify-center drop-shadow-lg">
+                                    <div class="absolute w-16 h-16 inset-0 rounded-full justify-self-center" style="background: linear-gradient(to bottom, #74AABF 0%, #3986A3 23%, #163641 100%)"></div>
+                                    <span class="relative text-4xl font-bold text-white">4</span>
+                                </div>
+                                <div class="bg-white py-6 px-8 rounded-2xl relative shadow-md shadow-black" style="opacity: 0.9">
+                                    <div class="flex flex-col text-sm text-start text-[#70787D] pt-5">
+                                        <h1 style="min-height: 100px">Peserta yang terpilih akan diberitahu melalui email atau media komunikasi lainnya</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 5 -->
+                        <div class="swiper-slide">
+                            <div class="flex flex-col gap-6">
+                                <div class="relative w-full h-16 flex items-center justify-center drop-shadow-lg">
+                                    <div class="absolute w-16 h-16 inset-0 rounded-full justify-self-center" style="background: linear-gradient(to bottom, #74AABF 0%, #3986A3 23%, #163641 100%)"></div>
+                                    <span class="relative text-4xl font-bold text-white">5</span>
+                                </div>
+                                <div class="bg-white py-6 px-8 rounded-2xl relative shadow-md shadow-black" style="opacity: 0.9">
+                                    <div class="flex flex-col text-sm text-start text-[#70787D] pt-5">
+                                        <h1 style="min-height: 100px">Peserta yang lolos seleksi diwajibkan melakukan pendaftaran ulang dan mengukuti panduan selanjutnya.</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex" style="margin-top: 75px; padding-left: 100px">
+        <button class="p-4 text-white rounded-xl" style="background: linear-gradient(to bottom, #74AABF 0%, #3986A3 23%, #163641 100%)">
+            Daftar berbinar For U
+        </button>
+    </div>
+</section>
+<section class="mb-12 mt-10 w-full hidden md:block">
+    <div class="relative left-1/2" style=" min-height: 400px; width: 90%; transform: translateX(-50%)">
+        <img src="{{ asset("assets/images/landing/produk/konseling/banner-12.png") }}" class="object-cover w-full h-full absolute rounded-3xl" style="z-index: -20;" />
+        <div class="absolute inset-0 rounded-3xl" style="opacity: 0.7; z-index: -19; background-color: #B3CEDB"></div>
+        <div class="px-10 pt-10 w-full flex-col flex justify-center">
+            <h1 class="bg-clip-text font-[inter] font-semibold text-black lg:text-4xl lg:tracking-wide italic">Training Peer Counselor</h1>
+            <p class="bg-clip-text font-[inter] text-black text-2xl lg:tracking-wide italic pt-5">Layanan pelatihan peer counselor secara online dan diselenggarakan secara <b>GRATIS</b>, cocok untuk SobatBinar yang tertarik dalam dunia konseling dan ingin menjadi teman curhat yang baik. Layanan ini merupakan event tahunan.</p>
+            <div class="flex pt-5">
+                <p class="text-white bg-[#F7B23B] rounded-2xl p-2">Dilaksanakan 1 tahun sekali</p>
+            </div>
+            <h1 class="bg-clip-text font-[inter] font-semibold text-black text-2xl lg:tracking-wide italic pt-5">Alur Pendaftaran</h1>
+            <div class="px-8 relative" style="bottom: -50px">
+                <!-- Swiper wrapper -->
+                <div class="swiper premiumClassSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Card 1 -->
+                        <div class="swiper-slide">
+                            <div class="flex flex-col gap-6">
+                                <div class="relative w-full h-16 flex items-center justify-center drop-shadow-lg">
+                                    <div class="absolute w-16 h-16 inset-0 rounded-full justify-self-center" style="background: linear-gradient(to bottom, #74AABF 0%, #3986A3 23%, #163641 100%)"></div>
+                                    <span class="relative text-4xl font-bold text-white">1</span>
+                                </div>
+                                <div class="bg-white py-6 px-8 rounded-2xl relative shadow-md shadow-black" style="opacity: 0.9">
+                                    <div class="flex flex-col text-sm text-start text-[#70787D] pt-5">
+                                        <h1 style="min-height: 100px">Calon peserta mengisi formulir pendaftaran awal melalui tautan Google Form yang disediakan https://bit.ly/BerbinarCounseling</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 2 -->
+                        <div class="swiper-slide">
+                            <div class="flex flex-col gap-6">
+                                <div class="relative w-full h-16 flex items-center justify-center drop-shadow-lg">
+                                    <div class="absolute w-16 h-16 inset-0 rounded-full justify-self-center" style="background: linear-gradient(to bottom, #74AABF 0%, #3986A3 23%, #163641 100%)"></div>
+                                    <span class="relative text-4xl font-bold text-white">2</span>
+                                </div>
+                                <div class="bg-white py-6 px-8 rounded-2xl relative shadow-md shadow-black" style="opacity: 0.9">
+                                    <div class="flex flex-col text-sm text-start text-[#70787D] pt-5">
+                                        <h1 style="min-height: 100px">Pastikan data yang dimasukkan lengkap dan sesuai dengan persyaratan yang diminta.</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 3 -->
+                        <div class="swiper-slide">
+                            <div class="flex flex-col gap-6">
+                                <div class="relative w-full h-16 flex items-center justify-center drop-shadow-lg">
+                                    <div class="absolute w-16 h-16 inset-0 rounded-full justify-self-center" style="background: linear-gradient(to bottom, #74AABF 0%, #3986A3 23%, #163641 100%)"></div>
+                                    <span class="relative text-4xl font-bold text-white">3</span>
+                                </div>
+                                <div class="bg-white py-6 px-8 rounded-2xl relative shadow-md shadow-black" style="opacity: 0.9">
+                                    <div class="flex flex-col text-sm text-start text-[#70787D] pt-5">
+                                        <h1 style="min-height: 100px">Tim akan memverifikasi data dari Google Form.</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 4 -->
+                        <div class="swiper-slide">
+                            <div class="flex flex-col gap-6">
+                                <div class="relative w-full h-16 flex items-center justify-center drop-shadow-lg">
+                                    <div class="absolute w-16 h-16 inset-0 rounded-full justify-self-center" style="background: linear-gradient(to bottom, #74AABF 0%, #3986A3 23%, #163641 100%)"></div>
+                                    <span class="relative text-4xl font-bold text-white">4</span>
+                                </div>
+                                <div class="bg-white py-6 px-8 rounded-2xl relative shadow-md shadow-black" style="opacity: 0.9">
+                                    <div class="flex flex-col text-sm text-start text-[#70787D] pt-5">
+                                        <h1 style="min-height: 100px">Peserta yang berhasil mendaftar akan mendapatkan konfirmasi melalui email atau pesan pribadi.</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 5 -->
+                        <div class="swiper-slide">
+                            <div class="flex flex-col gap-6">
+                                <div class="relative w-full h-16 flex items-center justify-center drop-shadow-lg">
+                                    <div class="absolute w-16 h-16 inset-0 rounded-full justify-self-center" style="background: linear-gradient(to bottom, #74AABF 0%, #3986A3 23%, #163641 100%)"></div>
+                                    <span class="relative text-4xl font-bold text-white">5</span>
+                                </div>
+                                <div class="bg-white py-6 px-8 rounded-2xl relative shadow-md shadow-black" style="opacity: 0.9">
+                                    <div class="flex flex-col text-sm text-start text-[#70787D] pt-5">
+                                        <h1 style="min-height: 100px">Setelah pendaftaran dikonfirmasi, peserta akan diundang ke grup WhatsApp khusus untuk training.</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex" style="margin-top: 75px; padding-left: 100px">
+        <button class="p-4 text-white rounded-xl" style="background: linear-gradient(to bottom, #74AABF 0%, #3986A3 23%, #163641 100%)">
+            Daftar Training Peer Counselor
+        </button>
+    </div>
+    <div class="flex justify-center gap-6 pt-10">
+        <img src="{{ asset("assets/images/landing/produk/konseling/image-a.png") }}" src="object-cover"/>
+        <img src="{{ asset("assets/images/landing/produk/konseling/image-a.png") }}" src="object-cover"/>
+        <img src="{{ asset("assets/images/landing/produk/konseling/image-a.png") }}" src="object-cover"/>
+    </div>
+</section>
+<section class="mb-12 mt-10 w-full hidden md:block">
+    <div class="relative left-1/2" style=" min-height: 400px; width: 90%; transform: translateX(-50%)">
+        <img src="{{ asset("assets/images/landing/produk/konseling/banner-12.png") }}" class="object-cover w-full h-full absolute rounded-3xl" style="z-index: -20;" />
+        <div class="absolute inset-0 rounded-3xl" style="opacity: 0.7; z-index: -19; background-color: #B3CEDB"></div>
+        <div class="px-10 pt-10 w-full flex flex-row justify-center">
+            <div class="flex flex-col w-3/4">
+                <h1 class="bg-clip-text font-[inter] font-semibold text-black lg:text-4xl lg:tracking-wide italic">Coba Ungkapkan</h1>
+                <p class="bg-clip-text font-[inter] text-black text-2xl lg:tracking-wide italic pt-5"><b>Ruangan curhatan</b> untuk seseorang mengenai apa yang dirasakan</p>
+                <div class="flex pt-5">
+                    <p class="text-white bg-[#F7B23B] rounded-2xl p-2">Dijawab 2 kali dalam sebulan</p>
+                </div>
+                <h1 class="bg-clip-text font-[inter] font-semibold text-black text-2xl lg:tracking-wide italic pt-5">Alur Pendaftaran</h1>
+                <div class="px-8 relative pt-6">
+                    <!-- Swiper wrapper -->
+                    <div class="swiper premiumClassSwiper">
+                        <div class="swiper-wrapper">
+                            <!-- Card 1 -->
+                            <div class="swiper-slide" style="min-width: 300px;">
+                                <div class="flex flex-col gap-6">
+                                    <div class="relative w-full h-16 flex items-center justify-center drop-shadow-lg">
+                                        <div class="absolute w-16 h-16 inset-0 rounded-full justify-self-center" style="background: linear-gradient(to bottom, #74AABF 0%, #3986A3 23%, #163641 100%)"></div>
+                                        <span class="relative text-4xl font-bold text-white">1</span>
+                                    </div>
+                                    <div class="bg-white py-6 px-8 rounded-2xl relative shadow-md shadow-black" style="opacity: 0.9">
+                                        <div class="flex flex-col text-sm text-start text-[#70787D] pt-5">
+                                            <h1>Calon peserta mengisi formulir pendaftaran awal melalui tautan Google Form yang disediakan https://bit.ly/BerbinarCounseling</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 2 -->
+                            <div class="swiper-slide" style="min-width: 300px;">
+                                <div class="flex flex-col gap-6">
+                                    <div class="relative w-full h-16 flex items-center justify-center drop-shadow-lg">
+                                        <div class="absolute w-16 h-16 inset-0 rounded-full justify-self-center" style="background: linear-gradient(to bottom, #74AABF 0%, #3986A3 23%, #163641 100%)"></div>
+                                        <span class="relative text-4xl font-bold text-white">2</span>
+                                    </div>
+                                    <div class="bg-white py-6 px-8 rounded-2xl relative shadow-md shadow-black" style="opacity: 0.9">
+                                        <div class="flex flex-col text-sm text-start text-[#70787D] pt-5">
+                                            <h1>Pastikan data yang dimasukkan lengkap dan sesuai dengan persyaratan yang diminta.</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 3 -->
+                            <div class="swiper-slide" style="min-width: 300px;">
+                                <div class="flex flex-col gap-6">
+                                    <div class="relative w-full h-16 flex items-center justify-center drop-shadow-lg">
+                                        <div class="absolute w-16 h-16 inset-0 rounded-full justify-self-center" style="background: linear-gradient(to bottom, #74AABF 0%, #3986A3 23%, #163641 100%)"></div>
+                                        <span class="relative text-4xl font-bold text-white">3</span>
+                                    </div>
+                                    <div class="bg-white py-6 px-8 rounded-2xl relative shadow-md shadow-black" style="opacity: 0.9">
+                                        <div class="flex flex-col text-sm text-start text-[#70787D] pt-5">
+                                            <h1>Tim akan memverifikasi data dari Google Form.</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex" style="margin-top: 75px">
+                    <button class="p-4 text-white rounded-xl" style="background: linear-gradient(to bottom, #74AABF 0%, #3986A3 23%, #163641 100%)">
+                        Daftar Coba Ungkapkan
+                    </button>
+                </div>
+            </div>
+            <div class="w-1/3">
+                <div class="flex flex-col gap-2">
+                    <div class="flex flex-row gap-2">
+                        <img src="{{ asset("assets/images/landing/produk/konseling/image-1.png") }}"/>
+                        <img src="{{ asset("assets/images/landing/produk/konseling/image-2.png") }}"/>
+                    </div>
+                    <div class="flex flex-row gap-2">
+                        <img src="{{ asset("assets/images/landing/produk/konseling/image-3.png") }}"/>
+                        <img src="{{ asset("assets/images/landing/produk/konseling/image-4.png") }}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-10 px-4 block md:hidden">
+    <div class="flex flex-col gap-4">
+        <div class="bg-gradient-to-r from-[#558396] to-[#9DDDF6] rounded-3xl p-6 relative overflow-hidden shadow shadow-black" style="background: linear-gradient(to bottom, #558396, #9DDDF6);">
+            <!-- Header -->
+            <h1 class="text-[#F7B23B] text-3xl font-bold text-center mb-4">Berbinar For U</h1>
+            
+            <!-- Description -->
+            <p class="text-center mb-6 leading-relaxed">
+                Layanan yang menjadi <span class="font-medium">wadah curhatan</span> bagi 
+                SobatBinar secara <span class="font-medium">online</span> dan <span class="font-medium">GRATIS</span> yang akan 
+                dijawab langsung oleh Psikolog Berbinar secara 
+                anonim.
+            </p>
+            
+            <!-- Badge -->
+            <div class="flex justify-center mb-8">
+                <span class="bg-[#F7B23B] text-white rounded-full px-5 py-2 text-sm font-medium">
+                    Dilaksanakan 2 bulan sekali
+                </span>
+            </div>
+            
+            <!-- Registration Flow -->
+            <h2 class="text-xl font-semibold mb-4">Alur Pendaftaran</h2>
+            
+            <!-- Step 1 -->
+            <div class="bg-white rounded-xl p-4 mb-3 flex items-start">
+                <div class="bg-[#3986A3] rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-3">
+                    <span class="text-white font-bold">1</span>
+                </div>
+                <div>
+                    <p class="text-sm">
+                        Calon peserta mengisi formulir pendaftaran awal melalui tautan yang disediakan 
+                        <a href="https://bit.ly/BerbinarForUBatch11" class="text-blue-600 underline">https://bit.ly/BerbinarForUBatch11</a>. 
+                        (akan diganti setiap batch)
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="bg-white rounded-xl p-4 mb-3 flex items-start">
+                <div class="bg-[#3986A3] rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-3">
+                    <span class="text-white font-bold">2</span>
+                </div>
+                <div>
+                    <p class="text-sm">
+                        Data yang dimasukkan akan diverifikasi untuk menentukan peserta yang memenuhi kriteria.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="bg-white rounded-xl p-4 mb-3 flex items-start">
+                <div class="bg-[#3986A3] rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-3">
+                    <span class="text-white font-bold">3</span>
+                </div>
+                <div>
+                    <p class="text-sm">
+                        Tim akan meninjau data dari Google Form untuk memilih peserta yang lolos.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Step 4 -->
+            <div class="bg-white rounded-xl p-4 mb-6 flex items-start">
+                <div class="bg-[#3986A3] rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-3">
+                    <span class="text-white font-bold">4</span>
+                </div>
+                <div>
+                    <p class="text-sm">
+                        Peserta yang terpilih akan diberitahu melalui email atau media komunikasi lainnya.
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+        <!-- Registration Button -->
+        <div class="flex justify-start mt-4">
+            <button class="text-white font-medium py-3 px-6 rounded-lg"  style="background: linear-gradient(to right, #558396, #9DDDF6);">
+                Daftar Berbinar For U
+            </button>
+        </div>
+    </div>
+</section>
+<section class="py-10 px-4 block md:hidden">
+    <div class="flex flex-col gap-4">
+        <div class="bg-gradient-to-r from-[#558396] to-[#9DDDF6] rounded-3xl p-6 relative overflow-hidden shadow shadow-black" style="background: linear-gradient(to bottom, #558396, #9DDDF6);">
+            <!-- Header -->
+            <h1 class="text-[#F7B23B] text-3xl font-bold text-center mb-4">Training Peer Counselor</h1>
+            
+            <!-- Description -->
+            <p class="text-center mb-6 leading-relaxed">
+                Layanan pelatihan peer counselor secara online dan diselenggarakan secara <b>GRATIS</b>, cocok untuk SobatBinar yang tertarik dalam dunia konseling dan ingin menjadi teman curhat yang baik. Layanan ini merupakan event tahunan.
+            </p>
+            
+            <!-- Badge -->
+            <div class="flex justify-center mb-8">
+                <span class="bg-[#F7B23B] text-white rounded-full px-5 py-2 text-sm font-medium">
+                    Dilaksanakan 1 tahun sekali
+                </span>
+            </div>
+            
+            <!-- Registration Flow -->
+            <h2 class="text-xl font-semibold mb-4">Alur Pendaftaran</h2>
+            
+            <!-- Step 1 -->
+            <div class="bg-white rounded-xl p-4 mb-3 flex items-start">
+                <div class="bg-[#3986A3] rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-3">
+                    <span class="text-white font-bold">1</span>
+                </div>
+                <div>
+                    <p class="text-sm">
+                        Calon peserta mengisi formulir pendaftaran awal melalui tautan Google Form yang disediakan 
+                        <a href="https://bit.ly/BerbinarForUBatch11" class="text-blue-600 underline">https://bit.ly/BerbinarForUBatch11</a>.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="bg-white rounded-xl p-4 mb-3 flex items-start">
+                <div class="bg-[#3986A3] rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-3">
+                    <span class="text-white font-bold">2</span>
+                </div>
+                <div>
+                    <p class="text-sm">
+                        Pastikan data yang dimasukkan lengkap dan sesuai dengan persyaratan yang diminta.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="bg-white rounded-xl p-4 mb-3 flex items-start">
+                <div class="bg-[#3986A3] rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-3">
+                    <span class="text-white font-bold">3</span>
+                </div>
+                <div>
+                    <p class="text-sm">
+                        Tim akan memverifikasi data dari Google Form.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Step 4 -->
+            <div class="bg-white rounded-xl p-4 mb-6 flex items-start">
+                <div class="bg-[#3986A3] rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-3">
+                    <span class="text-white font-bold">4</span>
+                </div>
+                <div>
+                    <p class="text-sm">
+                        Peserta yang berhasil mendaftar akan mendapatkan konfirmasi melalui email atau pesan pribadi.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-4 mb-6 flex items-start">
+                <div class="bg-[#3986A3] rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-3">
+                    <span class="text-white font-bold">4</span>
+                </div>
+                <div>
+                    <p class="text-sm">
+                        Setelah pendaftaran dikonfirmasi, peserta akan diundang ke grup WhatsApp khusus untuk training.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-8 px-4">
+            <div class="swiper premiumClassSwiper">
+                <div class="swiper-wrapper">
+                    <!-- Swiper slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="rounded-lg overflow-hidden shadow-md">
+                            <img src="{{ asset('assets/images/landing/produk/konseling/image-a.png') }}" class="w-full h-auto object-cover" alt="Gallery image 1"/>
+                        </div>
+                    </div>
+                    
+                    <!-- Swiper slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="rounded-lg overflow-hidden shadow-md">
+                            <img src="{{ asset('assets/images/landing/produk/konseling/image-b.png') }}" class="w-full h-auto object-cover" alt="Gallery image 2"/>
+                        </div>
+                    </div>
+                    
+                    <!-- Swiper slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="rounded-lg overflow-hidden shadow-md">
+                            <img src="{{ asset('assets/images/landing/produk/konseling/image-c.png') }}" class="w-full h-auto object-cover" alt="Gallery image 3"/>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- Pagination -->
+                {{-- <div class="swiper-pagination mt-4"></div> --}}
+            </div>
+        </div>
+        <!-- Registration Button -->
+        <div class="flex justify-start mt-4">
+            <button class="text-white font-medium py-3 px-6 rounded-lg"  style="background: linear-gradient(to right, #558396, #9DDDF6);">
+                Daftar Training Peer Counselor
+            </button>
+        </div>
+    </div>
+</section>
+<section class="py-10 px-4 block md:hidden">
+    <div class="flex flex-col gap-4">
+        <div class="bg-gradient-to-r from-[#558396] to-[#9DDDF6] rounded-3xl p-6 relative overflow-hidden shadow shadow-black" style="background: linear-gradient(to bottom, #558396, #9DDDF6);">
+            <!-- Header -->
+            <h1 class="text-[#F7B23B] text-3xl font-bold text-center mb-4">Coba Ungkapkan</h1>
+            
+            <!-- Description -->
+            <p class="text-center mb-6 leading-relaxed">
+                Ruang curhatan untuk seseorang mengenai apa yang dirasakan
+            </p>
+            
+            <!-- Badge -->
+            <div class="flex justify-center mb-8">
+                <span class="bg-[#F7B23B] text-white rounded-full px-5 py-2 text-sm font-medium">
+                    Dijawab 2 kali dalam sebulan
+                </span>
+            </div>
+            
+            <!-- Registration Flow -->
+            <h2 class="text-xl font-semibold mb-4">Alur Pendaftaran</h2>
+            
+            <!-- Step 1 -->
+            <div class="bg-white rounded-xl p-4 mb-3 flex items-start">
+                <div class="bg-[#3986A3] rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-3">
+                    <span class="text-white font-bold">1</span>
+                </div>
+                <div>
+                    <p class="text-sm">
+                        Akses tautan berikut: 
+                        <a href="https://bit.ly/BerbinarForUBatch11" class="text-blue-600 underline">https://bit.ly/CobaUngkapkan</a>.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="bg-white rounded-xl p-4 mb-3 flex items-start">
+                <div class="bg-[#3986A3] rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-3">
+                    <span class="text-white font-bold">2</span>
+                </div>
+                <div>
+                    <p class="text-sm">
+                        Link ini akan membawa Anda ke formulir untuk mengisi cerita atau perasaan yang ingin diungkapkan.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="bg-white rounded-xl p-4 mb-3 flex items-start">
+                <div class="bg-[#3986A3] rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-3">
+                    <span class="text-white font-bold">3</span>
+                </div>
+                <div>
+                    <p class="text-sm">
+                        Ceritakan apa yang sedang Anda rasakan atau hal yang ingin Anda ungkapkan saat ini.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Step 4 -->
+            <div class="bg-white rounded-xl p-4 mb-6 flex items-start">
+                <div class="bg-[#3986A3] rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-3">
+                    <span class="text-white font-bold">4</span>
+                </div>
+                <div>
+                    <p class="text-sm">
+                        Pastikan mengisi formulir dengan jelas dan lengkap agar pertanyaan atau cerita Anda dapat dipahami.
+                    </p>
+                </div>
+            </div>
+
+            {{-- <div class="bg-white rounded-xl p-4 mb-6 flex items-start">
+                <div class="bg-[#3986A3] rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 mr-3">
+                    <span class="text-white font-bold">4</span>
+                </div>
+                <div>
+                    <p class="text-sm">
+                        Setelah pendaftaran dikonfirmasi, peserta akan diundang ke grup WhatsApp khusus untuk training.
+                    </p>
+                </div>
+            </div> --}}
+        </div>
+        <div class="mt-8 px-4">
+            <div class="swiper premiumClassSwiper">
+                <div class="swiper-wrapper">
+                    <!-- Swiper slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="rounded-lg overflow-hidden shadow-md">
+                            <img src="{{ asset('assets/images/landing/produk/konseling/image-1.png') }}" class="w-full h-auto object-cover" alt="Gallery image 1"/>
+                        </div>
+                    </div>
+                    
+                    <!-- Swiper slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="rounded-lg overflow-hidden shadow-md">
+                            <img src="{{ asset('assets/images/landing/produk/konseling/image-2.png') }}" class="w-full h-auto object-cover" alt="Gallery image 2"/>
+                        </div>
+                    </div>
+                    
+                    <!-- Swiper slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="rounded-lg overflow-hidden shadow-md">
+                            <img src="{{ asset('assets/images/landing/produk/konseling/image-3.png') }}" class="w-full h-auto object-cover" alt="Gallery image 3"/>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="rounded-lg overflow-hidden shadow-md">
+                            <img src="{{ asset('assets/images/landing/produk/konseling/image-4.png') }}" class="w-full h-auto object-cover" alt="Gallery image 3"/>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- Pagination -->
+                {{-- <div class="swiper-pagination mt-4"></div> --}}
+            </div>
+        </div>
+        <!-- Registration Button -->
+        <div class="flex justify-start mt-4">
+            <button class="text-white font-medium py-3 px-6 rounded-lg"  style="background: linear-gradient(to right, #558396, #9DDDF6);">
+                Daftar Training Peer Counselor
+            </button>
+        </div>
+    </div>
+</section>
+
 {{-- FAQS --}}
-<section class="z-10 mx-4 sm:mx-20">
+<section class="z-10 mx-4 sm:mx-20" style="padding-top: 100px">
     <ul class="flex flex-col">
         @php
             $index = 0;
@@ -463,6 +1077,56 @@
     </ul>
 </section>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css" />
+
+<!-- Include Swiper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const swiperElements = document.querySelectorAll('.premiumClassSwiper');
+    
+    swiperElements.forEach((swiperEl, index) => {
+        // Tambahkan ID unik ke setiap swiper
+        swiperEl.id = `premiumClassSwiper-${index}`;
+        
+        new Swiper(`#${swiperEl.id}`, {
+            slidesPerView: 1.3,
+            spaceBetween: 10,
+            initialSlide: 0,
+            loop: true,
+            centeredSlides: false,
+            pagination: {
+                el: `#${swiperEl.id} .swiper-pagination`,
+                clickable: true,
+            },
+            // Responsive breakpoints
+            breakpoints: {
+                375: {
+                    slidesPerView: 1.3,
+                    spaceBetween: 15
+                },
+                480: {
+                    slidesPerView: 1.5,
+                    spaceBetween: 20
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                1280: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                }
+            }
+        });
+    });
+    });
+</script>
 
 {{-- SCRIPT ACCORDION FAQS --}}
 <script>

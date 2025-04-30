@@ -135,7 +135,7 @@
     <div class="relative left-1/2" style="min-height: 450px; width: 90%; transform: translateX(-50%)">
         <img src="{{ asset("assets/images/landing/produk/emo/pricebg-mobile.png") }}" class="object-cover w-full h-full absolute rounded-3xl" style="z-index: -20;" />
         <div class="flex flex-col items-center px-8 py-5 gap-4 text-white">
-            <h1 class="bg-clip-text font-[inter] text-2xl font-semibold text-white lg:text-4xl lg:tracking-wide text-center">Dapatkan Segera EmoShuffle Milikmu!</h1>
+            <h1 class="bg-clip-text font-[inter] text-2xl font-semibold text-white lg:text-4xl lg:tracking-wide text-center">Jenis Layanan Premium Class</h1>
             
             <!-- Swiper container -->
             <div class="swiper mySwiper w-full h-96" style="height: 450px">
@@ -169,9 +169,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Pagination -->
-                <div class="swiper-pagination"></div>
             </div>
         </div>
     </div>
@@ -444,21 +441,45 @@
 </section>
 <section class="mb-12 w-full hidden md:block" style="padding-top: 100px">
     <div class="relative left-1/2" style=" min-height: 400px; width: 90%; transform: translateX(-50%)">
-        <img src="{{ asset("assets/images/landing/produk/premium-class/banner-3.png") }}" class="object-cover w-full h-full absolute rounded-3xl" style="z-index: -20;" />
+        <img src="{{ asset("assets/images/landing/produk/premium-class/banner-4.png") }}" class="object-cover w-full h-full absolute rounded-3xl" style="z-index: -20;" />
         <div class="absolute inset-0 rounded-3xl" style="opacity: 0.7; z-index: -19; background-color: #205467"></div>
         <div class="px-5 pt-10 w-full flex-col flex justify-center">
-            <h1 class="bg-clip-text font-[inter] text-2xl font-semibold text-white lg:text-4xl lg:tracking-wide text-center">Jenis Layanan Premium Class</h1>
+            <h1 class="bg-clip-text font-[inter] text-2xl font-semibold text-white lg:text-4xl lg:tracking-wide text-center">Layanan Premium Class</h1>
             <div class="flex justify-center px-16 text-white gap-6">
-                <div class="w-1/2 flex flex-col justify-center items-center text-2xl">
-                    <div class="bg-white py-6 px-16 rounded-2xl relative shadow-md shadow-black" style="bottom: -100px; opacity: 0.9">
-                        <h1 class="text-4xl text-[#3986A3] text-center">Rp40.500</h1>
+                <div class="w-1/2 flex flex-row gap-10 justify-center items-center text-2xl">
+                    <div class="bg-white py-6 px-16 rounded-2xl relative shadow-md shadow-black text-black" style="bottom: -100px; opacity: 0.9">
+                        <p class="text-center text-2xl font-semibold">Fundamental</p>
+                        <h1 class="text-4xl text-[#3986A3] text-center pt-6">Rp250.000</h1>
                         <div class="flex flex-col text-lg text-[#70787D] pt-10">
-                            <p><i class="bx bx-check"></i> 55 Kartu EmoShuffle</p>
-                            <p><i class="bx bx-check"></i> Packaging Standar</p>
+                            <p>✅ Pembelajaran dasar-dasar data analyst</p>
                         </div>
                         <div class="flex items-center justify-center pt-10">
                             <button class="bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-white text-base font-medium py-2 px-6 rounded-xl justify-self-center">
-                                Coming Soon
+                                Mulai Sekarang
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-white py-6 px-16 rounded-2xl relative shadow-md shadow-black text-black" style="bottom: -100px; opacity: 0.9">
+                        <p class="text-center text-2xl font-semibold">Excellent</p>
+                        <h1 class="text-4xl text-[#3986A3] text-center pt-6">Rp225.000</h1>
+                        <div class="flex flex-col text-lg text-[#70787D] pt-10">
+                            <p>✅ Pembelajaran data analyst tahap lanjutan menggunakan tools-tools</p>
+                        </div>
+                        <div class="flex items-center justify-center pt-10">
+                            <button class="bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-white text-base font-medium py-2 px-6 rounded-xl justify-self-center">
+                                Mulai Sekarang
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-white py-6 px-16 rounded-2xl relative shadow-md shadow-black text-black" style="bottom: -100px; opacity: 0.9">
+                        <p class="text-center text-2xl font-semibold">Fullstack</p>
+                        <h1 class="text-4xl text-[#3986A3] text-center pt-6">Rp360.000</h1>
+                        <div class="flex flex-col text-lg text-[#70787D] pt-10">
+                            <p>✅ Pembelajaran kelas FUNDAMENTAL dan EXCELLENT</p>
+                        </div>
+                        <div class="flex items-center justify-center pt-10">
+                            <button class="bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-white text-base font-medium py-2 px-6 rounded-xl justify-self-center">
+                                Mulai Sekarang
                             </button>
                         </div>
                     </div>
@@ -466,6 +487,102 @@
             </div>
         </div>
     </div>
+</section>
+<section class="p-6 w-full block md:hidden">
+    <div class="relative left-1/2" style="min-height: 450px; width: 90%; transform: translateX(-50%)">
+        <img src="{{ asset("assets/images/landing/produk/emo/pricebg-mobile.png") }}" class="object-cover w-full h-full absolute rounded-3xl" style="z-index: -20;" />
+        <div class="flex flex-col items-center px-8 py-5 gap-4 text-white">
+            <h1 class="bg-clip-text font-[inter] text-2xl font-semibold text-white lg:text-4xl lg:tracking-wide text-center">Jenis Layanan Premium Class</h1>
+            
+            <!-- Swiper container -->
+            <div class="swiper mySwiper w-full h-96" style="height: 350px">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white py-6 px-8 rounded-2xl relative shadow-md shadow-black text-black" style="opacity: 0.9">
+                            <p class="text-center text-xl font-semibold">Excellent</p>
+                            <h1 class="text-2xl text-[#3986A3] text-center pt-6">Rp225.000</h1>
+                            <div class="flex flex-col text-base text-[#70787D] pt-10">
+                                <p>✅ Pembelajaran data analyst tahap lanjutan menggunakan tools-tools</p>
+                            </div>
+                            <div class="flex items-center justify-center pt-10">
+                                <button class="bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-white text-base font-medium py-2 px-6 rounded-xl justify-self-center">
+                                    Mulai Sekarang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-white py-6 px-8 rounded-2xl relative shadow-md shadow-black text-black" style="opacity: 0.9">
+                            <p class="text-center text-xl font-semibold">Fundamental</p>
+                            <h1 class="text-2xl text-[#3986A3] text-center pt-6">Rp250.000</h1>
+                            <div class="flex flex-col text-base text-[#70787D] pt-10">
+                                <p>✅ Pembelajaran dasar-dasar data analyst</p>
+                            </div>
+                            <div class="flex items-center justify-center pt-10">
+                                <button class="bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-white text-base font-medium py-2 px-6 rounded-xl justify-self-center">
+                                    Mulai Sekarang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-white py-6 px-8 rounded-2xl relative shadow-md shadow-black text-black" style="opacity: 0.9">
+                            <p class="text-center text-xl font-semibold">Fullstack</p>
+                            <h1 class="text-2xl text-[#3986A3] text-center pt-6">Rp360.000</h1>
+                            <div class="flex flex-col text-base text-[#70787D] pt-10">
+                                <p>✅ Pembelajaran kelas FUNDAMENTAL dan EXCELLENT</p>
+                            </div>
+                            <div class="flex items-center justify-center pt-10">
+                                <button class="bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-white text-base font-medium py-2 px-6 rounded-xl justify-self-center">
+                                    Mulai Sekarang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="z-10 mx-4 sm:mx-20" style="padding-top: 150px; padding-bottom: 100px">
+    <ul class="flex flex-col">
+        @php
+            $index = 0;
+        @endphp
+        @foreach ($faqs as $faq)
+            <li class="border bg-white py-2 shadow-sm rounded-lg my-2" x-data="accordion({{ $index }})" :class="isActive()">
+                <div class="flex flex-row mx-2 sm:mx-5">
+                    <div class="flex flex-col w-full p-3 max-sm:p-2">
+                        <h2 @click="handleClick()" class="font-medium cursor-pointer text-lg max-sm:text-[16.5px]">
+                            <span>{{ $faq['ask'] }}</span>
+                        </h2>
+                        <div x-ref="tab" :style="handleToggle()" class="overflow-hidden max-h-0 duration-500 transition-all">
+                            <p class="mt-3 max-sm:mt-2 text-[#6F6C90] text-justify max-sm:text-[15px]">{{ $faq['answer'] }}</p>
+                        </div>
+                    </div>
+
+                    <div class="items-center ml-6 hidden sm:flex">
+                        <template x-if="$store.accordion.tab === idx">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 20L4 4M20 4L4 20" stroke="#3986A3" stroke-width="3" stroke-linecap="round"/>
+                            </svg>   
+                        </template>
+                        <template x-if="$store.accordion.tab !== idx">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_7503_13741)">
+                                <path d="M22.3996 8L11.9996 19.2L1.59961 8" stroke="#3986A3" stroke-width="3" stroke-linecap="square"/></g><defs><clipPath id="clip0_7503_13741"><rect width="24" height="24" fill="white"/></clipPath></defs>
+                            </svg>                                
+                        </template>
+                    </div>
+                </div>
+
+                
+            </li>
+            @php
+                $index++;
+            @endphp
+        @endforeach
+    </ul>
 </section>
 <style>
     @media (min-width: 768px) {
@@ -582,6 +699,80 @@
             }
         });
     });
+</script>
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('accordion', {
+            tab: 0
+        });
+
+        Alpine.data('accordion', (idx) => ({
+            init() {
+                this.idx = idx;
+            },
+            idx: -1,
+            handleClick() {
+                this.$store.accordion.tab = this.$store.accordion.tab === this.idx ? 0 : this.idx;
+            },
+            handleRotate() {
+                return this.$store.accordion.tab === this.idx ? 'rotate-180' : '';
+            },
+            handleToggle() {
+                return this.$store.accordion.tab === this.idx ?
+                    `max-height: ${this.$refs.tab.scrollHeight}px` : '';
+            },
+            isActive() {
+                return this.$store.accordion.tab === this.idx ? 'border-active' : '';
+            },
+        }));
+    })
+</script>
+
+<script>
+    document.getElementById('openModal').addEventListener('click', function() {
+        document.getElementById('modal').classList.remove('hidden');
+    });
+
+    document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('modal').classList.add('hidden');
+    });
+
+    allModals = ['.modal1', '.modal2', '.modal3'];
+    const modalin = document.querySelector('.modalin');
+    const header = document.querySelector('.header');
+    const hero = document.querySelector('.hero');
+
+    const openModal = (modal) => {
+        const modalOpen = document.querySelector(modal);
+        modalOpen.classList.remove('hidden');
+        modalin.classList.remove('hidden');
+        header.classList.remove('fixed');
+        hero.style.height = '33rem';
+    }
+
+    const closeModal = (modal) => {
+        const modalClose = document.querySelector(modal);
+        modalClose.classList.add('hidden');
+        modalin.classList.add('hidden');
+        header.classList.add('fixed');
+        hero.style.height = '';
+    }
+
+    document.querySelectorAll('.openModal').forEach(button => {
+        button.addEventListener('click', () => {
+            const modalIndex = button.dataset.modalIndex;
+            openModal(allModals[modalIndex]);
+        });
+    });
+
+
+    document.querySelectorAll('.closeModal').forEach(button => {
+        button.addEventListener('click', () => {
+            const modalIndex = button.dataset.modalIndex;
+            closeModal(allModals[modalIndex]);
+        });
+    });
+
 </script>
 
 @endsection

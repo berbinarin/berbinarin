@@ -90,6 +90,8 @@ Route::get('/kelas-new', [LandingController::class, 'kelas_new'])->name('kelas-n
 Route::get('/consulting-new', [LandingController::class, 'consulting_new'])->name('consulting-new');
 Route::get('/emoShuffle', [LandingController::class, 'emo'])->name('emo');
 Route::get('/premium-class', [LandingController::class, 'premiumClass'])->name('premium-class');
+Route::get('/bisikan', [LandingController::class, 'bisikan'])->name('bisikan');
+Route::get('/berarty', [LandingController::class, 'berarty'])->name('berarty');
 
 Route::get('/faq-new', [LandingController::class, 'faq_new'])->name('faq-new');
 Route::get('/term-condition-new', [LandingController::class, 'term_condition_new'])->name('term-condition-new');
