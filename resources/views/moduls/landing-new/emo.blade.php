@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <section class="mb-12 mt-32 w-full overflow-x-hidden">
+    <section id="customSection" class="mb-12 w-full overflow-x-hidden">
         <div class="absolute left-0 top-0 h-fit md:block w-1/2 md:w-1/3 lg:w-1/4 pt-32 md:pt-0">
             <img
                 src="{{ asset("assets/images/landing/produk/emo/blop-1.png") }}"
@@ -21,36 +21,33 @@
                 class="object-cover"
             />
         </div>
-        <div class="mx-auto md:mx-14 md:pt-14 3xl:pt-6 relative">
-            <div class="w-full text-center md:flex md:flex-wrap md:items-center md:justify-center md:gap-14">
-                {{-- image atas --}}
-                <div class="flex w-full items-center justify-center px-4 md:hidden">
-                    <img
-                        src="{{ asset("assets/images/landing/produk/emo/banner.png") }}"
-                        class="object-cover"
-                    />
-                </div>
-
-                {{-- tulisan --}}
-                <div class="md:z-10 md:w-1/2 md:items-start md:justify-start md:text-start">
-                    {{-- judul --}}
-                    <div class="mb-2 md:mb-8">
-                        <h1
-                            class="mb-4 bg-gradient-to-r from-[#1C4352] to-[#3986A3] bg-clip-text py-1 font-[inter] text-4xl font-semibold text-transparent lg:text-5xl lg:tracking-wide text-left md:px-0 px-4"
-                        >
-                            EmoShuffle
-                        </h1>
+        <div class="relative">
+            <div class="flex flex-row justify-between items-center max-sm:mt-32 mx-20 max-sm:mx-4 gap-x-10 z-10">
+                <div class="flex flex-col flex-1 space-y-6 max-sm:space-y-2 max-w-xl max-lg:min-w-auto">
+                    <a href="{{ route('produk-new') }}">
+                        <div class="flex lg:order-1 items-center space-x-2 cursor-pointer">
+                            <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow" class="h-3 w-auto">
+                            <p class="text-[15px] font-semibold text-[#3986A3]">Produk Berbinar</p>  
+                        </div>
+                    </a>
+    
+                    <div class="hidden max-md:flex max-lg:flex-none items-center justify-center w-full lg:w-auto lg:order-2">
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/hero.png') }}" alt="Konseling" class="h-[340px] max-sm:h-[320px] w-auto object-contain">
                     </div>
-                    <p class="px-6 md:px-0 text-[#70787D] text-justify leading-relaxed">Merasa bosan bermain kartu yang itu-itu saja? EmoShuffle solusinya! Dengan kartu EmoShuffle kamu dapat saling bermain kartu sembari mengungkapkan perasaan satu sama lainnya. Karena dalam kartu EmoShuffle terdapat tiga jenis kartu yang salah satunya berbentuk pertanyaan seputar psikologis dalam diri.</p>
+                    
+                    <div class="lg:order-3">
+                        <h2 class="mb-4 bg-gradient-to-r from-[#1C4352] to-[#3986A3] bg-clip-text py-1 font-[inter] text-4xl font-semibold text-transparent lg:text-5xl lg:tracking-wide">EmoShuffle</h2>  
+                    </div>
+    
+                    <div class="lg:order-4">
+                        <p class="text-[#70787D] text-justify max-sm:text-[15px] max-sm:leading-normal text-lg max-lg:text-[17px]">
+                            Merasa bosan bermain kartu yang itu-itu saja? EmoShuffle solusinya! Dengan kartu EmoShuffle kamu dapat saling bermain kartu sembari mengungkapkan perasaan satu sama lainnya. Karena dalam kartu EmoShuffle terdapat tiga jenis kartu yang salah satunya berbentuk pertanyaan seputar psikologis dalam diri.
+                        </p>
+                    </div>
                 </div>
-
-                {{-- hexagon banner --}}
-                <div class="relative z-20 hidden md:flex md:w-1/2 lg:w-fit">
-                    <img
-                        src="{{ asset("assets/images/landing/produk/emo/banner.png") }}"
-                        alt=""
-                        class="h-96 3xl:h-[400px]"
-                    />
+    
+                <div class="flex max-md:hidden flex-initial max-lg:flex-1 items-center justify-center w-full lg:w-auto">
+                    <img src="{{ asset('assets/images/landing/produk/emo/banner.png') }}" alt="Konseling" class="h-[340px] max-lg:h-[320px] w-auto">
                 </div>
             </div>
         </div>
@@ -405,6 +402,12 @@
             transform: scale(0);
             transform-origin: left top;
             border-radius: 10px;
+        }
+
+        @media (min-width: 768px) {
+            #customSection {
+                padding-top: 10rem; /* setara dengan md:pt-20 di Tailwind */
+            }
         }
     </style>
 

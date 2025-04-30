@@ -170,23 +170,65 @@ id="modal-id">
 {{-- Jangan lupa ini api-key TinyMCE ganti ke akun berbinar punya + tambahin Berbinar.in di menu Approved Domains --}}
 
 <script>
-    $(document).ready(function() {
-        tinymce.init({
-            selector: '#my-editor',          
-            height: 500,                     
-            plugins: 'lists link image table code help wordcount fontselect fontsizeselect',
-            
-            toolbar: 'undo redo | formatselect | ' +
-                    'fontselect fontsizeselect | ' +
-                    'bold italic underline | forecolor backcolor | ' +
-                    'alignleft aligncenter alignright alignjustify | ' +
-                    'bullist numlist outdent indent | ' +
-                    'removeformat | help',
-            
-            /* Mengatur daftar ukuran font yang muncul di dropdown */
-            font_size_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt 48pt 72pt',
+tinymce.init({
+    selector: '#my-editor',
+    height: 500,
+    plugins: 'lists link image table code help wordcount fontselect fontsizeselect',
+    
+    toolbar: 'undo redo | formatselect | ' +
+            'fontselect fontsizeselect | ' +
+            'bold italic underline | forecolor backcolor | ' +
+            'alignleft aligncenter alignright alignjustify | ' +
+            'bullist numlist outdent indent | ' +
+            'image link table | ' +
+            'removeformat | help',
+    
+    font_size_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt 48pt 72pt',
+    
+    // Tambahkan custom button untuk Google Drive
+    setup: function (editor) {
+        editor.ui.registry.addButton('gdrive', {
+            text: 'GDrive Image',
+            tooltip: 'Insert Google Drive Image',
+            onAction: function () {
+                var driveUrl = prompt("Masukkan URL Google Drive:");
+                if (!driveUrl) return;
+                
+                // Format URL lebih reliable
+                var fileId = '';
+                
+                // Coba ekstrak ID dari berbagai format Google Drive URL
+                if (driveUrl.includes('/file/d/')) {
+                    fileId = driveUrl.split('/file/d/')[1].split('/')[0];
+                } else if (driveUrl.includes('id=')) {
+                    fileId = driveUrl.split('id=')[1].split('&')[0];
+                } else if (driveUrl.match(/[-\w]{25,}/)) {
+                    fileId = driveUrl.match(/[-\w]{25,}/)[0];
+                }
+                
+                if (fileId) {
+                    // Format URL yang lebih reliable untuk embed
+                    var directUrl = 'https://lh3.googleusercontent.com/d/' + fileId;
+                    
+                    // Tambahkan timestamp untuk mencegah caching
+                    directUrl += '?t=' + new Date().getTime();
+                    
+                    editor.insertContent('<img src="' + directUrl + '" alt="Google Drive Image" />');
+                } else {
+                    alert("Format URL Google Drive tidak valid");
+                }
+            }
         });
-    });
+    },
+    
+    toolbar: 'undo redo | formatselect | ' +
+            'fontselect fontsizeselect | ' +
+            'bold italic underline | forecolor backcolor | ' +
+            'alignleft aligncenter alignright alignjustify | ' +
+            'bullist numlist outdent indent | ' +
+            'image gdrive link table | ' +
+            'removeformat | help',
+});
 </script>
 
 @endsection

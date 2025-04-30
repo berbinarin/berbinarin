@@ -25,6 +25,11 @@ export default {
         "./resources/**/*.html",
         "./resources/**/*.vue",
     ],
+    safelist: [
+        'md:pt-20',
+        'md:pt-32',
+        // tambahkan class lain yang sering "hilang"
+      ],
     theme: {
         borderWidth: {
             DEFAULT: "1px",

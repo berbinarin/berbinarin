@@ -516,13 +516,13 @@
                         </p>
                     </div>
 
-                    {{-- <div class="flex justify-start">
-                        <a href="{{ route('konseling-new') }}">
+                    <div class="flex justify-start">
+                        <a href="{{ route('emo') }}">
                             <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 rounded-xl max-sm:w-full">
                                 Lihat Selengkapnya
                             </button>
                         </a>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
 

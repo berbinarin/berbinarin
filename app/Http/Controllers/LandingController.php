@@ -2609,4 +2609,9 @@ class LandingController extends Controller
     {
         return view('moduls.landing-new.emo');
     }
+
+    public function premiumClass()
+    {
+        return view('moduls.landing-new.produk-premium-class');
+    }
 }
