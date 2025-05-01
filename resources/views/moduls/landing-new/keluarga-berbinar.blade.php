@@ -82,7 +82,7 @@
                 {{--menu subdivisi dekstop--}}
                 <div class="hidden lg:block lg:w-full lg:mb-4">
                     <div id="lg-subdivision-container"
-                         class="w-full mx-auto flex justify-start space-x-4 items-center mb-8">
+                         class="w-full mx-auto flex justify-start items-center mb-8">
                         {{--dynamic rendering for subdivision menu uf exist--}}
                     </div>
                     <div id="subdivision-banner"
@@ -132,9 +132,9 @@
         const subdivisionDropdown = document.querySelector(`#subdivision-dropdown`);
 
         // desktop
-        let previousSelectedKeyYears = 2; // 2024
-        let previousSelectedKeyDivisionDesktop = 3; // webdev
-        let previousSelectedKeySubdivisionDekstop = 0; // subdivisi pertama
+        let previousSelectedKeyYears = 5; // 2024
+        let previousSelectedKeyDivisionDesktop = 10; // webdev
+        let previousSelectedKeySubdivisionDekstop = 1; // subdivisi pertama
 
         // value to apply filter
         let year_value = '';
@@ -143,19 +143,24 @@
 
 
         function updateFilteredStaffList() {
-            if (year_value) {
-                filteredStaffList = staffList.filter((staff) => staff.date_start.split(' ')[1] === year_value).sort((a, b) => b.status - a.status);
-            }
-            if (division_value) {
-                filteredStaffList = filteredStaffList.filter((staff) => staff.division === division_value).sort((a, b) => b.status - a.status);
-            }
-            if (subdivision_value) {
-                filteredStaffList = filteredStaffList.filter((staff) => staff.subdivision === subdivision_value).sort((a, b) => b.status - a.status);
-            }
+            filteredStaffList = staffList.filter((staff) => {
+            const matchRecord = staff.records.find((record) => {
+                const matchYear = year_value ? record.year_start <= parseInt(year_value) && (!record.year_end || record.year_end >= parseInt(year_value)) : true;
+                const matchDivision = division_value ? record.division === division_value : true;
+                const matchSubdivision = subdivision_value ? record.subdivision === subdivision_value : true;
 
+                return matchYear && matchDivision && matchSubdivision;
+            });
+
+            return matchRecord !== undefined; 
+        });
+
+            filteredStaffList = filteredStaffList.sort((a, b) => b.status - a.status);
+
+            // Render ulang daftar staff
             handleRenderList();
-            // console.log(filteredStaffList);
         }
+      
 
         function updateYearValue(key) {
             year_value = document.querySelector(`#year-${key}`).textContent.trim();
@@ -184,9 +189,30 @@
             // Clear existing content
             staffContainer.innerHTML = "";
 
-            // Loop through staffList and create staff cards dynamically
-            filteredStaffList.forEach((staff) => {
+                // Loop through staffList and create staff cards dynamically
+                filteredStaffList.forEach((staff) => {
                 const bgDivision = getDivisionColor(staff.subdivision || staff.division);
+
+                // Filter records based on the selected year
+                const filteredRecord = staff.records.find(record => {
+                const yearStart = parseInt(record.year_start);
+                const yearEnd = record.year_end ? parseInt(record.year_end) : new Date().getFullYear();
+                const matchYear = year_value >= yearStart && year_value <= yearEnd;
+                const matchDivision = division_value ? record.division === division_value : true;
+                return matchYear && matchDivision;
+                });
+                const division = filteredRecord ? filteredRecord.division : staff.division;
+                const subdivision = filteredRecord ? filteredRecord.subdivision : staff.subdivision;
+                const dateStart = filteredRecord ? filteredRecord.date_start : staff.date_start;
+                const dateEnd = filteredRecord ? filteredRecord.date_end : staff.date_end;
+
+                const currentDate = new Date();
+                const isAlumni = filteredRecord
+                    ? new Date(dateEnd) < currentDate
+                    : !staff.status;
+
+                const statusText = isAlumni ? "Alumni" : "Aktif";
+                const bgColorStatus = isAlumni ? 'bg-[#F7B23B]' : 'bg-[#04CA00]';
 
                 // cardContainer
                 const cardContainer = document.createElement('div');
@@ -226,15 +252,13 @@
                 frontCard.appendChild(textureFront);
 
                 // status mobile and lg
-                const bgColorStatus = staff.status ? 'bg-[#04CA00]' : 'bg-[#F7B23B]';
-                const textContextStatus = staff.status ? 'Aktif' : 'Alumni';
                 const statusMobile = document.createElement('span'); // element
                 statusMobile.classList.add('statusMobile', bgColorStatus, 'group-odd:right-2', 'group-even:left-2');
-                statusMobile.textContent = textContextStatus;
+                statusMobile.textContent = statusText;
 
                 const statusDesktop = document.createElement('span'); // element
                 statusDesktop.classList.add('statusDesktop', bgColorStatus);
-                statusDesktop.textContent = textContextStatus;
+                statusDesktop.textContent = statusText;
 
                 //adding-front-content 2
                 frontCard.appendChild(statusMobile);
@@ -265,18 +289,18 @@
                 // image sm-md
                 const contentImageSm = `
                 <div class="relative h-full w-32 overflow-hidden group-even:order-last md:flex md:w-36 md:items-end lg:hidden">
-                    <img src="/image/${staff.photo}" loading="lazy"
+                    <img src="${staff.photo}" loading="lazy"
                         alt="image-example" class="object-cover">
-                    <span class="${bgDivision} absolute bottom-0 left-1/2 z-10 w-auto -translate-x-1/2 rounded-lg px-2 py-1 text-center text-xs font-semibold tracking-wide text-white shadow-lg">${staff.subdivision ? staff.subdivision : staff.division}</span>
+                    <span class="${bgDivision} absolute bottom-0 left-1/2 z-10 w-auto -translate-x-1/2 rounded-lg px-2 py-1 text-center text-xs font-semibold tracking-wide text-white shadow-lg">${subdivision ? subdivision : division}</span>
                  </div>
                 `;
 
                 // image lg
                 const contentImageLg = `
                 <div class="relative hidden h-full w-48 py-1 lg:block">
-                    <img src="/image/${staff.photo}" loading="lazy"
+                    <img src="${staff.photo}" loading="lazy"
                         alt="image-example" class="h-full w-48 object-cover">
-                    <span class="${bgDivision} absolute bottom-2 left-1/2 z-10 w-full -translate-x-1/2 rounded-lg px-2 py-1 text-center text-xs font-semibold tracking-wide text-white shadow-lg">${staff.subdivision ? staff.subdivision : staff.division}</span>
+                    <span class="${bgDivision} absolute bottom-2 left-1/2 z-10 w-full -translate-x-1/2 rounded-lg px-2 py-1 text-center text-xs font-semibold tracking-wide text-white shadow-lg">${subdivision ? subdivision : division}</span>
                  </div>`
 
                 // console.log(staff.photo);
@@ -284,7 +308,7 @@
                 <div class="h-full content-end space-y-2 py-1 lg:hidden">
                     <h3 class="text-start text-xl font-semibold text-white md:text-2xl">${staff.name}</h3>
                     <p class="block text-start text-sm font-thin text-white md:text-base">
-                        As ${staff.division}</p>
+                        As ${division}</p>
                     <p class="mb-2 block text-start text-sm font-thin text-white md:text-base"> ${staff.date_start}${staff.status ? '- Sekarang' : `- ${staff.records[staff.records.length - 1].date_end}`}</p>
                </div>`
 
@@ -292,9 +316,9 @@
                 <div class="hidden h-full content-start space-y-2 py-1 pt-8 lg:block">
                     <h3 class="text-2xl font-semibold text-white">${staff.name}</h3>
                     <p class="block text-base font-normal text-white">As
-                        ${staff.division}</p>
+                        ${division}</p>
                     <p class="block text-base font-normal text-white">
-                        ${staff.date_start} ${staff.status ? '- Sekarang' : `- ${staff.records[staff.records.length - 1].date_end}`}</p>
+                        ${dateStart}${isAlumni ? ` - ${dateEnd}` : '- Sekarang'}</p>
                     <a href="${staff.linkedin}" target="_blank" class="hidden w-auto xl:pointer-events-auto xl:inline-block xl:cursor-pointer">
                         <img src="assets/images/landing/keluarga-berbinar/linkedin-fill.png" alt="linkedin" class="size-6"></a>
                 </div>`
@@ -373,7 +397,7 @@
 
                         const role = document.createElement('h4');
                         role.classList.add('text-start', 'text-base', 'lg:text-lg', 'font-semibold', 'text-white');
-                        role.textContent = `As ${record.division}`;
+                        role.textContent = `As ${record.subdivision || '-'} at ${record.division} `;
 
                         const timeLine = document.createElement('p');
                         timeLine.classList.add('text-base', 'font-thin', 'text-white');
@@ -453,17 +477,25 @@
         }
 
         //handle show subdivision menu if exist
-        function handleShowSubdivisionDesktop() {
+       function handleShowSubdivisionDesktop() {
             if (previousSelectedKeyDivisionDesktop === null) {
                 subdivisionContainer.classList.add('hidden');
                 return;
             }
+
             const current_subdivisions = availableDivision[`${year_value}`][previousSelectedKeyDivisionDesktop]['subdivision'];
             if (current_subdivisions.length === 0) {
                 subdivisionContainer.classList.add('hidden');
             } else {
                 subdivisionContainer.classList.remove('hidden');
                 subdivisionContainer.innerHTML = '';
+
+                // Pastikan kontainer subdivisi menggunakan flexbox dengan wrapping
+                subdivisionContainer.style.display = 'flex';
+                subdivisionContainer.style.flexWrap = 'wrap';
+                subdivisionContainer.style.gap = '0.7rem'; 
+
+
                 current_subdivisions.forEach((subdivision, index) => {
                     const subdivisionElement = document.createElement('div');
 
@@ -473,17 +505,14 @@
                     subdivisionElement.textContent = subdivision;
                     subdivisionElement.id = `subdivision-${index}`;
 
-
-                    // todo: add event handler for select division
                     subdivisionElement.addEventListener('click', () => {
                         handleSelectSubdividionDekstop(index);
-                    })
+                    });
 
                     subdivisionContainer.appendChild(subdivisionElement);
-                })
+                });
             }
         }
-
         //event handler untuk select divisi
         function handleSelectDivisionDesktop(index) {
             // cek jika key previous selected sama dengan yang di select, kalau iya return
@@ -586,6 +615,10 @@
             previousSelectedKeyYears = key;
             updateYearValue(key);
             previousSelectedKeyDivisionDesktop = null;
+
+            subdivisionContainer.innerHTML = ''; 
+            subdivisionContainer.classList.add('hidden'); 
+
             handleShowDivisionDesktop();
         }
 

@@ -1263,8 +1263,10 @@ class LandingController extends Controller
         $positions = Hiring_Positions::with(['HiringPositionsJobDescription', 'Hiring_Positions_Requirement'])->where('is_active', true)->get();
 
         //get list of field photo where the motm field is true
-        $list_image = TableStaff::where('motm', 'yes')->pluck('photo');
-
+        $list_image = TableStaff::where('motm', 'yes')->pluck('photo')->map(function ($photo) {
+            return $photo ? '/image/' . $photo : '/assets/images/landing/keluarga-berbinar/dummy.png';
+        });
+        
         $testimonis = [
             [
                 'comment' => 'Banyak ilmu dan pengalaman baru yang didapat di Berbinar. Bukan hanya terkait hardskill, tapi juga softskill seperti kedisiplinan, kerjasama tim, dan komunikasi. Temen-temen disini juga ramah dan asik-asik semua. Magang di Berbinar bisa jadi opsi terbaik buat yang baru mau terjun ke dunia kerja biar nggak terlalu kaget.',
@@ -1351,8 +1353,9 @@ class LandingController extends Controller
                 'answer' => 'Terdapat 2 pilihan durasi magang di Berbinar, yaitu selama 6 bulan atau 1 tahun.'
             ],
         ];
+        // dd($list_image);
 
-        return view('moduls.landing-new.karir')->with([
+            return view('moduls.landing-new.karir')->with([
             'testimonis' => $testimonis,
             'faqs' => $faqs,
             'positions' => $positions,
