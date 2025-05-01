@@ -9,7 +9,7 @@ class QuestionPapiKostick extends Model
 {
     use HasFactory;
 
-    protected $table = 'question_papi_kosticks';
+    protected $table = 'question_papi_kostick';
 
     protected $fillable = [
         'a',

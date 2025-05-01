@@ -22,19 +22,17 @@
   <!-- Card Transparant -->
   <div class="relative text-justify z-10 w-3xl mx-auto bg-white bg-opacity-50 shadow-lg rounded-lg p-6 mt-4 " style="width: 750px;">
     <div class="flex">
-        <p class="text-black px-5">
+        {{-- <p class="text-black px-5">
           A.
-        </p>
-        <p class="text-black ">
-          Sebelum masuk ke subtes selanjutnya, silahkan kesampingkan dulu kertas yang pertama dan kertas kedua. Kemudian silahkan ambil kertas HVS yang ketiga. pastikan bahwa kertas tersebut telah terisi identitas.
+        </p> --}}
+        <p class="text-black px-5">
+          {{ $questionHtp->question }}
         </p>
     </div>
 
     <div class="mb-2 flex justify-center gap-6 mt-8">
-      <form action="{{ route('psikotest-paid.tool.HTP.startTest') }}" method="post">
+      <form action="{{ route('psikotest-paid.tool.HTP.start') }}" method="post">
         @csrf
-        <input type="hidden" name="user_id" value="{{ $user->id }}">
-        <input type="hidden" name="tool_id" value="{{ $tool->id }}">
         <button type="submit" class="w-xl bg-primary items-center text-white py-2 px-10 rounded-full hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
           Selanjutnya
       </button>

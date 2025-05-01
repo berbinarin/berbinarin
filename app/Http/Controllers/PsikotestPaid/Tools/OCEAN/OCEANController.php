@@ -17,74 +17,74 @@ class OCEANController extends Controller
   public function showLanding()
   {
     $user = Auth::guard('psikotestpaid')->user();
-    $tool = PsikotestTool::where('name', 'OCEAN')->firstOrFail();
-    return view('moduls.psikotes-paid.tools.OCEAN.landing', ['user' => $user, 'tool' => $tool]);
+    $psikotestTool = PsikotestTool::where('name', 'OCEAN')->firstOrFail();
+    return view('moduls.psikotes-paid.tools.OCEAN.landing', compact('user', 'psikotestTool'));
   }
 
-  public function startTest(Request $request)
+  public function start()
   {
-    $userId = $request->user_id;
-    $toolId = $request->tool_id;
+    $user = Auth::guard('psikotestpaid')->user();
+    $psikotestTool = PsikotestTool::where('name', 'OCEAN')->firstOrFail();
 
     // Create a new entry in the psikotest_paid_tests table
     $paidTest = PsikotestPaidTest::create([
-      'user_psikotest_paid_id' => $userId,
-      'psikotest_tool_id' => $toolId
+      'user_psikotest_paid_id' => $user->id,
+      'psikotest_tool_id' => $psikotestTool->id
     ]);
 
     // Create a new entry in the test_tes_esai table
-    $test = TestOcean::create([
+    $testOcean = TestOcean::create([
       'psikotest_paid_test_id' => $paidTest->id,
-      'tool' => 'Tes Esai',
-      'user_id' => $userId
     ]);
 
     // Redirect to the test page
-    return redirect()->route('psikotest-paid.tool.OCEAN.showTest', ['testId' => $test->id]);
+    return redirect()->route('psikotest-paid.tool.OCEAN.showQuestion', ['testOcean' => $testOcean->id, 'questionOcean' => 1]);
   }
 
-  public function showTest($testId)
+  public function showQuestion(TestOcean $testOcean, QuestionOcean $questionOcean)
   {
-    $test = TestOcean::where('id', $testId)->firstOrFail();
-    $questions = QuestionOcean::all();
+    $existingAnswer = AnswerOcean::where('test_ocean_id', $testOcean->id)
+    ->where('question_ocean_id', $questionOcean->id)->first();
 
-    return view('moduls.psikotes-paid.tools.OCEAN.test', ['test' => $test, 'questions' => $questions]);
+    return view('moduls.psikotes-paid.tools.OCEAN.question', compact('testOcean', 'questionOcean', 'existingAnswer'));
   }
 
-  public function submitAnswer(Request $request)
+  public function submit(Request $request, TestOcean $testOcean, QuestionOcean $questionOcean)
   {
-    $currentQuestionNumber = $request->input('current_question_number');
     $validatedData = $request->validate([
-      'test_id' => 'required|exists:test_ocean,id',
-      'question_id' => 'required|exists:question_ocean,id',
       'answer' => 'nullable|string'
     ]);
 
-    $testId = $validatedData['test_id'];
-    $questionId = $validatedData['question_id'];
-    $answer = $validatedData['answer']??NULL;
-    $userId = Auth::guard('psikotestpaid')->id();
+    $existingAnswer = AnswerOcean::where('test_ocean_id', $testOcean->id)
+      ->where('question_ocean_id', $questionOcean->id)
+      ->first();
 
-    AnswerOcean::create([
-      'test_ocean_id' => $testId,
-      'question_ocean_id' => $questionId,
-      'answer' => $answer,
-      'user_id' => $userId
-    ]);
+    if ($existingAnswer) {
+      $existingAnswer->update([
+        'answer' => $request->answer,
+      ]);
+    } else {
+      AnswerOcean::create([
+        'test_ocean_id' => $testOcean->id,
+        'question_ocean_id' => $questionOcean->id,
+        'answer' => $validatedData['answer'],
+      ]);
+    }
 
-    $currentQuestionNumber = $request->input('current_question_number');
     $timeout = $request->input('timeout');
-    if ($currentQuestionNumber < 44 && $timeout == "false") {
-      return redirect()->route('psikotest-paid.tool.OCEAN.showTest', ['testId' => $testId])
-        ->with('current_question_number', $currentQuestionNumber + 1);
+    if ($questionOcean->id < 44 && $timeout == "false") {
+      return redirect()->route('psikotest-paid.tool.OCEAN.showQuestion', ['testOcean' => $testOcean->id, 'questionOcean' => $questionOcean->id + 1]);
     } else {
       $ResultController = new ResultOceanController();
-      $ResultController->calculateAndStoreResult(test_ocean_id: $testId);
-      return redirect()->route('psikotest-paid.tool.OCEAN.summary', ['testId' => $testId]);
+      $ResultController->calculateAndStoreResult(test_ocean_id: $testOcean->id);
+      return redirect()->route('psikotest-paid.tool.OCEAN.summary', ['testOcean' => $testOcean]);
     }
   }
-  public function showSummary($testId)
+  public function showSummary(TestOcean $testOcean)
   {
-    return view('moduls.psikotes-paid.tools.OCEAN.summary', ['testId' => $testId]);
+    $psikotestPaidTest = PsikotestPaidTest::where('id', $testOcean->psikotestPaidTest->id)->first();
+    $psikotestPaidTest->update(['status_progress' => true]);
+
+    return view('moduls.psikotes-paid.tools.OCEAN.summary');
   }
 }

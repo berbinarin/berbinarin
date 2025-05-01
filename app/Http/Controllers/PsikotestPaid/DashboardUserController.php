@@ -28,6 +28,8 @@ use App\Models\PsikotestPaid\HTP\TestHtp;
 use App\Models\PsikotestPaid\DAP\AnswerDap;
 use App\Models\PsikotestPaid\DAP\QuestionDap;
 use App\Models\PsikotestPaid\DAP\TestDap;
+use App\Models\PsikotestPaid\RMIB\CategoryStatementRmib;
+use App\Models\PsikotestPaid\RMIB\TestRmib;
 use App\Models\PsikotestPaid\EPI\EpiAnswer;
 use App\Models\PsikotestPaid\TesEsai\AnswerTesEsai;
 use App\Models\PsikotestPaid\TesEsai\TestTesEsai;
@@ -672,12 +674,84 @@ class DashboardUserController extends Controller
 
     public function dataDass42()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.dass42.jawabanDASS');
+        $psikotestToolDass = PsikotestTool::where('name', 'Dass-42')->first();
+        $psikotestPaidTestDass = PsikotestPaidTest::where('psikotest_tool_id', $psikotestToolDass->id)->get();
+        return view('moduls.dashboard.psikotes-paid.tools.dass42.jawabanDASS', compact('psikotestPaidTestDass'));
     }
 
-    public function detailDass42()
+    public function detailDass42(PsikotestPaidTest $psikotest_paid_test_id)
     {
-        return view('moduls.dashboard.psikotes-paid.tools.dass42.detailDASS');
+        $dassDataAnswer = $psikotest_paid_test_id->answerDass;
+        $depressionPoint = $dassDataAnswer->filter(function ($item) {
+            return $item->questionDass->category === 'depression';
+        })->sum('answer');
+        $anxietyPoint = $dassDataAnswer->filter(function ($item) {
+            return $item->questionDass->category === 'anxiety';
+        })->sum('answer');
+        $stressPoint = $dassDataAnswer->filter(function ($item) {
+            return $item->questionDass->category === 'stress';
+        })->sum('answer');
+
+        $categoryResult = function ($category) use ($depressionPoint, $anxietyPoint, $stressPoint) {
+            switch ($category) {
+                case 'depression':
+                    switch (true) {
+                        case ($depressionPoint >= 28):
+                            return 'Extremely Severe';
+                        case ($depressionPoint >= 21):
+                            return 'Severe';
+                        case ($depressionPoint >= 14):
+                            return 'Moderate';
+                        case ($depressionPoint >= 10):
+                            return 'Mild';
+                        default:
+                            return 'Normal';
+                    }
+                    break;
+
+                case 'anxiety':
+                    switch (true) {
+                        case ($anxietyPoint >= 20):
+                            return 'Extremely Severe';
+                        case ($anxietyPoint >= 15):
+                            return 'Severe';
+                        case ($anxietyPoint >= 10):
+                            return 'Moderate';
+                        case ($anxietyPoint >= 8):
+                            return 'Mild';
+                        default:
+                            return 'Normal';
+                    }
+                    break;
+
+                case 'stress':
+                    switch (true) {
+                        case ($stressPoint >= 34):
+                            return 'Extremely Severe';
+                        case ($stressPoint >= 26):
+                            return 'Severe';
+                        case ($stressPoint >= 19):
+                            return 'Moderate';
+                        case ($stressPoint >= 15):
+                            return 'Mild';
+                        default:
+                            return 'Normal';
+                    }
+                    break;
+
+                default:
+                    return '';
+            }
+        };
+
+        return view('moduls.dashboard.psikotes-paid.tools.dass42.detailDASS', compact(
+            'psikotest_paid_test_id',
+            'dassDataAnswer',
+            'depressionPoint',
+            'anxietyPoint',
+            'stressPoint',
+            'categoryResult'
+        ));
     }
 
     public function dashboardEPI()
@@ -805,11 +879,34 @@ class DashboardUserController extends Controller
 
     public function dataRMIB()
     {
-        return view('moduls.dashboard.psikotes-paid.tools.rmib.jawabanRMIB');
+        $testRmib = TestRmib::all();
+
+        return view('moduls.dashboard.psikotes-paid.tools.rmib.jawabanRMIB', compact('testRmib'));
     }
 
-    public function detailRMIB()
+    public function detailRMIB(TestRmib $testRmib)
     {
-        return view('moduls.dashboard.psikotes-paid.tools.rmib.detailRMIB');
+        $categories = CategoryStatementRmib::all();
+
+        $answers = $testRmib->answerRmib;
+        $answerCategories = collect(['outdoor', 'mechanical', 'computational', 'science', 'personal_contact', 'aesthetic', 'musical', 'literacy', 'social_service', 'clerical', 'practical', 'medical'])
+            ->mapWithKeys(function ($category) use ($answers) {
+                return [$category => $answers->sum($category)];
+            })->sort();
+
+        $lowestCategories = collect();
+        $uniqueValues = $answerCategories->unique()->take(3)->toArray();
+
+        foreach ($uniqueValues as $value) {
+            $categoriesWithValue = $answerCategories->filter(function ($item) use ($value) {
+                return $item === $value;
+            })->keys()->toArray();
+
+            foreach ($categoriesWithValue as $category) {
+                $lowestCategories->put($category, $value);
+            }
+        }
+
+        return view('moduls.dashboard.psikotes-paid.tools.rmib.detailRMIB', compact('categories', 'lowestCategories', 'testRmib'));
     }
 }
