@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\KeluargaBerbinar\TableStaff;
 use Carbon\Carbon;
 
-class TableStaffController extends Controller
+class LandingKeluargaBerbinar extends Controller
 {
     function getAvailableDivisionsPerYear($data): array
     {
