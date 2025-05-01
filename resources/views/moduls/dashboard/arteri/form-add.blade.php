@@ -133,6 +133,29 @@
 
         <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center"
             id="modal-id">
+        </div>
+        
+        <!-- Modal untuk memasukkan URL Google Drive -->
+        <div id="gdrive-modal" class="hidden fixed inset-0 z-50 bg-black bg-opacity-50">
+            <div class="flex items-center justify-center min-h-screen">
+                <div class="bg-white rounded-lg shadow-lg w-96 p-6">
+                    <h2 class="text-lg font-semibold mb-4 text-gray-800">Masukkan URL Google Drive</h2>
+                    <input id="gdrive-url" type="text" placeholder="Masukkan URL Google Drive"
+                        class="w-full border border-gray-300 rounded-lg p-2 mb-4 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <div id="gdrive-error" class="hidden text-red-500 text-sm mb-4"></div>
+                    <div class="flex justify-end gap-2">
+                        <button id="gdrive-cancel" type="button"
+                                class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 focus:outline-none">
+                            Batal
+                        </button>
+                        <button id="gdrive-insert" type="button"
+                                class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark focus:outline-none">
+                            Tambahkan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
     <script>
         function showFilename() {
@@ -177,22 +200,74 @@
     {{-- Jangan lupa ini api-key TinyMCE ganti ke akun berbinar punya + tambahin Berbinar.in di menu Approved Domains --}}
 
     <script>
-        $(document).ready(function() {
             tinymce.init({
-                selector: '#my-editor',
-                height: 500,
-                plugins: 'lists link image table code help wordcount fontselect fontsizeselect',
+            selector: '#my-editor',
+            height: 500,
+            plugins: 'lists link image table code help wordcount fontselect fontsizeselect',
+            toolbar: 'undo redo | formatselect | ' +
+                'fontselect fontsizeselect | ' +
+                'bold italic underline | forecolor backcolor | ' +
+                'alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist outdent indent | ' +
+                'image gdrive link table | ' +
+                'removeformat | help',
+            font_size_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt 48pt 72pt',
+            // Custom google drive image 
+            setup: function (editor) {
+                editor.ui.registry.addButton('gdrive', {
+                    text: 'GDrive Image',
+                    tooltip: 'Insert Google Drive Image',
+                    onAction: function () {
+                        // Tampilkan modal
+                        const modal = document.getElementById('gdrive-modal');
+                        const input = document.getElementById('gdrive-url');
+                        const errorContainer = document.getElementById('gdrive-error');
+                        const cancelButton = document.getElementById('gdrive-cancel');
+                        const insertButton = document.getElementById('gdrive-insert');
 
-                toolbar: 'undo redo | formatselect | ' +
-                    'fontselect fontsizeselect | ' +
-                    'bold italic underline | forecolor backcolor | ' +
-                    'alignleft aligncenter alignright alignjustify | ' +
-                    'bullist numlist outdent indent | ' +
-                    'removeformat | help',
+                        modal.classList.remove('hidden'); // Tampilkan modal
+                        input.value = ''; // Reset input
+                        errorContainer.classList.add('hidden'); // Sembunyikan pesan kesalahan
 
-                /* Mengatur daftar ukuran font yang muncul di dropdown */
-                font_size_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt 48pt 72pt',
-            });
+                        // Tombol batal
+                        cancelButton.onclick = function () {
+                            modal.classList.add('hidden'); // Sembunyikan modal
+                        };
+
+                        // Tombol tambahkan
+                        insertButton.onclick = function () {
+                            const driveUrl = input.value.trim();
+                            if (!driveUrl) {
+                                // Tampilkan pesan kesalahan jika URL kosong
+                                errorContainer.textContent = "URL tidak boleh kosong.";
+                                errorContainer.classList.remove('hidden');
+                                return;
+                            }
+
+                            // Ekstrak fileId dari URL Google Drive
+                            let fileId = '';
+                            if (driveUrl.includes('/file/d/')) {
+                                fileId = driveUrl.split('/file/d/')[1].split('/')[0];
+                            } else if (driveUrl.includes('id=')) {
+                                fileId = driveUrl.split('id=')[1].split('&')[0];
+                            } else if (driveUrl.match(/[-\w]{25,}/)) {
+                                fileId = driveUrl.match(/[-\w]{25,}/)[0];
+                            }
+
+                            if (fileId) {
+                                // Format URL untuk embed
+                                const directUrl = 'https://lh3.googleusercontent.com/d/' + fileId + '?t=' + new Date().getTime();
+                                editor.insertContent('<img src="' + directUrl + '" alt="Google Drive Image" />');
+                                modal.classList.add('hidden'); // Sembunyikan modal
+                            } else {
+                                // Tampilkan pesan kesalahan jika format URL tidak valid
+                                errorContainer.textContent = "Format URL Google Drive tidak valid.";
+                                errorContainer.classList.remove('hidden');
+                            }
+                        };
+                    }
+                });
+            }
         });
-    </script>
+        </script>
 @endsection

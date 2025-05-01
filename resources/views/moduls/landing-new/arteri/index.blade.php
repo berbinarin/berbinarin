@@ -93,12 +93,16 @@
 
             {{-- image --}}
             {{-- @dump($article->cover_image) --}}
-            <img
-              src="{{ asset("storage/" . $article->cover_image) }}"
-              loading="lazy"
-              alt="artikel-banner-small"
-              class="mb-4 aspect-video rounded-lg object-cover"
-            />
+            <div class="w-full max-w-2xl mx-auto mb-4">
+              <div class="relative w-full aspect-video overflow-hidden rounded-lg">
+                <img
+                  src="{{ asset('storage/' . $article->cover_image) }}"
+                  loading="lazy"
+                  alt="artikel-banner-small"
+                  class="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+            </div>            
 
             {{-- artikel description --}}
             <div class="flex w-full flex-col">
