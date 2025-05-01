@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\KeluargaBerbinar\TableStaff;
 use Carbon\Carbon;
 
-class TableStaffController extends Controller
+class LandingKeluargaBerbinar extends Controller
 {
     function getAvailableDivisionsPerYear($data): array
     {
@@ -71,7 +71,7 @@ class TableStaffController extends Controller
                 'date_start' => $latestRecord ? Carbon::parse($latestRecord->date_start)->format('M Y') : null,
                 'status' => $isActive,
                 'linkedin' => $staff->linkedin,
-                'photo' => $staff->photo,
+                'photo' => $staff->photo ? '/image/' . $staff->photo : '/assets/images/landing/keluarga-berbinar/dummy.png',                
                 'motm' => $staff->motm,
                 'division' => $latestRecord && $latestRecord->division ? $latestRecord->division->nama_divisi : '-',
                 'subdivision' => $latestRecord && $latestRecord->subDivision ? $latestRecord->subDivision->nama_subdivisi : '-',
@@ -103,7 +103,7 @@ class TableStaffController extends Controller
             ->values()
             ->all();
 
-        $availableDivision = $this->getAvailableDivisionsPerYear($data);
+            $availableDivision = $this->getAvailableDivisionsPerYear($data);
 
         return view('moduls.landing-new.keluarga-berbinar')->with([
             'listStaff' => $data,

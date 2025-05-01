@@ -224,7 +224,7 @@
         function bukaModalHapus(categoryId) {
             // Jika ada ID kategori, isi input hidden dengan ID tersebut
             const form = document.getElementById('delete-category-form');
-            form.action = `/dashboard/admin/article/kategori/${categoryId}`;
+            form.action = `/dashboard/admin/artikel/kategori/${categoryId}`;
 
             document.getElementById('hapus-modal').classList.remove('hidden');
             document.getElementById('hapus-modal').classList.add('flex');
