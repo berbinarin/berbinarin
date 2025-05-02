@@ -360,7 +360,7 @@
 
                 // linkedin
                 const linkedInBtn = document.createElement('a'); // element
-                linkedInBtn.href = 'https://www.youtube.com/webprogrammingunpas';
+                linkedInBtn.href = staff.linkedin || '#';
                 linkedInBtn.target = '_blank';
                 linkedInBtn.classList.add('absolute', 'bottom-2', 'right-3', 'lg:hidden');
 

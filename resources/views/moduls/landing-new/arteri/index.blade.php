@@ -9,8 +9,8 @@
 
 @section("content")
   {{-- hero section --}}
-  <x-arteri.hero-arteri />
-
+  <x-arteri.hero-arteri :heroArticles="$heroArticles" />
+  
   {{-- list artikel section --}}
   <section class="mb-16 flex flex-col overflow-x-hidden px-4 lg:px-14">
     {{-- heading --}}
@@ -96,7 +96,7 @@
             <div class="w-full max-w-2xl mx-auto mb-4">
               <div class="relative w-full aspect-video overflow-hidden rounded-lg">
                 <img
-                  src="{{ asset('storage/' . $article->cover_image) }}"
+                  src="{{ asset('/image/' . $article->cover_image) }}"
                   loading="lazy"
                   alt="artikel-banner-small"
                   class="absolute inset-0 h-full w-full object-cover"
@@ -112,8 +112,8 @@
                 <div class="flex items-center justify-center gap-2">
                   <div class="size-6 overflow-hidden rounded-full">
                     <img
-                      src="{{ asset("storage/" . $article->author->profil_image) }}"
-                      alt="profile dummy"
+                    src="{{ $article->author->profil_image ? asset('/image/' . $article->author->profil_image) : asset('assets/images/landing/arteri/dummy.png') }}"
+                    alt="profile dummy"
                       class="object-cover"
                     />
                   </div>
