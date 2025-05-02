@@ -9,8 +9,8 @@
 
 @section("content")
   {{-- hero section --}}
-  <x-arteri.hero-arteri :heroArticles="$heroArticles" />
-  
+  <x-arteri.hero-arteri />
+    
   {{-- list artikel section --}}
   <section class="mb-16 flex flex-col overflow-x-hidden px-4 lg:px-14">
     {{-- heading --}}

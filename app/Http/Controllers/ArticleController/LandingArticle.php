@@ -12,9 +12,6 @@ class LandingArticle extends Controller
     {
         $sort = request('sort') ?? 'terbaru';
 //        $articles = Article::with('category', 'author')->latest()->paginate(9);
-        $heroArticles = Article::with(['category', 'author'])->latest()->take(3)->get();
-        
-
         $articles = Article::with('category', 'author')
             ->when($sort === 'terlama', function ($query) {
                 $query->oldest(); // berdasarkan created_at ascending
@@ -22,7 +19,7 @@ class LandingArticle extends Controller
                 $query->latest(); // default terbaru
             })
             ->paginate(9)
-            ->appends(request()->query()); // biar query param ikut ke pagination
+            ->withQueryString(); // biar query param ikut ke pagination
 
         foreach ($articles as $article) {
             $dom = new \DOMDocument();
@@ -32,7 +29,7 @@ class LandingArticle extends Controller
             $article->first_paragraph = $pTags->length > 0 ? $pTags->item(0)->textContent : '';
         }
         $categories = Category::all();
-        return view('moduls.landing-new.arteri.index', compact('heroArticles','articles', 'categories', 'sort'));
+        return view('moduls.landing-new.arteri.index', compact('articles', 'categories', 'sort'));
     }
 
     public function category($slug)
@@ -56,7 +53,7 @@ class LandingArticle extends Controller
                 $query->latest();
             })
             ->paginate(9)
-            ->appends(request()->query());
+            ->withQueryString();
 
         foreach ($articles as $article) {
             $dom = new \DOMDocument();
