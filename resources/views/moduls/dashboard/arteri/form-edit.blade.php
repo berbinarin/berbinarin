@@ -69,7 +69,7 @@
                         </label>
                         @if ($article->cover_image)
                             <p class="mt-2 text-sm text-gray-500">Sampul saat ini: <a
-                                    href="{{ asset('storage/' . $article->cover_image) }}" target="_blank"
+                                    href="{{ asset('/image/' . $article->cover_image) }}" target="_blank"
                                     class="text-primary underline">Lihat Sampul</a></p>
                         @endif
                     </div>
