@@ -194,7 +194,7 @@
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.tiny.cloud/1/7y3v8c74x8ldew9lmmmw5hxivw4c8b24gw9xzlljbol4bt6r/tinymce/6/tinymce.min.js"
+    <script src="https://cdn.tiny.cloud/1/uy9sjhjaxq12cc39rm7y0870rohtequenkkgp68a67aweqr3/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
 
     {{-- Jangan lupa ini api-key TinyMCE ganti ke akun berbinar punya + tambahin Berbinar.in di menu Approved Domains --}}
