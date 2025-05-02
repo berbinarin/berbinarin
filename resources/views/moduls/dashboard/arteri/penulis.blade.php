@@ -38,8 +38,7 @@
                                     <tr class="data-consume">
                                         <td class="text-center font-bold">{{ $index + 1 }}.</td>
                                         <td class="flex justify-center">
-                                            <img src="{{ asset('storage/' . $author->profil_image) }}" alt="Foto Profil"
-                                                class="w-12 h-12 rounded-full" />
+                                            <img src="{{ $author->profil_image ? asset('/image/' . $author->profil_image) : asset('assets/images/landing/arteri/dummy.png') }}" alt="Foto Profil" class="w-12 h-12 rounded-full" />
                                         </td>
                                         <td class="break-words whitespace-normal font-semibold text-left" style="min-width: 300px">
                                             {{ $author->name_author }}</td>
