@@ -33,7 +33,7 @@
                 </div>
                 <div class="flex flex-col gap-2 w-full" style="color: #9B9B9B">
                     <p>Sampul</p>
-                    <img src="{{ asset('storage/' . $article->cover_image) }}" class="rounded object-cover shadow-md shadow-black" style="height: 300px;"/>
+                    <img src="{{ asset('/image/' . $article->cover_image) }}" class="rounded object-cover shadow-md shadow-black" style="height: 300px;"/>
                 </div>
             </div>
             <div class="bg-white shadow-md shadow-black px-20 py-8 w-full mt-5">
