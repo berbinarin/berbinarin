@@ -70,7 +70,11 @@
                             <p class="max-sm:mt-2 mt-3 max-sm:text-[15px] text-md text-[#70787D] flex-grow max-sm:min-h-[90px] min-h-[96px]">
                                 {{ $product['deskripsi'] }}
                             </p>
-                            <a href="#" class="max-sm:mt-4 mt-6 bg-[#75BADB] text-white rounded-full max-sm:w-full text-[18px] font-semibold text-sm px-4 py-2 shadow self-center">
+                            @php
+                                $href = $product['route'] !== '#' && Route::has($product['route']) ? route($product['route']) : '#';
+                            @endphp
+                            <a href="{{ $href }}"
+                               class="max-sm:mt-4 mt-6 bg-[#75BADB] text-white rounded-full max-sm:w-full text-[18px] font-semibold text-sm px-4 py-2 shadow self-center">
                                 Pelajari Selengkapnya
                             </a>
                         </div>

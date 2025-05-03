@@ -73,6 +73,9 @@ export default {
       opacity: {
         54: ".54",
       },
+      listStyleImage: {
+        checkmark: 'url("/assets/images/landing/asset-kelas/berbinar-plus/list.png")',
+      },
     },
   },
   plugins: [forms, Myclass, typography, scrollbarhide],

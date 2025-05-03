@@ -18,6 +18,8 @@ yarn-error.log
 /.idea
 /.vscode
 .DS_Store
+**/.DS_Store
+
 
 .env
 
