@@ -1025,37 +1025,41 @@ class LandingController extends Controller
     {
         $products = [
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-webinar.png',
-                'produk' => 'Webinar',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-class-journey.png',
+                'produk' => '101 Class Journey',
                 'deskripsi' => 'Memperluas wawasan keilmuan dan keterampilan yang berasal dari ahli',
+                'route' => '101-class-journey' // name of the sub routes
             ],
             [
                 'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
-                'produk' => 'Bisikan (Live Instagram)',
+                'produk' => 'BISIKAN',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
+                'route' => '#'
             ],
             [
                 'vector' => 'assets/images/landing/asset-kelas/produk/vector-berbinar.png',
                 'produk' => 'Berbinar+',
                 'deskripsi' => 'Bundling package dimana customer bisa menggunakan produk kelas, konseling, dan psikotes.',
+                'route' => 'berbinar-plus-new'
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
-                'produk' => 'Berarty',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-berarty.png',
+                'produk' => 'BERARTY',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
+                'route' => '#'
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-premium-class.png',
                 'produk' => 'Premium Class',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
+                'route' => '#'
             ],
         ];
 
         $faqs = [
             [
-                'question' => 'Durasi kelasnya berapa lama?',
-                'answer' => 'Peserta diberikan waktu sekitar ± 7 hari untuk menyelesaikan seluruh rangkaian kelas BERBINAR+. Apabila peserta melanjutkan ke layanan konseling dan psikotes, akan ada informasi lebih lanjut.
-            '
+                'question' => 'Apakah semua kelas berbayar?',
+                'answer' => 'Tidak. Kelas Berbinar seperti BISIKAN dan BERARTY dapat diakses secara gratis. Namun, program seperti Premium Class dan beberapa Berbinar+ memerlukan biaya.'
             ],
             [
                 'question' => 'Apakah boleh ikut lebih dari satu kelas?',
@@ -1089,10 +1093,269 @@ class LandingController extends Controller
             ],
         ];
 
+        $participants = [
+            [
+                'name' => 'Mahasiswa',
+                'icon' => '🎓'
+            ],
+            [
+                'name' => 'Pelajar',
+                'icon' => '🎓'
+            ],
+            [
+                'name' => 'Fresh Graduate',
+                'icon' => '👩‍🎓'
+            ],
+            [
+                'name' => 'Job Seeker',
+                'icon' => '💼'
+            ],
+            [
+                'name' => 'Pencari Magang (Internship)',
+                'icon' => '🧳'
+            ],
+            [
+                'name' => 'Pencari Beasiswa',
+                'icon' => '🎯'
+            ],
+            [
+                'name' => 'Freelancer',
+                'icon' => '🧑‍🎨'
+            ],
+            [
+                'name' => 'Karyawan',
+                'icon' => '👩‍💻'
+            ]
+
+        ];
+
         return view('moduls.landing-new.produk-kelas')->with([
             'faqs' => $faqs,
             'products' => $products,
+            'participants' => $participants,
         ]);
+    }
+
+    public function berbinar_plus_new(){
+        $products = [
+            [
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-class-journey.png',
+                'produk' => '101 Class Journey',
+                'deskripsi' => 'Memperluas wawasan keilmuan dan keterampilan yang berasal dari ahli',
+            ],
+            [
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
+                'produk' => 'BISIKAN',
+                'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
+            ],
+            [
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-berbinar.png',
+                'produk' => 'Berbinar+',
+                'deskripsi' => 'Bundling package dimana customer bisa menggunakan produk kelas, konseling, dan psikotes.',
+            ],
+            [
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
+                'produk' => 'Berarty',
+                'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
+            ],
+            [
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
+                'produk' => 'Premium Class',
+                'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
+            ],
+        ];
+
+        $faqs = [
+            [
+                'question' => 'Apakah saya boleh mengikuti lebih dari satu kelas?',
+                'answer' => 'Ya, SobatBinar diperbolehkan mengikuti lebih dari satu kelas sesuai dengan minat dan bidang yang ingin dipelajari.'
+            ],
+            [
+                'question' => 'Bagaimana cara saya bisa upgrade layanan konseling dan psikotest?',
+                'answer' => 'SobatBinar dapat berkomunikasi dengan narahubung untuk proses upgrade layanan.  Setelah itu, akan ada arahan dan informasi lebih lanjut.'
+            ],
+            [
+                'question' => 'Bisakah saya menjadwalkan ulang sesi konseling sesi kelas ketika saya berhalangan hadir di kelas Berbinar+?',
+                'answer' => 'Di kelas Berbinar+, SobatBinar akan belajar melalui video pembelajaran yang bisa diakses kapan saja. Namun jika SobatBinar memilih paket bundling dengan konseling, SobatBinar juga bisa menjadwalkan sesi konseling langsung dengan konselor sesuai waktu yang tepat.'
+            ],
+            [
+                'question' => 'Apakah saya dapat memilih psikolog dan peer konselor yang saya inginkan di layanan konseling?',
+                'answer' => 'Ya, SobatBinar punya kebebasan untuk memilih sendiri psikolog atau peer konselor yang ingin mereka ajak berdiskusi, sesuai  dengan yang tersedia.'
+            ],
+            [
+                'question' => 'Apakah hasil psikotes dan konseling bersifat rahasia?',
+                'answer' => 'Tentu. Semua data dan hasil dari layanan konseling maupun psikotest dijamin kerahasiaannya sesuai dengan kode etik profesi dan kebijakan privasi Berbinar+.'
+            ]
+        ];
+
+        $psikologs = [
+            [
+                'name' => 'Erwin Tri Susanto, S.Psi, MBA',
+                'field' => 'Human Resources',
+                'title' => 'Career Preparation',
+                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/erwin.png'
+            ],
+            [
+                'name' => 'Sefty Wulandari',
+                'field' => 'Social Media Specialist',
+                'title' => 'Pemasaran Influencer dan Kemitraan',
+                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/sefty.png'
+            ],
+            [
+                'name' => 'Dini Amelia Sari',
+                'field' => 'Digital Marketing',
+                'title' => 'Digital Marketing Essentials',
+                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/dini.png'
+            ],
+            [
+                'name' => 'Indriana Luqul Jannah',
+                'field' => 'Digital Marketing',
+                'title' => 'SEO Basics',
+                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/indriana.png'
+            ],
+            [
+                'name' => 'Shafa Nathaniela Salwa',
+                'field' => 'Product management',
+                'title' => '-',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/virginia.png'
+            ],
+            [
+                'name' => 'Hakiki Mahfuzh',
+                'field' => 'Product management',
+                'title' => '-',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/kasmayani.png'
+            ],
+            [
+                'name' => 'Abdillah Farhan',
+                'field' => 'Digital Marketing',
+                'title' => '-',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/ira.png'
+            ]
+        ];
+
+        $layanan_berbinar_plus = [
+            'insight' => [
+                'name' => 'Insight',
+                'price' => 'Rp.15.000',
+                'services' => [
+                    'Layanan video pembelajaran daring dan personal mentoring',
+                ]
+            ],
+            'A+' => [
+                'name' => 'A+',
+                'price' => [
+                    'online' => [
+                        'weekday' => 'Rp36.000 - Rp120.000/jam',
+                        'weekend' => 'Rp44.000 - Rp140.000/jam'
+                    ],
+                    'offline' => [
+                        'weekday' => 'Rp44.000 - Rp140.000/jam',
+                        'weekend' => 'Rp44.000 - Rp180.000/jam'
+                    ]
+                ],
+                'services' => [
+                    'Dengan layanan konseling dengan psikolog dan peer counselor',
+                ]
+            ],
+            'complete' => [
+                'name' => 'Complete',
+                'price' => 'Rp100.000 - Rp280.000',
+                'services' => [
+                    'Dengan layanan psikotes dan konseling serta laporan tertulis',
+                ]
+            ]
+        ];
+
+        $benefit_berbinar_plus = [
+            [
+                'name' => 'E-Certificate',
+                'image' => 'certificate.png'
+            ],
+            [
+                'name' => 'Hands-On Experience',
+                'image' => 'hands-on.png'
+            ],
+            [
+                'name' => 'Upgrade Skill',
+                'image' => 'upgrade.png'
+            ],
+        ];
+
+        return view('moduls.landing-new.berbinar-plus-new', compact('faqs', 'products', 'psikologs', 'layanan_berbinar_plus', 'benefit_berbinar_plus'));
+    }
+
+    public function  class_journey_new() {
+
+        $layanan_class_journey = [
+            [
+                'name' => 'Early Bird',
+                'price' => 'Rp15.000',
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/early-bird.png'
+            ],
+            [
+                'name' => 'Triple Bundle',
+                'price' => 'Rp55.000',
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/bundle-bertiga.png'
+            ],
+            [
+                'name' => 'Normal Price',
+                'price' => 'Rp20.000',
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/normal-price.png'
+            ],
+        ];
+
+        $benefit_class_journey = [
+            [
+                'name' => 'E-Certificate',
+                'image' => 'certificate.png'
+            ],
+            [
+                'name' => 'Hands-On Experience',
+                'image' => 'hands-on.png'
+            ],
+            [
+                'name' => 'Upgrade Skill',
+                'image' => 'upgrade.png'
+            ],
+            [
+                'name' => 'Tips and Trick dari Ahli',
+                'image' => 'tips-n-trick.png'
+            ],
+            [
+                'name' => 'Networking',
+                'image' => 'networking.png'
+            ],
+        ];
+
+        $faqs = [
+            [
+                'question' => 'Apakah saya bisa bertanya langsung kepada pemateri?',
+                'answer' => 'Tentu! Akan ada sesi Q&A di setiap akhir kelas untuk SobatBinar  yang ingin bertanya langsung kepada pemateri.'
+            ],
+            [
+                'question' => 'Apakah kelas ini cocok untuk pemula tanpa pengalaman di bidang terkait?',
+                'answer' => 'Sangat cocok! Kelas ini dirancang dari level dasar hingga intermediate, jadi siapa pun bisa mengikuti tanpa latar belakang teknis sebelumnya.'
+            ],
+            [
+                'question' => 'Apakah materi presentasi dari pemateri akan dibagikan?',
+                'answer' => 'Ya, file materi (jika diizinkan oleh pemateri) akan dikirimkan melalui grup peserta setelah kelas berakhir.'
+            ],
+            [
+                'question' => 'Saya belum pernah ikut webinar, apakah akan ada panduan teknis sebelum kelas?',
+                'answer' => 'Ya, kami akan mengirimkan panduan teknis dan tata cara mengikuti Zoom (termasuk link, password, dan etika selama kelas) setelah SobatBinar mendaftar.'
+            ],
+            [
+                'question' => 'Apakah saya bisa mendapatkan sertifikat jika tidak mengikuti seluruh sesi?',
+                'answer' => 'SobatBinar harus mengikuti minimal 80% durasi kelas agar bisa mendapatkan e-certificate. Hal ini untuk memastikan SobatBinar benar-benar aktif dalam proses pembelajaran.'
+            ]
+        ];
+
+        $poster = 'public/assets/images/landing/asset-kelas/class-journey/poster-maret.png';
+
+        $link_pendaftaran = 'https://bit.ly/Pendaftaran_101ClassJourney';
+
+
+        return view('moduls.landing-new.class-journey', compact('layanan_class_journey', 'benefit_class_journey', 'faqs', 'poster', 'link_pendaftaran'));
     }
 
     public function consulting_new(Request $request)
@@ -1101,44 +1364,51 @@ class LandingController extends Controller
             [
                 'category' => 'Rekrutmen & Seleksi',
                 'price' => 'Rp1.800.000',
-                'description' => 'Membantu perusahaan dalam proses perekrutan calon karyawan baru yang sesuai dengan kebutuhan dan kriteria perusahaan.',
-                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
+                'description' => ['Penyusunan kriteria jabatan dan deskripsi pekerjaan', 'Membuat proses rekrutmen dari sistem tes hingga wawancara', 'Melaporkan evaluasi kandidat berdasarkan kompetensi'],
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Rekrutmen dan Seleksi.png'
             ],
             [
                 'category' => 'Pelatihan & Pengembangan',
                 'price' => 'Rp1.500.000',
-                'description' => 'Rancangan proses untuk meningkatkan pengetahuan, keterampilan, dan sikap karyawan terkait tugas yang diberikan, serta memberi kesempatan untuk memaksimalkan potensi.',
-                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
+                'description' => ['Menyusun kurikulum pelatihan', 'Menganalisa kebutuhan pelatihan berdasarkan kinerja dan target bisnis', 'Evaluasi pasca-pelatihan untuk  menilai peningkatan keterampilan'],
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Pelatihan & Pengembangan.png'
             ],
             [
                 'category' => 'Analisis Beban Kerja & Perencanaan Organisasi',
                 'price' => 'Rp1.800.000',
-                'description' => 'Analisis mendalam terkait beban kerja, struktur organisasi, dan perencanaan kebutuhan sumber daya manusia.',
-                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
+                'description' => ['Menganalisa beban kerja setiap jabatan', 'Peninjauan dan perencanaan struktur organisasi yang lebih efektif', 'Rekomendasi jumlah optimal staf berdasarkan beban kerja'],
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Analisis Beban Kerja & Perencanaan Organisasi.png'
             ],
             [
                 'category' => 'Coaching',
                 'price' => 'Rp2.000.000',
-                'description' => 'Membantu dalam menggali potensi bisnis/karir, menetapkan tujuan, dan mewujudkannya dengan strategi dari ahlinya.',
-                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
+                'description' => ['Melakukan sesi coaching personal untuk individu atau tim secara tatap muka', 'Pembahasan tujuan dan perencanaan pengembangan dengan berbagai metode penyesuaian strategi berdasarkan progress'],
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Coaching.png'
             ],
             [
                 'category' => 'Penilaian Kinerja',
                 'price' => 'Rp2.150.000',
-                'description' => 'Proses evaluasi kinerja karyawan secara sistematis dan berkesinambungan sebagai umpan balik dan dukungan pengembangan karir.',
-                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
+                'description' => ['Penyusunan indikator kinerja utama (KPI) yang jelas dan terukur', 'Implementasi metode evaluasi kinerja', 'Laporan performa karyawan dengan rekomendasi pengembangan', 'Feedback terstruktur yang membantu peningkatan kompetensi'],
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Penilaian Kerja.png'
             ],
             [
                 'category' => 'Kompensasi & Benefit',
                 'price' => 'Rp1.780.000',
-                'description' => 'Perencanaan dan sistem administrasi mengenai kompensasi, tunjangan, program yang bermanfaat untuk menjaga motivasi dan kinerja karyawan.',
-                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
+                'description' => ['Analisis dan benchmark terhadap standar industri terkait gaji dan benefit', 'Penyusunan paket kompensasi yang adil dan menarik bagi karyawan', 'Rekomendasi mengenai insentif dan benefit tambahan yang relevan'],
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Kompensasi & Benefit.png'
             ],
             [
                 'category' => 'Standar Operasional Prosedur (SOP)',
                 'price' => 'Rp1.600.000',
-                'description' => 'Panduan standar yang bertujuan memastikan pekerjaan dan kegiatan operasional organisasi.',
-                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
+                'description' => ['Identifikasi dan dokumentasi alur proses kerja', 'Penyusunan dokumen SOP yang jelas dan terstruktur', 'Implementasi dan sosialisasi SOP kepada seluruh staf', 'Evaluasi dan update SOP secara berkala sesuai perubahan kondisi bisnis'],
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Standar Operasional Prosedur.png'
             ],
         ];
 
@@ -1169,9 +1439,59 @@ class LandingController extends Controller
             ],
         ];
 
+        $alur_pendaftaran = [
+            [
+                'title' => "Pengisian Link Google Form",
+                'description' => "klik mulai sekarang pada layanan berbinar consulting dan isi data diri sobatbinar secara lengkap dan jelas sesuai yang tersedia dalam link",
+                'link' => "assets/images/landing/asset-consulting/link-google-form.png"
+            ],
+            [
+                'title' => "Konfirmasi Pendaftaran",
+                'description' => "lakukan konfirmasi kepada (cp) tim berbinar dan tunggu 1x24 jam untuk dapatkan informasi selengkapnya",
+                'link' => "assets/images/landing/asset-consulting/check-mark-pendaftaran.png"
+            ],
+            [
+                'title' => "Informasi Jadwal dan Pembayaran",
+                'description' => "(cp) tim berbinar akan melakukan konfirmasi untuk pemberitahuan mengenai ketersediaan jadwal consulting dan melakukan pembayaran pada rekening bank yang tersedia",
+                'link' => "assets/images/landing/asset-consulting/jadwal-dan-pembayaran.png"
+            ],
+            [
+                'title' => "Verifikasi Pembayaran",
+                'description' => "kirimkan bukti pembayaran kepada (cp) tim berbinar untuk melakukan pengecekan",
+                'link' => "assets/images/landing/asset-consulting/check-mark-pembayaran.png"
+            ],
+            [
+                'title' => "Jadwal pelaksanaan",
+                'description' => "(cp) tim berbinar akan mengirimkan jadwal yang telah ditentukan beserta dengan link yang akan diakses dan teknis pelaksanaan",
+                'link' => "assets/images/landing/asset-consulting/jadwal-pelaksanaan.png"
+            ],
+            [
+                'title' => "Pelaksanaan Layanan Consulting",
+                'description' => "setelah mengetahui keseluruhan informasi, sobatbinar bisa memulai layanan consulting bersama konsultan sesuai jadwal yang telah ditentukan",
+                'link' => "assets/images/landing/asset-consulting/layanan-consulting.png"
+            ]
+        ];
+
+        $faqs = [
+            [
+                'question' => 'Apakah saya bisa mendapatkan tawaran paket bundling di setiap minggunya dalam satu bulan?',
+                'answer' => 'Tidak, paket bundling hanya tersedia pada tiap minggu pertama di bulan genap saja. SobatBinar bisa dapatkan informasi lebih lengkap dengan mengunjungi website atau seluruh media sosial Berbinar Insightful Indonesia.'
+            ],
+            [
+                'question' => 'Bagaimana keamanan database bagi perusahaan/komunitas/organisasi yang menggunakan layanan consulting?',
+                'answer' => 'Keamanan Database Perusahaan/Komunitas/Organisasi milik SobatBinar pada layanan Consulting dapat dipastikan bergaransi aman. Karena Berbinar Insightful Indonesia termasuk dalam Perusahaan Layanan Psikolog yang diatur dalam Kode Etik Himpunan Psikologi Indonesia.'
+            ],
+            [
+                'question' => 'Berapa jumlah karyawan yang bisa melakukan pendaftaran pada layanan consulting?',
+                'answer' => 'Jumlah karyawan yang bisa SobatBinar ajukan saat pendaftaran layanan consulting dengan minimal 10 hingga lebih dari 100 karyawan.'
+            ]
+        ];
+
         return view('moduls.landing-new.produk-consulting')->with([
             'layanan_consultings' => $layanan_consultings,
-            'bundlings' => $bundlings
+            'bundlings' => $bundlings,
+            'alur_pendaftaran' => $alur_pendaftaran,
+            'faqs' => $faqs,
         ]);
     }
 
@@ -1599,7 +1919,7 @@ class LandingController extends Controller
         ];
 
         return view('moduls.landing-new.daftar-psikotes')->with([
-            'layanan_psikotes' => $layanan_psikotes 
+            'layanan_psikotes' => $layanan_psikotes
         ]);
     }
 

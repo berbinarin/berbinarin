@@ -13,7 +13,7 @@ class LandingArticle extends Controller
         $sort = request('sort') ?? 'terbaru';
 //        $articles = Article::with('category', 'author')->latest()->paginate(9);
         $heroArticles = Article::with(['category', 'author'])->latest()->take(3)->get();
-        
+
 
         $articles = Article::with('category', 'author')
             ->when($sort === 'terlama', function ($query) {
@@ -32,7 +32,7 @@ class LandingArticle extends Controller
             $article->first_paragraph = $pTags->length > 0 ? $pTags->item(0)->textContent : '';
         }
         $categories = Category::all();
-        return view('moduls.landing-new.arteri.index', compact('heroArticles','articles', 'categories', 'sort'));
+        return view('moduls.landing-new.arteri.index', compact('articles', 'categories', 'sort'));
     }
 
     public function category($slug)
@@ -64,12 +64,9 @@ class LandingArticle extends Controller
             $pTags = $dom->getElementsByTagName('p');
             $article->first_paragraph = $pTags->length > 0 ? $pTags->item(0)->textContent : '';
         }
-
-        $heroArticles = Article::with(['category', 'author'])->latest()->take(3)->get();
-
         $categories = Category::all();
 
-        return view('moduls.landing-new.arteri.index', compact('heroArticles','articles', 'categories', 'category', 'sort'));
+        return view('moduls.landing-new.arteri.index', compact('articles', 'categories', 'category', 'sort'));
     }
 
 

@@ -1,0 +1,234 @@
+.bg-mobile {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+    background-image: url('/assets/images/landing/vector-curling-mobile.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.bg-layanan-desktop {
+    background-image: url('/assets/images/landing/asset-kelas/berbinar-plus/bg-layanan-berbinar-plus.png');
+}
+
+.bg-cta {
+    background-image: url('/assets/images/landing/asset-kelas/berbinar-plus/banner-cta.png');
+}
+
+.header-produk {
+    position: relative;
+    z-index: 2;
+    background-image: linear-gradient(to right, #e1e9ec, #9CC3D1), url('/assets/images/landing/asset-produk/bg-curl.png');
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #3986A3, #000000);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.text-gradient-emo {
+    background: linear-gradient(90deg, #F7B23B 0%, #AD7D29 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.text-gradient-yellow {
+    background: linear-gradient(to right, #F7B23B, #AD7D29);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+#swiperPsikolog {
+    width: 1130px;
+    overflow: hidden;
+    margin: 25px auto;
+}
+
+#swiperPsikolog .swiper-button-next::after, #swiperPsikolog .swiper-button-prev::after {
+    content: "";
+}
+
+#swiperPsikolog .swiper-button-prev,
+#swiperPsikolog .swiper-button-next {
+    width: 35px;
+    height: 35px;
+    background-color: #74AABF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+@media (min-width: 0px) and (max-width: 640px) {
+    .header-produk {
+        background-image: none;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 100px;
+    }
+
+    .bg-mobile {
+        top: -130px;
+        width: 900px;
+        height: 945px;
+    }
+
+    .bg-layanan-desktop {
+        background-image: none;
+    }
+
+
+}
+
+@media (min-width: 641px) and (max-width: 767px) {
+    .header-produk {
+        background-image: none;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .bg-mobile {
+        top: -160px;
+        width: 1050px;
+        height: 1050px;
+    }
+
+    .bg-layanan-desktop {
+        background-image: none;
+    }
+
+}
+
+
+@media (max-width: 1024px) {
+}
+
+@media (min-width: 1280px) {
+
+}
+
+@media (min-width: 1536px) {
+
+}
+
+
+.swiper-scrollbar  {
+    --swiper-scrollbar-border-radius: 10px;
+    --swiper-scrollbar-top: auto;
+    --swiper-scrollbar-bottom: 4px;
+    --swiper-scrollbar-left: auto;
+    --swiper-scrollbar-right: 4px;
+    --swiper-scrollbar-sides-offset: 1%;
+    --swiper-scrollbar-bg-color: #D4D4D4;
+    --swiper-scrollbar-drag-bg-color: #9DD4EE;
+    --swiper-scrollbar-size: 10px;
+}
+
+.border-active {
+    border: 1.5px solid #3986A3
+}
+
+@media (min-width: 0px) and (max-width: 640px) {
+    #swiperKonseling {
+        width: 580px;
+    }
+
+    #swiperPsikolog {
+        width: 800px;
+        margin: 10px auto;
+    }
+
+    #swiperPeer{
+        width: 550px;
+        margin: 10px auto;
+    }
+
+    #swiperTestimoni {
+        width: 500px;
+    }
+
+    .swiperContainer {
+        overflow: hidden;
+        margin: 0px 17px;
+    }
+
+}
+
+@media (max-width: 767px) {
+    .bg-psikolog {
+        background-image: none;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 767px) {
+    #swiperKonseling {
+        width: 670px;
+    }
+
+    #swiperPsikolog {
+        width: 700px;
+    }
+
+    #swiperPeer {
+        width: 700px;
+    }
+
+    #swiperTestimoni {
+        width: 550px;
+    }
+
+    .swiperContainer {
+        overflow: hidden;
+        margin: 0px 80px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    #swiperTestimoni {
+        width: 800px;
+        margin: 20px auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    #swiperKonseling {
+        width: 950px;
+    }
+
+    #swiperPsikolog {
+        width: 950px;
+    }
+
+    #swiperPeer {
+        width: 750px;
+    }
+
+    .swiperContainer {
+        overflow: hidden;
+        margin: 0px 80px;
+    }
+}
+
+@media (min-width: 1025px) {
+    #swiperPsikolog {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
