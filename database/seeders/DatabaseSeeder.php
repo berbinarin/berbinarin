@@ -31,6 +31,9 @@ use Database\Seeders\PsikotestPaid\EPI\EpiQuestionSeeder;
 use Database\Seeders\Articles\AuthorSeeder;
 use Database\Seeders\Articles\CategorySeeder;
 use Database\Seeders\Articles\ArticleSeeder;
+use Database\Seeders\KeluargaBerbinar\DivisiAndSubDivisiSeeder;
+use Database\Seeders\KeluargaBerbinar\TableStaffSeeder;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -83,7 +86,11 @@ class DatabaseSeeder extends Seeder
             HiringSeeder::class,
             // Dashboard
             DataStaffSeeder::class,
-            DataJabatanSeeder::class
+            DataJabatanSeeder::class,
+
+            // Keluarga Berbinar
+            DivisiAndSubDivisiSeeder::class,
+            TableStaffSeeder::class,
 
         ]);
     }
