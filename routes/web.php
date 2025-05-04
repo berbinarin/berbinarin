@@ -93,6 +93,7 @@ Route::get('/psikotest-new', [LandingController::class, 'psikotest_new'])->name(
 Route::prefix('/kelas-new')->group(function () {
     Route::get('/', [LandingController::class, 'kelas_new'])->name('kelas-new');
     Route::get('/berbinar-plus', [LandingController::class, 'berbinar_plus_new'])->name('berbinar-plus-new');
+    Route::get('/101-class-journey', [LandingController::class, 'class_journey_new'])->name('101-class-journey');
 });
 
 
