@@ -88,7 +88,15 @@ Route::get('/tentang-new', [LandingController::class, 'tentang_new'])->name('ten
 Route::get('/produk-new', [LandingController::class, 'produk_new'])->name('produk-new');
 Route::get('/konseling-new', [LandingController::class, 'konseling_new'])->name('konseling-new');
 Route::get('/psikotest-new', [LandingController::class, 'psikotest_new'])->name('psikotest-new');
-Route::get('/kelas-new', [LandingController::class, 'kelas_new'])->name('kelas-new');
+//Route::get('/kelas-new', [LandingController::class, 'kelas_new'])->name('kelas-new');
+
+Route::prefix('/kelas-new')->group(function () {
+    Route::get('/', [LandingController::class, 'kelas_new'])->name('kelas-new');
+    Route::get('/berbinar-plus', [LandingController::class, 'berbinar_plus_new'])->name('berbinar-plus-new');
+    Route::get('/101-class-journey', [LandingController::class, 'class_journey_new'])->name('101-class-journey');
+});
+
+
 Route::get('/consulting-new', [LandingController::class, 'consulting_new'])->name('consulting-new');
 Route::get('/faq-new', [LandingController::class, 'faq_new'])->name('faq-new');
 Route::get('/term-condition-new', [LandingController::class, 'term_condition_new'])->name('term-condition-new');

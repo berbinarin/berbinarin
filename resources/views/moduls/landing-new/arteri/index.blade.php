@@ -9,8 +9,8 @@
 
 @section("content")
   {{-- hero section --}}
-  <x-arteri.hero-arteri :heroArticles="$heroArticles" />
-  
+  <x-arteri.hero-arteri />
+
   {{-- list artikel section --}}
   <section class="mb-16 flex flex-col overflow-x-hidden px-4 lg:px-14">
     {{-- heading --}}
@@ -71,78 +71,87 @@
       </div>
     </div>
 
-    {{-- list artikel --}}
-    <div
-      class="mb-8 grid grid-cols-1 gap-x-3 gap-y-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-10"
-    >
-      {{-- container --}}
-      @foreach ($articles as $article)
-        {{-- @dump($article->category->name_category) --}}
-        {{-- @dump($article->author->name_author) --}}
-        {{-- card --}}
-        <a href="{{ route("arteri.detail", ["id" => $article->id]) }}">
-          <div
-            class="relative rounded-xl border border-[#606060]/20 px-5 py-3 shadow-md lg:border-none lg:px-0 lg:py-0 lg:shadow-none"
-          >
-            {{-- badge kategori --}}
-            <span
-              class="absolute left-8 top-6 rounded-full bg-[#F7B43F]/90 px-3.5 py-1 text-sm text-white lg:left-3 lg:top-3 lg:px-3.5 lg:py-1.5 lg:text-base"
-            >
+      @if(count($articles) === 0)
+          <div class="w-full mt-12">
+              <div class="w-full flex items-center justify-center mx-auto mb-4">
+                  <img src="{{asset('assets/images/landing/arteri/empty-icon.png')}}" alt="empty image" class="object-cover h-32 sm:h-44 md:h-48 lg:h-52">
+              </div>
+              <span class="block mx-auto font-semibold text-center text-lg sm:text-xl md:text-2xl lg:text-3xl mb-2">Oops!</span>
+              <p class="block mx-auto text-center text-[#606060] max-w-sm md:max-w-md">Sepertinya belum ada artikel di sini. Kami sedang menyiapkan konten terbaik untuk Anda. Stay tuned!</p>
+          </div>
+      @else
+          {{-- list artikel --}}
+          <div class=" mb-8 grid grid-cols-1 gap-x-3 gap-y-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-10">
+              {{-- container --}}
+              @foreach ($articles as $article)
+                  {{-- @dump($article->category->name_category) --}}
+                  {{-- @dump($article->author->name_author) --}}
+                  {{-- card --}}
+                  <a href="{{ route("arteri.detail", ["id" => $article->id]) }}">
+                      <div
+                          class="relative rounded-xl border border-[#606060]/20 px-5 py-3 shadow-md lg:border-none lg:px-0 lg:py-0 lg:shadow-none"
+                      >
+                          {{-- badge kategori --}}
+                          <span
+                              class="absolute left-8 top-6 rounded-full bg-[#F7B43F]/90 px-3.5 py-1 text-sm text-white lg:left-3 lg:top-3 lg:px-3.5 lg:py-1.5 lg:text-base"
+                          >
               {{ $article->category->name_category }}
             </span>
 
-            {{-- image --}}
-            {{-- @dump($article->cover_image) --}}
-            <div class="w-full max-w-2xl mx-auto mb-4">
+                          {{-- image --}}
+                          {{-- @dump($article->cover_image) --}}
+                          <div class="w-full max-w-2xl mx-auto mb-4">
               <div class="relative w-full aspect-video overflow-hidden rounded-lg">
                 <img
-                  src="{{ asset('/image/' . $article->cover_image) }}"
-                  loading="lazy"
-                  alt="artikel-banner-small"
-                  class="absolute inset-0 h-full w-full object-cover"
-                />
-              </div>
-            </div>            
+                              src="{{ asset('/image/' . $article->cover_image) }}"
+                              loading="lazy"
+                              alt="artikel-banner-small"
+                              class="absolute inset-0 h-full w-full object-cover"
+                          /></div>
+            </div>
 
-            {{-- artikel description --}}
-            <div class="flex w-full flex-col">
-              {{-- author --}}
-              {{-- @dump($article->author->profil_image) --}}
-              <div class="mb-2 flex w-full items-center justify-between gap-2 lg:justify-start">
-                <div class="flex items-center justify-center gap-2">
-                  <div class="size-6 overflow-hidden rounded-full">
-                    <img
-                    src="{{ $article->author->profil_image ? asset('/image/' . $article->author->profil_image) : asset('assets/images/landing/arteri/dummy.png') }}"
-                    alt="profile dummy"
-                      class="object-cover"
-                    />
-                  </div>
-                  <span class="text-sm text-gray-600">{{ $article->author->name_author }}</span>
-                </div>
-                <span class="hidden text-sm text-gray-600 lg:inline-block">&bull;</span>
-                {{-- @dump($article->created_at->format('d F Y')) --}}
-                <span class="text-sm text-gray-600">
+                          {{-- artikel description --}}
+                          <div class="flex w-full flex-col">
+                              {{-- author --}}
+                              {{-- @dump($article->author->profil_image) --}}
+                              <div class="mb-2 flex w-full items-center justify-between gap-2 lg:justify-start">
+                                  <div class="flex items-center justify-center gap-2">
+                                      <div class="size-6 overflow-hidden rounded-full">
+                                          <img
+                                              src="{{ $article->author->profil_image ? asset('/image/' . $article->author->profil_image) : asset('assets/images/landing/arteri/dummy.png')}}"
+                                              alt="profile dummy"
+                                              class="object-cover"
+                                          />
+                                      </div>
+                                      <span class="text-sm text-gray-600">{{ $article->author->name_author }}</span>
+                                  </div>
+                                  <span class="hidden text-sm text-gray-600 lg:inline-block">&bull;</span>
+                                  {{-- @dump($article->created_at->format('d F Y')) --}}
+                                  <span class="text-sm text-gray-600">
                   {{ $article->created_at->format("d F Y") }}
                 </span>
-              </div>
-              {{-- title --}}
-              {{-- @dump($article->title) --}}
-              <h3
-                class="mb-2 line-clamp-2 w-full justify-start text-lg font-semibold text-gray-700 lg:w-3/4"
-              >
-                {{ $article->title }}
-              </h3>
-              {{-- short-desc --}}
-              <p class="line-clamp-2 text-sm text-gray-500">
-                {{ $article->first_paragraph }}
-              </p>
-            </div>
+                              </div>
+                              {{-- title --}}
+                              {{-- @dump($article->title) --}}
+                              <h3
+                                  class="mb-2 line-clamp-2 w-full justify-start text-lg font-semibold text-gray-700 lg:w-3/4"
+                              >
+                                  {{ $article->title }}
+                              </h3>
+                              {{-- short-desc --}}
+                              <p class="line-clamp-2 text-sm text-gray-500">
+                                  {{ $article->first_paragraph }}
+                              </p>
+                          </div>
+                      </div>
+                  </a>
+              @endforeach
           </div>
-        </a>
-      @endforeach
-    </div>
-    <div class="flex w-full items-center justify-center">
-      {{ $articles->onEachSide(2)->links("vendor.pagination.arteri-pagination") }}
-    </div>
+          <div class="flex w-full items-center justify-center">
+              {{ $articles->onEachSide(2)->links("vendor.pagination.arteri-pagination") }}
+          </div>
+      @endif
+
+
   </section>
 @endsection

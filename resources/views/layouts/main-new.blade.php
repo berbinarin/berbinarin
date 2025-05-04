@@ -59,6 +59,11 @@
         <link rel="stylesheet" href="{{ asset("assets/css/landing/produk.css") }}" />
     @endif
 
+    {{-- Css Produk Berbinar plus --}}
+    @if ($page === "berbinar+")
+        <link rel="stylesheet" href="{{ asset("assets/css/landing/berbinar-plus.css") }}" />
+    @endif
+
     {{--  --}}
     {{-- css keluarga-berbinar --}}
     {{-- @if ($page === "keluarga-berbinar") --}}
@@ -143,6 +148,11 @@
 {{-- Script Produk Kelas --}}
 @if ($page === "Kelas")
     <script src="{{ asset("assets/js/landing/kelas.js") }}"></script>
+@endif
+
+{{-- Script Produk Kelas --}}
+@if ($page === "berbinar+")
+    <script src="{{ asset("assets/js/landing/berbinar-plus.js") }}"></script>
 @endif
 
 {{-- Script Produk Kelas --}}
