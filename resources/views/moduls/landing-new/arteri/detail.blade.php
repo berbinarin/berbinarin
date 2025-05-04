@@ -24,7 +24,7 @@
       </h1>
       <div class="mb-8 hidden w-full items-center justify-center gap-2 lg:flex">
         <img
-          src="{{ asset("storage/" . $article->author->profil_image) }}"
+          src="{{ asset("/image/" . $article->author->profil_image) }}"
           alt="profile dummy"
           class="size-6 rounded-full object-cover"
         />
@@ -33,7 +33,7 @@
         <span class="text-slate-700">{{ $article->created_at->format("d F Y") }}</span>
       </div>
       <img
-        src="{{ asset("storage/" . $article->cover_image) }}"
+        src="{{ asset("/image/" . $article->cover_image) }}"
         alt="cover"
         class="mb-4 aspect-video w-full rounded-xl object-cover"
       />
@@ -42,7 +42,7 @@
         <span class="text-sm text-slate-700">{{ $article->created_at->format("d F Y") }}</span>
         <span class="flex items-center justify-start gap-2">
           <img
-            src="{{ asset("storage/" . $article->author->profil_image) }}"
+            src="{{ asset("/image/" . $article->author->profil_image) }}"
             alt="writer profile"
             class="size-5 rounded-full object-cover"
           />

@@ -7,7 +7,7 @@
             @for ($i = 0; $i < 3; $i++)
                 <div
                     class="swiper-slide relative flex aspect-video items-center justify-center bg-cover bg-center bg-no-repeat shadow-xl shadow-primary lg:shadow-none"
-                    style="background-image: url('{{ asset("storage/" . $heroArticles[$i]->cover_image) }}')"
+                    style="background-image: url('{{ asset("/image/" . $heroArticles[$i]->cover_image) }}')"
                 >
                     <!-- Dark overlay -->
                     <div class="absolute inset-0 bg-black/50"></div>
@@ -30,8 +30,8 @@
                             <div class="mb-4 flex w-full items-center justify-start gap-2">
                                 <div class="size-6 overflow-hidden rounded-full">
                                     <img
-                                        src="{{ asset("storage/" . $heroArticles[$i]->author->profil_image) }}"
-                                        alt="{{ $heroArticles[$i]->author->name_author }}"
+                                    src="{{ $heroArticles[$i]->author->profil_image ? asset('/image/' . $heroArticles[$i]->author->profil_image) : asset('assets/images/landing/arteri/dummy.png') }}"
+                                    alt="{{ $heroArticles[$i]->author->name_author }}"
                                         class="object-cover"
                                     />
                                 </div>
@@ -82,7 +82,7 @@
                                 <div class="flex items-center justify-start gap-2 sm:gap-4">
                                     <div class="size-5 overflow-hidden rounded-full sm:size-7">
                                         <img
-                                            src="{{ asset("storage/" . $heroArticles[$i]->author->profil_image) }}"
+                                            src="{{ asset("/image/" . $heroArticles[$i]->author->profil_image) }}"
                                             alt="{{ $heroArticles[$i]->author->name_author }}"
                                             class="object-cover"
                                         />

@@ -14,109 +14,74 @@ use Illuminate\Support\Facades\Auth;
 
 class HTPController extends Controller
 {
-  public function showLanding(){
-    $user = Auth::guard('psikotestpaid')->user();
-    $tool = PsikotestTool::where('name', 'HTP')->firstOrFail();
-    return view('moduls.psikotes-paid.tools.HTP.landing', ['user' => $user, 'tool' => $tool]);
-  }
-
-  public function startTest(Request $request)
+    public function showLanding()
     {
-        $userId = $request->user_id;
-        $toolId = $request->tool_id;
+        $user = Auth::guard('psikotestpaid')->user();
+        $psikotestTool = PsikotestTool::where('name', 'HTP')->firstOrFail();
+
+        $questionHtp = QuestionHtp::first();
+
+        return view('moduls.psikotes-paid.tools.HTP.landing', compact('user', 'psikotestTool', 'questionHtp'));
+    }
+
+    public function start()
+    {
+        $user = Auth::guard('psikotestpaid')->user();
+        $psikotestTool = PsikotestTool::where('name', 'HTP')->firstOrFail();
 
         // Create a new entry in the psikotest_paid_tests table
         $paidTest = PsikotestPaidTest::create([
-            'user_psikotest_paid_id' => $userId,
-            'psikotest_tool_id' => $toolId
+            'user_psikotest_paid_id' => $user->id,
+            'psikotest_tool_id' => $psikotestTool->id
         ]);
 
         // Create a new entry in the test_baum table
-        $test = TestHtp::create([
+        $testHtp = TestHtp::create([
             'psikotest_paid_test_id' => $paidTest->id,
-            'tool' => 'Tes Htp',
-            'user_id' => $userId
         ]);
 
         // Redirect to the test page
-        return redirect()->route('psikotest-paid.tool.HTP.instruksi_b', ['testId' => $test->id]);
+        return redirect()->route('psikotest-paid.tool.HTP.showQuestion', ['testHtp' => $testHtp->id, 'questionHtp' => 2]);
     }
 
-  public function instruksi_b($testId)
-  {
-    $test = TestHtp::where('id', $testId)->firstOrFail();
-    $questions = QuestionHtp::all();
-    return view('moduls.psikotes-paid.tools.HTP.instruksi-b',['test' => $test, 'questions' => $questions]);
-  }
-
-  public function instruksi_c($testId)
-  {
-    $test = TestHtp::where('id', $testId)->firstOrFail();
-    return view('moduls.psikotes-paid.tools.HTP.instruksi-c',['test' => $test]);
-  }
-
-  public function instruksi_d($testId)
-  {
-    $test = TestHtp::where('id', $testId)->firstOrFail();
-    $questions = QuestionHtp::all();
-    return view('moduls.psikotes-paid.tools.HTP.instruksi-d',['test' => $test, 'questions' => $questions]);
-  }
-
-  public function submitAnswer(Request $request)
-{
-    // Ambil nilai timeout
-    $isTimeout = $request->input('timeout'); 
-
-    if ($isTimeout === 'true') {
-        $validatedData = $request->validate([
-            'test_id'     => 'required|exists:test_htp,id',
-            'question_id' => 'required|exists:question_htp,id',
-        ]);
-    } else {
-        $validatedData = $request->validate([
-            'test_id'     => 'required|exists:test_htp,id',
-            'question_id' => 'required|exists:question_htp,id',
-            'answer_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,JPG,PNG,JPEG|max:2048'
-        ]);
+    public function showQuestion(TestHtp $testHtp, QuestionHtp $questionHtp)
+    {
+        return view('moduls.psikotes-paid.tools.HTP.question', compact('testHtp', 'questionHtp'));
     }
 
-    $testId = $validatedData['test_id'];
-    $questionId = $validatedData['question_id'];
-    $userId = Auth::guard('psikotestpaid')->id();
-
-    if ($isTimeout === 'true') {
-        // Jika timeout, mungkin kita mau simpan jawaban default
-        // (misal "tidak ada" atau path tertentu)
-        // Atau sekadar menandai bahwa user tidak sempat upload
-        $path = '';
-
-        AnswerHtp::create([
-            'test_htp_id'     => $testId,
-            'question_htp_id' => $questionId,
-            'answer'          => $path,
-            'user_id'         => $userId
-        ]);
-        return redirect()->route('psikotest-paid.tool.OCEAN.summary', ['testId' => $testId]);
-    } else {
-        // Bukan timeout, user sempat upload file
-        if ($request->hasFile('answer_image')) {
-            $image = $request->file('answer_image');
-            $path = $image->store('res/HTP', 'public');
-
-            AnswerHtp::create([
-                'test_htp_id'     => $testId,
-                'question_htp_id' => $questionId,
-                'answer'          => $path,
-                'user_id'         => $userId
+    public function submitAnswer(Request $request, TestHtp $testHtp, QuestionHtp $questionHtp)
+    {
+        if ($request->answer_image) {
+            $validatedData = $request->validate([
+                'answer_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,JPG,PNG,JPEG|max:2048'
             ]);
         }
+
+        if ($questionHtp->id >= 4) {
+            if ($request->hasFile('answer_image')) {
+                $image = $request->file('answer_image');
+                $path = $image->store('res/HTP', 'public');
+
+                AnswerHtp::create([
+                    'test_htp_id' => $testHtp->id,
+                    'question_htp_id' => $questionHtp->id,
+                    'answer' => $path
+                ]);
+            }
+            return redirect()->route('psikotest-paid.tool.HTP.summary', ['testHtp' => $testHtp->id]);
+        } else {
+            return redirect()->route('psikotest-paid.tool.HTP.showQuestion', ['testHtp' => $testHtp->id, 'questionHtp' => $questionHtp->id + 1]);
+        }
     }
-    return redirect()->route('psikotest-paid.tool.HTP.summary', ['testId' => $testId]);
-}
 
 
-  public function summary()
-  {
-    return view('moduls.psikotes-paid.tools.HTP.summary');
-  }
+    public function summary(TestHtp $testHtp)
+    {
+        $psikotestPaidTest = PsikotestPaidTest::where('id', $testHtp->psikotestPaidTest->id)->first();
+        $psikotestPaidTest->update([
+            'status_progress' => true,
+        ]);
+
+        return view('moduls.psikotes-paid.tools.HTP.summary');
+    }
 }

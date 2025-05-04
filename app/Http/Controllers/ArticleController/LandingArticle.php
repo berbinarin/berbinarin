@@ -12,6 +12,8 @@ class LandingArticle extends Controller
     {
         $sort = request('sort') ?? 'terbaru';
 //        $articles = Article::with('category', 'author')->latest()->paginate(9);
+        $heroArticles = Article::with(['category', 'author'])->latest()->take(3)->get();
+
 
         $articles = Article::with('category', 'author')
             ->when($sort === 'terlama', function ($query) {
@@ -20,7 +22,7 @@ class LandingArticle extends Controller
                 $query->latest(); // default terbaru
             })
             ->paginate(9)
-            ->withQueryString(); // biar query param ikut ke pagination
+            ->appends(request()->query()); // biar query param ikut ke pagination
 
         foreach ($articles as $article) {
             $dom = new \DOMDocument();
@@ -54,7 +56,7 @@ class LandingArticle extends Controller
                 $query->latest();
             })
             ->paginate(9)
-            ->withQueryString();
+            ->appends(request()->query());
 
         foreach ($articles as $article) {
             $dom = new \DOMDocument();

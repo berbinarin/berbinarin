@@ -2,6 +2,7 @@
 
 namespace App\Models\PsikotestPaid;
 
+use App\Models\PsikotestPaid\DASS\AnswerDass;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\PsikotestPaid\VAK\TestVak;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -34,6 +35,11 @@ class PsikotestPaidTest extends Model
     public function testPapiKostick()
     {
         return $this->hasMany(TestPapiKostick::class);
+    }
+
+    public function answerDass()
+    {
+        return $this->hasMany(AnswerDass::class);
     }
 
     public function testVak()

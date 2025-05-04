@@ -29,13 +29,14 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($testRmib as $item)
                             <tr class="data-consume">
-                                <td class="text-center">1</td>
-                                <td>Morgan Vero</td>
-                                <td class="text-center">morganvero@gmail.com</td>
-                                <td class="text-center">18-04-2024</td>
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td>{{ $item->psikotestPaidTest->userPsikotestPaid->fullname }}</td>
+                                <td class="text-center">{{ $item->psikotestPaidTest->userPsikotestPaid->email }}</td>
+                                <td class="text-center">{{ \Carbon\Carbon::parse($item->created_at)->format('Y-m-d') }}</td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-center">
-                                    <a href="{{ route('dashboard.psikotespaid.detailrmib') }}">
+                                    <a href="{{ route('dashboard.psikotespaid.detailrmib', $item->id) }}">
                                     <button type="button"
                                         class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-blue-500 hover:bg-blue-500 focus:outline-none rounded">
                                         <p class="font-medium leading-none text-white">Lihat Jawaban</p>
@@ -43,6 +44,7 @@
                                     </a>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

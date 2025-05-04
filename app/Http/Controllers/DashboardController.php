@@ -23,8 +23,13 @@ use App\Models\Hiring_Positions_Job_Descriptions;
 use App\Models\PsikotestPaid\Biodata\Education;
 use App\Models\PsikotestPaid\Biodata\Family;
 use App\Models\PsikotestPaid\Biodata\LevelEducation;
-use App\Models\TableStaff;
-use App\Models\TableRecord;
+use App\Models\KeluargaBerbinar\Division;
+use App\Models\KeluargaBerbinar\SubDivision;
+use App\Models\KeluargaBerbinar\TableRecord;
+use App\Models\KeluargaBerbinar\TableStaff;
+use App\Models\Articles\Article;
+use App\Models\Articles\Author;
+use App\Models\Articles\Category;
 
 class DashboardController extends Controller
 {
@@ -74,6 +79,13 @@ class DashboardController extends Controller
 
         $community = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeCommunity)->count();
 
+        $articleCount = Article::count();
+
+        $authorCount = Author::count();
+
+        $categoryCount = Category::count();
+
+        
         return view('moduls.dashboard.index', [
             "PeerConsellorSchedule" => $PeerConsellorSchedule,
             "PeerConsellorData" => $PeerConsellorData,
@@ -89,6 +101,9 @@ class DashboardController extends Controller
             'educationalInstitution' => $educationalInstitution,
             'corporate' => $corporate,
             'community' => $community,
+            'articleCount' => $articleCount,
+            'authorCount' => $authorCount,
+            'categoryCount' => $categoryCount,
         ]);
     }
 
@@ -121,9 +136,12 @@ class DashboardController extends Controller
         return view('moduls.dashboard.hr.internship.internship', ['Internship' => $internships]);
     }
 
+    
     public function manageDivision()
     {
-        return view('moduls.dashboard.hr.manage-division.manageDivision');
+        $divisions = Division::with('subDivisions')->get();
+
+        return view('moduls.dashboard.hr.manage-division.manageDivision', compact('divisions'));
     }
 
     public function addManageDivision()
@@ -131,9 +149,114 @@ class DashboardController extends Controller
         return view('moduls.dashboard.hr.manage-division.addDivision');
     }
 
-    public function detailManageDivision()
+    public function storeManageDivision(Request $request)
     {
-        return view('moduls.dashboard.hr.manage-division.detailDivision');
+        $validatedData = $request->validate([
+            'divisi' => 'required|string|max:255|unique:divisions,nama_divisi',
+            'subdivisi' => 'nullable|array',
+        ]);
+
+        $division = Division::create([
+            'nama_divisi' => $validatedData['divisi'],
+        ]);
+
+        if (!empty($validatedData['subdivisi'])) {
+            foreach ($validatedData['subdivisi'] as $subdivisi) {
+                if (empty($subdivisi)) {
+                    continue;
+                }
+
+                $existingSubDivision = SubDivision::where('division_id', $division->id)
+                    ->where('nama_subdivisi', $subdivisi)
+                    ->first();
+
+                if ($existingSubDivision) {
+                    return redirect()->back()->withErrors([
+                        'subdivisi' => "Sub divisi '{$subdivisi}' sudah ada di divisi '{$division->nama_divisi}'.",
+                    ])->withInput();
+                }
+
+                SubDivision::create([
+                    'division_id' => $division->id,
+                    'nama_subdivisi' => $subdivisi,
+                ]);
+            }
+        }
+
+        return redirect()->route('dashboard.manageDivision')->with('success', 'Divisi dan sub divisi berhasil ditambahkan.');
+    }
+    public function detailManageDivision($id)
+    {
+        $division = Division::with('subDivisions')->findOrFail($id);
+
+        return view('moduls.dashboard.hr.manage-division.detailDivision', compact('division'));
+    }
+
+    public function editManageDivision($id)
+    {
+        $division = Division::with('subDivisions')->findOrFail($id);
+
+        return view('moduls.dashboard.hr.manage-division.editDivision', compact('division'));
+    }
+
+    public function updateManageDivision(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'divisi' => 'required|string|max:255|unique:divisions,nama_divisi,' . $id,
+            'subdivisi' => 'nullable|array',
+            'subdivisi.*' => 'nullable|string|max:255',
+            'deleted_subdivisions' => 'nullable|string',
+        ]);
+
+        $division = Division::findOrFail($id);
+        $division->update([
+            'nama_divisi' => $validatedData['divisi'],
+        ]);
+
+        if (!empty($validatedData['deleted_subdivisions'])) {
+            $deletedIds = explode(',', $validatedData['deleted_subdivisions']);
+            SubDivision::whereIn('id', $deletedIds)->delete();
+        }
+
+        if (!empty($validatedData['subdivisi'])) {
+            foreach ($validatedData['subdivisi'] as $subdivisi) {
+                if (!empty($subdivisi)) {
+                    SubDivision::updateOrCreate(
+                        ['division_id' => $division->id, 'nama_subdivisi' => $subdivisi],
+                        ['nama_subdivisi' => $subdivisi]
+                    );
+                }
+            }
+        }
+
+        return redirect()->route('dashboard.manageDivision')->with('success', 'Divisi berhasil diperbarui.');
+    }
+
+    public function deleteManageDivision($id)
+    {
+        $division = Division::with('subDivisions')->findOrFail($id);
+
+        $isUsedInRecords = TableRecord::where('division_id', $division->id)
+            ->orWhereIn('subdivision_id', $division->subDivisions->pluck('id'))
+            ->exists();
+
+        if ($isUsedInRecords) {
+            return redirect()->route('dashboard.manageDivision')->with('error', 'Divisi atau sub divisi ini sedang digunakan dan tidak dapat dihapus.');
+        }
+
+        $division->subDivisions()->delete();
+
+        $division->delete();
+
+        return redirect()->route('dashboard.manageDivision')->with('success', 'Divisi berhasil dihapus.');
+    }
+
+    public function deleteSubDivision($id)
+    {
+        $subDivision = SubDivision::findOrFail($id);
+        $subDivision->delete();
+
+        return response()->json(['success' => true]);
     }
 
     public function internshipDataDetails($id)

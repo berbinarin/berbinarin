@@ -100,12 +100,15 @@
 
                           {{-- image --}}
                           {{-- @dump($article->cover_image) --}}
-                          <img
-                              src="{{ asset("storage/" . $article->cover_image) }}"
+                          <div class="w-full max-w-2xl mx-auto mb-4">
+              <div class="relative w-full aspect-video overflow-hidden rounded-lg">
+                <img
+                              src="{{ asset('/image/' . $article->cover_image) }}"
                               loading="lazy"
                               alt="artikel-banner-small"
-                              class="mb-4 aspect-video rounded-lg object-cover"
-                          />
+                              class="absolute inset-0 h-full w-full object-cover"
+                          /></div>
+            </div>
 
                           {{-- artikel description --}}
                           <div class="flex w-full flex-col">
@@ -115,7 +118,7 @@
                                   <div class="flex items-center justify-center gap-2">
                                       <div class="size-6 overflow-hidden rounded-full">
                                           <img
-                                              src="{{ asset("storage/" . $article->author->profil_image) }}"
+                                              src="{{ $article->author->profil_image ? asset('/image/' . $article->author->profil_image) : asset('assets/images/landing/arteri/dummy.png')}}"
                                               alt="profile dummy"
                                               class="object-cover"
                                           />
