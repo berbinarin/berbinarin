@@ -12,6 +12,7 @@ class LandingArticle extends Controller
     {
         $sort = request('sort') ?? 'terbaru';
 //        $articles = Article::with('category', 'author')->latest()->paginate(9);
+
         $articles = Article::with('category', 'author')
             ->when($sort === 'terlama', function ($query) {
                 $query->oldest(); // berdasarkan created_at ascending

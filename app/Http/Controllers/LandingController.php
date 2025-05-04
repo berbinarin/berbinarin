@@ -1025,10 +1025,10 @@ class LandingController extends Controller
     {
         $products = [
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-webinar.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-class-journey.png',
                 'produk' => '101 Class Journey',
                 'deskripsi' => 'Memperluas wawasan keilmuan dan keterampilan yang berasal dari ahli',
-                'route' => '#' // name of the sub routes
+                'route' => '101-class-journey' // name of the sub routes
             ],
             [
                 'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
@@ -1043,13 +1043,13 @@ class LandingController extends Controller
                 'route' => 'berbinar-plus-new'
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
-                'produk' => 'Berarty',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-berarty.png',
+                'produk' => 'BERARTY',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
                 'route' => '#'
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-premium-class.png',
                 'produk' => 'Premium Class',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
                 'route' => '#'
@@ -1139,7 +1139,7 @@ class LandingController extends Controller
     public function berbinar_plus_new(){
         $products = [
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-webinar.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-class-journey.png',
                 'produk' => '101 Class Journey',
                 'deskripsi' => 'Memperluas wawasan keilmuan dan keterampilan yang berasal dari ahli',
             ],
@@ -1286,7 +1286,6 @@ class LandingController extends Controller
 
     public function  class_journey_new() {
 
-
         $layanan_class_journey = [
             [
                 'name' => 'Early Bird',
@@ -1353,7 +1352,10 @@ class LandingController extends Controller
 
         $poster = 'public/assets/images/landing/asset-kelas/class-journey/poster-maret.png';
 
-        return view('moduls.landing-new.class-journey', compact('layanan_class_journey', 'benefit_class_journey', 'faqs', 'poster'));
+        $link_pendaftaran = 'https://bit.ly/Pendaftaran_101ClassJourney';
+
+
+        return view('moduls.landing-new.class-journey', compact('layanan_class_journey', 'benefit_class_journey', 'faqs', 'poster', 'link_pendaftaran'));
     }
 
     public function consulting_new(Request $request)
@@ -1362,44 +1364,51 @@ class LandingController extends Controller
             [
                 'category' => 'Rekrutmen & Seleksi',
                 'price' => 'Rp1.800.000',
-                'description' => 'Membantu perusahaan dalam proses perekrutan calon karyawan baru yang sesuai dengan kebutuhan dan kriteria perusahaan.',
-                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
+                'description' => ['Penyusunan kriteria jabatan dan deskripsi pekerjaan', 'Membuat proses rekrutmen dari sistem tes hingga wawancara', 'Melaporkan evaluasi kandidat berdasarkan kompetensi'],
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Rekrutmen dan Seleksi.png'
             ],
             [
                 'category' => 'Pelatihan & Pengembangan',
                 'price' => 'Rp1.500.000',
-                'description' => 'Rancangan proses untuk meningkatkan pengetahuan, keterampilan, dan sikap karyawan terkait tugas yang diberikan, serta memberi kesempatan untuk memaksimalkan potensi.',
-                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
+                'description' => ['Menyusun kurikulum pelatihan', 'Menganalisa kebutuhan pelatihan berdasarkan kinerja dan target bisnis', 'Evaluasi pasca-pelatihan untuk  menilai peningkatan keterampilan'],
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Pelatihan & Pengembangan.png'
             ],
             [
                 'category' => 'Analisis Beban Kerja & Perencanaan Organisasi',
                 'price' => 'Rp1.800.000',
-                'description' => 'Analisis mendalam terkait beban kerja, struktur organisasi, dan perencanaan kebutuhan sumber daya manusia.',
-                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
+                'description' => ['Menganalisa beban kerja setiap jabatan', 'Peninjauan dan perencanaan struktur organisasi yang lebih efektif', 'Rekomendasi jumlah optimal staf berdasarkan beban kerja'],
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Analisis Beban Kerja & Perencanaan Organisasi.png'
             ],
             [
                 'category' => 'Coaching',
                 'price' => 'Rp2.000.000',
-                'description' => 'Membantu dalam menggali potensi bisnis/karir, menetapkan tujuan, dan mewujudkannya dengan strategi dari ahlinya.',
-                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
+                'description' => ['Melakukan sesi coaching personal untuk individu atau tim secara tatap muka', 'Pembahasan tujuan dan perencanaan pengembangan dengan berbagai metode penyesuaian strategi berdasarkan progress'],
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Coaching.png'
             ],
             [
                 'category' => 'Penilaian Kinerja',
                 'price' => 'Rp2.150.000',
-                'description' => 'Proses evaluasi kinerja karyawan secara sistematis dan berkesinambungan sebagai umpan balik dan dukungan pengembangan karir.',
-                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
+                'description' => ['Penyusunan indikator kinerja utama (KPI) yang jelas dan terukur', 'Implementasi metode evaluasi kinerja', 'Laporan performa karyawan dengan rekomendasi pengembangan', 'Feedback terstruktur yang membantu peningkatan kompetensi'],
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Penilaian Kerja.png'
             ],
             [
                 'category' => 'Kompensasi & Benefit',
                 'price' => 'Rp1.780.000',
-                'description' => 'Perencanaan dan sistem administrasi mengenai kompensasi, tunjangan, program yang bermanfaat untuk menjaga motivasi dan kinerja karyawan.',
-                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
+                'description' => ['Analisis dan benchmark terhadap standar industri terkait gaji dan benefit', 'Penyusunan paket kompensasi yang adil dan menarik bagi karyawan', 'Rekomendasi mengenai insentif dan benefit tambahan yang relevan'],
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Kompensasi & Benefit.png'
             ],
             [
                 'category' => 'Standar Operasional Prosedur (SOP)',
                 'price' => 'Rp1.600.000',
-                'description' => 'Panduan standar yang bertujuan memastikan pekerjaan dan kegiatan operasional organisasi.',
-                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA'
+                'description' => ['Identifikasi dan dokumentasi alur proses kerja', 'Penyusunan dokumen SOP yang jelas dan terstruktur', 'Implementasi dan sosialisasi SOP kepada seluruh staf', 'Evaluasi dan update SOP secara berkala sesuai perubahan kondisi bisnis'],
+                'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Standar Operasional Prosedur.png'
             ],
         ];
 

@@ -84,9 +84,7 @@
   </section>
 
   {{-- LAYANAN --}}
-  <section
-    class="bg-psikolog relative mx-20 my-56 mt-24 h-[280px] rounded-3xl bg-cover p-10 max-md:my-5 max-md:h-[600px] max-md:overflow-hidden max-sm:mx-4 max-sm:h-[500px]"
-  >
+  <section class="bg-psikolog relative mx-20 my-56 mt-24 h-[280px] rounded-3xl bg-cover p-10 max-md:my-5 max-md:h-[600px] max-md:overflow-hidden max-sm:mx-4 max-sm:h-[500px]">
     <img
       src="/assets/images/landing/vector-curling-mobile.png"
       alt="Background"
@@ -101,7 +99,7 @@
       </h1>
 
       <div class="swiperContainer">
-        <div class="swiper" id="swiperConsulting">
+        <div class="" id="swiperConsulting">
           <div class="swiper-wrapper">
             @foreach ($layanan_consultings as $layanan_consulting)
               <div class="swiper-slide">
@@ -114,14 +112,23 @@
                     {{ $layanan_consulting["category"] }}
                   </p>
                   <p
-                    class="mt-3 text-[30px] font-semibold leading-none text-[#3986A3] max-lg:text-2xl max-sm:mt-1.5"
+                    class="mt-3 text-[30px] font-semibold leading-none text-[#3986A3] max-lg:text-2xl max-sm:mt-1.5 mb-4"
                   >
                     {{ $layanan_consulting["price"] }}
                     <span class="align-top text-[18px] text-[#70787D]">*</span>
                   </p>
-                  <p class="mt-5 flex-grow text-justify text-sm text-[#70787D] max-sm:mt-2">
-                    {{ $layanan_consulting["description"] }}
-                  </p>
+{{--                    @dump($layanan_consulting['icon'])--}}
+                    <div class=" mx-auto mb-4">
+                        <img src="{{ asset($layanan_consulting['icon']) }}" alt="{{$layanan_consulting['category']}}" class="object-cover h-20">
+                    </div>
+{{--                    list--}}
+                    @foreach ($layanan_consulting["description"] as $desc)
+                        <div class="flex flex-row items-start gap-x-2">
+                            <img src="{{ asset('assets/images/landing/asset-tentang/green-check.svg') }}" alt="Vector" class="h-[18px] w-[18px] max-sm:h-4 max-sm:w-4">
+                            <p class="text-[#70787D] text-[16px] max-sm:text-[15px] text-justify -mt-0.5">{{ $desc }}</p>
+                        </div>
+                    @endforeach
+{{--                    list--}}
                   <a href="{{ $layanan_consulting["link"] }}" target="_blank">
                     <div class="mb-1 mt-4 flex justify-center max-sm:mt-2">
                       <button
@@ -146,7 +153,7 @@
   </section>
 
   {{-- PAKET BUNDLING --}}
-  <section class="relative my-10">
+  <section class="relative my-10 lg:mt-72">
     <p
       class="font relative z-10 mx-20 mb-5 mt-5 bg-gradient-to-r from-[#1C4352] to-[#3986A3] bg-clip-text py-2 text-center text-4xl font-semibold text-transparent max-sm:mx-2 max-sm:my-4 max-sm:text-[29px]"
     >

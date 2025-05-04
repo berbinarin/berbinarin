@@ -106,7 +106,7 @@
                         alt="line"
                         class="mb-4 w-3/4"
                     />
-                    <a href="#" class="block w-full py-1">
+                    <a href="{{$link_pendaftaran}}" target="_blank" class="block w-full py-1">
                         <div class="mx-auto w-fit py-2 px-8  bg-gradient-to-l from-[#AD7D29] hover:from-[#AD7D29]/80 to-[#F7B23B] hover:to-[#F7B23B]/80 rounded-lg flex justify-center items-center hover:shadow-lg">
                             <span class="text-white">Mulai Sekarang</span>
                         </div>
@@ -115,7 +115,6 @@
             @endforeach
         </div>
     </section>
-
     {{--BENEFIT 101 CLASS JOURNEY--}}
     <section class="w-full px-4 sm:px-14 mb-12 lg:mb-16">
         <h1 class="text-center text-black font-semibold text-2xl sm:text-3xl lg:text-5xl mb-4 lg:mb-4">Benefit 101 Class Journey</h1>
