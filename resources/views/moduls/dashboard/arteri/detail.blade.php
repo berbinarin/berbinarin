@@ -26,14 +26,14 @@
                 <div class="flex flex-col gap-2 w-full">
                     <p>Kredensial</p>
                     <div class="bg-white text-black rounded-md p-6 shadow-md shadow-black flex flex-col gap-2">
-                        <p class="">Judul : <span class="font-bold text-xl">{{ $article->title }}</span></p>
-                        <p class="">Penulis : <span class="font-semibold">{{ $article->author->name_author }}</span></p>
-                        <p class="">Kategori : <span class="font-semibold">{{ $article->category->name_category }}</span></p>
+                        <p class="font-bold text-xl">Judul : <span class="font-bold text-xl">{{ $article->title }}</span></p>
+                        <p class="font-semibold">Penulis : <span class="font-semibold">{{ $article->author->name_author }}</span></p>
+                        <p class="font-semibold">Kategori : <span class="font-semibold">{{ $article->category->name_category }}</span></p>
                     </div>
                 </div>
                 <div class="flex flex-col gap-2 w-full" style="color: #9B9B9B">
                     <p>Sampul</p>
-                    <img src="{{ asset('storage/' . $article->cover_image) }}" class="rounded object-cover shadow-md shadow-black" style="height: 300px;"/>
+                    <img src="{{ asset('/image/' . $article->cover_image) }}" class="rounded object-cover shadow-md shadow-black" style="height: 300px;"/>
                 </div>
             </div>
             <div class="bg-white shadow-md shadow-black px-20 py-8 w-full mt-5">

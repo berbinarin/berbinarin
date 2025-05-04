@@ -29,6 +29,7 @@
                                     <th>No</th>
                                     <th>Profil</th>
                                     <th class="text-left">Nama Penulis</th>
+                                    <th class="text-center">Jumlah Artikel</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -37,11 +38,13 @@
                                     <tr class="data-consume">
                                         <td class="text-center font-bold">{{ $index + 1 }}.</td>
                                         <td class="flex justify-center">
-                                            <img src="{{ asset('storage/' . $author->profil_image) }}" alt="Foto Profil"
-                                                class="w-12 h-12 rounded-full" />
+                                            <img src="{{ $author->profil_image ? asset('/image/' . $author->profil_image) : asset('assets/images/landing/arteri/dummy.png') }}" alt="Foto Profil" class="w-12 h-12 rounded-full" />
                                         </td>
-                                        <td class="break-words whitespace-normal font-semibold" style="min-width: 300px">
+                                        <td class="break-words whitespace-normal font-semibold text-left" style="min-width: 300px">
                                             {{ $author->name_author }}</td>
+                                            <td class="break-words whitespace-normal font-semibold text-center" style="min-width: 300px">
+                                                {{ $author->articles_count }} <!-- Menampilkan jumlah artikel -->
+                                            </td>
                                         <td class="px-6 py-4 whitespace-no-wrap text-center">
                                             <div class="flex justify-center items-center gap-2">
                                                 <!-- Tombol Edit -->
@@ -277,7 +280,7 @@
         // Fungsi untuk modal Hapus
         function bukaModalHapus(penulisId) {
             const form = document.getElementById('delete-penulis-form');
-            form.action = `/dashboard/admin/article/penulis/${penulisId}`;
+            form.action = `/dashboard/admin/artikel/penulis/${penulisId}`;
 
             // Tampilkan modal hapus
             document.getElementById('hapus-modal').classList.remove('hidden');

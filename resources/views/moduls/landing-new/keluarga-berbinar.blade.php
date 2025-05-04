@@ -289,7 +289,7 @@
                 // image sm-md
                 const contentImageSm = `
                 <div class="relative h-full w-32 overflow-hidden group-even:order-last md:flex md:w-36 md:items-end lg:hidden">
-                    <img src="/image/${staff.photo}" loading="lazy"
+                    <img src="${staff.photo}" loading="lazy"
                         alt="image-example" class="object-cover">
                     <span class="${bgDivision} absolute bottom-0 left-1/2 z-10 w-auto -translate-x-1/2 rounded-lg px-2 py-1 text-center text-xs font-semibold tracking-wide text-white shadow-lg">${subdivision ? subdivision : division}</span>
                  </div>
@@ -298,7 +298,7 @@
                 // image lg
                 const contentImageLg = `
                 <div class="relative hidden h-full w-48 py-1 lg:block">
-                    <img src="/image/${staff.photo}" loading="lazy"
+                    <img src="${staff.photo}" loading="lazy"
                         alt="image-example" class="h-full w-48 object-cover">
                     <span class="${bgDivision} absolute bottom-2 left-1/2 z-10 w-full -translate-x-1/2 rounded-lg px-2 py-1 text-center text-xs font-semibold tracking-wide text-white shadow-lg">${subdivision ? subdivision : division}</span>
                  </div>`
@@ -360,7 +360,7 @@
 
                 // linkedin
                 const linkedInBtn = document.createElement('a'); // element
-                linkedInBtn.href = 'https://www.youtube.com/webprogrammingunpas';
+                linkedInBtn.href = staff.linkedin || '#';
                 linkedInBtn.target = '_blank';
                 linkedInBtn.classList.add('absolute', 'bottom-2', 'right-3', 'lg:hidden');
 
@@ -397,7 +397,7 @@
 
                         const role = document.createElement('h4');
                         role.classList.add('text-start', 'text-base', 'lg:text-lg', 'font-semibold', 'text-white');
-                        role.textContent = `As ${record.division}`;
+                        role.textContent = `As ${record.subdivision || '-'} at ${record.division} `;
 
                         const timeLine = document.createElement('p');
                         timeLine.classList.add('text-base', 'font-thin', 'text-white');

@@ -64,8 +64,8 @@ use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserIndividualController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\NomorBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\SoalBdiController;
 use App\Http\Controllers\PsikotestPaid\Tools\BDI\SkorBdiController;
-use App\Http\Controllers\PsikotestPaid\Tools\DASS\DassController;
-use App\Http\Controllers\KeluargaBerbinarin\TableStaffController;
+use App\Http\Controllers\PsikotestPaid\Tools\DASS\DASSController;
+use App\Http\Controllers\KeluargaBerbinarin\LandingKeluargaBerbinar;
 use App\Http\Controllers\ArticleController\DashboardArticle;
 use App\Http\Controllers\KeluargaBerbinarin\DashboardKeluargaBerbinar;
 use App\Http\Controllers\ArticleController\LandingArticle;
@@ -127,39 +127,30 @@ Route::get('/class/bisikan', [LandingController::class, 'classBisikan'])->name('
 
 // KELUARGA BERBINAR
 Route::prefix('dashboard/admin/berbinar-family')->group(function () {
-
-    //MODUL DASBOARD ADMIN KELUARGA BERBINAR
     Route::get('/', [DashboardKeluargaBerbinar::class, 'berbinarFamily'])->name('dashboard.berbinarFamily');
     Route::get('/add', [DashboardKeluargaBerbinar::class, 'addBerbinarFamily'])->name('dashboard.berbinarFamily.add');
     Route::get('/tampil', [DashboardKeluargaBerbinar::class, 'tampilBerbinarFamily'])->name('dashboard.berbinarFamily.tampil');
     Route::get('/detail/{id}', [DashboardKeluargaBerbinar::class, 'detailBerbinarFamily'])->name('dashboard.berbinarFamily.details');
     Route::get('/edit/{id}', [DashboardKeluargaBerbinar::class, 'editBerbinarFamily'])->name('dashboard.berbinarFamily.edit');
-
-    //CRUD
     Route::post('/submit', [DashboardKeluargaBerbinar::class, 'submitBerbinarFamily'])->name('dashboard.berbinarFamily.submit');
     Route::put('/update/{id}', [DashboardKeluargaBerbinar::class, 'updateBerbinarFamily'])->name('dashboard.berbinarFamily.update');
     Route::delete('/delete/{id}', [DashboardKeluargaBerbinar::class, 'deleteBerbinarFamily'])->name('dashboard.berbinarFamily.delete');
 });
 
-// HALAMAN DEPAN Keluarga Berbinar
+// HALAMAN DEPAN KELUARGA BERBINAR
 Route::prefix('keluarga-berbinar')->group(function () {
-    Route::get('/', [TableStaffController::class, 'keluarga_berbinar'])->name('keluarga-berbinar');
+    Route::get('/', [LandingKeluargaBerbinar::class, 'keluarga_berbinar'])->name('keluarga-berbinar');
 });
 
-
-// ARTIKEL
+// DASHBOARD ARTIKEL
 Route::prefix('dashboard/admin/artikel')->group(function () {
-
-    // MODUL DASHBOARD ADMIN ARTIKEL
     Route::get('/', [DashboardArticle::class, 'dashboardArticle'])->name('dashboard.article');
     Route::get('/create', [DashboardArticle::class, 'addArticle'])->name('dashboard.article.create');
     Route::get('/update/{id}', [DashboardArticle::class, 'updateArticle'])->name('dashboard.article.update');
     Route::get('/kategori', [DashboardArticle::class, 'kategoriArticle'])->name('dashboard.article.kategori');
     Route::get('/postingan', [DashboardArticle::class, 'postinganArticle'])->name('dashboard.article.postingan');
     Route::get('/penulis', [DashboardArticle::class, 'penulisArticle'])->name('dashboard.article.penulis');
-    Route::get('/detail/{id}', [DashboardArticle::class, 'detailArticle'])->name('dashboard.article.detail');
-
-    // CRUD
+    Route::get('/detail/{id}', [DashboardArticle::class, 'detailArticle'])->name('dashboard.article.detail');   
     Route::post('/store', [DashboardArticle::class, 'store'])->name('dashboard.article.store');
     Route::post('/update/ArticleStore/{id}', [DashboardArticle::class, 'updateArticleStore'])->name('dashboard.article.update.store');
     Route::delete('/delete/{id}', [DashboardArticle::class, 'deleteArticle'])->name('dashboard.article.delete');
@@ -350,20 +341,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/admin/positions', [DashboardController::class, 'positions'])->name('dashboard.positions');
     Route::get('/dashboard/admin/positions/edit/{id}', [DashboardController::class, 'editPositions']);
 
-    // MODUL KELUARGA BERBINAR
-    Route::prefix('dashboard/admin/berbinar-family')->group(function () {
-        Route::get('/', [DashboardController::class, 'berbinarFamily'])->name('dashboard.berbinarFamily');
-        Route::get('/add', [DashboardController::class, 'addBerbinarFamily'])->name('dashboard.berbinarFamily.add');
-        Route::get('/tampil', [DashboardController::class, 'tampilBerbinarFamily'])->name('dashboard.berbinarFamily.tampil');
-        Route::post('/submit', [DashboardController::class, 'submitBerbinarFamily'])->name('dashboard.berbinarFamily.submit');
-    });
-
-    Route::prefix('dashboard/berbinarFamily')->group(function () {
-        Route::get('/detail/{id}', [DashboardController::class, 'detailBerbinarFamily'])->name('dashboard.berbinarFamily.details');
-        Route::get('/edit/{id}', [DashboardController::class, 'editBerbinarFamily'])->name('dashboard.berbinarFamily.edit');
-        Route::put('/update/{id}', [DashboardController::class, 'updateBerbinarFamily'])->name('dashboard.berbinarFamily.update');
-        Route::delete('/delete/{id}', [DashboardController::class, 'deleteBerbinarFamily'])->name('dashboard.berbinarFamily.delete');
-    });
     // MODUL MANAGE DIVISION
     Route::get('/dashboard/admin/manage-division', [DashboardController::class, 'manageDivision'])->name('dashboard.manageDivision');
     Route::get('/dashboard/admin/manage-division/add', [DashboardController::class, 'addManageDivision'])->name('dashboard.manageDivision.add');
@@ -594,6 +571,7 @@ Route::prefix('/psikotest-paid')->group(function () {
         Route::get('/tool/BDI', [LandingController::class, 'LandingBDI'])->name('psikotest-paid.tool.BDI.showLanding');
         // Route::get('/tool/BDI/test', [LandingController::class, 'TestBDI'])->name('psikotest-paid.tool.BDI.testbdi');
         // Route::get('/tool/BDI/end/', [LandingController::class, 'EndBDI'])->name('psikotest-paid.tool.BDI.endbdi');
+
 
         // TES DASS-42
         Route::get('/tool/DASS', [DASSController::class, 'showLanding'])->name('psikotest-paid.tool.Dass-42.showLanding');
