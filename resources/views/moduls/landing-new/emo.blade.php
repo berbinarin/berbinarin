@@ -190,12 +190,12 @@
                 <div class="z-10" style="grid-column: span 12; grid-row: span 5">
                     <div class="p-4 border backdrop-blur-sm rounded-3xl" style="border-color: #74AABF; background-color: #D7E6ED90;">
                         <h1 class="bg-gradient-to-r from-[#1C4352] to-[#3986A3] bg-clip-text py-4 font-[inter] text-4xl font-semibold text-transparent lg:text-5xl lg:tracking-wide text-center">3 Jenis Kartu</h1>
-                        <div class="flex justify-center gap-16 pt-4">
-                            <img src="{{ asset("assets/images/landing/produk/emo/card-1.png") }}" class="hover:scale-100"/>
-                            <img src="{{ asset("assets/images/landing/produk/emo/card-2.png") }}" class="hover:p-4"/>
-                            <img src="{{ asset("assets/images/landing/produk/emo/card-3.png") }}" class="hover:p-4"/>
+                        <div class="flex justify-center gap-16 pt-8">
+                            <img src="{{ asset("assets/images/landing/produk/emo/card-1.png") }}" class="hover:brightness-125 hover:scale-[115%] transition-all ease-in-out"/>
+                            <img src="{{ asset("assets/images/landing/produk/emo/card-2.png") }}" class="hover:brightness-125 hover:scale-[115%] transition-all ease-in-out"/>
+                            <img src="{{ asset("assets/images/landing/produk/emo/card-3.png") }}" class="hover:brightness-125 hover:scale-[115%] transition-all ease-in-out"/>
                         </div>
-                        <div class="pt-8 flex flex-col gap-4 font-light text-[#70787D]" style="padding-left: 130px; padding-right: 130px">
+                        <div class="pt-14 flex flex-col gap-4 font-light text-[#70787D]" style="padding-left: 130px; padding-right: 130px">
                             <div class="border border-[#B3B3B3] shadow-md shadow-[#B3B3B3] bg-white flex rounded-lg">
                                 <div class="rounded-r-full bg-[#F7B23B] flex justify-center p-4">
                                     <img src="{{ asset("assets/images/landing/produk/emo/phone-icon.png") }}"/>
@@ -274,9 +274,9 @@
                 <div class="flex justify-center pt-10 px-16 text-white">
                     <div class="w-1/2 flex flex-col justify-center items-center text-2xl">
                         <p class="text-center">Standar 🃏</p>
-                        <div class="bg-white py-6 px-16 rounded-2xl relative shadow-md shadow-black" style="bottom: -40px; opacity: 0.9">
+                        <div class="justify-between flex flex-col bg-white h-full py-6 px-16 rounded-2xl relative shadow-md shadow-black bg-opacity-85 bottom-[-40px]">
                             <h1 class="text-4xl text-[#3986A3] text-center">Rp40.500</h1>
-                            <div class="flex flex-col text-lg text-[#70787D] pt-10">
+                            <div class="flex flex-col flex-1 text-lg text-[#70787D] pt-10">
                                 <p><i class="bx bx-check"></i> 55 Kartu EmoShuffle</p>
                                 <p><i class="bx bx-check"></i> Packaging Standar</p>
                             </div>
@@ -289,7 +289,7 @@
                     </div>
                     <div class="w-1/2 flex flex-col justify-center items-center text-2xl">
                         <p class="text-center">Eksklusif 💎️</p>
-                        <div class="bg-white py-6 px-16 rounded-2xl relative shadow-md shadow-black" style="bottom: -40px; opacity: 0.9">
+                        <div class="bg-white py-6 px-16 rounded-2xl relative shadow-md shadow-black bg-opacity-85 bottom-[-40px]">
                             <h1 class="text-4xl text-[#3986A3] text-center">Rp70.500</h1>
                             <div class="flex flex-col text-lg text-[#70787D] pt-10" style="max-width: 200px">
                                 <p><i class="bx bx-check"></i> 55 Kartu EmoShuffle</p>
@@ -345,7 +345,7 @@
         </ul>
     </section>
     <div class="flex justify-center items-center relative" style="padding-top: 100px; height: 350px">
-        <img src="{{ asset("assets/images/landing/produk/emo/footer.png") }}"/>
+        <img src="{{ asset("assets/images/landing/produk/emo/footer-new.png") }}"/>
     </div>
 
     <style>

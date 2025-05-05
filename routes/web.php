@@ -89,6 +89,8 @@ Route::get('/tentang-new', [LandingController::class, 'tentang_new'])->name('ten
 Route::get('/produk-new', [LandingController::class, 'produk_new'])->name('produk-new');
 Route::get('/konseling-new', [LandingController::class, 'konseling_new'])->name('konseling-new');
 Route::get('/psikotest-new', [LandingController::class, 'psikotest_new'])->name('psikotest-new');
+Route::get('/emoShuffle', [LandingController::class, 'emoShuffle'])->name('emoShuffle');
+Route::get('/bisikan', [LandingController::class, 'bisikan_new'])->name('bisikan');
 //Route::get('/kelas-new', [LandingController::class, 'kelas_new'])->name('kelas-new');
 
 Route::prefix('/kelas-new')->group(function () {
@@ -172,7 +174,7 @@ Route::prefix('dashboard/admin/artikel')->group(function () {
 });
 
 // LANDING ARTIKEL
-Route::prefix('articles')->group(function () {
+Route::prefix('arteri')->group(function () {
     Route::get('/', [LandingArticle::class, 'index'])->name('arteri');
     Route::get('/category/{slug}', [LandingArticle::class, 'category'])->name('arteri.category');
     Route::get('/{id}', [LandingArticle::class, 'show'])->name('arteri.detail');

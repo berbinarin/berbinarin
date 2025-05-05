@@ -10,7 +10,7 @@
 <div class="relative w-full z-30" style="padding-top: 56.25%; position: relative;">
     <iframe
         class="absolute top-0 left-0 w-full h-full"
-        src="https://www.youtube.com/embed/fpjr6pazye4?autoplay=1&loop=1&mute=1&rel=0&modestbranding=1&controls=0"
+        src="https://www.youtube.com/embed/l7gDC0qb8rY?autoplay=1&loop=1&mute=1&rel=0&modestbranding=1&controls=0"
         title="YouTube video player"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
