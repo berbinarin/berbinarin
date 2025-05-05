@@ -81,7 +81,7 @@ use App\Http\Controllers\ArticleController\LandingArticle;
 |
 */
 
-//Route::get('/', [LandingController::class, 'index'])->name('home');
+Route::get('/landing-new', [LandingController::class, 'index'])->name('home');
 
 //Route::get('/landing-new', [LandingController::class, 'landing_new'])->name('home-new');
 Route::get('/', [LandingController::class, 'landing_new'])->name('home-new');
