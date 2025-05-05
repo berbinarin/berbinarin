@@ -81,9 +81,10 @@ use App\Http\Controllers\ArticleController\LandingArticle;
 |
 */
 
-Route::get('/', [LandingController::class, 'index'])->name('home');
+//Route::get('/', [LandingController::class, 'index'])->name('home');
 
-Route::get('/landing-new', [LandingController::class, 'landing_new'])->name('home-new');
+//Route::get('/landing-new', [LandingController::class, 'landing_new'])->name('home-new');
+Route::get('/', [LandingController::class, 'landing_new'])->name('home-new');
 Route::get('/tentang-new', [LandingController::class, 'tentang_new'])->name('tentang-new');
 Route::get('/produk-new', [LandingController::class, 'produk_new'])->name('produk-new');
 Route::get('/konseling-new', [LandingController::class, 'konseling_new'])->name('konseling-new');
@@ -158,7 +159,7 @@ Route::prefix('dashboard/admin/artikel')->group(function () {
     Route::get('/kategori', [DashboardArticle::class, 'kategoriArticle'])->name('dashboard.article.kategori');
     Route::get('/postingan', [DashboardArticle::class, 'postinganArticle'])->name('dashboard.article.postingan');
     Route::get('/penulis', [DashboardArticle::class, 'penulisArticle'])->name('dashboard.article.penulis');
-    Route::get('/detail/{id}', [DashboardArticle::class, 'detailArticle'])->name('dashboard.article.detail');   
+    Route::get('/detail/{id}', [DashboardArticle::class, 'detailArticle'])->name('dashboard.article.detail');
     Route::post('/store', [DashboardArticle::class, 'store'])->name('dashboard.article.store');
     Route::post('/update/ArticleStore/{id}', [DashboardArticle::class, 'updateArticleStore'])->name('dashboard.article.update.store');
     Route::delete('/delete/{id}', [DashboardArticle::class, 'deleteArticle'])->name('dashboard.article.delete');
