@@ -1495,6 +1495,96 @@ class LandingController extends Controller
         ]);
     }
 
+    public function emoShuffle() {
+        $faqs = [
+            [
+                'ask' => 'Apa perbedaan Standar dan Eksklusif?',
+                'answer' => 'Perbedaan terletak pada kemasannya: EmoShuffle Standar menggunakan box biasa dengan penutup manual, sedangkan EmoShuffle Eksklusif hadir dalam kemasan box magnetik yang lebih premium.'
+            ],
+            [
+                'ask' => 'Apakah EmoShuffle bisa digunakan sebagai terapi?',
+                'answer' => 'EmoShuffle bukan alat diagnosis atau terapi medis. Permainan ini merupakan media edukatif dan rekreatif yang dirancang untuk mendukung kesadaran diri dan ekspresi emosi secara positif, sebagai bagian dari upaya menjaga kesehatan mental.'
+            ],
+            [
+                'ask' => 'Apa saja isi dalam satu box EmoShuffle?',
+                'answer' => 'Satu box EmoShuffle berisi 55 kartu, terdiri dari 45 kartu pertanyaan, 5 kartu kutipan inspiratif, dan 5 kartu aksi “Do It Now!”. Seluruhnya dilengkapi dengan panduan bermain untuk memudahkan penggunaan baik secara individu maupun kelompok.'
+            ],
+        ];
+        return view('moduls.landing-new.emo', compact('faqs'));
+    }
+
+    public function bisikan_new() {
+        
+        $layanan_class_journey = [
+            [
+                'name' => 'Early Bird',
+                'price' => 'Rp15.000',
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/early-bird.png'
+            ],
+            [
+                'name' => 'Triple Bundle',
+                'price' => 'Rp55.000',
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/bundle-bertiga.png'
+            ],
+            [
+                'name' => 'Normal Price',
+                'price' => 'Rp20.000',
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/normal-price.png'
+            ],
+        ];
+
+        $benefit_class_journey = [
+            [
+                'name' => 'E-Certificate',
+                'image' => 'certificate.png'
+            ],
+            [
+                'name' => 'Hands-On Experience',
+                'image' => 'hands-on.png'
+            ],
+            [
+                'name' => 'Upgrade Skill',
+                'image' => 'upgrade.png'
+            ],
+            [
+                'name' => 'Tips and Trick dari Ahli',
+                'image' => 'tips-n-trick.png'
+            ],
+            [
+                'name' => 'Networking',
+                'image' => 'networking.png'
+            ],
+        ];
+
+        $faqs = [
+            [
+                'question' => 'Apakah saya bisa bertanya langsung kepada pemateri?',
+                'answer' => 'Tentu! Akan ada sesi Q&A di setiap akhir kelas untuk SobatBinar  yang ingin bertanya langsung kepada pemateri.'
+            ],
+            [
+                'question' => 'Apakah kelas ini cocok untuk pemula tanpa pengalaman di bidang terkait?',
+                'answer' => 'Sangat cocok! Kelas ini dirancang dari level dasar hingga intermediate, jadi siapa pun bisa mengikuti tanpa latar belakang teknis sebelumnya.'
+            ],
+            [
+                'question' => 'Apakah materi presentasi dari pemateri akan dibagikan?',
+                'answer' => 'Ya, file materi (jika diizinkan oleh pemateri) akan dikirimkan melalui grup peserta setelah kelas berakhir.'
+            ],
+            [
+                'question' => 'Saya belum pernah ikut webinar, apakah akan ada panduan teknis sebelum kelas?',
+                'answer' => 'Ya, kami akan mengirimkan panduan teknis dan tata cara mengikuti Zoom (termasuk link, password, dan etika selama kelas) setelah SobatBinar mendaftar.'
+            ],
+            [
+                'question' => 'Apakah saya bisa mendapatkan sertifikat jika tidak mengikuti seluruh sesi?',
+                'answer' => 'SobatBinar harus mengikuti minimal 80% durasi kelas agar bisa mendapatkan e-certificate. Hal ini untuk memastikan SobatBinar benar-benar aktif dalam proses pembelajaran.'
+            ]
+        ];
+
+        $poster = 'public/assets/images/landing/asset-kelas/class-journey/poster-maret.png';
+
+        $link_pendaftaran = 'https://bit.ly/Pendaftaran_101ClassJourney';
+        return view('moduls.landing-new.produk-bisikan', compact('layanan_class_journey', 'benefit_class_journey', 'faqs', 'poster', 'link_pendaftaran'));
+    }
+
     public function faq_new(Request $request)
     {
         return view('moduls.landing-new.faq')->with([]);
