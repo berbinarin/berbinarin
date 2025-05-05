@@ -32,7 +32,7 @@ class LandingArticle extends Controller
             $article->first_paragraph = $pTags->length > 0 ? $pTags->item(0)->textContent : '';
         }
         $categories = Category::all();
-        return view('moduls.landing-new.arteri.index', compact('articles', 'categories', 'sort'));
+        return view('moduls.landing-new.arteri.index', compact('articles', 'categories', 'sort', 'heroArticles'));
     }
 
     public function category($slug)
@@ -66,7 +66,9 @@ class LandingArticle extends Controller
         }
         $categories = Category::all();
 
-        return view('moduls.landing-new.arteri.index', compact('articles', 'categories', 'category', 'sort'));
+        $heroArticles = Article::with(['category', 'author'])->latest()->take(3)->get();
+
+        return view('moduls.landing-new.arteri.index', compact('articles', 'categories', 'category', 'sort', 'heroArticles'));
     }
 
 
