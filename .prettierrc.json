@@ -1,8 +1,9 @@
 {
-    "tabWidth": 2,
+    "tabWidth": 4,
+    "useTabs": false,
     "semi": true,
     "trailingComma": "all",
-    "printWidth": 100,
+    "printWidth": 120,
     "plugins": [
         "prettier-plugin-tailwindcss",
         "prettier-plugin-blade"
@@ -13,6 +14,8 @@
                 "*.blade.php"
             ],
             "options": {
+                "tabWidth": 4,
+                "useTabs": false,
                 "parser": "blade"
             }
         }

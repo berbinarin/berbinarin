@@ -1,10 +1,11 @@
 /.phpunit.cache
 /node_modules
+/public/build
 /public/hot
 /public/storage
 /storage/*.key
-# /vendor
-# .env #
+/vendor
+.env
 .env.backup
 .env.production
 .phpunit.result.cache
@@ -17,10 +18,3 @@ yarn-error.log
 /.idea
 /.vscode
 .DS_Store
-**/.DS_Store
-
-
-.env
-
-docker-compose.yml
-Dockerfile

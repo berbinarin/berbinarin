@@ -1,66 +1,151 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# 🌟 Berbinar Insightful Indonesia - Web Platform
 
-## About Laravel
+**Berbinar Insightful Indonesia** adalah sebuah platform web yang dikembangkan untuk mendukung layanan psikologi secara terintegrasi. Platform ini menjadi fondasi digital bagi Berbinar dalam menyediakan berbagai layanan profesional seperti:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Konseling
+- Psikotes
+- Kelas edukasi
+- Konsultasi dengan tenaga ahli
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Dengan pendekatan yang inklusif dan penggunaan alat psikologi terstandar, proyek ini bertujuan membangun hubungan yang kuat dan profesional antara perusahaan dengan klien, serta membantu individu maupun organisasi meraih potensi terbaiknya.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 📦 Instalasi & Deployment
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Sebelum memulai proses instalasi dan deployment proyek ini secara lokal, pastikan Anda telah menginstal beberapa **perangkat lunak pendukung (development tools)** berikut:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- **Git** – untuk meng-clone repository dari GitHub  
+- **Code editor** – disarankan menggunakan [Visual Studio Code](https://code.visualstudio.com/)  
+- **Web server stack** – seperti [Laragon](https://laragon.org/) atau [XAMPP](https://www.apachefriends.org/index.html), yang berfungsi sebagai aplikasi server lokal untuk menjalankan PHP dan MySQL
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+### 1. Clone Repository
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Untuk mulai bekerja dengan proyek ini, jalankan perintah berikut di terminal untuk meng-clone repository ke komputer lokal Anda:
 
-### Premium Partners
+```bash
+git clone https://github.com/berbinarin/berbinarin.git
+cd berbinarin
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Setelah itu, buka folder proyek yang telah di-clone menggunakan code editor seperti Visual Studio Code.
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 2. Instalasi Dependency
 
-## Code of Conduct
+Selanjutnya, instal semua dependency backend dan frontend menggunakan perintah berikut di terminal:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+composer install
+npm install
+```
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 3. Konfigurasi Environment
 
-## License
+Laravel menggunakan file `.env` untuk mengatur konfigurasi aplikasi. Jalankan langkah berikut:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+cp .env.example .env
+```
+
+Kemudian, sesuaikan isi file `.env` dengan pengaturan lokal Anda, seperti nama database, user, dan password.
+
+Setelah file `.env` disiapkan, langkah selanjutnya adalah menghasilkan kunci aplikasi Laravel. Jalankan perintah berikut di terminal:
+
+```bash
+php artisan key:generate
+```
+
+Perintah ini akan menghasilkan kunci aplikasi yang digunakan untuk mengenkripsi data sensitif di aplikasi Laravel Anda.
+
+---
+
+### 4. Migrasi & Seeding Database
+
+Pastikan aplikasi **web server stack** (seperti Laragon atau XAMPP) Anda sudah aktif dan database server (MySQL/MariaDB) sedang berjalan.
+
+Lalu jalankan perintah berikut untuk membuat dan mengisi struktur database:
+
+```bash
+php artisan migrate --seed
+```
+
+---
+
+### 5. Menjalankan Proyek
+
+Buka dua terminal terpisah untuk menjalankan backend Laravel dan frontend Vite (bila menggunakan Laravel + Vite):
+
+**Terminal 1 – Laravel Backend:**
+
+```bash
+php artisan serve
+```
+
+**Terminal 2 – Frontend Dev Server:**
+
+```bash
+npm run dev
+```
+
+Lalu akses webnya melalui browser dengan mengetikan url
+```bash
+http://localhost:8000
+```
+---
+
+
+## 👍🏻 Standarisasi dan Best Practice
+Pada poin ini akan dibahas beberapa Standar atau best practice yang diterapkan pada project ini guna meningkatkan efiensi dan readablelity pada source code. Yang dimana materi pada section ini banyak mengambil refrensi pada repository github [alexeymezenin -Laravel Best Practices](https://github.com/alexeymezenin/laravel-best-practices).
+
+
+## 1. Penamaan Direktori dan File
+
+| **Konvensi**                | **Penjelasan**                                                                                                                                              | **Contoh**                                             |
+|---------------------------- |------------------------------------------------------------------------------------------------------------------------------------------------------------ |--------------------------------------------------------|
+| **Controller**         | File controller di dalam folder **Controllers** harus diakhiri dengan kata `Controller` menggunakan format **PascalCase**.                                  | `ArticleController.php`, `PostCategoryController`      |
+| **Model**              | Nama file model menggunakan format **PascalCase** dan disarankan menggunakan nama tunggal untuk representasi entitas tunggal.                               | `Post.php`, `ArticleCategory.php`                      |
+| **Migration**          | File migrasi harus menggunakan format **snake_case** dan disertai dengan deskripsi yang jelas mengenai fungsinya.                                           | `create_posts_table.php`, `add_status_to_users.php`    |
+| **Seeder**             | Gunakan format **PascalCase** untuk file seeder. Seeder biasanya menggunakan nama entitas yang dimodifikasi.                                                | `UserSeeder.php`, `PostCategorySeeder.php`             |
+| **Middleware**         | Gunakan format **PascalCase** untuk nama file middleware dan harus jelas menggambarkan fungsinya.                                                           | `Authenticate.php`, `CheckAdmin.php`                   |
+| **Request**            | Gunakan **PascalCase** untuk nama file request dan beri nama berdasarkan tindakan atau data yang diproses.                                                  | `StorePostRequest.php`, `UpdateUserProfileRequest.php` |
+| **Service**            | Jika menggunakan service classes, nama file harus menggunakan **PascalCase**.                                                                               | `PostService.php`, `FileUploadService.php`             |
+
+## 2. Penamaan Variabel dan Properti
+
+| **Konvensi**                | **Penjelasan**                                                                                                                                           | **Contoh**                                        |
+|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| **Variable dan Property**                               | Gunakan format **camelCase** untuk penamaan variabel dan properti di dalam kelas.                                           | `$posts`, `$userEmail`                       |
+| **Constanta**                                           | Gunakan format **UPPER_SNAKE_CASE** untuk konstanta, yang terdiri dari huruf kapital dan dipisahkan dengan underscore.      | `MAX_POST_LENGTH`, `DEFAULT_USER_ROLE`           |
+| **Function/Method**                                | Gunakan format **camelCase** untuk function atau method, dengan kata kerja yang jelas dan deskriptif.                  | `storePost()`, `getUserDetails()`                |
+| **Function/Method di Resource Controller**         | Gunakan format yang telah oleh untuk nama function atau metode (index, store, show, update, delete)              | `index()`, `store()`                |
+| **Parameter Function**                                  | Gunakan **camelCase** untuk parameter function, sesuai dengan konvensi penamaan pada variabel.                              | `function storePost($title, $postCategory)`     |
+
+## 3. Penamaan URL, Route, dan View
+
+| **Konvensi**                | **Penjelasan**                                                                                                                                              | **Contoh**                                        |
+|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| **URL/Route**               | Gunakan **snake_case** untuk nama URL dan route, sehingga mudah dibaca dan konsisten. Setiap kata dipisahkan dengan tanda hubung (-).                      | `/articles`, `/post-categories`                |
+| **Route Name**              | Gunakan **snake_case** dengan **dot noation** untuk route name. Setiap kata dipishkan dengan tanda (_) dan           | `articles.index`, `posts.update_slug`                |
+| **Blade View dan Components**        | Gunakan format **kebab-case** untuk penamaan komponen Blade.                                                                                               | `header.blade.php`, `user-list.blade.php`            |
+
+## 4. Penamaan Tabel dan Kolom Database
+
+| **Konvensi**                | **Penjelasan**                                                                                                                                               | **Contoh**                                        |
+|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------  |---------------------------------------------------|
+| **Tabel**               | Gunakan **plural snake_case** untuk nama tabel di database. Nama tabel harus menjelaskan jenis entitas yang disimpan.                                            | `users`, `posts`, `comments`                      |
+| **Column**               | Gunakan **snake_case** untuk nama kolom, dan pastikan nama kolom konsisten dan deskriptif terhadap data yang disimpan. Dan tidak perlu menambahkan nama model   | `id`, `title`, `created_at`                       |
+| **Indeks/Foreign Key**       | Gunakan **snake_case** untuk nama indeks atau relation dan konsisten dalam penamaan.                                                                        | `user_id`, `post_id`, `created_at_index`          |
+
+## 6. Best Practices Lainnya
+
+- **Deskriptif**: Gunakan nama yang deskriptif untuk semua elemen dalam proyek agar mudah dipahami oleh pengembang lain.
+- **Konsisten**: Pastikan Anda konsisten dengan format penamaan yang digunakan di seluruh proyek untuk menjaga kejelasan dan keterbacaan.
+- **Singkat dan Padat**: Hindari penggunaan nama yang terlalu panjang. Usahakan agar nama tetap deskriptif namun tidak berlebihan.
+"""
