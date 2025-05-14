@@ -162,7 +162,7 @@
                                     @endphp
 
                                     <img
-                                        src="{{ asset("assets/images/landing/karir/banner/" . $imageName . ".png") }}"
+                                        src="{{ asset("assets/images/landing/karir/banner/" . $imageName . ".jpg") }}"
                                         alt="1"
                                         class="h-full w-full object-cover"
                                     />
