@@ -3,7 +3,7 @@ name: Auto Deploy on Push via SSH
 on:
   push:
     branches:
-      - main  # Ganti jika pakai branch lain
+      - development  # Ganti jika pakai branch lain
 
 jobs:
   deploy:
