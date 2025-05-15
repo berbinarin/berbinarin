@@ -1,0 +1,24 @@
+name: Auto Deploy on Push via SSH (Main)
+
+on:
+  push:
+    branches:
+      - main  # Ganti jika pakai branch lain
+
+jobs:
+  deploy:
+    name: Pull changes from server
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Connect to server and pull changes
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          script: |
+            cd /home/${{ secrets.SSH_USERNAME }}/repositories/berbinarin
+            git pull origin main
