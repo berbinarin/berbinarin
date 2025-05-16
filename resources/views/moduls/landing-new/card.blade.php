@@ -193,7 +193,7 @@
                                     <button
                                         onclick=""
                                         class="hidden lg:block absolute bottom-2 right-2 z-30 lg:pointer-events-auto lg:cursor-pointer">
-                                        <img src="{{asset("assets/images/landing/keluarga-berbinar/lini-masa.png")}}"
+                                        <img src="{{ asset("/assets/images/landing/keluarga-berbinar/lini-masa.png") }}"
                                              alt=""
                                              class="size-5 mx-auto">
                                         <p class="text-center text-white font-semibold text-xs">Lini masa</p>
@@ -242,7 +242,7 @@
                                                 2024 -
                                                 Sekarang</p>
                                             <a href="#" class="hidden xl:block xl:cursor-pointer xl:pointer-events-auto"> <img
-                                                    src="{{ asset('assets/images/landing/keluarga-berbinar/linkedin-fill.png') }}"
+                                                    src="{{ asset('/assets/images/landing/keluarga-berbinar/linkedin-fill.png') }}"
                                                     alt="linkedin" class="size-6"></a>
                                         </div>
                                     </div>
