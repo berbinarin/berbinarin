@@ -226,13 +226,13 @@
 
                 // texture BOTH FRONT AND BACK
                 const textureBack = document.createElement('img'); // element
-                textureBack.src = 'assets/images/landing/keluarga-berbinar/texture-card.png';
+                textureBack.src = '/assets/images/landing/keluarga-berbinar/texture-card.png';
                 textureBack.alt = 'texture';
                 textureBack.id = 'back-texture'
                 textureBack.classList.add('texture');
 
                 const textureFront = document.createElement('img');
-                textureFront.src = 'assets/images/landing/keluarga-berbinar/texture-card.png';
+                textureFront.src = '/assets/images/landing/keluarga-berbinar/texture-card.png';
                 textureFront.alt = 'texture';
                 textureFront.id = 'front-texture'
                 textureFront.classList.add('texture');
@@ -269,7 +269,7 @@
                 liniMasaBtn.classList.add('liniMasaBtn');
 
                 const liniMasaImg = document.createElement('img');
-                liniMasaImg.src = 'assets/images/landing/keluarga-berbinar/lini-masa.png';
+                liniMasaImg.src = '/assets/images/landing/keluarga-berbinar/lini-masa.png';
                 liniMasaImg.classList.add('mx-auto', 'size-5');
                 const liniMasaSpan = document.createElement('span');
                 liniMasaSpan.classList.add('text-center', 'text-xs', 'font-semibold', 'text-white');
@@ -320,7 +320,7 @@
                     <p class="block text-base font-normal text-white">
                         ${dateStart}${isAlumni ? ` - ${dateEnd}` : '- Sekarang'}</p>
                     <a href="${staff.linkedin}" target="_blank" class="hidden w-auto xl:pointer-events-auto xl:inline-block xl:cursor-pointer">
-                        <img src="assets/images/landing/keluarga-berbinar/linkedin-fill.png" alt="linkedin" class="size-6"></a>
+                        <img src="/assets/images/landing/keluarga-berbinar/linkedin-fill.png" alt="linkedin" class="size-6"></a>
                 </div>`
 
                 const contentHTML = `
@@ -365,7 +365,7 @@
                 linkedInBtn.classList.add('absolute', 'bottom-2', 'right-3', 'lg:hidden');
 
                 const imgLinkedInBtn = document.createElement('img');
-                imgLinkedInBtn.src = 'assets/images/landing/keluarga-berbinar/linkedin-fill.png'
+                imgLinkedInBtn.src = '/assets/images/landing/keluarga-berbinar/linkedin-fill.png'
                 imgLinkedInBtn.alt = 'linkedin';
                 imgLinkedInBtn.classList.add('size-6');
 
