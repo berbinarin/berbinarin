@@ -209,7 +209,7 @@ class LandingController extends Controller
         $konselings = [
             [
                 'name' => 'Konseling Psikolog',
-                'image' => 'assets/images/landing/asset-tentang/konseling/psikolog.png',
+                'image' => 'assets/images/landing/asset-tentang/konseling/Konseling Psikolog.webp',
                 'description' => [
                     'Memiliki pelatihan dan kualifikasi profesional untuk menangani masalah kesehatan mental yang lebih kompleks.',
                     'Menyediakan pendekatan yang lebih formal dan terstandarisasi dalam konseling.',
@@ -217,7 +217,7 @@ class LandingController extends Controller
             ],
             [
                 'name' => 'Konseling Peer Counselor',
-                'image' => 'assets/images/landing/asset-tentang/konseling/peer-counselor.png',
+                'image' => 'assets/images/landing/asset-tentang/konseling/Konseling Peer Counselor.webp',
                 'description' => [
                     'Menawarkan dukungan dari teman sebaya dengan empati yang kuat sehingga lebih mudah terbuka dengan klien.',
                     'Fokus pada masalah sehari-hari seperti penyesuaian diri.',
@@ -225,7 +225,7 @@ class LandingController extends Controller
             ],
             [
                 'name' => 'Konseling Daring',
-                'image' => 'assets/images/landing/asset-tentang/konseling/daring.png',
+                'image' => 'assets/images/landing/asset-tentang/konseling/Konseling Daring.webp',
                 'description' => [
                     'Fleksibilitas yang memudahkan klien menjadwalkan sesi sesuai dengan ketersediaan klien dan dapat dilakukan dari mana saja.',
                     'Aksesibilitas dengan menyediakan pilihan bagi klien yang tinggal di daerah susah dijangkau dan mengurangi kecemasan yang mungkin dirasakan saat bertemu langsung.',
@@ -233,7 +233,7 @@ class LandingController extends Controller
             ],
             [
                 'name' => 'Konseling Luring',
-                'image' => 'assets/images/landing/asset-tentang/konseling/psikolog.png',
+                'image' => 'assets/images/landing/asset-tentang/konseling/Konseling Luring.webp',
                 'description' => [
                     'Adanya interaksi yang mungkinkan komunikasi yang lebih nyaman dengan bahasa tubuh secara langsung.',
                     'Lingkungan yang terjamin untuk kenyamanan dan privasi sehingga mengurangi gangguan seperti saat sesi daring.',
@@ -248,29 +248,9 @@ class LandingController extends Controller
                 'image' => 'assets/images/landing/asset-konseling/image/psikolog/danny.png'
             ],
             [
-                'name' => 'B. Primandini Y. H.',
-                'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/primandini.png'
-            ],
-            [
-                'name' => 'Yusandi Rezki Fadhli',
-                'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/yusandi.png'
-            ],
-            [
                 'name' => 'Satria Kamal Agassi',
                 'title' => 'S.Psi., M.Psi., Psikolog',
                 'image' => 'assets/images/landing/asset-konseling/image/psikolog/satria.png'
-            ],
-            [
-                'name' => 'Virginia Sukma Dewi',
-                'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/virginia.png'
-            ],
-            [
-                'name' => 'Kasmayani Karim',
-                'title' => 'M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/kasmayani.png'
             ],
             [
                 'name' => 'Ira Mayang Sari',
@@ -286,7 +266,17 @@ class LandingController extends Controller
                 'name' => 'Ramadhani Lucky Al Kahfi',
                 'title' => 'S.Psi., M.Psi., Psikolog',
                 'image' => 'assets/images/landing/asset-konseling/image/psikolog/ramadhani.png'
-            ]
+            ],
+            [
+                'name' => 'Alto Kusumo Andrian',
+                'title' => 'S.Psi., M.Psi., Psikolog',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/alto.png'
+            ],
+            [
+                'name' => 'Saraswati Stefannie Doho',
+                'title' => 'S.Psi., M.Psi., Psikolog',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/saras.png'
+            ],
         ];
 
         $weeksOn = [
@@ -386,9 +376,9 @@ class LandingController extends Controller
                 'region' => 'Tangerang Selatan'
             ],
             [
-                'name' => "Nabila Farah Atiqah",
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/nabila.png',
-                'region' => 'Malang'
+                'name' => "Firda Annisapriyanti",
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/firda.png',
+                'region' => 'Palembang'
             ],
             [
                 'name' => 'Thahira Raudhatunissa',
@@ -534,12 +524,12 @@ class LandingController extends Controller
                     [
                         'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra10.png',
                         'name' => 'PT Parna Maspion Sejahtera',
-                        'total' => '40 Karyawan',
+                        'total' => '40 Klien',
                     ],
                     [
                         'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra15.png',
                         'name' => 'PT Bara Blasting Perkasa',
-                        'total' => '7 Karyawan',
+                        'total' => '7 Klien',
                     ],
                 ],
             ],
@@ -549,17 +539,17 @@ class LandingController extends Controller
                     [
                         'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra3.png',
                         'name' => 'Calon Dosen Non PNS UNAIR',
-                        'total' => '1 Karyawan',
+                        'total' => '1 Klien',
                     ],
                     [
                         'logo' => 'assets/images/landing/asset-psikotes/yayasan-darussalam.png',
                         'name' => 'Calon Guru Yayasan Darussalam',
-                        'total' => '55 Karyawan',
+                        'total' => '55 Klien',
                     ],
                     [
                         'logo' => 'assets/images/landing/asset-psikotes/yayasan-darussalam.png',
                         'name' => 'Calon Kepala Sekolah Yayasan Darussalam',
-                        'total' => '4 Karyawan',
+                        'total' => '4 Klien',
                     ],
                 ],
             ],
@@ -569,7 +559,7 @@ class LandingController extends Controller
                     [
                         'logo' => 'assets/images/landing/asset-psikotes/vector-person2.png',
                         'name' => 'Individu',
-                        'total' => '8 Karyawan',
+                        'total' => '8 Klien',
                     ],
                 ],
             ],
@@ -596,7 +586,7 @@ class LandingController extends Controller
             ],
             [
                 'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-dimensia.png',
-                'jenis_tes' => 'Tes Dimensia',
+                'jenis_tes' => 'Tes Demensia‍',
                 'harga' => 'Rp199.999',
                 'keterangan' => [
                     'laporan_tertulis' => true,
@@ -913,7 +903,7 @@ class LandingController extends Controller
             ],
             [
                 'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-dimensia.png',
-                'paket' => 'Tes Dimensia',
+                'paket' => 'Tes Demensia',
                 'harga' => 'Rp199.999',
                 'keterangan' => [
                     'laporan_tertulis' => true,
