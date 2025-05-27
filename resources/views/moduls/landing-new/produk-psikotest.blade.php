@@ -1258,7 +1258,7 @@
           class="text-justify text-lg text-[#3F3F3F] max-lg:text-[17px] max-sm:text-[15px] max-sm:leading-normal"
         >
           Psikotes untuk Komunitas ini bertujuan untuk mengetahui kesiapan pernikahan, menjadi orang
-          tua, kecocokan bersama pasangan, tingkat stress, depresi, kecemasan, memori, dan dimensia.
+          tua, kecocokan bersama pasangan, tingkat stress, depresi, kecemasan, memori, dan demensia.
         </p>
         <a href="{{ route("psikotes-new/daftar-psikotes") }}">
           <div class="relative z-10 flex justify-start max-md:justify-center">
