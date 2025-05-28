@@ -205,7 +205,7 @@
                                         {{--image-sm-md--}}
                                         <div class="relative h-full w-32 md:w-36 overflow-hidden group-even:order-last md:flex md:items-end lg:hidden">
                                             <img
-                                                src="{{asset('assets/images/landing/keluarga-berbinar/image-example.png')}}"
+                                                src="{{asset('/assets/images/landing/keluarga-berbinar/image-example.png')}}"
                                                 alt="image-example" class="object-cover">
                                             <span
                                                 class="absolute w-auto py-1 px-2 z-10 bottom-0 left-1/2 -translate-x-1/2 font-semibold text-nowrap tracking-wide text-xs text-white text-center bg-[#654064] rounded-lg shadow-lg">Manajer Divisi</span>
@@ -213,7 +213,7 @@
                                         {{--image-lg--}}
                                         <div class="hidden lg:block relative h-full w-48 py-1 overflow-hidden">
                                             <img
-                                                src="{{asset('assets/images/landing/keluarga-berbinar/image-example.png')}}"
+                                                src="{{asset('/assets/images/landing/keluarga-berbinar/image-example.png')}}"
                                                 alt="image-example" class="object-cover">
                                             <span
                                                 class="absolute w-auto py-1 px-2 z-10 bottom-2 left-1/2 -translate-x-1/2 font-semibold text-nowrap tracking-wide text-xs text-white text-center bg-[#654064] rounded-lg shadow-lg">Manajer Divisi</span>
@@ -313,7 +313,7 @@
                                         {{--image--}}
                                         <div class="relative h-full w-48 py-1 overflow-hidden">
                                             <img
-                                                src="{{asset('assets/images/landing/keluarga-berbinar/image-example.png')}}"
+                                                src="{{asset('/assets/images/landing/keluarga-berbinar/image-example.png')}}"
                                                 alt="image-example" class="object-cover">
                                             <span
                                                 class="absolute w-auto py-1 px-2 z-10 bottom-2 left-1/2 -translate-x-1/2 font-semibold text-nowrap tracking-wide text-xs text-white text-center bg-[#654064] rounded-lg shadow-lg">Manajer Divisi</span>
