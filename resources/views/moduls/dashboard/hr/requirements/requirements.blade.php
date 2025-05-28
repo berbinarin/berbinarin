@@ -43,11 +43,11 @@
                                     <td>{{ Str::limit($item->requirement, 25) }}</td>
                                     <!-- Adjust the limit (50 in this example) to your preferred word limit -->
                                     <td class="flex gap-2">
-                                        <a href="/dashboard/admin/positions/requirements/edit/{{ $item->id }}"
+                                        <a href="{{ route('dashboard.position-requirements.edit' ,$item->id) }}"
                                             class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-500 focus:outline-none rounded">
                                             <i class='bx bxs-edit-alt text-dark'></i>
                                         </a>
-                                        {{-- <form action="{{ route('Position-Requirement.destroy', $item->id) }}" method="post">
+                                        {{-- <form action="{{ route('dashboard.position-requirements.destroy', $item->id) }}" method="post">
                                             @csrf
                                             @method("Delete")
                                             <input type="hidden" name="id">
@@ -80,7 +80,7 @@
                                             </div>
                                             <!--body-->
                                             <div class="relative p-6 flex-auto">
-                                                <form action="{{ route('Position-Requirement.destroy', $item->id) }}" method="post">
+                                                <form action="{{ route('dashboard.position-requirements.destroy', $item->id) }}" method="post">
                                                         @csrf
                                                         @method("DELETE")
                                                         <input type="hidden" name="id">
@@ -144,7 +144,7 @@
                 </div>
                 <!--body-->
                 <div class="relative p-6 flex-auto">
-                    <form action="{{ route("Position-Requirement.store") }}" class="flex flex-col gap-1" method="post">
+                    <form action="{{ route("dashboard.position-requirements.store") }}" class="flex flex-col gap-1" method="post">
                         @csrf
                         <div class="flex gap-1">
                             <div class="mb-1 pt-0 flex-1">

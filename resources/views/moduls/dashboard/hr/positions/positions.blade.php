@@ -38,7 +38,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($HiringPosisitons as $key=>$item)
+                                @forelse ($positions as $key=>$item)
                                     <tr class="data-consume">
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $item->name }}</td>
@@ -50,7 +50,7 @@
                                             {{ $item->divisi }}
                                         </td>
                                         <td class="flex gap-2">
-                                            <a href="/dashboard/admin/positions/edit/{{ $item->id }}"
+                                            <a href="{{ route('dashboard.positions.edit', ['position' => $item->id]) }}"
                                                 class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-500 focus:outline-none rounded"><i
                                                     class='bx bxs-edit-alt text-dark'></i>
                                             </a>
@@ -67,7 +67,7 @@
                                                 <i class='bx bxs-trash-alt text-white'></i>
                                             </button>
 
-                                            <form action="{{ route('HiringPositions.setActivation', $item->id) }}"
+                                            <form action="{{ route('dashboard.positions.set_active', $item->id) }}"
                                                 method="post">
                                                 @csrf
                                                 @method('PATCH')
@@ -110,7 +110,7 @@
                                                 </div>
                                                 <!--body-->
                                                 <div class="relative p-6 flex-auto">
-                                                    <form action="{{ route('HiringPositions.destroy', $item->id) }}"
+                                                    <form action="{{ route('dashboard.positions.destroy', $item->id) }}"
                                                         method="post">
                                                         @csrf
                                                         @method('DELETE')
@@ -259,7 +259,7 @@
                 </div>
                 <!--body-->
                 <div class="relative p-6 flex-auto">
-                    <form action="{{ route('HiringPositions.store') }}" class="flex flex-col gap-1" method="post">
+                    <form action="{{ route('dashboard.positions.store') }}" class="flex flex-col gap-1" method="post">
                         @csrf
                         <div class="flex gap-1">
                             <div class="mb-1 pt-0 w-full">

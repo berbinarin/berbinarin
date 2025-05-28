@@ -24,7 +24,7 @@
             </div>
           </div>
           <!-- Form untuk Value Table kiri -->
-          <form action="{{ route('user_internships.update', $Internship->id) }}" method="POST">
+          <form action="{{ route('dashboard.internships.update', $Internship->id) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="flex flex-col mb-2">

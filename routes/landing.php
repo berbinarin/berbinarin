@@ -1,115 +1,138 @@
 <?php
 
-use App\Http\Controllers\PsikotestPaid\Tools\EPI\EPIController;
-use App\Http\Controllers\PsikotestPaid\Tools\RMIB\RMIBController;
+use App\Http\Controllers\Auth\UserPsikotestPaidController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\BAUM\BAUMController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\Biodata\UserClinicalController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\Biodata\UserCommunityController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\Biodata\UserCompanyController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\Biodata\UserEducationController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\Biodata\UserIndividualController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\DAP\DAPController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\DASS\DassController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\EPI\EPIController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\HTP\HTPController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\OCEAN\OCEANController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\PapiKostick\PapiKostickController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\RMIB\RMIBController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\SSCT\SSCTController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\TesEsai\TesEsaiController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\VAK\VakController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Tools\ResultBaumController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Tools\ResultDapController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Tools\ResultOceanController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Tools\ResultSsctController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Tools\ResultTesEsaiController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\PsikotestToolController;
+use App\Http\Controllers\Landing\Home\HomeController;
+use App\Http\Controllers\Landing\AboutUs\AboutUsController;
+use App\Http\Controllers\Landing\Arteri\ArteriController;
+use App\Http\Controllers\Landing\Career\CareerController;
+use App\Http\Controllers\Landing\Career\KeluargaBerbinar\KeluargaBerbinarController;
+use App\Http\Controllers\Landing\Career\Position\PositionController;
+use App\Http\Controllers\Landing\Product\Class\BerbinarPlus\BerbinarPlusController;
+use App\Http\Controllers\Landing\Product\Class\Bisikan\BisikanController;
+use App\Http\Controllers\Landing\Product\Class\Class101Journey\Class101JourneyController;
+use App\Http\Controllers\Landing\Product\Class\ClassController;
+use App\Http\Controllers\Landing\Product\Class\PremiumClass\PremiumClassController;
+use App\Http\Controllers\Landing\Product\Consulting\ConsultingController;
+use App\Http\Controllers\Landing\Product\Konseling\KonselingController;
+use App\Http\Controllers\Landing\Product\Psikotest\PsikotestController;
+use App\Http\Controllers\Landing\Product\EmoShuffle\EmoShuffleController;
+use App\Http\Controllers\Landing\Product\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LandingController;
-use App\Http\Controllers\PsikotestPaid\PsikotestToolController;
-use App\Http\Controllers\PsikotestPaid\Tools\DAP\DAPController;
-use App\Http\Controllers\PsikotestPaid\Tools\HTP\HTPController;
-use App\Http\Controllers\PsikotestPaid\Tools\VAK\VakController;
 
-use App\Http\Controllers\PsikotestPaid\Tools\BAUM\BAUMController;
-use App\Http\Controllers\PsikotestPaid\Tools\SSCT\SSCTController;
-
-use App\Http\Controllers\PsikotestPaid\Tools\OCEAN\OCEANController;
-use App\Http\Controllers\PsikotestPaid\UserPsikotestPaidController;
-use App\Http\Controllers\PsikotestPaid\Tools\DAP\ResultDapController;
-use App\Http\Controllers\PsikotestPaid\Tools\Baum\ResultBaumController;
-use App\Http\Controllers\PsikotestPaid\Tools\SSCT\ResultSsctController;
-use App\Http\Controllers\PsikotestPaid\Tools\TesEsai\TesEsaiController;
-use App\Http\Controllers\PsikotestPaid\Tools\OCEAN\ResultOceanController;
-use App\Http\Controllers\PsikotestPaid\Tools\TesEsai\ResultTesEsaiController;
-use App\Http\Controllers\PsikotestPaid\Tools\PapiKostick\PapiKostickController;
-
-use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserCompanyController;
-use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserEducationController;
-use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserCommunityController;
-use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserClinicalController;
-use App\Http\Controllers\PsikotestPaid\Tools\Biodata\UserIndividualController;
-use App\Http\Controllers\PsikotestPaid\Tools\DASS\DASSController;
-use App\Http\Controllers\KeluargaBerbinarin\LandingKeluargaBerbinar;
-use App\Http\Controllers\ArticleController\LandingArticle;
 
 // Home
-Route::get('/', [LandingController::class, 'landing_new'])->name('home-new');
-Route::get('/consulting', [LandingController::class, 'consulting_new'])->name('consulting-new');
-Route::get('/faq', [LandingController::class, 'faq_new'])->name('faq-new');
-Route::get('/syarat-dan-ketetuan', [LandingController::class, 'term_condition_new'])->name('term-condition-new');
-Route::get('/kebijakan-privasi', [LandingController::class, 'privacy_policy_new'])->name('privacy-policy-new');
+Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/faq', [HomeController::class, 'faq'])->name('index.faq');
+Route::get('/syarat-dan-ketetuan', [HomeController::class, 'termCondition'])->name('index.term_condition');
+Route::get('/kebijakan-privasi', [HomeController::class, 'privacyPolicy'])->name('index.privacy_policy');
 
 // Tentang Kami
 Route::prefix('tentang-kami')->group(function () {
-    Route::get('/', [LandingController::class, 'tentang_new'])->name('tentang-new');
+    Route::get('/', [AboutUsController::class, 'index'])->name('about_us.index');
 });
 
-// Produk
+// Product
 Route::prefix('produk')->group(function () {
-    Route::get('/', [LandingController::class, 'produk_new'])->name('produk-new');
+    Route::get('/', [ProductController::class, 'index'])->name('product.index');
 
-    // Produk Konseling
+    // Product Konseling
     Route::prefix('konseling')->group(function () {
-        Route::get('/', [LandingController::class, 'konseling_new'])->name('konseling-new');
-        Route::get('/daftar-konseling', [LandingController::class, 'daftar_konseling'])->name('konseling-new/daftar-konseling');
-        Route::get('/jadwal-konseling', [LandingController::class, 'jadwal_konseling'])->name('konseling-new/jadwal-konseling');
-        Route::get('/data-diri-konseling', [LandingController::class, 'data_diri_konseling'])->name('konseling-new/data-diri-konseling');
-        Route::get('/cerita-konseling', [LandingController::class, 'cerita_konseling'])->name('konseling-new/cerita-konseling');
-        Route::get('/summary-konseling', [LandingController::class, 'summary_konseling'])->name('konseling-new/summary-konseling');
+        Route::get('/', [KonselingController::class, 'index'])->name('product.konseling.index');
+        Route::get('/daftar-konseling', [KonselingController::class, 'daftar'])->name('product.konseling.daftar');
+        Route::get('/jadwal-konseling', [KonselingController::class, 'jadwal'])->name('product.konseling.jadwal');
+        Route::get('/data-diri-konseling', [KonselingController::class, 'dataDiri'])->name('product.konseling.data_diri');
+        Route::get('/cerita-konseling', [KonselingController::class, 'cerita'])->name('product.konseling.cerita');
+        Route::get('/summary-konseling', [KonselingController::class, 'summary'])->name('product.konseling.summary');
     });
 
-    // Produk Psikotest
+    // Product Psikotest
     Route::prefix('psikotest')->group(function () {
-        Route::get('/psikotest', [LandingController::class, 'psikotest_new'])->name('psikotest-new');
-        Route::get('/daftar-psikotes', [LandingController::class, 'daftar_psikotes'])->name('psikotes-new/daftar-psikotes');
-        Route::get('/jadwal-psikotes', [LandingController::class, 'jadwal_psikotes'])->name('psikotes-new/jadwal-psikotes');
-        Route::get('/data-diri-psikotes', [LandingController::class, 'data_diri_psikotes'])->name('psikotes-new/data-diri-psikotes');
-        Route::get('/summary-psikotes', [LandingController::class, 'summary_psikotes'])->name('psikotes-new/summary-psikotes');
+        Route::get('/', [PsikotestController::class, 'index'])->name('product.psikotest.index');
+        Route::get('/daftar', [PsikotestController::class, 'daftar'])->name('product.psikotest.daftar');
+        Route::get('/jadwal', [PsikotestController::class, 'jadwal'])->name('product.psikotest.jadwal');
+        Route::get('/data-diri', [PsikotestController::class, 'data_diri'])->name('product.psikotest.data-diri');
+        Route::get('/summary', [PsikotestController::class, 'summary'])->name('product.psikotest.summary');
     });
 
-    // Produk EmoShuffle
-    Route::prefix('emo-shuffle')->group(function () {
-        Route::get('/', [LandingController::class, 'emoShuffle'])->name('emoShuffle');
+    Route::prefix('consulting')->group(function () {
+        Route::get('/', [ConsultingController::class, 'index'])->name('product.consulting.index');
     });
 
-    // Produk Class
+    // Product Class
     Route::prefix('class')->group(function () {
-        Route::get('/', [LandingController::class, 'kelas_new'])->name('kelas-new');
+        Route::get('/', [ClassController::class, 'class'])->name('product.class.index');
 
         // Class 101 Class Journey
         Route::prefix('/101-class-journey')->group(function () {
-            Route::get('/', [LandingController::class, 'class_journey_new'])->name('101-class-journey');
+            Route::get('/', [Class101JourneyController::class, 'index'])->name('product.class.class-101-journey.index');
         });
 
         // Class Berbinar-plus
         Route::prefix('berbinar-plus')->group(function () {
-            Route::get('/', [LandingController::class, 'berbinar_plus_new'])->name('berbinar-plus-new');
+            Route::get('/', [BerbinarPlusController::class, 'index'])->name('product.class.berbinar_plus.index');
         });
 
         // Class Bisikan
         Route::prefix('bisikan')->group(function () {
-            Route::get('/', [LandingController::class, 'bisikan_new'])->name('bisikan');
+            Route::get('/', [BisikanController::class, 'index'])->name('product.class.bisikan.index');
         });
+
+        // Class Premium
+        Route::prefix('premium-class')->group(function () {
+            Route::get('/', [PremiumClassController::class, 'index'])->name('product.class.premium_class.index');
+        });
+    });
+
+    // Product EmoShuffle
+    Route::prefix('emo-shuffle')->group(function () {
+        Route::get('/', [EmoShuffleController::class, 'index'])->name('product.emo_shuffle.index');
     });
 });
 
 // Karier
 Route::prefix('karier')->group(function () {
-    Route::get('/', [LandingController::class, 'karir_new'])->name('karir-new');
-    Route::get('/posisi', [LandingController::class, 'positions_new'])->name('positions-new');
-    Route::get('/posisi/{id}', [LandingController::class, 'positions_detail_new'])->name('positions-detail-new');
+    Route::get('/', [CareerController::class, 'career'])->name('career.index');
+
+    // Position
+    Route::prefix('posisi')->group(function () {
+        Route::get('/', [PositionController::class, 'index'])->name('career.positions.index');
+        Route::get('/{id}', [PositionController::class, 'detail'])->name('career.positions.detail');
+    });
 
     // Keluarga Berbinar
     Route::prefix('keluarga-berbinar')->group(function () {
-        Route::get('/', [LandingKeluargaBerbinar::class, 'keluarga_berbinar'])->name('keluarga-berbinar');
+        Route::get('/', [KeluargaBerbinarController::class, 'index'])->name('career.keluarga_berbinar.index');
     });
 });
 
 // ArteRi
 Route::prefix('arteri')->group(function () {
-    Route::get('/', [LandingArticle::class, 'index'])->name('arteri');
-    Route::get('/{id}', [LandingArticle::class, 'show'])->name('arteri.detail');
-    Route::get('/kategori/{slug}', [LandingArticle::class, 'category'])->name('arteri.category');
+    Route::get('/', [ArteriController::class, 'index'])->name('arteri');
+    Route::get('/{id}', [ArteriController::class, 'show'])->name('arteri.detail');
+    Route::get('/kategori/{slug}', [ArteriController::class, 'category'])->name('arteri.category');
 });
 
 // Psikotest Paid
@@ -226,7 +249,7 @@ Route::prefix('/psikotest-paid')->group(function () {
 
 
         // BDI
-        Route::get('/tool/BDI', [LandingController::class, 'LandingBDI'])->name('psikotest-paid.tool.BDI.showLanding');
+        // Route::get('/tool/BDI', [LandingController::class, 'LandingBDI'])->name('psikotest-paid.tool.BDI.showLanding');
         // Route::get('/tool/BDI/test', [LandingController::class, 'TestBDI'])->name('psikotest-paid.tool.BDI.testbdi');
         // Route::get('/tool/BDI/end/', [LandingController::class, 'EndBDI'])->name('psikotest-paid.tool.BDI.endbdi');
 

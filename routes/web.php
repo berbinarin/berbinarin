@@ -21,4 +21,4 @@ require __DIR__ . '/landing.php';
 require __DIR__ . '/dashboard.php';
 
 // menambahkan sementara route lama
-require __DIR__. '/old.php';
+// require __DIR__. '/old.php';

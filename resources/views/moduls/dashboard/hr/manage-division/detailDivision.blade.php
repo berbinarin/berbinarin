@@ -11,7 +11,7 @@
         <div class="py-4 md:pt-12 md:pb-7">
             <div class="">
                 <div class="flex items-center mb-2 gap-2">
-                    <a href="{{ route('dashboard.manageDivision') }}">
+                    <a href="{{ route('dashboard.divisions.index') }}">
                         <img src="{{ asset('assets/images/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                     </a>
                     <p tabindex="0"
@@ -22,7 +22,7 @@
                     Keluarga Berbinar. Data tersebut meliputi nama divisi dan subdivisi jika ada.</p>
             </div>
             <div class="flex items-center gap-5 pb-8">
-                <a href="{{ route('dashboard.manageDivision.edit', $division->id) }}">
+                <a href="{{ route('dashboard.divisions.edit', $division->id) }}">
                     <button type="button"
                         class="focus:ring-2 focus:ring-offset-2 mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded-lg">
                         <p class="font-medium leading-none text-dark">Edit</p>

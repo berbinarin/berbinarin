@@ -31,7 +31,7 @@
         class="z-10 mx-20 mb-20 mt-40 flex flex-row items-center justify-between gap-x-1 max-sm:mx-4 max-sm:mt-32"
       >
         <div class="max-lg:min-w-auto flex max-w-xl flex-1 flex-col space-y-6 max-sm:space-y-2">
-          <a href="{{ route("produk-new") }}">
+          <a href="{{ route("product.index") }}">
             <div class="flex cursor-pointer items-center space-x-2 lg:order-1">
               <img
                 src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.svg") }}"
@@ -221,7 +221,7 @@
 
           <div class="flex justify-start lg:order-5">
             <a
-            href="{{ route('produk-new') }}"
+            href="{{ route('product.index') }}"
               class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:text-[15px]"
             >
               Lihat Produk Berbinar
@@ -304,7 +304,7 @@
           Psikotes individu dapat memprediksi potensi yang dimiliki dalam kaitannya dengan
           pencapaian hasil belajar atau kemampuan di masa yang akan datang.
         </p>
-        <a href="{{ route("psikotes-new/daftar-psikotes") }}">
+        <a href="{{ route("product.psikotest.daftar") }}">
           <div class="relative z-10 flex justify-start max-md:justify-center">
             <a
             href="{{ route('psikotestHome') }}"
@@ -480,7 +480,7 @@
           kecenderungan kepribadian seorang kandidat dan melihat apakah kandidat tersebut cocok
           ditempatkan di suatu posisi pekerjaan.
         </p>
-        <a href="{{ route("psikotes-new/daftar-psikotes") }}">
+        <a href="{{ route("product.psikotest.daftar") }}">
           <div class="relative z-10 flex justify-start max-md:justify-center">
             <a
               href="{{ route("psikotestHome") }}"
@@ -1060,7 +1060,7 @@
           Psikotes untuk Instansi Pendidikan digunakan untuk mengenal gaya belajar, cita-cita,
           jurusan, minat bakat yang sesuai dengan SobatBinar.
         </p>
-        <a href="{{ route("psikotes-new/daftar-psikotes") }}">
+        <a href="{{ route("product.psikotest.daftar") }}">
           <div class="relative z-10 flex justify-start max-md:justify-center">
             <a
             href="{{ route('psikotestHome') }}"
@@ -1260,7 +1260,7 @@
           Psikotes untuk Komunitas ini bertujuan untuk mengetahui kesiapan pernikahan, menjadi orang
           tua, kecocokan bersama pasangan, tingkat stress, depresi, kecemasan, memori, dan demensia.
         </p>
-        <a href="{{ route("psikotes-new/daftar-psikotes") }}">
+        <a href="{{ route("product.psikotest.daftar") }}">
           <div class="relative z-10 flex justify-start max-md:justify-center">
             <a
             href="{{ route('psikotestHome') }}"
@@ -1596,7 +1596,7 @@
           </div>
         </div>
 
-        <a href="{{ route("psikotes-new/daftar-psikotes") }}">
+        <a href="{{ route("product.psikotest.daftar") }}">
           <div class="z-10 flex justify-start max-md:justify-center">
             <a
             href="{{ route('psikotestHome') }}"

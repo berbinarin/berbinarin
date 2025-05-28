@@ -19,7 +19,7 @@
                 Berbinar hadir untuk membangun hubungan antara perusahaan dengan klien secara profesional. dan meraih potensi yang terbaik.
             </p>
             <div class="flex justify-start">
-                <a href="{{ route('tentang-new') }}">
+                <a href="{{ route('about_us.index') }}">
                     <button class="mt-4 bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-white font-medium py-2 px-6 rounded-lg w-auto max-sm:w-auto max-sm:text-sm whitespace-nowrap">
                         Profil Perusahaan
                     </button>

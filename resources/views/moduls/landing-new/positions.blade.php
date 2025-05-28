@@ -72,7 +72,7 @@
                         {{--button start--}}
                         <div class="w-full flex justify-center items-center mb-4 md:mb-1">
                             <a
-                                href="{{route('positions-detail-new', $position->id)}}"
+                                href="{{route('career.positions.detail', $position->id)}}"
                                 class="w-3/4 py-2 px-2 rounded-lg bg-primary font-normal text-sm text-white text-center hover:opacity-80 hover:shadow-lg md:w-full">
                                 Lihat Selengkapnya
                             </a>
@@ -163,7 +163,7 @@
 
     {{--BANNER KELUARGA BERBINAR START--}}
     <section class="w-full lg:mt-12 mx-auto flex items-center justify-center px-2 md:px-16 mb-12">
-        <a href="{{route('keluarga-berbinar')}}">
+        <a href="{{route('career.keluarga_berbinar.index')}}">
             <div class=" cursor-pointer">
                 <img src="{{asset('assets/images/landing/karir/banner-keluarga-berbinar.png')}}"
                      alt="banner keluarga berbinar" class="object-cover">

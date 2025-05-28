@@ -20,22 +20,22 @@
 
     <!-- Navigasi Link -->
     <div id="navLinks" class="hidden md:flex ml-auto items-center max-lg:space-x-7 space-x-14">
-        <a href="{{ route('home-new') }}"
+        <a href="{{ route('index') }}"
            class="@if ($active == 'Beranda') text-[#3886A3] font-semibold border-b-2 border-[#3886A3]
                 @else text-gray-600 font-semibold @endif">
             Beranda
         </a>
-        <a href="{{ route('tentang-new') }}"
+        <a href="{{ route('about_us.index') }}"
            class="@if ($active == 'Tentang Kami') text-[#3886A3] font-semibold border-b-2 border-[#3886A3]
                 @else text-gray-600 font-semibold @endif">
             Tentang Kami
         </a>
-        <a href="{{ route('produk-new') }}"
+        <a href="{{ route('product.index') }}"
            class="@if ($active == 'Produk Berbinar') text-[#3886A3] font-semibold border-b-2 border-[#3886A3]
                 @else text-gray-600 font-semibold @endif">
             Produk
         </a>
-        <a href="{{route('karir-new')}}"
+        <a href="{{route('career.index')}}"
            class="@if ($active == 'Karir') text-[#3886A3] font-semibold border-b-2 border-[#3886A3]
                 @else text-gray-600 font-semibold @endif">
             Karier
@@ -57,22 +57,22 @@
 
 <!-- Screen Mobile Menu -->
 <div id="mobileMenu" class="fixed inset-0 bg-white bg-opacity-90 hidden z-40 flex flex-col justify-center items-center">
-    <a href="{{ route('home-new') }}"
+    <a href="{{ route('index') }}"
        class="@if ($active == 'Beranda') block text-[#3886A3] font-medium text-2xl py-4
             @else block text-gray-600 font-medium text-2xl py-4 @endif">
         Beranda
     </a>
-    <a href="{{ route('tentang-new') }}"
+    <a href="{{ route('about_us.index') }}"
        class="@if ($active == 'Tentang Kami') block text-[#3886A3] font-medium text-2xl py-4
             @else block text-gray-600 font-medium text-2xl py-4 @endif">
         Tentang Kami
     </a>
-    <a href="{{ route('produk-new') }}"
+    <a href="{{ route('product.index') }}"
        class="@if ($active == 'Produk Berbinar') block text-[#3886A3] font-medium text-2xl py-4
             @else block text-gray-600 font-medium text-2xl py-4 @endif">
         Produk
     </a>
-    <a href="{{route('karir-new')}}"
+    <a href="{{route('career.index')}}"
        class="@if ($active == 'Karir') block text-[#3886A3] font-medium text-2xl py-4
             @else block text-gray-600 font-medium text-2xl py-4 @endif">
         Karier

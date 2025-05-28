@@ -24,7 +24,7 @@
         <div class="relative">
             <div class="flex flex-row justify-between items-center max-sm:mt-32 mx-20 max-sm:mx-4 gap-x-10 z-10">
                 <div class="flex flex-col flex-1 space-y-6 max-sm:space-y-2 max-w-xl max-lg:min-w-auto">
-                    <a href="{{ route('produk-new') }}">
+                    <a href="{{ route('product.index') }}">
                         <div class="flex lg:order-1 items-center space-x-2 cursor-pointer">
                             <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow" class="h-3 w-auto">
                             <p class="text-[15px] font-semibold text-[#3986A3]">Produk Berbinar</p>  

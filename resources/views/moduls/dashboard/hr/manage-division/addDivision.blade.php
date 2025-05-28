@@ -30,7 +30,7 @@
             <div class="py-4 md:pt-12 md:pb-7">
                 <div class="">
                     <div class="flex items-center mb-2 gap-2">
-                        <a href="{{ route('dashboard.manageDivision') }}">
+                        <a href="{{ route('dashboard.divisions.index') }}">
                             <img src="{{ asset('assets/images/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                         </a>
                         <p tabindex="0"
@@ -44,7 +44,7 @@
             <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-md shadow-gray-400 shadow-lg">
                 {{-- div bawah ini ganti form tar --}}
                 <div class="mt-4 mb-4 overflow-x-auto">
-                    <form action="{{ route('dashboard.manageDivision.store') }}" method="POST">
+                    <form action="{{ route('dashboard.divisions.store') }}" method="POST">
                         @csrf
                         <div class="flex pb-5">
                             <div class="w-1/2 flex flex-col gap-10">

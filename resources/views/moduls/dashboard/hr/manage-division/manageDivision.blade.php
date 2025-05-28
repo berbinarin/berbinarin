@@ -37,7 +37,7 @@
                     <p class="w-3/4 text-disabled">Pada halaman ini, admin dapat melakukan tambah, edit, ataupun hapus
                         terhadap divisi yang ada pada Keluarga Berbinar. Data tersebut yang menjadi bahan untuk ditampilkan
                         pada website resmi Berbinar pada bagian Keluarga Berbinar.</p>
-                    <a href="{{ route('dashboard.manageDivision.add') }}">
+                    <a href="{{ route('dashboard.divisions.create') }}">
                         <button type="button"
                             class="focus:ring-2 focus:ring-offset-2 mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded-lg">
                             <p class="font-medium leading-none text-dark">Tambah Data</p>
@@ -91,14 +91,14 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap flex justify-center items-center gap-2">
                                         <!-- Tombol Detail -->
-                                        <a href="{{ route('dashboard.manageDivision.details', $division->id) }}"
+                                        <a href="{{ route('dashboard.divisions.show', $division->id) }}"
                                             class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-2 focus:outline-none rounded hover:bg-blue-700"
                                             style="background-color: #3B82F6;">
                                             <i class='bx bx-show text-white'></i>
                                         </a>
 
                                         <!-- Tombol Edit -->
-                                        <a href="{{ route('dashboard.manageDivision.edit', $division->id) }}"
+                                        <a href="{{ route('dashboard.divisions.edit', $division->id) }}"
                                             class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-2 focus:outline-none rounded hover:bg-yellow-700"
                                             style="background-color: #E9B306;">
                                             <i class='bx bx-edit-alt text-black'></i>
@@ -168,7 +168,7 @@
         let deleteForm = document.getElementById('deleteForm');
 
         function openDeleteModal(divisionId) {
-            deleteForm.action = `/dashboard/manage-division/${divisionId}/delete`;
+            deleteForm.action = `/dashboard/divisions/${divisionId}`;
             deleteModal.classList.remove('hidden');
         }
 

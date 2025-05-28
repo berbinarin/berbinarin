@@ -14,11 +14,11 @@
                             class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
                             Edit Data Position Requirements </p>
                         <p class="w-2/4 text-disabled">Dashboard > <a
-                                href="{{ route('dashboard.positions.descriptions') }}">Positions Requirements</a>
+                                href="{{ route('dashboard.position-descriptions.index') }}">Positions Requirements</a>
                             > Edit</p>
                     </div>
                 </div>
-                <form action="{{ route('Position-Requirement.update', $HiringPosisitonsRequirement->id) }}"
+                <form action="{{ route('dashboard.position-requirements.update', $HiringPosisitonsRequirement->id) }}"
                     class="flex flex-col gap-1" method="post">
                     @csrf
                     @method('PUT')

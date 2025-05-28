@@ -18,10 +18,10 @@
         <div class="text-left w-full lg:w-1/4 max-sm:mx-0 max-sm:mt-1 mx-4">
             <h4 class="text-[#75BADB] font-semibold max-sm:mb-2 mb-6">Produk Berbinar</h4>
             <ul class="space-y-2">
-                <li><a href="{{ route('konseling-new') }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Berbinar Konseling</a></li>
-                <li><a href="{{ route('psikotest-new') }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Berbinar Psikotes</a></li>
-                <li><a href="{{ route('kelas-new') }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Berbinar Class</a></li>
-                <li><a href="{{ route('consulting-new') }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Berbinar Consulting</a></li>
+                <li><a href="{{ route('product.konseling.index') }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Berbinar Konseling</a></li>
+                <li><a href="{{ route('product.psikotest.index') }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Berbinar Psikotes</a></li>
+                <li><a href="{{ route('product.class.index') }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Berbinar Class</a></li>
+                <li><a href="{{ route('product.consulting.index') }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Berbinar Consulting</a></li>
                 <li><a href="https://tokopedia.link/gwgtSs9oUOb" target="_blank" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">MoodScan Tees</a></li>
                 {{-- <li><a href="#" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">EmoShuffle</a></li> --}}
             </ul>
@@ -31,9 +31,9 @@
         <div class="text-left w-full lg:w-1/4 max-sm:mx-0 max-sm:mt-4 mx-4">
             <h4 class="text-[#75BADB] font-semibold max-sm:mb-2 mb-6">Lainnya</h4>
             <ul class="space-y-2">
-                <li><a href="{{ route('faq-new') }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">FAQ</a></li>
-                <li><a href="{{ route('term-condition-new') }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Syarat & Ketentuan</a></li>
-                <li><a href="{{ route('privacy-policy-new') }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Kebijakan Privasi</a></li>
+                <li><a href="{{ route('index.faq') }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">FAQ</a></li>
+                <li><a href="{{ route('index.term_condition') }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Syarat & Ketentuan</a></li>
+                <li><a href="{{ route('index.privacy_policy') }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Kebijakan Privasi</a></li>
             </ul>
         </div>
 

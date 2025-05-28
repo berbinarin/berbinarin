@@ -95,7 +95,7 @@
               </td>
               <td class="px-6 py-4 whitespace-no-wrap">{{ $item->keterangan}}</td>
               <td>
-                <a href="/dashboard/admin/internshipDataDetails/{{ $item->id }}" class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-3 bg-gray-500 hover:bg-gray-600 focus:outline-none rounded">
+                <a href="{{ route('dashboard.internships.show', $item->id)  }}" class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-3 bg-gray-500 hover:bg-gray-600 focus:outline-none rounded">
                   <i class='bx bx-show text-white'></i>
                 </a>
               </td>
@@ -125,7 +125,7 @@
                 var selectedValue = selectElement.value;
                 var recordId = selectElement.getAttribute('data-id');
                 var xhr = new XMLHttpRequest();
-                xhr.open('POST', '{{ route("updateStatus") }}', true);
+                xhr.open('POST', '{{ route("dashboard.internships.update_status") }}', true);
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}');
 
@@ -157,7 +157,7 @@
                 var namaKolom = selectElement.getAttribute('nama-kolom');
                 // console.log(namaKolom);
                 var xhr = new XMLHttpRequest();
-                xhr.open('POST', '{{ route("updateStatus") }}', true);
+                xhr.open('POST', '{{ route("dashboard.internships.update_status") }}', true);
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}');
 

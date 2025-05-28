@@ -23,7 +23,7 @@
                             }
                         @endphp
                         <img
-                            src="{{asset('assets/images/landing/karir/banner/'.$imageName.'.png')}}"
+                            src="{{asset('assets/images/landing/karir/banner/'.$imageName.'.jpg')}}"
                             alt="banner"
                             class="object-cover w-full h-40 sm:h-48 md:h-60 lg:h-64 xl:h-72">
                     </div>
@@ -195,7 +195,7 @@
 
     {{--BANNER KELUARGA BERBINAR START--}}
     <section class="w-full lg:mt-12 mx-auto flex items-center justify-center px-2 md:px-16 mb-12">
-        <a href="{{route('keluarga-berbinar')}}">
+        <a href="{{route('career.keluarga_berbinar.index')}}">
             <div class=" cursor-pointer">
                 <img src="{{asset('assets/images/landing/karir/banner-keluarga-berbinar.png')}}"
                      alt="banner keluarga berbinar" class="object-cover">

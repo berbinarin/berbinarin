@@ -13,17 +13,17 @@
                         <p tabindex="0"
                             class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
                             Edit Data Position </p>
-                        <p class="w-2/4 text-disabled">Dashboard > <a href="{{ route('dashboard.positions') }}">Positions</a>
+                        <p class="w-2/4 text-disabled">Dashboard > <a href="{{ route('dashboard.positions.index') }}">Positions</a>
                             > Edit</p>
                     </div>
                 </div>
-                <form action="{{ route('HiringPositions.update', $HiringPosisitons->id) }}" class="flex flex-col gap-1" method="post">
+                <form action="{{ route('dashboard.positions.update', $position->id) }}" class="flex flex-col gap-1" method="post">
                     @csrf
                     @method('PUT')
                     <div class="flex gap-1">
                         <div class="mb-1 pt-0 w-full">
                             <label for="name" class="text-blueGray-600 text-base">Nama Posisi</label>
-                            <input id="name" name="name" type="text" placeholder="Human Resource Development" value="{{ $HiringPosisitons->name }}"
+                            <input id="name" name="name" type="text" placeholder="Human Resource Development" value="{{ $position->name }}"
                                 class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full" />
                         </div>
                     </div>
@@ -34,11 +34,11 @@
                             <select id="type" name="type" placeholder="Placeholder" 
                                 class="px-3 py-3 appearance-none mt-2  placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full" >
                                 <option value="Default" >Pilih Tipe Pekerjaan</option>
-                                <option value="Internship" @if(isset($HiringPosisitons) && $HiringPosisitons->type == "Internship") selected @endif>Internship</option>
-                                <option value="Fulltime" @if(isset($HiringPosisitons) && $HiringPosisitons->type == "Fulltime") selected @endif>Fulltime</option>
-                                <option value="Part Time" @if(isset($HiringPosisitons) && $HiringPosisitons->type == "Part Time") selected @endif >Part Time</option>
-                                <option value="Contract" @if(isset($HiringPosisitons) && $HiringPosisitons->type == "Contract") selected @endif >Contract</option>
-                                <option value="Freelancer" @if(isset($HiringPosisitons) && $HiringPosisitons->type == "Freelancer") selected @endif>Freelancer</option>
+                                <option value="Internship" @if(isset($position) && $position->type == "Internship") selected @endif>Internship</option>
+                                <option value="Fulltime" @if(isset($position) && $position->type == "Fulltime") selected @endif>Fulltime</option>
+                                <option value="Part Time" @if(isset($position) && $position->type == "Part Time") selected @endif >Part Time</option>
+                                <option value="Contract" @if(isset($position) && $position->type == "Contract") selected @endif >Contract</option>
+                                <option value="Freelancer" @if(isset($position) && $position->type == "Freelancer") selected @endif>Freelancer</option>
                             </select>
                         </div>
                         <div class="mb-1 pt-0 flex-1">
@@ -46,9 +46,9 @@
                             <select id="positions" name="positions" placeholder="Placeholder"
                                 class="px-3 py-3 appearance-none mt-2  placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
                                 <option value="Default">Pilih Jenis Jabatan</option>
-                                <option value="Staff" @if(isset($HiringPosisitons) && $HiringPosisitons->positions == "Staff") selected @endif>Staff</option>
-                                <option value="Manager"@if(isset($HiringPosisitons) && $HiringPosisitons->positions == "Manager") selected @endif>Manager</option>
-                                <option value="Researcher" @if(isset($HiringPosisitons) && $HiringPosisitons->positions == "Researcher") selected @endif>Researcher</option>
+                                <option value="Staff" @if(isset($position) && $position->positions == "Staff") selected @endif>Staff</option>
+                                <option value="Manager"@if(isset($position) && $position->positions == "Manager") selected @endif>Manager</option>
+                                <option value="Researcher" @if(isset($position) && $position->positions == "Researcher") selected @endif>Researcher</option>
                             </select>
                         </div>
                     </div>
@@ -58,29 +58,29 @@
                             <select id="location" name="location" placeholder="Placeholder"
                                 class="px-3 py-3 appearance-none mt-2  placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
                                 <option value="Default">Pilih Lokasi</option>
-                                <option value="Remote" @if(isset($HiringPosisitons) && $HiringPosisitons->location == "Remote") selected @endif>Remote</option>
-                                <option value="Surabaya" @if(isset($HiringPosisitons) && $HiringPosisitons->location == "Surabaya") selected @endif>Surabaya</option>
+                                <option value="Remote" @if(isset($position) && $position->location == "Remote") selected @endif>Remote</option>
+                                <option value="Surabaya" @if(isset($position) && $position->location == "Surabaya") selected @endif>Surabaya</option>
                             </select>
                         </div>
                         <div class="mb-1 pt-0 flex-1">
                             <label for="divisi" class="text-blueGray-600 text-base">Divisi</label>
                             <select id="divisi" name="divisi" placeholder="Placeholder" required class="px-3 py-3 appearance-none mt-2  placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full">
-                                <option value="Web and Mobile Apps Developer" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "Web and Mobile Apps Developer") selected @endif>Web and Mobile Apps Developer</option>
-                                <option value="TikTok Creator" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "TikTok Creator") selected @endif>TikTok Creator</option>
-                                <option value="Secretary n Finance" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "Secretary n Finance") selected @endif>Secretary n Finance</option>
-                                <option value="Psychological Testing Product Management" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "Psychological Testing Product Management") selected @endif>Psychological Testing Product Management</option>
-                                <option value="Marketing Strategist dan Sales" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "Marketing Strategist dan Sales") selected @endif>Marketing Strategist dan Sales</option>
-                                <option value="IG Creator" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "IG Creator") selected @endif>IG Creator</option>
-                                <option value="Human Resource" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "Human Resource") selected @endif>Human Resource</option>
-                                <option value="Graphic Designer" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "Graphic Designer") selected @endif>Graphic Designer</option>
-                                <option value="Class Product Management" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "Class Product Management") selected @endif>Class Product Management</option>
-                                <option value="Counseling Product Management" @if(isset($HiringPosisitons) && $HiringPosisitons->divisi == "Counseling Product Management") selected @endif>Counseling Product Management</option>
+                                <option value="Web and Mobile Apps Developer" @if(isset($position) && $position->divisi == "Web and Mobile Apps Developer") selected @endif>Web and Mobile Apps Developer</option>
+                                <option value="TikTok Creator" @if(isset($position) && $position->divisi == "TikTok Creator") selected @endif>TikTok Creator</option>
+                                <option value="Secretary n Finance" @if(isset($position) && $position->divisi == "Secretary n Finance") selected @endif>Secretary n Finance</option>
+                                <option value="Psychological Testing Product Management" @if(isset($position) && $position->divisi == "Psychological Testing Product Management") selected @endif>Psychological Testing Product Management</option>
+                                <option value="Marketing Strategist dan Sales" @if(isset($position) && $position->divisi == "Marketing Strategist dan Sales") selected @endif>Marketing Strategist dan Sales</option>
+                                <option value="IG Creator" @if(isset($position) && $position->divisi == "IG Creator") selected @endif>IG Creator</option>
+                                <option value="Human Resource" @if(isset($position) && $position->divisi == "Human Resource") selected @endif>Human Resource</option>
+                                <option value="Graphic Designer" @if(isset($position) && $position->divisi == "Graphic Designer") selected @endif>Graphic Designer</option>
+                                <option value="Class Product Management" @if(isset($position) && $position->divisi == "Class Product Management") selected @endif>Class Product Management</option>
+                                <option value="Counseling Product Management" @if(isset($position) && $position->divisi == "Counseling Product Management") selected @endif>Counseling Product Management</option>
                             </select>
                         </div>
                     </div>
                     {{-- <div class="mb-1 pt-0 w-full">
                         <label for="link" class="text-blueGray-600 text-base">Link Registrasi</label>
-                        <input id="link" name="link" type="text" placeholder="Link Registrasi" value="{{ $HiringPosisitons->link }}"
+                        <input id="link" name="link" type="text" placeholder="Link Registrasi" value="{{ $position->link }}"
                             class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full" />
                     </div> --}}
 

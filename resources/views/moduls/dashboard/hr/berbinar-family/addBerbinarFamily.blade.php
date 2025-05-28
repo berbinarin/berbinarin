@@ -55,7 +55,7 @@
             <div class="py-4 md:pt-12 md:pb-7">
                 <div class="">
                     <div class="flex items-center mb-2 gap-2">
-                        <a href="{{ route('dashboard.berbinarFamily') }}">
+                        <a href="{{ route('dashboard.keluarga-berbinar.index') }}">
                             <img src="{{ asset('assets/images/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                         </a>
                         <p tabindex="0"
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-md shadow-gray-400 shadow-lg">
-                <form action="{{ route('dashboard.berbinarFamily.submit') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('dashboard.keluarga-berbinar.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mt-4 mb-4 overflow-x-auto">
                         <h1 class="text-2xl font-bold">Data Diri</h1>

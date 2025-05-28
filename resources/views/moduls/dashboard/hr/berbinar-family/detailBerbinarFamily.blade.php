@@ -11,7 +11,7 @@
         <div class="py-4 md:pt-12 md:pb-7">
             <div class="">
                 <div class="flex items-center mb-2 gap-2">
-                    <a href="{{ route('dashboard.berbinarFamily') }}">
+                    <a href="{{ route('dashboard.keluarga-berbinar.index') }}">
                         <img src="{{ asset('assets/images/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                     </a>
                     <p tabindex="0"
@@ -22,13 +22,13 @@
                     manager dalam Keluarga Berbinar. Data tersebut meliputi data diri dan riwayat jabatan.</p>
             </div>
             <div class="flex items-center gap-5">
-                <a href="{{ route('dashboard.berbinarFamily.edit', $staff->id) }}">
+                <a href="{{ route('dashboard.keluarga-berbinar.edit', $staff->id) }}">
                     <button type="button"
                         class="focus:ring-2 focus:ring-offset-2  mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded-lg">
                         <p class=" font-medium leading-none text-dark">Edit</p>
                     </button>
                 </a>
-                <form action="{{ route('dashboard.berbinarFamily.delete', $staff->id) }}" method="POST">
+                <form action="{{ route('dashboard.keluarga-berbinar.destroy', $staff->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit"

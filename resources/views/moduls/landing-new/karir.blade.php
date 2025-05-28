@@ -52,7 +52,7 @@
                     </div>
                     {{-- button --}}
                     <a
-                        href="{{ route("positions-new") }}"
+                        href="{{ route("career.positions.index") }}"
                         class="mx-auto flex h-12 w-fit items-center justify-center rounded-lg bg-gradient-to-tr from-[#F7B23B] to-[#AD7D29] px-4 py-2 text-center text-lg text-white transition duration-300 hover:opacity-80 hover:shadow-lg md:mx-0 lg:text-xl"
                     >
                         Lihat Posisi Tersedia
@@ -214,7 +214,7 @@
                             {{-- button start --}}
                             <div class="mb-4 flex w-full items-center justify-center md:mb-1">
                                 <a
-                                    href="{{ route("positions-detail-new", $position->id) }}"
+                                    href="{{ route("career.positions.detail", $position->id) }}"
                                     class="w-3/4 rounded-lg bg-primary px-2 py-2 text-center text-sm font-normal text-white hover:opacity-80 hover:shadow-lg md:w-full"
                                 >
                                     Lihat Selengkapnya
@@ -253,7 +253,7 @@
             {{-- posissi lainnya start --}}
             <div class="flex w-full items-center justify-center py-4">
                 <a
-                    href="{{ route("positions-new") }}"
+                    href="{{ route("career.positions.index") }}"
                     class="rounded-xl bg-gradient-to-r from-[#3986A3] to-[#15323D] px-12 py-3 font-plusJakartaSans text-base font-normal tracking-wide text-white hover:opacity-70 hover:shadow-lg md:px-16 md:text-lg"
                 >
                     Posisi Lainnya
@@ -413,7 +413,7 @@
 
     {{-- BANNER KELUARGA BERBINAR START --}}
     <section class="mx-auto mb-12 flex w-full items-center justify-center px-2 md:px-16">
-        <a href="{{ route("keluarga-berbinar") }}">
+        <a href="{{ route("career.keluarga_berbinar.index") }}">
             <div class="cursor-pointer">
                 <img
                     src="{{ asset("assets/images/landing/karir/banner-keluarga-berbinar.png") }}"

@@ -220,7 +220,7 @@
                         </div>
 
                         <div class="flex justify-start">
-                            <a href="{{ route('konseling-new') }}">
+                            <a href="{{ route('product.konseling.index') }}">
                                 <button
                                     class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 rounded-xl max-sm:w-full">
                                     Lihat Selengkapnya
@@ -298,7 +298,7 @@
                         </div>
 
                         <div class="flex justify-start">
-                            <a href="{{ route('psikotest-new') }}">
+                            <a href="{{ route('product.psikotest.index') }}">
                                 <button
                                     class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 rounded-xl max-sm:w-full">
                                     Lihat Selengkapnya
@@ -388,7 +388,7 @@
                         </div>
 
                         <div class="flex justify-start">
-                            <a href="{{ route('kelas-new') }}">
+                            <a href="{{ route('product.class.index') }}">
                                 <button
                                     class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 rounded-xl max-sm:w-full">
                                     Lihat Selengkapnya
@@ -491,7 +491,7 @@
                         </div>
 
                         <div class="flex justify-start">
-                            <a href="{{ route('consulting-new') }}">
+                            <a href="{{ route('product.consulting.index') }}">
                                 <button
                                     class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 rounded-xl max-sm:w-full">
                                     Lihat Selengkapnya
@@ -619,7 +619,7 @@
                                     kecemasan.</p>
 
                                 <div class="flex justify-start">
-                                    <a href="{{ route('emoShuffle') }}">
+                                    <a href="{{ route('product.emo_shuffle.index') }}">
                                         <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 rounded-xl max-sm:w-full">
                                             Lihat Selengkapnya
                                         </button>

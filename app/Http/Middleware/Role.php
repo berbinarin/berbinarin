@@ -28,6 +28,6 @@ class Role
             return $next($request);
         } else {
         }
-        return redirect()->route('dashboard.login');
+        return redirect()->route('auth.login');
     }
 }
