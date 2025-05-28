@@ -181,7 +181,7 @@
                                 {{--FRONT CARD--}}
                                 <div onclick="handleFlip({{$i}})" id="front-{{$i}}" class="relative h-40 md:h-48 rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] pt-2 pb-3 px-4 cursor-pointer hover:shadow-lg lg:h-60 lg:w-full lg:p-4 lg:cursor-default lg:pointer-events-none">
                                     {{--texture--}}
-                                    <img src="{{asset('assets/images/landing/keluarga-berbinar/texture-card.png')}}"
+                                    <img src="{{asset('/assets/images/landing/keluarga-berbinar/texture-card.png')}}"
                                          alt="texture"
                                          class="hidden lg:block absolute z-10 scale-y-75 -bottom-8 left-0 ">
 
@@ -251,7 +251,7 @@
                                 {{--BACK CARD--}}
                                 <div onclick="handleFlip({{$i}})" id="back-{{$i}}" class="relative hidden min-h-40 md:min-h-48 lg:min-h-60 rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] pt-2 pb-3 px-4 lg:p-4 cursor-pointer hover:shadow-lg my-rotate-y-180">
                                     {{--texture--}}
-                                    <img src="{{asset('assets/images/landing/keluarga-berbinar/texture-card.png')}}"
+                                    <img src="{{asset('/assets/images/landing/keluarga-berbinar/texture-card.png')}}"
                                          alt="texture"
                                          class="hidden lg:block absolute z-10 scale-y-75 -bottom-8 left-0">
 
@@ -294,7 +294,7 @@
                                 {{--FRONT CARD--}}
                                 <div id="front-" class="relative h-60 w-full rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] hover:shadow-lg p-4">
                                     {{--texture--}}
-                                    <img src="{{asset('assets/images/landing/keluarga-berbinar/texture-card.png')}}"
+                                    <img src="{{asset('/assets/images/landing/keluarga-berbinar/texture-card.png')}}"
                                          alt="texture"
                                          class="block absolute z-10 scale-y-75 -bottom-8 left-0 ">
                                     {{--status--}}
@@ -339,7 +339,7 @@
                                 {{--BACK CARD--}}
                                 <div id="back-" onclick="" class="hidden relative min-h-60 w-full rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] hover:shadow-lg p-4 my-rotate-y-180 cursor-pointer">
                                     {{--texture--}}
-                                    <img src="{{asset('assets/images/landing/keluarga-berbinar/texture-card.png')}}"
+                                    <img src="{{asset('/assets/images/landing/keluarga-berbinar/texture-card.png')}}"
                                          alt="texture"
                                          class="block absolute z-10 scale-y-75 -bottom-8 left-0 ">
 
