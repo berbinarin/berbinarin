@@ -180,75 +180,8 @@
         </li>
         @endif
 
-        @role('human_resource')
-        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
-            <a href="{{ route('dashboard.positions.index') }}" class="flex flex-row items-center @if ($modul === 'Positions') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-                <i class="bx bx-briefcase-alt-2 text-xl mr-2 @if ($modul === 'Positions') text-primary @else text-gray-700 @endif text-lg"></i>
-                <span class="text-base font-bold ml-4 leading-5">Positions</span>
-            </a>
-        </li>
 
-        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
-            <a href="{{ route('dashboard.position-descriptions.index') }}" class="flex flex-row items-center @if ($modul === 'Positions Descriptions') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-                <i class="bx bxl-upwork text-xl mr-2 @if ($modul === 'Positions Descriptions') text-primary @else text-gray-700 @endif text-lg"></i>
-                <span class="text-base font-bold ml-4 leading-5">Position Descriptions</span>
-            </a>
-        </li>
-
-        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
-            <a href="{{ route('dashboard.position-requirements.index') }}" class="flex flex-row items-center @if ($modul === 'Positions Requirements') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-                <i class="bx bx-file text-xl mr-2 @if ($modul === 'Positions Requirements') text-primary @else text-gray-700 @endif text-lg"></i>
-                <span class="text-base font-bold ml-4 leading-5">Position Requirements</span>
-            </a>
-        </li>
-
-        <!-- sidebar intenship  -->
-        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
-            <a href="{{ route('dashboard.internships.index') }}" class=" flex flex-row items-center @if ($modul === 'Internship') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-                <i class="bx bx-book text-xl mr-2 @if ($modul === 'Internship') text-primary @else text-gray-700 @endif text-lg"></i>
-                <span class="text-base font-bold ml-4 leading-5">Internship</span>
-            </a>
-        </li>
-
-        <!-- sidebar keluarga berbinar  -->
-        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
-            <a href="{{ route('dashboard.keluarga-berbinar.index') }}" class=" flex flex-row items-center @if ($modul === 'BerbinarFamily') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-                <i class="bx bx-group text-xl mr-2 @if ($modul === 'BerbinarFamily') text-primary @else text-gray-700 @endif text-lg"></i>
-                <span class="text-base font-bold ml-4 leading-5">Keluarga Berbinar</span>
-            </a>
-        </li>
-
-        <!-- sidebar manage division  -->
-        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
-            <a href="{{ route('dashboard.divisions.index') }}" class=" flex flex-row items-center @if ($modul === 'Manage Division') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-                <i class="bi bi-files text-xl mr-2 @if ($modul === 'Manage Division') text-primary @else text-gray-700 @endif text-lg"></i>
-                <span class="text-base font-bold ml-4 leading-5">Manage Division</span>
-            </a>
-        </li>
-        @endrole
-
-        @if (auth()->user()->role == 'Konselling')
-        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
-            <a href="{{ route('dashboard.PeerConsellorSchedule') }}" class=" flex flex-row items-center @if ($modul === 'Peer Conselor Schedule') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-                <i class="bx bx-calendar text-xl mr-2 @if ($modul === ' Peer Conselor Schedule') text-primary @else text-gray-700 @endif text-lg"></i>
-                <span class="text-base font-bold ml-4 leading-5">Peer Counselor Schedule</span>
-            </a>
-        </li>
-
-        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
-            <a href="{{ route('dashboard.PeerConsellorData') }}" class=" flex flex-row items-center @if ($modul === 'Peer Conselor Data') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-                <i class="bx bx-user text-xl mr-2 @if ($modul === ' Peer Conselor Data') text-primary @else text-gray-700 @endif text-lg"></i>
-                <span class="text-base font-bold ml-4 leading-5">Peer Counselor Data</span>
-            </a>
-        </li>
-
-        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
-            <a href="{{ route('dashboard.PsikologData') }}" class=" flex flex-row items-center @if ($modul === 'Psikolog Data') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-                <i class="bx bx-user text-xl mr-2 @if ($modul === ' Psikolog Data') text-primary @else text-gray-700 @endif text-lg"></i>
-                <span class="text-base font-bold ml-4 leading-5">Psikolog Data</span>
-            </a>
-        </li>
-        @endif
+        
 
 
         @if (auth()->user()->role == 'PsikotestFree')

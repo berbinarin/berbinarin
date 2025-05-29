@@ -1,10 +1,10 @@
-@extends('moduls.dashboard.layouts.main', [
+@extends('dashboard.layouts.app', [
     'title' => 'Dashboard Arteri',
     'active' => 'Dashboard',
     'modul' => 'Postingan',
 ])
 
-@section('content-dashboard')
+@section('content')
     <form action="{{ route('dashboard.article.update.store', $article->id) }}" enctype="multipart/form-data" method="POST">
         @csrf
         @method('POST')

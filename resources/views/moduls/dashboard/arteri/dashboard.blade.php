@@ -4,7 +4,7 @@
     'modul' => 'Main Dashboard',
 ])
 
-@section('content-dashboard')
+@section('content')
 <section class="flex w-full h-full">
     <div class="flex flex-col w-full h-full">
         <div class="py-4 md:pt-12 md:pb-7">

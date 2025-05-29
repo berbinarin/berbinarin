@@ -1,10 +1,10 @@
-@extends('moduls.dashboard.layouts.main', [
+@extends('dashboard.layouts.app', [
     'title' => 'Dashboard',
     'active' => 'Dashboard',
     'modul' => 'Dashboard',
 ])
 
-@section('content-dashboard')
+@section('content')
     <section class="flex w-full">
         <div class="flex flex-col">
             <div class="w-full">
@@ -12,7 +12,7 @@
                     <div class="">
                         <!-- <p tabindex="0" class="focus:outline-none text-5xl font-bold leading-normal text-gray-800 mb-2">
                                                                                         Dashboard</p> -->
-                        @if (Auth::user()->role == 'HR')
+                        @role('hr')
                             <p tabindex="0" class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
                                 Dashboard</p>
                             <p class="w-2/4 text-disabled">Fitur ini digunakan untuk menampilkan jumlah data posisi hiring,
@@ -21,7 +21,7 @@
                                 yang sedang
                                 atau akan
                                 dibukan atau telah dibuka yang ditampilkan pada website careers Berbinarin.</p>
-                        @endif
+                        @endrole
                         @if (Auth::user()->role == 'Konselling')
                             <p tabindex="0"
                                 class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
@@ -70,7 +70,7 @@
                     </div>
                 </div>
             </div>
-            @if (Auth::user()->role == 'HR')
+            @role ('hr')
                 <div class="flex flex-row w-full gap-6">
                     <div class="flex items-center p-8 bg-white shadow rounded-lg">
                         <div
@@ -105,7 +105,8 @@
                         </div>
                     </div>
                 </div>
-            @elseif (Auth::user()->role == 'Konselling')
+                @endrole
+            @if (Auth::user()->role == 'Konselling')
                 <div class="flex flex-row w-full gap-6">
                     <div class="flex items-center p-8 bg-white shadow rounded-lg">
                         <div

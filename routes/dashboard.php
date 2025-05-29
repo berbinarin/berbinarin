@@ -1,58 +1,59 @@
 <?php
 
+use App\Http\Controllers\Dashboard\CounselingPM\PeerCounselorController;
+use App\Http\Controllers\Dashboard\CounselingPM\PeerCounselorScheduleController;
+use App\Http\Controllers\Dashboard\CounselingPM\PsychologistController;
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Dashboard\HumanResource\ajaxInternship;
-use App\Http\Controllers\Dashboard\HumanResource\DivisionController;
-use App\Http\Controllers\Dashboard\HumanResource\InternshipController;
-use App\Http\Controllers\Dashboard\HumanResource\KeluargaBerbinarController;
-use App\Http\Controllers\Dashboard\HumanResource\PositionController;
-use App\Http\Controllers\Dashboard\HumanResource\PositionDescriptionController;
-use App\Http\Controllers\Dashboard\HumanResource\PositionRequirementController;
-use App\Http\Controllers\Dashboard\HumanResource\UserInternshipController;
+use App\Http\Controllers\Dashboard\HR\ajaxInternship;
+use App\Http\Controllers\Dashboard\HR\DivisionController;
+use App\Http\Controllers\Dashboard\HR\InternshipController;
+use App\Http\Controllers\Dashboard\HR\KeluargaBerbinarController;
+use App\Http\Controllers\Dashboard\HR\PositionController;
+use App\Http\Controllers\Dashboard\HR\PositionDescriptionController;
+use App\Http\Controllers\Dashboard\HR\PositionRequirementController;
 use Illuminate\Support\Facades\Route;
 
-// HR
-
 Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(function () {
+
+    // Dashbaord Index
     Route::get('/', [DashboardController::class, 'index'])->name('index');
 
-    // Human Resource
-    Route::middleware('role:human_resource')->group(function () {
+    // Class PM |  Counselling Product Management
+    route::middleware('role:counseling-pm')->group(function () {
+
+        // Psychologis
+        Route::resource('/psychologists', PsychologistController::class)->except('create', 'edit');
+
+        // Peer Counselor
+        Route::resource('/peer-counselors', PeerCounselorController::class)->except('create', 'edit');
+
+        // Peer Counselor Schedule
+        Route::resource('/peer-counselor-schedules', PeerCounselorScheduleController::class)->except('create', 'show', 'edit');
+    });
+
+
+    // HR |  Human Resource
+    Route::middleware('role:hr')->group(function () {
 
         // Keluarga Berbinar
         Route::resource('/keluarga-berbinar', KeluargaBerbinarController::class);
 
-        // MODUL POSITIONS
+        // Position
         Route::resource('/positions', PositionController::class);
         Route::patch('/positions/{id}/active', [PositionController::class, 'setActive'])->name('positions.set_active');
 
-        // MODUL POSITIONS JOB DESCRIPTION
+        // Position Description
         Route::resource('/position-descriptions', PositionDescriptionController::class);
 
-        // MODUL POSITIONS REQUIREMENTS
+        // Position Requirement
         Route::resource('/position-requirements', PositionRequirementController::class);
 
-        // MODUL INTERNSHIP
+        // Internship
         Route::resource('/internships', InternshipController::class);
-        // INTERN AJAX
         Route::post('/dashboard/admin/internship/update-status', [ajaxInternship::class, 'updateStatus'])->name('internships.update_status');
-        // Route::get('/dashboard/admin/internship', [DashboardController::class, 'internship'])->name('dashboard.internship');
-        // Route::patch('/dashboard/admin/internship/setProcess/{id}', [UserInternshipController::class, 'SetProcess'])->name('dashboard.internship.setProcess');
-        // Route::get('/dashboard/admin/internshipDataDetails/{id}', [DashboardController::class, 'internshipDataDetails'])->name('dashboard.internshipDataDetails');
-        // Route::get('/dashboard/admin/internshipDataDetails/edit/{id}', [DashboardController::class, 'editInternship'])->name('dashboard.editInternship');
-        // Route::put('/dashboard/admin/internshipDataDetails/update/{id}', [DashboardController::class, 'updateInternship'])->name('dashboard.updateInternship');
 
-        // MODUL MANAGE DIVISION
+        // Divison
         Route::resource('/divisions', DivisionController::class);
-        // Route::get('/dashboard/admin/manage-division', [DashboardController::class, 'manageDivision'])->name('dashboard.manageDivision');
-        // Route::get('/dashboard/admin/manage-division/add', [DashboardController::class, 'addManageDivision'])->name('dashboard.manageDivision.add');
-        // Route::get('/dashboard/manage-division/{id}/detail', [DashboardController::class, 'detailManageDivision'])->name('dashboard.manageDivision.details');
-        // Route::post('/dashboard/manage-division/store', [DashboardController::class, 'storeManageDivision'])->name('dashboard.manageDivision.store');
-        // Route::get('/dashboard/manage-division/{id}/edit', [DashboardController::class, 'editManageDivision'])->name('dashboard.manageDivision.edit');
-        // Route::post('/dashboard/manage-division/{id}/update', [DashboardController::class, 'updateManageDivision'])->name('dashboard.manageDivision.update');
-        // Route::delete('/dashboard/manage-division/{id}/delete', [DashboardController::class, 'deleteManageDivision'])->name('dashboard.manageDivision.delete');
-        // Route::delete('/dashboard/manage-division/delete/{id}', [DashboardController::class, 'deleteSubDivision'])->name('dashboard.manageDivision.deleteSubDivision');
-
     });
 
     // // Psychological Test Product Management
@@ -69,24 +70,7 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
     //     Route::get('/dashboard/admin/berbinarplus/data', [DashboardController::class, 'berbinarplusUserData'])->name('dashboard.berbinarplus.data');
     // });
 
-    // // Counseling Product Management
-    // route::middleware('role:cpm')->group(function () {
-    //     // MODUL KONSELLING PSIKOLOG
-    //     Route::get('/dashboard/admin/psikologData', [DashboardController::class, 'PsikologData'])->name('dashboard.PsikologData');
-    //     Route::post('/dashboard/admin/psikologData/add', [DashboardController::class, 'addPsikologData'])->name('dashboard.add.PsikologData');
-    //     Route::get('/dashboard/admin/psikologDataDetails/{id}', [DashboardController::class, 'PsikologDataDetails'])->name('dashboard.PsikologDataDetails');
-    //     Route::put('/dashboard/admin/psikologDataDetails/edit/{id}', [DashboardController::class, 'editPsikologDataDetails'])->name('dashboard.edit.PsikologDataDetails');
-    //     Route::get('/dashboard/admin/psikologDataDetails/delete/{id}', [DashboardController::class, 'deletePsikologDataDetails'])->name('dashboard.delete.PsikologDataDetails');
-    //     Route::get('/dashboard/admin/counselorData', [DashboardController::class, 'PeerConsellorData'])->name('dashboard.PeerConsellorData');
-    //     Route::post('/dashboard/admin/counselorData/add', [DashboardController::class, 'addPeerConsellorData'])->name('dashboard.add.PeerConsellorData');
-    //     Route::get('/dashboard/admin/counselorDataDetails/{id}', [DashboardController::class, 'PeerConsellorDataDetails'])->name('dashboard.PeerConsellorDataDetails');
-    //     Route::put('/dashboard/admin/counselorDataDetails/edit/{id}', [DashboardController::class, 'editPeerConsellorDataDetails'])->name('dashboard.edit.PeerConsellorDataDetails');
-    //     Route::get('/dashboard/admin/counselorDataDetails/delete/{id}', [DashboardController::class, 'deletePeerConsellorDataDetails'])->name('dashboard.delete.PeerConsellorDataDetails');
-    //     Route::get('/dashboard/admin/counselorSchedule', [DashboardController::class, 'PeerConsellorSchedule'])->name('dashboard.PeerConsellorSchedule');
-    //     Route::post('/dashboard/admin/counselorSchedule/add', [DashboardController::class, 'addPeerConsellorSchedule'])->name('dashboard.add.PeerConsellorSchedule');
-    //     Route::put('/dashboard/admin/counselorSchedule/edit/{id}', [DashboardController::class, 'editPeerConsellorSchedule'])->name('dashboard.edit.PeerConsellorSchedule');
-    //     Route::get('/dashboard/admin/counselorSchedule/delete/{id}', [DashboardController::class, 'deletePeerConsellorSchedule'])->name('dashboard.delete.PeerConsellorSchedule');
-    // });
+
 });
 
 

@@ -1,4 +1,4 @@
-@extends('moduls.dashboard.layouts.main', [
+@extends('dashboard.layouts.app', [
     'title' => 'FAQs Management',
     'active' => 'Dashboard',
     'modul' => 'Dashboard Tes'

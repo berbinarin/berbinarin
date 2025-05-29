@@ -15,18 +15,32 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
+        // Class Product Management
+        User::create([
+            'username' => 'classpm',
+            'email' => 'classpm@gmail.com',
+            'password' => Hash::make('berbinar123'),
+        ])->assignRole('class-pm');
+
+        // Counseling Product Management
+        User::create([
+            'username' => 'counselingpm',
+            'email' => 'counselingpm@gmail.com',
+            'password' => Hash::make('berbinar123'),
+        ])->assignRole('counseling-pm');
+
         // Human Resource
         User::create([
             'username' => 'hrberbinar2005',
             'email' => 'hr@gmail.com',
             'password' => Hash::make('berbinaradabuatkamu'),
-        ])->assignRole('human_resource');
+        ])->assignRole('hr');
 
-        // PsikotestTestProductManagement
+        // Pyschological Testing Product Management
         User::create([
             'username' => 'ptpm',
             'email' => 'ptpm@gmail.com',
             'password' => Hash::make('berbinar123'),
-        ])->assignRole('psikotest_test_product_management');
+        ])->assignRole('ptpm');
     }
 }
