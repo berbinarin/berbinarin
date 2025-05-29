@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\ClassPM\BerbinarPlusController;
 use App\Http\Controllers\Dashboard\CounselingPM\PeerCounselorController;
 use App\Http\Controllers\Dashboard\CounselingPM\PeerCounselorScheduleController;
 use App\Http\Controllers\Dashboard\CounselingPM\PsychologistController;
@@ -18,7 +19,7 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
     // Dashbaord Index
     Route::get('/', [DashboardController::class, 'index'])->name('index');
 
-    // Class PM |  Counselling Product Management
+    // Couseling PM |  Counseling Product Management
     route::middleware('role:counseling-pm')->group(function () {
 
         // Psychologis
@@ -29,6 +30,13 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
 
         // Peer Counselor Schedule
         Route::resource('/peer-counselor-schedules', PeerCounselorScheduleController::class)->except('create', 'show', 'edit');
+    });
+
+    // Class Product Management
+    route::middleware('role:class-pm')->group(function () {
+
+        // Berbinar Plus
+        Route::resource('/berbinar-plus', BerbinarPlusController::class);
     });
 
 
@@ -63,14 +71,6 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
     //     Route::get('/psikotestData/papikostick', [DashboardController::class, 'papikostick'])->name('psikotes.dashboard.papikostick');
     //     Route::get('/psikotestSoal', [DashboardController::class, 'psikotestSoal'])->name('psikotes.dashboard.psikotestSoal');
     // });
-
-    // // Class Product Management
-    // route::middleware('role:cpm')->group(function () {
-    //     // MODUL ADMIN BERBINAR PLUS
-    //     Route::get('/dashboard/admin/berbinarplus/data', [DashboardController::class, 'berbinarplusUserData'])->name('dashboard.berbinarplus.data');
-    // });
-
-
 });
 
 

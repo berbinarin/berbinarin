@@ -201,14 +201,7 @@
         </li>
         @endif
 
-        @if (auth()->user()->role == 'BerbinarPlus')
-        <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">
-            <a href="{{ route('dashboard.berbinarplus.data') }}" class=" flex flex-row items-center @if ($modul === 'Berbinar Plus User Data') text-primary @else text-gray-700 @endif hover:text-primary duration-700">
-                <i class="bx bx-user text-xl mr-2 @if ($modul === ' Berbinar Plus User Data') text-primary @else text-gray-700 @endif text-lg"></i>
-                <span class="text-base font-bold ml-4 leading-5">User Data</span>
-            </a>
-        </li>
-        @endif
+
 
         @if (auth()->user()->role == 'BerbinarSatu')
         <li class="my-5 p-2 hover:text-primary dark-hover:text-blue-300 rounded-lg">

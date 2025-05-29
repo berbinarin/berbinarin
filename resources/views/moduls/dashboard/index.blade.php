@@ -22,15 +22,29 @@
                                 atau akan
                                 dibukan atau telah dibuka yang ditampilkan pada website careers Berbinarin.</p>
                         @endrole
-                        @if (Auth::user()->role == 'Konselling')
+
+                        @role ('counseling-pm')
                             <p tabindex="0"
                                 class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
                                 Dashboard</p>
                             <p class="w-2/4 text-disabled">Fitur ini digunakan untuk menampilkan data pendaftar konseling
                                 yang mendaftar melalui situs web Berbinar</p>
-                        @else
-                            <p class="w-2/4 text-disabled"></p>
-                        @endif
+                        @endrole
+
+                        @role ('class-pm')
+                            <p tabindex="0"
+                                class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
+                                Dashboard</p>
+                            <p class="w-2/4 text-disabled">
+                                Fitur ini menampilkan jumlah user yang sedang mendaftar pada Berbinar Plus
+                            </p>
+                        @endrole
+
+
+
+
+
+
                         @if (Auth::user()->role == 'PsikotestFree')
                             <p tabindex="0"
                                 class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
@@ -38,16 +52,6 @@
                             <p class="w-2/4 text-disabled">Fitur ini menampilkan jumlah
                                 pendaftar Tes Psikotes Berbinar dan jumlah soal yang ditampilkan pada website Tes Psikotes
                                 Berbinar</p>
-                        @else
-                            <p class="w-2/4 text-disabled"></p>
-                        @endif
-                        @if (Auth::user()->role == 'BerbinarPlus')
-                            <p tabindex="0"
-                                class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
-                                Dashboard</p>
-                            <p class="w-2/4 text-disabled">
-                                Fitur ini menampilkan jumlah user yang sedang mendaftar pada Berbinar Plus
-                            </p>
                         @else
                             <p class="w-2/4 text-disabled"></p>
                         @endif
@@ -70,6 +74,13 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
+
             @role ('hr')
                 <div class="flex flex-row w-full gap-6">
                     <div class="flex items-center p-8 bg-white shadow rounded-lg">
@@ -106,7 +117,7 @@
                     </div>
                 </div>
                 @endrole
-            @if (Auth::user()->role == 'Konselling')
+            @role ('counseling-pm')
                 <div class="flex flex-row w-full gap-6">
                     <div class="flex items-center p-8 bg-white shadow rounded-lg">
                         <div
@@ -141,7 +152,23 @@
                         </div>
                     </div>
                 </div>
-            @elseif (Auth::user()->role == 'PsikotestFree')
+            @endrole
+
+            @role('class-pm')
+                <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                        <div
+                            class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                            <i class='bx bx-user text-2xl'></i>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold">{{ $totalBerbinarPlusUser }}</span>
+                            <span class="block text-gray-500">Total Users</span>
+                        </div>
+                    </div>
+                </div>
+            @endrole
+                
+            @if (Auth::user()->role == 'PsikotestFree')
                 <div class="flex flex-row w-full gap-6">
                     <div class="flex items-center p-8 bg-white shadow rounded-lg">
                         <div
@@ -164,18 +191,7 @@
                             <span class="block text-gray-500">Total Questions</span>
                         </div>
                     </div>
-                @elseif (Auth::user()->role == 'BerbinarPlus')
-                    <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                        <div
-                            class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
-                            <i class='bx bx-user text-2xl'></i>
-                        </div>
-                        <div>
-                            <span class="block text-2xl font-bold">{{ $totalBerbinarPlusUser }}</span>
-                            <span class="block text-gray-500">Total Users</span>
-                        </div>
-                    </div>
-                </div>
+
             @elseif (Auth::user()->role == 'PsikotestPaid')
                 <div class="grid grid-cols-2 gap-8 p-8 bg-gray-100 rounded-lg shadow-lg w-full ml-20 md-20 ">
                     <div class="w-full flex flex-col justify-between items-center p-10 bg-[#6482AD] shadow-lg rounded-lg">
