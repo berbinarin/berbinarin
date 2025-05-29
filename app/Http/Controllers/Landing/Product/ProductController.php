@@ -9,6 +9,6 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view('moduls.landing-new.produk');
+        return view('landing.product.index');
     }
 }

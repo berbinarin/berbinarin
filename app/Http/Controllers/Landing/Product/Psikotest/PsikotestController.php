@@ -504,7 +504,7 @@ class PsikotestController extends Controller
             ],
         ];
 
-        return view('moduls.landing-new.produk-psikotest')->with([
+        return view('landing.product.psikotest.index')->with([
             'visimisis' => $visimisis,
             'testimoni_psikotes' => $testimoni_psikotes,
             'individus' => $individus,
@@ -518,7 +518,7 @@ class PsikotestController extends Controller
         ]);
     }
 
-    public function daftar()
+    public function registration()
     {
         $layanan_psikotes = [
             [
@@ -539,23 +539,23 @@ class PsikotestController extends Controller
             ],
         ];
 
-        return view('moduls.landing-new.daftar-psikotes')->with([
+        return view('landing.product.psikotest.registration')->with([
             'layanan_psikotes' => $layanan_psikotes
         ]);
     }
 
-    public function jadwal()
+    public function schedule()
     {
-        return view('moduls.landing-new.jadwal-psikotes')->with([]);
+        return view('landing.product.psikotest.schedule')->with([]);
     }
 
-    public function data_diri()
+    public function personalData()
     {
-        return view('moduls.landing-new.data-diri-psikotes')->with([]);
+        return view('landing.product.psikotest.personal-data')->with([]);
     }
 
     public function summary()
     {
-        return view('moduls.landing-new.summary-psikotes')->with([]);
+        return view('landing.product.psikotest.summary')->with([]);
     }
 }

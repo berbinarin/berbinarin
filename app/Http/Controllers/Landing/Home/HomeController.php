@@ -32,7 +32,7 @@ class HomeController extends Controller
                 'vector' => 'assets/images/landing/asset-beranda/produk/logo-konseling.png',
                 'produk' => 'Berbinar Konseling',
                 'deskripsi' => 'Tempat konsultasi kesehatan mental klien dengan memilih psikolog maupun peer counselor yang sudah terjamin kualitas dan profesionalitasnya.',
-                'link' => route('product.konseling.index'),
+                'link' => route('product.counseling.index'),
             ],
             [
                 'vector' => 'assets/images/landing/asset-beranda/produk/logo-class.png',
@@ -56,13 +56,13 @@ class HomeController extends Controller
                 'vector' => 'assets/images/landing/asset-beranda/produk/logo-emoshuffle.png',
                 'produk' => 'EmoShuffle',
                 'deskripsi' => 'Kartu yang dirancang dengan desain menarik dan dapat mendalami juga mengekspresikan perasaan klien saat bermain.',
-                'link' => route('product.konseling.index'),
+                'link' => route('product.counseling.index'),
             ],
             [
                 'vector' => 'assets/images/landing/asset-beranda/produk/logo-moodscantees.png',
                 'produk' => 'MoodScan Tees',
                 'deskripsi' => 'Kaos super nyaman yang memiliki desain konsep psikologis juga fitur QR Code untuk menyimpan pesan motivasi agar tampil bergaya.',
-                'link' => route('product.konseling.index'),
+                'link' => route('product.counseling.index'),
             ],
         ];
 
@@ -129,7 +129,7 @@ class HomeController extends Controller
             ],
         ];
 
-        return view('moduls.landing-new.index')->with([
+        return view('landing.home.index')->with([
             'products' => $products,
             'testimonis' => $testimonis,
             'visimisis' => $visimisis,
@@ -138,7 +138,7 @@ class HomeController extends Controller
 
     public function faq()
     {
-        return view('moduls.landing-new.faq')->with([]);
+        return view('landing.home.faq')->with([]);
     }
 
     public function termCondition()
@@ -207,7 +207,7 @@ class HomeController extends Controller
             ],
         ];
 
-        return view('moduls.landing-new.term-condition')->with([
+        return view('landing.home.term-condition')->with([
             'term_conditions' => $term_conditions,
             'locations' => $locations
         ]);
@@ -215,6 +215,6 @@ class HomeController extends Controller
 
     public function privacyPolicy()
     {
-        return view('moduls.landing-new.privacy-policy')->with([]);
+        return view('landing.home.privacy-policy')->with([]);
     }
 }

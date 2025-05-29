@@ -30,9 +30,9 @@
             <div class="mx-4 w-full text-left max-sm:mx-0 max-sm:mt-4 lg:w-1/4">
                 <h4 class="mb-6 font-semibold text-[#75BADB] max-sm:mb-2">Lainnya</h4>
                 <ul class="space-y-2">
-                    <li><a href="{{ route("index.faq") }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">FAQ</a></li>
-                    <li><a href="{{ route("index.term_condition") }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Syarat & Ketentuan</a></li>
-                    <li><a href="{{ route("index.privacy_policy") }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Kebijakan Privasi</a></li>
+                    <li><a href="{{ route("home.faq") }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">FAQ</a></li>
+                    <li><a href="{{ route("home.term-condition") }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Syarat & Ketentuan</a></li>
+                    <li><a href="{{ route("home.privacy-policy") }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Kebijakan Privasi</a></li>
                 </ul>
             </div>
 

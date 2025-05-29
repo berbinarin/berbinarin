@@ -1,5 +1,5 @@
 @extends(
-  "layouts.main-new",
+  "landing.layouts.app",
   [
     "title" => "Berbinar Insightful Indonesia",
     "active" => "Arteri",

@@ -51,7 +51,7 @@ class AboutUsController extends Controller
             ],
         ];
 
-        return view('moduls.landing-new.tentang-kami')->with([
+        return view('landing.about-us.index')->with([
             'values' => $values,
         ]);
     }

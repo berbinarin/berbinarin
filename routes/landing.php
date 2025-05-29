@@ -35,7 +35,7 @@ use App\Http\Controllers\Landing\Product\Class\Class101Journey\Class101JourneyCo
 use App\Http\Controllers\Landing\Product\Class\ClassController;
 use App\Http\Controllers\Landing\Product\Class\PremiumClass\PremiumClassController;
 use App\Http\Controllers\Landing\Product\Consulting\ConsultingController;
-use App\Http\Controllers\Landing\Product\Konseling\KonselingController;
+use App\Http\Controllers\Landing\Product\Counseling\CounselingController;
 use App\Http\Controllers\Landing\Product\Psikotest\PsikotestController;
 use App\Http\Controllers\Landing\Product\EmoShuffle\EmoShuffleController;
 use App\Http\Controllers\Landing\Product\ProductController;
@@ -44,95 +44,95 @@ use Illuminate\Support\Facades\Route;
 
 
 // Home
-Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('/faq', [HomeController::class, 'faq'])->name('index.faq');
-Route::get('/syarat-dan-ketetuan', [HomeController::class, 'termCondition'])->name('index.term_condition');
-Route::get('/kebijakan-privasi', [HomeController::class, 'privacyPolicy'])->name('index.privacy_policy');
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/faq', [HomeController::class, 'faq'])->name('home.faq');
+Route::get('/syarat-dan-ketetuan', [HomeController::class, 'termCondition'])->name('home.term-condition');
+Route::get('/kebijakan-privasi', [HomeController::class, 'privacyPolicy'])->name('home.privacy-policy');
 
 // Tentang Kami
 Route::prefix('tentang-kami')->group(function () {
-    Route::get('/', [AboutUsController::class, 'index'])->name('about_us.index');
+    Route::get('/', [AboutUsController::class, 'index'])->name('about-us.index');
 });
 
 // Product
-Route::prefix('produk')->group(function () {
-    Route::get('/', [ProductController::class, 'index'])->name('product.index');
+Route::prefix('produk')->name('product.')->group(function () {
+    Route::get('/', [ProductController::class, 'index'])->name('index');
 
     // Product Konseling
-    Route::prefix('konseling')->group(function () {
-        Route::get('/', [KonselingController::class, 'index'])->name('product.konseling.index');
-        Route::get('/daftar-konseling', [KonselingController::class, 'daftar'])->name('product.konseling.daftar');
-        Route::get('/jadwal-konseling', [KonselingController::class, 'jadwal'])->name('product.konseling.jadwal');
-        Route::get('/data-diri-konseling', [KonselingController::class, 'dataDiri'])->name('product.konseling.data_diri');
-        Route::get('/cerita-konseling', [KonselingController::class, 'cerita'])->name('product.konseling.cerita');
-        Route::get('/summary-konseling', [KonselingController::class, 'summary'])->name('product.konseling.summary');
+    Route::prefix('konseling')->name('counseling.')->group(function () {
+        Route::get('/', [CounselingController::class, 'index'])->name('index');
+        Route::get('/daftar-konseling', [CounselingController::class, 'registration'])->name('registration');
+        Route::get('/jadwal-konseling', [CounselingController::class, 'schedule'])->name('schedule');
+        Route::get('/data-diri-konseling', [CounselingController::class, 'personalData'])->name('personal_data');
+        Route::get('/cerita-konseling', [CounselingController::class, 'story'])->name('story');
+        Route::get('/summary-konseling', [CounselingController::class, 'summary'])->name('summary');
     });
 
     // Product Psikotest
-    Route::prefix('psikotest')->group(function () {
-        Route::get('/', [PsikotestController::class, 'index'])->name('product.psikotest.index');
-        Route::get('/daftar', [PsikotestController::class, 'daftar'])->name('product.psikotest.daftar');
-        Route::get('/jadwal', [PsikotestController::class, 'jadwal'])->name('product.psikotest.jadwal');
-        Route::get('/data-diri', [PsikotestController::class, 'data_diri'])->name('product.psikotest.data-diri');
-        Route::get('/summary', [PsikotestController::class, 'summary'])->name('product.psikotest.summary');
+    Route::prefix('psikotest')->name('psikotest.')->group(function () {
+        Route::get('/', [PsikotestController::class, 'index'])->name('index');
+        Route::get('/daftar', [PsikotestController::class, 'registration'])->name('registration');
+        Route::get('/jadwal', [PsikotestController::class, 'schedule'])->name('schedule');
+        Route::get('/data-diri', [PsikotestController::class, 'personalData'])->name('personal_data');
+        Route::get('/summary', [PsikotestController::class, 'summary'])->name('summary');
     });
 
-    Route::prefix('consulting')->group(function () {
-        Route::get('/', [ConsultingController::class, 'index'])->name('product.consulting.index');
+    Route::prefix('consulting')->name('consulting.')->group(function () {
+        Route::get('/', [ConsultingController::class, 'index'])->name('index');
     });
 
     // Product Class
-    Route::prefix('class')->group(function () {
-        Route::get('/', [ClassController::class, 'class'])->name('product.class.index');
+    Route::prefix('class')->name('class.')->group(function () {
+        Route::get('/', [ClassController::class, 'class'])->name('index');
 
         // Class 101 Class Journey
-        Route::prefix('/101-class-journey')->group(function () {
-            Route::get('/', [Class101JourneyController::class, 'index'])->name('product.class.class-101-journey.index');
+        Route::prefix('/101-class-journey')->name('101-class-journey.')->group(function () {
+            Route::get('/', [Class101JourneyController::class, 'index'])->name('index');
         });
 
         // Class Berbinar-plus
-        Route::prefix('berbinar-plus')->group(function () {
-            Route::get('/', [BerbinarPlusController::class, 'index'])->name('product.class.berbinar_plus.index');
+        Route::prefix('berbinar-plus')->name('berbinar-plus.')->group(function () {
+            Route::get('/', [BerbinarPlusController::class, 'index'])->name('index');
         });
 
         // Class Bisikan
-        Route::prefix('bisikan')->group(function () {
-            Route::get('/', [BisikanController::class, 'index'])->name('product.class.bisikan.index');
+        Route::prefix('bisikan')->name('bisikan.')->group(function () {
+            Route::get('/', [BisikanController::class, 'index'])->name('index');
         });
 
         // Class Premium
-        Route::prefix('premium-class')->group(function () {
-            Route::get('/', [PremiumClassController::class, 'index'])->name('product.class.premium_class.index');
+        Route::prefix('premium-class')->name('premium-class.')->group(function () {
+            Route::get('/', [PremiumClassController::class, 'index'])->name('index');
         });
     });
 
     // Product EmoShuffle
-    Route::prefix('emo-shuffle')->group(function () {
-        Route::get('/', [EmoShuffleController::class, 'index'])->name('product.emo_shuffle.index');
+    Route::prefix('emo-shuffle')->name('emo-shuffle.')->group(function () {
+        Route::get('/', [EmoShuffleController::class, 'index'])->name('index');
     });
 });
 
 // Karier
-Route::prefix('karier')->group(function () {
-    Route::get('/', [CareerController::class, 'career'])->name('career.index');
+Route::prefix('karier')->name('career.')->group(function () {
+    Route::get('/', [CareerController::class, 'career'])->name('index');
 
     // Position
-    Route::prefix('posisi')->group(function () {
-        Route::get('/', [PositionController::class, 'index'])->name('career.positions.index');
-        Route::get('/{id}', [PositionController::class, 'detail'])->name('career.positions.detail');
+    Route::prefix('posisi')->name('positions.')->group(function () {
+        Route::get('/', [PositionController::class, 'index'])->name('index');
+        Route::get('/{id}', [PositionController::class, 'detail'])->name('detail');
     });
 
     // Keluarga Berbinar
-    Route::prefix('keluarga-berbinar')->group(function () {
-        Route::get('/', [KeluargaBerbinarController::class, 'index'])->name('career.keluarga_berbinar.index');
+    Route::prefix('keluarga-berbinar')->name('keluarga-berbinar.')->group(function () {
+        Route::get('/', [KeluargaBerbinarController::class, 'index'])->name('index');
     });
 });
 
 // ArteRi
-Route::prefix('arteri')->group(function () {
-    Route::get('/', [ArteriController::class, 'index'])->name('arteri');
-    Route::get('/{id}', [ArteriController::class, 'show'])->name('arteri.detail');
-    Route::get('/kategori/{slug}', [ArteriController::class, 'category'])->name('arteri.category');
+Route::prefix('arteri')->name('arteri.')->group(function () {
+    Route::get('/', [ArteriController::class, 'index'])->name('index');
+    Route::get('/{id}', [ArteriController::class, 'show'])->name('detail');
+    Route::get('/kategori/{slug}', [ArteriController::class, 'category'])->name('category');
 });
 
 // Psikotest Paid
