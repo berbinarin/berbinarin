@@ -137,7 +137,7 @@ class ConsultingController extends Controller
             ]
         ];
 
-        return view('moduls.landing-new.produk-consulting')->with([
+        return view('landing.product.consulting.index')->with([
             'layanan_consultings' => $layanan_consultings,
             'bundlings' => $bundlings,
             'alur_pendaftaran' => $alur_pendaftaran,

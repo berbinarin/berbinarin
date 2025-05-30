@@ -34,7 +34,7 @@ class AuthController extends Controller
 
     public function login()
     {
-        return view('moduls.dashboard.login');
+        return view('auth.login');
     }
 
     public function authenticated(LoginRequest $request)

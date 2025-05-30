@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Landing\Product\Class\Class101Journey;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class Class101JourneyController extends Controller
 {
-    //
         public function  index() {
 
         $layanan_class_journey = [
@@ -79,7 +77,7 @@ class Class101JourneyController extends Controller
         $link_pendaftaran = 'https://bit.ly/Pendaftaran_101ClassJourney';
 
 
-        return view('moduls.landing-new.class-journey', compact('layanan_class_journey', 'benefit_class_journey', 'faqs', 'poster', 'link_pendaftaran'));
+        return view('landing.product.class.class-journey', compact('layanan_class_journey', 'benefit_class_journey', 'faqs', 'poster', 'link_pendaftaran'));
     }
 
 }

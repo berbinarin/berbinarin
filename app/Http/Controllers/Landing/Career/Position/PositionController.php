@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Hiring_Positions;
 use App\Models\Hiring_Positions_Job_Descriptions;
 use App\Models\Hiring_Positions_Requirements;
-use Illuminate\Http\Request;
 
 class PositionController extends Controller
 {
@@ -38,7 +37,7 @@ class PositionController extends Controller
             ],
         ];
 
-        return view('moduls.landing-new.positions')->with([
+        return view('landing.career.positions.index')->with([
             'faqs' => $faqs,
             'positions' => $positions,
         ]);
@@ -57,7 +56,6 @@ class PositionController extends Controller
         $HiringPositionsJobDescription = Hiring_Positions_Job_Descriptions::where('position_id', $id)->get();
         $Hiring_Positions_Requirement = Hiring_Positions_Requirements::where('position_id', $id)->get();
 
-        //dd($position->toArray());
 
         $faqs = [
             [
@@ -82,30 +80,8 @@ class PositionController extends Controller
             ],
         ];
 
-        // for development only
-        //        $deskripsiPejeraan = [
-        //            'Bertanggung jawab proses pengembangan aplikasi',
-        //            'Melakukan manajemen dan maintenance database hostinger',
-        //            'Melakukan report jika website sedang mengalami troubleshooting dan debugging',
-        //            'Membuat ERD (Entity Relationship Diagram) atau alur database untuk memtakan struktur dan hubungan antar tabel dalam database',
-        //            'Melakukan wiring test atau menyambungkan dengan front end website.',
-        //            'Menulis kode back end untuk mengolah data dan menjalankan logika aplikasi',
-        //            'Melakukan testing untuk memastikan fungsionalitas back end atau database.',
-        //            'Membuat report hasil testing yang telah dilakukan.'
-        //        ];
-        //        $persyaratan = [
-        //            'Terbuka untuk siswa/siswi SMA, SMK, MA, atau yang Sederajat; mahasiswa/mahasiswi aktif dan fresh-graduate dengan kelulusan maksimal 1 tahun.',
-        //            'Mampu berkomitmen tinggi untuk berkontribusi di Berbinar selama 6 bulan atau 1 tahun.',
-        //            'Mampu bekerja secara mandiri maupun bekerja secara tim.',
-        //            'Mampu bekerja di bawah tekanan dan deadline',
-        //            'Memiliki kemampuan manajemen waktu dan komunikasi yang baik.',
-        //            'Tertarik untuk mempelajari hal baru.',
-        //            'Tertarik pada bidang psikologi / kesehatan mental.',
-        //            'Memiliki ketertarikan pada kepemimpinan dan pengembangan skill.'
-        //        ];
 
-
-        return view('moduls.landing-new.positions-detail')->with([
+        return view('landing.career.positions.detail')->with([
             'faqs' => $faqs,
             'position' => $position,
             'HiringPositionsJobDescription' => $HiringPositionsJobDescription,

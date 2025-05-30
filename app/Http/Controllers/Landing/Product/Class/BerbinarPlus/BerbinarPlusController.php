@@ -153,6 +153,6 @@ class BerbinarPlusController extends Controller
             ],
         ];
 
-        return view('moduls.landing-new.berbinar-plus-new', compact('faqs', 'products', 'psikologs', 'layanan_berbinar_plus', 'benefit_berbinar_plus'));
+        return view('landing.product.class.berbinar-plus', compact('faqs', 'products', 'psikologs', 'layanan_berbinar_plus', 'benefit_berbinar_plus'));
     }
 }

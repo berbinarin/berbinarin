@@ -22,6 +22,6 @@ class EmoShuffleController extends Controller
                 'answer' => 'Satu box EmoShuffle berisi 55 kartu, terdiri dari 45 kartu pertanyaan, 5 kartu kutipan inspiratif, dan 5 kartu aksi “Do It Now!”. Seluruhnya dilengkapi dengan panduan bermain untuk memudahkan penggunaan baik secara individu maupun kelompok.'
             ],
         ];
-        return view('moduls.landing-new.emo', compact('faqs'));
+        return view('landing.product.emo-shuffle.index', compact('faqs'));
     }
 }
