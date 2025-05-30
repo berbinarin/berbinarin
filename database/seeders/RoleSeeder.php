@@ -41,6 +41,9 @@ class RoleSeeder extends Seeder
             [
                 'name' => 'sec-fin'
             ],
+            [
+                'name' => 'web-dev'
+            ],
             
         ];
 

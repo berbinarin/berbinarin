@@ -77,7 +77,7 @@ class DashboardController extends Controller
         $categoryCount = Category::count();
 
 
-        return view('moduls.dashboard.index', [
+        return view('dashboard.index', [
             "PeerConsellorSchedule" => $PeerConsellorSchedule,
             "PeerConsellorData" => $PeerConsellorData,
             'PsikologData' => $PsikologData,

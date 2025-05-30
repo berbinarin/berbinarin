@@ -25,6 +25,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('answer_htps');
+        Schema::table('answer_htp', function (Blueprint $table) {
+            $table->dropForeign(['test_htp_id']);
+            $table->dropForeign(['question_htp_id']);
+        });
+        Schema::dropIfExists('answer_htp');
     }
 };

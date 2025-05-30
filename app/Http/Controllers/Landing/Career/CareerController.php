@@ -103,7 +103,7 @@ class CareerController extends Controller
             ],
         ];
 
-        return view('moduls.landing-new.karir')->with([
+        return view('landing.career.index')->with([
             'testimonis' => $testimonis,
             'faqs' => $faqs,
             'positions' => $positions,

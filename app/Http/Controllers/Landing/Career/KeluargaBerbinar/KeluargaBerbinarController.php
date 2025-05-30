@@ -8,7 +8,7 @@ use Illuminate\Support\Carbon;
 
 class KeluargaBerbinarController extends Controller
 {
-        function getAvailableDivisionsPerYear($data): array
+    function getAvailableDivisionsPerYear($data): array
     {
         $divisionsPerYear = [];
 
@@ -102,9 +102,9 @@ class KeluargaBerbinarController extends Controller
             ->values()
             ->all();
 
-            $availableDivision = $this->getAvailableDivisionsPerYear($data);
+        $availableDivision = $this->getAvailableDivisionsPerYear($data);
 
-        return view('moduls.landing-new.keluarga-berbinar')->with([
+        return view('landing.career.keluarga-berbinar.index')->with([
             'listStaff' => $data,
             'availableYears' => $availableYears,
             'availableDivision' => $availableDivision,

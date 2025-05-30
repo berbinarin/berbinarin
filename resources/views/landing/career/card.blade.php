@@ -1,7 +1,5 @@
 @extends('landing.layouts.app', [
     'title' => 'Berbinar Insightful Indonesia',
-    'active' => 'Karir',
-    'page' => 'card-flip',
 ])
 
 @section('content')

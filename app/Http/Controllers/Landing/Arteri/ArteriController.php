@@ -31,7 +31,7 @@ class ArteriController extends Controller
             $article->first_paragraph = $pTags->length > 0 ? $pTags->item(0)->textContent : '';
         }
         $categories = Category::all();
-        return view('moduls.landing-new.arteri.index', compact('articles', 'categories', 'sort', 'heroArticles'));
+        return view('landing.arteri.index', compact('articles', 'categories', 'sort', 'heroArticles'));
     }
 
     public function category($slug)
@@ -59,7 +59,7 @@ class ArteriController extends Controller
 
         $heroArticles = Article::with(['category', 'author'])->latest()->take(3)->get();
 
-        return view('moduls.landing-new.arteri.index', compact('articles', 'categories', 'category', 'sort', 'heroArticles'));
+        return view('landing.arteri.index', compact('articles', 'categories', 'category', 'sort', 'heroArticles'));
     }
 
 
@@ -67,6 +67,6 @@ class ArteriController extends Controller
     {
 
         $article = Article::with('category', 'author')->findOrFail($id);
-        return view('moduls.landing-new.arteri.detail', compact('article'));
+        return view('landing.arteri.detail', compact('article'));
     }
 }

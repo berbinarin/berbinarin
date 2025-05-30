@@ -14,7 +14,7 @@ class ClassController extends Controller
                 'vector' => 'assets/images/landing/asset-kelas/produk/vector-class-journey.png',
                 'produk' => '101 Class Journey',
                 'deskripsi' => 'Memperluas wawasan keilmuan dan keterampilan yang berasal dari ahli',
-                'route' => 'product.class.class-101-journey.index' // name of the sub routes
+                'route' => 'product.class.101-class-journey.index' // name of the sub routes
             ],
             [
                 'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
@@ -26,7 +26,7 @@ class ClassController extends Controller
                 'vector' => 'assets/images/landing/asset-kelas/produk/vector-berbinar.png',
                 'produk' => 'Berbinar+',
                 'deskripsi' => 'Bundling package dimana customer bisa menggunakan produk kelas, konseling, dan psikotes.',
-                'route' => 'product.class.berbinar_plus.index'
+                'route' => 'product.class.berbinar-plus.index'
             ],
             [
                 'vector' => 'assets/images/landing/asset-kelas/produk/vector-berarty.png',
@@ -38,7 +38,7 @@ class ClassController extends Controller
                 'vector' => 'assets/images/landing/asset-kelas/produk/vector-premium-class.png',
                 'produk' => 'Premium Class',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
-                'route' => 'product.class.premium_class.index'
+                'route' => 'product.class.premium-class.index'
             ],
         ];
 
@@ -115,7 +115,7 @@ class ClassController extends Controller
 
         ];
 
-        return view('moduls.landing-new.produk-kelas')->with([
+        return view('landing.product.class.index')->with([
             'faqs' => $faqs,
             'products' => $products,
             'participants' => $participants,

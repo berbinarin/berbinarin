@@ -3,14 +3,11 @@
 namespace App\Http\Controllers\Landing\Product\Class\Bisikan;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class BisikanController extends Controller
 {
-    //
         public function index()
     {
-
         $layanan_class_journey = [
             [
                 'name' => 'Early Bird',
@@ -78,6 +75,6 @@ class BisikanController extends Controller
         $poster = 'public/assets/images/landing/asset-kelas/class-journey/poster-maret.png';
 
         $link_pendaftaran = 'https://bit.ly/Pendaftaran_101ClassJourney';
-        return view('moduls.landing-new.produk-bisikan', compact('layanan_class_journey', 'benefit_class_journey', 'faqs', 'poster', 'link_pendaftaran'));
+        return view('landing.product.class.bisikan', compact('layanan_class_journey', 'benefit_class_journey', 'faqs', 'poster', 'link_pendaftaran'));
     }
 }
