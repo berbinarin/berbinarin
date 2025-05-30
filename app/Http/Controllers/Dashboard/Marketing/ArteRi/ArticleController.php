@@ -1,9 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\ArteRi;
+namespace App\Http\Controllers\Dashboard\Marketing\Arteri;
 
 use App\Http\Controllers\Controller;
+use App\Models\Articles\Article;
+use App\Models\Articles\Author;
+use App\Models\Articles\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -12,7 +16,11 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+
+        // Mengambil semua data pada tabel articles
+        $articles = Article::with('category', 'author')->get();
+
+        return view('dashboard.marketing.arteri.articles.index', compact('articles'));
     }
 
     /**
@@ -20,7 +28,10 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        $authors = Author::all();
+
+        return view('dashboard.marketing.arteri.articles.create', compact('categories', 'authors'));
     }
 
     /**
@@ -28,7 +39,27 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120',
+            'author_id' => 'required|string|max:255',
+            'category_id' => 'required|exists:categories_article,id',
+            'content' => 'required|string',
+        ]);
+
+        // Menyimpan file gambar
+        $coverImagePath = $request->file('cover_image')->store('uploads/articles', 'public');
+
+        // Menyimpan data ke database
+        Article::create([
+            'title' => $request->input('title'),
+            'cover_image' => $coverImagePath,
+            'author_id' => $request->input('author_id'),
+            'category_id' => $request->input('category_id'),
+            'content' => $request->input('content'),
+        ]);
+
+        return redirect()->route('dashboard.arteri.articles.index')->with('success', 'Artikel berhasil ditambahkan!');
     }
 
     /**
@@ -36,15 +67,22 @@ class ArticleController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // Ambil artikel berdasarkan ID
+        $article = Article::with('category', 'author')->findOrFail($id);
+
+        return view('dashboard.marketing.arteri.articles.show', compact('article'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
+
     {
-        //
+        $article = Article::findOrFail($id);
+        $categories = Category::all();
+        $authors = Author::all();
+        return view('dashboard.marketing.arteri.articles.edit', compact('article', 'categories', 'authors'));
     }
 
     /**
@@ -52,7 +90,32 @@ class ArticleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
+            'author_id' => 'required|exists:author_article,id',
+            'category_id' => 'required|exists:categories_article,id',
+            'content' => 'required|string',
+        ]);
+
+        $article = Article::findOrFail($id);
+
+        if ($request->hasFile('cover_image')) {
+            if ($article->cover_image) {
+                Storage::disk('public')->delete($article->cover_image);
+            }
+            $article->cover_image = $request->file('cover_image')->store('uploads/articles', 'public');
+        }
+
+        $article->update([
+            'title' => $request->input('title'),
+            'cover_image' => $article->cover_image,
+            'author_id' => $request->input('author_id'),
+            'category_id' => $request->input('category_id'),
+            'content' => $request->input('content'),
+        ]);
+
+        return redirect()->route('dashboard.arteri.articles.index')->with('success', 'Artikel berhasil diperbarui!');
     }
 
     /**
@@ -60,6 +123,14 @@ class ArticleController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $article = Article::findOrFail($id);
+
+        if ($article->cover_image) {
+            Storage::disk('public')->delete($article->cover_image);
+        }
+
+        $article->delete();
+
+        return redirect()->route('dashboard.arteri.articles.index')->with('success', 'Artikel berhasil dihapus!');
     }
 }

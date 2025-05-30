@@ -1,7 +1,5 @@
 @extends('dashboard.layouts.app', [
-    'title' => 'Dashboard Arteri',
-    'active' => 'Dashboard',
-    'modul' => 'Postingan',
+    'title' => 'Dashboard Arteri', 
 ])
 
 @section('content')
@@ -15,7 +13,7 @@
                             Artikel</p>
                         <p class="w-2/4 text-disabled">Halaman yang menampilkan kumpulan artikel yang sudah di publikasikan
                             dalam website Berbinar</p>
-                        <a href="{{ route('dashboard.article.create') }}">
+                        <a href="{{ route('dashboard.arteri.articles.create') }}">
                             <button type="button"
                                 class="focus:ring-2 focus:ring-offset-2  mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded-lg">
                                 <p class=" font-medium leading-none text-dark">Tambah Artikel</p>
@@ -53,17 +51,17 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap text-center">
                                             <div class="flex justify-center items-center gap-2">
-                                                <a href="{{ route('dashboard.article.detail', $article->id) }}"
+                                                <a href="{{ route('dashboard.arteri.articles.show', $article->id) }}"
                                                     class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-2 focus:outline-none rounded hover:bg-yellow-700"
                                                     style="background-color: #04CA00;">
                                                     <i class='bx bx-show-alt text-white'></i>
                                                 </a>
-                                                <a href="{{ route('dashboard.article.update', $article->id) }}"
+                                                <a href="{{ route('dashboard.arteri.articles.update', $article->id) }}"
                                                     class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-2 focus:outline-none rounded hover:bg-yellow-700"
                                                     style="background-color: #E9B306;">
                                                     <i class='bx bx-edit-alt text-white'></i>
                                                 </a>
-                                                <button onclick="setDeleteAction('{{ route('dashboard.article.delete', $article->id) }}')" type="button"
+                                                <button onclick="setDeleteAction('{{ route('dashboard.arteri.articles.destroy', $article->id) }}')" type="button"
                                                     class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-2 focus:outline-none rounded hover:bg-red-700"
                                                     style="background-color: #EF4444;">
                                                     <i class='bx bx-trash-alt text-white'></i>
@@ -79,7 +77,7 @@
             </div>
         </div>
     </section>
-    @include('moduls.dashboard.arteri.warning')
+    @include('dashboard.marketing.arteri.articles.warning')
 @endsection
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>

@@ -1,13 +1,11 @@
 @extends('dashboard.layouts.app', [
-    'title' => 'Dashboard Arteri',
-    'active' => 'Dashboard',
-    'modul' => 'Postingan',
+    'title' => 'Dashboard Arteri', 
 ])
 
 @section('content')
-    <form action="{{ route('dashboard.article.update.store', $article->id) }}" enctype="multipart/form-data" method="POST">
+    <form action="{{ route('dashboard.arteri.articles.update', $article->id) }}" enctype="multipart/form-data" method="POST">
         @csrf
-        @method('POST')
+        @method('PUT')
         <section class="flex w-full h-full">
             <div class="flex flex-col w-full h-full">
                 <div class="py-4 md:pt-12 md:pb-7">
@@ -121,7 +119,7 @@
             </div>
         </div>
     </form>
-        @include('moduls.dashboard.arteri.warning')
+        @include('dashboard.marketing.arteri.articles.warning')
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.tiny.cloud/1/uy9sjhjaxq12cc39rm7y0870rohtequenkkgp68a67aweqr3/tinymce/6/tinymce.min.js"
             referrerpolicy="origin"></script>

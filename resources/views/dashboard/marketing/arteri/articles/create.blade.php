@@ -1,11 +1,9 @@
 @extends('dashboard.layouts.app', [
-    'title' => 'Dashboard Arteri',
-    'active' => 'Dashboard',
-    'modul' => 'Postingan',
+    'title' => 'Dashboard Arteri', 
 ])
 
 @section('content')
-    <form action="{{ route('dashboard.article.store') }}" enctype="multipart/form-data" method="post">
+    <form action="{{ route('dashboard.arteri.articles.store') }}" enctype="multipart/form-data" method="post">
         @csrf
         <section class="flex w-full h-full">
             <div class="flex flex-col w-full h-full">

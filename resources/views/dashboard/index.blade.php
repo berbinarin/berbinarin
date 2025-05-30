@@ -37,6 +37,12 @@
                                 Fitur ini menampilkan jumlah user yang sedang mendaftar pada Berbinar Plus
                             </p>
                         @endrole
+                        @role('marketing')
+                            <p tabindex="0"
+                                class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
+                                Dashboard ArteRi</p>
+                            <p class="text-base text-disabled">Dashboard ini menampilkan ringkasan statistik, daftar artikel, penulis, dan kategori.</p>
+                        @endrole
 
 
 
@@ -61,17 +67,15 @@
                         @else
                             <p class="text-disabled"></p>
                         @endif
-                        @if (Auth::user()->role == 'BerbinarSatu')
-                            <p tabindex="0"
-                                class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
-                                Dashboard ArteRi</p>
-                            <p class="text-base text-disabled">Dashboard ini menampilkan ringkasan statistik, daftar artikel, penulis, dan kategori.</p>
-                        @else
-                            <p class="text-disabled"></p>
-                        @endif
+                        
                     </div>
                 </div>
             </div>
+
+
+
+
+
 
 
             @role ('hr')
@@ -109,7 +113,8 @@
                         </div>
                     </div>
                 </div>
-                @endrole
+            @endrole
+
             @role ('counseling-pm')
                 <div class="flex flex-row w-full gap-6">
                     <div class="flex items-center p-8 bg-white shadow rounded-lg">
@@ -156,6 +161,34 @@
                         <div>
                             <span class="block text-2xl font-bold">{{ $totalBerbinarPlusUser }}</span>
                             <span class="block text-gray-500">Total Users</span>
+                        </div>
+                    </div>
+                </div>
+            @endrole
+
+            @role('marketing')
+                <div class="relative flex-grow bg-white shadow-md p-10 overflow-hidden" style="width: 1150px; height: 470px">
+                    <div class="grid grid-cols-3 gap-5 h-full">
+                        <div class="text-white rounded-lg flex flex-col justify-between p-6 relative" style="background-color: #48576A;">
+                            <h3 class="block text-2xl font-bold">Buat Artikel</h3>
+                            <div class="absolute p-6 bottom-2 right-2 flex flex-col gap-4 font-semibold">
+                                <p class="text-end text-5xl">{{ $articleCount}}</p>
+                                <p>Postingan Artikel</p>
+                            </div>
+                        </div>
+                        <div class="text-white rounded-lg flex flex-col justify-between p-6 relative" style="background-color: #6482AD;">
+                            <h3 class="block text-2xl font-bold">Draft Arteri</h3>
+                            <div class="absolute p-6 bottom-2 right-2 flex flex-col gap-4 font-semibold">
+                                <p class="text-end text-5xl">{{ $authorCount }}</p>
+                                <p>Postingan Artikel</p>
+                            </div>
+                        </div>
+                        <div class="text-white rounded-lg flex flex-col justify-between p-6 relative" style="background-color: #9E866A;">
+                            <h3 class="block text-2xl font-bold">Terupload</h3>
+                            <div class="absolute p-6 bottom-2 right-2 flex flex-col gap-4 font-semibold">
+                                <p class="text-end text-5xl">{{ $categoryCount }}</p>
+                                <p>Postingan Artikel</p>
+                            </div>
                         </div>
                     </div>
                 </div>

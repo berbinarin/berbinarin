@@ -1,7 +1,5 @@
 @extends('dashboard.layouts.app', [
     'title' => 'Dashboard Arteri',
-    'active' => 'Dashboard',
-    'modul' => 'Postingan',
 ])
 
 @section('content')
@@ -14,7 +12,7 @@
                     <p tabindex="0"
                         class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 ">
                         Detail Artikel</p>
-                        <a href="{{ route('dashboard.article.update', $article->id) }}">
+                        <a href="{{ route('dashboard.arteri.articles.edit', $article->id) }}">
                             <button type="button"
                                 class="focus:ring-2 focus:ring-offset-2  mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded-lg">
                                 <p class=" font-medium leading-none text-dark">Edit Artikel</p>
