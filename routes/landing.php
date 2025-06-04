@@ -82,8 +82,8 @@ Route::prefix('produk')->name('product.')->group(function () {
             Route::get('/', [PremiumClassController::class, 'index'])->name('index');
         });
 
-        Route::prefix('berarty')->group(function () {
-            Route::get('/', [BerartyController::class, 'index'])->name('berarty-new');
+        Route::prefix('berarty')->name('berarty.')->group(function () {
+            Route::get('/', [BerartyController::class, 'index'])->name('index');
         });
     });
 

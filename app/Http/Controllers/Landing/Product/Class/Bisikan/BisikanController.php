@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 
 class BisikanController extends Controller
 {
-        public function index()
+    public function index()
     {
         $layanan_class_journey = [
             [
@@ -48,7 +48,7 @@ class BisikanController extends Controller
                 'image' => 'networking.png'
             ],
         ];
-                $episodes = [
+        $episodes = [
             [
                 'title' => 'Episode 19',
                 'image' => 'assets/images/landing/produk/bisikan/bisikan-episode19.png',
@@ -74,28 +74,28 @@ class BisikanController extends Controller
 
         $topics = [
             [
-            'image' => 'assets/images/landing/produk/bisikan/konten-kesehatan-mental.png',
-            'title' => 'Kesehatan Mental',
+                'image' => 'assets/images/landing/produk/bisikan/konten-kesehatan-mental.png',
+                'title' => 'Kesehatan Mental',
             ],
             [
-            'image' => 'assets/images/landing/produk/bisikan/konten-regulasi-emosi.png',
-            'title' => 'Regulasi Emosi',
+                'image' => 'assets/images/landing/produk/bisikan/konten-regulasi-emosi.png',
+                'title' => 'Regulasi Emosi',
             ],
             [
-            'image' => 'assets/images/landing/produk/bisikan/konten-hubungan-interpersonal.png',
-            'title' => 'Hubungan Interpersonal',
+                'image' => 'assets/images/landing/produk/bisikan/konten-hubungan-interpersonal.png',
+                'title' => 'Hubungan Interpersonal',
             ],
             [
-            'image' => 'assets/images/landing/produk/bisikan/konten-self-growth.png',
-            'title' => 'Self Growth',
+                'image' => 'assets/images/landing/produk/bisikan/konten-self-growth.png',
+                'title' => 'Self Growth',
             ],
             [
-            'image' => 'assets/images/landing/produk/bisikan/konten-mengenal-diri.png',
-            'title' => 'Mengenal diri lewat psikologi',
+                'image' => 'assets/images/landing/produk/bisikan/konten-mengenal-diri.png',
+                'title' => 'Mengenal diri lewat psikologi',
             ],
             [
-            'image' => 'assets/images/landing/produk/bisikan/konten-cerita-nyata.png',
-            'title' => 'Cerita nyata dan tips dari narasumber terpercaya',
+                'image' => 'assets/images/landing/produk/bisikan/konten-cerita-nyata.png',
+                'title' => 'Cerita nyata dan tips dari narasumber terpercaya',
             ],
 
 
@@ -126,17 +126,17 @@ class BisikanController extends Controller
 
         $sosmed = [
             [
-                'icon' => 'assets/images/landing/produk/bisikan/spotify.svg',
+                'icon' => '/assets/images/landing/produk/bisikan/spotify.svg',
                 'platform' => 'Spotify',
                 'link' => 'https://open.spotify.com/user/31c274wo5o5x4tujcjrimf4kujhu?si=7110e65c3c01489a'
             ],
             [
-                'icon' => 'assets/images/landing/produk/bisikan/instagram.svg',
+                'icon' => '/assets/images/landing/produk/bisikan/instagram.svg',
                 'platform' => 'Instagram',
                 'link' => 'https://www.instagram.com/berbinar.in/'
             ],
             [
-                'icon' => 'assets/images/landing/produk/bisikan/youtube.svg',
+                'icon' => '/assets/images/landing/produk/bisikan/youtube.svg',
                 'platform' => 'YouTube',
                 'link' => 'https://www.youtube.com/@berbinar'
             ],
@@ -168,6 +168,6 @@ class BisikanController extends Controller
         $poster = 'public/assets/images/landing/asset-kelas/class-journey/poster-maret.png';
 
         $link_pendaftaran = 'https://bit.ly/Pendaftaran_101ClassJourney';
-        return view('landing.product.class.bisikan', compact('layanan_class_journey', 'benefit_class_journey', 'faqs', 'poster', 'link_pendaftaran'));
+        return view('landing.product.class.bisikan', compact('layanan_class_journey', 'sosmed', 'episodes', 'topics', 'benefit_class_journey', 'faqs', 'poster', 'link_pendaftaran'));
     }
 }
