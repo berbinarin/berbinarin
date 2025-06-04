@@ -294,7 +294,7 @@
                 <div style="border-radius: 20px; width: 320px; max-width: 100%; transform: scale(0.8); transform-origin: center center; overflow: hidden; height: 610px">
                     <blockquote
                         class="instagram-media"
-                        data-instgrm-permalink="https://www.instagram.com/p/DEoddPMz-3e/?utm_source=ig_embed&amp;utm_campaign=loading"
+                        data-instgrm-permalink="https://www.instagram.com/p/DKB9QbsJJEm/?utm_source=ig_embed&amp%3Butm_campaign=loading"
                         data-instgrm-version="14"
                         style="
                             background: #fff;
@@ -313,7 +313,7 @@
                         "
                     >
                         <div style="padding: 16px">
-                            <a href="https://www.instagram.com/p/DEoddPMz-3e/?utm_source=ig_embed&amp;utm_campaign=loading" style="background: #ffffff; line-height: 0; padding: 0 0; text-align: center; text-decoration: none; width: 100%" target="_blank">
+                            <a href="https://www.instagram.com/p/DKB9QbsJJEm/?utm_source=ig_embed&amp%3Butm_campaign=loading" style="background: #ffffff; line-height: 0; padding: 0 0; text-align: center; text-decoration: none; width: 100%" target="_blank">
                                 <div style="display: flex; flex-direction: row; align-items: center">
                                     <div style="background-color: #f4f4f4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px"></div>
                                     <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center">
@@ -360,7 +360,7 @@
                                     <div style="background-color: #f4f4f4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px"></div>
                                 </div>
                             </a>
-                            <p style="color: #c9c8cd; font-family: Arial, sans-serif; font-size: 14px; line-height: 17px; margin-bottom: 0; margin-top: 8px; overflow: hidden; padding: 8px 0 7px; text-align: center; text-overflow: ellipsis; white-space: nowrap"><a href="https://www.instagram.com/p/DEoddPMz-3e/?utm_source=ig_embed&amp;utm_campaign=loading" style="color: #c9c8cd; font-family: Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: normal; line-height: 17px; text-decoration: none" target="_blank">A post shared by Berbinar Insightful Indonesia (@berbinar.in)</a></p>
+                            <p style="color: #c9c8cd; font-family: Arial, sans-serif; font-size: 14px; line-height: 17px; margin-bottom: 0; margin-top: 8px; overflow: hidden; padding: 8px 0 7px; text-align: center; text-overflow: ellipsis; white-space: nowrap"><a href="https://www.instagram.com/p/DKB9QbsJJEm/?utm_source=ig_embed&amp%3Butm_campaign=loading" style="color: #c9c8cd; font-family: Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: normal; line-height: 17px; text-decoration: none" target="_blank">A post shared by Berbinar Insightful Indonesia (@berbinar.in)</a></p>
                         </div>
                     </blockquote>
                     <script async src="//www.instagram.com/embed.js"></script>
@@ -380,7 +380,7 @@
 
                 {{-- EMBED --}}
                 <div style="border-radius: 20px; overflow: hidden; width: 320px; max-width: 100%; transform: scale(0.8); transform-origin: center center">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@berbinar.in/video/7421100407646096645" data-video-id="7421100407646096645" data-embed-from="embed_page" style="max-width: 100%; min-width: 320px; height: 610px; margin: 0; padding: 0">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@berbinar.in/video/7424346709511261446" data-video-id="7424346709511261446" data-embed-from="embed_page" style="max-width: 100%; min-width: 320px; height: 610px; margin: 0; padding: 0">
                         <section>
                             <a target="_blank" title="@berbinar.in" href="https://www.tiktok.com/@berbinar.in?refer=embed">@berbinar.in</a>
                             <p>

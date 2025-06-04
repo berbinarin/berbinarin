@@ -6,6 +6,7 @@ use App\Http\Controllers\Landing\Arteri\ArteriController;
 use App\Http\Controllers\Landing\Career\CareerController;
 use App\Http\Controllers\Landing\Career\KeluargaBerbinar\KeluargaBerbinarController;
 use App\Http\Controllers\Landing\Career\Position\PositionController;
+use App\Http\Controllers\Landing\Product\Class\Berarty\BerartyController;
 use App\Http\Controllers\Landing\Product\Class\BerbinarPlus\BerbinarPlusController;
 use App\Http\Controllers\Landing\Product\Class\Bisikan\BisikanController;
 use App\Http\Controllers\Landing\Product\Class\Class101Journey\Class101JourneyController;
@@ -79,6 +80,10 @@ Route::prefix('produk')->name('product.')->group(function () {
         // Class Premium
         Route::prefix('premium-class')->name('premium-class.')->group(function () {
             Route::get('/', [PremiumClassController::class, 'index'])->name('index');
+        });
+
+        Route::prefix('berarty')->group(function () {
+            Route::get('/', [BerartyController::class, 'index'])->name('berarty-new');
         });
     });
 
