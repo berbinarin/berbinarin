@@ -90,6 +90,11 @@ Route::prefix('produk')->group(function () {
         Route::prefix('bisikan')->group(function () {
             Route::get('/', [LandingController::class, 'bisikan_new'])->name('bisikan');
         });
+
+        // Class Berarty
+        Route::prefix('berarty')->group(function () {
+            Route::get('/', [LandingController::class, 'berarty_new'])->name('berarty-new');
+        });
     });
 });
 

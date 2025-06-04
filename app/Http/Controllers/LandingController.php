@@ -1036,7 +1036,7 @@ class LandingController extends Controller
                 'vector' => 'assets/images/landing/asset-kelas/produk/vector-berarty.png',
                 'produk' => 'BERARTY',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
-                'route' => '#'
+                'route' => 'berarty-new'
             ],
             [
                 'vector' => 'assets/images/landing/asset-kelas/produk/vector-premium-class.png',
@@ -1504,7 +1504,7 @@ class LandingController extends Controller
     }
 
     public function bisikan_new() {
-        
+
         $layanan_class_journey = [
             [
                 'name' => 'Early Bird',
@@ -1573,6 +1573,32 @@ class LandingController extends Controller
 
         $link_pendaftaran = 'https://bit.ly/Pendaftaran_101ClassJourney';
         return view('moduls.landing-new.produk-bisikan', compact('layanan_class_journey', 'benefit_class_journey', 'faqs', 'poster', 'link_pendaftaran'));
+    }
+
+    public function berarty_new() {
+
+        $faqs = [
+            [
+                'question' => 'Saya ketinggalan untuk menonton live tiktok BERARTY. Bagaimana cara saya mengakses BERARTY?',
+                'answer' => 'Materi tersedia dalam bentuk live session di Tiktok Berbinar dan SobatBinar bisa mengakses video replay di kanal Youtube Berbinar.'
+            ],
+            [
+                'question' => 'Apakah BERARTY hanya untuk orang yang sedang punya masalah?',
+                'answer' => 'Tidak. BERARTY  ditujukan untuk semua individu, baik yang sedang menghadapi tantangan emosional maupun yang ingin menjaga kesehatan mentalnya secara preventif.'
+            ],
+            [
+                'question' => 'Apakah kontennya aman untuk remaja?',
+                'answer' => 'Ya. Seluruh konten disusun secara edukatif dan sesuai dengan nilai-nilai etika komunikasi publik. Kami memastikan materi yang disampaikan dapat dipahami oleh remaja maupun orang dewasa dengan aman.'
+            ],
+            [
+                'question' => 'Bagaimana saya dapat berpartisipasi dalam Tiktok Live BERARTY?',
+                'answer' => 'SobatBinar dapat berpartisipasi dengan mengikuti akun Instagram Berbinar (@berbinar.in). Selama sesi live, kirimkan pertanyaan atau komentar SobatBinar dan kami akan merespons komentar dalam IG live bersama narasumber yang expert di bidangnya.'
+            ]
+        ];
+
+        return view('moduls.landing-new.produk-berarty', compact('faqs'));
+
+
     }
 
     public function faq_new(Request $request)
@@ -1666,7 +1692,7 @@ class LandingController extends Controller
         $list_image = TableStaff::where('motm', 'yes')->pluck('photo')->map(function ($photo) {
             return $photo ? '/image/' . $photo : '/assets/images/landing/keluarga-berbinar/dummy.png';
         });
-        
+
         $testimonis = [
             [
                 'comment' => 'Banyak ilmu dan pengalaman baru yang didapat di Berbinar. Bukan hanya terkait hardskill, tapi juga softskill seperti kedisiplinan, kerjasama tim, dan komunikasi. Temen-temen disini juga ramah dan asik-asik semua. Magang di Berbinar bisa jadi opsi terbaik buat yang baru mau terjun ke dunia kerja biar nggak terlalu kaget.',
