@@ -45,7 +45,7 @@ Route::prefix('produk')->name('product.')->group(function () {
     });
 
     // Product Psikotest
-    Route::prefix('psikotest')->name('psikotest.')->group(function () {
+    Route::prefix('psikotes')->name('psikotes.')->group(function () {
         Route::get('/', [PsikotestController::class, 'index'])->name('index');
         Route::get('/daftar', [PsikotestController::class, 'registration'])->name('registration');
         Route::get('/jadwal', [PsikotestController::class, 'schedule'])->name('schedule');

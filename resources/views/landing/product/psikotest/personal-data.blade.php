@@ -20,7 +20,7 @@
 
 <div class="sm:mt-36 mt-24 sm:mb-20 mb-8 sm:mx-16 mx-4 md:bg-white bg-none justify-center flex flex-col md:shadow-lg shadow-none rounded-2xl px-12 max-md:px-1 py-6">
     <div class="flex flex-row justify-between">
-        <a href="{{ route('product.psikotest.schedule') }}">
+        <a href="{{ route('product.psikotes.schedule') }}">
             <div class="flex items-center space-x-2 cursor-pointer">
                 <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow" class="h-3 w-auto">
                 <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span class="sm:block hidden ml-0.5">pilih jadwal</span></p>  
@@ -148,7 +148,7 @@
     </div>
 
     <div class="flex justify-center items-center pt-10">
-        <a href="{{ route('product.psikotest.summary') }}" class="w-full flex justify-center">
+        <a href="{{ route('product.psikotes.summary') }}" class="w-full flex justify-center">
             <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-24 sm:w-auto w-full rounded-xl">Selanjutnya</button>
         </a>
     </div>
