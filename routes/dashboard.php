@@ -50,14 +50,14 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
         Route::resource('/keluarga-berbinar', KeluargaBerbinarController::class);
 
         // Position
-        Route::resource('/positions', PositionController::class)->only('create', 'show');;
+        Route::resource('/positions', PositionController::class)->except('create', 'show');;
         Route::patch('/positions/{id}/active', [PositionController::class, 'setActive'])->name('positions.set_active');
 
         // Position Description
-        Route::resource('/position-descriptions', PositionDescriptionController::class)->only('create', 'show');
+        Route::resource('/position-descriptions', PositionDescriptionController::class)->except('create', 'show');
 
         // Position Requirement
-        Route::resource('/position-requirements', PositionRequirementController::class)->only('create', 'show');
+        Route::resource('/position-requirements', PositionRequirementController::class)->except('create', 'show');
 
         // Internship
         Route::resource('/internships', InternshipController::class)->except('cretae', 'store');
@@ -76,18 +76,10 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
             Route::resource('/authors', AuthorController::class)->except('create', 'edit', 'show');
 
             // // ArteRi Category
-
             Route::resource('/categories', CategoryController::class)->except('create', 'edit', 'show');
 
             // // Aretri Article
             Route::resource('/articles', ArticleController::class);
-            // Route::get('/postingan', [DashboardArticle::class, 'postinganArticle'])->name('articles.index');
-            // Route::get('/create', [DashboardArticle::class, 'addArticle'])->name('dashboard.article.create');
-            // Route::get('/update/{id}', [DashboardArticle::class, 'updateArticle'])->name('dashboard.article.update');
-            // Route::get('/detail/{id}', [DashboardArticle::class, 'detailArticle'])->name('dashboard.article.detail');
-            // Route::post('/store', [DashboardArticle::class, 'store'])->name('dashboard.article.store');
-            // Route::post('/update/ArticleStore/{id}', [DashboardArticle::class, 'updateArticleStore'])->name('dashboard.article.update.store');
-            // Route::delete('/delete/{id}', [DashboardArticle::class, 'deleteArticle'])->name('dashboard.article.delete');
         });
     });
 
