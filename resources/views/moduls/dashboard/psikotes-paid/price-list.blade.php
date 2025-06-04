@@ -1,10 +1,10 @@
-@extends('moduls.dashboard.layouts.main', [
+@extends('dashboard.layouts.app
     'title' => 'Price List',
     'active' => 'Dashboard',
     'modul' => 'Psikotest Paid Price List',
 ])
 
-@section('content-dashboard')
+@section('content')
     <section class="flex w-full">
         <div class="flex flex-col">
             <div class="w-full">

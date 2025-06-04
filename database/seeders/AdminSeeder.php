@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -14,62 +15,74 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('users')->insert([
-            [
-                'id' => 1,
-                'username' => 'Admin',
-                'email' => 'admin@gmail.com',
-                'password' => Hash::make('Admin123'),
-                'role' => 'Admin'
-            ],
+        // Class Product Management
+        User::create([
+            'username' => 'class-pm',
+            'email' => 'class-pm@gmail.com',
+            'password' => Hash::make('berbinar123'),
+        ])->assignRole('class-pm');
 
-            [
-                'id' => 2,
-                'username' => 'hrberbinar2005',
-                'email' => 'hr@gmail.com',
-                'password' => Hash::make('berbinaradabuatkamu'),
-                'role' => 'HR'
-            ],
+        // Counseling Product Management
+        User::create([
+            'username' => 'counseling-pm',
+            'email' => 'counseling-pm@gmail.com',
+            'password' => Hash::make('berbinar123'),
+        ])->assignRole('counseling-pm');
 
-            [
-                'id' => 3,
-                'username' => 'Konselling',
-                'email' => 'Konselling@gmail.com',
-                'password' => Hash::make('Konselling123'),
-                'role' => 'Konselling'
-            ],
+        // Graphic Designer
+        User::create([
+            'username' => 'gd',
+            'email' => 'gd@gmail.com',
+            'password' => Hash::make('berbinar123'),
+        ])->assignRole('gd');
 
-            [
-                'id' => 4,
-                'username' => 'PsikotestFree',
-                'email' => 'psikotestfree@gmail.com',
-                'password' => Hash::make('PsikotestFree123'),
-                'role' => 'PsikotestFree'
-            ],
+        // Graphic Designer & Video Editor
+        User::create([
+            'username' => 'gdve',
+            'email' => 'gdve@gmail.com',
+            'password' => Hash::make('berbinar123'),
+        ])->assignRole('gdve');
 
-            [
-                'id' => 5,
-                'username' => 'BerbinarPlus',
-                'email' => 'berbinarplus@gmail.com',
-                'password' => Hash::make('BerbinarPlus123'),
-                'role' => 'BerbinarPlus'
-            ],
+        // Human Resource
+        User::create([
+            'username' => 'hrberbinar2005',
+            'email' => 'hr@gmail.com',
+            'password' => Hash::make('berbinaradabuatkamu'),
+        ])->assignRole('hr');
 
-            [
-                'id' => 6,
-                'username' => 'PsikotestPaid',
-                'email' => 'psikotestpaid@gmail.com',
-                'password' => Hash::make('PsikotestPaid123'),
-                'role' => 'PsikotestPaid'
-            ],
-            [
-                'id' => 7,
-                'username' => 'BerbinarSatu',
-                'email' => 'berbinarsatu@gmail.com',
-                'password' => Hash::make('BerbinarSatu123'),
-                'role' => 'BerbinarSatu'
-            ],
+        // Social Media Creator
+        User::create([
+            'username' => 'socmed-creator',
+            'email' => 'socmed-creator@gmail.com',
+            'password' => Hash::make('berbinar123'),
+        ])->assignRole('socmed-creator');
 
-        ]);
+        // Marketing
+        User::create([
+            'username' => 'marketing',
+            'email' => 'marketing@gmail.com',
+            'password' => Hash::make('berbinar123'),
+        ])->assignRole('marketing');
+
+        // Psychological Testing Product Management
+        User::create([
+            'username' => 'ptpm',
+            'email' => 'ptpm@gmail.com',
+            'password' => Hash::make('berbinar123'),
+        ])->assignRole('ptpm');
+
+        // Secretary & Finance
+        User::create([
+            'username' => 'sec-fin',
+            'email' => 'sec-fin@gmail.com',
+            'password' => Hash::make('berbinar123'),
+        ])->assignRole('sec-fin');
+
+        // Web and Mobile Apps Developer
+        User::create([
+            'username' => 'web-dev',
+            'email' => 'webdev@gmail.com',
+            'password' => Hash::make('berbinar123'),
+        ])->assignRole('web-dev');
     }
 }

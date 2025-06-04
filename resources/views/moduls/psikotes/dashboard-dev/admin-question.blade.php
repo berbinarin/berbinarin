@@ -1,10 +1,10 @@
-@extends('moduls.dashboard.layouts.main', [
+@extends('dashboard.layouts.app', [
     'title' => 'Edit Soal',
     'active' => 'Dashboard',
     'modul' => 'Psikotest Free Soal',
 ])
 
-@section('content-dashboard')
+@section('content')
     <div class="container mt-5">
         <h1>Edit Soal Psikotes Free</h1>
         <a href="{{ route('dashboard.psikotestfree.question.create') }}" class="btn btn-success mb-3">Tambah Soal</a>

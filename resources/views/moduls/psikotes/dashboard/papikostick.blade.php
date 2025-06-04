@@ -4,7 +4,7 @@
 'modul' => 'PapiKostik',
 ])
 
-@section('content-dashboard')
+@section('content')
 <section class="flex w-full p-4 gap-4">
   <div class="flex flex-col items-center w-3/5 bg-white p-4 shadow-md rounded-lg">
   <h2 class="text-lg font-semibold mb-2" style="text-align: start; font-size: 14px; margin-bottom: 10px; margin-left: -65%;">Name:   Morgan Vero</h2>

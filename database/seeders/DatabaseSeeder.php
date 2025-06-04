@@ -48,6 +48,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call([
+            RoleSeeder::class,
             AdminSeeder::class,
             DimensionSeeder::class,
             QuestionSeeder::class,
