@@ -1,4 +1,4 @@
-@extends('moduls.dashboard.layouts.main', [
+@extends('dashboard.layouts.app', [
     'title' => 'Table Biodata Perusahaan',
     'active' => 'Dashboard',
     'modul' => 'Psikotest Paid Perusahaan',
@@ -23,7 +23,7 @@
     }
 </style>
 
-@section('content-dashboard')
+@section('content')
 <section class="flex w-full">
     <div class="flex flex-col w-full">
         <div class="w-full">

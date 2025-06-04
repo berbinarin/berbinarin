@@ -1,10 +1,10 @@
-@extends('moduls.dashboard.layouts.main', [
+@extends('dashboard.layouts.app', [
     'title' => 'Edit Soal',
     'active' => 'Dashboard',
     'modul' => 'Psikotest Free Soal',
 ])
 
-@section('content-dashboard')
+@section('content')
     <div class="container mt-5">
         <h1>Tambah Soal Psikotes Free</h1>
         <form action="{{ route('dashboard.psikotestfree.question.store') }}" method="POST">

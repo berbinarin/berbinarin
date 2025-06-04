@@ -1,10 +1,10 @@
-@extends('moduls.dashboard.layouts.main', [
+@extends('dashboard.layouts.app', [
     'title' => 'BerbinarArticle',
     'active' => 'Dashboard',
     'modul' => 'BerbinarSatu',
 ])
 
-@section('content-dashboard')
+@section('content')
     <div>
         <h1>Postingan</h1>
     </div>
