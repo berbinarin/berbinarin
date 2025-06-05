@@ -1,7 +1,5 @@
 @extends('landing.layouts.app', [
     'title' => 'Berbinar Insightful Indonesia',
-    'active' => 'Produk Berbinar',
-    'page' => 'Cerita Konseling',
 ])
 
 @section('content')
@@ -94,7 +92,7 @@
     </div>
 
     <div class="flex justify-center items-center pt-10">
-        <a href="{{ route('product.psikotes.index') }}" class="w-full flex justify-center">
+        <a href="{{ route('product.psikotest.index') }}" class="w-full flex justify-center">
             <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-24 sm:w-auto w-full rounded-xl">Beranda</button>
         </a>
     </div>

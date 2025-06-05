@@ -1,7 +1,5 @@
-@extends('dashboard.layouts.app
+@extends('dashboard.layouts.app', [
     'title' => 'Price List',
-    'active' => 'Dashboard',
-    'modul' => 'Psikotest Paid Price List',
 ])
 
 @section('content')
