@@ -21,9 +21,6 @@ class RoleSeeder extends Seeder
                 'name' => 'counseling-pm'
             ],
             [
-                'name' => 'gd'
-            ],
-            [
                 'name' => 'gdve'
             ],
             [
