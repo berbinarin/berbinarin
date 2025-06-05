@@ -44,7 +44,7 @@ class HomeController extends Controller
                 'vector' => 'assets/images/landing/asset-beranda/produk/logo-psikotes.png',
                 'produk' => 'Berbinar Psikotes',
                 'deskripsi' => 'Serangkaian tes untuk mengukur, menentukan, dan mempersiapkan karier dengan mengidentifikasi potensi yang dimiliki setiap klien.',
-                'link' => route('product.psikotest.index'),
+                'link' => route('product.psikotes.index'),
             ],
             [
                 'vector' => 'assets/images/landing/asset-beranda/produk/logo-consulting.png',

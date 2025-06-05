@@ -277,7 +277,7 @@
                         </div>
 
                         <div class="flex justify-start">
-                            <a href="{{ route("product.psikotest.index") }}">
+                            <a href="{{ route("product.psikotes.index") }}">
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:w-full max-sm:text-[15px]">Lihat Selengkapnya</button>
                             </a>
                         </div>
