@@ -31,12 +31,12 @@ class PsikotestController extends Controller
                     [
                         'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra10.png',
                         'name' => 'PT Parna Maspion Sejahtera',
-                        'total' => '40 Karyawan',
+                        'total' => '40 Klien',
                     ],
                     [
                         'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra15.png',
                         'name' => 'PT Bara Blasting Perkasa',
-                        'total' => '7 Karyawan',
+                        'total' => '7 Klien',
                     ],
                 ],
             ],
@@ -46,17 +46,17 @@ class PsikotestController extends Controller
                     [
                         'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra3.png',
                         'name' => 'Calon Dosen Non PNS UNAIR',
-                        'total' => '1 Karyawan',
+                        'total' => '1 Klien',
                     ],
                     [
                         'logo' => 'assets/images/landing/asset-psikotes/yayasan-darussalam.png',
                         'name' => 'Calon Guru Yayasan Darussalam',
-                        'total' => '55 Karyawan',
+                        'total' => '55 Klien',
                     ],
                     [
                         'logo' => 'assets/images/landing/asset-psikotes/yayasan-darussalam.png',
                         'name' => 'Calon Kepala Sekolah Yayasan Darussalam',
-                        'total' => '4 Karyawan',
+                        'total' => '4 Klien',
                     ],
                 ],
             ],
@@ -93,7 +93,7 @@ class PsikotestController extends Controller
             ],
             [
                 'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-dimensia.png',
-                'jenis_tes' => 'Tes Dimensia',
+                'jenis_tes' => 'Tes Demensia',
                 'harga' => 'Rp199.999',
                 'keterangan' => [
                     'laporan_tertulis' => true,
@@ -410,7 +410,7 @@ class PsikotestController extends Controller
             ],
             [
                 'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-dimensia.png',
-                'paket' => 'Tes Dimensia',
+                'paket' => 'Tes Demensia',
                 'harga' => 'Rp199.999',
                 'keterangan' => [
                     'laporan_tertulis' => true,

@@ -87,7 +87,7 @@
 
     <div class="flex flex-col space-y-4">
         <h1 class="max-sm:text-[29px] text-3xl font-semibold text-center max-sm:mx-2 text-gradient">Terima Kasih</h1>
-        <img src="{{ asset('assets/images/landing/logo-berbinar.png') }}" alt="Berbinar" class="h-24 w-auto object-contain">  
+        <img src="{{ asset('assets/images/landing/logo/logo-berbinar.png') }}" alt="Berbinar" class="h-24 w-auto object-contain">  
         <p class="max-sm:text-xl text-xl font-medium text-center text-gradient max-sm:mx-2">
             Setelah melakukan pendaftaran, SobatBinar akan dihubungi oleh staff konseling Berbinar maksimal 1x24jam terkait pembayaran dan informasi lebih lanjut mengenai pelaksanaan psikotes.<br><br>
             Jika ada hal yang ingin disampaikan, silahkan hubungi narahubung di bawah ini: 0813285689924 (Shafiyyah)

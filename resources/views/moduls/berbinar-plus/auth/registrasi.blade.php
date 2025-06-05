@@ -57,7 +57,7 @@
                                 class="flex justify-between items-center w-full border border-gray-300 p-2 rounded-md mb-2"
                                 id="genderToggle">
                                 <span id="genderSelected">Jenis Kelamin</span>
-                                <img src="{{ asset('assets/images/Vector.png') }}" alt=""
+                                <img src="{{ asset('assets/images/old/Vector.png') }}" alt=""
                                     class="transform transition-transform" id="genderIcon">
                             </button>
                             <div class="absolute bg-white border border-gray-300 rounded-md mt-2 w-full z-10 hidden"
@@ -104,7 +104,7 @@
                                 class="flex justify-between items-center w-full border border-gray-300 p-2 rounded-md mb-2"
                                 id="educationToggle">
                                 <span id="educationSelected">Pendidikan Terakhir</span>
-                                <img src="{{ asset('assets/images/Vector.png') }}" alt=""
+                                <img src="{{ asset('assets/images/old/Vector.png') }}" alt=""
                                     class="transform transition-transform" id="educationIcon">
                             </button>
                             <div class="absolute bg-white border border-gray-300 rounded-md mt-2 w-full z-10 hidden"
@@ -319,7 +319,7 @@
                             <button id="openModalConfirm" type="button"
                                 class="bg-gradient-to-r from-blue-600 to-white text-white px-4 py-2 rounded-full hover:bg-blue-600 transition duration-300 h-14 w-52 flex justify-center items-center">
                                 <span class="mr-2">Sign Up</span>
-                                <img src="{{ asset('assets/images/arrow.png') }}" alt="" class="ml-2">
+                                <img src="{{ asset('assets/images/old/arrow.png') }}" alt="" class="ml-2">
                             </button>
                         </div>
 
@@ -332,7 +332,7 @@
                             <div class="bg-white p-6 rounded-lg text-center"
                                 style="background-color: white; @media (max-width: 640px) { background-color: white; }">
                                 <!-- Gambar -->
-                                <img src="{{ asset('assets/images/confirm.png') }}" alt="" class="mx-auto">
+                                <img src="{{ asset('assets/images/old/confirm.png') }}" alt="" class="mx-auto">
                                 <!-- Pesan -->
                                 <p>Apakah data yang Anda masukkan sudah benar?</p>
                                 <p>Tolong pastikan bahwa informasi yang Anda masukkan telah tepat.</p>

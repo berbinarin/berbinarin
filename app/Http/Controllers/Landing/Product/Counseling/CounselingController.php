@@ -12,7 +12,7 @@ class CounselingController extends Controller
         $konselings = [
             [
                 'name' => 'Konseling Psikolog',
-                'image' => 'assets/images/landing/asset-tentang/konseling/psikolog.png',
+                'image' => 'assets/images/landing/asset-konseling/konseling/Konseling Psikolog.webp',
                 'description' => [
                     'Memiliki pelatihan dan kualifikasi profesional untuk menangani masalah kesehatan mental yang lebih kompleks.',
                     'Menyediakan pendekatan yang lebih formal dan terstandarisasi dalam konseling.',
@@ -20,7 +20,7 @@ class CounselingController extends Controller
             ],
             [
                 'name' => 'Konseling Peer Counselor',
-                'image' => 'assets/images/landing/asset-tentang/konseling/peer-counselor.png',
+                'image' => 'assets/images/landing/asset-konseling/konseling/Konseling Peer Counselor.webp',
                 'description' => [
                     'Menawarkan dukungan dari teman sebaya dengan empati yang kuat sehingga lebih mudah terbuka dengan klien.',
                     'Fokus pada masalah sehari-hari seperti penyesuaian diri.',
@@ -28,7 +28,7 @@ class CounselingController extends Controller
             ],
             [
                 'name' => 'Konseling Daring',
-                'image' => 'assets/images/landing/asset-tentang/konseling/daring.png',
+                'image' => 'assets/images/landing/asset-konseling/konseling/Konseling Daring.webp',
                 'description' => [
                     'Fleksibilitas yang memudahkan klien menjadwalkan sesi sesuai dengan ketersediaan klien dan dapat dilakukan dari mana saja.',
                     'Aksesibilitas dengan menyediakan pilihan bagi klien yang tinggal di daerah susah dijangkau dan mengurangi kecemasan yang mungkin dirasakan saat bertemu langsung.',
@@ -36,7 +36,7 @@ class CounselingController extends Controller
             ],
             [
                 'name' => 'Konseling Luring',
-                'image' => 'assets/images/landing/asset-tentang/konseling/psikolog.png',
+                'image' => 'assets/images/landing/asset-konseling/konseling/Konseling Luring.webp',
                 'description' => [
                     'Adanya interaksi yang mungkinkan komunikasi yang lebih nyaman dengan bahasa tubuh secara langsung.',
                     'Lingkungan yang terjamin untuk kenyamanan dan privasi sehingga mengurangi gangguan seperti saat sesi daring.',
@@ -51,29 +51,9 @@ class CounselingController extends Controller
                 'image' => 'assets/images/landing/asset-konseling/image/psikolog/danny.png'
             ],
             [
-                'name' => 'B. Primandini Y. H.',
-                'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/primandini.png'
-            ],
-            [
-                'name' => 'Yusandi Rezki Fadhli',
-                'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/yusandi.png'
-            ],
-            [
                 'name' => 'Satria Kamal Agassi',
                 'title' => 'S.Psi., M.Psi., Psikolog',
                 'image' => 'assets/images/landing/asset-konseling/image/psikolog/satria.png'
-            ],
-            [
-                'name' => 'Virginia Sukma Dewi',
-                'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/virginia.png'
-            ],
-            [
-                'name' => 'Kasmayani Karim',
-                'title' => 'M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/kasmayani.png'
             ],
             [
                 'name' => 'Ira Mayang Sari',
@@ -89,7 +69,17 @@ class CounselingController extends Controller
                 'name' => 'Ramadhani Lucky Al Kahfi',
                 'title' => 'S.Psi., M.Psi., Psikolog',
                 'image' => 'assets/images/landing/asset-konseling/image/psikolog/ramadhani.png'
-            ]
+            ],
+            [
+                'name' => 'Alto Kusumo Andrian',
+                'title' => 'S.Psi., M.Psi., Psikolog',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/alto.png'
+            ],
+            [
+                'name' => 'Saraswati Stefannie Doho',
+                'title' => 'S.Psi., M.Psi., Psikolog',
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/saras.png'
+            ],
         ];
 
         $weeksOn = [
@@ -189,9 +179,9 @@ class CounselingController extends Controller
                 'region' => 'Tangerang Selatan'
             ],
             [
-                'name' => "Nabila Farah Atiqah",
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/nabila.png',
-                'region' => 'Malang'
+                'name' => "Firda Annisapriyanti",
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/firda.png',
+                'region' => 'Palembang'
             ],
             [
                 'name' => 'Thahira Raudhatunissa',

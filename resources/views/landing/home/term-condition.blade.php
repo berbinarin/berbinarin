@@ -50,7 +50,7 @@
         @foreach ($locations as $location)
         <div class="flex flex-col pl-2.5 sm:pl-6 leading-loose mt-2">
             <div class="flex gap-x-2 items-center">
-                <img src="{{ asset('assets/images/landing/term-point.png') }}" alt="Vector" class="h-3.5 w-auto">
+                <img src="{{ asset('assets/images/landing/asset-beranda/term-point.png') }}" alt="Vector" class="h-3.5 w-auto">
                 <p class="text-[#636363] font-semibold sm:text-[16px] text-[15px] text-justify max-sm:leading-normal">{{ $location['address'] }}</p>
             </div>    
             @foreach ($location['address_detail'] as $detail)

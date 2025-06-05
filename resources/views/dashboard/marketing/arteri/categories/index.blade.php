@@ -62,7 +62,7 @@
                 <!--header-->
                 <div class="flex items-center justify-between rounded-t border-b border-solid border-gray-300 p-5">
                     <div class="flex justify-center gap-3">
-                        <img src="{{ asset("assets/images/svg-icon/kategori-icon.png") }}" />
+                        <img src="{{ asset("assets/images/dashboard/svg-icon/kategori-icon.png") }}" />
                         <h3 class="text-xl font-semibold">Tambah Kategori</h3>
                     </div>
                     <button class="float-right ml-auto border-0 bg-transparent p-1 text-3xl font-semibold leading-none text-black outline-none focus:outline-none" onclick="tutupModalTambah()">
@@ -96,7 +96,7 @@
             <div class="relative flex w-full flex-col rounded-lg border-0 bg-white shadow-lg outline-none focus:outline-none">
                 <div class="flex items-center justify-between rounded-t border-b border-solid border-gray-300 p-5">
                     <div class="flex justify-center gap-3">
-                        <img src="{{ asset("assets/images/svg-icon/kategori-icon.png") }}" />
+                        <img src="{{ asset("assets/images/dashboard/svg-icon/kategori-icon.png") }}" />
                         <h3 class="text-xl font-semibold">Edit Kategori</h3>
                     </div>
                     <button class="float-right ml-auto border-0 bg-transparent p-1 text-3xl font-semibold leading-none text-black outline-none focus:outline-none" onclick="tutupModalEdit()">
@@ -132,7 +132,7 @@
                 <!--body-->
                 <div class="relative flex-auto p-5">
                     <div class="flex flex-col items-center gap-1">
-                        <img class="w-16" src="{{ asset("assets/images/warning.png") }}" />
+                        <img class="w-16" src="{{ asset("assets/images/dashboard/arteri/warning.png") }}" />
                         <p class="pt-5">Apakah Anda yakin ingin menghapus item ini?</p>
                         <!--footer-->
                         <form method="POST" action="" id="delete-category-form" class="flex items-center justify-center gap-5 rounded-b pt-7">

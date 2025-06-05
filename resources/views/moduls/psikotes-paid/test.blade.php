@@ -7,12 +7,12 @@
 <section>
     <div class="bg-white">
         <div class="justify-center items-center">
-            <img src="{{ asset('assets/images/splines.png') }}" alt="" title="" class="w-screen h-screen">
+            <img src="{{ asset('assets/images/old/splines.png') }}" alt="" title="" class="w-screen h-screen">
 
 
             <div class="absolute w-screen h-screen justify-center place-content-center top-0 overflow-y-auto">
                 <div class="flex justify-center">
-                    <img src="{{ asset('assets/images/logo-psikotes.png') }}" alt="" title=""
+                    <img src="{{ asset('assets/images/old/logo-psikotes.png') }}" alt="" title=""
                         class="w-fit absolute top-5 shadow-md rounded-full">
                 </div>
                 <div class="max-w-6xl mx-auto mt-24">

@@ -26,7 +26,7 @@
                         <img src="{{ asset("assets/images/landing/karir/banner/" . $imageName . ".jpg") }}" alt="banner" class="h-40 w-full object-cover sm:h-48 md:h-60 lg:h-64 xl:h-72" />
                     </div>
                     <div class="absolute -bottom-2 right-10 rounded-full bg-white sm:right-20 lg:-bottom-6 lg:left-8 lg:right-auto">
-                        <img src="{{ asset("assets/images/landing/logo-berbinar.png") }}" alt="logo berbinar" class="size-14 object-cover" />
+                        <img src="{{ asset("assets/images/landing/logo/logo-berbinar.png") }}" alt="logo berbinar" class="size-14 object-cover" />
                     </div>
                 </div>
                 {{-- deskripsi pekerjaan badge --}}

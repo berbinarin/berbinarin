@@ -8,7 +8,7 @@
     <div class="flex bg-[#F5F7F9]">
         <div class="flex flex-col justify-center items-center">
             <div class="flex justify-center">
-                <img src="{{ asset('assets/images/logo-psikotes.png') }}" alt="" title="" class="w-[160px] md:w-fit ml-0 md:-ml-10 absolute top-5">
+                <img src="{{ asset('assets/images/old/logo-psikotes.png') }}" alt="" title="" class="w-[160px] md:w-fit ml-0 md:-ml-10 absolute top-5">
             </div>
 
             <div class="flex flex-col md:w-screen justify-center items-center">

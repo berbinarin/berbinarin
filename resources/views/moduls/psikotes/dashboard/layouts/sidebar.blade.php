@@ -1,7 +1,7 @@
 <nav class="w-[20%] flex flex-col items-center bg-white py-8 px-4">
     {{-- LOGO BERBINAR --}}
     <div>
-        <img src="{{ asset('assets/images/logo-berbinar.png') }}" alt="Logo Berbinar Insightful Indonesia" title="Logo Berbinar Insightful Indonesia" class="w-14">
+        <img src="{{ asset('assets/images/old/logo-berbinar.png') }}" alt="Logo Berbinar Insightful Indonesia" title="Logo Berbinar Insightful Indonesia" class="w-14">
     </div>
 
     {{-- LIST MENU --}}

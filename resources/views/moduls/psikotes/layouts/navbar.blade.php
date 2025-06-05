@@ -2,7 +2,7 @@
 <header class="sticky top-0 z-50 w-full font-plusJakartaSans bg-white border-b-2 border-b-[#dedede] py-5">
     <nav class="max-w-6xl mx-auto px-5 md:px-0 items-center flex justify-between">
         <a href="/">
-            <img src="{{ asset('assets/images/logo-berbinar.png') }}" alt="Logo Berbinar Insightful Indonesia" title="Logo Berbinar Insightful Indonesia" class="w-[60px]">
+            <img src="{{ asset('assets/images/old/logo-berbinar.png') }}" alt="Logo Berbinar Insightful Indonesia" title="Logo Berbinar Insightful Indonesia" class="w-[60px]">
         </a>
 
         <div class="flex-row gap-8 items-center hidden md:flex">

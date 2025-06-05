@@ -6,7 +6,7 @@
      class="hidden fixed inset-0 z-50 items-center justify-center">
     <div class="w-full max-w-md mx-auto bg-white rounded-lg shadow-lg p-6">
         <div class="flex flex-col items-center gap-1">
-            <img class="w-16" src="{{ asset('assets/images/warning.png') }}" alt="Warning" />
+            <img class="w-16" src="{{ asset('assets/images/dashboard/arteri/warning.png') }}" alt="Warning" />
             <p class="pt-5 text-center">Apakah Anda yakin ingin menghapus item ini?</p>
 
             <!-- Form -->

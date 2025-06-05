@@ -253,7 +253,7 @@
     <div class="fixed bottom-4 right-4 z-50">
         <a href="https://wa.me/6285694080365" target="_blank">
             <div class="flex size-12 items-center justify-center rounded-full bg-[#3986A3] p-2 text-white shadow-xl hover:bg-[#3986A3]/80 lg:size-16 lg:p-4">
-                <img src="{{ asset("assets/images/landing/asset-beranda/sosmed-icon/whatsapp.png") }}" alt="whatsapp icon" class="object-cover" />
+                <img src="{{ asset("assets/images/landing/logo/sosmed-icon/whatsapp.png") }}" alt="whatsapp icon" class="object-cover" />
             </div>
         </a>
     </div>

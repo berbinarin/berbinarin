@@ -59,7 +59,7 @@
     </div>
 
     @if ($loop->iteration == 1)
-        <img src="{{ asset('assets/images/landing/logo-berbinar.png') }}" alt="Berbinar" class="h-20 w-auto object-contain">
+        <img src="{{ asset('assets/images/landing/logo/logo-berbinar.png') }}" alt="Berbinar" class="h-20 w-auto object-contain">
     @endif
     @endforeach
 
@@ -95,7 +95,7 @@
     </div>
 
     @if ($loop->iteration == 1)
-        <img src="{{ asset('assets/images/landing/logo-berbinar.png') }}" alt="Berbinar" class="h-14 w-auto object-contain">
+        <img src="{{ asset('assets/images/landing/logo/logo-berbinar.png') }}" alt="Berbinar" class="h-14 w-auto object-contain">
     @endif
     @endforeach
 </div>

@@ -305,7 +305,7 @@
               <!-- <form id="formPageFive" action="#" method="POST"> Tambahkan form element -->
               <div class="mb-3 px-8 -mt-2 text-center">
                 <div class="flex justify-center items-center">
-                  <img src="{{ asset('assets/images/psikotes/feedback/sangat-suka-hd.png') }}" alt="" class="w-[100px]">
+                  <img src="{{ asset('assets/images/old/psikotes/feedback/sangat-suka-hd.png') }}" alt="" class="w-[100px]">
                 </div>
 
                 <!-- <label for="tiktokFive" class="block text-lg font-medium text-gray-700">Motivasi Mendaftar Internship Berbinar</label> -->

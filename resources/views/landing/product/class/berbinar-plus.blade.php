@@ -14,7 +14,7 @@
             width: 100vw;
             max-width: 100%;
             height: 100vh;
-            background-image: url('/assets/images/landing/vector-curling-mobile.png');
+            background-image: url('/assets/images/landing/asset-produk/vector-curling-mobile.png');
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -465,7 +465,7 @@
 
     {{-- LAYANAN BERBINAR PLUS --}}
     <section class="bg-layanan-desktop relative mx-20 mb-12 h-[280px] rounded-3xl bg-cover p-10 max-md:my-5 max-md:h-[600px] max-md:overflow-hidden max-sm:mx-4 max-sm:h-[500px]">
-        <img src="{{ asset("assets/images/landing/vector-curling-mobile.png") }}" alt="Background" class="absolute -top-[150px] left-0 hidden w-[1000px] rounded-t-3xl object-cover max-md:-top-[220px] max-md:flex max-md:h-[700px] max-sm:-top-[200px] max-sm:h-[600px] max-sm:w-[1500px]" />
+        <img src="{{ asset("assets/images/landing/asset-produk/vector-curling-mobile.png") }}" alt="Background" class="absolute -top-[150px] left-0 hidden w-[1000px] rounded-t-3xl object-cover max-md:-top-[220px] max-md:flex max-md:h-[700px] max-sm:-top-[200px] max-sm:h-[600px] max-sm:w-[1500px]" />
         <div class="absolute inset-0 flex rounded-3xl bg-[#2D6B8280] max-md:hidden"></div>
 
         <div class="relative flex flex-col items-center justify-center space-y-4 text-center">
@@ -559,7 +559,7 @@
 
     {{-- HARGA LAYANAN BERBINAR PLUS --}}
     <section class="bg-layanan-desktop relative mx-20 mb-12 h-96 rounded-3xl bg-cover p-10 max-md:my-5 max-md:h-[600px] max-md:overflow-hidden max-sm:mx-4 max-sm:h-[500px]">
-        <img src="{{ asset("assets/images/landing/vector-curling-mobile.png") }}" alt="Background" class="absolute -top-[150px] left-0 hidden w-[1000px] rounded-t-3xl object-cover max-md:-top-[220px] max-md:flex max-md:h-[700px] max-sm:-top-[200px] max-sm:h-[600px] max-sm:w-[1500px]" />
+        <img src="{{ asset("assets/images/landing/asset-produk/vector-curling-mobile.png") }}" alt="Background" class="absolute -top-[150px] left-0 hidden w-[1000px] rounded-t-3xl object-cover max-md:-top-[220px] max-md:flex max-md:h-[700px] max-sm:-top-[200px] max-sm:h-[600px] max-sm:w-[1500px]" />
         <div class="absolute inset-0 flex rounded-3xl bg-[#2D6B8280] max-md:hidden"></div>
 
         <div class="relative mb-4 flex flex-col items-center justify-center space-y-4 text-center">

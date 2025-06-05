@@ -3,7 +3,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <title>{{ $title }}</title>
 
-<link rel="shortcut icon" href="{{ asset("assets/images/logo-berbinar.png") }}" type="image/x-icon" />
+<link rel="shortcut icon" href="{{ asset("assets/images/old/logo-berbinar.png") }}" type="image/x-icon" />
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />

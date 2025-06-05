@@ -16,7 +16,7 @@
             width: 100vw;
             max-width: 100%;
             height: 100vh;
-            background-image: url('/assets/images/landing/vector-curling-mobile.png');
+            background-image: url('/assets/images/landing/asset-produk/curling-mobile.png');
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -109,21 +109,21 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide produkBerbinar">
                             <div class="relative">
-                                <img src="{{ asset("assets/images/landing/asset-produk/webinar.png") }}" alt="Webinar" class="h-72 w-full rounded-xl object-cover" />
+                                <img src="{{ asset("assets/images/landing/asset-produk/webinar.webp") }}" alt="Webinar" class="h-72 w-full rounded-xl object-cover" />
                                 <p class="absolute left-4 top-4 rounded-md bg-[#FEF7EB] px-2 py-1 text-sm text-[#C78E2E]">Workshop</p>
                             </div>
                         </div>
 
                         <div class="swiper-slide produkBerbinar">
                             <div class="relative">
-                                <img src="{{ asset("assets/images/landing/asset-produk/workshop.JPG") }}" alt="Workshop" class="h-72 w-full rounded-xl object-cover" />
+                                <img src="{{ asset("assets/images/landing/asset-produk/workshop.webp") }}" alt="Workshop" class="h-72 w-full rounded-xl object-cover" />
                                 <p class="absolute left-4 top-4 rounded-md bg-[#FEF7EB] px-2 py-1 text-sm text-[#C78E2E]">Workshop</p>
                             </div>
                         </div>
 
                         <div class="swiper-slide produkBerbinar">
                             <div class="relative">
-                                <img src="{{ asset("assets/images/landing/asset-produk/psikotes-offline.png") }}" alt="Psikotes Offline" class="h-72 w-full rounded-xl object-cover" />
+                                <img src="{{ asset("assets/images/landing/asset-produk/psikotes-offline.webp") }}" alt="Psikotes Offline" class="h-72 w-full rounded-xl object-cover" />
                                 <p class="absolute left-4 top-4 rounded-md bg-[#FEF7EB] px-2 py-1 text-sm text-[#C78E2E]">Psikotes Offline</p>
                             </div>
                         </div>
@@ -144,17 +144,17 @@
         <div class="mx-20 my-5 max-lg:my-8 max-md:hidden">
             <div class="flex w-full flex-wrap items-center justify-center gap-x-8 gap-y-5">
                 <div class="relative">
-                    <img src="{{ asset("assets/images/landing/asset-produk/webinar.png") }}" alt="Webinar" class="h-52 w-[345px] rounded-xl object-cover max-lg:h-[250px] max-lg:w-[450px]" />
+                    <img src="{{ asset("assets/images/landing/asset-produk/webinar.webp") }}" alt="Webinar" class="h-52 w-[345px] rounded-xl object-cover max-lg:h-[250px] max-lg:w-[450px]" />
                     <p class="absolute left-4 top-4 rounded-md bg-[#FEF7EB] px-2 py-1 text-sm text-[#C78E2E]">Webinar</p>
                 </div>
 
                 <div class="relative">
-                    <img src="{{ asset("assets/images/landing/asset-produk/workshop.JPG") }}" alt="Workshop" class="h-52 w-[345px] rounded-xl object-cover max-lg:h-[250px] max-lg:w-[450px]" />
+                    <img src="{{ asset("assets/images/landing/asset-produk/workshop.webp") }}" alt="Workshop" class="h-52 w-[345px] rounded-xl object-cover max-lg:h-[250px] max-lg:w-[450px]" />
                     <p class="absolute left-4 top-4 rounded-md bg-[#FEF7EB] px-2 py-1 text-sm text-[#C78E2E]">Workshop</p>
                 </div>
 
                 <div class="relative">
-                    <img src="{{ asset("assets/images/landing/asset-produk/psikotes-offline.png") }}" alt="Psikotes Offline" class="h-52 w-[345px] rounded-xl object-cover max-lg:h-[250px] max-lg:w-[450px]" />
+                    <img src="{{ asset("assets/images/landing/asset-produk/psikotes-offline.webp") }}" alt="Psikotes Offline" class="h-52 w-[345px] rounded-xl object-cover max-lg:h-[250px] max-lg:w-[450px]" />
                     <p class="absolute left-4 top-4 rounded-md bg-[#FEF7EB] px-2 py-1 text-sm text-[#C78E2E]">Psikotes Offline</p>
                 </div>
             </div>
@@ -192,13 +192,13 @@
                         <div class="relative">
                             {{-- IMAGE --}}
                             <div class="max-md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/konseling.png") }}" alt="Konseling" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
+                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/konseling.webp") }}" alt="Konseling" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
                             </div>
 
                             <!-- DESCRIPTION -->
                             <h1 class="text-gradient mb-2 text-3xl font-bold max-sm:mb-0 max-sm:text-2xl">Berbinar Konseling</h1>
                             <div class="my-2 flex justify-center md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/konseling.png") }}" alt="Psikotes" class="h-auto w-[280px] object-contain" />
+                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/konseling.webp") }}" alt="Psikotes" class="h-auto w-[280px] object-contain" />
                             </div>
                             <p class="text-justify text-[#70787D] max-sm:text-[15px]">Layanan psikolog dan konselor sebaya untuk konsultasi permasalahan mental yang dialami oleh klien secara online dan offline.</p>
                             <h1 class="text-gradient-yellow mb-2 mt-2 text-2xl font-bold max-sm:mb-0 max-sm:text-xl">Fokus</h1>
@@ -242,13 +242,13 @@
                         <div class="relative">
                             {{-- IMAGE --}}
                             <div class="max-md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/psikotest.png") }}" alt="Psikotes" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
+                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/psikotest.webp") }}" alt="Psikotes" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
                             </div>
 
                             <!-- DESCRIPTION -->
                             <h1 class="text-gradient mb-2 text-3xl font-bold max-sm:mb-0 max-sm:text-2xl">Berbinar Psikotes</h1>
                             <div class="my-2 flex justify-center md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/psikotest.png") }}" alt="Psikotes" class="h-auto w-[280px] object-contain" />
+                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/psikotest.webp") }}" alt="Psikotes" class="h-auto w-[280px] object-contain" />
                             </div>
                             <p class="text-justify text-[#70787D] max-sm:text-[15px]">
                                 Terdapat empat kategori psikotes yang ditawarkan oleh
@@ -290,7 +290,7 @@
                         <div class="relative">
                             {{-- IMAGE --}}
                             <div class="max-md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/kelas.png") }}" alt="Class" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
+                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/kelas.webp") }}" alt="Class" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
                             </div>
 
                             <!-- DESCRIPTION -->
@@ -299,7 +299,7 @@
                                 <span class="italic">Class</span>
                             </h1>
                             <div class="my-2 flex justify-center md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/kelas.png") }}" alt="Class" class="h-auto w-[280px] object-contain" />
+                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/kelas.webp") }}" alt="Class" class="h-auto w-[280px] object-contain" />
                             </div>
                             <p class="text-justify text-[#70787D] max-sm:text-[15px]">Layanan platform persiapan karir dan peningkatan skill dengan meningkatkan kompetensi secara psikologis edukasi yang begitu mudah diikuti oleh semua kalangan.</p>
                             <h1 class="text-gradient-yellow mb-2 mt-2 text-2xl font-bold max-sm:mb-0 max-sm:text-xl">Fokus</h1>
@@ -349,7 +349,7 @@
                         <div class="relative">
                             {{-- IMAGE --}}
                             <div class="max-md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/consulting.png") }}" alt="Consulting" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
+                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/consulting.webp") }}" alt="Consulting" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
                             </div>
 
                             <!-- DESCRIPTION -->
@@ -358,7 +358,7 @@
                                 <span class="italic">Consulting</span>
                             </h1>
                             <div class="my-2 flex justify-center md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/consulting.png") }}" alt="Consulting" class="h-auto w-[280px] object-contain" />
+                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/consulting.webp") }}" alt="Consulting" class="h-auto w-[280px] object-contain" />
                             </div>
                             <p class="text-justify text-[#70787D] max-sm:text-[15px]">Layanan yang membantu perusahaan, organisasi, hingga komunitas dalam mengatasi masalah dan meningkatkan kinerja sumber daya manusia.</p>
                             <h1 class="text-gradient-yellow mb-2 mt-2 text-2xl font-bold max-sm:mb-0 max-sm:text-xl">Fokus</h1>
@@ -414,13 +414,13 @@
                         <div class="relative">
                             {{-- IMAGE --}}
                             <div class="max-md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/moodscantees.png") }}" alt="MoodScan Tees" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
+                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/moodscantees.webp") }}" alt="MoodScan Tees" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
                             </div>
 
                             <!-- DESCRIPTION -->
                             <h1 class="text-gradient mb-2 text-3xl font-bold max-sm:mb-0 max-sm:text-2xl">MoodScan Tees</h1>
                             <div class="my-2 flex justify-center md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/moodscantees.png") }}" alt="MoodScan Tees" class="h-auto w-[280px] object-contain" />
+                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/moodscantees.webp") }}" alt="MoodScan Tees" class="h-auto w-[280px] object-contain" />
                             </div>
                             <p class="text-justify text-[#70787D] max-sm:text-[15px]">
                                 MoodScan Tees adalah kaos nyaman dengan desain psikologis hasil kolaborasi ciamik antara Berbinar Insightful Indonesia dengan Esize. Tidak hanya tampil gaya, kaos ini juga dapat memberikan kebahagiaan dan dukungan psikologis setiap kali dikenakan.
@@ -458,7 +458,7 @@
                         <div class="relative">
                             {{-- IMAGE --}}
                             <div class="max-md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/emoshuffle.png") }}" alt="EmoShuffle" class="float-end me-12 size-80" />
+                                <img src="{{ asset("assets/images/landing/asset-beranda/produk/emoshuffle.webp") }}" alt="EmoShuffle" class="float-end me-12 size-80" />
                                 {{-- class="float-right size-96 max-lg:w-[200px] h-auto max-xl:ml-6 mx-14 object-contain" /> --}}
                             </div>
 
@@ -466,7 +466,7 @@
                             <div class="lg:w-3/5">
                                 <h1 class="text-gradient mb-2 text-3xl font-bold max-sm:mb-0 max-sm:text-2xl">EmoShuffle</h1>
                                 <div class="my-2 flex justify-center md:hidden">
-                                    <img src="{{ asset("assets/images/landing/asset-beranda/produk/emoshuffle.png") }}" alt="EmoShuffle" class="h-auto w-52 object-cover" />
+                                    <img src="{{ asset("assets/images/landing/asset-beranda/produk/emoshuffle.webp") }}" alt="EmoShuffle" class="h-auto w-52 object-cover" />
                                 </div>
                                 <p class="mb-4 text-justify text-[#70787D]">Permainan kartu untuk individu maupun kelompok yang dirancang dengan desain menarik, berupa pertanyaan, kutipan, atau aksi yang dapat meningkatkan kepedulian akan kesehatan mental serta mendalami dan mengekspresikan perasaan pemain.</p>
                                 <h1 class="text-gradient-emo mb-2 text-2xl font-bold max-sm:mb-0 max-sm:text-xl">Fokus</h1>
