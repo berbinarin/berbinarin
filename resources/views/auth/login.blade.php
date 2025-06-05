@@ -6,7 +6,7 @@
 @section('content')
     <section class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 h-screen">
         <div class="mx-auto max-w-2xl text-center flex items-center justify-center flex-col">
-            <img src="{{ asset('assets/images/logo-berbinar.png') }}" alt="Logo Berbinar Insightful Indonesia"
+            <img src="{{ asset('assets/images/old/logo-berbinar.png') }}" alt="Logo Berbinar Insightful Indonesia"
                 title="Logo Berbinar Insightful Indonesia" class="w-24">
             <h1 class="text-4xl text-dark font-bold mt-2">Welcome to Dashboard <br> Admin Berbinarin</h1>
             <p class="mt-4 text-gray-500">

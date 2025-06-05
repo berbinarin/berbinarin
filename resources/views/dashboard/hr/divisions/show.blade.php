@@ -12,7 +12,7 @@
                 <div class="">
                     <div class="mb-2 flex items-center gap-2">
                         <a href="{{ route("dashboard.divisions.index") }}">
-                            <img src="{{ asset("assets/images/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
+                            <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
                         </a>
                         <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Detail Division Data</p>
                     </div>

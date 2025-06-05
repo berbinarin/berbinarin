@@ -8,7 +8,7 @@
     <div class="flex bg-[#F5F7F9]">
         <div class="flex flex-col justify-center items-center">
             <div class="flex justify-center">
-                <img src="{{ asset('assets/images/logo-psikotes.png') }}" alt="" title=""
+                <img src="{{ asset('assets/images/old/logo-psikotes.png') }}" alt="" title=""
                     class="w-fit absolute ml-0 md:-ml-60 top-5">
             </div>
             <form action="{{ route('psikotest-paid.postRegPage1') }}" method="POST">

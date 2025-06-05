@@ -298,7 +298,7 @@
             </div>
 
             <div class="flex items-center justify-center lg:hidden">
-                <img src="{{ asset("assets/images/landing/logo-berbinar.png") }}" alt="Berbinar" class="h-[320px] w-auto object-contain max-md:h-[290px] max-sm:h-[270px]" />
+                <img src="{{ asset("assets/images/landing/logo/logo-berbinar.png") }}" alt="Berbinar" class="h-[320px] w-auto object-contain max-md:h-[290px] max-sm:h-[270px]" />
             </div>
 
             <div class="flex-1">
@@ -1055,7 +1055,7 @@
                     @foreach ($testimonis as $testimoni)
                         <div class="swiper-slide">
                             <div class="flex h-auto w-auto flex-col items-center justify-center rounded-3xl bg-white p-5 text-center shadow-md">
-                                <img src="{{ asset("assets/images/landing/vector-kutip.png") }}" alt="Kutip" class="h-8 w-auto max-sm:h-7" />
+                                <img src="{{ asset("assets/images/landing/asset-produk/vector-kutip.png") }}" alt="Kutip" class="h-8 w-auto max-sm:h-7" />
 
                                 <div class="flex flex-grow flex-col pt-4 text-center">
                                     <p class="min-h-[168px] flex-grow text-justify text-[16px] font-medium text-black max-lg:min-h-[168px] max-md:leading-snug max-sm:text-[15px] max-sm:leading-tight">

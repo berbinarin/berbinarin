@@ -373,7 +373,7 @@
 
     {{-- JADWAL KONSELING PSIKOLOG --}}
     <div class="bg-psikolog relative mx-20 mt-24 h-[300px] rounded-3xl bg-cover bg-center p-10 max-md:h-[800px] max-md:overflow-hidden max-sm:mx-4">
-        <img src="/assets/images/landing/vector-curling-mobile.png" alt="Background" class="absolute -top-[150px] left-0 hidden h-[820px] w-[1000px] rounded-t-3xl object-cover max-md:flex" />
+        <img src="/assets/images/landing/asset-produk/vector-curling-mobile.png" alt="Background" class="absolute -top-[150px] left-0 hidden h-[820px] w-[1000px] rounded-t-3xl object-cover max-md:flex" />
         <div class="absolute inset-0 flex rounded-3xl bg-[#2D6B8280] max-md:hidden"></div>
 
         <div class="relative flex flex-col justify-center space-y-4 text-center">
@@ -532,7 +532,7 @@
 
     {{-- PEER COUNSELOR COUNSELING SCHEDULE --}}
     <div class="bg-psikolog relative mx-20 mt-24 h-[280px] rounded-3xl bg-cover p-10 max-md:h-[800px] max-md:overflow-hidden max-sm:mx-4">
-        <img src="/assets/images/landing/vector-curling-mobile.png" alt="Background" class="absolute -top-[150px] left-0 hidden h-[750px] w-[1000px] rounded-t-3xl object-cover max-md:flex" />
+        <img src="/assets/images/landing/asset-produk/vector-curling-mobile.png" alt="Background" class="absolute -top-[150px] left-0 hidden h-[750px] w-[1000px] rounded-t-3xl object-cover max-md:flex" />
         <div class="absolute inset-0 flex rounded-3xl bg-[#2D6B8280] max-md:hidden"></div>
 
         <div class="relative flex flex-col justify-center space-y-5 text-center">
@@ -595,7 +595,7 @@
                     @foreach ($testimonis as $testimoni)
                         <div class="swiper-slide">
                             <div class="flex h-auto w-auto flex-col items-center justify-center rounded-3xl bg-white p-5 text-center shadow-md">
-                                <img src="{{ asset("assets/images/landing/vector-kutip.png") }}" alt="Kutip" class="h-8 w-auto max-sm:h-7" />
+                                <img src="{{ asset("assets/images/landing/asset-produk/vector-kutip.png") }}" alt="Kutip" class="h-8 w-auto max-sm:h-7" />
 
                                 <div class="flex flex-grow flex-col pt-4 text-center">
                                     <p class="min-h-[216px] flex-grow text-justify text-[16px] font-medium text-black max-lg:min-h-[240px] max-md:leading-snug max-sm:min-h-[195px] max-sm:text-[15px] max-sm:leading-tight">

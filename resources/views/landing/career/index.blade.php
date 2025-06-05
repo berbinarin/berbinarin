@@ -165,7 +165,7 @@
                                     <img src="{{ asset("assets/images/landing/karir/banner/" . $imageName . ".jpg") }}" alt="1" class="h-full w-full object-cover" />
                                 </div>
                                 {{-- image-banner end --}}
-                                <img src="{{ asset("assets/images/landing/logo-berbinar.png") }}" alt="berbinar logo" class="absolute -bottom-5 right-4 z-20 size-10 rounded-full bg-white shadow-primary-light" />
+                                <img src="{{ asset("assets/images/landing/logo/logo-berbinar.png") }}" alt="berbinar logo" class="absolute -bottom-5 right-4 z-20 size-10 rounded-full bg-white shadow-primary-light" />
                             </div>
                             {{-- banner end --}}
 
@@ -249,7 +249,7 @@
                         @foreach ($testimonis as $testimoni)
                             <div class="swiper-slide">
                                 <div class="relative h-96 w-full max-w-sm rounded-3xl bg-white px-4 pb-2 pt-4 shadow-md md:h-[480px]">
-                                    <img src="{{ asset("assets/images/landing/vector-kutip.png") }}" alt="Kutip" class="mx-auto mb-4 block h-8 w-auto max-sm:h-7" />
+                                    <img src="{{ asset("assets/images/landing/karir/vector-kutip.png") }}" alt="Kutip" class="mx-auto mb-4 block h-8 w-auto max-sm:h-7" />
 
                                     <div class="py-4 text-center">
                                         <p class="line-clamp-6 text-justify text-sm font-medium text-black xl:line-clamp-[11]">"{{ $testimoni["comment"] }}"</p>

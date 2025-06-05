@@ -38,7 +38,7 @@
                                     class="object-cover h-full w-full">
                             </div>
                             {{--image-banner end--}}
-                            <img src="{{ asset("assets/images/landing/logo-berbinar.png") }}" alt="berbinar logo"
+                            <img src="{{ asset("assets/images/landing/logo/logo-berbinar.png") }}" alt="berbinar logo"
                                  class="absolute z-20 bg-white size-10 right-4 -bottom-5 rounded-full shadow-primary-light">
                         </div>
                         {{--banner end--}}

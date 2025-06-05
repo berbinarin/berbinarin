@@ -71,7 +71,7 @@
                 <!--header-->
                 <div class="flex flex-col items-center justify-center p-5">
                     <div class="mb-4 flex items-center justify-center">
-                        <img src="{{ asset("assets/images/svg-icon/penulis-icon.png") }}" class="mr-2 h-8 w-8" />
+                        <img src="{{ asset("assets/images/dashboard/svg-icon/penulis-icon.png") }}" class="mr-2 h-8 w-8" />
                         <span class="text-lg font-semibold">Tambah Penulis</span>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                             <div class="mb-4 flex justify-center">
                                 <div class="relative">
                                     <div class="flex h-24 w-24 items-center justify-center overflow-hidden rounded-full bg-gray-200">
-                                        <img src="{{ asset("assets/images/svg-icon/user.svg") }}" alt="Avatar" class="h-full w-full object-cover" id="preview-avatar" />
+                                        <img src="{{ asset("assets/images/dashboard/svg-icon/user.svg") }}" alt="Avatar" class="h-full w-full object-cover" id="preview-avatar" />
                                     </div>
                                     <label for="foto_profil" class="absolute bottom-0 right-0 cursor-pointer rounded-full bg-primary p-1 text-white">
                                         <i class="bx bx-pencil"></i>
@@ -115,7 +115,7 @@
                 <!--header-->
                 <div class="flex flex-col items-center justify-center p-5">
                     <div class="mb-4 flex items-center justify-center">
-                        <img src="{{ asset("assets/images/svg-icon/penulis-icon.png") }}" class="mr-2 h-8 w-8" />
+                        <img src="{{ asset("assets/images/dashboard/svg-icon/penulis-icon.png") }}" class="mr-2 h-8 w-8" />
                         <span class="text-lg font-semibold">Edit Penulis</span>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                             <div class="mb-4 flex justify-center">
                                 <div class="relative">
                                     <div class="flex h-24 w-24 items-center justify-center overflow-hidden rounded-full bg-gray-200">
-                                        <img src="{{ asset("assets/images/svg-icon/user.svg") }}" alt="Avatar" class="h-full w-full object-cover" id="edit-preview-avatar" />
+                                        <img src="{{ asset("assets/images/dashboard/svg-icon/user.svg") }}" alt="Avatar" class="h-full w-full object-cover" id="edit-preview-avatar" />
                                     </div>
                                     <label for="edit_foto_profil" class="absolute bottom-0 right-0 cursor-pointer rounded-full bg-primary p-1 text-white">
                                         <i class="bx bx-pencil"></i>
@@ -160,7 +160,7 @@
                 <!--body-->
                 <div class="relative flex-auto p-5">
                     <div class="flex flex-col items-center gap-1">
-                        <img class="w-16" src="{{ asset("assets/images/warning.png") }}" />
+                        <img class="w-16" src="{{ asset("assets/images/dashboard/arteri/warning.png") }}" />
                         <p class="pt-5">Apakah Anda yakin ingin menghapus penulis ini?</p>
                         <!--footer-->
                         <form method="POST" action="" id="delete-penulis-form" class="flex items-center justify-center gap-5 rounded-b pt-7">
@@ -265,7 +265,7 @@
             let baseUrl = '{{ route("dashboard.arteri.authors.update", ":penulisIdPlaceholder") }}';
             form.action = baseUrl.replace(':penulisIdPlaceholder', penulisId);
             namaPenulisInput.value = penulisName;
-            avatarPreview.src = penulisImageUrl || '{{ asset("assets/images/svg-icon/user.svg") }}';
+            avatarPreview.src = penulisImageUrl || '{{ asset("assets/images/dashboard/svg-icon/user.svg") }}';
 
             document.getElementById('edit-penulis-modal').classList.remove('hidden');
             document.getElementById('edit-penulis-backdrop').classList.remove('hidden');

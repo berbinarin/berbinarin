@@ -87,7 +87,7 @@
 
     <div class="flex flex-col space-y-4">
         <h1 class="max-sm:text-[29px] text-3xl font-semibold text-center max-sm:mx-2 text-gradient">Terima Kasih</h1>
-        <img src="{{ asset('assets/images/landing/logo-berbinar.png') }}" alt="Berbinar" class="h-24 w-auto object-contain">  
+        <img src="{{ asset('assets/images/landing/logo/logo-berbinar.png') }}" alt="Berbinar" class="h-24 w-auto object-contain">  
         <p class="max-sm:text-xl text-xl font-medium text-center text-gradient max-sm:mx-2">
             Setelah melakukan pendaftaran, SobatBinar akan dihubungi oleh Berbinar terkait pembayaran dan informasi lebih lanjut mengenai pelaksanaan psikotes.
         </p>      

@@ -11,7 +11,7 @@
                 <!-- <a href="{{ route('psikotest-paid.showPage', [2]) }}" class="absolute left-10 top-5">
                     <i class='bx bx-arrow-back text-[35px] text-primary ml-0 mt-2 text-left'></i>
                 </a> -->
-                <img src="{{ asset('assets/images/logo-psikotes.png') }}" alt="" title=""
+                <img src="{{ asset('assets/images/old/logo-psikotes.png') }}" alt="" title=""
                     class="w-fit absolute ml-0 md:-ml-60 top-5">
             </div>
             <form action="{{ route('psikotest-paid.postRegPage3') }}" method="POST">

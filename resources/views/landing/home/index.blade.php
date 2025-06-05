@@ -7,7 +7,7 @@
 @section("style")
     <style>
         .bg-hero {
-            background-image: url('/assets/images/landing/bg-hero.png');
+            background-image: url('/assets/images/landing/asset-beranda/bg-hero.png');
         }
 
         #swiperProduk {
@@ -117,7 +117,7 @@
             }
 
             .bg-hero {
-                background-image: url('/assets/images/landing/bg-hero-mobile.png');
+                background-image: url('/assets/images/landing/asset-beranda/bg-hero-mobile.png');
             }
         }
 
@@ -192,11 +192,11 @@
 
         <!-- VECTOR SINGA -->
         <div class="absolute bottom-0 right-20 z-10 hidden h-auto w-auto max-w-xs max-sm:right-2 sm:block">
-            <img src="{{ asset("assets/images/landing/vector-singa.png") }}" alt="Singa" class="h-full w-full max-sm:h-[350px] max-sm:w-auto" />
+            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa.png") }}" alt="Singa" class="h-full w-full max-sm:h-[350px] max-sm:w-auto" />
         </div>
 
         <div class="absolute bottom-0 right-20 z-10 block h-auto w-auto max-w-xs max-sm:right-2 sm:hidden">
-            <img src="{{ asset("assets/images/landing/vector-singa3.png") }}" alt="Singa" class="h-full w-full max-sm:h-[350px] max-sm:w-auto" />
+            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa3.png") }}" alt="Singa" class="h-full w-full max-sm:h-[350px] max-sm:w-auto" />
         </div>
 
         {{-- WHATSAPP ICON --}}
@@ -249,7 +249,7 @@
         <div class="mx-14 my-9 mb-16 rounded-3xl bg-white shadow-md max-sm:mx-4 max-sm:my-5">
             <div class="flex flex-row items-center gap-x-6 p-8 max-md:flex-col max-md:p-5">
                 <!-- SCREEN DESKTOP -->
-                <img src="{{ asset("assets/images/landing/logo-berbinar.png") }}" alt="Logo Berbinar" class="h-64 w-auto max-sm:h-60" />
+                <img src="{{ asset("assets/images/landing/logo/logo-berbinar.png") }}" alt="Logo Berbinar" class="h-64 w-auto max-sm:h-60" />
                 <!-- SCREEN MOBILE -->
                 {{-- <img src="{{ asset('assets/images/landing/vector-konsul.png') }}" alt="Berbinar Mobile" class="h-[270px] w-full object-cover rounded-lg block md:hidden"> --}}
 
@@ -273,7 +273,7 @@
     </section>
 
     {{-- KONTEN SOSMED --}}
-    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/vector-pattern.png'), linear-gradient(to bottom right, #eaf8ff, #bde8fd); background-blend-mode: normal, multiply">
+    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/vector-pattern.png'), linear-gradient(to bottom right, #eaf8ff, #bde8fd); background-blend-mode: normal, multiply">
         <h1 class="my-8 text-center text-4xl font-semibold text-black max-sm:mx-4 max-sm:text-[29px]">
             Konten Terbaru
             <span class="bg-[#3886A3] px-2 text-white">Berbinar</span>
@@ -456,7 +456,7 @@
                     @foreach ($testimonis as $testimoni)
                         <div class="swiper-slide">
                             <div class="flex h-auto w-auto flex-col items-center justify-center rounded-3xl bg-white p-5 text-center shadow-md">
-                                <img src="{{ asset("assets/images/landing/vector-kutip.png") }}" alt="Kutip" class="h-8 w-auto max-sm:h-7" />
+                                <img src="{{ asset("assets/images/landing/asset-beranda/vector-kutip.png") }}" alt="Kutip" class="h-8 w-auto max-sm:h-7" />
 
                                 <div class="flex flex-grow flex-col pt-4 text-center">
                                     <p class="min-h-[198px] flex-grow text-justify text-[16px] font-medium leading-snug text-black max-lg:min-h-[220px] max-md:min-h-[198px] max-sm:min-h-[175px] max-sm:text-[14px] max-sm:leading-tight">
