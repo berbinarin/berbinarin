@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Landing\Product\Psikotest;
 
 use App\Http\Controllers\Controller;
+use App\Models\PsikotestPaid\UserPsikotestPaid;
+use App\Models\PsikotestPaid\CategoryPsikotestType;
+use App\Models\PsikotestPaid\PsikotestType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class PsikotestController extends Controller
 {
@@ -12,6 +16,7 @@ class PsikotestController extends Controller
         $visimisis = [
             [
                 'moto' => 'Profesional',
+
             ],
             [
                 'moto' => 'Alat Tes Terstandar',
@@ -546,7 +551,9 @@ class PsikotestController extends Controller
 
     public function schedule()
     {
-        return view('landing.product.psikotest.schedule')->with([]);
+        $psikotestCategoryTypes = CategoryPsikotestType::all();
+        $psikotestTypes = PsikotestType::all();
+        return view('landing.product.psikotest.schedule', compact('psikotestTypes', 'psikotestCategoryTypes'))->with([]);
     }
 
     public function personalData()
@@ -557,5 +564,75 @@ class PsikotestController extends Controller
     public function summary()
     {
         return view('landing.product.psikotest.summary')->with([]);
+    }
+
+    public function registSchedule(Request $request) {
+        $request->validate([
+            'service' => 'required',
+            'psikotest_type_id' => 'required',
+            'preference_date' => 'required|date',
+            'preference_time' => 'required',
+        ]);
+
+        $datetime = $request->input('preference_date') . ' ' . $request->input('preference_time');
+        $preferenceSchedule = date('Y-m-d H:i:s', strtotime($datetime));
+
+        $data = [
+            'service' => $request->input('service'),
+            'psikotest_type_id' => $request->input('psikotest_type_id'),
+            'preference_schedule' => $preferenceSchedule,
+        ];
+
+        $sessionData = array_merge($request->session()->get('psikotest-paid', []), $data);
+        $request->session()->put('psikotest-paid', $sessionData);
+
+        return view('landing.product.psikotest.personal-data')->with([]);
+    }
+
+    public function registPersonalData(Request $request) {
+        $request->validate([
+            'fullname' => 'required',
+            'email' => 'required|email',
+            'gender' => 'required',
+            'domicile' => 'required',
+            'age' => 'required',
+            'phone_number' => 'required',
+            'reason' => 'required',
+        ]);
+
+        $data = $request->all();
+        $sessionData = array_merge($request->session()->get('psikotest-paid'), $data);
+
+        $password = $this->generatePassword($sessionData['fullname']);
+        $hashedPassword = Hash::make($password);
+
+        $this->saveUserData($sessionData, $hashedPassword);
+
+        $request->session()->forget('psikotest-paid');
+
+        return view('landing.product.psikotest.summary')->with([]);
+    }
+
+    private function saveUserData(array $data, string $hashedPassword)
+    {
+        UserPsikotestPaid::create([
+            'fullname' => $data['fullname'],
+            'email' => $data['email'],
+            'gender' => $data['gender'],
+            'domicile' => $data['domicile'],
+            'age' => $data['age'],
+            'phone_number' => $data['phone_number'],
+            'service' => $data['service'],
+            'psikotest_type_id' => $data['psikotest_type_id'],
+            'preference_schedule' => $data['preference_schedule'],
+            'reason' => $data['reason'],
+            'password' => $hashedPassword,
+        ]);
+    }
+
+    private function generatePassword($fullname)
+    {
+        $firstName = explode(' ', trim($fullname))[0];
+        return $firstName . 'berbinar123!';
     }
 }

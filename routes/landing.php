@@ -112,6 +112,14 @@ Route::prefix('arteri')->name('arteri.')->group(function () {
 });
 
 // Psikotest Paid
+Route::prefix('/psikotest-paid')->group(function () {
+
+    // Psikotest Paid Registration
+    Route::post('/regist-jadwal', [PsikotestController::class, 'registSchedule'])->name('regist.schedule');
+    Route::post('/regist-data', [PsikotestController::class, 'registPersonalData'])->name('regist.personal_data');
+});
+
+// Psikotest Paid
 // Route::prefix('/psikotest-paid')->group(function () {
 //     //Biodata Psikotest
 //     Route::resource('/user-clinical', UserClinicalController::class);
