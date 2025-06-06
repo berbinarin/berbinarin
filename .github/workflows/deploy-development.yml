@@ -81,4 +81,4 @@ jobs:
           # A trailing slash tells SCP to copy the CONTENTS of the directory.
           # This prevents creating a nested public/build/public/build structure.
           source: "public/build/"
-          target: "/home/${{ secrets.SSH_USERNAME }}/staging.berbinar.in/public/build"
+          target: "/home/${{ secrets.SSH_USERNAME }}/staging.berbinar.in/"
