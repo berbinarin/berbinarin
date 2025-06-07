@@ -29,12 +29,6 @@ class AdminSeeder extends Seeder
             'password' => Hash::make('berbinar123'),
         ])->assignRole('counseling-pm');
 
-        // Graphic Designer
-        User::create([
-            'username' => 'gd',
-            'email' => 'gd@gmail.com',
-            'password' => Hash::make('berbinar123'),
-        ])->assignRole('gd');
 
         // Graphic Designer & Video Editor
         User::create([

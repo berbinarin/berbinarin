@@ -18,7 +18,7 @@
                 <h4 class="mb-6 font-semibold text-[#75BADB] max-sm:mb-2">Produk Berbinar</h4>
                 <ul class="space-y-2">
                     <li><a href="{{ route("product.counseling.index") }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Berbinar Konseling</a></li>
-                    <li><a href="{{ route("product.psikotes.index") }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Berbinar Psikotes</a></li>
+                    <li><a href="{{ route("product.psikotest.index") }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Berbinar Psikotes</a></li>
                     <li><a href="{{ route("product.class.index") }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Berbinar Class</a></li>
                     <li><a href="{{ route("product.consulting.index") }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Berbinar Consulting</a></li>
                     <li><a href="https://tokopedia.link/gwgtSs9oUOb" target="_blank" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">MoodScan Tees</a></li>

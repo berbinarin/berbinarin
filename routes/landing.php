@@ -46,11 +46,13 @@ Route::prefix('produk')->name('product.')->group(function () {
     });
 
     // Product Psikotest
-    Route::prefix('psikotes')->name('psikotes.')->group(function () {
+    Route::prefix('psikotes')->name('psikotest.')->group(function () {
         Route::get('/', [PsikotestController::class, 'index'])->name('index');
         Route::get('/daftar', [PsikotestController::class, 'registration'])->name('registration');
         Route::get('/jadwal', [PsikotestController::class, 'schedule'])->name('schedule');
+        Route::post('/jadwal', [PsikotestController::class, 'storeSchedule'])->name('schedule.store');
         Route::get('/data-diri', [PsikotestController::class, 'personalData'])->name('personal_data');
+        Route::post('/data-diri', [PsikotestController::class, 'storePersonalData'])->name('personal_data.store');
         Route::get('/summary', [PsikotestController::class, 'summary'])->name('summary');
     });
 
@@ -115,6 +117,7 @@ Route::prefix('arteri')->name('arteri.')->group(function () {
     Route::get('/{id}', [ArteriController::class, 'show'])->name('detail');
     Route::get('/kategori/{slug}', [ArteriController::class, 'category'])->name('category');
 });
+
 
 // Psikotest Paid
 // Route::prefix('/psikotest-paid')->group(function () {
