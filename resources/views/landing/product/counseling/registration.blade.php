@@ -53,7 +53,7 @@
 
         <div class="flex justify-center absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-20 group-hover:scale-y-[0.83] group-hover:-translate-y-0.5 transition-all duration-300">
             <a href="{{ $konseling['link'] }}">
-                <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar @if($konseling['nama'] == 'Psikolog') Psikolog @else Peer Counselor @endif</button>
+                <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar {{ $konseling['nama'] }}</button>
             </a>
         </div>
     </div>
@@ -73,7 +73,7 @@
         </div>
 
         <div class="flex justify-center absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-20 group-hover:scale-y-[0.83] group-hover:translate-y-0 transition-all duration-300">
-            <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar @if($konseling['nama'] == 'Psikolog') Psikolog @else Peer Counselor @endif</button>
+            <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar {{ $konseling['nama'] }}</button>
         </div>
     </div> --}}
 </div>
@@ -87,7 +87,7 @@
             <img src="{{ asset($konseling['image']) }}" alt="{{ $konseling['nama'] }}" class="h-36 w-auto object-contain">
             <div class="flex justify-center">
                 <a href="{{ $konseling['link'] }}">
-                    <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl">Daftar @if($konseling['nama'] == 'Psikolog') Psikolog @else Peer Counselor @endif</button>
+                    <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl">Daftar {{ $konseling['nama'] }}</button>
                 </a>
             </div>
             <p class="text-[13px] font-semibold text-black leading-tight">{{ $konseling['deskripsi'] }}</p>
