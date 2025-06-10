@@ -15,7 +15,7 @@
         .sticky-col {
             position: -webkit-sticky;
             position: sticky;
-            background-color: white;
+            /* background-color: white; */
             z-index: 1;
         }
 
@@ -63,7 +63,7 @@
                         </thead>
                         <tbody>
                             @foreach ($staffs as $index => $staff)
-                                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <tr class="border-b border-gray-200 hover:bg-gray-200 odd:bg-gray-100 even:bg-white">
                                     <td class="whitespace-no-wrap sticky-col sticky-col-1 px-6 py-4">
                                         {{ $index + 1 }}
                                     </td>
@@ -82,7 +82,7 @@
                                         @endif
                                     </td>
                                     <td class="whitespace-no-wrap px-6 py-4 text-center">
-                                        {{ $staff->motm == "yes" ? "MOTM" : "-" }}
+                                        {{ $staff->motm == "yes" ? "Pernah" : "Tidak pernah" }}
                                     </td>
                                     <td class="whitespace-no-wrap flex items-center justify-center gap-2 px-6 py-4">
                                         <a href="{{ route("dashboard.keluarga-berbinar.show", $staff->id) }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #3b82f6">
