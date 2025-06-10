@@ -11,17 +11,17 @@ class Class101JourneyController extends Controller
         $layanan_class_journey = [
             [
                 'name' => 'Early Bird',
-                'price' => 'Rp15.000',
+                'price' => 'Rp20.000',
                 'icon' => 'assets/images/landing/asset-kelas/class-journey/early-bird.png'
             ],
             [
-                'name' => 'Triple Bundle',
-                'price' => 'Rp55.000',
+                'name' => 'Bundling Bertiga',
+                'price' => 'Rp70.000',
                 'icon' => 'assets/images/landing/asset-kelas/class-journey/bundle-bertiga.png'
             ],
             [
                 'name' => 'Normal Price',
-                'price' => 'Rp20.000',
+                'price' => 'Rp25.000',
                 'icon' => 'assets/images/landing/asset-kelas/class-journey/normal-price.png'
             ],
         ];
@@ -40,7 +40,7 @@ class Class101JourneyController extends Controller
                 'image' => 'upgrade.png'
             ],
             [
-                'name' => 'Tips and Trick dari Ahli',
+                'name' => 'Tips & Trick dari Ahli',
                 'image' => 'tips-n-trick.png'
             ],
             [
@@ -51,24 +51,20 @@ class Class101JourneyController extends Controller
 
         $faqs = [
             [
-                'question' => 'Apakah saya bisa bertanya langsung kepada pemateri?',
-                'answer' => 'Tentu! Akan ada sesi Q&A di setiap akhir kelas untuk SobatBinar  yang ingin bertanya langsung kepada pemateri.'
+                'question' => 'Apakah akan ada sertifikat setelah mengikuti kelas?',
+                'answer' => 'Untuk webinar reguler, tidak disediakan sertifikat. Namun, SobatBinar yang mengikuti 101 Class Journey dan memenuhi ketentuan akan mendapatkan E-certificate sebagai bukti partisipasi.'
             ],
             [
-                'question' => 'Apakah kelas ini cocok untuk pemula tanpa pengalaman di bidang terkait?',
-                'answer' => 'Sangat cocok! Kelas ini dirancang dari level dasar hingga intermediate, jadi siapa pun bisa mengikuti tanpa latar belakang teknis sebelumnya.'
+                'question' => 'Apakah saya bisa berkomunikasi langsung dengan pemateri?',
+                'answer' => 'Tentu! Di setiap sesi, kami menyediakan waktu khusus untuk sesi tanya jawab (Q&A), di mana SobatBinar bisa mengajukan pertanyaan langsung kepada pemateri dan berinteraksi lebih dekat. Selain itu, SobatBinar juga dapat menghubungi pemateri melalui WhatsApp setelah sesi berakhir untuk diskusi lebih lanjut.'
             ],
             [
-                'question' => 'Apakah materi presentasi dari pemateri akan dibagikan?',
-                'answer' => 'Ya, file materi (jika diizinkan oleh pemateri) akan dikirimkan melalui grup peserta setelah kelas berakhir.'
+                'question' => 'Apakah 101 Class Journey ini bisa diikuti oleh umum?',
+                'answer' => 'Ya, 101 Class Journey terbuka untuk umum. Siapa saja yang ingin belajar dan mengembangkan diri, baik dari latar belakang pelajar, mahasiswa, maupun profesional, dipersilakan untuk bergabung'
             ],
             [
-                'question' => 'Saya belum pernah ikut webinar, apakah akan ada panduan teknis sebelum kelas?',
-                'answer' => 'Ya, kami akan mengirimkan panduan teknis dan tata cara mengikuti Zoom (termasuk link, password, dan etika selama kelas) setelah SobatBinar mendaftar.'
-            ],
-            [
-                'question' => 'Apakah saya bisa mendapatkan sertifikat jika tidak mengikuti seluruh sesi?',
-                'answer' => 'SobatBinar harus mengikuti minimal 80% durasi kelas agar bisa mendapatkan e-certificate. Hal ini untuk memastikan SobatBinar benar-benar aktif dalam proses pembelajaran.'
+                'question' => 'Apa Perbedaan Webinar dan 101 Class Journey?',
+                'answer' => 'Webinar adalah program gratis yang dapat diakses oleh siapa saja. Materi yang disampaikan bersifat umum dan mencakup berbagai topik menarik. Webinar juga dapat ditonton ulang melalui kanal YouTube Berbinar. Sementara, 101 Class Journey adalah layanan berbayar dengan pendekatan belajar yang lebih mendalam dengan fokus yang lebih terstruktur dan sistematis.'
             ]
         ];
 

@@ -7,7 +7,17 @@
   ]
 )
 
+@section("style")
+<style>
+        .border-active {
+            border: 2px solid #3986a3 !important;
+            box-shadow: 0 0 0 2px #3986a333;
+        }
+        </style>
+@endsection
+
 @section("content")
+
     {{-- HERO SECTION --}}
     <section class="relative mb-20 max-md:overflow-hidden">
         <div class="absolute left-0 top-5 z-0 max-sm:top-32">
@@ -117,89 +127,63 @@
     </section>
     {{--BENEFIT 101 CLASS JOURNEY--}}
     <section class="w-full px-4 sm:px-14 mb-12 lg:mb-16">
-        <h1 class="text-center text-black font-semibold text-2xl sm:text-3xl lg:text-5xl mb-4 lg:mb-4">Benefit 101 Class Journey</h1>
-        <div class="w-full overflow-x-auto scrollbar-hide mx-auto lg:max-w-screen-xl py-12">
-            <div class="flex flex-row gap-4 items-center justify-start whitespace-nowrap py-5">
-                @foreach($benefit_class_journey as $benefit)
-                    <div class="min-w-80 p-2 rounded-lg bg-white flex justify-start items-center gap-4 shadow-lg">
-                        <div class="size-16 lg:size-20 p-2 rounded-full bg-primary flex items-center justify-center">
-                            <img src="{{ asset('assets/images/landing/asset-kelas/berbinar-plus/' . $benefit['image']) }}"
-                                 alt="icon"
-                                 class="w-full h-full object-contain object-center" />
-                        </div>
-                        <span>{{ $benefit['name'] }}</span>
+    <h1 class="text-center text-black font-semibold text-2xl sm:text-3xl lg:text-5xl mb-4 lg:mb-4">Benefit 101 Class Journey</h1>
+    <div id="benefit-scroll" class="w-full overflow-x-auto scrollbar-hide mx-auto lg:max-w-screen-xl py-12 cursor-grab">
+        <div class="flex flex-row gap-4 items-center justify-start whitespace-nowrap py-5">
+            @foreach($benefit_class_journey as $benefit)
+                <div class="min-w-80 p-2 rounded-lg bg-white flex justify-start items-center gap-4 shadow-lg">
+                    <div class="size-16 lg:size-20 p-2 rounded-full bg-primary flex items-center justify-center">
+                        <img src="{{ asset('assets/images/landing/asset-kelas/berbinar-plus/' . $benefit['image']) }}"
+                             alt="icon"
+                             class="w-full h-full object-contain object-center" />
                     </div>
-                @endforeach
-            </div>
+                    <span>{{ $benefit['name'] }}</span>
+                </div>
+            @endforeach
         </div>
-    </section>
+    </div>
+</section>
 
     {{-- FAQS START --}}
     <section class="z-10 mx-4 lg:my-14 sm:mx-20">
         <ul class="flex flex-col">
             @php
-                $index = 0;
+                // Daftar kata/kalimat bahasa asing yang ingin di-italic
+                $italicWords = ["self-compassion", "webinar", "Zoom", "Q&A", "e-certificate", "post-test", "Google Form", "WhatsApp", "mentor", "CV", "portfolio building", "upgrade", "linktr.ee", "link", "email", "password", "online", "offline", "session", "class", "YouTube", "Instagram", "Spotify", "intermediate", "live", "tiktok", "replay", "video"];
+                function italicizeWords($text, $words)
+                {
+                    foreach ($words as $word) {
+                        // Case-insensitive, avoid double-wrapping
+                        $text = preg_replace("/\b(" . preg_quote($word, "/") . ")\b/i", '<i>$1</i>', $text);
+                    }
+                    return $text;
+                }
             @endphp
 
             @foreach ($faqs as $faq)
-                <li
-                    class="my-2 rounded-lg border bg-white py-2 shadow-sm"
-                    x-data="accordion({{ $index }})"
-                    :class="isActive()"
-                >
+                <li class="my-2 rounded-lg border bg-white py-2 shadow-sm" x-data="accordion({{ $loop->index }})" :class="isActive()">
                     <div class="mx-2 flex flex-row sm:mx-5">
                         <div class="flex w-full flex-col p-3 max-sm:p-2">
-                            <h2
-                                @click="handleClick()"
-                                class="cursor-pointer text-lg font-medium max-sm:text-[16.5px]"
-                            >
-                                <span>{{ $faq["question"] }}</span>
+                            <h2 @click="handleClick()" class="cursor-pointer text-lg font-medium max-sm:text-[16.5px]">
+                                <span>{!! italicizeWords($faq["question"], $italicWords) !!}</span>
                             </h2>
-                            <div
-                                x-ref="tab"
-                                :style="handleToggle()"
-                                class="max-h-0 overflow-hidden transition-all duration-500"
-                            >
-                                <p
-                                    class="mt-3 text-justify text-[#6F6C90] max-sm:mt-2 max-sm:text-[15px]"
-                                >
-                                    {{ $faq["answer"] }}
+                            <div x-ref="tab" :style="handleToggle()" class="max-h-0 overflow-hidden transition-all duration-500">
+                                <p class="mt-3 text-justify text-[#6F6C90] max-sm:mt-2 max-sm:text-[15px]">
+                                    {!! italicizeWords($faq["answer"], $italicWords) !!}
                                 </p>
                             </div>
                         </div>
 
                         <div class="ml-6 hidden items-center sm:flex">
                             <template x-if="$store.accordion.tab === idx">
-                                <svg
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M20 20L4 4M20 4L4 20"
-                                        stroke="#3986A3"
-                                        stroke-width="3"
-                                        stroke-linecap="round"
-                                    />
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 20L4 4M20 4L4 20" stroke="#3986A3" stroke-width="3" stroke-linecap="round" />
                                 </svg>
                             </template>
                             <template x-if="$store.accordion.tab !== idx">
-                                <svg
-                                    width="20"
-                                    height="20"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0_7503_13741)">
-                                        <path
-                                            d="M22.3996 8L11.9996 19.2L1.59961 8"
-                                            stroke="#3986A3"
-                                            stroke-width="3"
-                                            stroke-linecap="square"
-                                        />
+                                        <path d="M22.3996 8L11.9996 19.2L1.59961 8" stroke="#3986A3" stroke-width="3" stroke-linecap="square" />
                                     </g>
                                     <defs>
                                         <clipPath id="clip0_7503_13741">
@@ -211,14 +195,14 @@
                         </div>
                     </div>
                 </li>
-                @php
-                    $index++;
-                @endphp
             @endforeach
         </ul>
     </section>
 
     {{-- FAQS END --}}
+@endsection
+
+@section("script")
     {{-- SCRIPT ACCORDION FAQS --}}
     <script>
         document.addEventListener('alpine:init', () => {
@@ -285,7 +269,67 @@
             });
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slider = document.getElementById('benefit-scroll');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                slider.classList.add('active'); // opsional: bisa tambahkan cursor-grabbing
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+                slider.style.cursor = 'grabbing';
+                e.preventDefault();
+            });
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.style.cursor = 'grab';
+            });
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.style.cursor = 'grab';
+            });
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 1.5; // scroll-fast
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        });
+    </script>
+
     {{-- SCRIPT ACCORDION FAQS --}}
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.store('accordion', {
+                tab: 0,
+            });
+
+            Alpine.data('accordion', (idx) => ({
+                init() {
+                    this.idx = idx;
+                },
+                idx: -1,
+                handleClick() {
+                    this.$store.accordion.tab = this.$store.accordion.tab === this.idx ? 0 : this.idx;
+                },
+                handleRotate() {
+                    return this.$store.accordion.tab === this.idx ? 'rotate-180' : '';
+                },
+                handleToggle() {
+                    return this.$store.accordion.tab === this.idx ? `max-height: ${this.$refs.tab.scrollHeight}px` : '';
+                },
+                isActive() {
+                    return this.$store.accordion.tab === this.idx ? 'border-active' : '';
+                },
+            }));
+        });
+    </script>
 
 @endsection
 

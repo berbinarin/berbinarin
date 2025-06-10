@@ -42,19 +42,21 @@
 
 <div class="md:flex hidden justify-center space-x-5 my-12 items-center mx-20">
     @foreach ($konselings as $konseling)
-    <div class="relative w-[450px] h-auto transition-all duration-300 items-center bg-white before:absolute before:inset-0 before:scale-0 before:transition-transform before:duration-300 before:rounded-full
-        hover:before:scale-150 before:bg-[#FFEACE] shadow-lg rounded-2xl overflow-hidden group transform origin-center">
+    <div class="flex items-stretch" style="height: 330px;">
+        <div class="relative w-[450px] h-auto transition-all duration-300 items-center bg-white before:absolute before:inset-0 before:scale-0 before:transition-transform before:duration-300 before:rounded-full
+            hover:before:scale-150 before:bg-[#FFEACE] shadow-lg rounded-2xl overflow-hidden group transform origin-center">
 
-        <div class="p-4 flex flex-col text-center justify-center space-y-5 transform group-hover:scale-y-[0.83] transition-transform duration-300 group-hover:-mt-10">
-            <h1 class="max-sm:text-[29px] text-3xl leading-relaxed group-hover:leading-normal group-hover:text-4xl transition-all duration-300 font font-semibold text-black text-gradient-blue">{{ $konseling['nama'] }}</h1>
-            <img src="{{ asset($konseling['image']) }}" alt="{{ $konseling['nama'] }}" class="h-40 transition-all duration-300 group-hover:h-52 w-auto object-contain group-hover:-my-1">
-            <p class="text-[15px] font-semibold text-black leading-tight">{{ $konseling['deskripsi'] }}</p>
-        </div>
+            <div class="p-4 flex flex-col text-center justify-center space-y-5 transform group-hover:scale-y-[0.83] transition-transform duration-300 group-hover:-mt-10">
+                <h1 class="max-sm:text-[29px] text-3xl leading-relaxed group-hover:leading-normal group-hover:text-4xl transition-all duration-300 font font-semibold text-black text-gradient-blue">{{ $konseling['nama'] }}</h1>
+                <img src="{{ asset($konseling['image']) }}" alt="{{ $konseling['nama'] }}" class="h-40 transition-all duration-300 group-hover:h-52 w-auto object-contain group-hover:-my-1">
+                <p class="text-[15px] font-semibold text-black leading-tight">{{ $konseling['deskripsi'] }}</p>
+            </div>
 
-        <div class="flex justify-center absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-20 group-hover:scale-y-[0.83] group-hover:-translate-y-0.5 transition-all duration-300">
-            <a href="{{ $konseling['link'] }}">
-                <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar {{ $konseling['nama'] }}</button>
-            </a>
+            <div class="flex justify-center absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-20 group-hover:scale-y-[0.83] group-hover:-translate-y-0.5 transition-all duration-300">
+                <a href="{{ $konseling['link'] }}">
+                    <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-4 max-sm:px-6 rounded-xl max-sm:rounded-md">Daftar {{ $konseling['nama'] }}</button>
+                </a>
+            </div>
         </div>
     </div>
 

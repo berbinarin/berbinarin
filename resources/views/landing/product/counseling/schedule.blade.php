@@ -96,7 +96,7 @@
         <div class="flex flex-col space-y-1">
             <p class="text-[#333333] sm:text-[17px] text-sm">Tanggal Konseling</p>
             <div class="relative">
-                <input type="date" id="tglkonseling" class="bg-[#F1F3F6] border-none md:shadow-none shadow-md rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="dd/mm/yy" readonly>
+                <input type="date" id="tglkonseling" placeholder="dd/mm/yy" class="bg-[#F1F3F6] border-none md:shadow-none shadow-md rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" readonly>
                 <img src="{{ asset('assets/images/landing/asset-konseling/vector/date.png') }}" class="h-4 w-auto object-contain absolute lg:right-5 top-1/3 max-sm:hidden" onclick="document.getElementById('tglkonseling').focus()">
             </div>
         </div>
