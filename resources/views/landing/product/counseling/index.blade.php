@@ -279,7 +279,6 @@
 
 
                             <div class="mt-4 justify-center flex lg:gap-x-3">
-                                <!-- <button id="closeModal" class="rounded-md border-[1.5px] border-[#225062] bg-transparent px-4 py-1.5 font-medium text-black max-sm:text-[15px]">Kembali</button> -->
                                 <a href="{{ route('product.counseling.registration') }}">
                                     <button id="" class="rounded-md bg-gradient-to-r from-[#3986A3] to-[#225062] px-20 py-1.5 font-medium text-white max-sm:text-[15px]">Saya Mengerti</button>
                                 </a>
