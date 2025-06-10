@@ -78,6 +78,8 @@ class DivisionController extends Controller
             'divisi' => 'required|string|max:255|unique:divisions,nama_divisi,' . $id,
             'subdivisi' => 'nullable|array',
             'subdivisi.*' => 'nullable|string|max:255',
+            'subdivisi_id' => 'nullable|array',
+            'subdivisi_id.*' => 'nullable|integer',
             'deleted_subdivisions' => 'nullable|string',
         ]);
 
@@ -86,23 +88,33 @@ class DivisionController extends Controller
             'nama_divisi' => $validatedData['divisi'],
         ]);
 
+        // Hapus sub divisi jika ada
         if (!empty($validatedData['deleted_subdivisions'])) {
             $deletedIds = explode(',', $validatedData['deleted_subdivisions']);
             SubDivision::whereIn('id', $deletedIds)->delete();
         }
 
-        if (!empty($validatedData['subdivisi'])) {
-            foreach ($validatedData['subdivisi'] as $subdivisi) {
-                if (!empty($subdivisi)) {
-                    SubDivision::updateOrCreate(
-                        ['division_id' => $division->id, 'nama_subdivisi' => $subdivisi],
-                        ['nama_subdivisi' => $subdivisi]
-                    );
+        $subdivisis = $validatedData['subdivisi'] ?? [];
+        $subdivisiIds = $validatedData['subdivisi_id'] ?? [];
+
+        foreach ($subdivisis as $i => $namaSub) {
+            if (!empty($namaSub)) {
+                $subDivId = $subdivisiIds[$i] ?? null;
+                if ($subDivId) {
+                    SubDivision::where('id', $subDivId)->update([
+                        'nama_subdivisi' => $namaSub,
+                        'division_id' => $division->id,
+                    ]);
+                } else {
+                    SubDivision::create([
+                        'division_id' => $division->id,
+                        'nama_subdivisi' => $namaSub,
+                    ]);
                 }
             }
         }
 
-        return redirect()->route('dashboard.divisions.edit', $division->id)->with('success', 'Divisi berhasil diperbarui.');
+        return redirect()->route('dashboard.divisions.index', $division->id)->with('success', 'Divisi berhasil diperbarui.');
     }
 
     public function destroy($id)
