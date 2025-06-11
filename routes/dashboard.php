@@ -50,14 +50,14 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
         Route::resource('/keluarga-berbinar', KeluargaBerbinarController::class);
 
         // Position
-        Route::resource('/positions', PositionController::class)->except('create', 'show');;
+        Route::resource('/positions', PositionController::class)->except('show');
         Route::patch('/positions/{id}/active', [PositionController::class, 'setActive'])->name('positions.set_active');
 
         // Position Description
-        Route::resource('/position-descriptions', PositionDescriptionController::class)->except('create', 'show');
+        Route::resource('/position-descriptions', PositionDescriptionController::class)->except('show');
 
         // Position Requirement
-        Route::resource('/position-requirements', PositionRequirementController::class)->except('create', 'show');
+        Route::resource('/position-requirements', PositionRequirementController::class)->except('show');
 
         // Internship
         Route::resource('/internships', InternshipController::class)->except('cretae', 'store');

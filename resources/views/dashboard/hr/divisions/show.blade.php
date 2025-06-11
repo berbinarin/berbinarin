@@ -24,6 +24,13 @@
                             <p class="text-dark font-medium leading-none">Edit</p>
                         </button>
                     </a>
+                    <form action="{{ route("dashboard.divisions.destroy", $division->id) }}" method="POST">
+                        @csrf
+                        @method("DELETE")
+                        <button type="submit" class="mt-8 inline-flex items-start justify-start rounded-lg bg-red-400 px-6 py-3 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
+                            <p class="text-dark font-medium leading-none">Hapus</p>
+                        </button>
+                    </form>
                 </div>
                 <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
                     <div class="mb-4 mt-4 overflow-x-auto">
@@ -41,13 +48,21 @@
                                 <h1 class="text-2xl font-bold">Sub Divisi</h1>
                                 <ul class="grid grid-cols-3 gap-x-10 gap-y-5 pt-3 font-semibold">
                                     @forelse ($division->subDivisions as $index => $subDivision)
-                                        <li class="flex items-center gap-3">
-                                            <div class="rounded-full bg-primary px-2 py-1">
-                                                <h1 class="text-sm text-white">{{ $index + 1 }}.</h1>
-                                            </div>
-                                            <div class="">
-                                                <p class="text-gray-400">Nama Sub Divisi</p>
-                                                <p class="text-black">{{ $subDivision->nama_subdivisi }}</p>
+                                        <li class="flex flex-col items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 shadow">
+                                            @if ($subDivision->cover_subdivisi)
+                                                <img src="{{ asset("storage/" . $subDivision->cover_subdivisi) }}" alt="Cover Sub Divisi" class="mb-2 h-32 w-full rounded-lg object-cover" />
+                                            @else
+                                                <div class="mb-2 flex h-32 w-full items-center justify-center rounded-lg bg-gray-100 text-gray-400">
+                                                    <i class="bx bx-image text-5xl"></i>
+                                                </div>
+                                            @endif
+                                            <div class="flex w-full items-center gap-2">
+                                                <div class="rounded-full bg-primary px-2 py-1">
+                                                    <h1 class="text-sm text-white">{{ $index + 1 }}.</h1>
+                                                </div>
+                                                <div>
+                                                    <p class="font-semibold text-black">{{ $subDivision->nama_subdivisi }}</p>
+                                                </div>
                                             </div>
                                         </li>
                                     @empty

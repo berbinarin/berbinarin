@@ -16,13 +16,24 @@ class PositionRequirementController extends Controller
         $HiringPosisitonsRequirement = Hiring_Positions_Requirements::all();
         $HiringPosisitons = Hiring_Positions::all();
 
-        return view('dashboard.hr.position-requirements.index', ["HiringPosisitonsRequirement" => $HiringPosisitonsRequirement, 'HiringPosisitons' => $HiringPosisitons]);
+        return view('dashboard.hr.position-requirements.index', [
+            "HiringPosisitonsRequirement" => $HiringPosisitonsRequirement,
+            'HiringPosisitons' => $HiringPosisitons
+        ]);
+    }
+
+    public function create()
+    {
+        // Kirim data posisi untuk dropdown pada form create
+        $HiringPosisitons = Hiring_Positions::all();
+        return view('dashboard.hr.position-requirements.create', [
+            'HiringPosisitons' => $HiringPosisitons
+        ]);
     }
 
     public function store(HiringPositionsRequirementsRequest $request)
     {
         try {
-
             $validated = $request->validated();
             Hiring_Positions_Requirements::create([
                 'position_id' => $validated["position_id"],
@@ -31,11 +42,11 @@ class PositionRequirementController extends Controller
 
             Alert::toast('Data Berhasil Masuk', 'success')->autoClose(5000);
 
-            return redirect()->back();
+            return redirect()->route('dashboard.position-requirements.index');
         } catch (\Exception $e) {
-            Alert::toast('Terjadi kesalahan saat menyimpan data' . $e->getMessage(), 'error')->autoClose(5000);
+            Alert::toast('Terjadi kesalahan saat menyimpan data: ' . $e->getMessage(), 'error')->autoClose(5000);
 
-            return redirect()->back();
+            return redirect()->back()->withInput();
         }
     }
 
@@ -44,15 +55,15 @@ class PositionRequirementController extends Controller
         $HiringPosisitonsRequirement = Hiring_Positions_Requirements::find($id);
         $HiringPosisitons = Hiring_Positions::all();
 
-
-        return view('dashboard.hr.position-requirements.edit', ['HiringPosisitonsRequirement' => $HiringPosisitonsRequirement, 'HiringPosisitons' => $HiringPosisitons]);
+        return view('dashboard.hr.position-requirements.edit', [
+            'HiringPosisitonsRequirement' => $HiringPosisitonsRequirement,
+            'HiringPosisitons' => $HiringPosisitons
+        ]);
     }
 
     public function update(HiringPositionsRequirementsRequest $request, string $id)
     {
-
         try {
-
             $hiring_position_requirements = Hiring_Positions_Requirements::find($id);
             $hiring_position_requirements->position_id = $request->position_id;
             $hiring_position_requirements->requirement = $request->requirement;
@@ -61,27 +72,26 @@ class PositionRequirementController extends Controller
             Alert::toast('Data Berhasil Update', 'success')->autoClose(5000);
             return redirect()->route('dashboard.position-requirements.index');
         } catch (\Exception $e) {
-            Alert::toast('Terjadi kesalahan saat Update data ' . $e->getMessage(), 'error')->autoClose(5000);
+            Alert::toast('Terjadi kesalahan saat Update data: ' . $e->getMessage(), 'error')->autoClose(5000);
 
-            return redirect()->back();
+            return redirect()->back()->withInput();
         }
     }
 
     public function destroy(string $id)
     {
         try {
-
             $hiring_position_requirements = Hiring_Positions_Requirements::find($id);
 
             if (!$hiring_position_requirements) {
-                throw new \Exception('Data tidak ditemukan.'); // Atau gunakan jenis Exception yang sesuai
+                throw new \Exception('Data tidak ditemukan.');
             }
             $hiring_position_requirements->delete();
             Alert::toast('Data Berhasil Delete', 'success')->autoClose(5000);
             return redirect()->route('dashboard.position-requirements.index');
 
         } catch (\Exception $e) {
-            Alert::toast('Terjadi kesalahan saat menghapus data ' . $e->getMessage(), 'error')->autoClose(5000);
+            Alert::toast('Terjadi kesalahan saat menghapus data: ' . $e->getMessage(), 'error')->autoClose(5000);
             return redirect()->route('dashboard.position-requirements.index');
         }
     }

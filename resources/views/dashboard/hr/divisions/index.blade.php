@@ -14,7 +14,7 @@
         .sticky-col {
             position: -webkit-sticky;
             position: sticky;
-            background-color: white;
+            /* background-color: white; */
             z-index: 1;
         }
 
@@ -56,7 +56,7 @@
                         </thead>
                         <tbody>
                             @foreach ($divisions as $index => $division)
-                                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <tr class="border-b border-gray-200 hover:bg-gray-200 odd:bg-gray-100 even:bg-white">
                                     <td class="whitespace-no-wrap sticky-col sticky-col-1 px-6 py-4">
                                         {{ $index + 1 }}
                                     </td>
