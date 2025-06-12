@@ -1,60 +1,85 @@
+# .github/workflows/deploy.yml
 name: Auto Deploy on Push via SSH (Deployment)
 
 on:
   push:
     branches:
-      - development  # Ganti jika pakai branch lain
+      - development
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Pull latest code on server
+        # This step updates your backend code (PHP files, etc.) on the server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd /home/${{ secrets.SSH_USERNAME }}/staging.berbinar.in
+            git pull origin development
+            # Optional: Add other server commands here like composer install or artisan migrate
+            # php artisan migrate --force
+
+      - name: Checkout repository (Laravel + Tailwind optimized)
+        # This step checks out the code on the GitHub Actions runner to build frontend assets
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            app/
+            config/
+            database/
+            routes/
+            resources/
+            package.json
+            package-lock.json
+            vite.config.js
+            tailwind.config.js
+            postcss.config.js
+            public/index.php
+            public/.htaccess
+            public/web.config
+            .env.example
+            composer.json
+            artisan
+          sparse-checkout-cone-mode: false
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # LANGKAH BARU: Menyimpan cache dependensi untuk mempercepat proses
       - name: Cache Node.js modules
         id: cache-npm
         uses: actions/cache@v4
         with:
-          # Path yang akan di-cache (folder cache internal milik npm)
           path: ~/.npm
-          # Kunci unik untuk cache, akan berubah jika package-lock.json berubah
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
-      # LANGKAH DIPERBARUI: Menggunakan 'npm ci' untuk instalasi yang lebih cepat & konsisten
       - name: Install Node dependencies
         run: npm ci
 
       - name: Build Tailwind / Vite
         run: npm run build
 
-      - name: Upload public/build to server
+      - name: Upload built assets to server
+        # This step securely copies the built assets to the correct server directory
         uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          source: "public/build/*"
-          target: "/home/${{ secrets.SSH_USERNAME }}/staging.berbinar.in/public/build"
-
-      - name: Pull latest code & run artisan commands
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SSH_PORT }}
-          script: |
-            cd /home/${{ secrets.SSH_USERNAME }}/staging.berbinar.in
-            git pull origin development
-
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          # FIX: Changed "public/build/*" to "public/build/"
+          # A trailing slash tells SCP to copy the CONTENTS of the directory.
+          # This prevents creating a nested public/build/public/build structure.
+          source: "public/build/"
+          target: "/home/${{ secrets.SSH_USERNAME }}/staging.berbinar.in/"
