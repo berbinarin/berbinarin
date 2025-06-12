@@ -16,6 +16,11 @@ class PositionController extends Controller
         return view('dashboard.hr.positions.index', compact('positions'));
     }
 
+    public function create()
+    {
+        return view('dashboard.hr.positions.create');
+    }
+
     public function store(Hiring_PositionsRequest $request)
     {
         try {
@@ -26,16 +31,14 @@ class PositionController extends Controller
                 "type" => $validated["type"],
                 "positions" => $validated["positions"],
                 "location" => $validated["location"],
-                // "link"=>$validated["link"],
-                "is_active" => true,
                 "divisi" => $validated["divisi"],
+                "is_active" => true,
             ]);
             Alert::toast('Posisi berhasil dibuat!', 'success')->autoClose(5000);
-            return redirect()->back();
+            return redirect()->route('dashboard.positions.index');
         } catch (\Exception $e) {
-            // Alert::error('Error', 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage());
             Alert::toast('Terjadi kesalahan saat menyimpan data: ' . $e->getMessage(), 'error')->autoClose(5000);
-            return redirect()->back();
+            return redirect()->back()->withInput();
         }
     }
 
@@ -53,34 +56,27 @@ class PositionController extends Controller
             $HiringPositions->type = $request->type;
             $HiringPositions->positions = $request->positions;
             $HiringPositions->location = $request->location;
-            // $HiringPositions->link = $request->link;
             $HiringPositions->divisi = $request->divisi;
             $HiringPositions->save();
-            // Alert::success('Success ', 'Data Berhasil Update');
             Alert::toast('Posisi berhasil diubah!', 'success')->autoClose(5000);
             return redirect()->route('dashboard.positions.index');
         } catch (\Exception $e) {
-            // Alert::error('Error', 'Terjadi kesalahan saat Update data: ' . $e->getMessage());
             Alert::toast('Terjadi kesalahan saat mengubah data: ' . $e->getMessage(), 'error')->autoClose(5000);
-            return redirect()->back();
+            return redirect()->back()->withInput();
         }
     }
 
     public function destroy(string $id)
     {
-        //
         try {
-
             $HiringPositions = Hiring_Positions::find($id);
             if (!$HiringPositions) {
-                throw new \Exception('Data tidak ditemukan.'); // Atau gunakan jenis Exception yang sesuai
+                throw new \Exception('Data tidak ditemukan.');
             }
             $HiringPositions->delete();
-            // Alert::success('Success ', 'Data Berhasil Delete');
             Alert::toast('Posisi berhasil dihapus!', 'success')->autoClose(5000);
             return redirect()->route('dashboard.positions.index');
         } catch (\Exception $e) {
-            // Alert::error('Error', 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage());
             Alert::toast('Terjadi kesalahan saat menghapus data: ' . $e->getMessage(), 'error')->autoClose(5000);
             return redirect("/dashboard/admin/positions");
         }
@@ -91,7 +87,7 @@ class PositionController extends Controller
         try {
             $HiringPositions = Hiring_Positions::find($id);
             if (!$HiringPositions) {
-                throw new \Exception('Data tidak ditemukan.'); // Atau gunakan jenis Exception yang sesuai
+                throw new \Exception('Data tidak ditemukan.');
             }
 
             $HiringPositions->is_active = !($HiringPositions->is_active);
@@ -104,7 +100,7 @@ class PositionController extends Controller
             }
             return redirect()->route('dashboard.positions.index');
         } catch (\Exception $e) {
-            Alert::toast('Terjadi kesalahan saat menghapus data: ' . $e->getMessage(), 'error')->autoClose(5000);
+            Alert::toast('Terjadi kesalahan saat mengubah status: ' . $e->getMessage(), 'error')->autoClose(5000);
             return redirect()->route('dashboard.positions.index');
         }
     }

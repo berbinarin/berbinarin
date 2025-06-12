@@ -47,6 +47,11 @@
                     }
                 }
             });
+
+            // Handle MOTM toggle
+            document.getElementById('motmToggle').addEventListener('change', function () {
+                document.getElementById('motmHidden').value = this.checked ? 'yes' : 'no';
+            });
         });
     </script>
 
@@ -71,139 +76,192 @@
                 <form action="{{ route("dashboard.keluarga-berbinar.store") }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-4 mt-4 overflow-x-auto">
-                        <h1 class="text-2xl font-bold">Data Diri</h1>
-                        <p class="flex gap-1 pt-5 text-lg font-semibold">
-                            Foto Pribadi
-                            <i class="text-xs text-red-600"></i>
-                        </p>
-                        <p class="pb-3 text-lg text-gray-400">Ukuran foto maksimal 1 MB dengan resolusi minimal 300x300 piksel. Format file yang diperbolehkan: JPG, PNG.</p>
-                        <input type="file" name="photo" class="rounded-lg border-gray-300 px-3 py-2 shadow-sm focus:border-transparent focus:outline-none focus:ring-0" />
-                        <div class="flex w-full gap-10 pt-5">
-                            <div class="flex w-full flex-col gap-2">
-                                <p class="flex gap-1 text-lg font-semibold">
-                                    Nama Lengkap
-                                    <i class="bx bxs-star text-xs text-red-600"></i>
-                                </p>
-                                <input type="text" name="name" class="rounded-lg border-gray-300 px-3 py-2 shadow-sm focus:border-transparent focus:outline-none focus:ring-0" placeholder="John Doe" required />
-                            </div>
-                            <div class="mt-5 flex w-full flex-col gap-2">
-                                <p class="flex gap-1 text-lg font-semibold">
-                                    LinkedIn
-                                    <i class="bx bxs-star text-xs text-red-600"></i>
-                                </p>
-                                <input type="text" name="linkedin" class="rounded-lg border-gray-300 px-3 py-2 shadow-sm focus:border-transparent focus:outline-none focus:ring-0" placeholder="linkedin.com/in/johndoe/" required />
-                            </div>
-                            <div class="w-1/4"></div>
-                        </div>
-                        <div class="flex w-full flex-col gap-2">
-                            <p class="flex gap-1 text-lg font-semibold">
-                                MOTM (Member of the Month)
-                                <i class="bx bxs-star text-xs text-red-600"></i>
-                            </p>
-                            <div class="flex items-center">
-                                <input type="radio" name="motm" value="yes" class="mr-2" required />
-                                Ya
-                                <input type="radio" name="motm" value="no" class="ml-4 mr-2" required />
-                                Tidak
-                            </div>
-                        </div>
-                        <h1 class="pt-10 text-2xl font-bold">Riwayat Jabatan</h1>
-                        <div id="riwayatContainer">
-                            <div class="riwayat-row flex pb-5">
-                                <div class="grid w-full grid-cols-2 gap-x-10 gap-y-5 pt-5 lg:grid-cols-2">
-                                    <div class="flex w-full flex-col gap-2">
-                                        <p class="flex gap-1 text-lg font-semibold">
-                                            Divisi
-                                            <i class="bx bxs-star text-xs text-red-600"></i>
-                                        </p>
-                                        <select name="division[]" class="division-select rounded-lg border-gray-300 px-3 py-2 text-gray-500 shadow-sm focus:border-blue-500 focus:outline-none" required>
-                                            <option value="" disabled selected class="text-black">Pilih divisi</option>
-                                            @foreach ($divisions as $division)
-                                                <option value="{{ $division->id }}" class="text-black">{{ $division->nama_divisi }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                        <!-- Data Diri Section -->
+                        <div class="mb-8">
+                            <h1 class="text-2xl font-bold">Data Diri</h1>
 
-                                    <div class="flex w-full flex-col gap-2">
-                                        <p class="flex gap-1 text-lg font-semibold">
-                                            Sub divisi
-                                            <i class="text-xs text-red-600"></i>
-                                        </p>
-                                        <select name="sub_division[]" class="sub-division-select rounded-lg border-gray-300 px-3 py-2 text-gray-500 shadow-sm focus:border-blue-500 focus:outline-none">
-                                            <option value="" disabled selected class="text-black">Pilih subdivisi</option>
-                                        </select>
-                                    </div>
+                            <div class="grid grid-cols-1 gap-6 pt-5 md:grid-cols-2">
+                                <!-- Photo Upload -->
+                                <div class="col-span-2">
+                                    <p class="flex gap-1 text-lg font-semibold">
+                                        Foto Pribadi
+                                        <i class="text-xs text-red-600"></i>
+                                    </p>
+                                    <p class="pb-3 text-lg text-gray-400">Ukuran foto maksimal 1 MB dengan resolusi minimal 300x300 piksel. Format file yang diperbolehkan: JPG, PNG.</p>
+                                    <input type="file" name="photo" id="photoInput" accept="image/png, image/jpeg" class="hidden" />
+                                    <label for="photoInput" id="photoLabel" class="inline-block cursor-pointer rounded-lg bg-blue-500 px-5 py-3 font-semibold text-white transition hover:bg-blue-600">Pilih Foto</label>
+                                    <div id="photoPreviewContainer" class="mt-3"></div>
+                                    <span id="photoName" class="ml-3 text-gray-600"></span>
+                                </div>
 
-                                    <div class="flex w-full flex-col gap-2">
-                                        <p class="flex gap-1 text-lg font-semibold">
-                                            Awal Menjabat
-                                            <i class="bx bxs-star text-xs text-red-600"></i>
-                                        </p>
-                                        <input type="date" name="date_start[]" class="rounded-lg border-gray-300 px-3 py-2" required />
-                                    </div>
+                                <!-- Name Field -->
+                                <div class="flex flex-col gap-2">
+                                    <p class="flex gap-1 text-lg font-semibold">
+                                        Nama Lengkap
+                                        <i class="bx bxs-star text-xs text-red-600"></i>
+                                    </p>
+                                    <input type="text" name="name" class="rounded-lg border-gray-300 px-3 py-2 shadow-sm focus:border-transparent focus:outline-none focus:ring-0" placeholder="John Doe" required />
+                                </div>
 
-                                    <div class="flex w-full flex-col gap-2">
-                                        <p class="flex gap-1 text-lg font-semibold">
-                                            Akhir Menjabat
-                                            <i class="bx bxs-star text-xs text-red-600"></i>
-                                        </p>
-                                        <input type="date" name="date_end[]" class="rounded-lg border-gray-300 px-3 py-2" required />
-                                    </div>
+                                <!-- LinkedIn Field -->
+                                <div class="flex flex-col gap-2">
+                                    <p class="flex gap-1 text-lg font-semibold">
+                                        LinkedIn
+                                        <i class="bx bxs-star text-xs text-red-600"></i>
+                                    </p>
+                                    <input type="text" name="linkedin" class="rounded-lg border-gray-300 px-3 py-2 shadow-sm focus:border-transparent focus:outline-none focus:ring-0" placeholder="linkedin.com/in/johndoe/" required />
                                 </div>
                             </div>
                         </div>
 
-                        <template id="riwayatTemplate">
-                            <div class="riwayat-row flex pb-5">
-                                <div class="grid w-full grid-cols-2 gap-x-10 gap-y-5 pt-5 lg:grid-cols-2">
-                                    <div class="flex w-full flex-col gap-2">
-                                        <p class="flex gap-1 text-lg font-semibold">
-                                            Divisi
-                                            <i class="bx bxs-star text-xs text-red-600"></i>
-                                        </p>
-                                        <select name="division[]" class="division-select rounded-lg border-gray-300 px-3 py-2 text-gray-500 shadow-sm focus:border-blue-500 focus:outline-none" required>
-                                            <option value="" disabled selected class="text-black">Pilih divisi</option>
-                                            @foreach ($divisions as $division)
-                                                <option value="{{ $division->id }}" class="text-black">{{ $division->nama_divisi }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                        <!-- Riwayat Jabatan Section -->
+                        <div class="mb-8">
+                            <h1 class="text-2xl font-bold">Riwayat Jabatan</h1>
 
-                                    <div class="flex w-full flex-col gap-2">
-                                        <p class="flex gap-1 text-lg font-semibold">
-                                            Sub divisi
-                                            <i class="text-xs text-red-600"></i>
-                                        </p>
-                                        <select name="sub_division[]" class="sub-division-select rounded-lg border-gray-300 px-3 py-2 text-gray-500 shadow-sm focus:border-blue-500 focus:outline-none">
-                                            <option value="" disabled selected class="text-black">Pilih subdivisi</option>
-                                        </select>
-                                    </div>
+                            <div id="riwayatContainer">
+                                <div class="riwayat-row pt-5">
+                                    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                                        <!-- Division -->
+                                        <div class="flex flex-col gap-2">
+                                            <p class="flex gap-1 text-lg font-semibold">
+                                                Divisi
+                                                <i class="bx bxs-star text-xs text-red-600"></i>
+                                            </p>
+                                            <select name="division[]" class="division-select rounded-lg border-gray-300 px-3 py-2 text-gray-500 shadow-sm focus:border-blue-500 focus:outline-none" required>
+                                                <option value="" disabled selected class="text-black">Pilih divisi</option>
+                                                @foreach ($divisions as $division)
+                                                    <option value="{{ $division->id }}" class="text-black">{{ $division->nama_divisi }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <!-- Sub Division -->
+                                        <div class="flex flex-col gap-2">
+                                            <p class="flex gap-1 text-lg font-semibold">
+                                                Sub divisi
+                                                <i class="text-xs text-red-600"></i>
+                                            </p>
+                                            <select name="sub_division[]" class="sub-division-select rounded-lg border-gray-300 px-3 py-2 text-gray-500 shadow-sm focus:border-blue-500 focus:outline-none">
+                                                <option value="" disabled selected class="text-black">Pilih subdivisi</option>
+                                            </select>
+                                        </div>
 
-                                    <div class="flex w-full flex-col gap-2">
-                                        <p class="flex gap-1 text-lg font-semibold">
-                                            Awal Menjabat
-                                            <i class="bx bxs-star text-xs text-red-600"></i>
-                                        </p>
-                                        <input type="date" name="date_start[]" class="rounded-lg border-gray-300 px-3 py-2" required />
-                                    </div>
+                                        <!-- Status -->
+                                        <div class="flex flex-col gap-2">
+                                            <p class="flex gap-1 text-lg font-semibold">
+                                                Status
+                                                <i class="bx bxs-star text-xs text-red-600"></i>
+                                            </p>
+                                            <select name="status[]" class="rounded-lg border-gray-300 px-3 py-2 text-gray-500 shadow-sm focus:border-blue-500 focus:outline-none" required>
+                                                <option value="" disabled selected class="text-black">Pilih status</option>
+                                                <option value="active" class="text-black">Active</option>
+                                                <option value="inactive" class="text-black">Inactive</option>
+                                            </select>
+                                        </div>
 
-                                    <div class="flex w-full flex-col gap-2">
-                                        <p class="flex gap-1 text-lg font-semibold">
-                                            Akhir Menjabat
-                                            <i class="bx bxs-star text-xs text-red-600"></i>
-                                        </p>
-                                        <input type="date" name="date_end[]" class="rounded-lg border-gray-300 px-3 py-2" required />
+                                        <!-- Date Fields -->
+                                        <div class="flex flex-col gap-2">
+                                            <p class="flex gap-1 text-lg font-semibold">
+                                                Awal Menjabat
+                                                <i class="bx bxs-star text-xs text-red-600"></i>
+                                            </p>
+                                            <input type="date" name="date_start[]" class="rounded-lg border-gray-300 px-3 py-2" required />
+                                        </div>
+
+                                        <div class="flex flex-col gap-2">
+                                            <p class="flex gap-1 text-lg font-semibold">
+                                                Akhir Menjabat
+                                                <i class="bx bxs-star text-xs text-red-600"></i>
+                                            </p>
+                                            <input type="date" name="date_end[]" class="rounded-lg border-gray-300 px-3 py-2" required />
+                                        </div>
+
+                                        <!-- Awards Field (MOTM) -->
+                                        <div class="col-span-2 flex flex-col gap-2">
+                                            <p class="flex gap-1 text-lg font-semibold">
+                                                Pernah mendapat MOTM/EOTM/MOTY/EOTY?
+                                                <i class="bx bxs-star text-xs text-red-600"></i>
+                                            </p>
+                                            <div class="flex items-center gap-4">
+                                                <input type="hidden" name="motm" value="no" id="motmHidden" />
+                                                <label class="relative inline-flex cursor-pointer items-center">
+                                                    <input type="checkbox" id="motmToggle" class="peer sr-only" />
+                                                    <div class="peer h-8 w-16 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-7 after:w-7 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-500 peer-checked:after:translate-x-8 peer-checked:after:border-white peer-focus:outline-none"></div>
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </template>
 
-                        <div class="flex cursor-pointer items-center justify-center rounded-lg border border-dashed border-blue-500 py-2 text-blue-500" id="addRiwayatButton">
-                            <h1 class="">
-                                <i class="bx bx-plus-circle"></i>
-                                Tambahkan Riwayat Jabatan
-                            </h1>
+                            <!-- Template for new rows -->
+                            <template id="riwayatTemplate">
+                                <div class="riwayat-row pt-5">
+                                    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                                        <!-- Division -->
+                                        <div class="flex flex-col gap-2">
+                                            <p class="flex gap-1 text-lg font-semibold">
+                                                Divisi
+                                                <i class="bx bxs-star text-xs text-red-600"></i>
+                                            </p>
+                                            <select name="division[]" class="division-select rounded-lg border-gray-300 px-3 py-2 text-gray-500 shadow-sm focus:border-blue-500 focus:outline-none" required>
+                                                <option value="" disabled selected class="text-black">Pilih divisi</option>
+                                                @foreach ($divisions as $division)
+                                                    <option value="{{ $division->id }}" class="text-black">{{ $division->nama_divisi }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <!-- Status -->
+                                        <div class="flex flex-col gap-2">
+                                            <p class="flex gap-1 text-lg font-semibold">
+                                                Status
+                                                <i class="bx bxs-star text-xs text-red-600"></i>
+                                            </p>
+                                            <select name="status[]" class="rounded-lg border-gray-300 px-3 py-2 text-gray-500 shadow-sm focus:border-blue-500 focus:outline-none" required>
+                                                <option value="" disabled selected class="text-black">Pilih status</option>
+                                                <option value="active" class="text-black">Active</option>
+                                                <option value="inactive" class="text-black">Inactive</option>
+                                            </select>
+                                        </div>
+                                        <!-- Sub Division -->
+                                        <div class="flex flex-col gap-2">
+                                            <p class="flex gap-1 text-lg font-semibold">
+                                                Sub divisi
+                                                <i class="text-xs text-red-600"></i>
+                                            </p>
+                                            <select name="sub_division[]" class="sub-division-select rounded-lg border-gray-300 px-3 py-2 text-gray-500 shadow-sm focus:border-blue-500 focus:outline-none">
+                                                <option value="" disabled selected class="text-black">Pilih subdivisi</option>
+                                            </select>
+                                        </div>
+                                        <!-- Date Fields -->
+                                        <div class="flex flex-col gap-2">
+                                            <p class="flex gap-1 text-lg font-semibold">
+                                                Awal Menjabat
+                                                <i class="bx bxs-star text-xs text-red-600"></i>
+                                            </p>
+                                            <input type="date" name="date_start[]" class="rounded-lg border-gray-300 px-3 py-2" required />
+                                        </div>
+
+                                        <div class="flex flex-col gap-2">
+                                            <p class="flex gap-1 text-lg font-semibold">
+                                                Akhir Menjabat
+                                                <i class="bx bxs-star text-xs text-red-600"></i>
+                                            </p>
+                                            <input type="date" name="date_end[]" class="rounded-lg border-gray-300 px-3 py-2" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <!-- Add More Button -->
+                            <div class="mt-6 flex cursor-pointer items-center justify-center rounded-lg border border-dashed border-blue-500 py-2 text-blue-500" id="addRiwayatButton">
+                                <h1 class="">
+                                    <i class="bx bx-plus-circle"></i>
+                                    Tambahkan Riwayat Jabatan
+                                </h1>
+                            </div>
                         </div>
+
+                        <!-- Submit Button -->
                         <div class="mt-8 flex justify-end border-t-2 border-t-gray-400 pt-5">
                             <button type="submit" class="flex items-center gap-2 rounded-xl bg-blue-500 px-3 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">Unggah Data</button>
                         </div>
@@ -212,4 +270,33 @@
             </div>
         </div>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const photoInput = document.getElementById('photoInput');
+            const photoLabel = document.getElementById('photoLabel');
+            const photoPreviewContainer = document.getElementById('photoPreviewContainer');
+            const photoName = document.getElementById('photoName');
+
+            photoInput.addEventListener('change', function () {
+                if (this.files && this.files[0]) {
+                    // Hilangkan label upload
+                    photoLabel.style.display = 'none';
+
+                    // Buat preview gambar
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        photoPreviewContainer.innerHTML = `
+                        <img src="${e.target.result}" alt="Preview Foto" class="rounded-lg object-cover w-40 h-40 border border-gray-300 shadow" />
+                    `;
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                } else {
+                    // Jika tidak ada file, tampilkan kembali label upload
+                    photoLabel.style.display = 'inline-block';
+                    photoPreviewContainer.innerHTML = '';
+                    photoName.textContent = '';
+                }
+            });
+        });
+    </script>
 @endsection

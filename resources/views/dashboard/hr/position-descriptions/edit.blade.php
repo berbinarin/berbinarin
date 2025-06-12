@@ -6,53 +6,61 @@
 )
 
 @section("content")
-    <section>
-        <div class="flex">
-            <div class="w-full sm:px-6">
-                <div class="py-4 md:pb-7 md:pt-12">
-                    <div class="">
-                        <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Edit Data Position Job Descriptions</p>
-                        <p class="w-2/4 text-disabled">
-                            Dashboard >
-                            <a href="{{ route("dashboard.position-descriptions.index") }}">Positions Descriptions</a>
-                            > Edit
-                        </p>
-                    </div>
+<section class="flex w-full">
+    <div class="flex w-full flex-col">
+        <div class="py-4 md:pb-7 md:pt-12">
+            <div class="">
+                <div class="mb-2 flex items-center gap-2">
+                    <a href="{{ route('dashboard.position-descriptions.index') }}">
+                        <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
+                    </a>
+                    <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Edit Data Position Job Descriptions</p>
                 </div>
-                <form action="{{ route("dashboard.position-descriptions.update", $HiringPosisitonsJobDescriptionment->id) }}" class="flex flex-col gap-1" method="post">
-                    @csrf
-                    @method("PUT")
-                    <div class="flex gap-1">
-                        <div class="mb-1 flex-1 pt-0">
-                            <label for="position_id" class="text-blueGray-600 text-base">Nama Posisi</label>
-                            <select id="position_id" name="position_id" placeholder="Placeholder" class="placeholder-blueGray-300 text-blueGray-600 relative w-full appearance-none rounded border-0 bg-white px-3 py-3 text-base shadow outline-none focus:outline-none focus:ring">
-                                <option value="Default">Pilih Posisi</option>
-                                @forelse ($HiringPosisitons as $item)
-                                    @if ($item->id === $HiringPosisitonsJobDescriptionment->position_id)
-                                        <option value="{{ $item->id }}" selected>{{ $item->name }}</option>
-                                    @else
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                    @endif
-                                @empty
-                                    <option>Tidak ada position lain di table</option>
-                                @endforelse
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="mb-1 w-full pt-0">
-                        <label for="job_description" class="text-blueGray-600 text-base">Job Description</label>
-                        <textarea id="job_description" name="job_description" placeholder="Job Description" class="placeholder-blueGray-300 text-blueGray-600 relative w-full rounded border-0 bg-white px-3 py-12 text-base shadow outline-none focus:outline-none focus:ring">{{ $HiringPosisitonsJobDescriptionment->job_description }}</textarea>
-                    </div>
-
-                    <!--footer-->
-                    <div class="border-blueGray-200 flex items-center justify-end rounded-b border-t border-solid pt-3">
-                        <button type="submit" name="submit" class="mt-4 inline-flex items-start justify-start rounded bg-primary px-6 py-3 hover:bg-primary focus:outline-none focus:ring-2 sm:mt-0">
-                            <p class="text-base font-semibold leading-none text-white">Simpan Data</p>
-                        </button>
-                    </div>
-                </form>
+                <p class="w-3/4 text-disabled">
+                    Admin dapat mengubah deskripsi posisi yang akan ditampilkan pada website careers Berbinarin.
+                </p>
             </div>
         </div>
-    </section>
+        <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+            <form action="{{ route('dashboard.position-descriptions.update', $HiringPosisitonsJobDescriptionment->id) }}" method="POST">
+                @csrf
+                @method("PUT")
+                <div class="mb-4 mt-4 overflow-x-auto">
+                    <div class="mb-8">
+                        <h1 class="text-2xl font-bold">Data Position Description</h1>
+                        <div class="grid grid-cols-1 gap-6 pt-5 md:grid-cols-2">
+                            <!-- Nama Posisi -->
+                            <div class="flex flex-col gap-2 md:col-span-2">
+                                <p class="flex gap-1 text-lg font-semibold">
+                                    Nama Posisi
+                                    <i class="bx bxs-star text-xs text-red-600"></i>
+                                </p>
+                                <select id="position_id" name="position_id" class="rounded-lg border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none" required>
+                                    <option value="" disabled>Pilih Posisi</option>
+                                    @foreach ($HiringPosisitons as $item)
+                                        <option value="{{ $item->id }}" {{ $item->id == $HiringPosisitonsJobDescriptionment->position_id ? 'selected' : '' }}>
+                                            {{ $item->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <!-- Deskripsi -->
+                            <div class="flex flex-col gap-2 md:col-span-2">
+                                <p class="flex gap-1 text-lg font-semibold">
+                                    Job Description
+                                    <i class="bx bxs-star text-xs text-red-600"></i>
+                                </p>
+                                <textarea id="job_description" name="job_description" rows="5" placeholder="Job Description" class="rounded-lg border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none" required>{{ old('job_description', $HiringPosisitonsJobDescriptionment->job_description) }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tombol Submit -->
+                    <div class="mt-8 flex justify-end border-t-2 border-t-gray-400 pt-5">
+                        <button type="submit" class="flex items-center gap-2 rounded-xl bg-blue-500 px-3 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">Simpan Data</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 @endsection

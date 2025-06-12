@@ -6,92 +6,106 @@
 )
 
 @section("content")
-    <section>
-        <div class="flex">
-            <div class="w-full sm:px-6">
-                <div class="py-4 md:pb-7 md:pt-12">
-                    <div class="">
-                        <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Edit Data Position</p>
-                        <p class="w-2/4 text-disabled">
-                            Dashboard >
-                            <a href="{{ route("dashboard.positions.index") }}">Positions</a>
-                            > Edit
-                        </p>
-                    </div>
+<section class="flex w-full">
+    <div class="flex w-full flex-col">
+        <div class="py-4 md:pb-7 md:pt-12">
+            <div class="">
+                <div class="mb-2 flex items-center gap-2">
+                    <a href="{{ route('dashboard.positions.index') }}">
+                        <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
+                    </a>
+                    <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Edit Data Positions</p>
                 </div>
-                <form action="{{ route("dashboard.positions.update", $position->id) }}" class="flex flex-col gap-1" method="post">
-                    @csrf
-                    @method("PUT")
-                    <div class="flex gap-1">
-                        <div class="mb-1 w-full pt-0">
-                            <label for="name" class="text-blueGray-600 text-base">Nama Posisi</label>
-                            <input id="name" name="name" type="text" placeholder="Human Resource Development" value="{{ $position->name }}" class="placeholder-blueGray-300 text-blueGray-600 relative w-full rounded border-0 bg-white px-3 py-3 text-base shadow outline-none focus:outline-none focus:ring" />
-                        </div>
-                    </div>
-
-                    <div class="flex gap-1">
-                        <div class="mb-1 flex-1 pt-0">
-                            <label for="type" class="text-blueGray-600 text-base">Tipe Pekerjaan</label>
-                            <select id="type" name="type" placeholder="Placeholder" class="placeholder-blueGray-300 text-blueGray-600 relative mt-2 w-full appearance-none rounded border-0 bg-white px-3 py-3 text-base shadow outline-none focus:outline-none focus:ring">
-                                <option value="Default">Pilih Tipe Pekerjaan</option>
-                                <option value="Internship" @if(isset($position) && $position->type == "Internship") selected @endif>Internship</option>
-                                <option value="Fulltime" @if(isset($position) && $position->type == "Fulltime") selected @endif>Fulltime</option>
-                                <option value="Part Time" @if(isset($position) && $position->type == "Part Time") selected @endif>Part Time</option>
-                                <option value="Contract" @if(isset($position) && $position->type == "Contract") selected @endif>Contract</option>
-                                <option value="Freelancer" @if(isset($position) && $position->type == "Freelancer") selected @endif>Freelancer</option>
-                            </select>
-                        </div>
-                        <div class="mb-1 flex-1 pt-0">
-                            <label for="positions" class="text-blueGray-600 text-base">Jabatan</label>
-                            <select id="positions" name="positions" placeholder="Placeholder" class="placeholder-blueGray-300 text-blueGray-600 relative mt-2 w-full appearance-none rounded border-0 bg-white px-3 py-3 text-base shadow outline-none focus:outline-none focus:ring">
-                                <option value="Default">Pilih Jenis Jabatan</option>
-                                <option value="Staff" @if(isset($position) && $position->positions == "Staff") selected @endif>Staff</option>
-                                <option value="Manager" @if(isset($position) && $position->positions == "Manager") selected @endif>Manager</option>
-                                <option value="Researcher" @if(isset($position) && $position->positions == "Researcher") selected @endif>Researcher</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="flex gap-1">
-                        <div class="mb-1 flex-1 pt-0">
-                            <label for="location" class="text-blueGray-600 text-base">Lokasi</label>
-                            <select id="location" name="location" placeholder="Placeholder" class="placeholder-blueGray-300 text-blueGray-600 relative mt-2 w-full appearance-none rounded border-0 bg-white px-3 py-3 text-base shadow outline-none focus:outline-none focus:ring">
-                                <option value="Default">Pilih Lokasi</option>
-                                <option value="Remote" @if(isset($position) && $position->location == "Remote") selected @endif>Remote</option>
-                                <option value="Surabaya" @if(isset($position) && $position->location == "Surabaya") selected @endif>Surabaya</option>
-                            </select>
-                        </div>
-                        <div class="mb-1 flex-1 pt-0">
-                            <label for="divisi" class="text-blueGray-600 text-base">Divisi</label>
-                            <select id="divisi" name="divisi" placeholder="Placeholder" required class="placeholder-blueGray-300 text-blueGray-600 relative mt-2 w-full appearance-none rounded border-0 bg-white px-3 py-3 text-base shadow outline-none focus:outline-none focus:ring">
-                                <option value="Web and Mobile Apps Developer" @if(isset($position) && $position->divisi == "Web and Mobile Apps Developer") selected @endif>Web and Mobile Apps Developer</option>
-                                <option value="TikTok Creator" @if(isset($position) && $position->divisi == "TikTok Creator") selected @endif>TikTok Creator</option>
-                                <option value="Secretary n Finance" @if(isset($position) && $position->divisi == "Secretary n Finance") selected @endif>Secretary n Finance</option>
-                                <option value="Psychological Testing Product Management" @if(isset($position) && $position->divisi == "Psychological Testing Product Management") selected @endif>Psychological Testing Product Management</option>
-                                <option value="Marketing Strategist dan Sales" @if(isset($position) && $position->divisi == "Marketing Strategist dan Sales") selected @endif>Marketing Strategist dan Sales</option>
-                                <option value="IG Creator" @if(isset($position) && $position->divisi == "IG Creator") selected @endif>IG Creator</option>
-                                <option value="Human Resource" @if(isset($position) && $position->divisi == "Human Resource") selected @endif>Human Resource</option>
-                                <option value="Graphic Designer" @if(isset($position) && $position->divisi == "Graphic Designer") selected @endif>Graphic Designer</option>
-                                <option value="Class Product Management" @if(isset($position) && $position->divisi == "Class Product Management") selected @endif>Class Product Management</option>
-                                <option value="Counseling Product Management" @if(isset($position) && $position->divisi == "Counseling Product Management") selected @endif>Counseling Product Management</option>
-                            </select>
-                        </div>
-                    </div>
-                    {{--
-                        <div class="mb-1 pt-0 w-full">
-                        <label for="link" class="text-blueGray-600 text-base">Link Registrasi</label>
-                        <input id="link" name="link" type="text" placeholder="Link Registrasi" value="{{ $position->link }}"
-                        class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-0 shadow outline-none focus:outline-none focus:ring w-full" />
-                        </div>
-                    --}}
-
-                    <!--footer-->
-                    <div class="border-blueGray-200 flex items-center justify-end rounded-b border-t border-solid pt-3">
-                        <button type="submit" name="submit" class="mt-4 inline-flex items-start justify-start rounded bg-primary px-6 py-3 hover:bg-primary focus:outline-none focus:ring-2 sm:mt-0">
-                            <p class="text-base font-semibold leading-none text-white">Simpan Data</p>
-                        </button>
-                    </div>
-                </form>
+                <p class="w-3/4 text-disabled">
+                    Admin dapat mengubah data posisi hiring yang akan ditampilkan pada website careers Berbinarin.
+                </p>
             </div>
         </div>
-    </section>
+        <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+            <form action="{{ route('dashboard.positions.update', $position->id) }}" method="POST">
+                @csrf
+                @method('PUT')
+                <div class="mb-4 mt-4 overflow-x-auto">
+                    <div class="mb-8">
+                        <h1 class="text-2xl font-bold">Data Posisi</h1>
+                        <div class="grid grid-cols-1 gap-6 pt-5 md:grid-cols-2">
+                            <!-- Nama Posisi -->
+                            <div class="flex flex-col gap-2">
+                                <p class="flex gap-1 text-lg font-semibold">
+                                    Nama Posisi
+                                    <i class="bx bxs-star text-xs text-red-600"></i>
+                                </p>
+                                <input id="name" name="name" type="text" placeholder="Human Resource Development" value="{{ old('name', $position->name) }}" class="rounded-lg border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none" required />
+                            </div>
+                            <!-- Tipe Pekerjaan -->
+                            <div class="flex flex-col gap-2">
+                                <p class="flex gap-1 text-lg font-semibold">
+                                    Tipe Pekerjaan
+                                    <i class="bx bxs-star text-xs text-red-600"></i>
+                                </p>
+                                <select id="type" name="type" class="rounded-lg border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none" required>
+                                    <option value="" disabled {{ !$position->type ? 'selected' : '' }}>Pilih Tipe Pekerjaan</option>
+                                    <option value="Internship" {{ $position->type == "Internship" ? 'selected' : '' }}>Internship</option>
+                                    <option value="Fulltime" {{ $position->type == "Fulltime" ? 'selected' : '' }}>Fulltime</option>
+                                    <option value="Part Time" {{ $position->type == "Part Time" ? 'selected' : '' }}>Part Time</option>
+                                    <option value="Contract" {{ $position->type == "Contract" ? 'selected' : '' }}>Contract</option>
+                                    <option value="Freelancer" {{ $position->type == "Freelancer" ? 'selected' : '' }}>Freelancer</option>
+                                </select>
+                            </div>
+                            <!-- Jabatan -->
+                            <div class="flex flex-col gap-2">
+                                <p class="flex gap-1 text-lg font-semibold">
+                                    Jabatan
+                                    <i class="bx bxs-star text-xs text-red-600"></i>
+                                </p>
+                                <select id="positions" name="positions" class="rounded-lg border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none" required>
+                                    <option value="" disabled {{ !$position->positions ? 'selected' : '' }}>Pilih Jenis Jabatan</option>
+                                    <option value="Staff" {{ $position->positions == "Staff" ? 'selected' : '' }}>Staff</option>
+                                    <option value="Manager" {{ $position->positions == "Manager" ? 'selected' : '' }}>Manager</option>
+                                    <option value="Researcher" {{ $position->positions == "Researcher" ? 'selected' : '' }}>Researcher</option>
+                                </select>
+                            </div>
+                            <!-- Lokasi -->
+                            <div class="flex flex-col gap-2">
+                                <p class="flex gap-1 text-lg font-semibold">
+                                    Lokasi
+                                    <i class="bx bxs-star text-xs text-red-600"></i>
+                                </p>
+                                <select id="location" name="location" class="rounded-lg border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none" required>
+                                    <option value="" disabled {{ !$position->location ? 'selected' : '' }}>Pilih Lokasi</option>
+                                    <option value="Remote" {{ $position->location == "Remote" ? 'selected' : '' }}>Remote</option>
+                                    <option value="Surabaya" {{ $position->location == "Surabaya" ? 'selected' : '' }}>Surabaya</option>
+                                </select>
+                            </div>
+                            <!-- Divisi -->
+                            <div class="flex flex-col gap-2 md:col-span-2">
+                                <p class="flex gap-1 text-lg font-semibold">
+                                    Divisi
+                                    <i class="bx bxs-star text-xs text-red-600"></i>
+                                </p>
+                                <select id="divisi" name="divisi" class="rounded-lg border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none" required>
+                                    <option value="" disabled {{ !$position->divisi ? 'selected' : '' }}>Pilih Divisi</option>
+                                    <option value="Web and Mobile Apps Developer" {{ $position->divisi == "Web and Mobile Apps Developer" ? 'selected' : '' }}>Web and Mobile Apps Developer</option>
+                                    <option value="TikTok Creator" {{ $position->divisi == "TikTok Creator" ? 'selected' : '' }}>TikTok Creator</option>
+                                    <option value="Secretary n Finance" {{ $position->divisi == "Secretary n Finance" ? 'selected' : '' }}>Secretary n Finance</option>
+                                    <option value="Psychological Testing Product Management" {{ $position->divisi == "Psychological Testing Product Management" ? 'selected' : '' }}>Psychological Testing Product Management</option>
+                                    <option value="Marketing Strategist dan Sales" {{ $position->divisi == "Marketing Strategist dan Sales" ? 'selected' : '' }}>Marketing Strategist dan Sales</option>
+                                    <option value="IG Creator" {{ $position->divisi == "IG Creator" ? 'selected' : '' }}>IG Creator</option>
+                                    <option value="Human Resource" {{ $position->divisi == "Human Resource" ? 'selected' : '' }}>Human Resource</option>
+                                    <option value="Graphic Designer" {{ $position->divisi == "Graphic Designer" ? 'selected' : '' }}>Graphic Designer</option>
+                                    <option value="Class Product Management" {{ $position->divisi == "Class Product Management" ? 'selected' : '' }}>Class Product Management</option>
+                                    <option value="Counseling Product Management" {{ $position->divisi == "Counseling Product Management" ? 'selected' : '' }}>Counseling Product Management</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tombol Submit -->
+                    <div class="mt-8 flex justify-end border-t-2 border-t-gray-400 pt-5">
+                        <button type="submit" class="flex items-center gap-2 rounded-xl bg-blue-500 px-3 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">Simpan Data</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 @endsection

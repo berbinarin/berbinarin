@@ -1,7 +1,7 @@
 @extends(
     "dashboard.layouts.app",
     [
-        "title" => "Edit - Position Requirements Management",
+        "title" => "Tambah Position Requirement",
     ]
 )
 
@@ -14,17 +14,16 @@
                     <a href="{{ route('dashboard.position-requirements.index') }}">
                         <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                     </a>
-                    <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Edit Data Position Requirements</p>
+                    <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Tambah Position Requirement</p>
                 </div>
                 <p class="w-3/4 text-disabled">
-                    Admin dapat mengubah requirement posisi yang akan ditampilkan pada website careers Berbinarin.
+                    Admin dapat menambahkan requirement posisi yang akan ditampilkan pada website careers Berbinarin.
                 </p>
             </div>
         </div>
         <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
-            <form action="{{ route('dashboard.position-requirements.update', $HiringPosisitonsRequirement->id) }}" method="POST">
+            <form action="{{ route('dashboard.position-requirements.store') }}" method="POST">
                 @csrf
-                @method("PUT")
                 <div class="mb-4 mt-4 overflow-x-auto">
                     <div class="mb-8">
                         <h1 class="text-2xl font-bold">Data Position Requirement</h1>
@@ -36,11 +35,9 @@
                                     <i class="bx bxs-star text-xs text-red-600"></i>
                                 </p>
                                 <select id="position_id" name="position_id" class="rounded-lg border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none" required>
-                                    <option value="" disabled>Pilih Posisi</option>
+                                    <option value="" disabled selected>Pilih Posisi</option>
                                     @foreach ($HiringPosisitons as $item)
-                                        <option value="{{ $item->id }}" {{ $item->id == $HiringPosisitonsRequirement->position_id ? 'selected' : '' }}>
-                                            {{ $item->name }}
-                                        </option>
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -50,13 +47,13 @@
                                     Requirement
                                     <i class="bx bxs-star text-xs text-red-600"></i>
                                 </p>
-                                <textarea id="requirement" name="requirement" rows="5" placeholder="Requirement" class="rounded-lg border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none" required>{{ old('requirement', $HiringPosisitonsRequirement->requirement) }}</textarea>
+                                <textarea id="requirement" name="requirement" rows="5" placeholder="Requirement" class="rounded-lg border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none" required></textarea>
                             </div>
                         </div>
                     </div>
                     <!-- Tombol Submit -->
                     <div class="mt-8 flex justify-end border-t-2 border-t-gray-400 pt-5">
-                        <button type="submit" class="flex items-center gap-2 rounded-xl bg-blue-500 px-3 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">Simpan Data</button>
+                        <button type="submit" class="flex items-center gap-2 rounded-xl bg-blue-500 px-3 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">Unggah Data</button>
                     </div>
                 </div>
             </form>
