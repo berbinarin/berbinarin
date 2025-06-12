@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Hiring_Positions;
 use App\Models\Hiring_Positions_Job_Descriptions;
 use App\Models\Hiring_Positions_Requirements;
+use App\Models\UserInternship;
+use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PositionController extends Controller
 {
@@ -87,5 +90,55 @@ class PositionController extends Controller
             'HiringPositionsJobDescription' => $HiringPositionsJobDescription,
             'Hiring_Positions_Requirement' => $Hiring_Positions_Requirement,
         ]);
+    }
+
+    public function daftar($id)
+    {
+        $position = Hiring_Positions::where('id', $id)->first();
+        return view('landing.career.positions.daftar', ['position' => $position]);
+    }
+
+    public function store(Request $request, $id)
+    {
+        try {
+            $request->validate([
+                'position_id' => 'required|integer',
+                'email' => 'required|email',
+                'nama_lengkap' => 'required|string',
+                'nama_panggilan' => 'required|string',
+                'tanggal_lahir' => 'required|date',
+                'no_whatsapp' => 'required|string',
+                'asal_kota' => 'required|string',
+                'asal_pendidikan' => 'required|string',
+                'status_kelas' => 'required|string',
+                'jurusan' => 'required|string',
+                'akun_instagram' => 'required|string',
+                'akun_tiktok' => 'required|string',
+                'akun_linkdin' => 'required|string',
+                'sumber_informasi' => 'required|string',
+                'tautan_cv' => 'required|string',
+                'tautan_portofolio' => 'required|string',
+                'tautan_berkas_ss' => 'required|string',
+                'motivasi' => 'required|string',
+                'is_process' => 'required|boolean',
+                'status_tidak_dapat_diproses' => 'required|string',
+                'status_catatan' => 'required|string',
+                'status_progress' => 'required|string'
+            ]);
+            $data = $request->all();
+            $data['is_process'] = false;
+            $data['status_tidak_dapat_diproses'] = "Pilih";
+            $data['status_catatan'] = "Pilih";
+            $data['status_progress'] = "Pilih";
+            $data['keterangan'] = "";
+            //dd($data);
+            UserInternship::create($data);
+
+            return redirect()->route('hiring');
+        } catch (\Exception $e) {
+            // Log::error('Error storing user internship: ' . $e->getMessage());
+            Alert::toast('Terjadi kesalahan saat menyimpan data: ' . $e->getMessage(), 'error')->autoClose(5000);
+            return redirect()->route('career.positions.index');
+        }
     }
 }

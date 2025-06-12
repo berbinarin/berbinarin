@@ -132,7 +132,7 @@
 
     <div class="md:w-4xl">
       <!-- Halaman Pertama -->
-      <form action="{{ route('user_internships.store') }}" method="POST">
+      <form action="{{ route('career.positions.daftar.store', $position->id) }}" method="POST">
         @csrf
         <h2 class="tittleOne text-xl font-bold text-bold text-center mt-4 md:-mt-7 mb-5">Biodata Diri</h2>
         <div id="pageOne" class="pageOne flex flex-col mx-auto md:flex-row ">

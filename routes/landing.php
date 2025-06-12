@@ -104,7 +104,8 @@ Route::prefix('karier')->name('career.')->group(function () {
     Route::prefix('posisi')->name('positions.')->group(function () {
         Route::get('/', [PositionController::class, 'index'])->name('index');
         Route::get('/{id}', [PositionController::class, 'detail'])->name('detail');
-        Route::get('/internship/register/{position}', [_InternshipController::class, 'register'])->name('internship.register');
+        Route::get('/{id}/daftar', [PositionController::class, 'daftar'])->name('daftar');
+        Route::post('/{id}/daftar', [PositionController::class, 'store'])->name('daftar.store');
     });
 
     // Keluarga Berbinar
