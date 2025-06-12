@@ -17,6 +17,7 @@ use App\Http\Controllers\Landing\Product\Counseling\CounselingController;
 use App\Http\Controllers\Landing\Product\Psikotest\PsikotestController;
 use App\Http\Controllers\Landing\Product\EmoShuffle\EmoShuffleController;
 use App\Http\Controllers\Landing\Product\ProductController;
+use App\Http\Controllers\Dashboard\HR\_InternshipController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -103,6 +104,7 @@ Route::prefix('karier')->name('career.')->group(function () {
     Route::prefix('posisi')->name('positions.')->group(function () {
         Route::get('/', [PositionController::class, 'index'])->name('index');
         Route::get('/{id}', [PositionController::class, 'detail'])->name('detail');
+        Route::get('/internship/register/{position}', [_InternshipController::class, 'register'])->name('internship.register');
     });
 
     // Keluarga Berbinar

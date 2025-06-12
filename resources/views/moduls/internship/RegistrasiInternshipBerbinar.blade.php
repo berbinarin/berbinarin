@@ -411,7 +411,7 @@
               console.log('salah format: ' + fieldId);
             }
           }
-          
+
           if (fieldId === 'tautan_cv' || fieldId === 'tautan_portofolio' || fieldId === 'tautan_berkas_ss'){
             if (!isValidGoogleDriveLink(field.value)){
              hasError = true;
@@ -687,7 +687,7 @@
               console.log('salah format: ' + fieldId);
             }
           }
-          
+
           if (fieldId === 'tautan_cv' || fieldId === 'tautan_portofolio' || fieldId === 'tautan_berkas_ss'){
             if (!isValidGoogleDriveLink(field.value)){
              hasError = true;
