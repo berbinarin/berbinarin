@@ -26,10 +26,10 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
     route::middleware('role:counseling-pm')->group(function () {
 
         // Psychologis
-        Route::resource('/psychologists', PsychologistController::class)->except('create', 'edit');
+        Route::resource('/psychologists', PsychologistController::class);
 
         // Peer Counselor
-        Route::resource('/peer-counselors', PeerCounselorController::class)->except('create', 'edit');
+        Route::resource('/peer-counselors', PeerCounselorController::class);
 
         // Peer Counselor Schedule
         Route::resource('/peer-counselor-schedules', PeerCounselorScheduleController::class)->except('create', 'show', 'edit');
