@@ -156,13 +156,7 @@
                             <div class="relative mb-8 h-24 w-full md:mb-4 md:h-32">
                                 {{-- image-banner start --}}
                                 <div class="h-full w-full overflow-hidden rounded-t-lg">
-                                    @php
-                                        if (isset($position)) {
-                                            $imageName = $position->name === "UI/UX Designer" ? "UIUX Designer" : $position->name;
-                                        }
-                                    @endphp
-
-                                    <img src="{{ asset("assets/images/landing/karir/banner/" . $imageName . ".jpg") }}" alt="1" class="h-full w-full object-cover" />
+                                    <img src="{{ asset("image/" . $position->banner_path) }}" alt="{{ $position->name . " banner" }}" class="h-full w-full object-cover" />
                                 </div>
                                 {{-- image-banner end --}}
                                 <img src="{{ asset("assets/images/landing/logo/logo-berbinar.png") }}" alt="berbinar logo" class="absolute -bottom-5 right-4 z-20 size-10 rounded-full bg-white shadow-primary-light" />
