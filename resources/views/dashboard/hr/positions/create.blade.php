@@ -186,7 +186,7 @@
                                 </div>
                             </div>
 
-                            <input type="file" id="bannerInput" name="banner" accept="image/*" class="hidden" />
+                            <input type="file" id="bannerInput" name="banner_path" accept=".jpeg, .jpg, .png, .webp" class="hidden" required />
                         </div>
                     </div>
 

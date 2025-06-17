@@ -32,10 +32,7 @@
                                         $imageName = ($position->name === 'UI/UX Designer') ? 'UIUX Designer' : $position->name;
                                     }
                                 @endphp
-                                <img
-                                    src="{{ asset('assets/images/landing/karir/banner/'.$imageName.'.jpg') }}"
-                                    alt="1"
-                                    class="object-cover h-full w-full">
+                                    <img src="{{ asset('image/' . $position->banner_path) }}" alt="{{ $position->name . ' banner' }}" class="object-cover h-full w-full">
                             </div>
                             {{--image-banner end--}}
                             <img src="{{ asset("assets/images/landing/logo/logo-berbinar.png") }}" alt="berbinar logo"

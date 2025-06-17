@@ -29,8 +29,8 @@ class Hiring_PositionsRequest extends FormRequest
             "type" => "required",
             "positions" => "required",
             "location" => "required",
-            // "link"=> "required|string",
-            "divisi" => "required|string"
+            "divisi" => "required|string",
+            "banner_path" => "required|image|mimes:jpeg,jpg,webp|max:1024",
         ];
     }
 
