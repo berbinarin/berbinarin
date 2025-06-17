@@ -157,17 +157,22 @@
                     <select name="daerah" id="daerah-select" class="dropdown-select bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3] appearance-none" required>
                         <option value="">Pilih Daerah Konseling</option>
                         @if(($kategori ?? 'psikolog') == 'peer-counselor')
+                            <option value="Bekasi" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Bekasi' ? 'selected' : '' }}>Bekasi</option>
+                            <option value="Jakarta" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Jakarta' ? 'selected' : '' }}>Jakarta</option>
                             <option value="Tangerang Selatan" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Tangerang Selatan' ? 'selected' : '' }}>Tangerang Selatan</option>
+                            <option value="Padang" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Padang' ? 'selected' : '' }}>Padang</option>
+                            <option value="Wonogiri" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Wonogiri' ? 'selected' : '' }}>Wonogiri</option>
                             <option value="Malang" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Malang' ? 'selected' : '' }}>Malang</option>
-                            <option value="Surabaya" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Surabaya' ? 'selected' : '' }}>Surabaya</option>
                         @else
                             <option value="Surabaya" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Surabaya' ? 'selected' : '' }}>Surabaya</option>
                             <option value="Kediri" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Kediri' ? 'selected' : '' }}>Kediri</option>
                             <option value="Sidoarjo" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Sidoarjo' ? 'selected' : '' }}>Sidoarjo</option>
+                            <option value="Denpasar" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Denpasar' ? 'selected' : '' }}>Denpasar</option>
                             <option value="Makassar" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Makassar' ? 'selected' : '' }}>Makassar</option>
                             <option value="Samarinda" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Samarinda' ? 'selected' : '' }}>Samarinda</option>
                             <option value="Jakarta" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Jakarta' ? 'selected' : '' }}>Jakarta</option>
                             <option value="Malang" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Malang' ? 'selected' : '' }}>Malang</option>
+                            <option value="Kalimantan Utara (Tarakan)" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Kalimantan Utara (Tarakan)' ? 'selected' : '' }}>Kalimantan Utara (Tarakan)</option>                        
                         @endif
                     </select>
                     <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon h-2 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300">
