@@ -37,8 +37,8 @@ class DashboardController extends Controller
         $HiringPosisitonsRequirement = Hiring_Positions_Requirements::count("id");
 
         $PeerConsellorSchedule = jadwalPeer::count("id");
-        $PeerConsellorData = KonsellingPeer::count("id");
-        $PsikologData = KonsellingPsikolog::count("id");
+        $PeerConsellorData = KonsellingPsikolog::where('kategori', 'peer-counselor')->count();
+        $PsikologData = KonsellingPsikolog::where('kategori', 'psikolog')->count();
 
         $totalUserPsikotest = UserPsikotest::count('id');
         $totalQuestion = Question::count('id');

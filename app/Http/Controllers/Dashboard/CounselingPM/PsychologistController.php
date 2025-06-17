@@ -6,12 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\KonsellingPsikolog;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Carbon\Carbon;
 
 class PsychologistController extends Controller
 {
     public function index(Request $request)
     {
-        $PsikologData = KonsellingPsikolog::all();
+        $PsikologData = KonsellingPsikolog::where('kategori', 'psikolog')->get();
         $konselling = $request->session()->get('konselling');
         return view('dashboard.counseling-pm.psychologists.index', ['PsikologData' => $PsikologData], compact('konselling'));
     }
@@ -28,10 +29,11 @@ class PsychologistController extends Controller
         $validatedData = $request->validate([
             'jadwal_tanggal' => 'required',
             'jadwal_pukul' => 'required',
+            'kategori' => 'required|not_in:default_value',
             'metode' => 'required|not_in:default_value',
             'sesi' => 'required',
-            'daerah' => 'required',
-            'harga' => 'required',
+            'daerah' => 'required_if:metode,offline',
+            'harga' => 'nullable', // Akan dihitung otomatis
             'nama' => 'required',
             'no_wa' => 'required',
             'email' => 'required',
@@ -50,17 +52,48 @@ class PsychologistController extends Controller
             'cerita' => 'required',
         ]);
 
-        $jamMenit = substr($validatedData['jadwal_pukul'], 0, 5);
-        $validatedData['jadwal_pukul'] = $jamMenit;
+        // Konversi tanggal dari d-m-Y ke Y-m-d
+        $validatedData['jadwal_tanggal'] = Carbon::createFromFormat('d-m-Y', $validatedData['jadwal_tanggal'])->format('Y-m-d');
+        $validatedData['tanggal_lahir'] = Carbon::createFromFormat('d/m/Y', $validatedData['tanggal_lahir'])->format('Y-m-d');
 
+        // Jika metode online, isi daerah dengan 'Online'
+        if ($validatedData['metode'] === 'online') {
+            $validatedData['daerah'] = 'Online';
+        }
 
+        // Hitung harga otomatis
+        $tanggal = Carbon::parse($validatedData['jadwal_tanggal']);
+        $isWeekend = in_array($tanggal->dayOfWeek, [Carbon::SATURDAY, Carbon::SUNDAY]);
+        $sesi = $validatedData['sesi'];
+        $metode = $validatedData['metode'];
+        $kategori = $validatedData['kategori'];
+
+        if ($kategori === 'peer-counselor') {
+            $harga = $metode === 'online'
+                ? [1 => 45000, 2 => 90000, 3 => 135000][$sesi]
+                : [1 => 55000, 2 => 110000, 3 => 165000][$sesi];
+        } else {
+            if (!$isWeekend) {
+                $harga = $metode === 'online'
+                    ? [1 => 150000, 2 => 300000, 3 => 450000][$sesi]
+                    : [1 => 175000, 2 => 350000, 3 => 525000][$sesi];
+            } else {
+                $harga = $metode === 'online'
+                    ? [1 => 200000, 2 => 340000, 3 => 500000][$sesi]
+                    : [1 => 225000, 2 => 340000, 3 => 500000][$sesi];
+            }
+        }
+        $validatedData['harga'] = $harga;
+
+        // Simpan ke database
         $konselling = new KonsellingPsikolog();
         $konselling->fill($validatedData);
         $konselling->save();
 
-        Alert::toast('New Psikolog Appointment Data Added', 'success')->autoClose(5000);;
+        Alert::toast('New Psikolog Appointment Data Added', 'success')->autoClose(5000);
         return redirect()->route('dashboard.psychologists.index');
     }
+
 
 
     public function show(Request $request, $id)
@@ -78,6 +111,7 @@ class PsychologistController extends Controller
         return view('dashboard.counseling-pm.psychologists.edit', ['PsikologDataDetails' => $PsikologDataDetails], compact('konselling'));
     }
 
+
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
@@ -85,8 +119,8 @@ class PsychologistController extends Controller
             'jadwal_pukul' => 'required',
             'metode' => 'required|not_in:default_value',
             'sesi' => 'required',
-            'daerah' => 'required',
-            'harga' => 'required',
+            'daerah' => 'required_if:metode,offline',
+            'harga' => 'nullable',
             'nama' => 'required',
             'no_wa' => 'required',
             'email' => 'required',
@@ -105,35 +139,39 @@ class PsychologistController extends Controller
             'cerita' => 'required',
         ]);
 
-        $PsikologDataDetails = KonsellingPsikolog::find($id);
+        // Konversi tanggal dari d-m-Y ke Y-m-d
+        $validatedData['jadwal_tanggal'] = Carbon::createFromFormat('d-m-Y', $validatedData['jadwal_tanggal'])->format('Y-m-d');
+        $validatedData['tanggal_lahir'] = Carbon::createFromFormat('d/m/Y', $validatedData['tanggal_lahir'])->format('Y-m-d');
 
-        $PsikologDataDetails->jadwal_tanggal = $validatedData['jadwal_tanggal'];
-        $PsikologDataDetails->jadwal_pukul = $validatedData['jadwal_pukul'];
-        $PsikologDataDetails->metode = $validatedData['metode'];
-        $PsikologDataDetails->sesi = $validatedData['sesi'];
-        $PsikologDataDetails->daerah = $validatedData['daerah'];
-        $PsikologDataDetails->harga = $validatedData['harga'];
-        $PsikologDataDetails->no_wa = $validatedData['no_wa'];
-        $PsikologDataDetails->email = $validatedData['email'];
-        $PsikologDataDetails->jenis_kelamin = $validatedData['jenis_kelamin'];
-        $PsikologDataDetails->agama = $validatedData['agama'];
-        $PsikologDataDetails->tempat_lahir = $validatedData['tempat_lahir'];
-        $PsikologDataDetails->tanggal_lahir = $validatedData['tanggal_lahir'];
-        $PsikologDataDetails->suku = $validatedData['suku'];
-        $PsikologDataDetails->status_pernikahan = $validatedData['status_pernikahan'];
-        $PsikologDataDetails->alamat = $validatedData['alamat'];
-        $PsikologDataDetails->posisi_anak = $validatedData['posisi_anak'];
-        $PsikologDataDetails->pendidikan = $validatedData['pendidikan'];
-        $PsikologDataDetails->riwayat_pekerjaan = $validatedData['riwayat_pekerjaan'];
-        $PsikologDataDetails->hobi = $validatedData['hobi'];
-        $PsikologDataDetails->kegiatan_sosial = $validatedData['kegiatan_sosial'];
-        $PsikologDataDetails->cerita = $validatedData['cerita'];
+        // Jika metode online, isi daerah dengan 'Online'
+        if ($validatedData['metode'] === 'online') {
+            $validatedData['daerah'] = 'Online';
+        }
+
+        // Hitung harga otomatis
+        $tanggal = Carbon::parse($validatedData['jadwal_tanggal']);
+        $isWeekend = in_array($tanggal->dayOfWeek, [Carbon::SATURDAY, Carbon::SUNDAY]);
+        $sesi = $validatedData['sesi'];
+        $metode = $validatedData['metode'];
+
+        if (!$isWeekend) {
+            $harga = $metode === 'online'
+                ? [1 => 150000, 2 => 300000, 3 => 450000][$sesi]
+                : [1 => 175000, 2 => 350000, 3 => 525000][$sesi];
+        } else {
+            $harga = $metode === 'online'
+                ? [1 => 200000, 2 => 340000, 3 => 500000][$sesi]
+                : [1 => 225000, 2 => 340000, 3 => 500000][$sesi];
+        }
+        $validatedData['harga'] = $harga;
+
+        $PsikologDataDetails = KonsellingPsikolog::find($id);
+        $PsikologDataDetails->fill($validatedData);
         $PsikologDataDetails->save();
 
         Alert::toast('A Psikolog Appointment Data Updated', 'success')->autoClose(5000);
         return redirect()->route('dashboard.psychologists.show', $id);
     }
-
     public function destroy($id)
     {
         KonsellingPsikolog::where('id', $id)->delete();

@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Landing\Product\Counseling;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\KonsellingPsikolog;
+use Illuminate\Support\Carbon;
+use App\Models\jadwalPeer;
+
 
 class CounselingController extends Controller
 {
@@ -303,19 +307,20 @@ class CounselingController extends Controller
         ]);
     }
 
-    public function registration() {
+    public function registration()
+    {
         $konselings = [
             [
                 'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
                 'nama' => 'Psikolog',
                 'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
-                'link' => route('product.counseling.schedule')
+                'link' => route('product.counseling.schedule', ['kategori' => 'psikolog', 'reset' => 1])
             ],
             [
                 'image' => 'assets/images/landing/asset-konseling/vector/peercounselor.png',
                 'nama' => 'Peer Counselor',
                 'deskripsi' => 'Konseling bersama Peer Conselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
-                'link' => route('product.counseling.schedule')
+                'link' => route('product.counseling.schedule', ['kategori' => 'peer-counselor', 'reset' => 1])
             ],
         ];
 
@@ -324,19 +329,184 @@ class CounselingController extends Controller
         ]);
     }
 
-    public function schedule() {
-        return view('landing.product.counseling.schedule')->with([]);
+    // Jadwal konseling
+    public function schedule(Request $request)
+    {
+        if ($request->has('reset')) {
+            session()->forget('jadwal_konseling');
+            session()->forget('personal_konseling');
+            session()->forget('cerita_konseling');
+        }
+
+        $jadwal = session('jadwal_konseling');
+        $kategori = $jadwal['kategori'] ?? $request->get('kategori', 'psikolog');
+        $jadwalPeers = [];
+        if ($kategori === 'peer-counselor') {
+            $jadwalPeers = jadwalPeer::orderBy('hari')->orderBy('pukul_mulai')->get();
+        }
+
+        return view('landing.product.counseling.schedule', compact('jadwal', 'kategori', 'jadwalPeers'));
     }
 
-    public function personalData() {
-        return view('landing.product.counseling.personal-data')->with([]);
+    // Input Jadwal Konseling - Daftar Psikotes
+    public function storeSchedule(Request $request)
+    {
+        $validatedData = $request->validate([
+            'jadwal_tanggal' => 'required',
+            'jadwal_pukul' => 'required',
+            'metode' => 'required|in:online,offline',
+            'daerah' => 'required_if:metode,offline',
+            'sesi' => 'required|in:1,2,3',
+            'kategori' => 'required',
+        ]);
+
+        // Jika metode online, isi daerah dengan 'Online'
+        if ($validatedData['metode'] === 'online') {
+            $validatedData['daerah'] = 'Online';
+        }
+
+        // Konversi tanggal dari d/m/Y (flatpickr format) ke Y-m-d untuk penyimpanan dan perhitungan
+        $parsedTanggal = Carbon::createFromFormat('d-m-Y', $validatedData['jadwal_tanggal'])->format('Y-m-d');
+
+        // Menentukan weekday/weekend
+        $tanggal = Carbon::parse($parsedTanggal);
+        $isWeekend = in_array($tanggal->dayOfWeek, [Carbon::SATURDAY, Carbon::SUNDAY]);
+
+        $harga = 0;
+        if ($validatedData['kategori'] === 'peer-counselor') {
+            $harga = $validatedData['metode'] === 'online'
+                ? [1 => 45000, 2 => 90000, 3 => 135000][$validatedData['sesi']]
+                : [1 => 55000, 2 => 110000, 3 => 165000][$validatedData['sesi']];
+        } else { // psikolog
+            if (!$isWeekend) {
+                $harga = $validatedData['metode'] === 'online'
+                    ? [1 => 150000, 2 => 300000, 3 => 450000][$validatedData['sesi']]
+                    : [1 => 175000, 2 => 350000, 3 => 525000][$validatedData['sesi']];
+            } else {
+                $harga = $validatedData['metode'] === 'online'
+                    ? [1 => 200000, 2 => 340000, 3 => 500000][$validatedData['sesi']]
+                    : [1 => 225000, 2 => 340000, 3 => 500000][$validatedData['sesi']];
+            }
+        }
+
+        session([
+            'jadwal_konseling' => [
+                'jadwal_tanggal' => $parsedTanggal,
+                'jadwal_pukul' => $validatedData['jadwal_pukul'],
+                'metode' => $validatedData['metode'],
+                'daerah' => $validatedData['metode'] === 'offline' ? $validatedData['daerah'] : 'Online',
+                'sesi' => $validatedData['sesi'],
+                'harga' => $harga,
+                'kategori' => $validatedData['kategori'],
+            ]
+        ]);
+        // dd(session('jadwal_konseling'));
+        return redirect()->route('product.counseling.personal_data');
     }
 
-    public function story() {
-        return view('landing.product.counseling.story')->with([]);
+
+    public function personalData()
+    {
+        $personal = session('personal_konseling');
+        $jadwal = session('jadwal_konseling');
+        $kategori = $jadwal['kategori'] ?? 'psikolog'; // default psikolog jika tidak ada
+        return view('landing.product.counseling.personal-data', compact('personal', 'kategori'));
     }
 
-    public function summary() {
+
+    public function storePersonalData(Request $request)
+    {
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'email' => 'required',
+            'tanggal_lahir' => 'required',
+            'tempat_lahir' => 'required',
+            'alamat' => 'required',
+            'status_pernikahan' => 'required',
+            'jenis_kelamin' => 'required',
+            'no_wa' => 'required',
+            'suku' => 'nullable',
+            'agama' => 'nullable',
+            'posisi_anak' => 'nullable',
+            'hobi' => 'nullable',
+            'pendidikan' => 'nullable',
+            'asal_sekolah' => 'nullable',
+            'riwayat_pekerjaan' => 'nullable',
+            'kegiatan_sosial' => 'nullable',
+        ]);
+
+        // Konversi tanggal_lahir dari d/m/Y ke Y-m-d
+        $parsedTanggal = \Carbon\Carbon::createFromFormat('d/m/Y', $validatedData['tanggal_lahir'])->format('Y-m-d');
+        $validatedData['tanggal_lahir'] = $parsedTanggal;
+
+        session([
+            'personal_konseling' => [
+                'nama' => $validatedData['nama'],
+                'email' => $validatedData['email'],
+                'tanggal_lahir' => $validatedData['tanggal_lahir'],
+                'tempat_lahir' => $validatedData['tempat_lahir'],
+                'alamat' => $validatedData['alamat'],
+                'status_pernikahan' => $validatedData['status_pernikahan'],
+                'jenis_kelamin' => $validatedData['jenis_kelamin'],
+                'no_wa' => $validatedData['no_wa'],
+                'suku' => $validatedData['suku'] ?? null,
+                'agama' => $validatedData['agama'] ?? null,
+                'posisi_anak' => $validatedData['posisi_anak'] ?? null,
+                'hobi' => $validatedData['hobi'] ?? null,
+                'pendidikan' => $validatedData['pendidikan'] ?? null,
+                'asal_sekolah' => $validatedData['asal_sekolah'] ?? null,
+                'riwayat_pekerjaan' => $validatedData['riwayat_pekerjaan'] ?? null,
+                'kegiatan_sosial' => $validatedData['kegiatan_sosial'] ?? null,
+            ]
+        ]);
+
+        // dd(session('personal_konseling'));
+        return redirect()->route('product.counseling.story');
+    }
+
+
+    public function story()
+    {
+        $cerita = session('cerita_konseling');
+        return view('landing.product.counseling.story', compact('cerita'));
+    }
+
+    public function storeStory(Request $request)
+    {
+        $request->validate([
+            'cerita' => 'required',
+        ]);
+
+        session(['cerita_konseling' => $request->cerita]);
+
+        $jadwal = session('jadwal_konseling');
+        $personal = session('personal_konseling');
+
+        if (!$jadwal || !$personal) {
+            return redirect()->route('product.counseling.schedule')->with('error', 'Lengkapi jadwal dan data diri terlebih dahulu.');
+        }
+
+
+        $daerah = $jadwal['daerah'] ?? null;
+        if (($jadwal['metode'] ?? '') === 'online') {
+            $daerah = 'Online';
+        }
+
+        $data = array_merge($jadwal, $personal, [
+            'cerita' => $request->cerita,
+            'daerah' => $daerah,
+        ]);
+
+        KonsellingPsikolog::create($data);
+
+        // Hapus semua session step
+        session()->forget(['jadwal_konseling', 'personal_konseling', 'cerita_konseling']);
+
+        return redirect()->route('product.counseling.summary');
+    }
+
+    public function summary()
+    {
         return view('landing.product.counseling.summary-konseling')->with([]);
     }
 }

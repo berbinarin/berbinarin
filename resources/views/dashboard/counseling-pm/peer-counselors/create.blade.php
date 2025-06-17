@@ -22,6 +22,7 @@
         <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
             <form action="{{ route('dashboard.peer-counselors.store') }}" method="POST">
                 @csrf
+                <input type="hidden" name="kategori" value="peer-counselor">
 
                 <!-- Data Diri -->
                 <h1 class="mb-6 text-center text-2xl font-bold">Data Diri</h1>
@@ -48,7 +49,7 @@
                     </div>
                     <div>
                         <label class="font-semibold">Tanggal Lahir</label>
-                        <input required type="date" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" />
+                        <input required type="date" id="tgllahir" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" readonly/>
                     </div>
                     <div>
                         <label class="font-semibold">Tempat Lahir</label>
@@ -67,7 +68,7 @@
                         </select>
                     </div>
                     <div>
-                        <label class="font-semibold">Suku Bangsa</label>
+                        <label class="font-semibold">Suku</label>
                         <input required type="text" name="suku" value="{{ old('suku') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Suku Bangsa" />
                     </div>
                     <div>
@@ -87,8 +88,15 @@
                         <input required type="text" name="posisi_anak" value="{{ old('posisi_anak') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Anak ke-x dari x bersaudara" />
                     </div>
                     <div>
-                        <label class="font-semibold">Pendidikan Saat Ini</label>
-                        <input required type="text" name="pendidikan" value="{{ old('pendidikan') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Contoh: SMA/Universitas" />
+                        <label class="font-semibold">Pendidikan Terakhir</label>
+                        <select required name="pendidikan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                            <option value="" disabled selected>Pilih Pendidikan Terakhir</option>
+                            <option value="S1/D4 - Sarjana" {{ (old('pendidikan', $personal['pendidikan'] ?? '') == 'S1/D4 - Sarjana') ? 'selected' : '' }}>S1/D4 - Sarjana</option>
+                            <option value="D3 - Diploma" {{ (old('pendidikan', $personal['pendidikan'] ?? '') == 'D3 - Diploma') ? 'selected' : '' }}>D3 - Diploma</option>
+                            <option value="SMA/SMK" {{ (old('pendidikan', $personal['pendidikan'] ?? '') == 'SMA/SMK') ? 'selected' : '' }}>SMA/SMK</option>
+                            <option value="SMP" {{ (old('pendidikan', $personal['pendidikan'] ?? '') == 'SMP') ? 'selected' : '' }}>SMP</option>
+                            <option value="SD" {{ (old('pendidikan', $personal['pendidikan'] ?? '') == 'SD') ? 'selected' : '' }}>SD</option>
+                        </select>
                     </div>
                     <div>
                         <label class="font-semibold">Hobi</label>
@@ -109,7 +117,10 @@
                 <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>
                         <label class="font-semibold">Tanggal Konseling</label>
-                        <input required type="date" name="jadwal_tanggal" id="jadwalTanggal" value="{{ old('jadwal_tanggal') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" />
+                        <input type="text" name="jadwal_tanggal" id="jadwalTanggal"
+                            value="{{ old('jadwal_tanggal') }}"
+                            class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm bg-gray-100"
+                            placeholder="dd/mm/yy" readonly autocomplete="off">
                     </div>
                     <div>
                         <label class="font-semibold">Hari Konseling</label>
@@ -124,25 +135,40 @@
                     </div>
                     <div>
                         <label class="font-semibold">Metode Konseling</label>
-                        <select required name="metode" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                        <select required name="metode" id="metodeSelect" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
                             <option value="" disabled selected>Pilih Metode Konseling</option>
                             <option value="online" {{ old('metode') == 'online' ? 'selected' : '' }}>Online</option>
                             <option value="offline" {{ old('metode') == 'offline' ? 'selected' : '' }}>Offline</option>
                         </select>
                     </div>
                     <div>
-                        <label class="font-semibold">Daerah Konseling</label>
-                        <select required name="daerah" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
-                            <option value="" disabled selected>Pilih Daerah Konseling</option>
-                            <option value="Online" {{ old('daerah') == 'Online' ? 'selected' : '' }}>Online</option>
-                            <option value="Bekasi" {{ old('daerah') == 'Bekasi' ? 'selected' : '' }}>Bekasi</option>
-                            <option value="Tangerang Selatan" {{ old('daerah') == 'Tangerang Selatan' ? 'selected' : '' }}>Tangerang Selatan</option>
-                            <option value="Padang" {{ old('daerah') == 'Padang' ? 'selected' : '' }}>Padang</option>
+                        <label class="font-semibold">Sesi Konseling (Jam)</label>
+                        <select name="sesi" id="sesiSelect" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                            <option value="" disabled selected>Pilih Sesi</option>
+                            <option value="1" {{ old('sesi') == '1' ? 'selected' : '' }}>1 Jam</option>
+                            <option value="2" {{ old('sesi') == '2' ? 'selected' : '' }}>2 Jam</option>
+                            <option value="3" {{ old('sesi') == '3' ? 'selected' : '' }}>3 Jam</option>
                         </select>
                     </div>
-                    <div>
-                        <label class="font-semibold">Harga Konseling</label>
-                        <input required type="number" name="harga" value="{{ old('harga') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Harga" />
+                    <div class="flex flex-col space-y-1" id="daerah-container" style="display: none;">
+                        <label for="daerahSelect" class="font-semibold">Daerah Konseling</label>
+                        <select name="daerah" id="daerahSelect"
+                            class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm bg-gray-100">
+                            <option value="">Pilih Daerah Konseling</option>
+                            <option value="Bekasi">Bekasi</option>
+                            <option value="Jakarta">Jakarta</option>
+                            <option value="Tangerang Selatan">Tangerang Selatan</option>
+                            <option value="Padang">Padang</option>
+                            <option value="Wonogiri">Wonogiri</option>
+                            <option value="Malang">Malang</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col space-y-1">
+                        <label for="hargaInput" class="font-semibold">Harga Konseling</label>
+                        <input type="text" name="harga" id="hargaInput"
+                            value="{{ old('harga') }}"
+                            class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm bg-gray-100"
+                            placeholder="Rp 0,00" readonly>
                     </div>
                 </div>
 
@@ -184,78 +210,158 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-    const jadwalData = {
-        @if($senin) 'Senin': @json($senin), @endif
-        @if($selasa) 'Selasa': @json($selasa), @endif
-        @if($rabu) 'Rabu': @json($rabu), @endif
-        @if($kamis) 'Kamis': @json($kamis), @endif
-        @if($jumat) 'Jumat': @json($jumat), @endif
-        @if($sabtu) 'Sabtu': @json($sabtu), @endif
-        @if($minggu) 'Minggu': @json($minggu), @endif
-    };
+// Cancel Button 
+document.addEventListener("DOMContentLoaded", function () {
+    const cancelButton = document.getElementById('cancelButton');
+    const confirmModal = document.getElementById('confirmModal');
+    const confirmCancel = document.getElementById('confirmCancel');
+    const cancelCancel = document.getElementById('cancelCancel');
 
-    function getDayName(dateString) {
-        const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-        const date = new Date(dateString);
-        return days[date.getDay()];
+    cancelButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        confirmModal.classList.remove('hidden');
+    });
+
+    confirmCancel.addEventListener('click', function() {
+        // Redirect ke halaman index peer-counselor
+        window.location.href = "{{ route('dashboard.peer-counselors.index') }}";
+    });
+
+    cancelCancel.addEventListener('click', function() {
+        confirmModal.classList.add('hidden');
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    flatpickr("#tgllahir", {
+        dateFormat: "d/m/Y",
+        allowInput: true
+    });
+    flatpickr("#jadwalTanggal", {
+        dateFormat: "d-m-Y",
+        allowInput: true
+    });
+
+    // Hari konseling otomatis
+    document.getElementById('jadwalTanggal').addEventListener('change', function() {
+        const tanggal = this.value;
+        const hariInput = document.getElementById('hariKonseling');
+        if (!tanggal) {
+            hariInput.value = '';
+            return;
+        }
+        const parts = tanggal.split('-');
+        if (parts.length !== 3) {
+            hariInput.value = '';
+            return;
+        }
+        const dateObj = new Date(parts[2], parts[1] - 1, parts[0]);
+        const hariMap = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        hariInput.value = hariMap[dateObj.getDay()];
+        updateJamKonseling();
+        updateHarga();
+    });
+
+    // Jam konseling otomatis dari jadwal peer
+    function updateJamKonseling() {
+        const tanggal = document.getElementById('jadwalTanggal').value;
+        const jamSelect = document.getElementById('jamSelect');
+        jamSelect.innerHTML = '<option value="" disabled selected>Pilih Jam Konseling</option>';
+        if (!tanggal) return;
+        const parts = tanggal.split('-');
+        if (parts.length !== 3) return;
+        const dateObj = new Date(parts[2], parts[1] - 1, parts[0]);
+        const hariMap = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        const hari = hariMap[dateObj.getDay()];
+        const jadwalData = {
+            @if($senin) 'Senin': @json($senin), @endif
+            @if($selasa) 'Selasa': @json($selasa), @endif
+            @if($rabu) 'Rabu': @json($rabu), @endif
+            @if($kamis) 'Kamis': @json($kamis), @endif
+            @if($jumat) 'Jumat': @json($jumat), @endif
+            @if($sabtu) 'Sabtu': @json($sabtu), @endif
+            @if($minggu) 'Minggu': @json($minggu), @endif
+        };
+        if (jadwalData[hari]) {
+            jadwalData[hari].forEach(function(jadwal) {
+                const mulai = jadwal.pukul_mulai.substring(0,5);
+                const selesai = jadwal.pukul_selesai.substring(0,5);
+                const label = mulai + ' - ' + selesai;
+                const option = document.createElement('option');
+                option.value = label;
+                option.textContent = label;
+                jamSelect.appendChild(option);
+            });
+        }
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-        const cancelButton = document.getElementById('cancelButton');
-        const confirmModal = document.getElementById('confirmModal');
-        const confirmCancel = document.getElementById('confirmCancel');
-        const cancelCancel = document.getElementById('cancelCancel');
-        const tanggalInput = document.getElementById('jadwalTanggal');
-        const hariInput = document.getElementById('hariKonseling');
-        const jamSelect = document.getElementById('jamSelect');
+    document.getElementById('jadwalTanggal').addEventListener('change', updateJamKonseling);
 
-        // Handle cancel button click
-        cancelButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            confirmModal.classList.remove('hidden');
-        });
+    // Tampilkan/hidden daerah sesuai metode
+    document.getElementById('metodeSelect').addEventListener('change', function() {
+        const daerahContainer = document.getElementById('daerah-container');
+        if (this.value === 'offline') {
+            daerahContainer.style.display = 'block';
+        } else {
+            daerahContainer.style.display = 'none';
+            document.getElementById('daerahSelect').value = 'Online';
+        }
+        updateHarga();
+    });
 
-        // Handle confirm cancel
-        confirmCancel.addEventListener('click', function() {
-            window.location.href = "{{ route('dashboard.peer-counselors.index') }}";
-        });
+    // Harga otomatis
+    function updateHarga() {
+        const metode = document.getElementById('metodeSelect').value;
+        const sesi = document.getElementById('sesiSelect').value;
+        const hargaInput = document.getElementById('hargaInput');
+        let harga = 0;
+        if (metode === 'online') {
+            harga = {1: 45000, 2: 90000, 3: 135000}[sesi] || 0;
+        } else if (metode === 'offline') {
+            harga = {1: 55000, 2: 110000, 3: 165000}[sesi] || 0;
+        }
+        hargaInput.value = harga ? 'Rp ' + harga.toLocaleString('id-ID') : '';
+    }
 
-        // Handle cancel cancel
-        cancelCancel.addEventListener('click', function() {
-            confirmModal.classList.add('hidden');
-        });
+    document.getElementById('metodeSelect').addEventListener('change', updateHarga);
+    document.getElementById('sesiSelect').addEventListener('change', updateHarga);
 
-        function updateHariDanJam() {
-            const tanggal = tanggalInput.value;
-            if (!tanggal) {
-                hariInput.value = '';
-                jamSelect.innerHTML = '<option value="" disabled selected>Pilih Jam Konseling</option>';
-                return;
+    // Trigger saat load jika ada value tersimpan
+    if (document.getElementById('metodeSelect').value === 'offline') {
+        document.getElementById('daerah-container').style.display = 'block';
+    }
+});
+document.addEventListener("DOMContentLoaded", function () {
+    // Set tanggal minimal 7 hari dari hari ini
+    const today = new Date();
+    const minDate = new Date();
+    minDate.setDate(today.getDate() + 7);
+
+    flatpickr("#jadwalTanggal", {
+        dateFormat: "d-m-Y",
+        allowInput: false,
+        minDate: minDate,
+        disable: [
+            {
+                from: "1900-01-01",
+                to: minDate.fp_incr(-1)
             }
-            const hari = getDayName(tanggal);
-            hariInput.value = hari;
-
-            jamSelect.innerHTML = '<option value="" disabled selected>Pilih Jam Konseling</option>';
-            if (jadwalData[hari]) {
-                jadwalData[hari].forEach(function(jadwal) {
-                    const waktuMulai = jadwal.pukul_mulai.substring(0,5);
-                    const waktuSelesai = jadwal.pukul_selesai.substring(0,5);
-                    const label = waktuMulai + ' - ' + waktuSelesai;
-                    const option = document.createElement('option');
-                    option.value = label;
-                    option.textContent = label;
-                    jamSelect.appendChild(option);
-                });
+        ],
+        onOpen: function(selectedDates, dateStr, instance) {
+            const tooltip = document.createElement('span');
+            tooltip.classList.add('custom-tooltip');
+            tooltip.textContent = 'Pemesanan minimal 7 hari dari sekarang';
+            instance.calendarContainer.appendChild(tooltip);
+        },
+        onClose: function(selectedDates, dateStr, instance) {
+            const tooltip = instance.calendarContainer.querySelector('.custom-tooltip');
+            if (tooltip) {
+                tooltip.remove();
             }
         }
-
-        tanggalInput.addEventListener('change', updateHariDanJam);
-
-        @if(old('jadwal_tanggal'))
-            updateHariDanJam();
-            jamSelect.value = "{{ old('jadwal_pukul') }}";
-        @endif
     });
+});
 </script>
 @endsection

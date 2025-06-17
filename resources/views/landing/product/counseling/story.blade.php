@@ -89,21 +89,22 @@
 
     <h1 class="max-sm:text-[29px] text-3xl font font-semibold text-center max-sm:mx-2 text-gradient my-6">Mari Cerita</h1>
 
-    <div class="flex flex-col">
+    <form action="{{ route('product.counseling.story_store') }}" method="POST" class="flex flex-col">
+            @csrf
         <div class="flex flex-col space-y-1">
             <p class="text-[#333333] sm:text-[17px] text-sm">Tuliskan Apa yang Ingin Anda Ceritakan</p>
             <div class="relative">
-                <textarea class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 pt-3 h-96 cursor-pointer focus:ring-[#3986A3] text-start resize-none" placeholder="Tidak ada minimum/batas jumlah kata"></textarea>
+                <textarea name="cerita" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 pt-3 h-96 cursor-pointer focus:ring-[#3986A3] text-start resize-none" placeholder="Tidak ada minimum/batas jumlah kata"></textarea>
             </div>
         </div>
 
 
         <div class="flex justify-center items-center pt-10">
-            <a href="{{ route('product.counseling.summary') }}" class="w-full flex justify-center">
-                <button class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-24 sm:w-auto w-full rounded-xl">Selanjutnya</button>
-            </a>
+            <div class="w-full flex justify-center">
+                <button type="submit" class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-24 sm:w-auto w-full rounded-xl">Selanjutnya</button>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <script>
