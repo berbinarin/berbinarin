@@ -1,24 +1,59 @@
 name: Auto Deploy on Push via SSH (Main)
 
 on:
-  push:
-    branches:
-      - main  # Ganti jika pakai branch lain
+    push:
+        branches:
+            - main # Ganti jika pakai branch lain
 
 jobs:
-  deploy:
-    name: Pull changes from server
-    runs-on: ubuntu-latest
+    build-and-deploy:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Connect to server and pull changes
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SSH_PORT }}
-          passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          script: |
-            cd /home/${{ secrets.SSH_USERNAME }}/repositories/berbinarin
-            git pull origin main
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+
+                  # LANGKAH BARU: Menyimpan cache dependensi untuk mempercepat proses
+            - name: Cache Node.js modules
+              id: cache-npm
+              uses: actions/cache@v4
+              with:
+                  # Path yang akan di-cache (folder cache internal milik npm)
+                  path: ~/.npm
+                  # Kunci unik untuk cache, akan berubah jika package-lock.json berubah
+                  key: main-${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      main-${{ runner.os }}-node-
+
+            - name: Install Node dependencies
+              run: npm ci
+
+            - name: Build Tailwind / Vite
+              run: npm run build
+
+            - name: Upload public/build to server
+              uses: appleboy/scp-action@v0.1.4
+              with:
+                  host: ${{ secrets.SSH_HOST }}
+                  username: ${{ secrets.SSH_USERNAME }}
+                  key: ${{ secrets.SSH_PRIVATE_KEY }}
+                  port: ${{ secrets.SSH_PORT }}
+                  source: "public/build/*"
+                  target: "/home/${{ secrets.SSH_USERNAME }}/repositories/berbinarin/public/build"
+
+            - name: Connect to server and pull changes
+              uses: appleboy/ssh-action@v1.0.0
+              with:
+                  host: ${{ secrets.SSH_HOST }}
+                  username: ${{ secrets.SSH_USERNAME }}
+                  key: ${{ secrets.SSH_PRIVATE_KEY }}
+                  port: ${{ secrets.SSH_PORT }}
+                  passphrase: ${{ secrets.SSH_PASSPHRASE }}
+                  script: |
+                      cd /home/${{ secrets.SSH_USERNAME }}/repositories/berbinarin
+                      git pull origin main
