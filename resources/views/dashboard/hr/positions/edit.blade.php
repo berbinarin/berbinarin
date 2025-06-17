@@ -6,77 +6,108 @@
 )
 
 @section("content")
-    {{-- CSS dan JavaScript dari Kode 1 digabungkan di sini --}}
     <style>
         .progress-bar-striped {
             background: repeating-linear-gradient(-45deg, #a6caef, #a6caef 10px, #e3f0fa 10px, #e3f0fa 20px);
             color: #1e3a8a;
         }
-
-        #subDivisiModal .btn-edit-subdivisi,
-        #subDivisiModal .btn-delete-subdivisi {
-            display: none;
-        }
     </style>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
+            const uploadBannerButton = document.getElementById('uploadBannerButton');
+            const bannerPreviewContainer = document.getElementById('bannerPreviewContainer');
+            const bannerInput = document.getElementById('bannerInput');
+            const bannerPreview = document.getElementById('bannerPreview');
+            const progressContainer = document.getElementById('progressContainer');
+            const progressBar = document.getElementById('progressBar');
+
+            uploadBannerButton.addEventListener('click', function () {
+                bannerInput.click();
+            });
+
+            bannerInput.addEventListener('change', function (e) {
+                const file = e.target.files[0];
+                if (file) {
+                    bannerPreviewContainer.classList.remove('hidden');
+
+                    progressContainer.classList.remove('hidden');
+                    progressBar.style.width = '0%';
+                    progressBar.textContent = '0%';
+                    progressBar.classList.remove('bg-white', 'text-green-500', 'bg-blue-600', 'text-blue-100');
+                    progressBar.classList.add('progress-bar-striped');
+
+                    bannerPreview.style.opacity = '0.6';
+                    bannerPreview.style.filter = 'brightness(0.7)';
+
+                    const reader = new FileReader();
+                    reader.onload = function (ev) {
+                        bannerPreview.src = ev.target.result;
+
+                        let progress = 0;
+                        const interval = setInterval(() => {
+                            progress += 5;
+                            progressBar.style.width = `${progress}%`;
+
+                            if (progress < 100) {
+                                progressBar.textContent = `${progress}%`;
+                            } else {
+                                progressBar.textContent = 'Done';
+                                const checkIcon = document.createElement('img');
+                                checkIcon.src = 'https://img.icons8.com/?size=100&id=3061&format=png&color=40C057';
+                                checkIcon.alt = 'Done';
+                                checkIcon.style.width = '20px';
+                                checkIcon.style.height = '20px';
+                                checkIcon.style.display = 'inline-block';
+                                checkIcon.style.marginBottom = '3px';
+                                checkIcon.style.marginLeft = '5px';
+                                progressBar.appendChild(checkIcon);
+
+                                progressBar.classList.remove('progress-bar-striped');
+                                progressBar.classList.add('bg-white', 'text-green-500');
+                                clearInterval(interval);
+
+                                bannerPreview.style.opacity = '1';
+                                bannerPreview.style.filter = 'brightness(1)';
+
+                                setTimeout(() => {
+                                    progressContainer.classList.add('hidden');
+                                }, 1500);
+                            }
+                        }, 100);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
             const addSubDivisiButton = document.getElementById('addSubDivisiButton');
             const subDivisiContainer = document.getElementById('subDivisiContainer');
             const subDivisiTemplate = document.getElementById('subDivisiTemplate');
 
-            // Modal logic
-            const subDivisiModal = document.getElementById('subDivisiModal');
-            const modalSubDivisiContent = document.getElementById('modalSubDivisiContent');
-            const closeSubDivisiModal = document.getElementById('closeSubDivisiModal');
-            const saveSubDivisiModal = document.getElementById('saveSubDivisiModal');
-
-            let editingRow = null;
-            let originalRow = null;
-            
-            function setRowInputsForSubmission(row) {
-                const textInputs = row.querySelectorAll('input[type="text"]');
-                textInputs.forEach(input => {
-                    input.readOnly = true;
-                    input.disabled = false;
-                });
-
-                const fileInputs = row.querySelectorAll('input[type="file"]');
-                fileInputs.forEach(input => {
-
-                    input.disabled = false;
-                });
-            }
-
-            subDivisiContainer.querySelectorAll('.subdivisi-row').forEach(row => {
-                setRowInputsForSubmission(row);
-            });
-            
             addSubDivisiButton.addEventListener('click', function() {
                 const clone = subDivisiTemplate.content.cloneNode(true);
-                modalSubDivisiContent.innerHTML = '';
-                modalSubDivisiContent.appendChild(clone);
-                subDivisiModal.classList.remove('hidden');
-                editingRow = null;
-                originalRow = null;
-                
-                const inputs = modalSubDivisiContent.querySelectorAll('input');
-                inputs.forEach(input => {
-                    input.disabled = false;
-                    input.readOnly = false;
-                });
-
-                modalSubDivisiContent.querySelectorAll('.btn-edit-subdivisi, .btn-delete-subdivisi').forEach((btn) => (btn.style.display = 'none'));
+                subDivisiContainer.appendChild(clone);
             });
 
-            closeSubDivisiModal.addEventListener('click', function() {
-                subDivisiModal.classList.add('hidden');
-                modalSubDivisiContent.innerHTML = '';
-                editingRow = null;
-                originalRow = null;
+            subDivisiContainer.addEventListener('click', function(e) {
+                if (e.target.closest('.btn-delete-subdivisi')) {
+                    const button = e.target.closest('.btn-delete-subdivisi');
+                    const row = button.closest('.subdivisi-row');
+                    const subDivisiId = button.getAttribute('data-id');
+
+                    if (subDivisiId) {
+                        const deletedSubDivisionsInput = document.getElementById('deletedSubDivisions');
+                        const deletedIds = deletedSubDivisionsInput.value ? deletedSubDivisionsInput.value.split(',') : [];
+                        if (!deletedIds.includes(subDivisiId)) {
+                            deletedIds.push(subDivisiId);
+                        }
+                        deletedSubDivisionsInput.value = deletedIds.join(',');
+                    }
+                    row.remove();
+                }
             });
-            
-            modalSubDivisiContent.addEventListener('change', function(e) {
+
+            subDivisiContainer.addEventListener('change', function(e) {
                 if (e.target.classList.contains('cover-input')) {
                     const input = e.target;
                     const file = input.files[0];
@@ -93,8 +124,6 @@
                     progressBar.classList.remove('bg-white', 'text-green-500', 'bg-blue-600', 'text-blue-100');
                     progressBar.classList.add('progress-bar-striped');
 
-                    const changeOverlay = wrapper.querySelector('.change-image-overlay');
-
                     if (file) {
                         const reader = new FileReader();
                         reader.onload = function(ev) {
@@ -102,7 +131,7 @@
                             img.src = ev.target.result;
                             img.className = 'cover-preview-img absolute inset-0 w-full h-full object-cover rounded-xl z-0 opacity-50';
                             img.style.pointerEvents = 'none';
-                            wrapper.insertBefore(img, changeOverlay);
+                            wrapper.insertBefore(img, wrapper.firstChild);
 
                             setTimeout(() => {
                                 img.classList.remove('opacity-50');
@@ -142,105 +171,8 @@
                     }
                 }
             });
-
-
-            subDivisiContainer.addEventListener('click', function(e) {
-                if (e.target.closest('.btn-delete-subdivisi')) {
-                    const button = e.target.closest('.btn-delete-subdivisi');
-                    const row = button.closest('.subdivisi-row');
-                    const subDivisiId = button.getAttribute('data-id');
-
-                    if (subDivisiId) {
-                        const deletedSubDivisionsInput = document.getElementById('deletedSubDivisions');
-                        const deletedIds = deletedSubDivisionsInput.value ? deletedSubDivisionsInput.value.split(',') : [];
-                        if (!deletedIds.includes(subDivisiId)) {
-                             deletedIds.push(subDivisiId);
-                        }
-                        deletedSubDivisionsInput.value = deletedIds.join(',');
-                    }
-                    row.remove();
-                }
-
-                if (e.target.closest('.btn-edit-subdivisi')) {
-                    const row = e.target.closest('.subdivisi-row');
-                    originalRow = row;
-                    editingRow = row.cloneNode(true);
-
-                    const inputs = editingRow.querySelectorAll('input');
-                    inputs.forEach((input) => {
-                        input.disabled = false;
-                        input.readOnly = false;
-                    });
-                    
-                    editingRow.querySelectorAll('.btn-edit-subdivisi, .btn-delete-subdivisi').forEach((btn) => (btn.style.display = 'none'));
-
-                    modalSubDivisiContent.innerHTML = '';
-                    modalSubDivisiContent.appendChild(editingRow);
-                    subDivisiModal.classList.remove('hidden');
-                }
-            });
-
-            saveSubDivisiModal.addEventListener('click', function() {
-                const editedRow = modalSubDivisiContent.querySelector('.subdivisi-row');
-                if (editedRow) {
-                    const progressContainer = editedRow.querySelector('.progress-container');
-                    if (progressContainer) progressContainer.classList.add('hidden');
-                    
-                    setRowInputsForSubmission(editedRow);
-                    
-                    editedRow.querySelectorAll('.btn-edit-subdivisi, .btn-delete-subdivisi').forEach((btn) => (btn.style.display = ''));
-                    
-                    const finalRow = editedRow.cloneNode(true);
-
-                    if (originalRow) {
-                        originalRow.replaceWith(finalRow);
-                    } else {
-                        subDivisiContainer.appendChild(finalRow);
-                    }
-                }
-
-                editingRow = null;
-                originalRow = null;
-                subDivisiModal.classList.add('hidden');
-                modalSubDivisiContent.innerHTML = '';
-            });
-
-            subDivisiModal.addEventListener('click', function(e) {
-                if (e.target === subDivisiModal) {
-                    subDivisiModal.classList.add('hidden');
-                    modalSubDivisiContent.innerHTML = '';
-                    editingRow = null;
-                    originalRow = null;
-                }
-            });
-            
-            modalSubDivisiContent.addEventListener('mouseover', function(e) {
-                if (e.target.closest('.group')) {
-                    const wrapper = e.target.closest('.group');
-                    const hasImage = wrapper.querySelector('.cover-preview-img') !== null;
-                    const changeOverlay = wrapper.querySelector('.change-image-overlay');
-
-                    if (hasImage && changeOverlay) {
-                        changeOverlay.classList.remove('opacity-0');
-                        changeOverlay.classList.add('opacity-100');
-                    }
-                }
-            });
-
-            modalSubDivisiContent.addEventListener('mouseout', function(e) {
-                if (e.target.closest('.group')) {
-                    const wrapper = e.target.closest('.group');
-                    const changeOverlay = wrapper.querySelector('.change-image-overlay');
-
-                    if (changeOverlay) {
-                        changeOverlay.classList.remove('opacity-100');
-                        changeOverlay.classList.add('opacity-0');
-                    }
-                }
-            });
         });
     </script>
-
 
     <section class="flex w-full">
         <div class="flex w-full flex-col">
@@ -261,7 +193,7 @@
                 <form action="{{ route('dashboard.positions.update', $position->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <div class="flex flex-col gap-10 lg:flex-row">
+                    <div class="flex items-start gap-4">
                         <div class="w-full">
                             <div class="mb-8">
                                 <h1 class="text-2xl font-bold">Data Posisi</h1>
@@ -333,55 +265,24 @@
                             </div>
                         </div>
 
-                        {{-- Kolom Sub Divisi --}}
                         <div class="w-full">
-                            <label class="mb-2 block text-2xl font-bold text-gray-700">Sub Divisi</label>
-                            <div id="subDivisiContainer" class="mt-12">
-                                @foreach(($position->subDivisions ?? []) as $subDivisi)
-                                <div class="subdivisi-row relative mb-3 rounded-xl border border-gray-300 bg-white p-4 shadow-sm">
-                                    <div class="mb-2 flex items-start justify-between">
-                                        <label class="block text-base font-medium text-gray-700">Nama Sub Divisi</label>
-                                        <div class="flex gap-2">
-                                            <button type="button" data-id="{{ $subDivisi->id }}" class="btn-edit-subdivisi mr-1 rounded border border-blue-500 p-1 text-blue-600 hover:bg-blue-50">
-                                                <i class="bx bx-pencil"></i>
-                                            </button>
-                                            <button type="button" data-id="{{ $subDivisi->id }}" class="btn-delete-subdivisi rounded border border-red-500 p-1 text-red-600 hover:bg-red-50">
-                                                <i class="bx bx-trash"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <input type="text" name="subdivisi[]" class="mb-3 w-full rounded-md border border-gray-200 px-3 py-2 shadow focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Nama Sub Divisi" value="{{ $subDivisi->name }}" required readonly />
-                                    <input type="hidden" name="subdivisi_id[]" value="{{ $subDivisi->id }}" />
-
-                                    <label class="mb-1 block text-base font-medium text-gray-700">Cover Sub Divisi</label>
-                                    <div class="group relative mb-2 flex min-h-[120px] w-1/2 cursor-pointer flex-col items-center justify-center overflow-hidden rounded-xl border-2 border-dashed border-blue-400 transition duration-200 hover:bg-blue-50">
-                                        <input type="file" accept="image/*" name="subdivisi_cover[{{ $loop->index }}]" class="cover-input absolute inset-0 z-10 cursor-pointer opacity-0" />
-                                        
-                                        @if($subDivisi->cover)
-                                            <img src="{{ asset($subDivisi->cover) }}" class="cover-preview-img absolute inset-0 z-0 h-full w-full rounded-xl object-cover">
-                                            <div class="change-image-overlay pointer-events-none absolute inset-0 z-20 flex items-center justify-center bg-black bg-opacity-40 text-lg font-semibold text-white opacity-0 transition-opacity duration-200">Change image</div>
-                                        @else
-                                            <div class="pointer-events-none flex flex-col items-center justify-center py-6">
-                                                <i class="bx bx-image-add mb-2 text-4xl text-blue-400"></i>
-                                                <span class="font-semibold text-blue-400">Tap To Upload Photo</span>
-                                                <span class="text-sm text-gray-400">Rasio: 1200 X 300</span>
-                                            </div>
-                                        @endif
-                                        
-                                        <div class="pointer-events-none absolute inset-0 bg-black bg-opacity-0 transition duration-200 group-hover:bg-opacity-20"></div>
-                                        <div class="progress-container absolute bottom-2 left-2 hidden w-full rounded-[10px] bg-gray-200" style="width: calc(100% - 1rem); height: 2rem">
-                                            <div class="progress-bar flex h-full items-center justify-center rounded-[10px] bg-blue-600 text-center text-sm font-medium leading-none text-blue-100 ring-2 ring-inset ring-white transition-all duration-300" style="width: 0%">0%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endforeach
-                            </div>
-                            <button type="button" id="addSubDivisiButton" class="flex w-full cursor-pointer items-center justify-center rounded-lg border border-dashed border-blue-500 py-2 text-blue-500">
+                            <button type="button" id="uploadBannerButton" class="mt-20 flex w-full cursor-pointer items-center justify-center rounded-lg border border-dashed border-blue-500 py-2 text-blue-500">
                                 <h1 class="flex items-center gap-2 text-base font-medium">
                                     <i class="bx bx-plus-circle text-xl"></i>
-                                    Tambahkan Sub Divisi
+                                    Upload Banner Posisi
                                 </h1>
                             </button>
+
+                            <div id="bannerPreviewContainer" class="mt-4 hidden">
+                                <div class="relative mb-2 flex min-h-[200px] w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-xl border-2 border-dashed border-blue-400 transition duration-200 hover:bg-blue-50">
+                                    <img id="bannerPreview" class="absolute inset-0 h-full w-full object-cover" src="{{ $position->banner ? asset($position->banner) : '' }}" alt="Banner Preview" />
+                                    <div class="progress-container absolute bottom-2 left-2 hidden w-full rounded-[10px] bg-gray-200" style="width: calc(100% - 1rem); height: 2rem" id="progressContainer">
+                                        <div id="progressBar" class="progress-bar flex h-full items-center justify-center rounded-[10px] bg-blue-600 text-center text-sm font-medium leading-none text-blue-100 ring-2 ring-inset ring-white transition-all duration-300" style="width: 0%">0%</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="file" id="bannerInput" name="banner" accept="image/*" class="hidden" />
                         </div>
                     </div>
                     
@@ -394,48 +295,4 @@
             </div>
         </div>
     </section>
-
-    {{-- Template untuk sub divisi baru --}}
-    <template id="subDivisiTemplate">
-        <div class="subdivisi-row relative mb-3 rounded-xl border border-gray-300 bg-white p-4 shadow-sm">
-            <div class="mb-2 flex items-start justify-between">
-                <label class="block text-base font-medium text-gray-700">Nama Sub Divisi</label>
-                <div class="flex gap-2">
-                    <button type="button" class="btn-edit-subdivisi mr-1 rounded border border-blue-500 p-1 text-blue-600 hover:bg-blue-50">
-                        <i class="bx bx-pencil"></i>
-                    </button>
-                    <button type="button" class="btn-delete-subdivisi rounded border border-red-500 p-1 text-red-600 hover:bg-red-50">
-                        <i class="bx bx-trash"></i>
-                    </button>
-                </div>
-            </div>
-            <input type="text" name="subdivisi[]" class="mb-3 w-full rounded-md border border-gray-200 px-3 py-2 shadow focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Nama Sub Divisi" required />
-            <input type="hidden" name="subdivisi_id[]" value="" /> 
-
-            <label class="mb-1 block text-base font-medium text-gray-700">Cover Sub Divisi</label>
-            <div class="group relative mb-2 flex min-h-[120px] w-1/2 cursor-pointer flex-col items-center justify-center overflow-hidden rounded-xl border-2 border-dashed border-blue-400 transition duration-200 hover:bg-blue-50">
-                <input type="file" accept="image/*" name="subdivisi_cover[]" class="cover-input absolute inset-0 z-10 cursor-pointer opacity-0" />
-                <div class="change-image-overlay pointer-events-none absolute inset-0 z-20 flex items-center justify-center bg-black bg-opacity-40 text-lg font-semibold text-white opacity-0 transition-opacity duration-200">Change image</div>
-                <div class="pointer-events-none flex flex-col items-center justify-center py-6">
-                    <i class="bx bx-image-add mb-2 text-4xl text-blue-400"></i>
-                    <span class="font-semibold text-blue-400">Tap To Upload Photo</span>
-                    <span class="text-sm text-gray-400">Rasio: 1200 X 300</span>
-                </div>
-                <div class="pointer-events-none absolute inset-0 bg-black bg-opacity-0 transition duration-200 group-hover:bg-opacity-20"></div>
-                <div class="progress-container absolute bottom-2 left-2 hidden w-full rounded-[10px] bg-gray-200" style="width: calc(100% - 1rem); height: 2rem">
-                    <div class="progress-bar flex h-full items-center justify-center rounded-[10px] bg-blue-600 text-center text-sm font-medium leading-none text-blue-100 ring-2 ring-inset ring-white transition-all duration-300" style="width: 0%">0%</div>
-                </div>
-            </div>
-        </div>
-    </template>
-
-    <div id="subDivisiModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black bg-opacity-40">
-        <div class="relative w-full max-w-lg rounded-xl bg-white p-6 shadow-lg">
-            <button id="closeSubDivisiModal" type="button" class="absolute right-2 top-2 text-2xl text-gray-400 hover:text-red-500">&times;</button>
-            <div id="modalSubDivisiContent"></div>
-            <div class="mt-4 flex justify-end">
-                <button id="saveSubDivisiModal" type="button" class="w-full rounded-md bg-blue-600 px-6 py-2 text-white hover:bg-blue-700">Simpan Sub Divisi</button>
-            </div>
-        </div>
-    </div>
 @endsection
