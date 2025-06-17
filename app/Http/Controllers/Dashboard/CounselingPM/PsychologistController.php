@@ -17,6 +17,12 @@ class PsychologistController extends Controller
     }
 
 
+    public function create(Request $request)
+    {
+        $konselling = $request->session()->get('konselling');
+        return view('dashboard.counseling-pm.psychologists.create', compact('konselling'));
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -48,17 +54,9 @@ class PsychologistController extends Controller
         $validatedData['jadwal_pukul'] = $jamMenit;
 
 
-        if (empty($request->session()->get('konselling'))) {
-            $konselling = new KonsellingPsikolog();
-            $konselling->fill($validatedData);
-            $request->session()->put('konselling', $konselling);
-        } else {
-            $konselling = $request->session()->get('konselling');
-            $konselling->fill($validatedData);
-            $request->session()->put('konselling', $konselling);
-        }
+        $konselling = new KonsellingPsikolog();
+        $konselling->fill($validatedData);
         $konselling->save();
-        $request->session()->forget('konselling');
 
         Alert::toast('New Psikolog Appointment Data Added', 'success')->autoClose(5000);;
         return redirect()->route('dashboard.psychologists.index');
@@ -71,6 +69,13 @@ class PsychologistController extends Controller
         $PsikologDataDetails = KonsellingPsikolog::where('id', $id)->get();
         $konselling = $request->session()->get('konselling');
         return view('dashboard.counseling-pm.psychologists.show', ['PsikologDataDetails' => $PsikologDataDetails], compact('konselling'));
+    }
+
+    public function edit(Request $request, $id)
+    {
+        $PsikologDataDetails = KonsellingPsikolog::where('id', $id)->get();
+        $konselling = $request->session()->get('konselling');
+        return view('dashboard.counseling-pm.psychologists.edit', ['PsikologDataDetails' => $PsikologDataDetails], compact('konselling'));
     }
 
     public function update(Request $request, $id)

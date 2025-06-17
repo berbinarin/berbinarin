@@ -24,7 +24,10 @@ class RoleSeeder extends Seeder
                 'name' => 'gdve'
             ],
             [
-                'name' => 'hr'
+                'name' => 'hr_recruitment'
+            ],
+            [
+                'name' => 'hr_data-analyst'
             ],
             [
                 'name' => 'socmed-creator'

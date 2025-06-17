@@ -10,7 +10,7 @@
                     <div class="">
                         <!-- <p tabindex="0" class="focus:outline-none text-5xl font-bold leading-normal text-gray-800 mb-2">
                                                                                         Dashboard</p> -->
-                        @role('hr')
+                        @role('hr_recruitment')
                             <p tabindex="0" class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
                                 Dashboard</p>
                             <p class="w-2/4 text-disabled">Fitur ini digunakan untuk menampilkan jumlah data posisi hiring,
@@ -73,12 +73,7 @@
             </div>
 
 
-
-
-
-
-
-            @role ('hr')
+            @role ('hr_recruitment')
                 <div class="flex flex-row w-full gap-6">
                     <div class="flex items-center p-8 bg-white shadow rounded-lg">
                         <div

@@ -1,3 +1,5 @@
+@vite("resources/js/app.js")
+
 <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
 
 <!-- Swiper JS -->

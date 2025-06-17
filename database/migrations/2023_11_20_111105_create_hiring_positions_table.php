@@ -18,7 +18,6 @@ return new class extends Migration {
             $table->enum("location", ["Remote", "Surabaya"]);
             $table->string("link")->nullable();
             $table->boolean("is_active")->default(true);
-//            $table->enum("divisi", ["Web and Mobile Apps Developer", "TikTok Creator", "Secretary n Finance", "Psychological Testing Product Management", "Marketing Strategist dan Sales", "IG Creator", "Human Resource", "Graphic Designer", "Class Product Management", "Counseling Product Management"]);
             $table->enum('divisi', [
                 'Counseling Product Management',
                 'Psychological Testing Product Management',

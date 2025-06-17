@@ -148,4 +148,42 @@ class PeerCounselorController extends Controller
         Alert::toast('A Peer Coonsellor Appointment Data Deleted', 'success')->autoClose(5000);
         return redirect()->route('dashboard.peer-counselors.index');
     }
+
+    public function create()
+    {
+        $senin = jadwalPeer::where('hari', 'Senin')->orderBy('pukul_mulai')->get();
+        $selasa = jadwalPeer::where('hari', 'Selasa')->orderBy('pukul_mulai')->get();
+        $rabu = jadwalPeer::where('hari', 'Rabu')->orderBy('pukul_mulai')->get();
+        $kamis = jadwalPeer::where('hari', 'Kamis')->orderBy('pukul_mulai')->get();
+        $jumat = jadwalPeer::where('hari', 'Jumat')->orderBy('pukul_mulai')->get();
+        $sabtu = jadwalPeer::where('hari', 'Sabtu')->orderBy('pukul_mulai')->get();
+        $minggu = jadwalPeer::where('hari', 'Minggu')->orderBy('pukul_mulai')->get();
+
+        return view('dashboard.counseling-pm.peer-counselors.create', compact('senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'minggu'));
+    }
+
+    public function edit($id)
+    {
+        $peerCounselor = KonsellingPeer::findOrFail($id);
+
+        // Ambil jadwal per hari untuk dropdown jam konseling
+        $senin = jadwalPeer::where('hari', 'Senin')->orderBy('pukul_mulai')->get();
+        $selasa = jadwalPeer::where('hari', 'Selasa')->orderBy('pukul_mulai')->get();
+        $rabu = jadwalPeer::where('hari', 'Rabu')->orderBy('pukul_mulai')->get();
+        $kamis = jadwalPeer::where('hari', 'Kamis')->orderBy('pukul_mulai')->get();
+        $jumat = jadwalPeer::where('hari', 'Jumat')->orderBy('pukul_mulai')->get();
+        $sabtu = jadwalPeer::where('hari', 'Sabtu')->orderBy('pukul_mulai')->get();
+        $minggu = jadwalPeer::where('hari', 'Minggu')->orderBy('pukul_mulai')->get();
+
+        return view('dashboard.counseling-pm.peer-counselors.edit', compact(
+            'peerCounselor',
+            'senin',
+            'selasa',
+            'rabu',
+            'kamis',
+            'jumat',
+            'sabtu',
+            'minggu'
+        ));
+    }
 }
