@@ -71,7 +71,7 @@ class PsikotestController extends Controller
                     [
                         'logo' => 'assets/images/landing/asset-psikotes/vector-person2.png',
                         'name' => 'Individu',
-                        'total' => '8 Karyawan',
+                        'total' => '8 Klien',
                     ],
                 ],
             ],
