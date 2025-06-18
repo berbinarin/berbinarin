@@ -10,6 +10,9 @@
     <body class="font-plusJakartaSans">
         <div class="flex h-screen w-full select-none">
 
+            {{-- Link Flatpickr --}}
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
             {{-- Sidebar --}}
             @include("dashboard.partials.sidebar")
 

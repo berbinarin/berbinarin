@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Dashboard\CounselingPM;
 use App\Http\Controllers\Controller;
 use App\Models\jadwalPeer;
 use App\Models\KonsellingPeer;
+use App\Models\KonsellingPsikolog;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Carbon;
+
 
 class PeerCounselorController extends Controller
 {
@@ -15,7 +18,7 @@ class PeerCounselorController extends Controller
 
     public function index(Request $request)
     {
-        $PeerConsellorData = KonsellingPeer::all();
+        $PeerConsellorData = KonsellingPsikolog::where('kategori', 'peer-counselor')->get();
         $konselling = $request->session()->get('konselling');
         $senin = jadwalPeer::where('hari', 'Senin')->orderBy('pukul_mulai')->get();
         $selasa = jadwalPeer::where('hari', 'Selasa')->orderBy('pukul_mulai')->get();
@@ -30,51 +33,58 @@ class PeerCounselorController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'jadwal_tanggal' => 'required',
-            'jadwal_pukul' => 'required',
-            'metode' => 'required|not_in:default_value',
-            'daerah' => 'required',
-            'harga' => 'required',
             'nama' => 'required',
             'no_wa' => 'required',
             'email' => 'required',
-            'jenis_kelamin' => 'required|not_in:default',
-            'agama' => 'required',
-            'tempat_lahir' => 'required',
+            'jenis_kelamin' => 'required',
             'tanggal_lahir' => 'required',
+            'tempat_lahir' => 'required',
+            'agama' => 'required',
             'suku' => 'required',
             'status_pernikahan' => 'required',
             'alamat' => 'required',
             'posisi_anak' => 'required',
             'pendidikan' => 'required',
-            'riwayat_pekerjaan' => 'required',
             'hobi' => 'required',
+            'riwayat_pekerjaan' => 'required',
             'kegiatan_sosial' => 'required',
+            'jadwal_tanggal' => 'required',
+            'jadwal_pukul' => 'required',
+            'metode' => 'required|in:online,offline',
+            'sesi' => 'required|in:1,2,3',
+            'daerah' => 'required_if:metode,offline',
             'cerita' => 'required',
+            'kategori' => 'required',
         ]);
 
+        // Konversi tanggal lahir dan jadwal ke Y-m-d
+        $validatedData['tanggal_lahir'] = Carbon::createFromFormat('d/m/Y', $validatedData['tanggal_lahir'])->format('Y-m-d');
+        $validatedData['jadwal_tanggal'] = Carbon::createFromFormat('d-m-Y', $validatedData['jadwal_tanggal'])->format('Y-m-d');
 
-        if (empty($request->session()->get('konselling'))) {
-            $konselling = new KonsellingPeer();
-            $konselling->fill($validatedData);
-            $request->session()->put('konselling', $konselling);
-        } else {
-            $konselling = $request->session()->get('konselling');
-            $konselling->fill($validatedData);
-            $request->session()->put('konselling', $konselling);
+        // Jika metode online, isi daerah dengan 'Online'
+        if ($validatedData['metode'] === 'online') {
+            $validatedData['daerah'] = 'Online';
         }
-        $konselling->save();
-        $request->session()->forget('konselling');
 
-        Alert::toast('New Peer Coonsellor Appointment Data Added', 'success')->autoClose(5000);;
+        // Hitung harga otomatis
+        $harga = 0;
+        if ($validatedData['metode'] === 'online') {
+            $harga = [1 => 45000, 2 => 90000, 3 => 135000][$validatedData['sesi']];
+        } else {
+            $harga = [1 => 55000, 2 => 110000, 3 => 165000][$validatedData['sesi']];
+        }
+        $validatedData['harga'] = $harga;
+
+        KonsellingPsikolog::create($validatedData);
+
+        Alert::toast('New Peer Counselor Appointment Data Added', 'success')->autoClose(5000);
         return redirect()->route('dashboard.peer-counselors.index');
     }
 
-
     public function show(Request $request, $id)
     {
-        $PeerConsellorDataDetails = KonsellingPeer::where('id', $id)->get();
-        $PeerConsellorDataDetails = KonsellingPeer::where('id', $id)->get();
+
+        $PeerConsellorDataDetails = KonsellingPsikolog::where('id', $id)->get(); // pakai get() agar array
         $konselling = $request->session()->get('konselling');
         $senin = jadwalPeer::where('hari', 'Senin')->orderBy('pukul_mulai')->get();
         $selasa = jadwalPeer::where('hari', 'Selasa')->orderBy('pukul_mulai')->get();
@@ -91,13 +101,13 @@ class PeerCounselorController extends Controller
         $validatedData = $request->validate([
             'jadwal_tanggal' => 'required',
             'jadwal_pukul' => 'required',
-            'metode' => 'required|not_in:default_value',
-            'daerah' => 'required',
-            'harga' => 'required',
+            'metode' => 'required|in:online,offline',
+            'sesi' => 'required|in:1,2,3',
+            'daerah' => 'required_if:metode,offline',
             'nama' => 'required',
             'no_wa' => 'required',
             'email' => 'required',
-            'jenis_kelamin' => 'required|not_in:default',
+            'jenis_kelamin' => 'required',
             'agama' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
@@ -112,39 +122,37 @@ class PeerCounselorController extends Controller
             'cerita' => 'required',
         ]);
 
-        $PeerConsellorDataDetails = KonsellingPeer::find($id);
+        // Konversi tanggal dari d-m-Y ke Y-m-d
+        $validatedData['jadwal_tanggal'] = Carbon::createFromFormat('d-m-Y', $validatedData['jadwal_tanggal'])->format('Y-m-d');
+        $validatedData['tanggal_lahir'] = Carbon::createFromFormat('d/m/Y', $validatedData['tanggal_lahir'])->format('Y-m-d');
 
-        $PeerConsellorDataDetails->jadwal_tanggal = $validatedData['jadwal_tanggal'];
-        $PeerConsellorDataDetails->jadwal_pukul = $validatedData['jadwal_pukul'];
-        $PeerConsellorDataDetails->metode = $validatedData['metode'];
-        $PeerConsellorDataDetails->daerah = $validatedData['daerah'];
-        $PeerConsellorDataDetails->harga = $validatedData['harga'];
-        $PeerConsellorDataDetails->nama = $validatedData['nama'];
-        $PeerConsellorDataDetails->no_wa = $validatedData['no_wa'];
-        $PeerConsellorDataDetails->email = $validatedData['email'];
-        $PeerConsellorDataDetails->jenis_kelamin = $validatedData['jenis_kelamin'];
-        $PeerConsellorDataDetails->agama = $validatedData['agama'];
-        $PeerConsellorDataDetails->tempat_lahir = $validatedData['tempat_lahir'];
-        $PeerConsellorDataDetails->tanggal_lahir = $validatedData['tanggal_lahir'];
-        $PeerConsellorDataDetails->suku = $validatedData['suku'];
-        $PeerConsellorDataDetails->status_pernikahan = $validatedData['status_pernikahan'];
-        $PeerConsellorDataDetails->alamat = $validatedData['alamat'];
-        $PeerConsellorDataDetails->posisi_anak = $validatedData['posisi_anak'];
-        $PeerConsellorDataDetails->pendidikan = $validatedData['pendidikan'];
-        $PeerConsellorDataDetails->riwayat_pekerjaan = $validatedData['riwayat_pekerjaan'];
-        $PeerConsellorDataDetails->hobi = $validatedData['hobi'];
-        $PeerConsellorDataDetails->kegiatan_sosial = $validatedData['kegiatan_sosial'];
-        $PeerConsellorDataDetails->cerita = $validatedData['cerita'];
-        $PeerConsellorDataDetails->save();
+        // Jika metode online, isi daerah dengan 'Online'
+        if ($validatedData['metode'] === 'online') {
+            $validatedData['daerah'] = 'Online';
+        }
 
-        Alert::toast('A Peer Consellor Appointment Data Updated', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.peer-counselors.index', ['id' => $id]);
+        // Hitung harga otomatis sesuai peer-counselor
+        if ($validatedData['metode'] === 'online') {
+            $harga = [1 => 45000, 2 => 90000, 3 => 135000][$validatedData['sesi']];
+        } else {
+            $harga = [1 => 55000, 2 => 110000, 3 => 165000][$validatedData['sesi']];
+        }
+        $validatedData['harga'] = $harga;
+
+        // Pastikan kategori tetap peer-counselor
+        $validatedData['kategori'] = 'peer-counselor';
+
+        $peerCounselor = KonsellingPsikolog::findOrFail($id);
+        $peerCounselor->fill($validatedData);
+        $peerCounselor->save();
+
+        Alert::toast('Data Peer Counselor berhasil diupdate', 'success')->autoClose(5000);
+        return redirect()->route('dashboard.peer-counselors.show', $id);
     }
 
     public function destroy($id)
     {
-        KonsellingPeer::where('id', $id)->delete();
-        KonsellingPeer::where('id', $id)->delete();
+        KonsellingPsikolog::where('id', $id)->delete();
         Alert::toast('A Peer Coonsellor Appointment Data Deleted', 'success')->autoClose(5000);
         return redirect()->route('dashboard.peer-counselors.index');
     }
@@ -164,7 +172,7 @@ class PeerCounselorController extends Controller
 
     public function edit($id)
     {
-        $peerCounselor = KonsellingPeer::findOrFail($id);
+        $peerCounselor = KonsellingPsikolog::findOrFail($id);
 
         // Ambil jadwal per hari untuk dropdown jam konseling
         $senin = jadwalPeer::where('hari', 'Senin')->orderBy('pukul_mulai')->get();

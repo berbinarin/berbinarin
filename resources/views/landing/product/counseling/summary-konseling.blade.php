@@ -7,10 +7,10 @@
 @section('content')
 <style>
     .text-gradient {
-        background: linear-gradient(to right, #F7B23B, #916823); 
+        background: linear-gradient(to right, #F7B23B, #916823);
         background-clip: text;
-        -webkit-background-clip: text; 
-        color: transparent; 
+        -webkit-background-clip: text;
+        color: transparent;
     }
 
     select {
@@ -23,75 +23,70 @@
     <div class="flex justify-end">
         <div class="flex items-center space-x-1 cursor-pointer" id="openModal">
             <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}" alt="Syarat & Ketentuan" class="h-3 w-auto">
-            <p class="text-[15px] font-semibold text-[#3986A3]"><span class="sm:block hidden">Syarat & Ketentuan</span><span class="sm:hidden block">S&K</span></p>  
+            <p class="text-[15px] font-semibold text-[#3986A3]"><span class="sm:block hidden">Syarat & Ketentuan</span><span class="sm:hidden block">S&K</span></p>
         </div>
     </div>
 
-    <div id="modal" class="fixed hidden inset-0 flex items-center justify-center z-30">
-        <div class="bg-[#D7E6ED] p-6 rounded-xl shadow-md overflow-y-auto max-h-screen h-auto w-[70%] max-lg:h-[90%] max-sm:w-[86%]">
-            <h2 class="text-2xl max-sm:text-xl font-bold text-gradient py-2 text-center">Syarat dan Ketentuan</h2>  
-            <div class="list-decimal pl-2 mt-2 text-justify space-y-3 text-black max-sm:text-[15px]">
-                <div class="flex flex-col">
-                    <div class="flex gap-x-2 items-center">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Vector" class="h-5 w-auto">
-                        <p class="text-black font-semibold sm:text-[16px] text-[15px] text-justify max-sm:leading-normal">Lokasi Offline Konseling</p>
-                    </div>
-                    <div class="pl-6">  
-                        <ul class="list-decimal list-outside">
-                            <li>Psikolog : Subaraya, Kediri, Sidoarjo, Makassar, Samarinda, Jakarta, dan Malang</li>
-                            <li>Peer Counselor : Tangerang Selatan, Malang, dan Surabaya</li>        
-                        </ul>
-                    </div>
+    <div id="modal" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
+        <div class="h-auto max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
+            <h1 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-center text-3xl font-bold max-sm:text-2xl">Syarat dan Ketentuan</h1>
+            <div class="mb-6">
+                <div class="flex items-start gap-2">
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Lokasi" class="h-5 w-5 mt-0.5" />
+                    <span class="font-semibold">Lokasi offline Konseling</span>
                 </div>
-                <div class="flex flex-col">
-                    <div class="flex gap-x-2 items-center">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/payment.png') }}" alt="Vector" class="h-4 w-auto">
-                        <p class="text-black font-semibold sm:text-[16px] text-[15px] text-justify max-sm:leading-normal">Pembayaran</p>
-                    </div>  
-                    <div class="pl-6">
-                        <ul class="list-decimal list-outside">
-                            <li>Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n Berbinar Insightful Indonesia dengan aturan transfer 1x24 jam.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="flex flex-col">
-                    <div class="flex gap-x-2 items-center">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.png') }}" alt="Vector" class="h-4 w-auto">
-                        <p class="text-black font-semibold sm:text-[16px] text-[15px] text-justify max-sm:leading-normal">Pembalasan Pesan</p>
-                    </div>  
-                    <div class="pl-6"> 
-                        <ul class="list-decimal list-outside"> 
-                            <li>Tidak membalas pesan admin dalam 1x24 jam, pendaftaran oleh klien secara otomatis dibatalkan</li>
-                            <li>Tidak membalas pesan admindalam 1x24 jam, jadwal yang sudah ditentukan oleh klien berhak untuk dirubah oleh Tim Berbinar dan kesepakatan dari klien</li>        
-                            <li>Tidak membalasa pesan admin dalam 2x24 jam setelah melakukan pembayaran, pembayaran dianggap hangus</li>        
-                        </ul>
-                    </div>    
-                </div>
-                <div class="flex flex-col">
-                    <div class="flex gap-x-2 items-center">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/cancel.png') }}" alt="Vector" class="h-4 w-auto">
-                        <p class="text-black font-semibold sm:text-[16px] text-[15px] text-justify max-sm:leading-normal">Pengajuan Pembatalan</p>
-                    </div>  
-                    <div class="pl-6">  
-                        <ul class="list-decimal list-outside">
-                            <li>Pengajuan proses pembatalan layanan konseling dapat dilakukan dalam kurun waktu 1x24 jam setelah proses administrasi dan dana yang telah dibayarkan akan dikembalkan 100%</li> 
-                        </ul>
-                    </div>    
-                </div>
+                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                    <li class="max-sm:text-sm">a. Psikolog: Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, Jakarta, Malang, dan Kalimantan Utara (Tarakan)</li>
+                    <li class="max-sm:text-sm">b. Peer Counselor: Bekasi, Jakarta, Tangerang Selatan, Padang, Wonogiri, dan Malang</li>
+                </ol>
             </div>
-            <div class="flex justify-center gap-x-3 mt-4">
-                <button id="closeModal" class="px-8 py-1.5 text-white max-sm:text-[15px] font-medium rounded-md bg-gradient-to-r from-[#3986A3] to-[#225062]">Saya Mengerti</button>
+
+            <div class="mb-6">
+                <div class="flex items-start gap-2">
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/payment.png') }}" alt="Pembayaran" class="h-5 w-5 mt-0.5" />
+                    <span class="font-semibold">Pembayaran</span>
+                </div>
+                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                    <li class="max-sm:text-sm">Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n. Berbinar Insightful Indonesia dengan aturan transfer 1×24 jam.</li>
+                </ol>
+            </div>
+
+            <div class="mb-6">
+                <div class="flex items-start gap-2">
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.png') }}" alt="Pembalasan Pesan" class="h-5 w-5 mt-0.5" />
+                    <span class="font-semibold">Pembalasan Pesan</span>
+                </div>
+                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, pendaftaran oleh klien secara otomatis dibatalkan.</li>
+                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, jadwal yang sudah ditentukan oleh klien berhak untuk diubah oleh Tim Berbinar dan kesepakatan dari klien.</li>
+                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 2×24 jam setelah melakukan pembayaran, pembayaran dianggap hangus.</li>
+                </ol>
+            </div>
+
+            <div class="mb-6">
+                <div class="flex items-start gap-2">
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/cancel.png') }}" alt="Pengajuan Pembatalan" class="h-5 w-5 mt-0.5" />
+                    <span class="font-semibold">Pengajuan Pembatalan</span>
+                </div>
+                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                    <li class="max-sm:text-sm">Pengajuan proses pembatalan layanan konseling dapat dilakukan dalam kurun waktu 1×24 jam setelah proses administrasi dan dana yang telah dibayarkan akan dikembalikan 100%.</li>
+                </ol>
+            </div>
+
+
+            <div class="mt-4 justify-center flex lg:gap-x-3">
+                <button id="closeModal" class="rounded-md border-[1.5px] border-[#225062] bg-transparent px-4 py-1.5 font-medium text-black max-sm:text-[15px]">Tutup</button>
             </div>
         </div>
     </div>
 
     <div class="flex flex-col space-y-4">
         <h1 class="max-sm:text-[29px] text-3xl font-semibold text-center max-sm:mx-2 text-gradient">Terima Kasih</h1>
-        <img src="{{ asset('assets/images/landing/logo/logo-berbinar.png') }}" alt="Berbinar" class="h-24 w-auto object-contain">  
+        <img src="{{ asset('assets/images/landing/logo/logo-berbinar.png') }}" alt="Berbinar" class="h-24 w-auto object-contain">
         <p class="max-sm:text-xl text-xl font-medium text-center text-gradient max-sm:mx-2">
             Setelah melakukan pendaftaran, SobatBinar akan dihubungi oleh staff konseling Berbinar maksimal 1x24jam terkait pembayaran dan informasi lebih lanjut mengenai pelaksanaan psikotes.<br><br>
             Jika ada hal yang ingin disampaikan, silahkan hubungi narahubung di bawah ini: 0813285689924 (Shafiyyah)
-        </p>      
+        </p>
     </div>
 
     <div class="flex justify-center items-center pt-10">

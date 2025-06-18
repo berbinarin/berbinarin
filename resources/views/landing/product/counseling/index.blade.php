@@ -231,28 +231,56 @@
                     <div id="openModal" class="flex justify-start lg:order-5">
                         <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Lakukan Konseling</button>
                     </div>
+                    <div id="modal" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md inset-0 -top-6 z-30 flex hidden items-center justify-center max-sm:-top-2">
+                        <div class="h-auto max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
+                            <h1 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-center text-3xl font-bold max-sm:text-2xl">Syarat dan Ketentuan</h1>
+                            <div class="mb-6">
+                                <div class="flex items-start gap-2">
+                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Lokasi" class="h-5 w-5 mt-0.5" />
+                                    <span class="font-semibold">Lokasi offline Konseling</span>
+                                </div>
+                                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                                    <li class="max-sm:text-sm">a. Psikolog: Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, Jakarta, Malang, dan Kalimantan Utara (Tarakan)</li>
+                                    <li class="max-sm:text-sm">b. Peer Counselor: Bekasi, Jakarta, Tangerang Selatan, Padang, Wonogiri, dan Malang</li>
+                                </ol>
+                            </div>
 
-                    <div id="modal" class="fixed inset-0 -top-6 z-30 flex hidden items-center justify-center max-sm:-top-2">
-                        <div class="h-auto max-h-screen w-[70%] overflow-y-auto rounded-xl bg-[#D7E6ED] p-6 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
-                            <h2 class="text-gradient py-2 text-center text-2xl font-bold max-sm:text-xl">Syarat dan Ketentuan</h2>
-                            <ol class="mt-2 list-decimal space-y-1 pl-5 text-justify text-black max-sm:text-[15px]">
-                                <li>
-                                    Lokasi offline Konseling:
-                                    <ol class="mt-1 space-y-1 pl-1">
-                                        <li>a. Psikolog: Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, Jakarta, Malang, dan Kalimantan Utara (Tarakan)</li>
-                                        <li>b. Peer Counselor: Bekasi, Jakarta, Tangerang Selatan, Padang, Wonogiri, dan Malang</li>
-                                    </ol>
-                                </li>
-                                <li>Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n. Berbinar Insightful Indonesia dengan aturan transfer 1×24 jam.</li>
-                                <li>Tidak membalas pesan admin dalam 1×24 jam, pendaftaran oleh klien secara otomatis dibatalkan.</li>
-                                <li>Tidak membalas pesan admin dalam 1×24 jam, jadwal yang sudah ditentukan oleh klien berhak untuk diubah oleh Tim Berbinar dan kesepakatan dari klien.</li>
-                                <li>Tidak membalas pesan admin dalam 2×24 jam setelah melakukan pembayaran, pembayaran dianggap hangus.</li>
-                                <li>Pengajuan proses pembatalan layanan konseling dapat dilakukan dalam kurun waktu 1×24 jam setelah proses administrasi dan dana yang telah dibayarkan akan dikembalikan 100%.</li>
-                            </ol>
-                            <div class="mt-4 flex justify-end gap-x-3">
-                                <button id="closeModal" class="rounded-md border-[1.5px] border-[#225062] bg-transparent px-4 py-1.5 font-medium text-black max-sm:text-[15px]">Kembali</button>
-                                <a href="{{ route("product.counseling.registration") }}">
-                                    <button id="" class="rounded-md bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-1.5 font-medium text-white max-sm:text-[15px]">Daftar</button>
+                            <div class="mb-6">
+                                <div class="flex items-start gap-2">
+                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/payment.png') }}" alt="Pembayaran" class="h-5 w-5 mt-0.5" />
+                                    <span class="font-semibold">Pembayaran</span>
+                                </div>
+                                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                                    <li class="max-sm:text-sm">Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n. Berbinar Insightful Indonesia dengan aturan transfer 1×24 jam.</li>
+                                </ol>
+                            </div>
+
+                            <div class="mb-6">
+                                <div class="flex items-start gap-2">
+                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.png') }}" alt="Pembalasan Pesan" class="h-5 w-5 mt-0.5" />
+                                    <span class="font-semibold">Pembalasan Pesan</span>
+                                </div>
+                                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, pendaftaran oleh klien secara otomatis dibatalkan.</li>
+                                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, jadwal yang sudah ditentukan oleh klien berhak untuk diubah oleh Tim Berbinar dan kesepakatan dari klien.</li>
+                                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 2×24 jam setelah melakukan pembayaran, pembayaran dianggap hangus.</li>
+                                </ol>
+                            </div>
+
+                            <div class="mb-6">
+                                <div class="flex items-start gap-2">
+                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/cancel.png') }}" alt="Pengajuan Pembatalan" class="h-5 w-5 mt-0.5" />
+                                    <span class="font-semibold">Pengajuan Pembatalan</span>
+                                </div>
+                                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                                    <li class="max-sm:text-sm">Pengajuan proses pembatalan layanan konseling dapat dilakukan dalam kurun waktu 1×24 jam setelah proses administrasi dan dana yang telah dibayarkan akan dikembalikan 100%.</li>
+                                </ol>
+                            </div>
+
+
+                            <div class="mt-4 justify-center flex lg:gap-x-3">
+                                <a href="{{ route('product.counseling.registration') }}">
+                                    <button id="" class="rounded-md bg-gradient-to-r from-[#3986A3] to-[#225062] px-20 py-1.5 font-medium text-white max-sm:text-[15px]">Saya Mengerti</button>
                                 </a>
                             </div>
                         </div>
@@ -422,7 +450,7 @@
                         Offline
                         </button>
                         </div>
-                        
+
                         <div class="relative w-full max-w-[270px] mx-auto flex justify-center">
                         <div x-show="tab === 'online'"
                         x-transition:enter="transition transform ease-in duration-500"
@@ -442,9 +470,9 @@
                         </div>
                         @endforeach
                         </div>
-                        
+
                         <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-divider.svg') }}" alt="Vector" class="my-5 w-full">
-                        
+
                         <div class="space-y-1">
                         @foreach ($weekdayPricesOn as $weekdayPriceOn)
                         <div class="flex items-center justify-between">
