@@ -44,7 +44,7 @@
                                     <tr class="data-consume">
                                         <td class="text-center"style="height: 40px">{{ $key + 1 }}</td>
                                         <td>{{ $item->nama }}</td>
-                                        <td>{{ $item->jadwal_tanggal }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($item->jadwal_tanggal)->format('d-m-Y') }}</td>
                                         <td class="text-center">{{ $item->jadwal_pukul }}</td>
                                         <td style="text-transform: capitalize;">{{ $item->metode }}</td>
                                         <td style="text-transform: capitalize;">{{ $item->sesi }} Jam</td>

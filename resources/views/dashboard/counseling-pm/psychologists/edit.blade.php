@@ -47,7 +47,9 @@
                     </div>
                     <div>
                         <label class="font-semibold">Tanggal Lahir</label>
-                        <input required type="date" name="tanggal_lahir" value="{{ $PsikologDataDetails[0]->tanggal_Lahir }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" />
+                        <input required type="text" id="tgllahir" name="tanggal_lahir"
+                            value="{{ \Carbon\Carbon::parse($PsikologDataDetails[0]->tanggal_lahir)->format('d/m/Y') }}"
+                            class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" readonly/>
                     </div>
                     <div>
                         <label class="font-semibold">Tempat Lahir</label>
@@ -66,7 +68,7 @@
                         </select>
                     </div>
                     <div>
-                        <label class="font-semibold">Suku Bangsa</label>
+                        <label class="font-semibold">Suku</label>
                         <input required type="text" name="suku" value="{{ $PsikologDataDetails[0]->suku }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Contoh: Jawa" />
                     </div>
                     <div>
@@ -86,8 +88,15 @@
                         <input required type="text" name="posisi_anak" value="{{ $PsikologDataDetails[0]->posisi_anak }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Anak ke-x dari x bersaudara" />
                     </div>
                     <div>
-                        <label class="font-semibold">Pendidikan Saat Ini</label>
-                        <input required type="text" name="pendidikan" value="{{ $PsikologDataDetails[0]->pendidikan }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Contoh: Mahasiswa Universitas Airlangga (semester 2)" />
+                        <label class="font-semibold">Pendidikan Terakhir</label>
+                        <select required name="pendidikan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                            <option value="" disabled>Pilih Pendidikan Terakhir</option>
+                            <option value="S1/D4 - Sarjana" {{ old('pendidikan', $PsikologDataDetails[0]->pendidikan ?? '') == 'S1/D4 - Sarjana' ? 'selected' : '' }}>S1/D4 - Sarjana</option>
+                            <option value="D3 - Diploma" {{ old('pendidikan', $PsikologDataDetails[0]->pendidikan ?? '') == 'D3 - Diploma' ? 'selected' : '' }}>D3 - Diploma</option>
+                            <option value="SMA/SMK" {{ old('pendidikan', $PsikologDataDetails[0]->pendidikan ?? '') == 'SMA/SMK' ? 'selected' : '' }}>SMA/SMK</option>
+                            <option value="SMP" {{ old('pendidikan', $PsikologDataDetails[0]->pendidikan ?? '') == 'SMP' ? 'selected' : '' }}>SMP</option>
+                            <option value="SD" {{ old('pendidikan', $PsikologDataDetails[0]->pendidikan ?? '') == 'SD' ? 'selected' : '' }}>SD</option>
+                        </select>
                     </div>
                     <div>
                         <label class="font-semibold">Hobi</label>
@@ -108,19 +117,25 @@
                 <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>
                         <label class="font-semibold">Tanggal Konseling</label>
-                        <input required type="date" name="jadwal_tanggal" id="jadwalTanggal" value="{{ $PsikologDataDetails[0]->jadwal_tanggal }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" />
+                        <input required type="text" name="jadwal_tanggal" id="tglkonseling"
+                            value="{{ \Carbon\Carbon::parse($PsikologDataDetails[0]->jadwal_tanggal)->format('d-m-Y') }}"
+                            class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd-mm-yy" readonly/>
                     </div>
                     <div>
                         <label class="font-semibold">Hari Konseling</label>
-                        <input type="text" name="hari" id="hariKonseling" value="" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm bg-gray-100" readonly />
+                        <input type="text" name="hari" id="hari_konseling"
+                            value="{{ old('hari', \Carbon\Carbon::parse($PsikologDataDetails[0]->jadwal_tanggal)->translatedFormat('l')) }}"
+                            class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm bg-gray-100" readonly />
                     </div>
                     <div>
                         <label class="font-semibold">Jam Konseling</label>
-                        <input required type="time" name="jadwal_pukul" value="{{ $PsikologDataDetails[0]->jadwal_pukul }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" />
+                        <input required type="text" id="waktukonseling" name="jadwal_pukul"
+                        value="{{ $PsikologDataDetails[0]->jadwal_pukul }}"
+                        class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Contoh: 14:00 - 15:00" />
                     </div>
                     <div>
                         <label class="font-semibold">Metode Konseling</label>
-                        <select required name="metode" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                        <select required name="metode" id="metode-select" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
                             <option value="" disabled>Pilih Metode Konseling</option>
                             <option value="online" {{ $PsikologDataDetails[0]->metode == 'online' ? 'selected' : '' }}>Online</option>
                             <option value="offline" {{ $PsikologDataDetails[0]->metode == 'offline' ? 'selected' : '' }}>Offline</option>
@@ -128,26 +143,35 @@
                     </div>
                     <div>
                         <label class="font-semibold">Sesi Konseling (Jam)</label>
-                        <input required type="number" name="sesi" value="{{ $PsikologDataDetails[0]->sesi }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Sesi" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Daerah Konseling</label>
-                        <select required name="daerah" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
-                            <option value="" disabled>Pilih Daerah</option>
-                            <option value="Online" {{ $PsikologDataDetails[0]->daerah == 'Online' ? 'selected' : '' }}>Online</option>
-                            <option value="Surabaya" {{ $PsikologDataDetails[0]->daerah == 'Surabaya' ? 'selected' : '' }}>Surabaya</option>
-                            <option value="Kediri" {{ $PsikologDataDetails[0]->daerah == 'Kediri' ? 'selected' : '' }}>Kediri</option>
-                            <option value="Sidoarjo" {{ $PsikologDataDetails[0]->daerah == 'Sidoarjo' ? 'selected' : '' }}>Sidoarjo</option>
-                            <option value="Denpasar" {{ $PsikologDataDetails[0]->daerah == 'Denpasar' ? 'selected' : '' }}>Denpasar</option>
-                            <option value="Samarinda" {{ $PsikologDataDetails[0]->daerah == 'Samarinda' ? 'selected' : '' }}>Samarinda</option>
-                            <option value="Kalimantan Utara (Tarakan)" {{ $PsikologDataDetails[0]->daerah == 'Kalimantan Utara (Tarakan)' ? 'selected' : '' }}>Kalimantan Utara (Tarakan)</option>
-                            <option value="Jakarta" {{ $PsikologDataDetails[0]->daerah == 'Jakarta' ? 'selected' : '' }}>Jakarta</option>
-                            <option value="Malang" {{ $PsikologDataDetails[0]->daerah == 'Malang' ? 'selected' : '' }}>Malang</option>
+                        <select name="sesi" id="sesi-select"
+                            class="dropdown-select w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm cursor-pointer">
+                            <option value="1" {{ $PsikologDataDetails[0]->daerah == '1 Jam' ? 'selected' : '' }}>1 Jam</option>
+                            <option value="2" {{ $PsikologDataDetails[0]->daerah == '2 Jam' ? 'selected' : '' }}>2 Jam</option>
+                            <option value="3" {{ $PsikologDataDetails[0]->daerah == '3 Jam' ? 'selected' : '' }}>3 Jam</option>
                         </select>
+                    </div>
+                    <div class="flex flex-col space-y-1" id="daerah-container" style="display: none;">
+                        <label for="daerah-select" class="font-semibold">Daerah Konseling</label>
+                        <div class="relative">
+                            <select name="daerah" id="daerah-select"
+                                class="dropdown-select w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm cursor-pointer">
+                                <option value="">Pilih Daerah Konseling</option>
+                                <option value="Surabaya" {{ $PsikologDataDetails[0]->daerah == 'Surabaya' ? 'selected' : '' }}>Surabaya</option>
+                                <option value="Kediri" {{ $PsikologDataDetails[0]->daerah == 'Kediri' ? 'selected' : '' }}>Kediri</option>
+                                <option value="Sidoarjo" {{ $PsikologDataDetails[0]->daerah == 'Sidoarjo' ? 'selected' : '' }}>Sidoarjo</option>
+                                <option value="Makassar" {{ $PsikologDataDetails[0]->daerah == 'Makassar' ? 'selected' : '' }}>Makassar</option>
+                                <option value="Samarinda" {{ $PsikologDataDetails[0]->daerah == 'Samarinda' ? 'selected' : '' }}>Samarinda</option>
+                                <option value="Jakarta" {{ $PsikologDataDetails[0]->daerah == 'Jakarta' ? 'selected' : '' }}>Jakarta</option>
+                                <option value="Malang" {{ $PsikologDataDetails[0]->daerah == 'Malang' ? 'selected' : '' }}>Malang</option>
+                                <option value="Tangerang Selatan" {{ $PsikologDataDetails[0]->daerah == 'Tangerang Selatan' ? 'selected' : '' }}>Tangerang Selatan</option>
+                            </select>
+                        </div>
                     </div>
                     <div>
                         <label class="font-semibold">Harga Konseling</label>
-                        <input required type="number" name="harga" value="{{ $PsikologDataDetails[0]->harga }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Harga" />
+                        <input required name="harga" id="harga-input"
+                            value="{{ $PsikologDataDetails[0]->harga }}"
+                            class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm bg-gray-100" placeholder="Rp 0,00" readonly/>
                     </div>
                 </div>
 
@@ -189,6 +213,7 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
     function getDayName(dateString) {
         const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
@@ -229,5 +254,93 @@
             hariInput.value = getDayName(tanggalInput.value);
         }
     });
+
+    // logika inputan psikolog
+    document.addEventListener("DOMContentLoaded", function () {
+    flatpickr("#tgllahir", {
+        dateFormat: "d/m/Y",
+        allowInput: true
+    });
+    flatpickr("#tglkonseling", {
+        dateFormat: "d-m-Y",
+        allowInput: true,
+        minDate: new Date().fp_incr(7)
+    });
+
+    // Hari konseling otomatis
+    document.getElementById('tglkonseling').addEventListener('change', function() {
+        const tanggal = this.value;
+        const hariInput = document.getElementById('hari_konseling');
+        if (!tanggal) {
+            hariInput.value = '';
+            return;
+        }
+        const parts = tanggal.split('-');
+        if (parts.length !== 3) {
+            hariInput.value = '';
+            return;
+        }
+        const dateObj = new Date(parts[2], parts[1] - 1, parts[0]);
+        const hariMap = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        hariInput.value = hariMap[dateObj.getDay()];
+    });
+
+    // Harga otomatis
+    function updateHarga() {
+        const tanggal = document.getElementById('tglkonseling').value;
+        const metode = document.getElementById('metode-select').value;
+        const sesi = document.getElementById('sesi-select').value;
+        const hargaInput = document.getElementById('harga-input');
+
+        if (!tanggal || !metode || !sesi) {
+            hargaInput.value = '';
+            return;
+        }
+
+        const parts = tanggal.split('-');
+        const dateObj = new Date(parts[2], parts[1] - 1, parts[0]);
+        const day = dateObj.getDay();
+        const isWeekend = (day === 0 || day === 6);
+
+        let harga = 0;
+        if (!isWeekend) {
+            if (metode === 'online') {
+                harga = {1: 150000, 2: 300000, 3: 450000}[sesi];
+            } else if (metode === 'offline') {
+                harga = {1: 175000, 2: 350000, 3: 525000}[sesi];
+            }
+        } else {
+            if (metode === 'online') {
+                harga = {1: 200000, 2: 340000, 3: 500000}[sesi];
+            } else if (metode === 'offline') {
+                harga = {1: 225000, 2: 340000, 3: 500000}[sesi];
+            }
+        }
+        hargaInput.value = 'Rp ' + harga.toLocaleString('id-ID');
+    }
+
+    document.getElementById('tglkonseling').addEventListener('change', updateHarga);
+    document.getElementById('metode-select').addEventListener('change', updateHarga);
+    document.getElementById('sesi-select').addEventListener('change', updateHarga);
+
+    // Tampilkan/hidden daerah
+    document.getElementById('metode-select').addEventListener('change', function() {
+        const daerahContainer = document.getElementById('daerah-container');
+        const daerahSelect = document.getElementById('daerah-select');
+        if (this.value === 'offline') {
+            daerahContainer.style.display = 'block';
+            daerahSelect.required = true;
+        } else {
+            daerahContainer.style.display = 'none';
+            daerahSelect.required = false;
+            daerahSelect.value = '';
+        }
+    });
+
+    // Trigger saat load jika ada value tersimpan
+    if (document.getElementById('metode-select').value === 'offline') {
+        document.getElementById('daerah-container').style.display = 'block';
+    }
+});
 </script>
 @endsection

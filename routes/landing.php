@@ -44,6 +44,9 @@ Route::prefix('produk')->name('product.')->group(function () {
         Route::get('/data-diri-konseling', [CounselingController::class, 'personalData'])->name('personal_data');
         Route::get('/cerita-konseling', [CounselingController::class, 'story'])->name('story');
         Route::get('/summary-konseling', [CounselingController::class, 'summary'])->name('summary');
+        Route::post('/jadwal-konseling', [CounselingController::class, 'storeSchedule'])->name('submit_schedule');
+        Route::post('/data-diri-konseling', [CounselingController::class, 'storePersonalData'])->name('submit_personal_data');
+        Route::post('/cerita-konseling', [CounselingController::class, 'storeStory'])->name('story_store');
     });
 
     // Product Psikotest
