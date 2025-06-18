@@ -584,7 +584,7 @@
                         </li>
                     @endforeach
                 </ul>
-                <a href="#" class="block w-full py-1">
+                <a href="{{ route('product.class.berbinar-plus.registration') }}" class="block w-full py-1">
                     <div class="mx-auto flex w-fit items-center justify-center rounded-lg bg-gradient-to-l from-[#AD7D29] to-[#F7B23B] px-8 py-2 hover:from-[#AD7D29]/80 hover:to-[#F7B23B]/80 hover:shadow-lg">
                         <span class="text-white">Mulai Sekarang</span>
                     </div>
@@ -637,7 +637,7 @@
                                         </li>
                                     @endforeach
                                 </ul>
-                                <a href="#" class="block w-full py-1">
+                                <a href="{{ route('product.class.berbinar-plus.registration') }}" class="block w-full py-1">
                                     <div class="mx-auto flex w-fit items-center justify-center rounded-lg bg-gradient-to-l from-[#AD7D29] to-[#F7B23B] px-8 py-2 hover:from-[#AD7D29]/80 hover:to-[#F7B23B]/80 hover:shadow-lg">
                                         <span class="text-white">Mulai Sekarang</span>
                                     </div>
@@ -682,7 +682,7 @@
                                         </li>
                                     @endforeach
                                 </ul>
-                                <a href="#" class="block w-full py-1">
+                                <a href="{{ route('product.class.berbinar-plus.registration') }}" class="block w-full py-1">
                                     <div class="mx-auto flex w-fit items-center justify-center rounded-lg bg-gradient-to-l from-[#AD7D29] to-[#F7B23B] px-8 py-2 hover:from-[#AD7D29]/80 hover:to-[#F7B23B]/80 hover:shadow-lg">
                                         <span class="text-white">Mulai Sekarang</span>
                                     </div>
@@ -710,7 +710,7 @@
                         </li>
                     @endforeach
                 </ul>
-                <a href="#" class="block w-full py-1">
+                <a href="{{ route('product.class.berbinar-plus.registration') }}" class="block w-full py-1">
                     <div class="mx-auto flex w-fit items-center justify-center rounded-lg bg-gradient-to-l from-[#AD7D29] to-[#F7B23B] px-8 py-2 hover:from-[#AD7D29]/80 hover:to-[#F7B23B]/80 hover:shadow-lg">
                         <span class="text-white">Mulai Sekarang</span>
                     </div>

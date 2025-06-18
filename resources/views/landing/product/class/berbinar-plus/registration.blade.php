@@ -33,7 +33,7 @@
                     <br>dolor Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime praesentium id dolorem
                     itaque!</p>
 
-                <form method="POST" action="{{ route('berbinarplus.register.post') }}">
+                <form method="POST" action="{{ route('product.class.berbinar-plus.store') }}">
                     <div id="registrationForm1" class="registration-form">
                         @csrf
 
