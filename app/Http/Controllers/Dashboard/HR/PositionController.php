@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Dashboard\HR;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Hiring_PositionsRequest;
 use App\Models\Hiring_Positions;
+use App\Models\KeluargaBerbinar\Division;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PositionController extends Controller
@@ -18,7 +20,8 @@ class PositionController extends Controller
 
     public function create()
     {
-        return view('dashboard.hr.positions.create');
+        $divisions = Division::all();
+        return view('dashboard.hr.positions.create', compact('divisions'));
     }
 
     public function store(Hiring_PositionsRequest $request)
@@ -26,11 +29,15 @@ class PositionController extends Controller
         try {
             $validated = $request->validated();
 
+            // Menyimpan file Banner
+            $bannerPath = $request->file('banner_path')->store('uploads/positions/banner', 'public');
+
             Hiring_Positions::create([
                 "name" => $validated["name"],
                 "type" => $validated["type"],
                 "positions" => $validated["positions"],
                 "location" => $validated["location"],
+                "banner_path" => $bannerPath,
                 "divisi" => $validated["divisi"],
                 "is_active" => true,
             ]);
@@ -52,6 +59,14 @@ class PositionController extends Controller
     {
         try {
             $HiringPositions = Hiring_Positions::find($id);
+
+            if ($request->hasFile('banner_path')) {
+                if ($HiringPositions->banner_path) {
+                    Storage::disk('public')->delete($HiringPositions->banner_path);
+                }
+                $HiringPositions->banner_path = $request->file('banner_path')->store('uploads/positions/banner', 'public');
+            }
+
             $HiringPositions->name = $request->name;
             $HiringPositions->type = $request->type;
             $HiringPositions->positions = $request->positions;
@@ -73,6 +88,11 @@ class PositionController extends Controller
             if (!$HiringPositions) {
                 throw new \Exception('Data tidak ditemukan.');
             }
+
+            if ($HiringPositions->banner_path) {
+                Storage::disk('public')->delete($HiringPositions->banner_path);
+            }
+
             $HiringPositions->delete();
             Alert::toast('Posisi berhasil dihapus!', 'success')->autoClose(5000);
             return redirect()->route('dashboard.positions.index');

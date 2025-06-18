@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="mx-auto hidden w-full lg:flex lg:items-center lg:justify-start">
-                        <a href="{{ route("career.positions.detail", $position->id) }}" class="inline-block w-full rounded-lg bg-gradient-to-r from-[#FBB03B] to-[#956823] px-4 py-3 text-center text-lg font-semibold text-white hover:opacity-80 hover:shadow-lg lg:w-3/4">Daftar Sekarang</a>
+                        <a href="{{ route("career.positions.daftar", $position->id) }}" class="inline-block w-full rounded-lg bg-gradient-to-r from-[#FBB03B] to-[#956823] px-4 py-3 text-center text-lg font-semibold text-white hover:opacity-80 hover:shadow-lg lg:w-3/4">Daftar Sekarang</a>
                     </div>
                 </div>
             </div>

@@ -43,11 +43,8 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
     });
 
 
-    // HR |  Human Resource
-    Route::middleware('role:hr')->group(function () {
-
-        // Keluarga Berbinar
-        Route::resource('/keluarga-berbinar', KeluargaBerbinarController::class);
+    // HR - Recruitment |  Human Resource - Recruitment
+    Route::middleware('role:hr_recruitment')->group(function () {
 
         // Position
         Route::resource('/positions', PositionController::class)->except('show');
@@ -62,6 +59,12 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
         // Internship
         Route::resource('/internships', InternshipController::class)->except('cretae', 'store');
         Route::post('/dashboard/admin/internship/update-status', [ajaxInternship::class, 'updateStatus'])->name('internships.update_status');
+    });
+
+    // HR - Data Analyst | Humar Resource - Data Analyst
+    Route::middleware('role:hr_data-analyst')->group(function () {
+        // Keluarga Berbinar
+        Route::resource('/keluarga-berbinar', KeluargaBerbinarController::class);
 
         // Divison
         Route::resource('/divisions', DivisionController::class);

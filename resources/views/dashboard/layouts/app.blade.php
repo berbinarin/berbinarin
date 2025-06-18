@@ -3,6 +3,9 @@
     <head>
         {{-- Header --}}
         @include('dashboard.partials.header')
+
+        {{-- Additional Style --}}
+        @yield('style')
     </head>
     <body class="font-plusJakartaSans">
         <div class="flex h-screen w-full select-none">
@@ -21,5 +24,8 @@
 
         {{-- Script --}}
         @include('dashboard.partials.script')
+
+        {{-- Additional Script --}}
+        @yield('script')
     </body>
 </html>
