@@ -21,7 +21,7 @@
   </div> -->
 
   <!-- Text Container -->
-  <div class="text-center mt-8 mb-10 relative z-40 md:-mt-1 md:mb-2">
+  <div class="text-center mt-8 mb-10 relative z-20 md:-mt-1 md:mb-2">
     <h2 class="text-md font-bold text-zinc-800 md:text-4xl sm:text-base">Pendaftaran Internship <span class="bg-gradient-to-r from-[#3986A3] to-[#15323D] bg-clip-text text-transparent">Berbinar</span></h2>
     <h2 class="text-sm font-bold bg-gradient-to-r from-[#3986A3] to-[#1C4352] bg-clip-text text-transparent md:text-4xl sm:text-xs" style="margin-top:8px; margin-bottom:5px;">{{$position->name}}</h2>
   </div>
@@ -630,7 +630,7 @@
   <div class="mr-14 flex md:flex justify-end">
     <div class="flex justify-end mt-8 md:hidden">
       <button id="previousMobile" type="button" class="previousMobile cursor-pointer bg-[#C7F8FF] text-gray-700 py-2 px-8 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 mr-24 mb-8 hidden">Previous</button>
-      <button id="nextMobile" type="button" class="nextMobile cursor-pointer bg-black text-white py-2 px-8 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mb-8">Next</button>
+      <button id="nextMobile" type="button" class="nextMobile cursor-pointer bg-gradient-to-r from-[#3986A3] to-[#15323D] text-white py-2 px-8 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mb-8">Next</button>
     </div>
   </div>
 </div>
@@ -638,7 +638,7 @@
   <div class="mr-14 flex md:flex justify-end">
     <div class="flex justify-end md:hidden">
       <button id="previousMobileTwo" type="button" class="previousMobileTwo cursor-pointer bg-[#C7F8FF] text-gray-700 py-2 px-8 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 mr-24 mb-8 hidden">Previous</button>
-      <button id="nextMobileTwo" type="button" class="nextMobileTwo cursor-pointer bg-black text-white py-2 px-8 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mb-8 hidden">Next</button>
+      <button id="nextMobileTwo" type="button" class="nextMobileTwo cursor-pointer bg-gradient-to-r from-[#3986A3] to-[#15323D] text-white py-2 px-8 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mb-8 hidden">Next</button>
     </div>
   </div>
 </div>
@@ -646,7 +646,7 @@
   <div class="mr-14 flex md:flex justify-end">
     <div class="flex justify-end md:hidden">
       <button id="previousMobileThree" type="button" class="previousMobileThree cursor-pointer bg-[#C7F8FF] text-gray-700 py-2 px-8 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 mr-24 mb-8 hidden">Previous</button>
-      <button id="nextMobileThree" type="button" class="nextMobileThree cursor-pointer bg-black text-white py-2 px-8 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mb-8 hidden">Next</button>
+      <button id="nextMobileThree" type="button" class="nextMobileThree cursor-pointer bg-gradient-to-r from-[#3986A3] to-[#15323D] text-white py-2 px-8 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mb-8 hidden">Next</button>
     </div>
   </div>
 </div>
@@ -654,7 +654,7 @@
   <div class="mr-14 flex md:flex justify-end">
     <div class="flex justify-end md:hidden">
       <button id="previousMobileFour" type="button" class="previousMobileFour cursor-pointer bg-[#C7F8FF] text-gray-700 py-2 px-8 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 mr-24 mb-8 hidden">Previous</button>
-      <button id="nextMobileFour" type="button" class="nextMobileFour cursor-pointer bg-black text-white py-2 px-8 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mb-8 hidden">Next</button>
+      <button id="nextMobileFour" type="button" class="nextMobileFour cursor-pointer bg-gradient-to-r from-[#3986A3] to-[#15323D] text-white py-2 px-8 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mb-8 hidden">Next</button>
     </div>
   </div>
 </div>
@@ -662,7 +662,7 @@
   <div class="mr-14 flex md:flex justify-end">
     <div class="flex justify-end md:hidden">
       <button id="previousMobileFive" type="button" class="previousMobileFive cursor-pointer bg-[#C7F8FF] text-gray-700 py-2 px-8 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 mr-24 mb-8 hidden">Previous</button>
-      <button id="nextMobileFive" type="button" class="nextMobileFive cursor-pointer bg-black text-white py-2 px-8 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mb-8 hidden">Sent</button>
+      <button id="nextMobileFive" type="button" class="nextMobileFive cursor-pointer bg-gradient-to-r from-[#3986A3] to-[#15323D] text-white py-2 px-8 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mb-8 hidden">Sent</button>
     </div>
   </div>
 </div>
