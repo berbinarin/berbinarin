@@ -76,6 +76,8 @@ Route::prefix('produk')->name('product.')->group(function () {
         // Class Berbinar-plus
         Route::prefix('berbinar-plus')->name('berbinar-plus.')->group(function () {
             Route::get('/', [BerbinarPlusController::class, 'index'])->name('index');
+            Route::get('/daftar', [BerbinarPlusController::class, 'registration'])->name('registration');
+            Route::post('/daftar', [BerbinarPlusController::class, 'store'])->name('store');
         });
 
         // Class Bisikan

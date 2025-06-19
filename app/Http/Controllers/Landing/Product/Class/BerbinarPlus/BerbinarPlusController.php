@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Landing\Product\Class\BerbinarPlus;
 
+use App\Http\Controllers\Berbinarplus\EnrollmentController;
 use App\Http\Controllers\Controller;
+use App\Models\Berbinarp_user;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BerbinarPlusController extends Controller
 {
@@ -153,6 +157,50 @@ class BerbinarPlusController extends Controller
             ],
         ];
 
-        return view('landing.product.class.berbinar-plus', compact('faqs', 'products', 'psikologs', 'layanan_berbinar_plus', 'benefit_berbinar_plus'));
+        return view('landing.product.class.berbinar-plus.index', compact('faqs', 'products', 'psikologs', 'layanan_berbinar_plus', 'benefit_berbinar_plus'));
+    }
+
+    // SHOWING REGISTRATION PAGE
+    public function registration()
+    {
+        return view('landing.product.class.berbinar-plus.registration');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string|email|max:255|unique:berbinarp_users',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'gender' => 'required|in:Laki-laki,Perempuan',
+            'age' => 'required|integer',
+            'wa_number' => 'required|string|max:255',
+            'last_education' => 'required|string|max:255',
+            'knowing_source' => 'required|string|max:255',
+        ]);
+
+        try {
+            $user = Berbinarp_user::create([
+                'email' => $request->email,
+                'password' => Hash::make('abcdefgh123'),
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'gender' => $request->gender,
+                'age' => $request->age,
+                'wa_number' => $request->wa_number,
+                'last_education' => $request->last_education,
+                'knowing_source' => $request->knowing_source,
+            ]);
+            // Create Enrollment
+            $enrollmentsController = new EnrollmentController();
+            $className = $request->kelas; // Assuming class_id.
+            $enrollmentsController->createEnrollment($user->id, $className);
+
+            Alert::toast('Formulir Pendaftaran Berhasil', 'success')->autoClose(5000);
+            return redirect()->route('berbinarplus.register.success');
+        } catch (\Exception $e) {
+            Alert::toast('Terjadi kesalahan saat menyimpan data' . $e->getMessage(), 'error')->autoClose(5000);
+            return redirect()->back();
+        }
     }
 }
