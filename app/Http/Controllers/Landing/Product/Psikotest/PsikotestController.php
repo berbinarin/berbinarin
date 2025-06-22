@@ -586,7 +586,7 @@ class PsikotestController extends Controller
         $sessionData = array_merge($request->session()->get('psikotest-paid', []), $data);
         $request->session()->put('psikotest-paid', $sessionData);
 
-        return view('landing.product.psikotest.personal-data')->with([]);
+        return redirect()->route('product.psikotest.personal_data');
     }
 
     public function storePersonalData(Request $request) {
@@ -610,7 +610,7 @@ class PsikotestController extends Controller
 
         $request->session()->forget('psikotest-paid');
 
-        return view('landing.product.psikotest.summary')->with([]);
+        return redirect()->route('product.psikotest.summary');
     }
 
     private function saveUserData(array $data, string $hashedPassword)

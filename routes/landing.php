@@ -59,7 +59,7 @@ Route::prefix('produk')->name('product.')->group(function () {
         Route::post('/data-diri', [PsikotestController::class, 'storePersonalData'])->name('personal_data.store');
         Route::get('/summary', [PsikotestController::class, 'summary'])->name('summary');
         Route::get('/feedback', [FeedbackController::class, 'show'])->name('feedback');
-        Route::post('/feedback-form', [FeedbackController::class, 'store'])->name('feedback.store');
+        Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
     });
 
     Route::prefix('consulting')->name('consulting.')->group(function () {
