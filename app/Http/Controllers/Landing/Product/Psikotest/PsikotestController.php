@@ -8,6 +8,7 @@ use App\Models\PsikotestPaid\CategoryPsikotestType;
 use App\Models\PsikotestPaid\PsikotestType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class PsikotestController extends Controller
 {
@@ -570,12 +571,15 @@ class PsikotestController extends Controller
         $request->validate([
             'service' => 'required',
             'psikotest_type_id' => 'required',
-            'preference_date' => 'required|date',
+            'preference_date' => 'required|date_format:d/m/Y',
             'preference_time' => 'required',
         ]);
 
-        $datetime = $request->input('preference_date') . ' ' . $request->input('preference_time');
-        $preferenceSchedule = date('Y-m-d H:i:s', strtotime($datetime));
+        $preferenceDate = $request->input('preference_date');
+        $preferenceTime = $request->input('preference_time');
+
+        $carbonDate = Carbon::createFromFormat('d/m/Y H:i', $preferenceDate . ' ' . $preferenceTime);
+        $preferenceSchedule = $carbonDate->format('Y-m-d H:i:s');
 
         $data = [
             'service' => $request->input('service'),
