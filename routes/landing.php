@@ -17,6 +17,7 @@ use App\Http\Controllers\Landing\Product\Counseling\CounselingController;
 use App\Http\Controllers\Landing\Product\Psikotest\PsikotestController;
 use App\Http\Controllers\Landing\Product\EmoShuffle\EmoShuffleController;
 use App\Http\Controllers\Landing\Product\ProductController;
+use App\Http\Controllers\Dashboard\PTPM\Psikotest\PsikotestFree\FeedbackController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -57,6 +58,8 @@ Route::prefix('produk')->name('product.')->group(function () {
         Route::get('/data-diri', [PsikotestController::class, 'personalData'])->name('personal_data');
         Route::post('/data-diri', [PsikotestController::class, 'storePersonalData'])->name('personal_data.store');
         Route::get('/summary', [PsikotestController::class, 'summary'])->name('summary');
+        Route::get('/feedback', [FeedbackController::class, 'show'])->name('feedback');
+        Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
     });
 
     Route::prefix('consulting')->name('consulting.')->group(function () {
