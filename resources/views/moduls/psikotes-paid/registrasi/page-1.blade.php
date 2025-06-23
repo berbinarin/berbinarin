@@ -161,8 +161,8 @@
                     <div class="mt-5 px-5 md:px-16">
                         <p class="text-left">Jika ada yang ingin ditanyakan, silakan menghubungi: <span
                                 class="text-primary underline underline-offset-2"><a aria-label="Chat on WhatsApp"
-                                    href="https://wa.me/6285157793985">
-                                    085157793985</a></span> (Ade Intan)</p>
+                                    href="https://wa.me/632351088413">
+                                    082351088413</a></span> (Diah)</p>
                     </div>
                 </div>
                 <div class="modal-footer flex w-100 justify-center items-center p-5 mt-4 mx-8 gap-4">
