@@ -27,7 +27,7 @@
   </div>
 
   <!-- Card Box -->
-  <div id="formContainer" class="h-auto w-auto relative mx-8 my-4 md:my-1  md:mb-3 justify-end z-30 md:w-4/5 md:max-w-7xl bg-white p-6  rounded-3xl shadow-lg mt-2 md:rounded-3xl overflow-y-auto md:overflow-y-hidden">
+  <div id="formContainer" class="h-auto w-auto relative mx-8 my-4 md:my-1 md:mb-3 justify-end z-30 md:w-4/5 md:max-w-7xl bg-white p-6  rounded-3xl shadow-lg mt-2 md:rounded-3xl overflow-y-auto md:overflow-y-hidden">
 
       <!-- Tombol Kembali -->
        <a href="{{ route('career.positions.detail', $position->id) }}">

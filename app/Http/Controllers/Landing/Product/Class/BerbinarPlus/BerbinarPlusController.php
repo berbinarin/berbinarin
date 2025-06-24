@@ -112,7 +112,7 @@ class BerbinarPlusController extends Controller
         $layanan_berbinar_plus = [
             'insight' => [
                 'name' => 'Insight',
-                'price' => 'Rp.15.000',
+                'price' => 'Rp15.000',
                 'services' => [
                     'Layanan video pembelajaran daring dan personal mentoring',
                 ]
@@ -166,6 +166,11 @@ class BerbinarPlusController extends Controller
         return view('landing.product.class.berbinar-plus.registration');
     }
 
+    public function success()
+    {
+        return view('landing.product.class.berbinar-plus.success');
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -197,7 +202,7 @@ class BerbinarPlusController extends Controller
             $enrollmentsController->createEnrollment($user->id, $className);
 
             Alert::toast('Formulir Pendaftaran Berhasil', 'success')->autoClose(5000);
-            return redirect()->route('berbinarplus.register.success');
+            return response()->json(['redirect' => route('product.class.berbinar-plus.success')]);
         } catch (\Exception $e) {
             Alert::toast('Terjadi kesalahan saat menyimpan data' . $e->getMessage(), 'error')->autoClose(5000);
             return redirect()->back();
