@@ -84,7 +84,7 @@
                         justru meningkatkan produktivitas, ketahanan mental, dan kepuasan kerja. Kamu akan belajar mengenali stres, merespons dengan lebih bijak, dan membangun rutinitas kerja yang sehat tanpa menyiksa diri.
                     </p>
                     <div class="mt-5">
-                        <a href="https://youtu.be/2YGAcGSlxTo?si=zgly-gJVqsxMWHXX" class="inline-block rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-6 py-2 font-semibold text-white shadow max-md:w-full text-center" target="_blank" rel="noopener noreferrer">Tonton BISIKAN</a>
+                        <a href="https://youtu.be/2YGAcGSlxTo?si=zgly-gJVqsxMWHXX" class="inline-block rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-6 py-2 text-center font-semibold text-white shadow max-md:w-full" target="_blank" rel="noopener noreferrer">Tonton BISIKAN</a>
                     </div>
                 </div>
 
@@ -203,7 +203,7 @@
         <h1 class="bg-gradient-to-r from-[#3986A3] to-[#1C4352] bg-clip-text text-center font-[inter] text-3xl font-semibold text-transparent lg:tracking-wide">Manfaat Mendengar BISIKAN</h1>
         <div class="mx-4 mt-8 sm:mx-20">
             <div class="grid grid-cols-2 gap-x-4 gap-y-8 lg:grid-cols-5 lg:gap-x-8 lg:gap-y-12">
-                <div class="relative rounded-lg border-2 border-[#d7e6ed] px-2 pb-3 pt-8 md:px-6 md:py-8">
+                <div class="relative rounded-lg border-2 border-[#d7e6ed] bg-white px-2 pb-3 pt-8 shadow-md md:px-6 md:py-8">
                     <div class="absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
                         <img src="{{ asset("assets/images/landing/produk/bisikan/lamp.svg") }}" alt="Wawasan Icon" class="h-8 w-8" />
                     </div>
@@ -213,7 +213,7 @@
                     </div>
                 </div>
 
-                <div class="relative rounded-lg border-2 border-[#d7e6ed] px-2 pb-3 pt-8 md:px-6 md:py-8 lg:col-start-3">
+                <div class="relative rounded-lg border-2 border-[#d7e6ed] bg-white px-2 pb-3 pt-8 shadow-md md:px-6 md:py-8 lg:col-start-3">
                     <div class="absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
                         <img src="{{ asset("assets/images/landing/produk/bisikan/bag.svg") }}" alt="Self-healing Icon" class="h-8 w-8" />
                     </div>
@@ -226,7 +226,7 @@
                     </div>
                 </div>
 
-                <div class="relative rounded-lg border-2 border-[#d7e6ed] px-2 pb-3 pt-8 md:px-6 md:py-8 lg:col-start-5">
+                <div class="relative rounded-lg border-2 border-[#d7e6ed] bg-white px-2 pb-3 pt-8 shadow-md md:px-6 md:py-8 lg:col-start-5">
                     <div class="absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
                         <img src="{{ asset("assets/images/landing/produk/bisikan/meditation.svg") }}" alt="Pengetahuan Icon" class="h-8 w-8" />
                     </div>
@@ -236,7 +236,7 @@
                     </div>
                 </div>
 
-                <div class="relative rounded-lg border-2 border-[#d7e6ed] px-2 pb-3 pt-8 md:px-6 md:py-8 lg:col-start-2">
+                <div class="relative rounded-lg border-2 border-[#d7e6ed] bg-white px-2 pb-3 pt-8 shadow-md md:px-6 md:py-8 lg:col-start-2">
                     <div class="absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
                         <img src="{{ asset("assets/images/landing/produk/bisikan/bush.svg") }}" alt="Teman Perjalanan Icon" class="h-8 w-8" />
                     </div>
@@ -246,7 +246,7 @@
                     </div>
                 </div>
 
-                <div class="relative rounded-lg border-2 border-[#d7e6ed] px-2 pb-3 pt-8 md:px-6 md:py-8 lg:col-start-4">
+                <div class="relative rounded-lg border-2 border-[#d7e6ed] bg-white px-2 pb-3 pt-8 shadow-md md:px-6 md:py-8 lg:col-start-4">
                     <div class="absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
                         <img src="{{ asset("assets/images/landing/produk/bisikan/book.svg") }}" alt="Mindful Living Icon" class="h-8 w-8" />
                     </div>
