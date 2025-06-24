@@ -84,7 +84,7 @@
                         justru meningkatkan produktivitas, ketahanan mental, dan kepuasan kerja. Kamu akan belajar mengenali stres, merespons dengan lebih bijak, dan membangun rutinitas kerja yang sehat tanpa menyiksa diri.
                     </p>
                     <div class="mt-5">
-                        <a href="https://youtu.be/2YGAcGSlxTo?si=zgly-gJVqsxMWHXX" class="inline-block rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-6 py-2 font-semibold text-white shadow" target="_blank" rel="noopener noreferrer">Tonton BISIKAN</a>
+                        <a href="https://youtu.be/2YGAcGSlxTo?si=zgly-gJVqsxMWHXX" class="inline-block rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-6 py-2 font-semibold text-white shadow max-md:w-full text-center" target="_blank" rel="noopener noreferrer">Tonton BISIKAN</a>
                     </div>
                 </div>
 
@@ -118,24 +118,26 @@
 
         <!-- Mobile Version - Swiper -->
         <div class="mx-auto max-w-md md:hidden">
-            <div class="swiper-container content-bisikan-swiper mt-4">
-                <div class="swiper-wrapper pb-8">
-                    @foreach (array_slice($episodes, 0, 3) as $episode)
-                        <div class="swiper-slide px-2">
-                            <div class="flex h-full flex-col rounded-2xl p-4 shadow-lg">
-                                <div class="flex-1">
-                                    <img src="{{ asset($episode["image"]) }}" alt="{{ $episode["title"] }}" class="w-full rounded-lg" />
-                                </div>
-                                <div class="mt-4 flex flex-1 flex-col gap-3 px-2 text-center">
-                                    <h2 class="text-lg font-semibold">{{ $episode["title"] }}</h2>
-                                    <p class="text-sm text-[#70787D]">Bersama: {{ $episode["bersama"] }}</p>
-                                    <a href="{{ $episode["link"] }}" target="_blank" class="mx-auto mb-2 mt-4 w-full max-w-[200px] rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-8 py-3 text-center text-sm font-semibold text-white">Tonton BISIKAN</a>
+            <div class="max-w-full overflow-hidden px-6 pt-4">
+                <div class="swiper-container content-bisikan-swiper mt-8">
+                    <div class="swiper-wrapper">
+                        @foreach (array_slice($episodes, 0, 3) as $episode)
+                            <div class="swiper-slide">
+                                <div class="rounded-2xl p-2 shadow-lg">
+                                    <div>
+                                        <img src="{{ asset($episode["image"]) }}" alt="{{ $episode["title"] }}" class="w-full rounded-lg" />
+                                    </div>
+                                    <div class="mt-2 flex h-32 flex-col gap-2 px-4 text-center">
+                                        <h2 class="text-center font-semibold">{{ $episode["title"] }}</h2>
+                                        <p class="text-sm text-[#70787D]">Bersama: {{ $episode["bersama"] }}</p>
+                                    </div>
+                                    <a href="{{ $episode["link"] }}" target="_blank" class="mt-3 block rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] py-2 text-center text-sm font-semibold text-white">Tonton BISIKAN</a>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
+                    <div class="swiper-pagination mt-6" style="position: relative; height: 8px; margin-top: 20px"></div>
                 </div>
-                <div class="swiper-pagination mt-4"></div>
             </div>
         </div>
     </section>
@@ -162,25 +164,27 @@
         </div>
 
         <!-- Mobile Version - Swiper -->
-        <div class="mx-auto max-w-7xl md:hidden">
-            <div class="swiper-container topic-content-swiper mt-8">
-                <div class="swiper-wrapper">
-                    @foreach ($topics as $topic)
-                        <div class="swiper-slide">
-                            <div class="flex flex-col items-center gap-5">
-                                <img src="{{ asset($topic["image"]) }}" alt="" class="h-16 w-16 object-contain" />
-                                <span class="inline-block text-center text-sm font-semibold">
-                                    @if (trim(strtolower($topic["title"])) == "self growth")
-                                        <em>{{ $topic["title"] }}</em>
-                                    @else
-                                        {{ $topic["title"] }}
-                                    @endif
-                                </span>
+        <div class="mx-auto max-w-md md:hidden">
+            <div class="max-w-full overflow-hidden px-6 pt-10">
+                <div class="swiper-container topic-content-swiper mt-8">
+                    <div class="swiper-wrapper">
+                        @foreach ($topics as $topic)
+                            <div class="swiper-slide">
+                                <div class="flex flex-col items-center gap-5">
+                                    <img src="{{ asset($topic["image"]) }}" alt="" class="h-16 w-16 object-contain" />
+                                    <span class="inline-block text-center text-sm font-semibold">
+                                        @if (trim(strtolower($topic["title"])) == "self growth")
+                                            <em>{{ $topic["title"] }}</em>
+                                        @else
+                                            {{ $topic["title"] }}
+                                        @endif
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
+                    <div class="swiper-pagination mt-6" style="position: relative; height: 8px; margin-top: 20px"></div>
                 </div>
-                <div class="swiper-pagination mt-6" style="position: relative; height: 8px; margin-top: 20px"></div>
             </div>
         </div>
     </section>
@@ -518,7 +522,6 @@
         .swiper-wrapper {
             position: relative;
             width: 100%;
-            height: 85%;
             z-index: 1;
             display: flex;
             transition-property: transform;
@@ -585,22 +588,12 @@
             transform-origin: left top;
             border-radius: 10px;
         }
-
-        @media (min-width: 768px) {
-            #customSection {
-                padding-top: 10rem; /* setara dengan md:pt-20 di Tailwind */
-            }
-        }
-
-        .drop-shadow {
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
-        }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const contentBisikanSwiper = new Swiper('.content-bisikan-swiper', {
                 slidesPerView: 1.2,
-                initialSlide: 0, // Mulai dari Episode 3 (index ke-0 alias Episode 2)
+                initialSlide: 0,
                 spaceBetween: 20,
                 loop: true,
                 pagination: {
