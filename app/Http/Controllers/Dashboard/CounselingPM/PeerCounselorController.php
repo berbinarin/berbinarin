@@ -18,7 +18,7 @@ class PeerCounselorController extends Controller
 
     public function index(Request $request)
     {
-        $PeerConsellorData = KonsellingPsikolog::where('kategori', 'peer-counselor')->get();
+        $PeerConsellorData = KonsellingPsikolog::where('kategori', 'peer-counselor')->orderBy('created_at', 'desc')->get();
         $konselling = $request->session()->get('konselling');
         $senin = jadwalPeer::where('hari', 'Senin')->orderBy('pukul_mulai')->get();
         $selasa = jadwalPeer::where('hari', 'Selasa')->orderBy('pukul_mulai')->get();

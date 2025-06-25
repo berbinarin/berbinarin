@@ -109,7 +109,7 @@
                 <div class="flex flex-col space-y-1">
                     <p class="text-[#333333] sm:text-[17px] text-sm">Tanggal Konseling</p>
                     <div class="relative">
-                        <input type="date" name="jadwal_tanggal" value="{{ old('jadwal_tanggal', isset($jadwal['jadwal_tanggal']) ? \Carbon\Carbon::parse($jadwal['jadwal_tanggal'])->format('d-m-Y') : '') }}" id="tglkonseling" class="bg-[#F1F3F6] border-none md:shadow-none shadow-md rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="dd/mm/yy" readonly>
+                        <input type="date" required name="jadwal_tanggal" value="{{ old('jadwal_tanggal', isset($jadwal['jadwal_tanggal']) ? \Carbon\Carbon::parse($jadwal['jadwal_tanggal'])->format('d-m-Y') : '') }}" id="tglkonseling" class="bg-[#F1F3F6] border-none md:shadow-none shadow-md rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="dd/mm/yy" readonly>
                         <img src="{{ asset('assets/images/landing/asset-konseling/vector/date.png') }}" class="h-4 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2" onclick="document.getElementById('datepicker').focus()">
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                 <div class="relative">
                     @if ($kategori === 'peer-counselor')
                         <input type="hidden" id="jadwal_pukul_value" name="jadwal_pukul" value="{{ old('jadwal_pukul', $jadwal['jadwal_pukul'] ?? '') }}">
-                        <select id="waktukonseling" name="jadwal_pukul"
+                        <select id="waktukonseling" name="jadwal_pukul" required
                             class="bg-[#F1F3F6] border-none md:shadow-none shadow-md rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]">
                             <option value="">Pilih waktu</option>
                             {{-- Option diisi oleh JS --}}
@@ -128,7 +128,7 @@
                             class="h-4 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2"
                             onclick="document.getElementById('waktukonseling').focus()">
                     @else
-                        <input type="text" id="waktukonseling" name="jadwal_pukul"
+                        <input type="text" id="waktukonseling" name="jadwal_pukul" required
                             value="{{ old('jadwal_pukul', $jadwal['jadwal_pukul'] ?? '') }}"
                             class="bg-[#F1F3F6] border-none md:shadow-none shadow-md rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]"
                             placeholder="--:--">
