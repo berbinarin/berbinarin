@@ -23,7 +23,7 @@
         }
 
         .bg-layanan-desktop {
-            background-image: url('/assets/images/landing/asset-kelas/berbinar-plus/bg-layanan-berbinar-plus.png');
+            background-image: url('/assets/images/landing/asset-kelas/berbinar-plus/berbinar-plus-harga-bg.png');
         }
 
         .bg-cta {
@@ -566,12 +566,16 @@
             <h1 class="mb-4 text-3xl font-semibold text-white max-sm:text-2xl">Layanan Berbinar +</h1>
         </div>
         <div class="relative z-20 h-96 w-full overflow-y-scroll scrollbar-hide lg:flex lg:h-auto lg:flex-row lg:items-stretch lg:gap-4 lg:overflow-y-visible lg:py-4">
-            <div class="mb-4 flex w-full flex-col justify-between rounded-2xl bg-white/90 p-6 shadow-lg lg:mt-20 lg:w-1/4">
+            <div class="mb-4 flex w-full flex-col rounded-2xl bg-white/95 p-6 shadow-lg lg:mt-20 lg:w-1/4">
                 <h3 class="mx-auto mb-4 text-center text-2xl font-semibold">{{ $layanan_berbinar_plus["insight"]["name"] }}</h3>
-                <span class="mx-auto mb-8 block text-center text-3xl font-semibold text-primary">{{ $layanan_berbinar_plus["insight"]["price"] }}</span>
-                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/line-plus.png") }}" alt="line-plus" class="mx-auto mb-8" />
-                <ul class="mb-12 h-24 w-full space-y-4 overflow-y-scroll text-base text-gray-600 scrollbar-hide">
-                    @foreach ($layanan_berbinar_plus["insight"]["services"] as $item)
+                <div class="flex flex-col justify-between">
+                    <div class="md:h-24 flex flex-col justify-center items-center">
+                        <span class="mx-auto flex text-center text-3xl font-semibold text-primary">{{ $layanan_berbinar_plus["insight"]["price"] }}</span>
+                    </div>
+                    <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/line-plus.png") }}" alt="line-plus" class="mx-auto mt-3 mb-8" />
+
+                    <ul class="h-20 w-full space-y-4 overflow-y-scroll text-base text-gray-600 scrollbar-hide">
+                        @foreach ($layanan_berbinar_plus["insight"]["services"] as $item)
                         <li class="flex items-start gap-2">
                             <svg class="mt-1 h-5 w-5 shrink-0 text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm13.707-1.293a1 1 0 0 0-1.414-1.414L11 12.586l-1.793-1.793a1 1 0 0 0-1.414 1.414l2.5 2.5a1 1 0 0 0 1.414 0l4-4Z" clip-rule="evenodd" />
@@ -582,9 +586,10 @@
                                 </p>
                             </div>
                         </li>
-                    @endforeach
-                </ul>
-                <a href="#" class="block w-full py-1">
+                        @endforeach
+                    </ul>
+                </div>
+                <a href="{{ route('product.class.berbinar-plus.registration') }}" class="block w-full py-1">
                     <div class="mx-auto flex w-fit items-center justify-center rounded-lg bg-gradient-to-l from-[#AD7D29] to-[#F7B23B] px-8 py-2 hover:from-[#AD7D29]/80 hover:to-[#F7B23B]/80 hover:shadow-lg">
                         <span class="text-white">Mulai Sekarang</span>
                     </div>
@@ -599,11 +604,11 @@
                     </div>
 
                     <!-- Card Layout -->
-                    <div class="relative mt-5 rounded-2xl border bg-white/90 pb-5 shadow-md transition-all duration-300 ease-in-out">
-                        <!-- oneline -->
-                        <div x-show="tab === 'online'" x-cloak class="p-8 max-sm:p-4">
+                    <div class="relative mt-5 rounded-2xl border bg-white/95 shadow-md transition-all duration-300 ease-in-out">
+                        <!-- online -->
+                        <div x-show="tab === 'online'" x-cloak class="p-6 max-sm:p-4">
                             <div class="w-full gap-4">
-                                <h3 class="mx-auto mb-4 text-center text-2xl font-semibold">{{ $layanan_berbinar_plus["A+"]["name"] }}</h3>
+                                <h3 class="mx-auto max-sm:mb-4 text-center text-2xl font-semibold">{{ $layanan_berbinar_plus["A+"]["name"] }}</h3>
                                 <div class="mb-4 w-full lg:flex lg:flex-row lg:items-center lg:justify-evenly">
                                     <div class="mx-auto mb-2 w-full lg:mb-0 lg:w-2/5">
                                         <h4 class="mx-auto mb-4 text-center text-lg font-semibold">
@@ -612,8 +617,8 @@
                                         </h4>
                                         <span class="mx-auto mb-8 block text-center text-2xl font-semibold text-primary">{{ $layanan_berbinar_plus["A+"]["price"]["online"]["weekday"] }}</span>
                                     </div>
-                                    <div class="hidden h-32 overflow-hidden lg:block">
-                                        <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/line-plus-vec.png") }}" alt="line-plus" class="mx-auto mb-8" />
+                                    <div class="hidden h-20 overflow-hidden mt-6 lg:block">
+                                        <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/line-plus-vec.png") }}" alt="line-plus" class="mx-auto" />
                                     </div>
                                     <div class="mx-auto w-full lg:w-2/5">
                                         <h4 class="mx-auto mb-4 text-center text-lg font-semibold">
@@ -623,7 +628,8 @@
                                         <span class="mx-auto mb-8 block text-center text-2xl font-semibold text-primary">{{ $layanan_berbinar_plus["A+"]["price"]["online"]["weekend"] }}</span>
                                     </div>
                                 </div>
-                                <ul class="h-24 w-full space-y-4 overflow-y-scroll text-base text-gray-600 scrollbar-hide">
+
+                                <ul class="w-full md:h-20 pt-2 mb-1 space-y-4 overflow-y-scroll text-base text-gray-600 scrollbar-hide">
                                     @foreach ($layanan_berbinar_plus["A+"]["services"] as $item)
                                         <li class="flex items-start gap-2">
                                             <svg class="mt-1 h-5 w-5 shrink-0 text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -637,7 +643,7 @@
                                         </li>
                                     @endforeach
                                 </ul>
-                                <a href="#" class="block w-full py-1">
+                                <a href="{{ route('product.class.berbinar-plus.registration') }}" class="block w-full py-1">
                                     <div class="mx-auto flex w-fit items-center justify-center rounded-lg bg-gradient-to-l from-[#AD7D29] to-[#F7B23B] px-8 py-2 hover:from-[#AD7D29]/80 hover:to-[#F7B23B]/80 hover:shadow-lg">
                                         <span class="text-white">Mulai Sekarang</span>
                                     </div>
@@ -646,9 +652,9 @@
                         </div>
 
                         <!-- offline -->
-                        <div x-show="tab === 'offline'" x-cloak class="p-8 max-sm:p-4">
+                        <div x-show="tab === 'offline'" x-cloak class="p-6 max-sm:p-4">
                             <div class="w-full gap-4">
-                                <h3 class="mx-auto mb-4 text-center text-2xl font-semibold">{{ $layanan_berbinar_plus["A+"]["name"] }}</h3>
+                                <h3 class="mx-auto max-sm:mb-4 text-center text-2xl font-semibold">{{ $layanan_berbinar_plus["A+"]["name"] }}</h3>
                                 <div class="mb-4 w-full lg:flex lg:flex-row lg:items-center lg:justify-evenly">
                                     <div class="mx-auto mb-2 w-full lg:mb-0 lg:w-2/5">
                                         <h4 class="mx-auto mb-4 text-center text-lg font-semibold">
@@ -657,7 +663,7 @@
                                         </h4>
                                         <span class="mx-auto mb-8 block text-center text-2xl font-semibold text-primary">{{ $layanan_berbinar_plus["A+"]["price"]["offline"]["weekday"] }}</span>
                                     </div>
-                                    <div class="hidden h-32 overflow-hidden lg:block">
+                                    <div class="hidden h-20 overflow-hidden mt-6 lg:block">
                                         <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/line-plus-vec.png") }}" alt="line-plus" class="mx-auto mb-8" />
                                     </div>
                                     <div class="mx-auto w-full lg:w-2/5">
@@ -668,7 +674,7 @@
                                         <span class="mx-auto mb-8 block text-center text-2xl font-semibold text-primary">{{ $layanan_berbinar_plus["A+"]["price"]["offline"]["weekend"] }}</span>
                                     </div>
                                 </div>
-                                <ul class="h-24 w-full space-y-4 overflow-y-scroll text-base text-gray-600 scrollbar-hide">
+                                <ul class="h-20 w-full pt-2 mb-1 space-y-4 overflow-y-scroll text-base text-gray-600 scrollbar-hide">
                                     @foreach ($layanan_berbinar_plus["A+"]["services"] as $item)
                                         <li class="flex items-start gap-2">
                                             <svg class="mt-1 h-5 w-5 shrink-0 text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -682,7 +688,7 @@
                                         </li>
                                     @endforeach
                                 </ul>
-                                <a href="#" class="block w-full py-1">
+                                <a href="{{ route('product.class.berbinar-plus.registration') }}" class="block w-full py-1">
                                     <div class="mx-auto flex w-fit items-center justify-center rounded-lg bg-gradient-to-l from-[#AD7D29] to-[#F7B23B] px-8 py-2 hover:from-[#AD7D29]/80 hover:to-[#F7B23B]/80 hover:shadow-lg">
                                         <span class="text-white">Mulai Sekarang</span>
                                     </div>
@@ -692,12 +698,15 @@
                     </div>
                 </div>
             </div>
-            <div class="mb-4 flex w-full flex-col justify-between rounded-2xl bg-white/90 p-6 shadow-lg lg:mt-20 lg:w-1/4">
+            <div class="mb-4 flex w-full flex-col rounded-2xl bg-white/95 p-6 shadow-lg lg:mt-20 lg:w-1/4">
                 <h3 class="mx-auto mb-4 text-center text-2xl font-semibold">{{ $layanan_berbinar_plus["complete"]["name"] }}</h3>
-                <span class="mx-auto mb-8 block text-center text-3xl font-semibold text-primary">{{ $layanan_berbinar_plus["complete"]["price"] }}</span>
-                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/line-plus.png") }}" alt="line-plus" class="mx-auto mb-8" />
-                <ul class="mb-12 h-24 w-full space-y-4 overflow-y-scroll text-base text-gray-600 scrollbar-hide">
-                    @foreach ($layanan_berbinar_plus["complete"]["services"] as $item)
+                <div class="flex flex-col justify-between">
+                    <div class="md:h-24 flex flex-col justify-center items-center">
+                        <span class="mx-auto flex text-center text-3xl font-semibold text-primary">{{ $layanan_berbinar_plus["complete"]["price"] }}</span>
+                    </div>
+                    <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/line-plus.png") }}" alt="line-plus" class="mx-auto mt-3 mb-8" />
+                    <ul class="h-20 w-full space-y-4 overflow-y-scroll text-base text-gray-600 scrollbar-hide">
+                        @foreach ($layanan_berbinar_plus["complete"]["services"] as $item)
                         <li class="flex items-start gap-2">
                             <svg class="mt-1 h-5 w-5 shrink-0 text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm13.707-1.293a1 1 0 0 0-1.414-1.414L11 12.586l-1.793-1.793a1 1 0 0 0-1.414 1.414l2.5 2.5a1 1 0 0 0 1.414 0l4-4Z" clip-rule="evenodd" />
@@ -708,9 +717,10 @@
                                 </p>
                             </div>
                         </li>
-                    @endforeach
-                </ul>
-                <a href="#" class="block w-full py-1">
+                        @endforeach
+                    </ul>
+                </div>
+                <a href="{{ route('product.class.berbinar-plus.registration') }}" class="block w-full py-1">
                     <div class="mx-auto flex w-fit items-center justify-center rounded-lg bg-gradient-to-l from-[#AD7D29] to-[#F7B23B] px-8 py-2 hover:from-[#AD7D29]/80 hover:to-[#F7B23B]/80 hover:shadow-lg">
                         <span class="text-white">Mulai Sekarang</span>
                     </div>

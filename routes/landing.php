@@ -18,6 +18,7 @@ use App\Http\Controllers\Landing\Product\Psikotest\PsikotestController;
 use App\Http\Controllers\Landing\Product\EmoShuffle\EmoShuffleController;
 use App\Http\Controllers\Landing\Product\ProductController;
 use App\Http\Controllers\Dashboard\PTPM\Psikotest\PsikotestFree\FeedbackController;
+use App\Http\Controllers\Dashboard\HR\_InternshipController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -78,6 +79,9 @@ Route::prefix('produk')->name('product.')->group(function () {
         // Class Berbinar-plus
         Route::prefix('berbinar-plus')->name('berbinar-plus.')->group(function () {
             Route::get('/', [BerbinarPlusController::class, 'index'])->name('index');
+            Route::get('/daftar', [BerbinarPlusController::class, 'registration'])->name('registration');
+            Route::post('/daftar', [BerbinarPlusController::class, 'store'])->name('store');
+            Route::get('/daftar/success', [BerbinarPlusController::class, 'success'])->name('success');
         });
 
         // Class Bisikan
