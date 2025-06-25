@@ -17,7 +17,7 @@
 </style>
 
 <div class="sm:mt-36 mt-24 sm:mb-20 mb-8 sm:mx-16 mx-4 md:bg-white bg-none justify-center flex flex-col md:shadow-lg shadow-none rounded-2xl px-12 max-md:px-1 py-6">
-    <form action="{{route('product.psikotest.personal_data')}}" method="POST">
+    <form action="{{route('product.psikotest.personal_data.store')}}" method="POST">
         @csrf
         <div class="flex flex-row justify-between">
             <a href="{{ route('product.psikotest.schedule') }}">
