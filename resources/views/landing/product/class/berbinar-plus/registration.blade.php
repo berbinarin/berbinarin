@@ -170,7 +170,7 @@
 
                     <!-- Ada form ke dua -->
                     <!-- Form kedua dimulai di sini -->
-                    <div id="registrationForm2" class="">
+                    <div id="registrationForm2" class="hidden">
                         <h1 class="text-4xl font-bold text-center mb-8 mt-1 bg-gradient-to-r from-[#F7B23B] to-[#916823] bg-clip-text text-transparent">Pilih Kelas</h1>
 
 
