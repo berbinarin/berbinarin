@@ -12,7 +12,7 @@ class PsychologistController extends Controller
 {
     public function index(Request $request)
     {
-        $PsikologData = KonsellingPsikolog::where('kategori', 'psikolog')->get();
+        $PsikologData = KonsellingPsikolog::where('kategori', 'psikolog')->orderBy('created_at', 'desc')->get();
         $konselling = $request->session()->get('konselling');
         return view('dashboard.counseling-pm.psychologists.index', ['PsikologData' => $PsikologData], compact('konselling'));
     }

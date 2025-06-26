@@ -28,8 +28,9 @@
                                 <tr>
                                     <th style="text-align: center">No</th>
                                     <th style="text-align: center">Nama Lengkap</th>
-                                    <th style="text-align: center">Tanggal</th>
+                                    <th style="text-align: center">Tanggal Counseling</th>
                                     <th style="text-align: center">Pukul</th>
+                                    <th style="text-align: center">Tanggal Pendaftaran</th>
                                     <th style="text-align: center">Metode</th>
                                     <th style="text-align: center">Sesi</th>
                                     <th style="text-align: center">Daerah</th>
@@ -46,6 +47,7 @@
                                         <td>{{ $item->nama }}</td>
                                         <td>{{ \Carbon\Carbon::parse($item->jadwal_tanggal)->format('d-m-Y') }}</td>
                                         <td class="text-center">{{ $item->jadwal_pukul }}</td>
+                                        <td class="text-center">{{ \Carbon\Carbon::parse($item->created_at)->format("d-m-Y") }}</td>
                                         <td style="text-transform: capitalize;">{{ $item->metode }}</td>
                                         <td style="text-transform: capitalize;">{{ $item->sesi }} Jam</td>
                                         <td style="text-transform: capitalize;">{{ $item->daerah }}</td>
