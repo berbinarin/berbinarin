@@ -170,7 +170,7 @@
 
                     <!-- Ada form ke dua -->
                     <!-- Form kedua dimulai di sini -->
-                    <div id="registrationForm2" class="">
+                    <div id="registrationForm2" class="hidden">
                         <h1 class="text-4xl font-bold text-center mb-8 mt-1 bg-gradient-to-r from-[#F7B23B] to-[#916823] bg-clip-text text-transparent">Pilih Kelas</h1>
 
 
@@ -701,7 +701,7 @@
 </script>
 
 <script>
-    document.getElementById('okButton').addEventListener('click', function(e) {
+document.getElementById('okButton').addEventListener('click', function(e) {
     e.preventDefault();
     const form = document.getElementById('internshipForm');
     const formData = new FormData(form);
@@ -713,11 +713,15 @@
         },
         body: formData
     })
-    .then(response => response.json())
-    .then(data => {
+    .then(response => {
+        if (!response.ok) throw new Error('Gagal submit');
+        return response.json();
     })
-    .catch(() => alert('Terjadi kesalahan koneksi.'));
-    window.location.href = "{{ route('product.class.berbinar-plus.success') }}";
+    .then(data => {
+        // Jika backend mengirim status sukses, redirect
+        window.location.href = "{{ route('product.class.berbinar-plus.success') }}";
+    })
+    .catch(() => alert('Terjadi kesalahan koneksi atau validasi.'));
 });
 </script>
 @endsection
