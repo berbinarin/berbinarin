@@ -45,7 +45,7 @@ jobs:
                   port: ${{ secrets.SSH_PORT }}
                   passphrase: ${{ secrets.SSH_PASSPHRASE }}
                   source: "public/build/"
-                  target: "/home/${{ secrets.SSH_USERNAME }}/repositories/berbinarin/public"
+                  target: "/home/${{ secrets.SSH_USERNAME }}/repositories/berbinarin/"
 
             - name: Connect to server and pull changes
               uses: appleboy/ssh-action@v1.0.0
