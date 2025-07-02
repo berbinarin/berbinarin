@@ -51,7 +51,7 @@
                                     <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails[0]->nama }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Jadwal Tanggal</td>
+                                    <td class="border border-gray-300 px-4 py-2">Tanggal Counseling</td>
                                     <td class="border border-gray-300 px-4 py-2">
                                         {{ \Carbon\Carbon::parse($PsikologDataDetails[0]->jadwal_tanggal)->format('d-m-Y') }}
                                     </td>
@@ -59,6 +59,12 @@
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Jadwal Pukul</td>
                                     <td class="border border-gray-300 px-4 py-2">{{ $PsikologDataDetails[0]->jadwal_pukul }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Tanggal Pendaftaran</td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        {{ \Carbon\Carbon::parse($PsikologDataDetails[0]->created_at)->format('d-m-Y') }}
                                     </td>
                                 </tr>
                                 <tr>
