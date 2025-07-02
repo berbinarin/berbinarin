@@ -43,8 +43,8 @@ jobs:
                   username: ${{ secrets.SSH_USERNAME }}
                   key: ${{ secrets.SSH_PRIVATE_KEY }}
                   port: ${{ secrets.SSH_PORT }}
-                  passphrase: ${{ secrets.SSH_PASSPHRASE }} # Tambahkan baris ini
-                  source: "public/build/" # Direkomendasikan untuk diubah juga
+                  passphrase: ${{ secrets.SSH_PASSPHRASE }}
+                  source: "public/build/"
                   target: "/home/${{ secrets.SSH_USERNAME }}/repositories/berbinarin/public"
 
             - name: Connect to server and pull changes
