@@ -7,13 +7,13 @@
 <div class="relative h-11/12 md:min-h-screen flex flex-col items-center bg-gray-100 justify-center">
 
   <!-- bg-internship -->
-  <img src="{{ asset('assets/images/psikotes/paid/psikotest-soal-bg.png') }}" alt="Latar Belakang Berbinar" class="absolute inset-0 hidden md:block md:w-full md:h-full object-cover z-0">
+  <img src="{{ asset('assets/images/old/psikotes/paid/psikotest-soal-bg.png') }}" alt="Latar Belakang Berbinar" class="absolute inset-0 hidden md:block md:w-full md:h-full object-cover z-0">
 
   <!-- Container untuk ikon di atas card -->
   <div class="absolute top-0 left-0 right-0 flex items-center justify-center mt-8 z-10">
     <div class="bg-white h-[50px] rounded-full px-4 py-2 flex items-center">
-      <img src="{{ asset('assets/images/psikotes/paid/logo-berbinar.png') }}" alt="Ikon" class="w-8 h-8 rounded-full">
-      <img src="{{ asset('assets/images/psikotes/paid/logo-berbinar-psikotest.png') }}" alt="Ikon" class="w-8 h-8 rounded-full ml-2">
+      <img src="{{ asset('assets/images/old/psikotes/paid/logo-berbinar.png') }}" alt="Ikon" class="w-8 h-8 rounded-full">
+      <img src="{{ asset('assets/images/old/psikotes/paid/logo-berbinar-psikotest.png') }}" alt="Ikon" class="w-8 h-8 rounded-full ml-2">
     </div>
   </div>
 

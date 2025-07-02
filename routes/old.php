@@ -1,26 +1,26 @@
 <?php
 // Old Route
 
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\RegistrationController;
+use App\Http\Controllers\Auth\UserPsikotestPaidController;
 use App\Http\Controllers\Berbinarplus\AuthUserController;
-use App\Http\Controllers\HiringGeneralRequirementsController;
-use App\Http\Controllers\HiringPositionsController;
-use App\Http\Controllers\HiringPositionsJobDescriptionController;
-use App\Http\Controllers\HiringPositionsRequirementsController;
-use App\Http\Controllers\Internship\InternshipController;
-use App\Http\Controllers\Internship\UserInternshipController;
-use App\Http\Controllers\LandingController;
-use App\Http\Controllers\PDFController;
-use App\Http\Controllers\PsikotestFree\FeedbackController;
-use App\Http\Controllers\PsikotestFree\QuestionController;
-use App\Http\Controllers\PsikotestFree\ResultController;
-use App\Http\Controllers\PsikotestFree\TestController;
-use App\Http\Controllers\PsikotestFree\UserPsikotestFreeController;
-use App\Http\Controllers\PsikotestPaid\Tools\BDI\NomorBdiController;
-use App\Http\Controllers\PsikotestPaid\Tools\BDI\SoalBdiController;
-use App\Http\Controllers\PsikotestPaid\UserPsikotestPaidController;
-use App\Http\Controllers\RegistrationController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Dashboard\HiringGeneralRequirementsController;
+use App\Http\Controllers\Dashboard\HiringPositionsController;
+use App\Http\Controllers\Dashboard\HiringPositionsJobDescriptionController;
+use App\Http\Controllers\Dashboard\HiringPositionsRequirementsController;
+use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\Dashboard\UserInternshipController;
+use App\Http\Controllers\Landing\InternshipController;
+use App\Http\Controllers\Landing\LandingController;
+use App\Http\Controllers\Landing\PDFController;
+use App\Http\Controllers\Psikotest\Psikotest\BDI\NomorBdiController;
+use App\Http\Controllers\Psikotest\Psikotest\BDI\SoalBdiController;
+use App\Http\Controllers\Psikotest\PsikotestFree\FeedbackController;
+use App\Http\Controllers\Psikotest\PsikotestFree\QuestionController;
+use App\Http\Controllers\Psikotest\PsikotestFree\ResultController;
+use App\Http\Controllers\Psikotest\PsikotestFree\TestController;
+use App\Http\Controllers\Psikotest\PsikotestFree\UserPsikotestFreeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/landing-new', [LandingController::class, 'index'])->name('home');

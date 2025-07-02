@@ -36,6 +36,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('answer_rmibs');
+        Schema::table('answer_rmib', function (Blueprint $table) {
+            $table->dropForeign(['test_rmib_id']);
+        });
+        Schema::dropIfExists('answer_rmib');
     }
 };

@@ -72,7 +72,7 @@
                     <div class="px-4">
                         <div class="flex md:mt-5">
                             <div class="flex-none mr-6 mb-4 hidden md:block">
-                                <img src="{{ asset('assets/images/logo-berbinar-text.png') }}" alt="Logo Berbinar Insightful Indonesia" title="Logo Berbinar Insightful Indonesia" style="width: 8rem">
+                                <img src="{{ asset('assets/images/old/logo-berbinar-text.png') }}" alt="Logo Berbinar Insightful Indonesia" title="Logo Berbinar Insightful Indonesia" style="width: 8rem">
                             </div>
                             <div class="flex-1 overflow-hidden">
                                 <h1 class="text-left text-3xl font-semibold mb-5">Terima Kasih</h1>

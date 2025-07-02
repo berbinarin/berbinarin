@@ -1,10 +1,10 @@
-@extends('moduls.dashboard.layouts.main', [
+@extends('dashboard.layouts.app', [
     'title' => 'Data',
     'active' => 'Dashboard',
     'modul' => 'Psikotest Free Data',
 ])
 
-@section('content-dashboard')
+@section('content')
     <div class="container">
         <h1>Data Psikotes Free</h1>
         <table class="table">

@@ -1,1 +1,0 @@
-var i=new Swiper("#swiperArteriHero",{loop:!0,speed:1e3,autoplay:{delay:3e3,disableOnInteraction:!1}});window.handleSwipeTo=e=>{i.slideTo(e,1e3)};window.handleDetailArticle=e=>{alert(`redirect to detail artikel page id: ${e}`)};

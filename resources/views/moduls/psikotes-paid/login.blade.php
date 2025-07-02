@@ -6,12 +6,12 @@
 @section('content')
 <section>
     <div class="w-screen relative bg-[#BFE2F4]">
-        <img src="{{ asset('assets/images/abstractwallpaper.png') }}" alt="" title=""
+        <img src="{{ asset('assets/images/old/abstractwallpaper.png') }}" alt="" title=""
             class="w-screen h-screen object-cover">
 
         <div class="flex flex-col justify-center items-center">
             <div class="flex justify-center">
-                <img src="{{ asset('assets/images/logo-psikotes.png') }}" alt="" title="" class="w-fit absolute top-5">
+                <img src="{{ asset('assets/images/old/logo-psikotes.png') }}" alt="" title="" class="w-fit absolute top-5">
             </div>
 
             <div class="flex justify-center top-0 bottom-0">

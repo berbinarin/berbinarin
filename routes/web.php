@@ -19,6 +19,3 @@ require __DIR__ . '/landing.php';
 
 // menambahkan Semua route dashboard
 require __DIR__ . '/dashboard.php';
-
-// menambahkan sementara route lama
-require __DIR__. '/old.php';

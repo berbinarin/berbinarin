@@ -1,10 +1,10 @@
-@extends('moduls.dashboard.layouts.main', [
+@extends('dashboard.layouts.app', [
 'title' => 'User Data Papikostick',
 'active' => 'Dashboard',
 'modul' => 'psikotestData',
 ])
 
-@section('content-dashboard')
+@section('content')
 <section class="flex w-full">
   <div class="flex flex-col w-full">
     <div class="w-full">
