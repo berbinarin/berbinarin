@@ -8,6 +8,7 @@ use App\Models\PsikotestPaid\CategoryPsikotestType;
 use App\Models\PsikotestPaid\PsikotestType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class PsikotestController extends Controller
 {
@@ -570,12 +571,15 @@ class PsikotestController extends Controller
         $request->validate([
             'service' => 'required',
             'psikotest_type_id' => 'required',
-            'preference_date' => 'required|date',
+            'preference_date' => 'required|date_format:d/m/Y',
             'preference_time' => 'required',
         ]);
 
-        $datetime = $request->input('preference_date') . ' ' . $request->input('preference_time');
-        $preferenceSchedule = date('Y-m-d H:i:s', strtotime($datetime));
+        $preferenceDate = $request->input('preference_date');
+        $preferenceTime = $request->input('preference_time');
+
+        $carbonDate = Carbon::createFromFormat('d/m/Y H:i', $preferenceDate . ' ' . $preferenceTime);
+        $preferenceSchedule = $carbonDate->format('Y-m-d H:i:s');
 
         $data = [
             'service' => $request->input('service'),
@@ -586,7 +590,7 @@ class PsikotestController extends Controller
         $sessionData = array_merge($request->session()->get('psikotest-paid', []), $data);
         $request->session()->put('psikotest-paid', $sessionData);
 
-        return view('landing.product.psikotest.personal-data')->with([]);
+        return redirect()->route('product.psikotest.personal_data');
     }
 
     public function storePersonalData(Request $request) {
@@ -610,7 +614,7 @@ class PsikotestController extends Controller
 
         $request->session()->forget('psikotest-paid');
 
-        return view('landing.product.psikotest.summary')->with([]);
+        return redirect()->route('product.psikotest.summary');
     }
 
     private function saveUserData(array $data, string $hashedPassword)
