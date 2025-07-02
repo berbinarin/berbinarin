@@ -110,7 +110,6 @@
                 </div>
             @endrole
 
-
             @role ('hr_data-analyst')
                     <div class="w-full">
                         <p class="mb-2 text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">
@@ -127,7 +126,7 @@
                                         <i class='bx bx-user text-xl sm:text-2xl'></i>
                                     </div>
                                     <div class="mt-4 sm:mt-8">
-                                        <p class="text-3xl sm:text-4xl md:text-5xl font-bold">360</p>
+                                        <p class="text-3xl sm:text-4xl md:text-5xl font-bold">{{ $staff->where('status', true)->count() }}</p>
                                         <p class="mt-1 text-sm sm:text-base">Staff</p>
                                     </div>
                                 </div>
@@ -137,18 +136,18 @@
                                         <i class='bx bxs-graduation text-xl sm:text-2xl'></i>
                                     </div>
                                     <div class="mt-4 sm:mt-8">
-                                        <p class="text-3xl sm:text-4xl md:text-5xl font-bold">360</p>
+                                        <p class="text-3xl sm:text-4xl md:text-5xl font-bold">{{ $staff->where('status', false)->count() }}</p>
                                         <p class="mt-1 text-sm sm:text-base">Staff</p>
                                     </div>
                                 </div>
                                 <div class="text-white rounded-lg flex flex-col justify-between p-4 sm:p-6 relative sm:col-span-2 md:col-span-1" style="background-color: #8DB8E2; min-height: 150px;">
                                     <div class="flex justify-between items-center">
-                                        <span class="text-sm sm:text-lg font-semibold">Jumlah Posisi</span>
+                                        <span class="text-sm sm:text-lg font-semibold">Jumlah Sub Divisi</span>
                                         <i class='bx bxs-buildings text-xl sm:text-2xl'></i>
                                     </div>
                                     <div class="mt-4 sm:mt-8">
-                                        <p class="text-3xl sm:text-4xl md:text-5xl font-bold">360</p>
-                                        <p class="mt-1 text-sm sm:text-base">Posisi</p>
+                                        <p class="text-3xl sm:text-4xl md:text-5xl font-bold">{{ $subDivisions }}</p>
+                                        <p class="mt-1 text-sm sm:text-base">Sub Divisi</p>
                                     </div>
                                 </div>
                             </div>

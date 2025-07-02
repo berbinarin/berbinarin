@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\PapiKostick;
+namespace App\Http\Controllers\Dashboard\PTPM\Psikotest\Psikotest\PapiKostick;
 
 use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\PapiKostick\AnswerPapiKostick;
@@ -21,9 +21,10 @@ class PapiKostickController extends Controller
         return view('moduls.psikotes-paid.tools.papi-kostick.landing', compact('user', 'psikotestTool'));
     }
 
-    public function startTest(PsikotestTool $psikotestTool)
+    public function startTest()
     {
         $user = Auth::guard('psikotestpaid')->user();
+        $psikotestTool = PsikotestTool::where('name', 'Papi Kostick')->first();
 
         $psikotestPaidTest = PsikotestPaidTest::create([
             'user_psikotest_paid_id' => $user->id,
@@ -38,15 +39,18 @@ class PapiKostickController extends Controller
         return redirect()->route('psikotest-paid.papi-kostick.showQuestion', ['psikotestTool' => $psikotestTool->id, 'testPapiKostick' => $testPapiKostick->id, 'questionPapiKostick' => 1]);
     }
 
-    public function showQuestion(PsikotestTool $psikotestTool, TestPapiKostick $testPapiKostick, QuestionPapiKostick $questionPapiKostick)
+    public function showQuestion(PsikotestTool $psikotestTool, QuestionPapiKostick $questionPapiKostick)
     {
+        $psikotestTool = PsikotestTool::where('name', 'Papi Kostick')->first();
+
         $totalQuestions = $questionPapiKostick->count();
         $progress = round(($questionPapiKostick->id / $totalQuestions) * 100);
 
-        $existingAnswer = AnswerPapiKostick::where('test_papi_kostick_id', $testPapiKostick->id)
+        
+        $existingAnswer = AnswerPapiKostick::where('test_papi_kostick_id', 1)
             ->where('question_papi_kostick_id', $questionPapiKostick->id)->first();
 
-        return view('moduls.psikotes-paid.tools.papi-kostick.question', compact('questionPapiKostick', 'psikotestTool', 'testPapiKostick', 'existingAnswer', 'progress'));
+        return view('moduls.psikotes-paid.tools.papi-kostick.question', compact('questionPapiKostick', 'psikotestTool', 'existingAnswer', 'progress'));
     }
 
     public function submitAnswers(Request $request, PsikotestTool $psikotestTool, TestPapiKostick $testPapiKostick, QuestionPapiKostick $questionPapiKostick)

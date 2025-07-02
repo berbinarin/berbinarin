@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\PsikotestTestProductManagement;
+namespace App\Http\Controllers\Dashboard\PTPM;
 
 use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\PsikotestPaidTest;

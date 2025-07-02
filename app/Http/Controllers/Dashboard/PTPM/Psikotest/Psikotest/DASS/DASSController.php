@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\DASS;
+namespace App\Http\Controllers\Dashboard\PTPM\Psikotest\Psikotest\DASS;
 
 use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\DASS\AnswerDass;

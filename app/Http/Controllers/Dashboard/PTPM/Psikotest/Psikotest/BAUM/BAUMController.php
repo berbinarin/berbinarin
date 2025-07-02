@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\BAUM;
+namespace App\Http\Controllers\Dashboard\PTPM\Psikotest\Psikotest\BAUM;
 
 use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\BAUM\AnswerBaum;

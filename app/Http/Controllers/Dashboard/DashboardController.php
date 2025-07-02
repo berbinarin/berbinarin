@@ -16,6 +16,7 @@ use App\Models\jadwalPeer;
 use App\Models\KeluargaBerbinar\Division;
 use App\Models\KeluargaBerbinar\SubDivision;
 use App\Models\KeluargaBerbinar\TableRecord;
+use App\Models\KeluargaBerbinar\TableStaff;
 use App\Models\KonsellingPeer;
 use App\Models\KonsellingPsikolog;
 use App\Models\PsikotestPaid\UserPsikotestPaid;
@@ -75,6 +76,8 @@ class DashboardController extends Controller
         $authorCount = Author::count();
 
         $categoryCount = Category::count();
+        $staff = TableStaff::all();
+        $subDivisions = SubDivision::count();
 
 
         return view('dashboard.index', [
@@ -95,6 +98,8 @@ class DashboardController extends Controller
             'articleCount' => $articleCount,
             'authorCount' => $authorCount,
             'categoryCount' => $categoryCount,
+            'staff' => $staff,
+            'subDivisions' => $subDivisions
         ]);
     }
    
