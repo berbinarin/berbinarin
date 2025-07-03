@@ -49,6 +49,14 @@ class Class101JourneyController extends Controller
             ],
         ];
 
+            $bidang_pembelajaran = [
+                'Digital Marketing',
+                'Graphic Design',
+                'Human Resource (HR)',
+                'Product Management',
+                'Social Media Specialist',
+            ];
+
         $faqs = [
             [
                 'question' => 'Apakah akan ada sertifikat setelah mengikuti kelas?',
@@ -73,7 +81,7 @@ class Class101JourneyController extends Controller
         $link_pendaftaran = 'https://bit.ly/Pendaftaran_101ClassJourney';
 
 
-        return view('landing.product.class.class-journey', compact('layanan_class_journey', 'benefit_class_journey', 'faqs', 'poster', 'link_pendaftaran'));
+        return view('landing.product.class.class-journey', compact('layanan_class_journey', 'benefit_class_journey', 'faqs', 'poster', 'link_pendaftaran', 'bidang_pembelajaran'));
     }
 
 }
