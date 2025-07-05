@@ -15,6 +15,7 @@ use App\Http\Controllers\Dashboard\HR\PositionRequirementController;
 use App\Http\Controllers\Dashboard\Marketing\Arteri\ArticleController;
 use App\Http\Controllers\Dashboard\Marketing\Arteri\AuthorController;
 use App\Http\Controllers\Dashboard\Marketing\Arteri\CategoryController;
+use App\Http\Controllers\Dashboard\ClassPM\BerbinarPlusDashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(function () {
@@ -37,9 +38,11 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
 
     // Class Product Management
     route::middleware('role:class-pm')->group(function () {
-
         // Berbinar Plus
-        Route::resource('/berbinar-plus', BerbinarPlusController::class)->only('index');
+        Route::resource('/berbinar-plus', BerbinarPlusController::class);
+        Route::resource('/berbinar-plus-class', BerbinarPlusDashboardController::class);
+
+        
     });
 
 
