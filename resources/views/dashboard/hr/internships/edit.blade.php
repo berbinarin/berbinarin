@@ -50,10 +50,16 @@
                                     </tr>
                                     <tr class="border-b border-gray-200">
                                         <td class="px-4 py-2">
-                                            <label for="posisi" class="font-semibold text-gray-600">Posisi:</label>
+                                            <label for="position_id" class="font-semibold text-gray-600">Posisi:</label>
                                         </td>
                                         <td class="border-l px-4 py-2">
-                                            <input type="text" id="posisi" name="posisi" value="{{ $position->name }}" class="w-full rounded-lg border border-gray-300 px-2 py-1" />
+                                            <select id="position_id" name="position_id" class="w-full rounded-lg border border-gray-300 px-2 py-1">
+                                                @foreach($positions as $pos)
+                                                    <option value="{{ $pos->id }}" {{ $Internship->position_id == $pos->id ? 'selected' : '' }}>
+                                                        {{ $pos->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
                                         </td>
                                     </tr>
                                     <tr class="border-b border-gray-200">

@@ -377,7 +377,7 @@ class LandingController extends Controller
             ],
             [
                 'name' => "Firda Annisapriyanti",
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/firda.png',
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/Firda.png',
                 'region' => 'Palembang'
             ],
             [

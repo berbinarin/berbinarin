@@ -60,14 +60,9 @@ class CounselingController extends Controller
                 'image' => 'assets/images/landing/asset-konseling/image/psikolog/satria.png'
             ],
             [
-                'name' => 'Ira Mayang Sari',
+                'name' => 'Virginia Sukma Dewi',
                 'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/ira.png'
-            ],
-            [
-                'name' => 'Adismara Putri Pradiri',
-                'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/adismara.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/virginia.png'
             ],
             [
                 'name' => 'Ramadhani Lucky Al Kahfi',
@@ -178,24 +173,19 @@ class CounselingController extends Controller
 
         $peers = [
             [
-                'name' => "Shafiyyah Muthi'ah",
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/shafiyyah.png',
-                'region' => 'Tangerang Selatan'
-            ],
-            [
-                'name' => "Firda Annisapriyanti",
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/Firda.png',
-                'region' => 'Palembang'
-            ],
-            [
-                'name' => 'Thahira Raudhatunissa',
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/thahira.png',
+                'name' => "Adinda Fasya Az-zahra D.",
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/adinda.png',
                 'region' => 'Surabaya'
             ],
             [
-                'name' => 'Najwa Chana Indica',
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/najwa.png',
-                'region' => 'Malang'
+                'name' => 'Melisa Nur Amelia',
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/melisa.png',
+                'region' => 'Jombang'
+            ],
+            [
+                'name' => "Rizka Arista Sabilla ",
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/rizka.png',
+                'region' => 'Nganjuk'
             ]
         ];
 

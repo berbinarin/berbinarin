@@ -31,8 +31,13 @@ class InternshipController extends Controller
     public function edit($id)
     {
         $Internship = UserInternship::findOrFail($id);
-        $postion = Hiring_Positions::find($Internship->position_id);
-        return view('dashboard.hr.internships.edit', ['Internship' => $Internship, 'position' => $postion]);
+        $position = Hiring_Positions::find($Internship->position_id);
+        $positions = Hiring_Positions::all(); 
+        return view('dashboard.hr.internships.edit', [
+            'Internship' => $Internship,
+            'position' => $position,
+            'positions' => $positions
+        ]);
     }
 
     public function update(Request $request, UserInternship $internship)
@@ -42,6 +47,7 @@ class InternshipController extends Controller
             'nama_lengkap' => 'required|string',
             'nama_panggilan' => 'required|string',
             'tanggal_lahir' => 'required|date',
+            'position_id' => 'required',
             'no_whatsapp' => 'required|string',
             'asal_kota' => 'required|string',
             'asal_pendidikan' => 'required|string',
