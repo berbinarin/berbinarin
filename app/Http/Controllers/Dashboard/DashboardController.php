@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Articles\Article;
 use App\Models\Articles\Author;
 use App\Models\Articles\Category;
-use App\Models\Berbinarp_enrollment;
+use App\Models\Berbinarp_enrollments;
 use App\Models\Berbinarp_user;
 use App\Models\Dimension;
 use App\Models\Hiring_Positions;

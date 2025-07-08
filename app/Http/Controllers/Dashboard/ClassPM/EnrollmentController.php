@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Berbinarplus;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Berbinarp_enrollment;
+use App\Models\Berbinarp_enrollments;
 
 class EnrollmentController extends Controller
 {
@@ -25,7 +25,7 @@ class EnrollmentController extends Controller
 
         $classId = $this->getClassId($className);
         
-        Berbinarp_enrollment::create([
+        Berbinarp_enrollments::create([
             'user_id' => $userId,
             'class_id' => $classId,
             'transfer_evidance' => '',

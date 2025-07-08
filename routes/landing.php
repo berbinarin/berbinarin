@@ -17,6 +17,7 @@ use App\Http\Controllers\Landing\Product\Counseling\CounselingController;
 use App\Http\Controllers\Landing\Product\Psikotest\PsikotestController;
 use App\Http\Controllers\Landing\Product\EmoShuffle\EmoShuffleController;
 use App\Http\Controllers\Landing\Product\ProductController;
+use App\Http\Controllers\Dashboard\ClassPM\AuthUserController;
 use App\Http\Controllers\Dashboard\PTPM\Psikotest\PsikotestFree\FeedbackController;
 use App\Http\Controllers\Dashboard\HR\_InternshipController;
 use Illuminate\Support\Facades\Route;
@@ -130,7 +131,22 @@ Route::prefix('arteri')->name('arteri.')->group(function () {
 });
 
 
-// // Psikotest Paid
+Route::prefix('/berbinarplus')->group(function () {
+    Route::get('/register', [AuthUserController::class, 'showRegister'])->name('berbinarplus.register');
+    Route::post('/register', [AuthUserController::class, 'register'])->name('berbinarplus.register.post');
+    Route::get('/register/success', [AuthUserController::class, 'success'])->name('berbinarplus.register.success');
+
+    Route::get('/login', [AuthUserController::class, 'showLogin'])->name('berbinarplus.login');
+    Route::post('/login', [AuthUserController::class, 'login'])->name('berbinarplus.login.post');
+
+    Route::post('/logout', [AuthUserController::class, 'logout'])->name('berbinarplus.logout.post');
+
+    Route::group(['middleware' => ['auth.berbinarplus:berbinarplus']], function () {
+        Route::get('/dashboard', [AuthUserController::class, 'dashboard'])->name('berbinarplus.dashboard');
+    });
+});
+
+// Psikotest Paid
 // Route::prefix('/psikotest-paid')->group(function () {
 //     //Biodata Psikotest
 //     Route::resource('/user-clinical', UserClinicalController::class);
