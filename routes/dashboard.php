@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\ClassPM\BerbinarPlusController;
 use App\Http\Controllers\Dashboard\CounselingPM\PeerCounselorController;
 use App\Http\Controllers\Dashboard\CounselingPM\PeerCounselorScheduleController;
+use App\Http\Controllers\Dashboard\CounselingPM\BerbinarForUController;
 use App\Http\Controllers\Dashboard\CounselingPM\PsychologistController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\HR\ajaxInternship;
@@ -33,6 +34,9 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
 
         // Peer Counselor Schedule
         Route::resource('/peer-counselor-schedules', PeerCounselorScheduleController::class)->except('create', 'show', 'edit');
+
+        // Berbinar For U
+        Route::resource('/berbinar-for-u', BerbinarForUController::class)->only(['index', 'show', 'create', 'edit']);
     });
 
     // Class Product Management
