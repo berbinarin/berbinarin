@@ -229,7 +229,7 @@
                     </div>
 
                     <div id="openModal" class="flex justify-start lg:order-5">
-                        <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Lakukan Konseling</button>
+                        <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px] openModalBtn">Lakukan Konseling</button>
                     </div>
                     <div id="modal" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md inset-0 -top-6 z-30 flex hidden items-center justify-center max-sm:-top-2">
                         <div class="h-auto max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
@@ -428,8 +428,8 @@
                                 <p class="text-sm text-black">/1jam</p>
                             </div>
 
-                            <div class="mb-1 mt-4 flex justify-center">
-                                <button class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white">Mulai Sekarang</button>
+                            <div id="openModal" class="mb-1 mt-4 flex justify-center">
+                                <button class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white openModalBtn">Mulai Sekarang</button>
                             </div>
                         </div>
                     </div>
@@ -508,8 +508,8 @@
                                 <p class="text-sm text-black">/1jam</p>
                             </div>
 
-                            <div class="mb-1 mt-4 flex justify-center">
-                                <button class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white">Mulai Sekarang</button>
+                            <div id="openModal" class="mb-1 mt-4 flex justify-center">
+                                <button class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white openModalBtn">Mulai Sekarang</button>
                             </div>
                         </div>
                     </div>
@@ -580,8 +580,8 @@
                                 <p class="text-sm text-black">/1jam</p>
                             </div>
 
-                            <div class="mb-1 mt-5 flex justify-center">
-                                <button class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white">Mulai Sekarang</button>
+                            <div id="openModal" class="mb-1 mt-5 flex justify-center">
+                                <button class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white openModalBtn">Mulai Sekarang</button>
                             </div>
                         </div>
                     </div>
@@ -600,8 +600,8 @@
                                 <p class="text-sm text-black">/1jam</p>
                             </div>
 
-                            <div class="mb-1 mt-5 flex justify-center">
-                                <button class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white">Mulai Sekarang</button>
+                            <div id="openModal" class="mb-1 mt-5 flex justify-center">
+                                <button class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white openModalBtn">Mulai Sekarang</button>
                             </div>
                         </div>
                     </div>
@@ -722,8 +722,10 @@
     </script>
 
     <script>
-        document.getElementById('openModal').addEventListener('click', function () {
-            document.getElementById('modal').classList.remove('hidden');
+        document.querySelectorAll('.openModalBtn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.getElementById('modal').classList.remove('hidden');
+            });
         });
 
         document.getElementById('closeModal').addEventListener('click', function () {
