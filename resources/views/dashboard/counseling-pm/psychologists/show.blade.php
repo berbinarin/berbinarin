@@ -9,32 +9,31 @@
         <div class="flex flex-col w-full">
             <div class="w-full">
                 <div class="py-4 md:pt-12 md:pb-7">
-                    <div class="flex flex-row items-center">
-                        <a href="{{ route('dashboard.psychologists.index') }}" class="mr-6 mt-8 text-left">
-                            <i class='bx bx-arrow-back text-[35px] text-primary'></i>
+                    <div class="mb-2 flex items-center gap-2">
+                        <a href="{{ route('dashboard.psychologists.index') }}">
+                            <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                         </a>
-                        <div>
-                            <p tabindex="0"
-                                class="focus:outline-none text-2xl md:text-4xl font-bold leading-normal text-gray-800 mb-2">
-                                Konseling Psikolog Data
-                            </p>
-                            <p class="text-disabled">Fitur ini digunakan untuk menampilkan data pendaftar konseling yang
-                                mendaftar melalui situs web Berbinar.</p>
-                            <div class="mt-8 sm:mt-3 flex space-x-4">
-                                <a href="{{ route('dashboard.psychologists.edit', $PsikologDataDetails[0]->id) }}" type="button"
-                                    class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded">
-                                    <p class="font-medium leading-none text-dark">Edit Data</p>
-                                </a>
-                                <form action="{{ route('dashboard.psychologists.destroy', $PsikologDataDetails[0]->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit"
-                                        class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded">
-                                        <p class="font-medium leading-none text-dark">Delete Data</p>
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
+                        <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">
+                            Konseling Psikolog Data
+                        </p>
+                    </div>
+                    <p class="w-3/4 text-disabled">
+                        Fitur ini digunakan untuk menampilkan data pendaftar konseling yang
+                        mendaftar melalui situs web Berbinar.
+                    </p>
+                    <div class="mt-8 sm:mt-3 flex space-x-4">
+                        <a href="{{ route('dashboard.psychologists.edit', $PsikologDataDetails[0]->id) }}" type="button"
+                            class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded">
+                            <p class="font-medium leading-none text-dark">Edit Data</p>
+                        </a>
+                        <form action="{{ route('dashboard.psychologists.destroy', $PsikologDataDetails[0]->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit"
+                                class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded">
+                                <p class="font-medium leading-none text-dark">Delete Data</p>
+                            </button>
+                        </form>
                     </div>
                 </div>
                 <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-md shadow-lg">

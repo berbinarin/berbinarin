@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\OCEAN;
+namespace App\Http\Controllers\Dashboard\PTPM\Psikotest\Psikotest\OCEAN;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Psikotest\Tools\ResultOceanController;

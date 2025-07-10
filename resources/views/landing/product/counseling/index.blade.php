@@ -530,7 +530,7 @@
 
         <div class="swiperContainer">
             <div class="swiper mt-10" id="swiperPeer">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper flex lg:justify-center">
                     @foreach ($peers as $peer)
                         <div class="swiper-slide">
                             <div class="flex flex-col items-center text-center">
@@ -849,7 +849,7 @@
 
         // Swiper Peer Counselor Berbinar
         var swiper = new Swiper('#swiperPeer', {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 10,
             speed: 300,
             loop: true,
@@ -869,7 +869,7 @@
                     spaceBetween: 10,
                 },
                 768: {
-                    slidesPerView: 3,
+                    slidesPerView: 4,
                     spaceBetween: 10,
                 },
                 1024: {

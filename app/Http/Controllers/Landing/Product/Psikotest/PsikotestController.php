@@ -540,7 +540,7 @@ class PsikotestController extends Controller
                 'name' => 'Komunitas'
             ],
             [
-                'image' => 'assets/images/landing/asset-psikotes/illustrasi/Pendidikan.png',
+                'image' => 'assets/images/landing/asset-psikotes/illustrasi/pendidikan.png',
                 'name' => 'Pendidikan'
             ],
         ];

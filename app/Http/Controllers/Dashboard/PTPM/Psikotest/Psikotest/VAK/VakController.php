@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\VAK;
+namespace App\Http\Controllers\Dashboard\PTPM\Psikotest\Psikotest\VAK;
 
 use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\PsikotestPaidTest;

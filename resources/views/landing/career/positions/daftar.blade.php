@@ -7,19 +7,6 @@
 @section('content')
 
 <div class="relative h-11/12 md:min-h-screen flex flex-col items-center bg-gray-100 justify-center z-0 pt-20 md:pt-40">
-  <!-- bg-internship -->
-  <!-- <div class="absolute inset-0 flex items-center justify-center"> -->
-    <!-- Gambar latar belakang untuk desktop -->
-    <!-- <img src="{{ asset('assets/images/internship/register/bg-registrasi.png') }}" alt="Latar Belakang Berbinar" class="absolute inset-0 hidden md:block md:w-full md:h-full object-cover"> -->
-    <!-- Gambar latar belakang untuk mobile -->
-    <!-- <img src="{{ asset('assets/images/internship/register/bg-registrasi-mobile.png') }}" alt="Latar Belakang Berbinar" class="absolute inset-0 md:hidden object-cover"> -->
-  <!-- </div> -->
-
-  <!-- Logo Container -->
-  <!-- <div class="absolute top-2 left-0 md:mt-2 ml-4 flex items-center">
-    <img src="{{ asset('assets/images/internship/register/logo-berbinar.png') }}" alt="Logo Berbinar" class="w-14 pl-4 pt-4">
-  </div> -->
-
   <!-- Text Container -->
   <div class="text-center mt-8 mb-10 relative z-20 md:-mt-1 md:mb-2">
     <h2 class="text-md font-bold text-zinc-800 md:text-4xl sm:text-base">Pendaftaran Internship <span class="bg-gradient-to-r from-[#3986A3] to-[#15323D] bg-clip-text text-transparent">Berbinar</span></h2>
@@ -38,8 +25,6 @@
         </a>
 
     <div class="number flex space-x-2 py-6 mb-2 md:px-1 -mt-4 hidden md:flex justify-center w-full">
-
-
       <!-- Page Indicator 1 (pada form 1) -->
       <div class="py-2 relative flex items-center justify-end" id="pageIndicatorOne">
         <div class="flex items-center justify-center">
@@ -137,25 +122,22 @@
           </div>
         </div>
       </div>
-
-
     </div>
 
-
-
     <div class="md:w-4xl">
-      <!-- Halaman Pertama -->
-      <form action="{{ route('career.positions.daftar.store', $position->id) }}" method="POST">
-        @csrf
-        <h2 class="tittleOne text-xl bg-gradient-to-r from-[#F7B23B] to-[#916823] bg-clip-text text-transparent font-bold text-bold text-center mt-4 md:-mt-7 mb-5 xl:text-3xl">Biodata Diri</h2>
-        <div id="pageOne" class="pageOne flex flex-col mx-auto md:flex-row ">
-          <!-- <div id="pageTwo" class="pageTwo flex flex-col mx-auto md:flex-row mt-5 mx-2 hidden"> -->
+      
 
-          <!-- Card Kiri (Informasi) -->
+      <form id="internshipForm" action="{{ route('career.positions.daftar.store', $position->id) }}" method="POST">
+        @csrf
+        
+        <!-- Page One: Biodata Diri -->
+        <h2 class="tittleOne text-xl bg-gradient-to-r from-[#F7B23B] to-[#916823] bg-clip-text text-transparent font-bold text-bold text-center mt-4 md:-mt-7 mb-5 xl:text-3xl">Biodata Diri</h2>
+        <div id="pageOne" class="pageOne flex flex-col mx-auto md:flex-row">
+          <!-- Card Kiri -->
           <div class="w-full mx-auto md:w-1/2 -py-6 md:flex md:justify-end xl:justify-start">
             <div class="px-4 xl:w-full">
               <div class="mb-4">
-                <input type="hidden" name="position_id" value={{$position->id}}>
+                <input type="hidden" name="position_id" value="{{$position->id}}">
                 <label for="email" class="block text-sm xl:text-sm font-medium text-gray-700">Email Aktif</label>
                 <input type="email" id="email" name="email" placeholder="xxx@gmail.com" class="mt-1 block w-full xl:w-full md:w-[370px] px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm max-sm:text-xs" required>
               </div>
@@ -175,11 +157,10 @@
                 <label for="no_whatsapp" class="block text-sm xl:text-sm font-medium text-gray-700">Nomor WhatsApp Aktif</label>
                 <input type="text" id="no_whatsapp" name="no_whatsapp" placeholder="+628XXXXXXXXXX" class="mt-1 bg-gray-200 md:w-[370px] block w-full xl:w-full px-3 py-2 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm" required>
               </div>
-
             </div>
           </div>
 
-          <!-- Card Kanan (Informasi) -->
+          <!-- Card Kanan -->
           <div class="w-full mx-auto md:w-1/2 -py-6">
             <div class="px-4">
               <div class="mb-4">
@@ -201,18 +182,16 @@
             </div>
           </div>
         </div>
-        <!-- Tombol untuk tampilan desktop -->
+        <!-- Buttons Page One -->
         <div id="buttonsPageOne" class="hidden md:flex justify-center w-full pt-6">
             <button id="nextButtonPageOne" type="button" class="w-full mt-4 md:w-auto bg-gradient-to-r from-[#3986A3] to-[#15323D] text-white py-2 px-20 xl:px-40 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary">Selanjutnya</button>
         </div>
 
-        <!-- Halaman Kedua -->
-        <h2 id="pageTitleTwo" class="tittleTwo text-xl xl:text-3xl bg-gradient-to-r from-[#F7B23B] to-[#916823] bg-clip-text text-transparent font-bold text-bold text-center md:-mb-2 mt-4 lg:-mt-12 hidden">Sosial Media</h2>
+        <!-- Page Two: Sosial Media -->
+        <h2 id="pageTitleTwo" class="tittleTwo text-xl xl:text-3xl bg-gradient-to-r from-[#F7B23B] to-[#916823] bg-clip-text text-transparent font-bold text-bold text-center md:-mb-2 mt-4 md:-mt-7 hidden">Sosial Media</h2>
         <div id="pageTwo" class="pageTwo flex flex-col mx-auto md:flex-row mt-5 mx-2 hidden">
-          <!-- Card Penuh (Informasi) -->
           <div class="w-full mx-auto md:w-full md:py-2 md:px-6 md:-mt-1">
             <div class="px-4">
-              <!-- <form id="formPageTwo" action="#" method="POST"> -->
               <div class="mb-3">
                 <label for="akun_instagram" class="block text-sm xl:text-base font-medium text-gray-700">Tautan akun Instagram</label>
                 <p class="text-xs xl:text-sm font-small">(Disarankan mencantumkan akun Instagram yang tidak diprivate)</p>
@@ -234,32 +213,24 @@
               </div>
 
               <div class="hidden md:flex justify-between items-center mb-6 mt-5">
-                <!-- Tombol Sebelumnya -->
                 <button id="previousButtonPageTwo" type="button" class="w-full md:w-auto bg-[#C7F8FF] text-gray-700 py-2 px-4 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">Sebelumnya</button>
-
-                <!-- Tombol Selanjutnya -->
                 <button id="nextButtonPageTwo" type="button" class="w-full md:w-auto bg-gradient-to-r from-[#3986A3] to-[#15323D] text-white py-2 px-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary">Selanjutnya</button>
               </div>
-              <!-- </form> -->
             </div>
           </div>
         </div>
 
-        <!-- Halaman Ketiga -->
-        <h2 id="pageTitleThree" class="tittleThree text-xl xl:text-3xl bg-gradient-to-r from-[#F7B23B] to-[#916823] bg-clip-text text-transparent font-bold text-bold text-center md:-mb-2 mt-4 lg:-mt-12 hidden">Berkas Pendaftaran</h2>
+        <!-- Page Three: Berkas Pendaftaran -->
+        <h2 id="pageTitleThree" class="tittleThree text-xl xl:text-3xl bg-gradient-to-r from-[#F7B23B] to-[#916823] bg-clip-text text-transparent font-bold text-bold text-center md:-mb-2 mt-4 lg:-mt-7 hidden">Berkas Pendaftaran</h2>
         <div id="pageThree" class="pageThree flex flex-col mx-auto md:flex-row mt-5 mx-2 hidden">
-          <!-- Card Penuh (Informasi) -->
           <div class="w-full mx-auto md:w-full md:py-2 md:px-6">
             <div class="px-4">
-              <!-- <form id="formPageThree" action="#" method="POST"> Tambahkan form element -->
               <div class="mb-3">
                 <label for="tautan_cv" class="block text-sm xl:text-base font-medium text-gray-700">Tautan CV</label>
-                <!-- <p class="text-xs">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p> -->
                 <input type="text" id="tautan_cv" name="tautan_cv" placeholder="https://drive.google.com/drive/folders/folderAnda" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs text-xs xl:text-sm font-small" required>
               </div>
               <div class="mb-3">
                 <label for="tautan_portofolio" class="block text-sm xl:text-base font-medium text-gray-700">Tautan Portofolio</label>
-                <!-- <p class="text-xs">(Disarankan mencantumkan akun LinkedIn yang tidak diprivate)</p> -->
                 <input type="text" id="tautan_portofolio" name="tautan_portofolio" placeholder="https://drive.google.com/drive/folders/folderAnda" class="mt-1 block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs text-xs xl:text-sm font-small" required>
               </div>
               <div class="mb-3">
@@ -271,57 +242,44 @@
               </div>
 
               <div class="hidden md:flex justify-between items-center mb-6 mt-20">
-                <!-- Tombol Sebelumnya -->
                 <button id="previousButtonPageThree" type="button" class="w-full md:w-auto bg-[#C7F8FF] text-gray-700 py-2 px-4 mt-4 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">Sebelumnya</button>
-
-                <!-- Tombol Selanjutnya -->
                 <button id="nextButtonPageThree" type="button" class="w-full md:w-auto bg-gradient-to-r from-[#3986A3] to-[#15323D] text-white py-2 px-4 mt-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary">Selanjutnya</button>
               </div>
-              <!-- </form> -->
             </div>
           </div>
         </div>
 
-        <!-- Halaman Keempat -->
-        <h2 id="pageTitleFour" class="tittleFour text-xl xl:text-3xl bg-gradient-to-r from-[#F7B23B] to-[#916823] bg-clip-text text-transparent font-bold text-bold text-center md:-mb-3 mt-4 lg:-mt-12 hidden">Motivasi</h2>
+        <!-- Page Four: Motivasi -->
+        <h2 id="pageTitleFour" class="tittleFour text-xl xl:text-3xl bg-gradient-to-r from-[#F7B23B] to-[#916823] bg-clip-text text-transparent font-bold text-bold text-center md:-mb-3 mt-4 lg:-mt-7 hidden">Motivasi</h2>
         <div id="pageFour" class="pageFour flex flex-col mx-auto md:flex-row mt-5 mx-2 hidden">
-          <!-- Card Penuh (Informasi) -->
           <div class="w-full mx-auto md:w-full md:py-2 md:px-6">
             <div class="px-4">
-              <!-- <is_process <form id="formPageFour" action="#" method="POST"> Tambahkan form element -->
               <div class="mb-4">
                 <label for="motivasi" class="block text-xs xl:text-base font-medium text-gray-700">Motivasi Mendaftar Internship Berbinar</label>
-                <!-- <p class="text-xs">(Disarankan mencantumkan akun TikTok yang tidak diprivate)</p> -->
                 <textarea type="textarea" id="motivasi" name="motivasi" placeholder="Motivasi saya mendaftaran magang di Berbinar Insightful Indonesia adalah ..." class="mt-1 h-[200px] block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-xs xl:text-sm" required></textarea>
-                <input type="hidden" name="is_process" value={{ true }}>
-                <input type="hidden" name="status_tidak_dapat_diproses" value={{ true }}>
-                <input type="hidden" name="status_catatan" value={{ true }}>
-                <input type="hidden" name="status_progress" value={{ true }}>
+                <input type="hidden" name="is_process" value="0">
+                <input type="hidden" name="status_tidak_dapat_diproses" value="Pilih">
+                <input type="hidden" name="status_catatan" value="Pilih">
+                <input type="hidden" name="status_progress" value="Pilih">
               </div>
               <div class="hidden md:flex justify-between items-center mb-6 mt-4">
-                <!-- Tombol Sebelumnya -->
                 <button id="previousButtonPageFour" type="button" class="w-full md:w-auto bg-[#C7F8FF] text-gray-700 py-2 px-4 md:mt-16 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">Sebelumnya</button>
-
-                <!-- Tombol Selanjutnya -->
                 <button id="nextButtonPageFour" type="button" class="w-full md:w-auto bg-gradient-to-r from-[#3986A3] to-[#15323D] text-white py-2 px-4  md:mt-16 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary">Selanjutnya</button>
               </div>
-              <!-- </form> -->
             </div>
           </div>
         </div>
 
-        <!-- Halaman Kelima -->
-        <h2 id="pageTitleFive" class="tittleFive text-2xl xl:text-3xl bg-gradient-to-r from-[#F7B23B] to-[#916823] bg-clip-text text-transparent font-bold text-bold text-center md:-mb-3 mt-4 lg:-mt-12 hidden">Terima kasih</h2>
+        <!-- Page Five: Terima Kasih -->
+        <h2 id="pageTitleFive" class="tittleFive text-2xl xl:text-3xl bg-gradient-to-r from-[#F7B23B] to-[#916823] bg-clip-text text-transparent font-bold text-bold text-center md:-mb-3 mt-4 lg:-mt-7 hidden">Terima kasih</h2>
         <div id="pageFive" class="pageFive flex flex-col justify-center items-center mx-auto md:flex-row mt-2 mx-2 hidden">
           <div class="w-full mx-auto md:w-full md:py-2 md:px-6">
             <div class="px-4">
-              <!-- <form id="formPageFive" action="#" method="POST"> Tambahkan form element -->
               <div class="mb-3 px-8 -mt-2 text-center">
                 <div class="flex justify-center items-center">
                   <img src="{{ asset('assets/images/old/psikotes/feedback/sangat-suka-hd.png') }}" alt="" class="w-[100px]">
                 </div>
 
-                <!-- <label for="tiktokFive" class="block text-lg font-medium text-gray-700">Motivasi Mendaftar Internship Berbinar</label> -->
                 <p class="text-sm xl:text-base">Terima kasih sudah mendaftar. Pastikan bahwa seluruh data telah benar, link dapat diakses, dan jangan lupa tekan tombol kirim di bawah ini 😆</p>
                 <p class="text-sm mt-4 mb-4">Jika ada pertanyaan lebih lanjut, bisa hubungi WA di bawah ini:<br>
                   Rival (<a href="https://wa.me/62895411933342" class="text-blue-500">0895411933342</a>)<br>
@@ -329,29 +287,21 @@
                   Amel (<a href="https://wa.me/6285264351885" class="text-blue-500">085264351885</a>)<br>
                   Nurul (<a href="https://wa.me/6283182356031" class="text-blue-500">083182356031</a>)<br>
                 </p>
-                <!-- <textarea type="textarea" id="tiktokFive" name="tiktokFive" placeholder="Lorem Ipsum" class="mt-1 h-[200px] block w-full px-3 py-2 bg-gray-200 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-xs"></textarea> -->
               </div>
 
               <div class="hidden md:flex justify-between items-center -mt-[4.4rem] mb-6">
-                <!-- Tombol Sebelumnya -->
                 <button id="previousButtonPageFive" type="button" class="w-full md:w-auto bg-[#C7F8FF] md:mt-36 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400">Sebelumnya</button>
-
-                <!-- Tombol Kirim -->
                 <button id="nextButtonPageFive" type="button" class="w-full md:w-auto bg-gradient-to-r from-[#3986A3] to-[#15323D] md:mt-36 text-white py-2 px-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary">Kirim</button>
               </div>
-
-              <!-- Modal -->
+              <!-- Success Modal -->
               <div id="successModal" class="fixed z-10 inset-0 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
                 <div class="flex w-full items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                  <!-- Background overlay -->
                   <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-
-                  <!-- Modal content -->
                   <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
                   <div class="inline-block align-bottom bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                     <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                       <div class="sm:flex sm:items-center">
-                        <div class="w-full sm:w-auto mx-auto"> <!-- Center the content horizontally -->
+                        <div class="w-full sm:w-auto mx-auto">
                           <div class="text-lg leading-6 font-medium text-gray-900 relative text-center" id="modal-title">
                             <img src="{{ asset('assets/images/internship/register/icon-success.png') }}" alt="Success Icon" class="block mx-auto w-9 h-9 md:w-9 md:h-9 object-cover">
                           </div>
@@ -364,268 +314,31 @@
                       </div>
                     </div>
                     <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                      <button id="closeModal" name="submit" name="submit" class="w-xl md:w-full md:w-auto bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary sm:text-xs">
+                      <button id="closeModal" name="submit" class="w-xl md:w-full md:w-auto bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary sm:text-xs">
                         Tutup
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
+
+            </div>
+          </div>
+        </div>
       </form>
     </div>
 
     <style>
         @media (min-width: 768px) {
             #customSection {
-                padding-top: 10rem; /* setara dengan md:pt-20 di Tailwind */
+                padding-top: 10rem;
             }
         }
     </style>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-
-    document.addEventListener("DOMContentLoaded", function () {
-        flatpickr("#tanggal_lahir", {
-            dateFormat: "d/m/Y",
-            allowInput: true
-        });
-    });
-
-      document.getElementById('nextButtonPageFive').addEventListener('click', function(event) {
-        event.preventDefault();
-
-        var hasError = false; // Assume no error initially
-        var errorMessage;
-        // Example error checking logic (replace with actual logic)
-        var requiredFields = [
-          'email',
-          'nama_lengkap',
-          'nama_panggilan',
-          'tanggal_lahir',
-          'no_whatsapp',
-          'asal_kota',
-          'asal_pendidikan',
-          'status_kelas',
-          'jurusan',
-          'akun_instagram',
-          'akun_tiktok',
-          'akun_linkdin',
-          'sumber_informasi',
-          'tautan_cv',
-          'tautan_portofolio',
-          'tautan_berkas_ss',
-          'motivasi'
-        ];
-
-        requiredFields.forEach(function(fieldId) {
-          var field = document.getElementById(fieldId);
-          if (!field || field.value.trim() === '') {
-            hasError = true;
-            errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' belum diisi nih :(';
-            console.log("Missing or empty field: " + fieldId); // Log the missing field for debugging
-            // break;
-          }
-          if (fieldId === 'email') {
-            if (!isValidEmail(field.value)){
-              hasError = true;
-              errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-              console.log('salah format: ' + fieldId);
-            }
-          }
-          if (fieldId === 'no_whatsapp') {
-            if (!isValidPhoneNumber(field.value)){
-              hasError = true;
-              errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-              console.log('salah format: ' + fieldId);
-            }
-          }
-
-          if (fieldId === 'tautan_cv' || fieldId === 'tautan_portofolio' || fieldId === 'tautan_berkas_ss'){
-            if (!isValidGoogleDriveLink(field.value)){
-             hasError = true;
-             errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-             console.log('salah format: ' + fieldId);
-            }
-          }
-          if (fieldId === 'akun_instagram'){
-            if(!isValidInstagramLink(field.value)){
-              hasError = true;
-              errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-              console.log('salah format: ' + fieldId);
-            }
-          }
-          if (fieldId === 'akun_tiktok'){
-            if(!isValidTikTokLink(field.value)){
-              hasError = true;
-              errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-              console.log('salah format: ' + fieldId);
-            }
-          }
-          if (fieldId === 'akun_linkdin'){
-            if(!isValidLinkedInLink(field.value)){
-              hasError = true;
-              errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-              console.log('salah format: ' + fieldId);
-            }
-          }
-        });
-
-        console.log("HASERROR: " + hasError
-
-        );
-
-        if (hasError) {
-          const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          // confirmButtonText: 'X',
-          showCloseButton: true,
-          timer: null,
-          timerProgressBar: false,
-              didOpen: (toast) => {
-                  toast.onmouseenter = null;
-                  toast.onmouseleave = null;
-              }
-          });
-
-
-          Toast.fire({
-              icon: "error",
-              title: errorMessage
-          });
-        } else {
-          // No error, show the modal
-          document.getElementById('successModal').classList.remove('hidden');
-        }
-      });
-
-      function removeUnderscores(str) {
-          return str.replace(/_/g, ' '); // Replace all underscores with spaces
-      }
-
-
-      function isValidURL(url) {
-          // Regular expression for basic URL validation
-          // var urlPattern = new RegExp('^(https?:\\/\\/)?' + // protocol
-          //         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-          //         '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-          //         '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-          //         '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-          //         '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
-          // return urlPattern.test(url);
-          return true;
-      }
-
-      function isValidEmail(email) {
-          // // Regular expression for basic email validation
-          // var emailPattern = new RegExp(
-          //     '^[a-zA-Z0-9._%+-]+' +           // local part
-          //     '@' +                            // @ symbol
-          //     '([a-zA-Z0-9.-]+\\.[a-zA-Z]{2,})$', 'i' // domain name
-          // );
-          // return emailPattern.test(email);
-          return true;
-      }
-
-      function isValidGoogleDriveLink(url) {
-          // // Regular expression for validating Google Drive links
-          // var googleDrivePattern = new RegExp(
-          //     '^(https:\\/\\/)?(drive\\.google\\.com\\/)' + // Google Drive domain
-          //     '(file\\/d\\/|open\\?id=|drive\\/folders\\/|drive\\/u\\/\\d\\/folders\\/|drive\\/folders\\/)' + // Different possible paths
-          //     '[a-zA-Z0-9-_]+', // File or folder ID
-          //     'i' // Case-insensitive flag
-          // );
-          // return googleDrivePattern.test(url);
-          return true;
-      }
-
-      function isValidInstagramLink(url) {
-          // // Regular expression for validating Instagram links
-          // var instagramPattern = new RegExp(
-          //     '^(https?:\\/\\/)?(www\\.)?instagram\\.com\\/' + // Instagram domain
-          //     '[a-zA-Z0-9_\\.]+\\/?$', // Username with optional trailing slash
-          //     'i' // Case-insensitive flag
-          // );
-          // return instagramPattern.test(url);
-          return true;
-        }
-
-      function isValidTikTokLink(url) {
-          // // Regular expression for validating TikTok links
-          // var tikTokPattern = new RegExp(
-          //     '^(https?:\\/\\/)?(www\\.)?tiktok\\.com\\/(@[a-zA-Z0-9_]+)\\/?$', // TikTok domain and username with optional trailing slash
-          //     'i' // Case-insensitive flag
-          // );
-          // return tikTokPattern.test(url);
-          return true;
-      }
-
-      function isValidLinkedInLink(url) {
-          // // Regular expression for validating LinkedIn links
-          // var linkedInPattern = new RegExp(
-          //     '^(https?:\\/\\/)?(www\\.)?linkedin\\.com\\/' + // LinkedIn domain
-          //     '(in|pub|company|school)\\/[a-zA-Z0-9_-]+\\/?$', // Profile, company, or school paths with optional trailing slash
-          //     'i' // Case-insensitive flag
-          // );
-          // return linkedInPattern.test(url);
-          return true;
-      }
-
-
-      function isValidPhoneNumber(number) {
-          // // Regular expression for validating phone numbers starting with +
-          // var phonePattern = new RegExp(
-          //     '^\\+[0-9]+$' // Must start with + followed by one or more digits
-          // );
-          // return phonePattern.test(number);
-          return true;
-      }
-
-      document.getElementById('closeModal').addEventListener('click', function() {
-        document.getElementById('successModal').classList.add('hidden');
-        document.addEventListener("DOMContentLoaded", function() {
-          const successModal = document.getElementById('successModal');
-          const previousButtonPageFive = document.getElementById('previousButtonPageFive');
-          const nextButtonPageFive = document.getElementById('nextButtonPageFive');
-          const closeModal = document.getElementById('closeModal');
-
-          if (nextButtonPageFive) {
-            nextButtonPageFive.addEventListener('click', function() {
-              // Tampilkan modal
-              successModal.classList.remove('hidden');
-              successModal.classList.add('flex');
-
-              // Optional: Anda bisa menyembunyikan tombol "Sebelumnya" di sini
-              if (previousButtonPageFive) {
-                previousButtonPageFive.style.display = 'none';
-              }
-            });
-          }
-
-          if (closeModal) {
-            closeModal.addEventListener('click', function() {
-              // Sembunyikan modal
-              successModal.classList.remove('flex');
-              successModal.classList.add('hidden');
-
-              // Optional: Anda bisa menampilkan kembali tombol "Sebelumnya" di sini
-              if (previousButtonPageFive) {
-                previousButtonPageFive.style.display = 'block';
-              }
-            });
-          }
-        });
-      });
-    </script>
-    <!-- </form> -->
   </div>
 </div>
-</div>
-</div>
 
-<!-- Button Mobile -->
+<!-- Mobile Navigation Buttons -->
 <div class="w-full h-1/12 relative flex flex-col items-end justify-end -ml-2">
   <div class="mr-14 flex md:flex justify-end">
     <div class="flex justify-end mt-8 md:hidden">
@@ -666,612 +379,12 @@
     </div>
   </div>
 </div>
-<!-- Button Mobile End -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-      document.getElementById('nextMobileFive').addEventListener('click', function(event) {
-        event.preventDefault();
 
-        var hasError = false; // Assume no error initially
-
-        // Example error checking logic (replace with actual logic)
-        var requiredFields = [
-          'email',
-          'nama_lengkap',
-          'nama_panggilan',
-          'tanggal_lahir',
-          'no_whatsapp',
-          'asal_kota',
-          'asal_pendidikan',
-          'status_kelas',
-          'jurusan',
-          'akun_instagram',
-          'akun_tiktok',
-          'akun_linkdin',
-          'sumber_informasi',
-          'tautan_cv',
-          'tautan_portofolio',
-          'tautan_berkas_ss',
-          'motivasi'
-        ];
-
-        requiredFields.forEach(function(fieldId) {
-          var field = document.getElementById(fieldId);
-          if (!field || field.value.trim() === '') {
-            hasError = true;
-            errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' belum diisi nih :(';
-            console.log("Missing or empty field: " + fieldId); // Log the missing field for debugging
-            // break;
-          }
-          if (fieldId === 'email') {
-            if (!isValidEmail(field.value)){
-              hasError = true;
-              errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-              console.log('salah format: ' + fieldId);
-            }
-          }
-          if (fieldId === 'no_whatsapp') {
-            if (!isValidPhoneNumber(field.value)){
-              hasError = true;
-              errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-              console.log('salah format: ' + fieldId);
-            }
-          }
-
-          if (fieldId === 'tautan_cv' || fieldId === 'tautan_portofolio' || fieldId === 'tautan_berkas_ss'){
-            if (!isValidGoogleDriveLink(field.value)){
-             hasError = true;
-             errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-             console.log('salah format: ' + fieldId);
-            }
-          }
-          if (fieldId === 'akun_instagram'){
-            if(!isValidInstagramLink(field.value)){
-              hasError = true;
-              errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-              console.log('salah format: ' + fieldId);
-            }
-          }
-          if (fieldId === 'akun_tiktok'){
-            if(!isValidTikTokLink(field.value)){
-              hasError = true;
-              errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-              console.log('salah format: ' + fieldId);
-            }
-          }
-          if (fieldId === 'akun_linkdin'){
-            if(!isValidLinkedInLink(field.value)){
-              hasError = true;
-              errorMessage = 'kolom ' + removeUnderscores(fieldId) + ' kamu salah format :(';
-              console.log('salah format: ' + fieldId);
-            }
-          }
-        });
-        console.log("HASERROR: " + hasError);
-
-        if (hasError) {
-          const Toast = Swal.mixin({
-              toast: true,
-              position: "top-end",
-              showConfirmButton: false,
-              // confirmButtonText: 'X',
-              showCloseButton: true,
-              timer: null,
-              timerProgressBar: false,
-              didOpen: (toast) => {
-                  toast.onmouseenter = null;
-                  toast.onmouseleave = null;
-              }
-          });
-
-          Toast.fire({
-              icon: "error",
-              title: errorMessage
-          });
-        } else {
-          // No error, show the modal
-          document.getElementById('successModal').classList.remove('hidden');
-        }
-      });
-
-      document.getElementById('closeModal').addEventListener('click', function() {
-        document.getElementById('successModal').classList.add('hidden');
-        document.addEventListener("DOMContentLoaded", function() {
-          const successModal = document.getElementById('successModal');
-          const previousMobileFive = document.getElementById('previousMobileFive');
-          const nextMobileFive = document.getElementById('nextMobileFive');
-          const closeModal = document.getElementById('closeModal');
-
-          if (nextMobileFive) {
-            nextMobileFive.addEventListener('click', function() {
-              // Tampilkan modal
-              successModal.classList.remove('hidden');
-              successModal.classList.add('flex');
-
-              // Optional: Anda bisa menyembunyikan tombol "Sebelumnya" di sini
-              if (previousMobileFive) {
-                previousMobileFive.style.display = 'none';
-              }
-            });
-          }
-
-          if (closeModal) {
-            closeModal.addEventListener('click', function() {
-              // Sembunyikan modal
-              successModal.classList.remove('flex');
-              successModal.classList.add('hidden');
-
-              // Optional: Anda bisa menampilkan kembali tombol "Sebelumnya" di sini
-              if (previousMobileFive) {
-                previousMobileFive.style.display = 'block';
-              }
-            });
-          }
-        });
-      });
-    </script>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const successModal = document.getElementById('successModal');
-    const nextMobileFive = document.getElementById('nextMobileFive');
-    const closeModal = document.getElementById('closeModal');
-
-    // if (nextMobileFive) {
-    //   nextMobileFive.addEventListener('click', function() {
-    //     // Tampilkan modal
-    //     successModal.classList.remove('hidden');
-    //     successModal.classList.add('flex');
-    //   });
-    // }
-
-    if (closeModal) {
-      closeModal.addEventListener('click', function() {
-        // Sembunyikan modal
-        successModal.classList.remove('flex');
-        successModal.classList.add('hidden');
-      });
-    }
-  });
-</script>
-<script>
-  // Ambil elemen-elemen yang diperlukan dari DOM
-  const pageOne = document.getElementById('pageOne');
-  const pageTwo = document.getElementById('pageTwo');
-  const pageThree = document.getElementById('pageThree');
-  const pageFour = document.getElementById('pageFour');
-  const pageFive = document.getElementById('pageFive');
-
-  const pageTitleOne = document.querySelector('.tittleOne');
-  const pageTitleTwo = document.getElementById('pageTitleTwo');
-  const pageTitleThree = document.getElementById('pageTitleThree');
-  const pageTitleFour = document.getElementById('pageTitleFour');
-  const pageTitleFive = document.getElementById('pageTitleFive');
-
-  const buttonsPageOne = document.getElementById('buttonsPageOne');
-  const nextButtonPageOne = document.getElementById('nextButtonPageOne');
-  const previousButtonPageTwo = document.getElementById('previousButtonPageTwo');
-  const nextButtonPageTwo = document.getElementById('nextButtonPageTwo');
-  const previousButtonPageThree = document.getElementById('previousButtonPageThree');
-  const nextButtonPageThree = document.getElementById('nextButtonPageThree');
-  const previousButtonPageFour = document.getElementById('previousButtonPageFour');
-  const nextButtonPageFour = document.getElementById('nextButtonPageFour');
-  const previousButtonPageFive = document.getElementById('previousButtonPageFive');
-  const nextButtonPageFive = document.getElementById('nextButtonPageFive');
-
-  const formContainer = document.getElementById('formContainer');
-  const nextButtonMobile = document.querySelector('.nextMobile');
-  const nextButtonMobileTwo = document.querySelector('.nextMobileTwo');
-  const nextButtonMobileThree = document.querySelector('.nextMobileThree');
-  const nextButtonMobileFour = document.querySelector('.nextMobileFour');
-  const nextButtonMobileFive = document.querySelector('.nextMobileFive');
-
-  const previousButtonMobile = document.querySelector('.previousMobile');
-  const previousButtonMobileTwo = document.querySelector('.previousMobileTwo');
-  const previousButtonMobileThree = document.querySelector('.previousMobileThree');
-  const previousButtonMobileFour = document.querySelector('.previousMobileFour');
-  const previousButtonMobileFive = document.querySelector('.previousMobileFive');
-
-  const pageIndicatorOne = document.getElementById('pageIndicatorOne');
-  const pageIndicatorTwo = document.getElementById('pageIndicatorTwo');
-  const pageIndicatorThree = document.getElementById('pageIndicatorThree');
-  const pageIndicatorFour = document.getElementById('pageIndicatorFour');
-  const pageIndicatorFive = document.getElementById('pageIndicatorFive');
-  const pageIndicatorOneAlt = document.getElementById('pageIndicatorOneAlt');
-  const pageIndicatorTwoAlt = document.getElementById('pageIndicatorTwoAlt');
-  const pageIndicatorThreeAlt = document.getElementById('pageIndicatorThreeAlt');
-  const pageIndicatorFourAlt = document.getElementById('pageIndicatorFourAlt');
-  const pageIndicatorFiveAlt = document.getElementById('pageIndicatorFiveAlt');
-
-  // Fungsi untuk menampilkan halaman pertama dan menyembunyikan halaman kedua dan ketiga
-  function showPageOne() {
-    pageOne.classList.remove('hidden');
-    pageTitleOne.classList.remove('hidden');
-    pageIndicatorOne.classList.remove('hidden');
-    pageIndicatorOneAlt.classList.remove('hidden');
-    nextButtonMobile.classList.remove('hidden');
-    previousButtonMobile.classList.add('hidden');
-
-    pageTwo.classList.add('hidden');
-    pageTitleTwo.classList.add('hidden');
-    pageIndicatorTwo.classList.add('hidden');
-    pageIndicatorTwoAlt.classList.add('hidden');
-    nextButtonPageOne.classList.remove('hidden');
-    nextButtonMobileTwo.classList.add('hidden');
-    previousButtonMobileTwo.classList.add('hidden');
-
-    pageThree.classList.add('hidden');
-    pageTitleThree.classList.add('hidden');
-    pageIndicatorThree.classList.add('hidden');
-    pageIndicatorThreeAlt.classList.remove('hidden');
-    previousButtonPageThree.classList.add('hidden');
-    nextButtonMobileThree.classList.add('hidden');
-    previousButtonMobileThree.classList.add('hidden');
-
-    pageFour.classList.add('hidden');
-    pageTitleFour.classList.add('hidden');
-    pageIndicatorFour.classList.add('hidden');
-    pageIndicatorFourAlt.classList.remove('hidden');
-    previousButtonPageFour.classList.add('hidden');
-    nextButtonMobileFour.classList.add('hidden');
-    previousButtonMobileFour.classList.add('hidden');
-
-    pageFive.classList.add('hidden');
-    pageTitleFive.classList.add('hidden');
-    pageIndicatorFive.classList.add('hidden');
-    pageIndicatorFiveAlt.classList.remove('hidden');
-    previousButtonPageFive.classList.add('hidden');
-    nextButtonMobileFive.classList.add('hidden');
-    previousButtonMobileFive.classList.add('hidden');
-
-    formContainer.classList.add('h-[680px]');
-  }
-
-  // Fungsi untuk menampilkan halaman kedua dan menyembunyikan halaman pertama dan ketiga
-  function showPageTwo() {
-    pageOne.classList.add('hidden');
-    pageTitleOne.classList.add('hidden');
-    pageIndicatorOne.classList.add('hidden');
-    pageIndicatorOneAlt.classList.add('hidden');
-    nextButtonPageOne.classList.add('hidden');
-    nextButtonMobile.classList.add('hidden');
-    previousButtonMobile.classList.add('hidden');
-
-    pageTwo.classList.remove('hidden');
-    pageTitleTwo.classList.remove('hidden');
-    pageIndicatorTwo.classList.remove('hidden');
-    pageIndicatorTwoAlt.classList.remove('hidden');
-    previousButtonPageTwo.classList.remove('hidden');
-    nextButtonPageTwo.classList.remove('hidden');
-    nextButtonMobileTwo.classList.remove('hidden');
-    previousButtonMobileTwo.classList.remove('hidden');
-
-    pageThree.classList.add('hidden');
-    pageTitleThree.classList.add('hidden');
-    pageIndicatorThree.classList.add('hidden');
-    pageIndicatorThreeAlt.classList.remove('hidden');
-    previousButtonPageThree.classList.add('hidden');
-    nextButtonMobileThree.classList.add('hidden');
-    previousButtonMobileThree.classList.add('hidden');
-
-    pageFour.classList.add('hidden');
-    pageTitleFour.classList.add('hidden');
-    pageIndicatorFour.classList.add('hidden');
-    pageIndicatorFourAlt.classList.remove('hidden');
-    previousButtonPageFour.classList.add('hidden');
-    nextButtonMobileFour.classList.add('hidden');
-    previousButtonMobileFour.classList.add('hidden');
-
-    pageFive.classList.add('hidden');
-    pageTitleFive.classList.add('hidden');
-    pageIndicatorFive.classList.add('hidden');
-    pageIndicatorFiveAlt.classList.remove('hidden');
-    previousButtonPageFive.classList.add('hidden');
-    nextButtonMobileFive.classList.add('hidden');
-    previousButtonMobileFive.classList.add('hidden');
-
-    formContainer.classList.add('h-[680px]');
-  }
-
-  // Fungsi untuk menampilkan halaman ketiga dan menyembunyikan halaman pertama dan kedua
-  function showPageThree() {
-    pageOne.classList.add('hidden');
-    pageTitleOne.classList.add('hidden');
-    pageIndicatorOne.classList.add('hidden');
-    pageIndicatorOneAlt.classList.remove('hidden');
-    nextButtonMobile.classList.add('hidden');
-    nextButtonPageTwo.classList.add('hidden');
-
-    pageTwo.classList.add('hidden');
-    pageTitleTwo.classList.add('hidden');
-    pageIndicatorTwo.classList.remove('hidden');
-    pageIndicatorTwoAlt.classList.add('hidden');
-    nextButtonPageOne.classList.add('hidden');
-    nextButtonMobileTwo.classList.add('hidden');
-    previousButtonMobileTwo.classList.add('hidden');
-
-    pageThree.classList.remove('hidden');
-    pageTitleThree.classList.remove('hidden');
-    pageIndicatorThree.classList.remove('hidden');
-    pageIndicatorThreeAlt.classList.add('hidden');
-    previousButtonPageThree.classList.remove('hidden');
-    nextButtonMobileThree.classList.remove('hidden');
-    previousButtonMobileThree.classList.remove('hidden');
-
-    pageFour.classList.add('hidden');
-    pageTitleFour.classList.add('hidden');
-    pageIndicatorFour.classList.add('hidden');
-    pageIndicatorFourAlt.classList.remove('hidden');
-    previousButtonPageFour.classList.add('hidden');
-    nextButtonMobileFour.classList.add('hidden');
-    previousButtonMobileFour.classList.add('hidden');
-
-    pageFive.classList.add('hidden');
-    pageTitleFive.classList.add('hidden');
-    pageIndicatorFive.classList.add('hidden');
-    pageIndicatorFiveAlt.classList.remove('hidden');
-    previousButtonPageFive.classList.add('hidden');
-    nextButtonMobileFive.classList.add('hidden');
-    previousButtonMobileFive.classList.add('hidden');
-    ontainer.classList.add('h-[680px]');
-  }
-
-  function showPageFour() {
-    pageOne.classList.add('hidden');
-    pageTitleOne.classList.add('hidden');
-    pageIndicatorOne.classList.add('hidden');
-    pageIndicatorOneAlt.classList.remove('hidden');
-    nextButtonPageTwo.classList.add('hidden');
-    nextButtonMobile.classList.add('hidden');
-
-    pageTwo.classList.add('hidden');
-    pageTitleTwo.classList.add('hidden');
-    pageIndicatorTwo.classList.remove('hidden');
-    pageIndicatorTwoAlt.classList.add('hidden');
-    nextButtonPageOne.classList.add('hidden');
-    nextButtonMobileTwo.classList.add('hidden');
-    previousButtonMobileTwo.classList.add('hidden');
-
-    pageThree.classList.add('hidden');
-    pageTitleThree.classList.add('hidden');
-    pageIndicatorThree.classList.add('hidden');
-    pageIndicatorThreeAlt.classList.remove('hidden');
-    previousButtonPageThree.classList.add('hidden');
-    nextButtonMobileThree.classList.add('hidden');
-    previousButtonMobileThree.classList.add('hidden');
-
-    pageFour.classList.remove('hidden');
-    pageTitleFour.classList.remove('hidden');
-    pageIndicatorFour.classList.remove('hidden');
-    pageIndicatorFourAlt.classList.add('hidden');
-    previousButtonPageFour.classList.remove('hidden');
-    nextButtonMobileFour.classList.remove('hidden');
-    previousButtonMobileFour.classList.remove('hidden');
-
-    pageFive.classList.add('hidden');
-    pageTitleFive.classList.add('hidden');
-    pageIndicatorFive.classList.add('hidden');
-    pageIndicatorFiveAlt.classList.remove('hidden');
-    previousButtonPageFive.classList.add('hidden');
-    nextButtonMobileFive.classList.add('hidden');
-    previousButtonMobileFive.classList.add('hidden');
-
-    formContainer.classList.add('h-[680px]');
-  }
-
-  function showPageFive() {
-    pageOne.classList.add('hidden');
-    pageTitleOne.classList.add('hidden');
-    pageIndicatorOne.classList.add('hidden');
-    pageIndicatorOneAlt.classList.remove('hidden');
-    nextButtonMobile.classList.add('hidden');
-    nextButtonPageTwo.classList.add('hidden');
-    previousButtonMobile.classList.add('hidden');
-
-    pageTwo.classList.add('hidden');
-    pageTitleTwo.classList.add('hidden');
-    pageIndicatorTwo.classList.remove('hidden');
-    pageIndicatorTwoAlt.classList.add('hidden');
-    nextButtonPageOne.classList.add('hidden');
-    nextButtonMobileTwo.classList.add('hidden');
-    previousButtonMobileTwo.classList.add('hidden');
-
-    pageThree.classList.add('hidden');
-    pageTitleThree.classList.add('hidden');
-    pageIndicatorThree.classList.add('hidden');
-    pageIndicatorThreeAlt.classList.remove('hidden');
-    previousButtonPageThree.classList.add('hidden');
-    nextButtonMobileThree.classList.add('hidden');
-    previousButtonMobileThree.classList.add('hidden');
-
-    pageFour.classList.add('hidden');
-    pageTitleFour.classList.add('hidden');
-    pageIndicatorFour.classList.add('hidden');
-    pageIndicatorFourAlt.classList.remove('hidden');
-    previousButtonPageFour.classList.add('hidden');
-    nextButtonMobileFour.classList.add('hidden');
-    previousButtonMobileFour.classList.add('hidden');
-
-    pageFive.classList.remove('hidden');
-    pageTitleFive.classList.remove('hidden');
-    pageIndicatorFive.classList.remove('hidden');
-    pageIndicatorFiveAlt.classList.add('hidden');
-    previousButtonPageFive.classList.remove('hidden');
-    nextButtonPageFive.classList.remove('hidden');
-    nextButtonMobileFive.classList.remove('hidden');
-    previousButtonMobileFive.classList.remove('hidden');
-
-    formContainer.classList.add('h-[680px]');
-  }
-
-  // Tambahkan event listener pada tombol "Selanjutnya" pada halaman pertama
-  if (nextButtonMobile) {
-    nextButtonMobile.addEventListener('click', function() {
-      showPageTwo();
-    });
-  }
-
-  // Tambahkan event listener pada tombol "Selanjutnya" pada halaman kedua
-  if (nextButtonMobileTwo) {
-    nextButtonMobileTwo.addEventListener('click', function() {
-      showPageThree();
-    });
-  }
-
-  // Tambahkan event listener pada tombol "Selanjutnya" pada halaman ketiga
-  if (nextButtonMobileThree) {
-    nextButtonMobileThree.addEventListener('click', function() {
-      showPageFour();
-    });
-  }
-
-  // Tambahkan event listener pada tombol "Selanjutnya" pada halaman keempat
-  if (nextButtonMobileFour) {
-    nextButtonMobileFour.addEventListener('click', function() {
-      showPageFive();
-    });
-  }
-
-  // Tambahkan event listener pada tombol "Selanjutnya" pada halaman pertama
-  if (nextButtonMobile) {
-    nextButtonMobile.addEventListener('click', function() {
-      showPageTwo();
-    });
-  }
-
-  // Tambahkan event listener pada tombol "Selanjutnya" pada halaman kedua
-  if (nextButtonMobileTwo) {
-    nextButtonMobileTwo.addEventListener('click', function() {
-      showPageThree();
-    });
-  }
-
-  // Tambahkan event listener pada tombol "Selanjutnya" pada halaman ketiga
-  if (nextButtonMobileThree) {
-    nextButtonMobileThree.addEventListener('click', function() {
-      showPageFour();
-    });
-  }
-
-  // Tambahkan event listener pada tombol "Selanjutnya" pada halaman keempat
-  if (nextButtonMobileFour) {
-    nextButtonMobileFour.addEventListener('click', function() {
-      showPageFive();
-    });
-  }
-
-
-  // Tambahkan event listener pada tombol "Selanjutnya" pada halaman kedua
-  if (previousButtonMobileTwo) {
-    previousButtonMobileTwo.addEventListener('click', function() {
-      showPageOne();
-    });
-  }
-
-  // Tambahkan event listener pada tombol "Selanjutnya" pada halaman ketiga
-  if (previousButtonMobileThree) {
-    previousButtonMobileThree.addEventListener('click', function() {
-      showPageTwo();
-    });
-  }
-
-  // Tambahkan event listener pada tombol "Selanjutnya" pada halaman keempat
-  if (previousButtonMobileFour) {
-    previousButtonMobileFour.addEventListener('click', function() {
-      showPageThree();
-    });
-  }
-
-  if (previousButtonMobileFive) {
-    previousButtonMobileFive.addEventListener('click', function() {
-      showPageFour();
-    });
-  }
-
-
-
-  // Tambahkan event listener pada tombol "Selanjutnya" pada halaman pertama
-  if (nextButtonPageOne) {
-    nextButtonPageOne.addEventListener('click', function() {
-      showPageTwo();
-    });
-  }
-
-  if (nextButtonPageTwo) {
-    nextButtonPageTwo.addEventListener('click', function() {
-      showPageThree();
-    });
-  }
-
-  if (nextButtonPageThree) {
-    nextButtonPageThree.addEventListener('click', function() {
-      showPageFour();
-    });
-  }
-
-  if (nextButtonPageFour) {
-    nextButtonPageFour.addEventListener('click', function() {
-      showPageFive();
-    });
-  }
-
-  if (nextButtonPageFive) {
-    nextButtonPageFive.addEventListener('click', function() {
-      showPageFive();
-    });
-  }
-
-
-  // Tambahkan event listener pada tombol "Sebelumnya" pada halaman ketiga
-  if (previousButtonPageFive) {
-    previousButtonPageFive.addEventListener('click', function() {
-      showPageFour();
-    });
-  }
-
-  // Tambahkan event listener pada tombol "Sebelumnya" pada halaman ketiga
-  if (previousButtonPageFour) {
-    previousButtonPageFour.addEventListener('click', function() {
-      showPageThree();
-    });
-  }
-  // Tambahkan event listener pada tombol "Sebelumnya" pada halaman ketiga
-  if (previousButtonPageThree) {
-    previousButtonPageThree.addEventListener('click', function() {
-      showPageTwo();
-    });
-  }
-  // Tambahkan event listener pada tombol "Sebelumnya" pada halaman kedua
-  if (previousButtonPageTwo) {
-    previousButtonPageTwo.addEventListener('click', function() {
-      showPageOne();
-    });
-  }
-
-  // // Tambahkan event listener pada tombol "Sebelumnya" pada tampilan mobile
-  // if (previousButtonMobile) {
-  //   previousButtonMobile.addEventListener('click', function() {
-  //     if (!pageOne.classList.contains('hidden')) {
-  //       showPageOne();
-  //     } else if (!pageTwo.classList.contains('hidden')) {
-  //       showPageTwo();
-  //     } else {
-  //       showPageThree();
-  //     }
-  //   });
-  // }
-</script>
-</div>
-
-<!-- Modal Start -->
+<!-- Info Modal -->
 <div id="myModal" class="fixed inset-0 flex items-center justify-center z-50">
   <div class="modal-overlay absolute inset-0 bg-black opacity-50"></div>
-
   <div class="modal-container p-5 bg-white w-11/12 md:max-w-xl md:p-5 mx-auto rounded-xl shadow-lg z-50 overflow-y-auto">
-
-    <!-- Modal content -->
     <div class="modal-content py-4 text-left px-6">
-
-      <!-- Modal header -->
       <div class="modal-header flex justify-between items-center pb-3">
         <p class="text-2xl font-bold text-center w-full">Perhatian!!</p>
         <button class="modal-close cursor-pointer z-50">
@@ -1280,9 +393,6 @@
           </svg>
         </button>
       </div>
-
-
-      <!-- Modal body -->
       <div class="modal-body text-sm">
         <p>Untuk yang mendaftar pada posisi:</p>
         <ul class="list-disc mt-2">
@@ -1296,29 +406,154 @@
           <p>8. Back-end Developer</p>
           <p>9. Full-stack Developer</p>
           <p class="font-bold"> Wajib mencantumkan Portofolio.</p>
-
         </ul>
         <p class="mt-4 flex-justify">Unggah Berkas CV, Bukti Follow Media Sosial Berbinar, dan Portofolio ke Google Drive kamu. Kemudian ubah pengaturan Google Drive kamu menjadi <span class="font-bold"> "Anyone on the internet with the link can view"</span> agar berkas dapat diakses oleh kami.</p>
       </div>
-
-      <!-- Modal footer -->
       <div class="modal-footer flex justify-center pt-2">
         <button id="modalClose" class="modal-close px-4 bg-primary md:mt-4 p-2 rounded-lg text-white hover:bg-gray-400">Oke</button>
       </div>
-
     </div>
   </div>
 </div>
 
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var modal = document.getElementById('myModal');
-    var modalOverlay = modal.querySelector('.modal-overlay');
-    var modalCloseBtn = document.getElementById('modalClose');
+document.addEventListener("DOMContentLoaded", function () {
+  // Inisialisasi Flatpickr untuk tanggal lahir
+  if (window.flatpickr) {
+    flatpickr("#tanggal_lahir", {
+      dateFormat: "d/m/Y",
+      allowInput: true
+    });
+  }
+    document.getElementById('internshipForm').addEventListener('submit', function(event) {
+    var tgl = document.getElementById('tanggal_lahir');
+    if (tgl && tgl.value) {
+        // dari d/m/Y ke Y-m-d
+        var parts = tgl.value.split('/');
+        if (parts.length === 3) {
+        tgl.value = parts[2] + '-' + parts[1].padStart(2, '0') + '-' + parts[0].padStart(2, '0');
+        }
+    }
+    });
 
-    modalOverlay.addEventListener('click', closeModal);
-    modalCloseBtn.addEventListener('click', closeModal);
+  // Validasi Form
+  const requiredFields = [
+    'email', 'nama_lengkap', 'nama_panggilan', 'tanggal_lahir', 'no_whatsapp',
+    'asal_kota', 'asal_pendidikan', 'status_kelas', 'jurusan',
+    'akun_instagram', 'akun_tiktok', 'akun_linkdin', 'sumber_informasi',
+    'tautan_cv', 'tautan_portofolio', 'tautan_berkas_ss', 'motivasi'
+  ];
 
+  // Validasi Inputan
+  function removeUnderscores(str) {
+    return str.replace(/_/g, ' ');
+  }
+  function isValidEmail(email) {
+    return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+  }
+  function isValidPhoneNumber(number) {
+    return /^(\+62|62|0)8[1-9][0-9]{6,11}$/.test(number);
+  }
+  function isValidGoogleDriveLink(url) {
+    return /^(https?:\/\/)?(drive\.google\.com\/)(file\/d\/|open\?id=|drive\/folders\/|drive\/u\/\d\/folders\/|drive\/folders\/)[a-zA-Z0-9-_]+/.test(url);
+  }
+  function isValidInstagramLink(url) {
+    return /^(https?:\/\/)?(www\.)?instagram\.com\/[a-zA-Z0-9_.]+\/?$/.test(url);
+  }
+  function isValidTikTokLink(url) {
+    return /^(https?:\/\/)?(www\.)?tiktok\.com\/@[\w\.]+\/?$/i.test(url);
+  }
+  function isValidLinkedInLink(url) {
+    return /^(https?:\/\/)?(www\.)?linkedin\.com\/(in|pub|company|school)\/[a-zA-Z0-9_-]+\/?$/.test(url);
+  }
+
+  // Validasi Formulir
+  function validateForm() {
+    for (let i = 0; i < requiredFields.length; i++) {
+      var fieldId = requiredFields[i];
+      var field = document.getElementById(fieldId);
+      if (!field || field.value.trim() === '') {
+        return 'Kolom ' + removeUnderscores(fieldId) + ' belum diisi :(';
+      }
+      if (fieldId === 'email' && !isValidEmail(field.value)) {
+        return 'Kolom email kamu salah format :(';
+      }
+      if (fieldId === 'no_whatsapp' && !isValidPhoneNumber(field.value)) {
+        return 'Kolom no whatsapp kamu salah format :(';
+      }
+      if (
+        (fieldId === 'tautan_cv' || fieldId === 'tautan_portofolio' || fieldId === 'tautan_berkas_ss') &&
+        !isValidGoogleDriveLink(field.value)
+      ) {
+        return 'Kolom ' + removeUnderscores(fieldId) + ' kamu salah format Google Drive :(';
+      }
+      if (fieldId === 'akun_instagram' && !isValidInstagramLink(field.value)) {
+        return 'Kolom akun instagram kamu salah format :(';
+      }
+      if (fieldId === 'akun_tiktok' && !isValidTikTokLink(field.value)) {
+        return 'Kolom akun tiktok kamu salah format :(';
+      }
+      if (fieldId === 'akun_linkdin' && !isValidLinkedInLink(field.value)) {
+        return 'Kolom akun linkedin kamu salah format :(';
+      }
+    }
+    return null;
+  }
+
+  // Tombol submit untuk Desktop dan Mobile
+  const submitButtons = [
+    document.getElementById('nextButtonPageFive'),
+    document.getElementById('nextMobileFive')
+  ];
+
+  submitButtons.forEach(function(btn) {
+    if (btn) {
+      btn.addEventListener('click', function(event) {
+        var errorMessage = validateForm();
+        if (errorMessage) {
+          Swal.fire({
+            toast: true,
+            position: "top-end",
+            icon: "error",
+            title: errorMessage,
+            showConfirmButton: false,
+            showCloseButton: true,
+            timer: 4000
+          });
+        } else {
+          // Triger modal sukses
+          var modal = document.getElementById('successModal');
+          if (modal) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }
+      });
+    }
+  });
+
+  // Tombol navigasi untuk halaman
+  const successModal = document.getElementById('successModal');
+  const closeModalBtn = document.getElementById('closeModal');
+  const form = document.getElementById('internshipForm');
+
+  if (closeModalBtn && successModal && form) {
+    closeModalBtn.addEventListener('click', function() {
+      successModal.classList.add('hidden');
+      successModal.classList.remove('flex');
+      form.submit(); 
+    });
+  }
+  
+  const modal = document.getElementById('myModal');
+  if (modal) {
+    const modalOverlay = modal.querySelector('.modal-overlay');
+    const modalCloseBtn = document.getElementById('modalClose');
+    
     function closeModal() {
       modal.classList.remove('opacity-100', 'pointer-events-auto');
       modal.classList.add('opacity-0', 'pointer-events-none');
@@ -1326,19 +561,266 @@
         modal.style.display = 'none';
       }, 500);
     }
-
+    
+    if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
+    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+    
     modal.addEventListener('click', function(event) {
-      if (event.target === modal) {
-        closeModal();
-      }
+      if (event.target === modal) closeModal();
     });
-
+    
     document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape' || event.key === 'Esc') {
-        closeModal();
-      }
+      if (event.key === 'Escape' || event.key === 'Esc') closeModal();
     });
-  });
-</script>
+  }
 
+  // Navigasi form Multi-step 
+  const pageOne = document.getElementById('pageOne');
+  const pageTwo = document.getElementById('pageTwo');
+  const pageThree = document.getElementById('pageThree');
+  const pageFour = document.getElementById('pageFour');
+  const pageFive = document.getElementById('pageFive');
+
+  const pageTitleOne = document.querySelector('.tittleOne');
+  const pageTitleTwo = document.getElementById('pageTitleTwo');
+  const pageTitleThree = document.getElementById('pageTitleThree');
+  const pageTitleFour = document.getElementById('pageTitleFour');
+  const pageTitleFive = document.getElementById('pageTitleFive');
+
+  const buttonsPageOne = document.getElementById('buttonsPageOne');
+  const formContainer = document.getElementById('formContainer');
+
+  // Page form Multi-step 
+  const pageIndicatorOne = document.getElementById('pageIndicatorOne');
+  const pageIndicatorTwo = document.getElementById('pageIndicatorTwo');
+  const pageIndicatorThree = document.getElementById('pageIndicatorThree');
+  const pageIndicatorFour = document.getElementById('pageIndicatorFour');
+  const pageIndicatorFive = document.getElementById('pageIndicatorFive');
+  const pageIndicatorOneAlt = document.getElementById('pageIndicatorOneAlt');
+  const pageIndicatorTwoAlt = document.getElementById('pageIndicatorTwoAlt');
+  const pageIndicatorThreeAlt = document.getElementById('pageIndicatorThreeAlt');
+  const pageIndicatorFourAlt = document.getElementById('pageIndicatorFourAlt');
+  const pageIndicatorFiveAlt = document.getElementById('pageIndicatorFiveAlt');
+
+  // Page ke satu dan seterusnya
+  function showPageOne() {
+    pageOne.classList.remove('hidden');
+    pageTitleOne.classList.remove('hidden');
+    pageIndicatorOne.classList.remove('hidden');
+    pageIndicatorOneAlt.classList.remove('hidden');
+    document.getElementById('nextMobile').classList.remove('hidden');
+    document.getElementById('previousMobile').classList.add('hidden');
+
+    pageTwo.classList.add('hidden');
+    pageTitleTwo.classList.add('hidden');
+    pageIndicatorTwo.classList.add('hidden');
+    pageIndicatorTwoAlt.classList.add('hidden');
+    document.getElementById('nextMobileTwo').classList.add('hidden');
+    document.getElementById('previousMobileTwo').classList.add('hidden');
+
+    pageThree.classList.add('hidden');
+    pageTitleThree.classList.add('hidden');
+    pageIndicatorThree.classList.add('hidden');
+    pageIndicatorThreeAlt.classList.remove('hidden');
+    document.getElementById('nextMobileThree').classList.add('hidden');
+    document.getElementById('previousMobileThree').classList.add('hidden');
+
+    pageFour.classList.add('hidden');
+    pageTitleFour.classList.add('hidden');
+    pageIndicatorFour.classList.add('hidden');
+    pageIndicatorFourAlt.classList.remove('hidden');
+    document.getElementById('nextMobileFour').classList.add('hidden');
+    document.getElementById('previousMobileFour').classList.add('hidden');
+
+    pageFive.classList.add('hidden');
+    pageTitleFive.classList.add('hidden');
+    pageIndicatorFive.classList.add('hidden');
+    pageIndicatorFiveAlt.classList.remove('hidden');
+    document.getElementById('nextMobileFive').classList.add('hidden');
+    document.getElementById('previousMobileFive').classList.add('hidden');
+
+    formContainer.classList.add('h-[680px]');
+    document.getElementById('buttonsPageOne').classList.add('md:flex');
+
+  }
+
+  function showPageTwo() {
+    pageOne.classList.add('hidden');
+    pageTitleOne.classList.add('hidden');
+    pageIndicatorOne.classList.add('hidden');
+    pageIndicatorOneAlt.classList.add('hidden');
+    document.getElementById('nextMobile').classList.add('hidden');
+    document.getElementById('previousMobile').classList.add('hidden');
+
+    pageTwo.classList.remove('hidden');
+    pageTitleTwo.classList.remove('hidden');
+    pageIndicatorTwo.classList.remove('hidden');
+    pageIndicatorTwoAlt.classList.remove('hidden');
+    document.getElementById('nextMobileTwo').classList.remove('hidden');
+    document.getElementById('previousMobileTwo').classList.remove('hidden');
+
+    pageThree.classList.add('hidden');
+    pageTitleThree.classList.add('hidden');
+    pageIndicatorThree.classList.add('hidden');
+    pageIndicatorThreeAlt.classList.remove('hidden');
+    document.getElementById('nextMobileThree').classList.add('hidden');
+    document.getElementById('previousMobileThree').classList.add('hidden');
+
+    pageFour.classList.add('hidden');
+    pageTitleFour.classList.add('hidden');
+    pageIndicatorFour.classList.add('hidden');
+    pageIndicatorFourAlt.classList.remove('hidden');
+    document.getElementById('nextMobileFour').classList.add('hidden');
+    document.getElementById('previousMobileFour').classList.add('hidden');
+
+    pageFive.classList.add('hidden');
+    pageTitleFive.classList.add('hidden');
+    pageIndicatorFive.classList.add('hidden');
+    pageIndicatorFiveAlt.classList.remove('hidden');
+    document.getElementById('nextMobileFive').classList.add('hidden');
+    document.getElementById('previousMobileFive').classList.add('hidden');
+
+    formContainer.classList.add('h-[680px]');
+    document.getElementById('buttonsPageOne').classList.remove('md:flex');
+
+  }
+
+  function showPageThree() {
+    pageOne.classList.add('hidden');
+    pageTitleOne.classList.add('hidden');
+    pageIndicatorOne.classList.add('hidden');
+    pageIndicatorOneAlt.classList.remove('hidden');
+    document.getElementById('nextMobile').classList.add('hidden');
+
+    pageTwo.classList.add('hidden');
+    pageTitleTwo.classList.add('hidden');
+    pageIndicatorTwo.classList.remove('hidden');
+    pageIndicatorTwoAlt.classList.add('hidden');
+    document.getElementById('nextMobileTwo').classList.add('hidden');
+    document.getElementById('previousMobileTwo').classList.add('hidden');
+
+    pageThree.classList.remove('hidden');
+    pageTitleThree.classList.remove('hidden');
+    pageIndicatorThree.classList.remove('hidden');
+    pageIndicatorThreeAlt.classList.add('hidden');
+    document.getElementById('nextMobileThree').classList.remove('hidden');
+    document.getElementById('previousMobileThree').classList.remove('hidden');
+
+    pageFour.classList.add('hidden');
+    pageTitleFour.classList.add('hidden');
+    pageIndicatorFour.classList.add('hidden');
+    pageIndicatorFourAlt.classList.remove('hidden');
+    document.getElementById('nextMobileFour').classList.add('hidden');
+    document.getElementById('previousMobileFour').classList.add('hidden');
+
+    pageFive.classList.add('hidden');
+    pageTitleFive.classList.add('hidden');
+    pageIndicatorFive.classList.add('hidden');
+    pageIndicatorFiveAlt.classList.remove('hidden');
+    document.getElementById('nextMobileFive').classList.add('hidden');
+    document.getElementById('previousMobileFive').classList.add('hidden');
+
+    formContainer.classList.add('h-[680px]');
+  }
+
+  function showPageFour() {
+    pageOne.classList.add('hidden');
+    pageTitleOne.classList.add('hidden');
+    pageIndicatorOne.classList.add('hidden');
+    pageIndicatorOneAlt.classList.remove('hidden');
+    document.getElementById('nextMobile').classList.add('hidden');
+
+    pageTwo.classList.add('hidden');
+    pageTitleTwo.classList.add('hidden');
+    pageIndicatorTwo.classList.remove('hidden');
+    pageIndicatorTwoAlt.classList.add('hidden');
+    document.getElementById('nextMobileTwo').classList.add('hidden');
+    document.getElementById('previousMobileTwo').classList.add('hidden');
+
+    pageThree.classList.add('hidden');
+    pageTitleThree.classList.add('hidden');
+    pageIndicatorThree.classList.add('hidden');
+    pageIndicatorThreeAlt.classList.remove('hidden');
+    document.getElementById('nextMobileThree').classList.add('hidden');
+    document.getElementById('previousMobileThree').classList.add('hidden');
+
+    pageFour.classList.remove('hidden');
+    pageTitleFour.classList.remove('hidden');
+    pageIndicatorFour.classList.remove('hidden');
+    pageIndicatorFourAlt.classList.add('hidden');
+    document.getElementById('nextMobileFour').classList.remove('hidden');
+    document.getElementById('previousMobileFour').classList.remove('hidden');
+
+    pageFive.classList.add('hidden');
+    pageTitleFive.classList.add('hidden');
+    pageIndicatorFive.classList.add('hidden');
+    pageIndicatorFiveAlt.classList.remove('hidden');
+    document.getElementById('nextMobileFive').classList.add('hidden');
+    document.getElementById('previousMobileFive').classList.add('hidden');
+
+    formContainer.classList.add('h-[680px]');
+  }
+
+  function showPageFive() {
+    pageOne.classList.add('hidden');
+    pageTitleOne.classList.add('hidden');
+    pageIndicatorOne.classList.add('hidden');
+    pageIndicatorOneAlt.classList.remove('hidden');
+    document.getElementById('nextMobile').classList.add('hidden');
+    document.getElementById('previousMobile').classList.add('hidden');
+
+    pageTwo.classList.add('hidden');
+    pageTitleTwo.classList.add('hidden');
+    pageIndicatorTwo.classList.remove('hidden');
+    pageIndicatorTwoAlt.classList.add('hidden');
+    document.getElementById('nextMobileTwo').classList.add('hidden');
+    document.getElementById('previousMobileTwo').classList.add('hidden');
+
+    pageThree.classList.add('hidden');
+    pageTitleThree.classList.add('hidden');
+    pageIndicatorThree.classList.add('hidden');
+    pageIndicatorThreeAlt.classList.remove('hidden');
+    document.getElementById('nextMobileThree').classList.add('hidden');
+    document.getElementById('previousMobileThree').classList.add('hidden');
+
+    pageFour.classList.add('hidden');
+    pageTitleFour.classList.add('hidden');
+    pageIndicatorFour.classList.add('hidden');
+    pageIndicatorFourAlt.classList.remove('hidden');
+    document.getElementById('nextMobileFour').classList.add('hidden');
+    document.getElementById('previousMobileFour').classList.add('hidden');
+
+    pageFive.classList.remove('hidden');
+    pageTitleFive.classList.remove('hidden');
+    pageIndicatorFive.classList.remove('hidden');
+    pageIndicatorFiveAlt.classList.add('hidden');
+    document.getElementById('nextMobileFive').classList.remove('hidden');
+    document.getElementById('previousMobileFive').classList.remove('hidden');
+
+    formContainer.classList.add('h-[680px]');
+  }
+
+  // Navigasi untuk Desktop
+  document.getElementById('nextButtonPageOne')?.addEventListener('click', showPageTwo);
+  document.getElementById('nextButtonPageTwo')?.addEventListener('click', showPageThree);
+  document.getElementById('nextButtonPageThree')?.addEventListener('click', showPageFour);
+  document.getElementById('nextButtonPageFour')?.addEventListener('click', showPageFive);
+
+  document.getElementById('previousButtonPageTwo')?.addEventListener('click', showPageOne);
+  document.getElementById('previousButtonPageThree')?.addEventListener('click', showPageTwo);
+  document.getElementById('previousButtonPageFour')?.addEventListener('click', showPageThree);
+  document.getElementById('previousButtonPageFive')?.addEventListener('click', showPageFour);
+
+  // Navigasi untuk Mobile
+  document.getElementById('nextMobile')?.addEventListener('click', showPageTwo);
+  document.getElementById('nextMobileTwo')?.addEventListener('click', showPageThree);
+  document.getElementById('nextMobileThree')?.addEventListener('click', showPageFour);
+  document.getElementById('nextMobileFour')?.addEventListener('click', showPageFive);
+
+  document.getElementById('previousMobileTwo')?.addEventListener('click', showPageOne);
+  document.getElementById('previousMobileThree')?.addEventListener('click', showPageTwo);
+  document.getElementById('previousMobileFour')?.addEventListener('click', showPageThree);
+  document.getElementById('previousMobileFive')?.addEventListener('click', showPageFour);
+});
+</script>
 @endsection

@@ -98,6 +98,8 @@ class PositionController extends Controller
         return view('landing.career.positions.daftar', ['position' => $position]);
     }
 
+    
+
     public function store(Request $request, $id)
     {
         try {
@@ -134,11 +136,9 @@ class PositionController extends Controller
             //dd($data);
             UserInternship::create($data);
 
-            return redirect()->route('hiring');
-        } catch (\Exception $e) {
-            // Log::error('Error storing user internship: ' . $e->getMessage());
-            Alert::toast('Terjadi kesalahan saat menyimpan data: ' . $e->getMessage(), 'error')->autoClose(5000);
-            return redirect()->route('career.positions.index');
-        }
+            return redirect()->route('career.positions.detail', $id)->with('success', true);
+            } catch (\Exception $e) {
+            return redirect()->back()->withInput()->with('error', 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage());
+            }
     }
 }

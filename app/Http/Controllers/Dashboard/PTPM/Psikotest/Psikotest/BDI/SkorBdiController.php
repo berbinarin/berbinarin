@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\BDI;
+namespace App\Http\Controllers\Dashboard\PTPM\Psikotest\Psikotest\BDI;
 
 use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\BDI\SkorBdi;

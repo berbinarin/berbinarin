@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\Biodata;
+namespace App\Http\Controllers\Dashboard\PTPM\Psikotest\Psikotest\Biodata;
 
 use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\Biodata\AnswerEssay;

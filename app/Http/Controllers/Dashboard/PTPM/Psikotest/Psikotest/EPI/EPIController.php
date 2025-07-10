@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\EPI;
+namespace App\Http\Controllers\Dashboard\PTPM\Psikotest\Psikotest\EPI;
 
 use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\EPI\EpiAnswer;

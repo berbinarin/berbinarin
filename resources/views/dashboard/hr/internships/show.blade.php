@@ -108,7 +108,7 @@
                   <label class="font-semibold text-gray-600">Posisi:</label>
                 </td>
                 <td class="py-1 px-4">
-                  {{$Internship->name}}
+                  {{$position ? $position->name : '-'}}
                 </td>
               </tr>
               <tr class="border-b border-gray-200" style="height: 80px;">

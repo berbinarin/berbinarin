@@ -89,7 +89,7 @@
                                     <br><br>Jika ada hal yang ingin disampaikan, SobatBinar dapat menghubungi
                                     narahubung
                                     di bawah ini:<br>
-                                    <div class="font-semibold text-left">082351088413 (Diah)</div>
+                                    <div class="font-semibold text-left">085157793985 (Ade Intan)</div>
                                 </div>
                                 <div class="ml-auto my-2 md:my-4 rounded-md px-4 py-2 w-fit duration-300 cursor-pointer bg-primary hover:bg-sky-950 text-white" onclick="closeModal('close-psikotes')">
                                     <span>Tutup</span>

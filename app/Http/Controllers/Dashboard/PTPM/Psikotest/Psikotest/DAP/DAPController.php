@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\DAP;
+namespace App\Http\Controllers\Dashboard\PTPM\Psikotest\Psikotest\DAP;
 
 use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\DAP\AnswerDap;
