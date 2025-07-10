@@ -304,17 +304,35 @@ class CounselingController extends Controller
                 'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
                 'nama' => 'Psikolog',
                 'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
-                'link' => route('product.counseling.schedule', ['kategori' => 'psikolog', 'reset' => 1])
             ],
             [
                 'image' => 'assets/images/landing/asset-konseling/vector/peercounselor.png',
                 'nama' => 'Peer Counselor',
                 'deskripsi' => 'Konseling bersama Peer Conselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
-                'link' => route('product.counseling.schedule', ['kategori' => 'peer-counselor', 'reset' => 1])
             ],
         ];
 
         return view('landing.product.counseling.registration')->with([
+            'konselings' => $konselings
+        ]);
+    }
+
+    public function registrationPeer()
+    {
+        $konselings = [
+            [
+                'image' => 'assets/images/landing/asset-konseling/vector/peercounselor.png',
+                'nama' => 'Umum',
+                'deskripsi' => 'Konseling bersama Peer Conselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
+            ],
+            [
+                'image' => 'assets/images/landing/asset-konseling/vector/berbinarforu.png',
+                'nama' => 'Berbinar For U',
+                'deskripsi' => 'Berbinar For U adalah layanan curhat online gratis, nyaman, aman, dan anonim yang dijawab langsung oleh psikolog profesional terpercaya.',
+            ],
+        ];
+
+        return view('landing.product.counseling.registration-peer')->with([
             'konselings' => $konselings
         ]);
     }

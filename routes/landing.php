@@ -48,6 +48,7 @@ Route::prefix('produk')->name('product.')->group(function () {
         Route::post('/jadwal-konseling', [CounselingController::class, 'storeSchedule'])->name('submit_schedule');
         Route::post('/data-diri-konseling', [CounselingController::class, 'storePersonalData'])->name('submit_personal_data');
         Route::post('/cerita-konseling', [CounselingController::class, 'storeStory'])->name('story_store');
+        Route::get('/peer-counselor', [CounselingController::class, 'registrationPeer'])->name('registration.peer');
     });
 
     // Product Psikotest
