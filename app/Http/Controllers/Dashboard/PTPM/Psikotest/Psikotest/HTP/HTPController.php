@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\HTP;
+namespace App\Http\Controllers\Dashboard\PTPM\Psikotest\Psikotest\HTP;
 
 use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\HTP\AnswerHtp;
@@ -41,11 +41,12 @@ class HTPController extends Controller
         ]);
 
         // Redirect to the test page
-        return redirect()->route('psikotest-paid.tool.HTP.showQuestion', ['testHtp' => $testHtp->id, 'questionHtp' => 2]);
+        return redirect()->route('psikotest-paid.tool.HTP.showQuestion', ['testHtp' => $testHtp->id, 'questionHtp' => 1]);
     }
 
     public function showQuestion(TestHtp $testHtp, QuestionHtp $questionHtp)
     {
+
         return view('moduls.psikotes-paid.tools.HTP.question', compact('testHtp', 'questionHtp'));
     }
 

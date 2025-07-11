@@ -17,7 +17,7 @@
         </main>
 
         {{-- Footer --}}
-        @include('landing.partials.footer')
+        @include("landing.partials.footer")
 
         {{-- Script --}}
         @include("landing.partials.script")

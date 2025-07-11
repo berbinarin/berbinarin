@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Articles\Article;
 use App\Models\Articles\Author;
 use App\Models\Articles\Category;
-use App\Models\Berbinarp_enrollment;
+use App\Models\Berbinarp_enrollments;
 use App\Models\Berbinarp_user;
 use App\Models\Dimension;
 use App\Models\Hiring_Positions;
@@ -16,6 +16,7 @@ use App\Models\jadwalPeer;
 use App\Models\KeluargaBerbinar\Division;
 use App\Models\KeluargaBerbinar\SubDivision;
 use App\Models\KeluargaBerbinar\TableRecord;
+use App\Models\KeluargaBerbinar\TableStaff;
 use App\Models\KonsellingPeer;
 use App\Models\KonsellingPsikolog;
 use App\Models\PsikotestPaid\UserPsikotestPaid;
@@ -75,6 +76,8 @@ class DashboardController extends Controller
         $authorCount = Author::count();
 
         $categoryCount = Category::count();
+        $staff = TableStaff::all();
+        $subDivisions = SubDivision::count();
 
 
         return view('dashboard.index', [
@@ -95,6 +98,8 @@ class DashboardController extends Controller
             'articleCount' => $articleCount,
             'authorCount' => $authorCount,
             'categoryCount' => $categoryCount,
+            'staff' => $staff,
+            'subDivisions' => $subDivisions
         ]);
     }
    

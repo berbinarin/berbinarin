@@ -148,12 +148,12 @@
                                         </label>
                                         <label class="flex items-center mb-2">
                                             <input class="form-check-input mr-2" type="radio" name="last_education"
-                                                value="Other" required>
+                                                value="Other" id="otherRadio" required>
                                             Other
                                         </label>
                                         <input type="text"
                                             class="form-input mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
-                                            id="otherInput" name="other" placeholder="Other" disabled>
+                                            id="otherInput" name="other_education" placeholder="Isi pendidikan lain..." disabled>
                                     </div>
                                 </div>
                             </div>
@@ -177,15 +177,12 @@
                         {{-- KELAS BERBINAR+ --}}
                         <div class="mb-4">
                             <label for="kelas">kelas BERBINAR+</label>
-                            <select
-                                class="form-input mt-1 block w-full h-10 pl-2 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
-                                id="kelas" name="kelas" required>
-                                <option value="" disabled selected class="text-gray-500">Pilih Kelas</option>
-                                <option value="Jobseekers">Jobseekers</option>
-                                <option value="Product Management">Product Management</option>
-                                <option value="Human Resources">Human Resources</option>
-                                <option value="Graphic Design">Graphic Design</option>
-                            </select>
+                                <select id="kelas" name="kelas" class="form-input mt-1 block w-full h-10 pl-2 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" required>
+                                    <option value="" disabled selected class="text-gray-500">Pilih Kelas</option>
+                                    @foreach($kelas as $k)
+                                        <option value="{{ $k->id }}">{{ $k->title }}</option>
+                                    @endforeach
+                                </select>
                         </div>
 
 
@@ -655,7 +652,9 @@
 
         genderRadios.forEach(radio => {
             radio.addEventListener('change', function () {
-                genderSelected.textContent = this.value;
+                genderSelected.textContent = this.value;        
+                genderSelected.classList.remove('text-gray-500');
+                genderSelected.classList.add('text-black');
                 genderDropdown.classList.add('hidden');
                 genderIcon.classList.remove('rotate-180');
             });
@@ -664,9 +663,19 @@
         educationRadios.forEach(radio => {
             radio.addEventListener('change', function () {
                 educationSelected.textContent = this.value === 'Other' ? 'Other' : this.value;
+                educationSelected.classList.remove('text-gray-500');
+                educationSelected.classList.add('text-black');
                 educationDropdown.classList.add('hidden');
                 educationIcon.classList.remove('rotate-180');
-                otherInput.disabled = this.value !== 'Other';
+                if (this.value === 'Other') {
+                    otherInput.disabled = false;
+                    otherInput.required = true;
+                    otherInput.focus();
+                } else {
+                    otherInput.disabled = true;
+                    otherInput.required = false;
+                    otherInput.value = '';
+                }
             });
         });
 

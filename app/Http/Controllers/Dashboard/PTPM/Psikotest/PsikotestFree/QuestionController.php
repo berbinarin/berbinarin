@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\PsikotestFree;
+namespace App\Http\Controllers\Dashboard\PTPM\Psikotest\PsikotestFree;
 
 use App\Http\Controllers\Controller;
 use App\Models\Answer;

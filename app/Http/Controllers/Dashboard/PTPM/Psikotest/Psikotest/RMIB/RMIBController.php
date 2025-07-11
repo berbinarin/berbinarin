@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\RMIB;
+namespace App\Http\Controllers\Dashboard\PTPM\Psikotest\Psikotest\RMIB;
 
 use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\PsikotestPaidTest;

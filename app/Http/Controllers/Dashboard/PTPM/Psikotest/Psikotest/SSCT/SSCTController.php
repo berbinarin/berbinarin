@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\Psikotest\SSCT;
+namespace App\Http\Controllers\Dashboard\PTPM\Psikotest\Psikotest\SSCT;
 
 use App\Http\Controllers\Controller;
 use App\Models\PsikotestPaid\PsikotestPaidTest;

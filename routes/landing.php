@@ -17,6 +17,7 @@ use App\Http\Controllers\Landing\Product\Counseling\CounselingController;
 use App\Http\Controllers\Landing\Product\Psikotest\PsikotestController;
 use App\Http\Controllers\Landing\Product\EmoShuffle\EmoShuffleController;
 use App\Http\Controllers\Landing\Product\ProductController;
+use App\Http\Controllers\Dashboard\ClassPM\AuthUserController;
 use App\Http\Controllers\Dashboard\PTPM\Psikotest\PsikotestFree\FeedbackController;
 use App\Http\Controllers\Dashboard\PTPM\PsikotestFree\PsikotestFreeController;
 use App\Http\Controllers\Dashboard\HR\_InternshipController;
@@ -24,7 +25,6 @@ use App\Http\Controllers\Dashboard\PsikotestFree\PsikotestFreeController as Psik
 use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\PsikotestFree\QuestionController;
 use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
-
 
 // Home
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
@@ -152,6 +152,21 @@ Route::get('/psikotest/free/{test_id}/{user_id}/results', [ResultController::cla
 Route::post('/psikotest/free/{test_id}/{user_id}/finish-test', [ResultController::class, 'finishTest'])->name('result.finishTest');
 
 
+Route::prefix('/berbinarplus')->group(function () {
+    Route::get('/register', [AuthUserController::class, 'showRegister'])->name('berbinarplus.register');
+    Route::post('/register', [AuthUserController::class, 'register'])->name('berbinarplus.register.post');
+    Route::get('/register/success', [AuthUserController::class, 'success'])->name('berbinarplus.register.success');
+
+    Route::get('/login', [AuthUserController::class, 'showLogin'])->name('berbinarplus.login');
+    Route::post('/login', [AuthUserController::class, 'login'])->name('berbinarplus.login.post');
+
+    Route::post('/logout', [AuthUserController::class, 'logout'])->name('berbinarplus.logout.post');
+
+    Route::group(['middleware' => ['auth.berbinarplus:berbinarplus']], function () {
+        Route::get('/dashboard', [AuthUserController::class, 'dashboard'])->name('berbinarplus.dashboard');
+    });
+});
+
 // Psikotest Paid
 // Route::prefix('/psikotest-paid')->group(function () {
 //     //Biodata Psikotest
@@ -195,8 +210,8 @@ Route::post('/psikotest/free/{test_id}/{user_id}/finish-test', [ResultController
 //         // PAPI KOSTICK
 //         Route::get('/tool/1', [PapiKostickController::class, 'showLanding'])->name('psikotest-paid.tool.PAPI Kostick.showLanding');
 //         Route::post('/tool/1/start', [PapiKostickController::class, 'startTest'])->name('psikotest-paid.papi-kostick.start');
-//         Route::get('/tool/1/test/{testPapiKostick}/question/{questionPapiKostick}', [PapiKostickController::class, 'showQuestion'])->name('psikotest-paid.papi-kostick.showQuestion');
-//         Route::post('/tool/1/test/{testPapiKostick}/question/{questionPapiKostick}', [PapiKostickController::class, 'submitAnswers'])->name('psikotest-paid.papi-kostick.submit');
+//         Route::get('/tool/1/test/2/question/{questionPapiKostick}', [PapiKostickController::class, 'showQuestion'])->name('psikotest-paid.papi-kostick.showQuestion');
+//         Route::post('/tool/1/test/1/question/{questionPapiKostick}', [PapiKostickController::class, 'submitAnswers'])->name('psikotest-paid.papi-kostick.submit');
 //         Route::get('/test/1/test/{testPapiKostick}/summary', [PapiKostickController::class, 'summary'])->name('psikotest-paid.papi-kostick.summary');
 
 //         // TES BAUM
@@ -266,9 +281,9 @@ Route::post('/psikotest/free/{test_id}/{user_id}/finish-test', [ResultController
 
 
 //         // BDI
-//         // Route::get('/tool/BDI', [LandingController::class, 'LandingBDI'])->name('psikotest-paid.tool.BDI.showLanding');
-//         // Route::get('/tool/BDI/test', [LandingController::class, 'TestBDI'])->name('psikotest-paid.tool.BDI.testbdi');
-//         // Route::get('/tool/BDI/end/', [LandingController::class, 'EndBDI'])->name('psikotest-paid.tool.BDI.endbdi');
+//         Route::get('/tool/BDI', [LandingController::class, 'LandingBDI'])->name('psikotest-paid.tool.BDI.showLanding');
+//         Route::get('/tool/BDI/test', [LandingController::class, 'TestBDI'])->name('psikotest-paid.tool.BDI.testbdi');
+//         Route::get('/tool/BDI/end/', [LandingController::class, 'EndBDI'])->name('psikotest-paid.tool.BDI.endbdi');
 
 
 //         // TES DASS-42
