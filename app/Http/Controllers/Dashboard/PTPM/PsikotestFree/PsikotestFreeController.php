@@ -36,6 +36,11 @@ class PsikotestFreeController extends Controller
         return view('moduls.dashboard.psikotes.data-detail', compact('testData'));
     }
 
+        public function psikotestFreeStart()
+    {
+        return view('moduls.psikotes.start');
+    }
+
     // Menampilkan form edit user
     public function adminDataPsikotesFreeEdit($test_id)
     {
