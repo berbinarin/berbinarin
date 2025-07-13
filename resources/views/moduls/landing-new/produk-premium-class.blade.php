@@ -1239,7 +1239,7 @@
             <div class="grid grid-cols-1 gap-4 pt-0 md:grid-cols-2 md:pt-6 lg:grid-cols-4">
                 <!-- Card 1 -->
                 <div
-                    class="flex h-[68px] w-80 items-center gap-4 rounded-xl bg-white p-5 shadow-md md:flex-col md:items-center md:px-9 md:py-9 md:text-justify"
+                    class="flex h-[68px] w-80 items-center gap-4 rounded-xl bg-white p-5 shadow-md md:w-full md:flex-col md:items-center md:px-9 md:py-9 md:text-justify"
                 >
                     <!-- Mobile Icon -->
                     <div
@@ -1277,7 +1277,7 @@
 
                 <!-- Card 2 -->
                 <div
-                    class="flex h-[68px] w-80 items-center gap-4 rounded-xl bg-white p-5 shadow-md md:flex-col md:items-center md:px-9 md:py-9 md:pb-12 md:text-justify"
+                    class="flex h-[68px] w-80 items-center gap-4 rounded-xl bg-white p-5 shadow-md md:w-full md:flex-col md:items-center md:px-9 md:py-9 md:pb-12 md:text-justify"
                 >
                     <!-- Mobile Icon -->
                     <div
@@ -1316,7 +1316,7 @@
 
                 <!-- Card 3 -->
                 <div
-                    class="flex h-[68px] w-80 items-center gap-4 rounded-xl bg-white p-5 shadow-md md:flex-col md:items-center md:px-9 md:py-9 md:pb-12 md:text-justify"
+                    class="flex h-[68px] w-80 items-center gap-4 rounded-xl bg-white p-5 shadow-md md:w-full md:flex-col md:items-center md:px-9 md:py-9 md:pb-12 md:text-justify"
                 >
                     <!-- Mobile Icon -->
                     <div
@@ -1350,7 +1350,7 @@
 
                 <!-- Card 4 -->
                 <div
-                    class="flex h-[68px] w-80 items-center gap-4 rounded-xl bg-white p-5 shadow-md md:flex-col md:items-center md:px-9 md:py-9 md:pb-12 md:text-justify"
+                    class="flex h-[68px] w-80 items-center gap-4 rounded-xl bg-white p-5 shadow-md md:w-full md:flex-col md:items-center md:px-9 md:py-9 md:pb-12 md:text-justify"
                 >
                     <!-- Mobile Icon -->
 
