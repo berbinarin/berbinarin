@@ -206,8 +206,7 @@
 
   {{-- ALUR PENDAFTARAN CONSULTING --}}
   <section
-    class="relative w-full overflow-x-hidden overflow-y-hidden bg-clip-content px-4 sm:px-14"
-  >
+    class="relative w-full overflow-x-hidden overflow-y-hidden bg-clip-content px-4 sm:px-14">
     {{-- Ellipse ornamen top-right --}}
     <img
       src="{{ asset("assets/images/landing/asset-consulting/Ellipse.png") }}"

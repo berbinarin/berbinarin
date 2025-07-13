@@ -90,6 +90,14 @@ Route::prefix('produk')->group(function () {
         Route::prefix('bisikan')->group(function () {
             Route::get('/', [LandingController::class, 'bisikan_new'])->name('bisikan');
         });
+
+        // Class Premium-class
+        Route::prefix('premium-class')->group(function () {
+            Route::get('/', [LandingController::class, 'premium_class_new'])->name('premium-class-new');
+        });
+
+
+
     });
 });
 
