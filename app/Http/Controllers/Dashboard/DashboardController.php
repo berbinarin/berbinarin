@@ -24,6 +24,7 @@ use App\Models\Question;
 use App\Models\Test;
 use App\Models\UserInternship;
 use App\Models\UserPsikotest;
+use App\Models\BerbinarForU;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -38,8 +39,10 @@ class DashboardController extends Controller
         $HiringPosisitonsRequirement = Hiring_Positions_Requirements::count("id");
 
         $PeerConsellorSchedule = jadwalPeer::count("id");
-        $PeerConsellorData = KonsellingPsikolog::where('kategori', 'peer-counselor')->count();
+        $PeerConsellorData = KonsellingPeer::where('kategori', 'peer-counselor')->count();
         $PsikologData = KonsellingPsikolog::where('kategori', 'psikolog')->count();
+        $BerbinarForU = BerbinarForU::where('kategori', 'berbinar-for-u')->count();
+
 
         $totalUserPsikotest = UserPsikotest::count('id');
         $totalQuestion = Question::count('id');
@@ -84,6 +87,7 @@ class DashboardController extends Controller
             "PeerConsellorSchedule" => $PeerConsellorSchedule,
             "PeerConsellorData" => $PeerConsellorData,
             'PsikologData' => $PsikologData,
+            'BerbinarForU' => $BerbinarForU,
             "HiringPosisitonsJobDescriptionment" => $HiringPosisitonsJobDescriptionment,
             'HiringPosisitons' => $HiringPosisitons,
             'HiringPosisitonsRequirement' => $HiringPosisitonsRequirement,
