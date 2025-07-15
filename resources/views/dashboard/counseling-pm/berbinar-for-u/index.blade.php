@@ -26,6 +26,7 @@
                                     <th style="text-align: center">No</th>
                                     <th style="text-align: center">Nama Lengkap</th>
                                     <th style="text-align: center">Email</th>
+                                    <th style="text-align: center">Nomor WhatsApp</th>
                                     <th style="text-align: center">Jenis Kelamin</th>
                                     <th style="text-align: center">Tanggal Daftar</th>
                                     <th style="text-align: center">Action</th>
@@ -36,26 +37,29 @@
                                     <tr class="data-consume">
                                         <td class="text-center" style="height: 40px">{{ $key + 1 }}</td>
                                         <td>{{ $item->nama }}</td>
-                                        <td>{{ $item->email ?? "-" }}</td>
-                                        <td>{{ $item->jenis_kelamin ?? "-" }}</td>
+                                        <td class="text-center">
+                                            <a href="mailto:{{ $item->email }}" class="text-blue-500 hover:text-blue-700 underline">{{ Str::limit($item->email, 25) }}</a>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="https://wa.me/62{{ ltrim($item->no_wa, '0') }}" target="_blank" class="text-blue-500 hover:text-blue-700 underline">{{ $item->no_wa }}</a>
+                                        </td>
+                                        <td class="text-center">{{ $item->jenis_kelamin ?? "-" }}</td>
                                         <td class="text-center">{{ \Carbon\Carbon::parse($item->created_at)->format("d-m-Y") }}</td>
-                                        <td>
-                                            <a href="{{ route("dashboard.berbinar-for-u.show", $item->id) }}" class="inline-flex items-start justify-start rounded bg-blue-500 p-3 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2">
-                                                <i class="bx bx-show text-white"></i>
+                                        <td class="text-center">
+                                            <a href="{{ route('dashboard.berbinar-for-u.show', $item->id) }}"
+                                                class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-3 bg-gray-500 hover:bg-gray-600 focus:outline-none rounded">
+                                                <i class='bx bx-show text-white'></i>
                                             </a>
                                         </td>
                                     </tr>
                                 @empty
-                                    <tr>
-                                        <td colspan="6" class="text-center">Tidak ada data.</td>
-                                    </tr>
                                 @endforelse
                             </tbody>
-    
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 @endsection

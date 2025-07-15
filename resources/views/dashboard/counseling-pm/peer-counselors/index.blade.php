@@ -29,6 +29,7 @@
                                     <th style="text-align: center">Pukul</th>
                                     <th style="text-align: center">Tanggal Pendaftaran</th>
                                     <th style="text-align: center">Metode</th>
+                                    <th style="text-align: center">Sesi</th>
                                     <th style="text-align: center">Daerah</th>
                                     <th style="text-align: center">Harga</th>
                                     <th style="text-align: center">Nomor WhatsApp</th>
@@ -44,10 +45,11 @@
                                         <td class="text-center">{{ $item->jadwal_pukul }}</td>
                                         <td class="text-center">{{ \Carbon\Carbon::parse($item->created_at)->format("d-m-Y") }}</td>
                                         <td style="text-transform: capitalize">{{ $item->metode }}</td>
+                                        <td style="text-transform: capitalize">{{ $item->sesi }} Jam</td>
                                         <td style="text-transform: capitalize">{{ $item->daerah }}</td>
-                                        <td style="text-transform: capitalize">Rp. {{ $item->harga }}</td>
+                                        <td style="text-transform: capitalize">Rp. {{ number_format($item->harga, 0, ',', '.') }}</td>
                                         <td class="text-center">
-                                            <a href="https://wa.me/{{ $item->no_wa }}">{{ $item->no_wa }}</a>
+                                            <a href="https://wa.me/62{{ ltrim($item->no_wa, '0') }}" target="_blank" class="text-blue-500 hover:text-blue-700 underline">{{ $item->no_wa }}</a>
                                         </td>
                                         <td>
                                             <a href="{{ route("dashboard.peer-counselors.show", $item->id) }}" class="inline-flex items-start justify-start rounded bg-gray-500 p-3 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2">
@@ -65,4 +67,5 @@
             </div>
         </div>
     </section>
+
 @endsection

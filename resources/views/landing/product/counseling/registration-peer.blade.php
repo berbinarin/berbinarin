@@ -54,11 +54,11 @@
 
                     <div class="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-20 justify-center transition-all duration-300 group-hover:-translate-y-0.5 group-hover:scale-y-[0.83]">
                         @if ($konseling["nama"] === "Berbinar For U")
-                            <a href="{{ route("product.counseling.personal_data") }}">
+                            <a href="{{ route("product.counseling.berbinar-for-u.index") }}">
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar {{ $konseling["nama"] }}</button>
                             </a>
                         @else
-                            <a href="{{ route("product.counseling.schedule", ["kategori" => "peer-counselor", "reset" => 1]) }}">
+                            <a href="{{ route("product.counseling.peer-counselor.index") }}">
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar {{ $konseling["nama"] }}</button>
                             </a>
                         @endif
@@ -80,11 +80,11 @@
                     <img src="{{ asset($konseling["image"]) }}" alt="{{ $konseling["nama"] }}" class="h-36 w-auto object-contain" />
                     <div class="flex justify-center">
                         @if ($konseling["nama"] === "Berbinar For U")
-                            <a href="{{ route("product.counseling.personal_data") }}">
+                            <a href="{{ route("product.counseling.berbinar-for-u.index") }}">
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:px-6 max-sm:text-[15px]">Daftar {{ $konseling["nama"] }}</button>
                             </a>
                         @else
-                            <a href="{{ route("product.counseling.schedule", ["kategori" => "peer-counselor", "reset" => 1]) }}">
+                            <a href="{{ route("product.counseling.peer-counselor.index") }}">
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:px-6 max-sm:text-[15px]">Daftar {{ $konseling["nama"] }}</button>
                             </a>
                         @endif

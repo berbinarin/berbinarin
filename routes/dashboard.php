@@ -37,7 +37,7 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
         Route::resource('/peer-counselor-schedules', PeerCounselorScheduleController::class)->except('create', 'show', 'edit');
 
         // Berbinar For U
-        Route::resource('/berbinar-for-u', BerbinarForUController::class)->only(['index', 'show', 'create', 'edit']);
+        Route::resource('/berbinar-for-u', BerbinarForUController::class);
     });
 
     // Class Product Management
@@ -45,8 +45,6 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
         // Berbinar Plus
         Route::resource('/berbinar-plus', BerbinarPlusController::class);
         Route::resource('/berbinar-plus-class', BerbinarPlusDashboardController::class);
-
-        
     });
 
 

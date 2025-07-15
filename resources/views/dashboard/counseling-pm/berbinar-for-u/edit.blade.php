@@ -18,77 +18,79 @@
                 <p class="w-3/4 text-disabled">Halaman untuk mengedit data peserta Berbinar For U.</p>
             </div>
             <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
-                <form action="#" method="POST">
+                <form action="{{ route('dashboard.berbinar-for-u.update', $BerbinarForUDataDetails->id) }}" method="POST">
                     @csrf
                     @method('PUT')
-                    <input type="hidden" name="kategori" value="peer-counselor" />
+                    <input type="hidden" name="kategori" value="berbinar-for-u" />
 
                     <!-- Data Diri -->
                     <h1 class="mb-6 text-center text-2xl font-bold">Data Diri</h1>
                     <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <div>
                             <label class="font-semibold">Nama Lengkap</label>
-                            <input required type="text" name="nama" value="" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Nama Lengkap" />
-                        </div>
-                        <div>
-                            <label class="font-semibold">Nomor WhatsApp</label>
-                            <input required type="number" name="no_wa" value="" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Nomor WhatsApp" />
+                            <input required type="text" name="nama" value="{{ $BerbinarForUDataDetails->nama }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Nama Lengkap" />
                         </div>
                         <div>
                             <label class="font-semibold">Email</label>
-                            <input required type="email" name="email" value="" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Email" />
-                        </div>
-                        <div>
-                            <label class="font-semibold">Jenis Kelamin</label>
-                            <select required name="jenis_kelamin" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
-                                <option value="" disabled selected>Pilih Jenis Kelamin</option>
-                                <option value="Laki-laki">Laki-laki</option>
-                                <option value="Perempuan">Perempuan</option>
-                            </select>
+                            <input required type="email" name="email" value="{{ $BerbinarForUDataDetails->email }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Email" />
                         </div>
                         <div>
                             <label class="font-semibold">Tanggal Lahir</label>
-                            <input required type="date" id="tgllahir" name="tanggal_lahir" value="" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" />
+                            <input required type="text" id="tanggal_lahir" name="tanggal_lahir" 
+                                value="{{ \Carbon\Carbon::parse($BerbinarForUDataDetails->tanggal_lahir)->format('d/m/Y') }}"
+                                class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" readonly />
+                        </div>
+                        <div>
+                            <label class="font-semibold">Kota Domisili</label>
+                            <input required type="text" name="tempat_lahir" value="{{ $BerbinarForUDataDetails->tempat_lahir }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Kota Domisili" />
+                        </div>
+                        <div>
+                            <label class="font-semibold">Alamat Domisili</label>
+                            <input required type="text" name="alamat" value="{{ $BerbinarForUDataDetails->alamat }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Alamat Domisili" />
                         </div>
                         <div>
                             <label class="font-semibold">Status Pernikahan</label>
                             <select required name="status_pernikahan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
-                                <option value="" disabled selected>Pilih Status Pernikahan</option>
-                                <option value="Belum Menikah">Belum Menikah</option>
-                                <option value="Sudah Menikah">Sudah Menikah</option>
+                                <option value="" disabled>Pilih Status Pernikahan</option>
+                                <option value="Belum Menikah" {{ $BerbinarForUDataDetails->status_pernikahan == 'Belum Menikah' ? 'selected' : '' }}>Belum Menikah</option>
+                                <option value="Sudah Menikah" {{ $BerbinarForUDataDetails->status_pernikahan == 'Sudah Menikah' ? 'selected' : '' }}>Sudah Menikah</option>
                             </select>
                         </div>
                         <div>
-                            <label class="font-semibold">Kota Domisili</label>
-                            <input required type="text" name="kota" value="" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Kota Domisili" />
+                            <label class="font-semibold">Jenis Kelamin</label>
+                            <select required name="jenis_kelamin" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                                <option value="" disabled>Pilih Jenis Kelamin</option>
+                                <option value="laki-laki" {{ $BerbinarForUDataDetails->jenis_kelamin == 'laki-laki' ? 'selected' : '' }}>Laki-laki</option>
+                                <option value="perempuan" {{ $BerbinarForUDataDetails->jenis_kelamin == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
+                            </select>
                         </div>
                         <div>
-                            <label class="font-semibold">Alamat Domisili</label>
-                            <input required type="text" name="alamat" value="" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Alamat Domisili" />
+                            <label class="font-semibold">Nomor WhatsApp</label>
+                            <input required type="number" name="no_wa" value="{{ $BerbinarForUDataDetails->no_wa }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Nomor WhatsApp" />
+                        </div>
+                        <div>
+                            <label class="font-semibold">Suku Bangsa</label>
+                            <input required type="text" name="suku" value="{{ $BerbinarForUDataDetails->suku }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Suku Bangsa" />
                         </div>
                         <div>
                             <label class="font-semibold">Agama</label>
                             <select required name="agama" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
-                                <option value="" disabled selected>Pilih Agama</option>
-                                <option value="Islam">Islam</option>
-                                <option value="Kristen">Kristen</option>
-                                <option value="Katolik">Katolik</option>
-                                <option value="Hindu">Hindu</option>
-                                <option value="Budha">Budha</option>
-                                <option value="Khonghucu">Khonghucu</option>
+                                <option value="" disabled>Pilih Agama</option>
+                                <option value="Islam" {{ $BerbinarForUDataDetails->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
+                                <option value="Kristen" {{ $BerbinarForUDataDetails->agama == 'Kristen' ? 'selected' : '' }}>Kristen</option>
+                                <option value="Katolik" {{ $BerbinarForUDataDetails->agama == 'Katolik' ? 'selected' : '' }}>Katolik</option>
+                                <option value="Hindu" {{ $BerbinarForUDataDetails->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
+                                <option value="Budha" {{ $BerbinarForUDataDetails->agama == 'Budha' ? 'selected' : '' }}>Budha</option>
+                                <option value="Khonghucu" {{ $BerbinarForUDataDetails->agama == 'Khonghucu' ? 'selected' : '' }}>Khonghucu</option>
                             </select>
                         </div>
                         <div>
-                            <label class="font-semibold">Suku Bangsa</label>
-                            <input required type="text" name="suku" value="" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Suku Bangsa" />
-                        </div>
-                        <div>
                             <label class="font-semibold">Anak ke-</label>
-                            <input required type="text" name="posisi_anak" value="" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Anak ke-x dari x bersaudara" />
+                            <input required type="text" name="posisi_anak" value="{{ $BerbinarForUDataDetails->posisi_anak }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Anak ke-x dari x bersaudara" />
                         </div>
                         <div>
                             <label class="font-semibold">Hobi</label>
-                            <input required type="text" name="hobi" value="" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Hobi" />
+                            <input required type="text" name="hobi" value="{{ $BerbinarForUDataDetails->hobi }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Hobi" />
                         </div>
                     </div>
 
@@ -97,19 +99,26 @@
                     <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <div>
                             <label class="font-semibold">Pendidikan Terakhir</label>
-                            <input required type="text" name="pendidikan_terakhir" value="" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="SMA" />
+                            <select required name="pendidikan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                                <option value="" disabled>Pilih Pendidikan Terakhir</option>
+                                <option value="S1/D4 - Sarjana" {{ $BerbinarForUDataDetails->pendidikan == 'S1/D4 - Sarjana' ? 'selected' : '' }}>S1/D4 - Sarjana</option>
+                                <option value="D3 - Diploma" {{ $BerbinarForUDataDetails->pendidikan == 'D3 - Diploma' ? 'selected' : '' }}>D3 - Diploma</option>
+                                <option value="SMA/SMK" {{ $BerbinarForUDataDetails->pendidikan == 'SMA/SMK' ? 'selected' : '' }}>SMA/SMK</option>
+                                <option value="SMP" {{ $BerbinarForUDataDetails->pendidikan == 'SMP' ? 'selected' : '' }}>SMP</option>
+                                <option value="SD" {{ $BerbinarForUDataDetails->pendidikan == 'SD' ? 'selected' : '' }}>SD</option>
+                            </select>
                         </div>
                         <div>
                             <label class="font-semibold">Asal Sekolah/Universitas</label>
-                            <input required type="text" name="asal_sekolah" value="" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Universitas Berbinar" />
+                            <input required type="text" name="asal_sekolah" value="{{ $BerbinarForUDataDetails->asal_sekolah }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Universitas Berbinar" />
                         </div>
                         <div>
                             <label class="font-semibold">Pekerjaan Saat Ini</label>
-                            <input required type="text" name="pekerjaan" value="" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Karyawan Swasta" />
+                            <input required type="text" name="riwayat_pekerjaan" value="{{ $BerbinarForUDataDetails->riwayat_pekerjaan }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Karyawan Swasta" />
                         </div>
                         <div>
                             <label class="font-semibold">Kegiatan Sosial yang Pernah/Sedang Diikuti</label>
-                            <input required type="text" name="kegiatan_sosial" value="" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Pengabdian Pemuda Masyarakat" />
+                            <input required type="text" name="kegiatan_sosial" value="{{ $BerbinarForUDataDetails->kegiatan_sosial }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Pengabdian Pemuda Masyarakat" />
                         </div>
                     </div>
 
@@ -117,7 +126,7 @@
                     <h1 class="my-8 text-center text-2xl font-bold">Topik Konseling</h1>
                     <div>
                         <label class="font-semibold">Tuliskan Apa yang Ingin Anda Ceritakan</label>
-                        <textarea required name="cerita" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="4" placeholder="Tulislah hal yang ingin Anda konsultasikan"></textarea>
+                        <textarea required name="cerita" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="4" placeholder="Tulislah hal yang ingin Anda konsultasikan">{{ $BerbinarForUDataDetails->cerita }}</textarea>
                     </div>
 
                     <div class="mt-8 flex gap-4 border-t-2 border-t-gray-400 pt-5">
@@ -145,8 +154,14 @@
 @endsection
 
 @section("script")
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            flatpickr("#tanggal_lahir", {
+                dateFormat: "d/m/Y",
+                allowInput: true,
+            });
+
             const cancelButton = document.getElementById('cancelButton');
             const confirmModal = document.getElementById('confirmModal');
             const confirmCancel = document.getElementById('confirmCancel');
