@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Landing\Product\Counseling;
 
 use App\Http\Controllers\Controller;
 use App\Models\KonsellingPsikolog;
-use App\Models\JadwalPeer;
+use App\Models\jadwalPeer;
 use App\Models\KonsellingPeer;
 use App\Models\BerbinarForU;
 use Illuminate\Http\Request;
@@ -344,7 +344,7 @@ class CounselingController extends Controller
 
     public function showPeerForm()
     {
-        $jadwalPeerCounselors = JadwalPeer::all();
+        $jadwalPeerCounselors = jadwalPeer::all();
         return view('landing.product.counseling.peer.registration-peer', compact('jadwalPeerCounselors'));
     }
 

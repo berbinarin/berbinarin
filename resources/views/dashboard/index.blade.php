@@ -189,6 +189,17 @@
                             <span class="block text-gray-500">Psikolog Data</span>
                         </div>
                     </div>
+
+                    <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                        <div
+                            class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                            <i class='bx bx-user text-2xl'></i>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold">{{ $BerbinarForU }}</span>
+                            <span class="block text-gray-500">Berbinar For U Data</span>
+                        </div>
+                    </div>
                 </div>
             @endrole
 
