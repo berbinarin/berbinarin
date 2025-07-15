@@ -82,7 +82,7 @@
 <script>
 $('button.submit').disabled = true; // disable button on load
 
-// Enable button 
+// Enable button
 function enable_submit() {
     $('button.submit').disabled = false;
     $('button.submit').addClass('not-disabled');
@@ -94,7 +94,7 @@ function disable_submit() {
     $('button.submit').removeClass('not-disabled');
 }
 
-// Display feedback after rating 
+// Display feedback after rating
 $('.rating__input').on('click', function() {
     var rating = this['value'];
     $('.rating__label').removeClass('active');

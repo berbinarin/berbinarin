@@ -3,7 +3,7 @@
     [
         "title" => "Berbinar Insightful Indonesia",
         "active" => "Produk Berbinar",
-        "page" => "Daftar Konseling",
+        "page" => "Daftar Peer Counseling",
     ]
 )
 
@@ -15,28 +15,24 @@
             -webkit-background-clip: text;
             color: transparent;
         }
-
         .text-gradient-blue {
             background: linear-gradient(to right, #3986a3, #15323d);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
         }
-
         .group {
             transition:
                 transform 0.3s ease-in-out,
                 border 0.3s;
             transform-origin: center;
             overflow: hidden;
-            border: 2px solid transparent; 
+            border: 2px solid transparent;
         }
-
         .group:hover {
             transform: scaleY(1.2);
             border: 5px solid #3986A3;
         }
-
         .group:hover .transform {
             transform: scaleY(0.83);
         }
@@ -57,12 +53,12 @@
                     </div>
 
                     <div class="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-20 justify-center transition-all duration-300 group-hover:-translate-y-0.5 group-hover:scale-y-[0.83]">
-                        @if ($konseling["nama"] === "Peer Counselor")
-                            <a href="{{ route("product.counseling.peer-counselor.registration") }}">
+                        @if ($konseling["nama"] === "Berbinar For U")
+                            <a href="{{ route("product.counseling.berbinar-for-u.index") }}">
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar {{ $konseling["nama"] }}</button>
                             </a>
                         @else
-                            <a href="{{ route("product.counseling.psikolog.index") }}">
+                            <a href="{{ route("product.counseling.peer-counselor.index") }}">
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar {{ $konseling["nama"] }}</button>
                             </a>
                         @endif
@@ -83,12 +79,12 @@
                     <h1 class="font text-gradient-blue text-2xl font-semibold text-black max-sm:text-[29px]">{{ $konseling["nama"] }}</h1>
                     <img src="{{ asset($konseling["image"]) }}" alt="{{ $konseling["nama"] }}" class="h-36 w-auto object-contain" />
                     <div class="flex justify-center">
-                        @if ($konseling["nama"] === "Peer Counselor")
-                            <a href="{{ route("product.counseling.peer-counselor.registration") }}">
+                        @if ($konseling["nama"] === "Berbinar For U")
+                            <a href="{{ route("product.counseling.berbinar-for-u.index") }}">
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:px-6 max-sm:text-[15px]">Daftar {{ $konseling["nama"] }}</button>
                             </a>
                         @else
-                            <a href="{{ route("product.counseling.psikolog.index") }}">
+                            <a href="{{ route("product.counseling.peer-counselor.index") }}">
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:px-6 max-sm:text-[15px]">Daftar {{ $konseling["nama"] }}</button>
                             </a>
                         @endif

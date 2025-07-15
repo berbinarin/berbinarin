@@ -5,34 +5,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class KonsellingPeer extends Model
+class BerbinarForU extends Model
 {
     use HasFactory;
 
-    protected $table = 'konselling_peers';
+    protected $table = 'berbinar_for_u';
 
     protected $fillable = [
-        'jadwal_tanggal',
-        'jadwal_pukul',
-        'metode',
-        'daerah',
-        'sesi',
-        'harga',
         'nama',
-        'no_wa',
         'email',
-        'jenis_kelamin',
-        'agama',
+        'tanggal_lahir',
         'tempat_lahir',
-        'tanggal_Lahir',
-        'suku',
-        'status_pernikahan',
         'alamat',
+        'status_pernikahan',
+        'jenis_kelamin',
+        'no_wa',
+        'suku',
+        'agama',
         'posisi_anak',
+        'hobi',
         'pendidikan',
         'asal_sekolah',
         'riwayat_pekerjaan',
-        'hobi',
         'kegiatan_sosial',
         'cerita',
         'kategori'

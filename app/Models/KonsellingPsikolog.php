@@ -12,9 +12,30 @@ class KonsellingPsikolog extends Model
     protected $table = 'konselling_psikologs';
 
     protected $fillable = [
-        'jadwal_tanggal', 'jadwal_pukul', 'metode', 'nama', 'no_wa', 'email', 'jenis_kelamin', 'agama', 'tempat_lahir', 'tanggal_lahir', 'suku', 'status_pernikahan',
-        'alamat', 'posisi_anak', 'pendidikan', 'riwayat_pekerjaan', 'hobi', 'kegiatan_sosial', 'cerita',
-        'harga', 'daerah', 'sesi','kategori',
+        'jadwal_tanggal',
+        'jadwal_pukul',
+        'metode',
+        'nama',
+        'no_wa',
+        'email',
+        'jenis_kelamin',
+        'agama',
+        'tempat_lahir',
+        'tanggal_Lahir',
+        'suku',
+        'status_pernikahan',
+        'alamat',
+        'posisi_anak',
+        'pendidikan',
+        'asal_sekolah',
+        'riwayat_pekerjaan',
+        'hobi',
+        'kegiatan_sosial',
+        'cerita',
+        'harga',
+        'daerah',
+        'sesi',
+        'kategori',
     ];
 
     public function userDetail()
