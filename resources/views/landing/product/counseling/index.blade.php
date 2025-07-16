@@ -195,6 +195,19 @@
     </style>
 @endsection
 
+
+@php
+    function italic_en($text) {
+        $enWords = [
+            'Peer Counselor', 'peer counselor', 'Online', 'Offline', 'Registration', 'Weekend', 'Weekdays', 'Zoom Meeting', 'Region', 'Session', 'Price', 'Testimoni', 'FAQ', 'Berbinar', 'User'
+        ];
+        foreach ($enWords as $word) {
+            $text = str_replace($word, "<i>$word</i>", $text);
+        }
+        return $text;
+    }
+@endphp
+
 @section("content")
     {{-- HERO SECTION --}}
     <section class="relative max-sm:overflow-x-hidden">
@@ -225,7 +238,7 @@
                     </div>
 
                     <div class="lg:order-4">
-                        <p class="text-justify text-lg text-[#70787D] max-lg:text-[17px] max-sm:text-[15px] max-sm:leading-normal">Merasa terjebak dalam rutinitas yang membosankan? Membutuhkan panduan untuk mengatasi masalah hidup? Konseling Berbinar solusinya! Bersama para psikolog dan peer counselor yang berpengalaman, Berbinar siap membantu klien untuk menemukan solusi tepat mengenai masalah yang dihadapi, dengan mencapai pertumbuhan untuk menuju hidup yang lebih baik.</p>
+                        <p class="text-justify text-lg text-[#70787D] max-lg:text-[17px] max-sm:text-[15px] max-sm:leading-normal">Merasa terjebak dalam rutinitas yang membosankan? Membutuhkan panduan untuk mengatasi masalah hidup? Konseling Berbinar solusinya! Bersama para psikolog dan <i>peer counselor</i> yang berpengalaman, Berbinar siap membantu klien untuk menemukan solusi tepat mengenai masalah yang dihadapi, dengan mencapai pertumbuhan untuk menuju hidup yang lebih baik.</p>
                     </div>
 
                     <div id="openModal" class="flex justify-start lg:order-5">
@@ -241,7 +254,7 @@
                                 </div>
                                 <ol class="list-decimal mt-1 space-y-1 pl-7">
                                     <li class="max-sm:text-sm">a. Psikolog: Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, Jakarta, Malang, dan Kalimantan Utara (Tarakan)</li>
-                                    <li class="max-sm:text-sm">b. Peer Counselor: Bekasi, Jakarta, Tangerang Selatan, Padang, Wonogiri, dan Malang</li>
+                                    <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Bekasi, Jakarta, Tangerang Selatan, Padang, Wonogiri, dan Malang</li>
                                 </ol>
                             </div>
 
@@ -309,7 +322,7 @@
                         @foreach ($konselings as $konseling)
                             <div class="swiper-slide">
                                 <div class="flex h-auto min-h-[468px] w-auto flex-col justify-start rounded-xl bg-white p-5 text-center shadow-md max-lg:min-h-[538px] max-md:min-h-[515px] max-sm:min-h-[450px] max-sm:p-4">
-                                    <p class="text-gradient min-h-[60px] text-2xl font-semibold leading-tight max-sm:min-h-0 max-sm:text-xl lg:min-h-0">{{ $konseling["name"] }}</p>
+                                    <p class="text-gradient min-h-[60px] text-2xl font-semibold leading-tight max-sm:min-h-0 max-sm:text-xl lg:min-h-0">{!! italic_en($konseling["name"]) !!}</p>
                                     <img src="{{ asset($konseling["image"]) }}" alt="{{ $konseling["name"] }}" class="mx-auto mt-4 h-32 w-auto max-sm:h-24" />
                                     <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-4 w-full" />
 
@@ -317,7 +330,7 @@
                                         @foreach ($konseling["description"] as $desc)
                                             <div class="flex flex-row items-start gap-x-2">
                                                 <img src="{{ asset("assets/images/landing/asset-tentang/green-check.svg") }}" alt="Vector" class="h-[18px] w-[18px] max-sm:h-4 max-sm:w-4" />
-                                                <p class="-mt-0.5 text-justify text-[16px] text-[#70787D] max-sm:text-[15px]">{{ $desc }}</p>
+                                                <p class="-mt-0.5 text-justify text-[16px] text-[#70787D] max-sm:text-[15px]">{!! italic_en($desc) !!}</p>
                                             </div>
                                         @endforeach
                                     </div>
@@ -340,13 +353,13 @@
                     <div class="flex flex-col rounded-xl bg-white p-4 shadow-md">
                         <div class="mb-3 flex flex-row items-center space-x-3">
                             <img src="{{ asset($konseling["image"]) }}" alt="{{ $konseling["name"] }}" class="h-20 w-auto" />
-                            <p class="text-gradient text-[19px] font-semibold leading-tight">{{ $konseling["name"] }}</p>
+                            <p class="text-gradient text-[19px] font-semibold leading-tight">{!! italic_en($konseling["name"]) !!}</p>
                         </div>
                         <div>
                             @foreach ($konseling["description"] as $desc)
                                 <div class="flex flex-row items-start gap-x-2">
                                     <img src="{{ asset("assets/images/landing/asset-tentang/green-check.svg") }}" alt="Vector" class="h-[18px] w-[18px] max-sm:h-4 max-sm:w-4" />
-                                    <p class="-mt-0.5 text-justify text-[16px] text-[#70787D] max-sm:text-[15px]">{{ $desc }}</p>
+                                    <p class="-mt-0.5 text-justify text-[16px] text-[#70787D] max-sm:text-[15px]">{!! italic_en($desc) !!}</p>
                                 </div>
                             @endforeach
                         </div>
@@ -374,9 +387,9 @@
                             <div class="flex flex-col items-center">
                                 <img src="{{ asset($psikolog["image"]) }}" alt="{{ $psikolog["name"] }}" class="h-[180px] w-auto max-sm:h-[140px]" />
                                 <p class="mt-2 text-center text-lg font-semibold text-black max-sm:text-[16px] max-sm:leading-snug">
-                                    {{ $psikolog["name"] }}
+                                    {!! italic_en($psikolog["name"]) !!}
                                     <br />
-                                    {{ $psikolog["title"] }}
+                                    {!! italic_en($psikolog["title"]) !!}
                                 </p>
                             </div>
                         </div>
@@ -522,7 +535,7 @@
     <section>
         <div class="mx-[320px] mt-60 justify-center text-center max-xl:mx-12 max-md:mt-20 max-sm:mx-3 max-sm:mt-5">
             <h1 class="font text-4xl font-semibold text-black max-sm:text-[29px]">
-                Peer Counselor
+                <i>Peer Counselor</i>
                 <span class="bg-[#3886A3] px-2 text-white">Berbinar</span>
             </h1>
             <p class="mt-2 text-lg text-[#70787D] max-sm:text-[15px] max-sm:leading-snug">Tim kami terdiri dari psikolog berpengalaman, membantu Anda menavigasi hidup dengan bijaksana, memberikan dukungan emosional</p>
@@ -535,8 +548,8 @@
                         <div class="swiper-slide">
                             <div class="flex flex-col items-center text-center">
                                 <img src="{{ asset($peer["image"]) }}" alt="{{ $peer["name"] }}" class="h-[180px] w-auto max-sm:h-[140px]" />
-                                <p class="mt-2 text-lg font-semibold text-black max-sm:text-[16px] max-sm:leading-snug">{{ $peer["name"] }}</p>
-                                <p class="text-sm text-[#70787D]">{{ $peer["region"] }}</p>
+                                <p class="mt-2 text-lg font-semibold text-black max-sm:text-[16px] max-sm:leading-snug">{!! italic_en($peer["name"]) !!}</p>
+                                <p class="text-sm text-[#70787D]">{!! italic_en($peer["region"]) !!}</p>
                             </div>
                         </div>
                     @endforeach
@@ -564,7 +577,7 @@
         <div class="absolute inset-0 flex rounded-3xl bg-[#2D6B8280] max-md:hidden"></div>
 
         <div class="relative flex flex-col justify-center space-y-5 text-center">
-            <h1 class="text-3xl font-semibold text-white">Konseling Bersama Peer Counselor</h1>
+            <h1 class="text-3xl font-semibold text-white">Konseling Bersama <i>Peer Counselor</i></h1>
 
             <div class="mx-20 flex flex-row justify-center gap-x-20 max-md:flex-col max-md:gap-y-[250px]">
                 <div class="mt-6 flex flex-1 justify-center">
@@ -627,14 +640,14 @@
 
                                 <div class="flex flex-grow flex-col pt-4 text-center">
                                     <p class="min-h-[216px] flex-grow text-justify text-[16px] font-medium text-black max-lg:min-h-[240px] max-md:leading-snug max-sm:min-h-[195px] max-sm:text-[15px] max-sm:leading-tight">
-                                        {{ $testimoni["comment"] }}
+                                        {!! italic_en($testimoni["comment"]) !!}
                                     </p>
                                 </div>
 
                                 <div class="mt-5 flex flex-col items-center text-center max-lg:mt-2 max-sm:mt-1">
                                     <img src="{{ asset($testimoni["image"]) }}" alt="Kutip" class="h-[70px] w-auto rounded-full max-sm:h-14" />
                                     <p class="text-[17px] font-semibold text-black max-sm:text-[15px]">
-                                        {{ $testimoni["name"] }}
+                                        {!! italic_en($testimoni["name"]) !!}
                                     </p>
                                 </div>
                             </div>
@@ -660,10 +673,10 @@
                     <div class="mx-2 flex flex-row sm:mx-5">
                         <div class="flex w-full flex-col p-3 max-sm:p-2">
                             <h2 @click="handleClick()" class="cursor-pointer text-lg font-medium max-sm:text-[16.5px]">
-                                <span>{{ $faq["question"] }}</span>
+                                <span>{!! italic_en($faq["question"]) !!}</span>
                             </h2>
                             <div x-ref="tab" :style="handleToggle()" class="max-h-0 overflow-hidden transition-all duration-500">
-                                <p class="mt-3 text-justify text-[#6F6C90] max-sm:mt-2 max-sm:text-[15px]">{{ $faq["answer"] }}</p>
+                                <p class="mt-3 text-justify text-[#6F6C90] max-sm:mt-2 max-sm:text-[15px]">{!! italic_en($faq["answer"]) !!}</p>
                             </div>
                         </div>
 
