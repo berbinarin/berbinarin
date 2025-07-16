@@ -282,10 +282,9 @@
 
                 <p class="text-sm xl:text-base">Terima kasih sudah mendaftar. Pastikan bahwa seluruh data telah benar, link dapat diakses, dan jangan lupa tekan tombol kirim di bawah ini 😆</p>
                 <p class="text-sm mt-4 mb-4">Jika ada pertanyaan lebih lanjut, bisa hubungi WA di bawah ini:<br>
-                  Rival (<a href="https://wa.me/62895411933342" class="text-blue-500">0895411933342</a>)<br>
-                  Laila (<a href="https://wa.me/6281542288773" class="text-blue-500">081542288773</a>)<br>
-                  Amel (<a href="https://wa.me/6285264351885" class="text-blue-500">085264351885</a>)<br>
-                  Nurul (<a href="https://wa.me/6283182356031" class="text-blue-500">083182356031</a>)<br>
+                  Bianca (<a href="https://wa.me/6289508781453" class="text-blue-500">089508781453</a>)<br>
+                  Nanda  (<a href="https://wa.me/628111990797" class="text-blue-500">08111990797</a>)<br>
+                  Ismalia (<a href="https://wa.me/6285174386120" class="text-blue-500">085174386120</a>)<br>
                 </p>
               </div>
 
