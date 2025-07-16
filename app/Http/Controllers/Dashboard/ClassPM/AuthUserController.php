@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Berbinarplus;
+namespace App\Http\Controllers\Dashboard\ClassPM;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

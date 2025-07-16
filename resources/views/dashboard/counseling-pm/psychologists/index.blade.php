@@ -53,7 +53,7 @@
                                         <td style="text-transform: capitalize;">{{ $item->daerah }}</td>
                                         <td style="text-transform: capitalize;">Rp. {{ $item->harga }}</td>
                                         <td class="text-center">
-                                            <a href="https://wa.me/{{ $item->no_wa }}">{{ $item->no_wa }}</a>
+                                            <a href="https://wa.me/62{{ ltrim($item->no_wa, '0') }}" target="_blank" class="text-blue-500 hover:text-blue-700 underline">{{ $item->no_wa }}</a>
                                         </td>
                                         <td>
                                             <a href="{{ route('dashboard.psychologists.show', $item->id) }}"

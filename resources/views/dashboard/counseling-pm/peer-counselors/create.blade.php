@@ -1,11 +1,9 @@
-@extends(
-    "dashboard.layouts.app",
-    [
-        "title" => "Tambah Data Peer Counselor",
-    ]
-)
+@extends('dashboard.layouts.app', [
+    'title' => 'Tambah Data Peer Counselor',
+    'modul' => 'Peer Counselor Data',
+])
 
-@section("content")
+@section('content')
 <section class="flex w-full">
     <div class="flex w-full flex-col">
         <div class="py-4 md:pb-7 md:pt-12">
@@ -24,136 +22,43 @@
                 @csrf
                 <input type="hidden" name="kategori" value="peer-counselor">
 
-                <!-- Data Diri -->
-                <h1 class="mb-6 text-center text-2xl font-bold">Data Diri</h1>
-                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-                    <div>
-                        <label class="font-semibold">Nama Lengkap</label>
-                        <input required type="text" name="nama" value="{{ old('nama') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Nama Lengkap" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Nomor WhatsApp</label>
-                        <input required type="number" name="no_wa" value="{{ old('no_wa') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Nomor WhatsApp" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Email</label>
-                        <input required type="email" name="email" value="{{ old('email') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Email" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Jenis Kelamin</label>
-                        <select required name="jenis_kelamin" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
-                            <option value="" disabled selected>Pilih Jenis Kelamin</option>
-                            <option value="Laki-laki" {{ old('jenis_kelamin') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-                            <option value="Perempuan" {{ old('jenis_kelamin') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="font-semibold">Tanggal Lahir</label>
-                        <input required type="date" id="tgllahir" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" readonly/>
-                    </div>
-                    <div>
-                        <label class="font-semibold">Tempat Lahir</label>
-                        <input required type="text" name="tempat_lahir" value="{{ old('tempat_lahir') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Tempat Lahir" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Agama</label>
-                        <select required name="agama" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
-                            <option value="" disabled selected>Pilih Agama</option>
-                            <option value="Islam" {{ old('agama') == 'Islam' ? 'selected' : '' }}>Islam</option>
-                            <option value="Kristen" {{ old('agama') == 'Kristen' ? 'selected' : '' }}>Kristen</option>
-                            <option value="Katolik" {{ old('agama') == 'Katolik' ? 'selected' : '' }}>Katolik</option>
-                            <option value="Hindu" {{ old('agama') == 'Hindu' ? 'selected' : '' }}>Hindu</option>
-                            <option value="Budha" {{ old('agama') == 'Budha' ? 'selected' : '' }}>Budha</option>
-                            <option value="Khonghucu" {{ old('agama') == 'Khonghucu' ? 'selected' : '' }}>Khonghucu</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="font-semibold">Suku</label>
-                        <input required type="text" name="suku" value="{{ old('suku') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Suku Bangsa" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Status Pernikahan</label>
-                        <select required name="status_pernikahan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
-                            <option value="" disabled selected>Pilih Status Pernikahan</option>
-                            <option value="Belum Menikah" {{ old('status_pernikahan') == 'Belum Menikah' ? 'selected' : '' }}>Belum Menikah</option>
-                            <option value="Sudah Menikah" {{ old('status_pernikahan') == 'Sudah Menikah' ? 'selected' : '' }}>Sudah Menikah</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="font-semibold">Alamat Domisili</label>
-                        <input required type="text" name="alamat" value="{{ old('alamat') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Alamat Domisili" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Anak ke-</label>
-                        <input required type="text" name="posisi_anak" value="{{ old('posisi_anak') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Anak ke-x dari x bersaudara" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Pendidikan Terakhir</label>
-                        <select required name="pendidikan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
-                            <option value="" disabled selected>Pilih Pendidikan Terakhir</option>
-                            <option value="S1/D4 - Sarjana" {{ (old('pendidikan', $personal['pendidikan'] ?? '') == 'S1/D4 - Sarjana') ? 'selected' : '' }}>S1/D4 - Sarjana</option>
-                            <option value="D3 - Diploma" {{ (old('pendidikan', $personal['pendidikan'] ?? '') == 'D3 - Diploma') ? 'selected' : '' }}>D3 - Diploma</option>
-                            <option value="SMA/SMK" {{ (old('pendidikan', $personal['pendidikan'] ?? '') == 'SMA/SMK') ? 'selected' : '' }}>SMA/SMK</option>
-                            <option value="SMP" {{ (old('pendidikan', $personal['pendidikan'] ?? '') == 'SMP') ? 'selected' : '' }}>SMP</option>
-                            <option value="SD" {{ (old('pendidikan', $personal['pendidikan'] ?? '') == 'SD') ? 'selected' : '' }}>SD</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="font-semibold">Hobi</label>
-                        <input required type="text" name="hobi" value="{{ old('hobi') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Hobi" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Riwayat Pekerjaan</label>
-                        <input required type="text" name="riwayat_pekerjaan" value="{{ old('riwayat_pekerjaan') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Riwayat Pekerjaan" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Kegiatan Sosial yang Diikuti</label>
-                        <input required type="text" name="kegiatan_sosial" value="{{ old('kegiatan_sosial') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Kegiatan Sosial" />
-                    </div>
-                </div>
-
                 <!-- Data Konseling -->
-                <h1 class="my-8 text-center text-2xl font-bold">Data Konseling</h1>
+                <h1 class="mb-6 text-center text-2xl font-bold">Data Konseling</h1>
                 <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>
                         <label class="font-semibold">Tanggal Konseling</label>
-                        <input type="text" name="jadwal_tanggal" id="jadwalTanggal"
-                            value="{{ old('jadwal_tanggal') }}"
-                            class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm bg-gray-100"
-                            placeholder="dd/mm/yy" readonly autocomplete="off">
+                        <input required type="text" name="jadwal_tanggal" id="tglkonseling" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" readonly/>
                     </div>
                     <div>
                         <label class="font-semibold">Hari Konseling</label>
-                        <input required type="text" name="hari" id="hariKonseling" value="{{ old('hari') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm bg-gray-100" readonly />
+                        <input type="text" name="hari" id="hari_konseling" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm bg-gray-100" readonly />
                     </div>
                     <div>
-                        <label class="font-semibold">Jam Konseling</label>
-                        <select required name="jadwal_pukul" id="jamSelect" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
-                            <option value="" disabled selected>Pilih Jam Konseling</option>
-                            {{-- Option akan diisi oleh JS --}}
+                        <label class="font-semibold">Waktu Konseling</label>
+                        <select name="jadwal_pukul" id="waktu-konseling" required class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" disabled>
+                            <option value="" disabled selected>Pilih tanggal terlebih dahulu</option>
                         </select>
                     </div>
                     <div>
                         <label class="font-semibold">Metode Konseling</label>
-                        <select required name="metode" id="metodeSelect" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                        <select required name="metode" id="metode-select" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
                             <option value="" disabled selected>Pilih Metode Konseling</option>
-                            <option value="online" {{ old('metode') == 'online' ? 'selected' : '' }}>Online</option>
-                            <option value="offline" {{ old('metode') == 'offline' ? 'selected' : '' }}>Offline</option>
+                            <option value="online">Online</option>
+                            <option value="offline">Offline</option>
                         </select>
                     </div>
                     <div>
                         <label class="font-semibold">Sesi Konseling (Jam)</label>
-                        <select name="sesi" id="sesiSelect" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                        <select name="sesi" id="sesi-select" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
                             <option value="" disabled selected>Pilih Sesi</option>
-                            <option value="1" {{ old('sesi') == '1' ? 'selected' : '' }}>1 Jam</option>
-                            <option value="2" {{ old('sesi') == '2' ? 'selected' : '' }}>2 Jam</option>
-                            <option value="3" {{ old('sesi') == '3' ? 'selected' : '' }}>3 Jam</option>
+                            <option value="1">1 Jam</option>
+                            <option value="2">2 Jam</option>
+                            <option value="3">3 Jam</option>
                         </select>
                     </div>
                     <div class="flex flex-col space-y-1" id="daerah-container" style="display: none;">
-                        <label for="daerahSelect" class="font-semibold">Daerah Konseling</label>
-                        <select name="daerah" id="daerahSelect"
-                            class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm bg-gray-100">
+                        <label for="daerah-select" class="font-semibold">Daerah Konseling</label>
+                        <select name="daerah" id="daerah-select" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
                             <option value="">Pilih Daerah Konseling</option>
                             <option value="Bekasi">Bekasi</option>
                             <option value="Jakarta">Jakarta</option>
@@ -163,12 +68,101 @@
                             <option value="Malang">Malang</option>
                         </select>
                     </div>
-                    <div class="flex flex-col space-y-1">
-                        <label for="hargaInput" class="font-semibold">Harga Konseling</label>
-                        <input type="text" name="harga" id="hargaInput"
-                            value="{{ old('harga') }}"
-                            class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm bg-gray-100"
-                            placeholder="Rp 0,00" readonly>
+                    <div>
+                        <label class="font-semibold">Harga Konseling</label>
+                        <input required name="harga" id="harga-input" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm bg-gray-100" placeholder="Rp 0,00" readonly/>
+                    </div>
+                </div>
+
+                <!-- Data Diri -->
+                <h1 class="my-8 text-center text-2xl font-bold">Data Diri</h1>
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <div>
+                        <label class="font-semibold">Nama Lengkap</label>
+                        <input required type="text" name="nama" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Nama Lengkap" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Email Aktif</label>
+                        <input required type="email" name="email" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Email" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Tanggal Lahir</label>
+                        <input required type="text" id="tanggal_lahir" name="tanggal_lahir" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" readonly/>
+                    </div>
+                    <div>
+                        <label class="font-semibold">Kota Domisili</label>
+                        <input required type="text" name="tempat_lahir" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Tempat Lahir" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Alamat Domisili</label>
+                        <input required type="text" name="alamat" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Alamat Domisili" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Status Pernikahan</label>
+                        <select required name="status_pernikahan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                            <option value="" disabled selected>Pilih Status Pernikahan</option>
+                            <option value="Belum Menikah">Belum Menikah</option>
+                            <option value="Sudah Menikah">Sudah Menikah</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="font-semibold">Jenis Kelamin</label>
+                        <select required name="jenis_kelamin" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                            <option value="" disabled selected>Pilih Jenis Kelamin</option>
+                            <option value="laki-laki">Laki-laki</option>
+                            <option value="perempuan">Perempuan</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="font-semibold">Nomor WhatsApp</label>
+                        <input required type="number" name="no_wa" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Nomor WhatsApp" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Suku</label>
+                        <input required type="text" name="suku" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Contoh: Jawa" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Agama</label>
+                        <select required name="agama" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                            <option value="" disabled selected>Pilih Agama</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katolik">Katolik</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Budha">Budha</option>
+                            <option value="Khonghucu">Khonghucu</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="font-semibold">Anak ke-dari Berapa Bersaudara</label>
+                        <input required type="text" name="posisi_anak" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Anak ke-x dari x bersaudara" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Hobi</label>
+                        <input required type="text" name="hobi" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Hobi Anda" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Pendidikan Terakhir</label>
+                        <select required name="pendidikan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                            <option value="" disabled selected>Pilih Pendidikan Terakhir</option>
+                            <option value="S1/D4 - Sarjana">S1/D4 - Sarjana</option>
+                            <option value="D3 - Diploma">D3 - Diploma</option>
+                            <option value="SMA/SMK">SMA/SMK</option>
+                            <option value="SMP">SMP</option>
+                            <option value="SD">SD</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="font-semibold">Asal Sekolah/Universitas</label>
+                        <input required type="text" name="asal_sekolah" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Asal Sekolah Anda" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Pekerjaan Saat Ini</label>
+                        <input required type="text" name="riwayat_pekerjaan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Sales - PT. Berbinar Insightful Indonesia (2022)" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Kegiatan Sosial yang Diikuti</label>
+                        <input required type="text" name="kegiatan_sosial" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Pengabdian Pemuda Masa Kini (2023)" />
                     </div>
                 </div>
 
@@ -176,18 +170,14 @@
                 <h1 class="my-8 text-center text-2xl font-bold">Topik Konseling</h1>
                 <div>
                     <label class="font-semibold">Cerita Tentang Hal yang Ingin Dikonsultasikan</label>
-                    <textarea required name="cerita" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="4" placeholder="Tulislah hal yang ingin Anda konsultasikan">{{ old('cerita') }}</textarea>
+                    <textarea required name="cerita" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="4" placeholder="Tulislah hal yang ingin Anda konsultasikan"></textarea>
                 </div>
 
                 <div class="mt-8 flex gap-4 border-t-2 border-t-gray-400 pt-5">
-                    <button type="submit"
-                        class="rounded-xl flex-1 flex items-center justify-center h-12 text-lg"
-                        style="width: 50%; background: #3986A3; color: #fff;">
+                    <button type="submit" class="rounded-xl flex-1 flex items-center justify-center h-12 text-lg" style="width: 50%; background: #3986A3; color: #fff;">
                         Simpan
                     </button>
-                    <button type="button" id="cancelButton"
-                        class="rounded-xl flex-1 flex items-center justify-center h-12 text-lg"
-                        style="width: 50%; border: 2px solid #3986A3; color: #3986A3;">
+                    <button type="button" id="cancelButton" class="rounded-xl flex-1 flex items-center justify-center h-12 text-lg" style="width: 50%; border: 2px solid #3986A3; color: #3986A3;">
                         Batal
                     </button>
                 </div>
@@ -196,172 +186,126 @@
     </div>
 </section>
 
-<!-- Modal Konfirmasi -->
-<div id="confirmModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-    <div class="bg-white rounded-lg p-6 max-w-md w-full text-center">
-        <div class="flex justify-center mb-4">
-            <img src="{{ asset('assets/images/dashboard/svg-icon/warning.svg') }}" alt="Warning Icon" class="h-12 w-12">
-        </div>
-        <p class="text-lg mb-6">Apakah Anda yakin ingin membatalkan penambahan data ini?</p>
-        <div class="flex justify-center gap-4">
-            <button id="confirmCancel" class="px-6 py-2 bg-[#3986A3] text-white rounded-lg">OK</button>
-            <button id="cancelCancel" class="px-6 py-2 border border-[#3986A3] text-[#3986A3] rounded-lg">Cancel</button>
-        </div>
-    </div>
-</div>
-
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-// Cancel Button 
-document.addEventListener("DOMContentLoaded", function () {
-    const cancelButton = document.getElementById('cancelButton');
-    const confirmModal = document.getElementById('confirmModal');
-    const confirmCancel = document.getElementById('confirmCancel');
-    const cancelCancel = document.getElementById('cancelCancel');
+    const jadwalPeerData = @json($jadwalPeerCounselors);
 
-    cancelButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        confirmModal.classList.remove('hidden');
-    });
-
-    confirmCancel.addEventListener('click', function() {
-        // Redirect ke halaman index peer-counselor
-        window.location.href = "{{ route('dashboard.peer-counselors.index') }}";
-    });
-
-    cancelCancel.addEventListener('click', function() {
-        confirmModal.classList.add('hidden');
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    flatpickr("#tgllahir", {
-        dateFormat: "d/m/Y",
-        allowInput: true
-    });
-    flatpickr("#jadwalTanggal", {
-        dateFormat: "d-m-Y",
-        allowInput: true
-    });
-
-    // Hari konseling otomatis
-    document.getElementById('jadwalTanggal').addEventListener('change', function() {
-        const tanggal = this.value;
-        const hariInput = document.getElementById('hariKonseling');
-        if (!tanggal) {
-            hariInput.value = '';
-            return;
-        }
-        const parts = tanggal.split('-');
-        if (parts.length !== 3) {
-            hariInput.value = '';
-            return;
-        }
-        const dateObj = new Date(parts[2], parts[1] - 1, parts[0]);
-        const hariMap = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-        hariInput.value = hariMap[dateObj.getDay()];
-        updateJamKonseling();
-        updateHarga();
-    });
-
-    // Jam konseling otomatis dari jadwal peer
-    function updateJamKonseling() {
-        const tanggal = document.getElementById('jadwalTanggal').value;
-        const jamSelect = document.getElementById('jamSelect');
-        jamSelect.innerHTML = '<option value="" disabled selected>Pilih Jam Konseling</option>';
-        if (!tanggal) return;
-        const parts = tanggal.split('-');
-        if (parts.length !== 3) return;
-        const dateObj = new Date(parts[2], parts[1] - 1, parts[0]);
-        const hariMap = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-        const hari = hariMap[dateObj.getDay()];
-        const jadwalData = {
-            @if($senin) 'Senin': @json($senin), @endif
-            @if($selasa) 'Selasa': @json($selasa), @endif
-            @if($rabu) 'Rabu': @json($rabu), @endif
-            @if($kamis) 'Kamis': @json($kamis), @endif
-            @if($jumat) 'Jumat': @json($jumat), @endif
-            @if($sabtu) 'Sabtu': @json($sabtu), @endif
-            @if($minggu) 'Minggu': @json($minggu), @endif
-        };
-        if (jadwalData[hari]) {
-            jadwalData[hari].forEach(function(jadwal) {
-                const mulai = jadwal.pukul_mulai.substring(0,5);
-                const selesai = jadwal.pukul_selesai.substring(0,5);
-                const label = mulai + ' - ' + selesai;
-                const option = document.createElement('option');
-                option.value = label;
-                option.textContent = label;
-                jamSelect.appendChild(option);
-            });
-        }
+    function getDayName(dateString) {
+        const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        const dateParts = dateString.split('/');
+        const dateObj = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+        return days[dateObj.getDay()];
     }
 
-    document.getElementById('jadwalTanggal').addEventListener('change', updateJamKonseling);
+    function formatTime(timeString) {
+        const timeParts = timeString.split(':');
+        const hours = timeParts[0].padStart(2, '0');
+        const minutes = timeParts[1] ? timeParts[1].padStart(2, '0') : '00';
+        return `${hours}:${minutes}`;
+    }
 
-    // Tampilkan/hidden daerah sesuai metode
-    document.getElementById('metodeSelect').addEventListener('change', function() {
-        const daerahContainer = document.getElementById('daerah-container');
-        if (this.value === 'offline') {
-            daerahContainer.style.display = 'block';
+    function updateAvailableTimes(selectedDate) {
+        const waktuSelect = document.getElementById('waktu-konseling');
+        
+        // Clear previous options
+        waktuSelect.innerHTML = '<option value="" disabled selected>Pilih Waktu Konseling</option>';
+        
+        if (selectedDate) {
+            const dayName = getDayName(selectedDate);
+            
+            // Update hari field
+            const hariInput = document.getElementById('hari_konseling');
+            hariInput.value = dayName;
+            
+            // Filter jadwal based on selected day
+            const filteredJadwal = jadwalPeerData.filter(jadwal => jadwal.hari === dayName);
+            
+            if (filteredJadwal.length > 0) {
+                filteredJadwal.forEach(jadwal => {
+                    const option = document.createElement('option');
+                    const formattedStartTime = formatTime(jadwal.pukul_mulai);
+                    const formattedEndTime = formatTime(jadwal.pukul_selesai);
+                    option.value = `${formattedStartTime} - ${formattedEndTime}`;
+                    option.textContent = `${formattedStartTime} - ${formattedEndTime}`;
+                    waktuSelect.appendChild(option);
+                });
+                
+                waktuSelect.disabled = false;
+            } else {
+                const option = document.createElement('option');
+                option.value = '';
+                option.textContent = 'Tidak ada jadwal tersedia untuk hari ini';
+                option.disabled = true;
+                waktuSelect.appendChild(option);
+                waktuSelect.disabled = true;
+            }
         } else {
-            daerahContainer.style.display = 'none';
-            document.getElementById('daerahSelect').value = 'Online';
+            waktuSelect.disabled = true;
+            // Clear hari field
+            document.getElementById('hari_konseling').value = '';
         }
         updateHarga();
-    });
+    }
 
-    // Harga otomatis
     function updateHarga() {
-        const metode = document.getElementById('metodeSelect').value;
-        const sesi = document.getElementById('sesiSelect').value;
-        const hargaInput = document.getElementById('hargaInput');
+        const tanggal = document.getElementById('tglkonseling').value;
+        const waktu = document.getElementById('waktu-konseling').value;
+        const metode = document.getElementById('metode-select').value;
+        const sesi = document.getElementById('sesi-select').value;
+        const hargaInput = document.getElementById('harga-input');
+        
+        if (!tanggal || !waktu || !metode || !sesi) {
+            hargaInput.value = '';
+            return;
+        }
+        
         let harga = 0;
         if (metode === 'online') {
-            harga = {1: 45000, 2: 90000, 3: 135000}[sesi] || 0;
+            harga = {1: 45000, 2: 90000, 3: 135000}[parseInt(sesi)];
         } else if (metode === 'offline') {
-            harga = {1: 55000, 2: 110000, 3: 165000}[sesi] || 0;
+            harga = {1: 55000, 2: 110000, 3: 165000}[parseInt(sesi)];
         }
+        
         hargaInput.value = harga ? 'Rp ' + harga.toLocaleString('id-ID') : '';
     }
 
-    document.getElementById('metodeSelect').addEventListener('change', updateHarga);
-    document.getElementById('sesiSelect').addEventListener('change', updateHarga);
-
-    // Trigger saat load jika ada value tersimpan
-    if (document.getElementById('metodeSelect').value === 'offline') {
-        document.getElementById('daerah-container').style.display = 'block';
-    }
-});
-document.addEventListener("DOMContentLoaded", function () {
-    // Set tanggal minimal 7 hari dari hari ini
-    const today = new Date();
-    const minDate = new Date();
-    minDate.setDate(today.getDate() + 7);
-
-    flatpickr("#jadwalTanggal", {
-        dateFormat: "d-m-Y",
-        allowInput: false,
-        minDate: minDate,
-        disable: [
-            {
-                from: "1900-01-01",
-                to: minDate.fp_incr(-1)
+    document.addEventListener("DOMContentLoaded", function () {
+        flatpickr("#tglkonseling", {
+            dateFormat: "d/m/Y",
+            allowInput: true,
+            minDate: new Date().fp_incr(7),
+            onChange: function(selectedDates, dateStr, instance) {
+                updateAvailableTimes(dateStr);
             }
-        ],
-        onOpen: function(selectedDates, dateStr, instance) {
-            const tooltip = document.createElement('span');
-            tooltip.classList.add('custom-tooltip');
-            tooltip.textContent = 'Pemesanan minimal 7 hari dari sekarang';
-            instance.calendarContainer.appendChild(tooltip);
-        },
-        onClose: function(selectedDates, dateStr, instance) {
-            const tooltip = instance.calendarContainer.querySelector('.custom-tooltip');
-            if (tooltip) {
-                tooltip.remove();
+        });
+
+        flatpickr("#tanggal_lahir", {
+            dateFormat: "d/m/Y",
+            allowInput: true,
+        });
+
+        // Show/hide daerah
+        document.getElementById('metode-select').addEventListener('change', function() {
+            const daerahContainer = document.getElementById('daerah-container');
+            if (this.value === 'offline') {
+                daerahContainer.style.display = 'block';
+                document.getElementById('daerah-select').required = true;
+            } else {
+                daerahContainer.style.display = 'none';
+                document.getElementById('daerah-select').required = false;
+                document.getElementById('daerah-select').value = '';
             }
-        }
+            updateHarga();
+        });
+
+        document.getElementById('waktu-konseling').addEventListener('change', updateHarga);
+        document.getElementById('sesi-select').addEventListener('change', updateHarga);
+
+        document.getElementById('cancelButton').addEventListener('click', function() {
+            if (confirm('Apakah Anda yakin ingin membatalkan penambahan data ini?')) {
+                window.location.href = "{{ route('dashboard.peer-counselors.index') }}";
+            }
+        });
     });
-});
 </script>
 @endsection
