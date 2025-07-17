@@ -21,6 +21,12 @@
                                 dibukan atau telah dibuka yang ditampilkan pada website careers Berbinarin.</p>
                         @endrole
 
+                        @role('hr_data-analyst')
+                            <p tabindex="0" class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
+                                Dashboard Keluarga Berbinar</p>
+                            <p class="w-full text-disabled">Ringkasan real-time status staf, divisi, dan aktivitas keluarga Berbinar dalam satu tampilan.</p>
+                        @endrole
+
                         @role ('counseling-pm')
                             <p tabindex="0"
                                 class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
@@ -112,12 +118,6 @@
 
             @role ('hr_data-analyst')
                     <div class="w-full">
-                        <p class="mb-2 text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">
-                            Dashboard Keluarga Berbinar
-                        </p>
-                        <p class="mb-6 text-sm sm:text-base md:w-3/4 text-disabled">
-                            Ringkasan real-time status staf, divisi, dan aktivitas keluarga Berbinar dalam satu tampilan.
-                        </p>
                         <div class="rounded-md bg-white px-4 py-8 md:px-8 md:py-10 xl:px-10 w-full max-w-[1230px] mx-auto">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                                 <div class="text-white rounded-lg flex flex-col justify-between p-4 sm:p-6 relative" style="background-color: #6B82A7; min-height: 150px;">
@@ -187,6 +187,17 @@
                         <div>
                             <span class="block text-2xl font-bold">{{ $PsikologData }}</span>
                             <span class="block text-gray-500">Psikolog Data</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                        <div
+                            class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                            <i class='bx bx-user text-2xl'></i>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold">{{ $BerbinarForU }}</span>
+                            <span class="block text-gray-500">Berbinar For U Data</span>
                         </div>
                     </div>
                 </div>

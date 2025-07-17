@@ -22,149 +22,149 @@
                 @csrf
                 <input type="hidden" name="kategori" value="psikolog">
 
-                <!-- Data Diri -->
-                <h1 class="mb-6 text-center text-2xl font-bold">Data Diri</h1>
-                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-                    <div>
-                        <label class="font-semibold">Nama Lengkap</label>
-                        <input required type="text" name="nama" value="{{ old('nama') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Nama Lengkap" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Nomor WhatsApp</label>
-                        <input required type="number" name="no_wa" value="{{ old('no_wa') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Nomor WhatsApp" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Email</label>
-                        <input required type="email" name="email" value="{{ old('email') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Email" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Jenis Kelamin</label>
-                        <select required name="jenis_kelamin" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
-                            <option value="" disabled selected>Pilih Jenis Kelamin</option>
-                            <option value="laki-laki" {{ old('jenis_kelamin') == 'laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-                            <option value="perempuan" {{ old('jenis_kelamin') == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="font-semibold">Tanggal Lahir</label>
-                        <input required type="date" id="tgllahir" name="tanggal_lahir" value="{{ old('tanggal_lahir') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" readonly/>
-                    </div>
-                    <div>
-                        <label class="font-semibold">Tempat Lahir</label>
-                        <input required type="text" name="tempat_lahir" value="{{ old('tempat_lahir') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Tempat Lahir" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Agama</label>
-                        <select required name="agama" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
-                            <option value="" disabled selected>Pilih Agama</option>
-                            <option value="Islam" {{ old('agama') == 'Islam' ? 'selected' : '' }}>Islam</option>
-                            <option value="Kristen" {{ old('agama') == 'Kristen' ? 'selected' : '' }}>Kristen</option>
-                            <option value="Katolik" {{ old('agama') == 'Katolik' ? 'selected' : '' }}>Katolik</option>
-                            <option value="Hindu" {{ old('agama') == 'Hindu' ? 'selected' : '' }}>Hindu</option>
-                            <option value="Budha" {{ old('agama') == 'Budha' ? 'selected' : '' }}>Budha</option>
-                            <option value="Khonghucu" {{ old('agama') == 'Khonghucu' ? 'selected' : '' }}>Khonghucu</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="font-semibold">Suku</label>
-                        <input required type="text" name="suku" value="{{ old('suku') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Contoh: Jawa" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Status Pernikahan</label>
-                        <select required name="status_pernikahan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
-                            <option value="" disabled selected>Pilih Status Pernikahan</option>
-                            <option value="Belum Menikah" {{ old('status_pernikahan') == 'Belum Menikah' ? 'selected' : '' }}>Belum Menikah</option>
-                            <option value="Sudah Menikah" {{ old('status_pernikahan') == 'Sudah Menikah' ? 'selected' : '' }}>Sudah Menikah</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="font-semibold">Alamat Domisili</label>
-                        <input required type="text" name="alamat" value="{{ old('alamat') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Alamat Domisili" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Anak ke-</label>
-                        <input required type="text" name="posisi_anak" value="{{ old('posisi_anak') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Anak ke-x dari x bersaudara" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Pendidikan Terakhir</label>
-                        <select required name="pendidikan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
-                            <option value="" disabled {{ old('pendidikan') ? '' : 'selected' }}>Pilih Pendidikan Terakhir</option>
-                            <option value="S1/D4 - Sarjana" {{ old('pendidikan') == 'S1/D4 - Sarjana' ? 'selected' : '' }}>S1/D4 - Sarjana</option>
-                            <option value="D3 - Diploma" {{ old('pendidikan') == 'D3 - Diploma' ? 'selected' : '' }}>D3 - Diploma</option>
-                            <option value="SMA/SMK" {{ old('pendidikan') == 'SMA/SMK' ? 'selected' : '' }}>SMA/SMK</option>
-                            <option value="SMP" {{ old('pendidikan') == 'SMP' ? 'selected' : '' }}>SMP</option>
-                            <option value="SD" {{ old('pendidikan') == 'SD' ? 'selected' : '' }}>SD</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="font-semibold">Hobi</label>
-                        <input required type="text" name="hobi" value="{{ old('hobi') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Hobi Anda" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Riwayat Pekerjaan</label>
-                        <input required type="text" name="riwayat_pekerjaan" value="{{ old('riwayat_pekerjaan') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Sales - PT. Berbinar Insightful Indonesia (2022)" />
-                    </div>
-                    <div>
-                        <label class="font-semibold">Kegiatan Sosial yang Diikuti</label>
-                        <input required type="text" name="kegiatan_sosial" value="{{ old('kegiatan_sosial') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Pengabdian Pemuda Masa Kini (2023)" />
-                    </div>
-                </div>
-
-                <!-- Data Konseling -->
+                                <!-- Data Konseling -->
                 <h1 class="my-8 text-center text-2xl font-bold">Data Konseling</h1>
-                <d class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>
                         <label class="font-semibold">Tanggal Konseling</label>
-                        <input required type="date" name="jadwal_tanggal" id="tglkonseling"                 
-                        value="{{ old('jadwal_tanggal', isset($jadwal['jadwal_tanggal']) ? \Carbon\Carbon::parse($jadwal['jadwal_tanggal'])->format('d-m-Y') : '') }}"
-                        class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" readonly/>
+                        <input required type="date" name="jadwal_tanggal" id="tglkonseling" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" readonly/>
                     </div>
                     <div>
                         <label class="font-semibold">Hari Konseling</label>
-                        <input type="text" name="hari" id="hari_konseling" value="{{ old('hari') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm bg-gray-100" readonly />
+                        <input type="text" name="hari" id="hari_konseling" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm bg-gray-100" readonly />
                     </div>
                     <div>
                         <label class="font-semibold">Jam Konseling</label>
-                        <input required type="time" id="waktukonseling" name="jadwal_pukul" value="{{ old('jadwal_pukul') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" />
+                        <input required type="time" id="waktukonseling" name="jadwal_pukul" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" />
                     </div>
                     <div>
                         <label class="font-semibold">Metode Konseling</label>
                         <select required name="metode" id="metode-select" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
                             <option value="" disabled selected>Pilih Metode Konseling</option>
-                            <option value="online" {{ old('metode') == 'online' ? 'selected' : '' }}>Online</option>
-                            <option value="offline" {{ old('metode') == 'offline' ? 'selected' : '' }}>Offline</option>
+                            <option value="online">Online</option>
+                            <option value="offline">Offline</option>
                         </select>
                     </div>
                     <div>
                         <label class="font-semibold">Sesi Konseling (Jam)</label>
-                        <select name="sesi" id="sesi-select"
-                            class="dropdown-select w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                        <select name="sesi" id="sesi-select" class="dropdown-select w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
                             <option value="" disabled selected>Pilih Sesi</option>
-                            <option value="1" {{ (old('sesi', $jadwal['sesi'] ?? '') == '1') ? 'selected' : '' }}>1 Jam</option>
-                            <option value="2" {{ (old('sesi', $jadwal['sesi'] ?? '') == '2') ? 'selected' : '' }}>2 Jam</option>
-                            <option value="3" {{ (old('sesi', $jadwal['sesi'] ?? '') == '3') ? 'selected' : '' }}>3 Jam</option>
+                            <option value="1">1 Jam</option>
+                            <option value="2">2 Jam</option>
+                            <option value="3">3 Jam</option>
                         </select>
                     </div>
                     <div class="flex flex-col space-y-1" id="daerah-container" style="display: none;">
                         <label for="daerah-select" class="font-semibold">Daerah Konseling</label>
                         <div class="relative">
-                            <select name="daerah" id="daerah-select"
-                                class="dropdown-select w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                            <select name="daerah" id="daerah-select" class="dropdown-select w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
                                 <option value="">Pilih Daerah Konseling</option>
-                                <option value="Surabaya" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Surabaya' ? 'selected' : '' }}>Surabaya</option>
-                                <option value="Kediri" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Kediri' ? 'selected' : '' }}>Kediri</option>
-                                <option value="Sidoarjo" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Sidoarjo' ? 'selected' : '' }}>Sidoarjo</option>
-                                <option value="Makassar" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Makassar' ? 'selected' : '' }}>Makassar</option>
-                                <option value="Samarinda" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Samarinda' ? 'selected' : '' }}>Samarinda</option>
-                                <option value="Jakarta" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Jakarta' ? 'selected' : '' }}>Jakarta</option>
-                                <option value="Malang" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Malang' ? 'selected' : '' }}>Malang</option>
-                                <option value="Tangerang Selatan" {{ old('daerah', $jadwal['daerah'] ?? '') == 'Tangerang Selatan' ? 'selected' : '' }}>Tangerang Selatan</option>
+                                <option value="Surabaya">Surabaya</option>
+                                <option value="Kediri">Kediri</option>
+                                <option value="Sidoarjo">Sidoarjo</option>
+                                <option value="Makassar">Makassar</option>
+                                <option value="Samarinda">Samarinda</option>
+                                <option value="Jakarta">Jakarta</option>
+                                <option value="Malang">Malang</option>
+                                <option value="Tangerang Selatan">Tangerang Selatan</option>
                             </select>
-                            </div>
+                        </div>
                     </div>
                     <div>
                         <label class="font-semibold">Harga Konseling</label>
-                        <input required name="harga" id="harga-input" value="{{ old('harga') }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm bg-gray-100" placeholder="Rp 0,00" readonly/>
+                        <input required name="harga" id="harga-input" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm bg-gray-100" placeholder="Rp 0,00" readonly/>
+                    </div>
+                </div>
+
+                <!-- Data Diri -->
+                <h1 class="mb-6 text-center text-2xl font-bold">Data Diri</h1>
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <div>
+                        <label class="font-semibold">Nama Lengkap</label>
+                        <input required type="text" name="nama" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Nama Lengkap" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Nomor WhatsApp</label>
+                        <input required type="number" name="no_wa" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Nomor WhatsApp" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Email</label>
+                        <input required type="email" name="email" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Email" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Jenis Kelamin</label>
+                        <select required name="jenis_kelamin" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                            <option value="" disabled selected>Pilih Jenis Kelamin</option>
+                            <option value="laki-laki">Laki-laki</option>
+                            <option value="perempuan">Perempuan</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="font-semibold">Tanggal Lahir</label>
+                        <input required type="date" id="tgllahir" name="tanggal_lahir" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" readonly/>
+                    </div>
+                    <div>
+                        <label class="font-semibold">Tempat Lahir</label>
+                        <input required type="text" name="tempat_lahir" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Tempat Lahir" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Agama</label>
+                        <select required name="agama" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                            <option value="" disabled selected>Pilih Agama</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katolik">Katolik</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Budha">Budha</option>
+                            <option value="Khonghucu">Khonghucu</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="font-semibold">Suku</label>
+                        <input required type="text" name="suku" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Contoh: Jawa" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Status Pernikahan</label>
+                        <select required name="status_pernikahan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                            <option value="" disabled selected>Pilih Status Pernikahan</option>
+                            <option value="Belum Menikah">Belum Menikah</option>
+                            <option value="Sudah Menikah">Sudah Menikah</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="font-semibold">Alamat Domisili</label>
+                        <input required type="text" name="alamat" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Alamat Domisili" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Anak ke-</label>
+                        <input required type="text" name="posisi_anak" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Anak ke-x dari x bersaudara" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Pendidikan Terakhir</label>
+                        <select required name="pendidikan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                            <option value="" disabled selected>Pilih Pendidikan Terakhir</option>
+                            <option value="S1/D4 - Sarjana">S1/D4 - Sarjana</option>
+                            <option value="D3 - Diploma">D3 - Diploma</option>
+                            <option value="SMA/SMK">SMA/SMK</option>
+                            <option value="SMP">SMP</option>
+                            <option value="SD">SD</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="font-semibold">Asal Sekolah</label>
+                        <input required type="text" name="asal_sekolah" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Asal Sekolah Anda" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Hobi</label>
+                        <input required type="text" name="hobi" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Hobi Anda" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Riwayat Pekerjaan</label>
+                        <input required type="text" name="riwayat_pekerjaan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Sales - PT. Berbinar Insightful Indonesia (2022)" />
+                    </div>
+                    <div>
+                        <label class="font-semibold">Kegiatan Sosial yang Diikuti</label>
+                        <input required type="text" name="kegiatan_sosial" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Pengabdian Pemuda Masa Kini (2023)" />
                     </div>
                 </div>
 
@@ -172,7 +172,7 @@
                 <h1 class="my-8 text-center text-2xl font-bold">Topik Konseling</h1>
                 <div>
                     <label class="font-semibold">Cerita Tentang Hal yang Ingin Dikonsultasikan</label>
-                    <textarea required name="cerita" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="4" placeholder="Tulislah hal yang ingin Anda konsultasikan">{{ old('cerita') }}</textarea>
+                    <textarea required name="cerita" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="4" placeholder="Tulislah hal yang ingin Anda konsultasikan"></textarea>
                 </div>
 
                 <div class="mt-8 flex gap-4 border-t-2 border-t-gray-400 pt-5">

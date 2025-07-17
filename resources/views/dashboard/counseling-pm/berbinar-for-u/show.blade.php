@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.app', [
-    'title' => 'Detail Peer Counselor',
+    'title' => 'Detail Berbinar For U',
     'active' => 'Dashboard',
-    'modul' => 'Peer Counselor Data',
+    'modul' => 'Berbinar For U Data',
 ])
 
 @section('content')
@@ -10,22 +10,22 @@
             <div class="w-full">
                 <div class="py-4 md:pt-12 md:pb-7">
                     <div class="mb-2 flex items-center gap-2">
-                        <a href="{{ route('dashboard.peer-counselors.index') }}" >
+                        <a href="{{ route('dashboard.berbinar-for-u.index') }}">
                             <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                         </a>
                         <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">
-                            Peer Counselor Data
+                            Berbinar For U Data
                         </p>
                     </div>
                     <p class="w-3/4 text-disabled">
-                        Halaman ini menampilkan detail data peserta Peer Counselor.
+                        Halaman ini menampilkan detail data peserta Berbinar For U.
                     </p>
                     <div class="mt-8 sm:mt-3 flex space-x-4">
-                        <a href="{{ route('dashboard.peer-counselors.edit', $PeerConsellorDataDetails->id) }}" type="button"
+                        <a href="{{ route('dashboard.berbinar-for-u.edit', $BerbinarForUDataDetails->id) }}" type="button"
                             class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded">
                             <p class="font-medium leading-none text-dark">Edit Data</p>
                         </a>
-                        <button type="button" id="deleteButton" data-id="{{ $PeerConsellorDataDetails->id }}"
+                        <button type="button" id="deleteButton" data-id="{{ $BerbinarForUDataDetails->id }}"
                             class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded">
                             <p class="font-medium leading-none text-white">Delete Data</p>
                         </button>
@@ -43,103 +43,75 @@
                             <tbody>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Nama Lengkap</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->nama }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Tanggal Counseling</td>
-                                    <td class="border border-gray-300 px-4 py-2">{{ \Carbon\Carbon::parse($PeerConsellorDataDetails->jadwal_tanggal)->format('d-m-Y') }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Jadwal Pukul</td>
-                                    <td class="border border-gray-300 px-4 py-2">{{ $PeerConsellorDataDetails->jadwal_pukul }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Tanggal Pendaftaran</td>
-                                    <td class="border border-gray-300 px-4 py-2">{{ \Carbon\Carbon::parse($PeerConsellorDataDetails->created_at)->format('d-m-Y') }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Metode</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->metode }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Sesi</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->sesi }} Jam</td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Daerah</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->daerah }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Harga</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">Rp. {{ number_format($PeerConsellorDataDetails->harga, 0, ',', '.') }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Nomor WhatsApp</td>
-                                    <td class="border border-gray-300 px-4 py-2">
-                                        <a href="https://wa.me/62{{ ltrim($PeerConsellorDataDetails->no_wa, '0') }}" target="_blank" class="text-blue-500 hover:text-blue-700 underline">{{ $PeerConsellorDataDetails->no_wa }}</a>
-                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->nama }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Email</td>
                                     <td class="border border-gray-300 px-4 py-2">
-                                        <a href="mailto:{{ $PeerConsellorDataDetails->email }}" class="text-blue-500 hover:text-blue-700 underline">{{ $PeerConsellorDataDetails->email }}</a>
+                                        <a href="mailto:{{ $BerbinarForUDataDetails->email }}" class="text-blue-500 hover:text-blue-700 underline">{{ $BerbinarForUDataDetails->email }}</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Jenis Kelamin</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->jenis_kelamin }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Agama</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->agama }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Tempat Lahir</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->tempat_lahir }}</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->jenis_kelamin }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Tanggal Lahir</td>
-                                    <td class="border border-gray-300 px-4 py-2">{{ \Carbon\Carbon::parse($PeerConsellorDataDetails->tanggal_Lahir)->format('d-m-Y') }}</td>
+                                    <td class="border border-gray-300 px-4 py-2">{{ \Carbon\Carbon::parse($BerbinarForUDataDetails->tanggal_lahir)->format('d-m-Y') }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Suku</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->suku }}</td>
+                                    <td class="border border-gray-300 px-4 py-2">Kota Domisili</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->tempat_lahir }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Alamat Domisili</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->alamat }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Status Pernikahan</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->status_pernikahan }}</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->status_pernikahan }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Alamat</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->alamat }}</td>
+                                    <td class="border border-gray-300 px-4 py-2">Nomor WhatsApp</td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        <a href="https://wa.me/62{{ ltrim($BerbinarForUDataDetails->no_wa, '0') }}" target="_blank" class="text-blue-500 hover:text-blue-700 underline">{{ $BerbinarForUDataDetails->no_wa }}</a>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Posisi Anak</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->posisi_anak }}</td>
+                                    <td class="border border-gray-300 px-4 py-2">Agama</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->agama }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Pendidikan</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->pendidikan }}</td>
+                                    <td class="border border-gray-300 px-4 py-2">Suku Bangsa</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->suku }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Asal Sekolah/Universitas</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->asal_sekolah }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Riwayat Pekerjaan</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->riwayat_pekerjaan }}</td>
+                                    <td class="border border-gray-300 px-4 py-2">Anak ke-</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->posisi_anak }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Hobi</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->hobi }}</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->hobi }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Kegiatan Sosial</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->kegiatan_sosial }}</td>
+                                    <td class="border border-gray-300 px-4 py-2">Pendidikan Terakhir</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->pendidikan }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Asal Sekolah/Universitas</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->asal_sekolah }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Pekerjaan Saat Ini</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->riwayat_pekerjaan }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Kegiatan Sosial yang Pernah/Sedang Diikuti</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->kegiatan_sosial }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Hal yang Ingin Diceritakan</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->cerita }}</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->cerita }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -164,7 +136,7 @@
             <h3 class="text-xl font-semibold text-gray-900 mb-2">Konfirmasi Hapus Data</h3>
             <!-- Message -->
             <p class="text-gray-600 mb-6">
-                Apakah Anda yakin ingin menghapus data peer counselor ini? 
+                Apakah Anda yakin ingin menghapus data Berbinar For U ini? 
                 <span class="block text-sm text-gray-500 mt-1">Data yang sudah dihapus tidak dapat dikembalikan.</span>
             </p>
         </div>
@@ -207,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Create and submit form
             const form = document.createElement('form');
             form.method = 'POST';
-            form.action = `{{ route('dashboard.peer-counselors.destroy', '') }}/${id}`;
+            form.action = `{{ route('dashboard.berbinar-for-u.destroy', '') }}/${id}`;
             
             const csrfToken = document.createElement('input');
             csrfToken.type = 'hidden';

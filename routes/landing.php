@@ -46,14 +46,28 @@ Route::prefix('produk')->name('product.')->group(function () {
     // Product Konseling
     Route::prefix('konseling')->name('counseling.')->group(function () {
         Route::get('/', [CounselingController::class, 'index'])->name('index');
-        Route::get('/daftar-konseling', [CounselingController::class, 'registration'])->name('registration');
-        Route::get('/jadwal-konseling', [CounselingController::class, 'schedule'])->name('schedule');
-        Route::get('/data-diri-konseling', [CounselingController::class, 'personalData'])->name('personal_data');
-        Route::get('/cerita-konseling', [CounselingController::class, 'story'])->name('story');
-        Route::get('/summary-konseling', [CounselingController::class, 'summary'])->name('summary');
-        Route::post('/jadwal-konseling', [CounselingController::class, 'storeSchedule'])->name('submit_schedule');
-        Route::post('/data-diri-konseling', [CounselingController::class, 'storePersonalData'])->name('submit_personal_data');
-        Route::post('/cerita-konseling', [CounselingController::class, 'storeStory'])->name('story_store');
+        Route::get('/daftar-konseling', [CounselingController::class, 'registrationKonseling'])->name('registration');
+
+        // Pendaftaran Konseling (Psikolog)
+        Route::prefix('psikolog')->name('psikolog.')->group(function () {
+            Route::get('/', [CounselingController::class, 'showPsikologForm'])->name('index');
+            Route::get('/registrasi', [CounselingController::class, 'showPsikologRegistration'])->name('registrasi');
+            Route::post('/registrasi', [CounselingController::class, 'storePsikologRegistration'])->name('store');
+        });
+
+        // Pendaftaran Konseling (Peer Counselor)
+        Route::prefix('peer-counselor')->name('peer-counselor.')->group(function () {
+            Route::get('/daftar-peer', [CounselingController::class, 'registrationPeer'])->name('registration');
+            Route::get('/', [CounselingController::class, 'showPeerForm'])->name('index');
+            Route::post('/', [CounselingController::class, 'storePeerRegistration'])->name('store');
+        });
+
+        // BerbinarForU
+        Route::prefix('berbinar-for-u')->name('berbinar-for-u.')->group(function () {
+            Route::get('/', [CounselingController::class, 'ShowBerbinarForUForm'])->name('index');
+            Route::post('/', [CounselingController::class, 'storeBerbinarForURegistration'])->name('store');
+        });
+
     });
 
     // Product Psikotest
