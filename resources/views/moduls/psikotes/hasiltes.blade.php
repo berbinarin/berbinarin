@@ -1,13 +1,13 @@
-@extends('moduls.psikotes.layouts.main', [
+@extends('landing.layouts.app', [
 'title' => 'Psikotest Berbinar',
 'active' => 'Test',
 'page' => 'Hasil Tes',
 ])
 @section('content')
 <sections>
-    <div class="bg-primary flex justify-center">
-        <div class="bg-primary items-center t-container z-38 w-full p-[22px]">
-            <div class="quest-container w-full bg-white justify-center rounded-3xl p-5">
+    <div class="flex justify-center">
+        <div class="flex flex-col mt-28 lg:mt-36 items-center justify-center t-container z-38 w-full p-[22px]">
+            <div class="quest-container w-full lg:w-[95%] shadow-xl bg-white justify-center rounded-3xl mb-6 lg:mb-12 p-5 lg:px-16">
                 <div class="flex flex-row justify-center items-center">
                     {{-- HERO IMG DESKTOP --}}
                     <!-- <img src="{{ asset('assets/images/psikotes/result.png') }}" alt="Ilustrasi-Test" class="w-[335px] h-[335px] hidden lg:block -
@@ -15,149 +15,272 @@
 
                     <div class="bg-white rounded-3xl p-5 mx-5">
                         <!-- Judul "Hasil Psikotes" -->
-                        <h2 class="text-center text-4xl text-black font-bold mb-1">Hasil Psikotes</h2>
+                        <h2 class="text-center text-4xl bg-gradient-to-r from-[#F7B23B] to-[#916823] bg-clip-text text-transparent font-bold mb-1">Hasil Test</h2>
                         <!-- Paragraf -->
-                        <p class="text-center text-disabled text-base mt-3">
-                            Hasil psikotes dibawah ini berdasarkan jawaban <br />
-                            dari pertanyaan yang telah SobatBinar jawab
-                        </p>
                     </div>
                 </div>
 
-                <div class="flex flex-col md:flex-row w-full h-full mb-5 gap-5">
-                    <!-- Container untuk diagram -->
-                    <div class="float-left md:w-3/5 h-fit p-5 md:p-7 m-0 md:m-5 bg-sky-100 rounded-3xl font-semibold">
+                <div>
+                    <p class="text-black font-semibold text-base lg:text-lg mt-3 lg:mb-12">
+                        Hasil tes dibawah ini berdasarkan jawaban dari pernyataan yang telah SobatBinar jawab
+                    </p>
+
+                    <div class="w-full h-full mb-5 gap-5">
+                        <!-- Container untuk diagram -->
                         <!-- <canvas id="chart" style="width:100%;max-width:700px"></canvas> -->
-                        <div class="progress mb-4 flex flex-col md:flex-row">
-                            <div class="my-2 w-48">Agreeableness</div>
-                            <div class="progress-bar w-[20px] h-5 my-3 bg-[#FA933C] rounded-full text-[13px] text-end" role="progressbar" style="width: {{ $result->agreeableness }}%;" aria-valuenow="{{ $result->agreeableness }}" aria-valuemin="0" aria-valuemax="100">
-                                <span class="mr-3"> {{ round($result->agreeableness) }}%</span>
+                        <div class="progress mb-1 flex flex-col">
+                            <div class="lg:text-lg w-48">Extraversion</div>
+                            <div class="flex flex-row">
+                                <div class="progress-bar w-[20px] h-5 my-3 bg-[#163641] rounded-full text-[13px] text-end" role="progressbar" style="width: {{ 78 }}%;" aria-valuenow="{{ 78 }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <p class="mt-2 ml-10 lg:text-lg"> {{ round(78) }}%</p>
                             </div>
                         </div>
-                        <div class="progress mb-4 flex flex-col md:flex-row">
-                            <div class="my-2 w-48">Conscientiousness</div>
-                            <div class="progress-bar w-[20px] h-5 my-3 bg-[#FBB03B] rounded-full text-[13px] text-end" role="progressbar" style="width: {{ $result->conscientiousness }}%;" aria-valuenow="{{ $result->conscientiousness }}" aria-valuemin="0" aria-valuemax="100">
-                                <span class="mr-3"> {{ round($result->conscientiousness) }}%</span>
+                        <div class="progress mb-1 flex flex-col">
+                            <div class="lg:text-lg w-48">Conscientiousness</div>
+                            <div class="flex flex-row">
+                                <div class="progress-bar w-[20px] h-5 my-3 bg-[#225062] rounded-full text-[13px] text-end" role="progressbar" style="width: {{ 87 }}%;" aria-valuenow="{{ 87 }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <p class="mt-2 ml-10 lg:text-lg"> {{ round(87) }}%</p>
                             </div>
                         </div>
-                        <div class="progress mb-4 flex flex-col md:flex-row">
-                            <div class="my-2 w-48">Extraversion</div>
-                            <div class="progress-bar w-[20px] h-5 my-3 bg-[#FADF3C] rounded-full text-[13px] text-end" role="progressbar" style="width: {{ $result->extraversion }}%;" aria-valuenow="{{ $result->extraversion }}" aria-valuemin="0" aria-valuemax="100">
-                                <span class="mr-3"> {{ round($result->extraversion) }}%</span>
+                        <div class="progress mb-1 flex flex-col">
+                            <div class="lg:text-lg w-48">Agreeableness</div>
+                            <div class="flex flex-row">
+                                <div div class="progress-bar w-[20px] h-5 my-3 bg-[#3986A3] rounded-full text-[13px] text-end" role="progressbar" style="width: {{ 50 }}%;" aria-valuenow="{{ 50 }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <p class="mt-2 ml-10 lg:text-lg"> {{ round(50) }}%</p>
                             </div>
                         </div>
-                        <div class="progress mb-4 flex flex-col md:flex-row">
-                            <div class="my-2 w-48">Neuroticism</div>
-                            <div class="progress-bar w-[20px] h-5 my-3 bg-[#FAD18F] rounded-full text-[13px] text-end" role="progressbar" style="width: {{ $result->neuroticism }}%;" aria-valuenow="{{ $result->neuroticism }}" aria-valuemin="0" aria-valuemax="100">
-                                <span class="mr-3"> {{ round($result->neuroticism) }}%</span>
+                        <div class="progress mb-1 flex flex-col">
+                            <div class="lg:text-lg w-48">Openness</div>
+                            <div class="flex flex-row">
+                                <div class="progress-bar w-[20px] h-5 my-3 bg-[#76BBD5] rounded-full text-[13px] text-end" role="progressbar" style="width: {{ 76 }}%;" aria-valuenow="{{ 76 }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <p class="mt-2 ml-10 lg:text-lg"> {{ round(76) }}%</p>
                             </div>
                         </div>
-                        <div class="progress mb-0 md:mb-4 flex flex-col md:flex-row">
-                            <div class="my-2 w-48">Openness</div>
-                            <div class="progress-bar w-[20px] h-5 my-3 bg-[#FA713C] rounded-full text-[13px] text-end" role="progressbar" style="width: {{ $result->openness }}%;" aria-valuenow="{{ $result->openness }}" aria-valuemin="0" aria-valuemax="100">
-                                <span class="mr-3"> {{ round($result->openness) }}%</span>
+                        <div class="progress mb-1 flex flex-col">
+                            <div class="lg:text-lg w-48">Neuroticism</div>
+                            <div class="flex flex-row">
+                                <div class="progress-bar w-[20px] h-5 my-3 bg-[#97CBDF] rounded-full text-[13px] text-end" role="progressbar" style="width: {{ 87 }}%;" aria-valuenow="{{ 87 }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                <p class="mt-2 ml-10 lg:text-lg"> {{ round(87) }}%</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Konten Hasil Psikotes -->
-                    <div id="carousel-example" class="relative h-fit md:h-full bg-sky-100 rounded-3xl md:w-2/5 m-0 md:m-5 px-5 pt-5 pb-12 md:p-5" data-carousel="static">
-                        <!-- Carousel wrapper -->
-                        <div class="relative h-[25rem] mb-3 overflow-hidden rounded-lg md:h-[19rem]">
-                            <!-- item 1 -->
-                            <div id="carousel-item-1" class="hidden duration-700 ease-in-out overflow-auto" data-carousel-item="active">
-                                <h2 class="text-xl font-bold mt-2 mb-5 text-center">Uraian Hasil Tes</h2>
-                                <p class="text-center text-base font-semibold mt-6 mb-5">
-                                    <span class="italic">Agreeableness </span><br />(Mudah akur atau mudah bersepakat)
-                                </p>
-                                <p class="text-justify text-base leading-relaxed mt-5 mx-4">
-                                    Individu yang berdimensi <span class="italic">Agreeableness</span> ini cenderung
-                                    lebih patuh dengan individu lainnya dan memiliki
-                                    kepribadian yang ingin menghindari konflik.
-                                </p>
-                            </div>
-                            <!-- item 2 -->
-                            <div id="carousel-item-2" class="hidden duration-700 ease-in-out overflow-auto" data-carousel-item>
-                                <h2 class="text-xl font-bold mt-2 mb-5 text-center">Uraian Hasil Tes</h2>
-                                <p class="text-center text-base font-semibold mt-6 mb-5"><span class="italic">Conscientiousness </span><br />(Sifat berhati-hati)</p>
-                                <p class="text-justify text-base leading-relaxed mt-5 mx-4">
-                                    Dimensi kepribadian <span class="italic">Conscientiousness</span> cenderung lebih
-                                    berhati-hati dalam melakukan suatu tindakan
-                                    ataupun penuh pertimbangan dalam mengambil sebuah keputusan, mereka juga memiliki
-                                    disiplin diri yang tinggi dan dapat dipercaya.
-                                </p>
-                            </div>
-                            <!-- item 3 -->
-                            <div id="carousel-item-3" class="hidden duration-700 ease-in-out overflow-auto" data-carousel-item>
-                                <h2 class="text-xl font-bold mt-2 mb-5 text-center">Uraian Hasil Tes</h2>
-                                <p class="text-center text-base font-semibold mt-6 mb-5"><span class="italic">Extraversion </span><br />(Ekstraversi)</p>
-                                <p class="text-justify text-base leading-relaxed mt-5 mx-4">
-                                    Dimensi kepribadian <span class="italic">Extraversion</span> ini berkaitan dengan
-                                    tingkat kenyamanan seseorang dalam berinteraksi
-                                    dengan orang lain.
-                                </p>
-                            </div>
-                            <!--item 4 -->
-                            <div id="carousel-item-4" class="hidden duration-700 ease-in-out overflow-auto" data-carousel-item>
-                                <h2 class="text-xl font-bold mt-2 mb-5 text-center">Uraian Hasil Tes</h2>
-                                <p class="text-center text-base font-semibold mt-6 mb-5"><span class="italic">Neuroticism </span><br />(Neurotisme)</p>
-                                <p class="text-justify text-base leading-relaxed mt-5 mx-4">
-                                    <span class="italic">Neuroticism</span> adalah dimensi kepribadian yang menilai
-                                    kemampuan seseorang dalam menahan tekanan atau
-                                    stress.
-                                </p>
-                            </div>
-                            <!-- item 5 -->
-                            <div id="carousel-item-5" class="hidden duration-700 ease-in-out overflow-auto" data-carousel-item>
-                                <h2 class="text-xl font-bold mt-2 mb-5 text-center">Uraian Hasil Psikotes</h2>
-                                <p class="text-center text-base font-semibold mt-6 mb-5">
-                                    <span class="italic">Openness </span><br />(Terbuka terhadap hal-hal baru)
-                                </p>
-                                <p class="text-justify text-base leading-relaxed mt-5 mx-4">
-                                    Dimensi kepribadian <span class="italic">Openness to Experience</span> ini
-                                    mengkategorikan individu berdasarkan ketertarikannya
-                                    terhadap hal-hal baru dan keinginan untuk mengetahui serta mempelajari sesuatu
-                                    yang baru.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Slider indicators -->
-                        <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
-                            <button id="carousel-indicator-1" type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                            <button id="carousel-indicator-2" type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                            <button id="carousel-indicator-3" type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                            <button id="carousel-indicator-4" type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-                            <button id="carousel-indicator-5" type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
-                        </div>
-                        <!-- Slider controls -->
-                        <button type="button" class="absolute top-0 start-0 z-30 flex items-end justify-center h-full pb-4 pl-7 cursor-pointer group focus:outline-none" data-carousel-prev>
-                            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full dark:bg-gray-800/30 group-hover:bg-amber-300 dark:group-hover:bg-primary group-focus:ring-2 group-focus:ring-primary group-focus:outline-none">
-                                <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
-                                </svg>
-                                <span class="sr-only">Previous</span>
-                            </span>
-                        </button>
-                        <button type="button" class="absolute top-0 end-0 z-30 flex items-end justify-center h-full pb-4 pr-7 cursor-pointer group focus:outline-none" data-carousel-next>
-                            <span class="inline-flex items-center justify-center w-7 h-7 rounded-full dark:bg-gray-800/30 group-hover:bg-amber-300 dark:group-hover:bg-primary group-focus:ring-2 group-focus:ring-primary group-focus:outline-none">
-                                <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
-                                </svg>
-                                <span class="sr-only">Next</span>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-                <div class="flex flex-col w-full md:flex-row gap-5 justify-end items-end">
-                    <form action="{{ route('result.finishTest', ['test_id' => $test->id, 'user_id' => $user->id]) }}" method="POST">
-                        @csrf
-                        <button type="submit" class="mr-3 md:mr-5 text-xl text-white bg-primary rounded-full font-semibold border-3 border-white hover:border-amber-300 hover:bg-amber-300 hover:text-primary hover:font-semibold duration-500 px-10 py-2.5 w-fit">
-                            Beranda
-                        </button>
-                    </form>
+
+                    <!-- <div class="flex flex-col w-full md:flex-row gap-5 justify-end items-end">
+                        <form action="{{ route('product.psikotest.index') }}" method="GET">
+                            @csrf
+                            <button type="submit" class="mr-3 md:mr-5 text-xl text-white bg-primary rounded-full font-semibold border-3 border-white hover:border-amber-300 hover:bg-amber-300 hover:text-primary hover:font-semibold duration-500 px-10 py-2.5 w-fit">
+                                Beranda
+                            </button>
+                        </form>
+                    </div> -->
+
                 </div>
             </div>
+
+
+            <div class="w-[95%] flex justify-between gap-[3%] mb-12 max-sm:hidden">
+
+                <div class="bg-white rounded-3xl shadow-xl px-8 pb-8">
+                    <p class="text-center text-base lg:text-2xl font-semibold mt-8 mb-1"><span class="">Extraversion </span></p>
+                    <p class="text-center text-[#333333] mb-2">Terbuka Terhadap Hal-hal Baru</p>
+                    <hr class="w-full justify-self-center">
+                    <p class="text-justify text-base lg:text-lg leading-relaxed mt-4">
+                        Dimensi Kepribadian Openness to Experience ini mengkategorikan individu
+                        berdasarkan ketertarikannya terhadap hal-hal baru dan keinginan
+                        untuk mengetahui serta mempelajari sesuatu yang baru.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-xl px-8 pb-8">
+                    <p class="text-center text-base lg:text-2xl font-semibold mt-8 mb-1"><span class="">Conscientiousness </span></p>
+                    <p class="text-center text-[#333333] mb-2">Terbuka Terhadap Hal-hal Baru</p>
+                    <hr class="w-full justify-self-center">
+                    <p class="text-justify text-base lg:text-lg leading-relaxed mt-4">
+                        Dimensi Kepribadian Openness to Experience ini mengkategorikan individu
+                        berdasarkan ketertarikannya terhadap hal-hal baru dan keinginan
+                        untuk mengetahui serta mempelajari sesuatu yang baru.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="w-[95%] flex justify-between gap-[3%] mb-12 max-sm:hidden">
+
+                <div class="bg-white rounded-3xl shadow-xl px-8 pb-8">
+                    <p class="text-center text-base lg:text-2xl font-semibold mt-8 mb-1"><span class="">Agreeableness </span></p>
+                    <p class="text-center text-[#333333] mb-2">Terbuka Terhadap Hal-hal Baru</p>
+                    <hr class="w-full justify-self-center">
+                    <p class="text-justify text-base lg:text-lg leading-relaxed mt-4">
+                        Dimensi Kepribadian Openness to Experience ini mengkategorikan individu
+                        berdasarkan ketertarikannya terhadap hal-hal baru dan keinginan
+                        untuk mengetahui serta mempelajari sesuatu yang baru.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-xl px-8 pb-8">
+                    <p class="text-center text-base lg:text-2xl font-semibold mt-8 mb-1"><span class="">Openness </span></p>
+                    <p class="text-center text-[#333333] mb-2">Terbuka Terhadap Hal-hal Baru</p>
+                    <hr class="w-full justify-self-center">
+                    <p class="text-justify text-base lg:text-lg leading-relaxed mt-4">
+                        Dimensi Kepribadian Openness to Experience ini mengkategorikan individu
+                        berdasarkan ketertarikannya terhadap hal-hal baru dan keinginan
+                        untuk mengetahui serta mempelajari sesuatu yang baru.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-xl px-8 pb-8">
+                    <p class="text-center text-base lg:text-2xl font-semibold mt-8 mb-1"><span class="">Neuroticism </span></p>
+                    <p class="text-center text-[#333333] mb-2">Terbuka Terhadap Hal-hal Baru</p>
+                    <hr class="w-full justify-self-center">
+                    <p class="text-justify text-base lg:text-lg leading-relaxed mt-4">
+                        Dimensi Kepribadian Openness to Experience ini mengkategorikan individu
+                        berdasarkan ketertarikannya terhadap hal-hal baru dan keinginan
+                        untuk mengetahui serta mempelajari sesuatu yang baru.
+                    </p>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="w-full hidden max-w-md mx-auto max-sm:flex">
+                <div class="relative bg-white rounded-3xl shadow-xl overflow-hidden">
+
+                    <!-- Panel Container (Slider Track) -->
+                    <div id="slider-panels" class="flex transition-transform duration-300 ease-in-out touch-pan-x no-scroll-bounce">
+                        <!-- Panel 1 -->
+                        <div class="min-w-full flex flex-col items-center px-4 justify-center text-xl bg-white">
+                            <p class="text-center text-xl font-semibold mt-8 mb-1">Extraversion</p>
+                            <p class="text-center text-[#333333] mb-2">Terbuka Terhadap Hal-hal Baru</p>
+                            <hr class="w-full justify-self-center">
+                            <p class="text-justify text-base leading-relaxed mt-4">
+                                Dimensi Kepribadian Openness to Experience ini mengkategorikan individu
+                                berdasarkan ketertarikannya terhadap hal-hal baru dan keinginan
+                                untuk mengetahui serta mempelajari sesuatu yang baru.
+                            </p>
+
+                        </div>
+
+                        <!-- Panel 2 -->
+                        <div class="min-w-full flex flex-col items-center px-4 justify-center text-xl bg-white">
+                            <p class="text-center text-xl font-semibold mt-8 mb-1">Conscientiousness</p>
+                            <p class="text-center text-[#333333] mb-2">Terbuka Terhadap Hal-hal Baru</p>
+                            <hr class="w-full justify-self-center">
+                            <p class="text-justify text-base leading-relaxed mt-4">
+                                Dimensi Kepribadian Openness to Experience ini mengkategorikan individu
+                                berdasarkan ketertarikannya terhadap hal-hal baru dan keinginan
+                                untuk mengetahui serta mempelajari sesuatu yang baru.
+                            </p>
+
+                        </div>
+
+                        <!-- Panel 3 -->
+                        <div class="min-w-full flex flex-col items-center px-4 justify-center text-xl bg-white">
+                            <p class="text-center text-xl font-semibold mt-8 mb-1">Agreeableness</p>
+                            <p class="text-center text-[#333333] mb-2">Terbuka Terhadap Hal-hal Baru</p>
+                            <hr class="w-full justify-self-center">
+                            <p class="text-justify text-base leading-relaxed mt-4">
+                                Dimensi Kepribadian Openness to Experience ini mengkategorikan individu
+                                berdasarkan ketertarikannya terhadap hal-hal baru dan keinginan
+                                untuk mengetahui serta mempelajari sesuatu yang baru.
+                            </p>
+
+                        </div>
+
+                        <!-- Panel 4 -->
+                        <div class="min-w-full flex flex-col items-center px-4 justify-center text-xl bg-white">
+                            <p class="text-center text-xl font-semibold mt-8 mb-1">Openness</p>
+                            <p class="text-center text-[#333333] mb-2">Terbuka Terhadap Hal-hal Baru</p>
+                            <hr class="w-full justify-self-center">
+                            <p class="text-justify text-base leading-relaxed mt-4">
+                                Dimensi Kepribadian Openness to Experience ini mengkategorikan individu
+                                berdasarkan ketertarikannya terhadap hal-hal baru dan keinginan
+                                untuk mengetahui serta mempelajari sesuatu yang baru.
+                            </p>
+
+                        </div>
+
+                        <!-- Panel 5 -->
+                        <div class="min-w-full flex flex-col items-center px-4 justify-center text-xl bg-white">
+                            <p class="text-center text-xl font-semibold mt-8 mb-1">Neuroticism</p>
+                            <p class="text-center text-[#333333] mb-2">Terbuka Terhadap Hal-hal Baru</p>
+                            <hr class="w-full justify-self-center">
+                            <p class="text-justify text-base leading-relaxed mt-4">
+                                Dimensi Kepribadian Openness to Experience ini mengkategorikan individu
+                                berdasarkan ketertarikannya terhadap hal-hal baru dan keinginan
+                                untuk mengetahui serta mempelajari sesuatu yang baru.
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <!-- Tombol Navigasi -->
+                    <div class="flex justify-between mt-4 p-4">
+                        <button id="prevBtn" class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-alt transition">
+                        ←
+                        </button>
+                        <button id="nextBtn" class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-alt transition">
+                        →
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </sections>
+
+<script>
+        const slider = document.getElementById('slider-panels');
+    const panels = slider.children;
+    const totalPanels = panels.length;
+    let currentIndex = 0;
+
+    function updateSlider() {
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalPanels) % totalPanels;
+      updateSlider();
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalPanels;
+      updateSlider();
+    });
+
+    // Swipe gesture
+    let startX = 0;
+    let endX = 0;
+
+    slider.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    slider.addEventListener('touchmove', (e) => {
+      endX = e.touches[0].clientX;
+    });
+
+    slider.addEventListener('touchend', () => {
+      const diffX = startX - endX;
+      if (Math.abs(diffX) > 50) { // minimal swipe distance
+        if (diffX > 0) {
+          // Swipe left → next
+          currentIndex = (currentIndex + 1) % totalPanels;
+        } else {
+          // Swipe right → prev
+          currentIndex = (currentIndex - 1 + totalPanels) % totalPanels;
+        }
+        updateSlider();
+      }
+      startX = 0;
+      endX = 0;
+    });
+
+    updateSlider(); // Initialize position
+</script>
 @endsection

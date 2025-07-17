@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div class="flex justify-center items-center w-100 p-5">
-                <form action="{{ route('psikotest-free.question.show', ['test_id' => $test_id, 'question_order' => 1]) }}" method="POST">
+                <form action="{{ route('psikotest-free.question.show') }}" method="GET">
                     @csrf
                     <button type="submit" class="rounded-md bg-gradient-to-r from-[#3986A3] to-[#225062] lg:text-xl px-20 lg:px-28 py-1.5 font-medium text-white max-sm:text-[15px]">
                         Mulai Tes

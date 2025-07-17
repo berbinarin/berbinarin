@@ -11,17 +11,17 @@ use RealRashid\SweetAlert\Facades\Alert;
 class UserPsikotestFreeController extends Controller
 {
     // Menampilkan formulir untuk mengisi biodata
-    public function show($test_id)
+    public function show()
     {
-        // Verifikasi sesi untuk test_id
-        if (!session()->has('test_id') || session('test_id') != $test_id) {
-            return redirect()->route('test.index');
-        }
+        // // Verifikasi sesi untuk test_id
+        // if (!session()->has('test_id') || session('test_id') != $test_id) {
+        //     return redirect()->route('test.index');
+        // }
 
-        // Ambil data tes berdasarkan `test_id`
-        $test = Test::findOrFail($test_id);
+        // // Ambil data tes berdasarkan `test_id`
+        // $test = Test::findOrFail($test_id);
 
-        return view('moduls.psikotes.biodata', compact('test', 'test_id'));
+        return view('moduls.psikotes.biodata');
     }
 
     // Menyimpan biodata ke dalam database
