@@ -19,7 +19,11 @@ use App\Http\Controllers\Landing\Product\EmoShuffle\EmoShuffleController;
 use App\Http\Controllers\Landing\Product\ProductController;
 use App\Http\Controllers\Dashboard\ClassPM\AuthUserController;
 use App\Http\Controllers\Dashboard\PTPM\Psikotest\PsikotestFree\FeedbackController;
+use App\Http\Controllers\Dashboard\PTPM\PsikotestFree\PsikotestFreeController;
 use App\Http\Controllers\Dashboard\HR\_InternshipController;
+use App\Http\Controllers\Dashboard\PsikotestFree\PsikotestFreeController as PsikotestFreePsikotestFreeController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\PsikotestFree\QuestionController;
+use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
 
 // Home
@@ -144,6 +148,23 @@ Route::prefix('arteri')->name('arteri.')->group(function () {
     Route::get('/kategori/{slug}', [ArteriController::class, 'category'])->name('category');
 });
 
+// Psikotest Free
+Route::prefix('psikotest-free')->name('psikotest-free.')->group(function () {
+    Route::get('/start', [LandingController::class, 'psikotestFreeStart'])->name('start');
+    Route::get('/psikotest/free/{test_id}/questions/{question_order}', [QuestionController::class, 'show'])->name('question.show');
+});
+
+Route::get('/psikotest/free', [PsikotestFreePsikotestFreeController::class, 'index'])->name('test.index');
+Route::post('/psikotest/free', [PsikotestFreePsikotestFreeController::class, 'store'])->name('test.store');
+Route::get('/psikotest/free/start', [LandingController::class, 'psikotestFreeStart'])->name('psikotestFreeStart');
+Route::get('/psikotest/free/{test_id}/Biodata', [UserPsikotestFreeController::class, 'show'])->name('biodata.show');
+Route::post('/psikotest/free/{test_id}/Biodata', [UserPsikotestFreeController::class, 'store'])->name('biodata.store');
+Route::post('/psikotest/free/{test_id}/questions/{question_order}', [QuestionController::class, 'storeAnswer'])->name('question.storeAnswer');
+Route::get('/psikotest/free/{test_id}/{user_id}/feedback', [FeedbackController::class, 'show'])->name('.psikotestpaid');
+Route::post('/psikotest/free/{test_id}/{user_id}/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+Route::get('/psikotest/free/{test_id}/{user_id}/results', [ResultController::class, 'show'])->name('result.show');
+Route::post('/psikotest/free/{test_id}/{user_id}/finish-test', [ResultController::class, 'finishTest'])->name('result.finishTest');
+
 
 Route::prefix('/berbinarplus')->group(function () {
     Route::get('/register', [AuthUserController::class, 'showRegister'])->name('berbinarplus.register');
@@ -173,7 +194,7 @@ Route::prefix('/berbinarplus')->group(function () {
 //     Route::post('/reg-page-1', [UserPsikotestPaidController::class, 'postRegPage1'])->name('psikotest-paid.postRegPage1');
 //     Route::post('/reg-page-2', [UserPsikotestPaidController::class, 'postRegPage2'])->name('psikotest-paid.postRegPage2');
 
-//     Route::get('/login', [UserPsikotestPaidController::class, 'showLogin'])->name('psikotest-paid.showLogin');
+    // Route::get('/login', [UserPsikotestPaidController::class, 'showLogin'])->name('psikotest-paid.showLogin');
 //     Route::post('/login', [UserPsikotestPaidController::class, 'login'])->name('psikotest-paid.login');
 //     Route::post('/logout', [UserPsikotestPaidController::class, 'logout'])->name('psikotest-paid.logout');
 

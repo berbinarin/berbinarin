@@ -1,13 +1,13 @@
 {{-- hero section --}}
-<section class="mb-4 h-full w-full lg:mb-16">
+<section class="mb-4 h-full w-full lg:mb-16 overflow-visible">
     {{-- !swiper --}}
     <div id="swiperArteriHero" class="swiper">
-        <div class="swiper-wrapper pb-14 pt-28 lg:pb-0 lg:pt-0">
+        <div class="swiper-wrapper pb-12 pt-28 lg:pb-0 lg:pt-0">
             {{-- item --}}
             @for ($i = 0; $i < 3; $i++)
                 <div
-                    class="swiper-slide relative flex aspect-video items-center justify-center bg-cover bg-center bg-no-repeat shadow-xl shadow-primary lg:shadow-none"
-                    style="background-image: url('{{ asset("/image/" . $heroArticles[$i]->cover_image) }}')"
+                    class="swiper-slide overflow-visible relative flex aspect-video items-center justify-center bg-cover bg-center bg-no-repeat lg:shadow-none"
+                    style="background-image: url('{{ asset("assets/images/landing/arteri/" . $heroArticles[$i]->cover_image) }}')"
                 >
                     <!-- Dark overlay -->
                     <div class="absolute inset-0 bg-black/50"></div>
@@ -18,9 +18,9 @@
                         <div class="hidden w-full flex-col items-start lg:flex">
                             <!-- Badge dinamis -->
                             <div class="mb-4 flex gap-4">
-                <span class="rounded-xl bg-[#F7B43F]/90 px-4 py-2 text-sm text-white">
-                  {{ $heroArticles[$i]->category->name_category }}
-                </span>
+                                <span class="rounded-xl bg-[#FD9399D9]/90 px-4 py-2 text-sm text-white">
+                                {{ $heroArticles[$i]->category->name_category }}
+                                </span>
                             </div>
                             {{-- title --}}
                             <h1 class="mb-4 w-3/4 text-start text-3xl font-bold tracking-wide text-white">
@@ -30,7 +30,7 @@
                             <div class="mb-4 flex w-full items-center justify-start gap-2">
                                 <div class="size-6 overflow-hidden rounded-full">
                                     <img
-                                    src="{{ $heroArticles[$i]->author->profil_image ? asset('/image/' . $heroArticles[$i]->author->profil_image) : asset('assets/images/landing/arteri/dummy.png') }}"
+                                    src="{{ $heroArticles[$i]->author->profil_image ? asset('assets/images/landing/arteri/' . $heroArticles[$i]->author->profil_image) : asset('assets/images/landing/arteri/dummy.png') }}"
                                     alt="{{ $heroArticles[$i]->author->name_author }}"
                                         class="object-cover"
                                     />
@@ -50,13 +50,11 @@
                             </p>
 
                             {{-- pagination dummy --}}
-                            <div
-                                class="absolute bottom-24 left-4 z-10 flex items-center justify-start gap-2 lg:left-14"
-                            >
+                            <div class="absolute bottom-24 left-4 z-10 flex items-center justify-start gap-2 lg:left-14">
                                 @for ($j = 0; $j < 3; $j++)
                                     <span
                                         onclick="handleSwipeTo({{ $j }})"
-                                        class="{{ $i === $j ? "active" : "" }} size-3 cursor-pointer rounded-full border border-white bg-transparent transition duration-1000 ease-in-out"
+                                        class="{{ $i === $j ? 'bg-white' : 'bg-transparent' }} size-3 cursor-pointer rounded-full border border-white transition duration-1000 ease-in-out"
                                         data-side="{{ $j }}"
                                     ></span>
                                 @endfor
@@ -73,7 +71,7 @@
                 <span class="text-sm font-medium text-white md:text-base">
                   {{ $heroArticles[$i]->created_at->format("d F Y") }}
                 </span>
-                                <span class="rounded-xl bg-[#F7B43F]/90 px-4 py-1 text-sm text-white md:text-base">
+                                <span class="rounded-xl bg-[#FD9399D9]/90 px-4 py-1 text-sm text-white md:text-base">
                   {{ $heroArticles[$i]->category->name_category }}
                 </span>
                             </div>
@@ -82,7 +80,7 @@
                                 <div class="flex items-center justify-start gap-2 sm:gap-4">
                                     <div class="size-5 overflow-hidden rounded-full sm:size-7">
                                         <img
-                                            src="{{ asset("/image/" . $heroArticles[$i]->author->profil_image) }}"
+                                            src="{{ asset("assets/images/landing/arteri/" . $heroArticles[$i]->author->profil_image) }}"
                                             alt="{{ $heroArticles[$i]->author->name_author }}"
                                             class="object-cover"
                                         />
@@ -100,12 +98,12 @@
                             </div>
                             {{-- pagination dummy --}}
                             <div
-                                class="absolute -bottom-12 left-1/2 z-10 flex -translate-x-1/2 items-center justify-start gap-2 lg:left-14"
+                                class="absolute -bottom-10 left-1/2 z-10 flex -translate-x-1/2 items-center justify-start gap-2 lg:left-14"
                             >
                                 @for ($j = 0; $j < 3; $j++)
                                     <span
                                         onclick="handleSwipeTo({{ $j }})"
-                                        class="{{ $i === $j ? "active-mobile" : "" }} size-3 cursor-pointer rounded-full border-2 border-primary bg-transparent transition duration-1000 ease-in-out"
+                                        class="{{ $i === $j ? 'bg-gradient-to-r from-[#3886A3] to-[#225062]' : 'bg-transparent' }} size-3 cursor-pointer rounded-full border border-primary transition duration-1000 ease-in-out"
                                         data-side="{{ $j }}"
                                     ></span>
                                 @endfor
@@ -116,4 +114,6 @@
             @endfor
         </div>
     </div>
+
 </section>
+
