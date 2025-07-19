@@ -87,7 +87,7 @@ Route::prefix('produk')->name('product.')->group(function () {
 
     // Produk EmoShuffle
     Route::prefix('emo-shuffle')->group(function () {
-        Route::get('/', [LandingController::class, 'emoShuffle'])->name('emoShuffle');
+        Route::get('/', [EmoShuffleController::class, 'index'])->name('index');
     });
 
     // Product Class
