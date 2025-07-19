@@ -22,7 +22,6 @@ use App\Models\Hiring_Positions_Job_Descriptions;
 
 class LandingController extends Controller
 {
-    // NEW LANDING PAGE
     public function landing_new(Request $request)
     {
         $visimisis = [
@@ -1042,7 +1041,7 @@ class LandingController extends Controller
                 'vector' => 'assets/images/landing/asset-kelas/produk/vector-premium-class.png',
                 'produk' => 'Premium Class',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
-                'route' => '#'
+                'route' => 'premium-class-new'
             ],
         ];
 
@@ -3082,6 +3081,16 @@ class LandingController extends Controller
         return redirect()->route('home');
     }
 
+    public function psikotestPaid()
+    {
+        return view('moduls.psikotes-paid.homepage');
+    }
+
+    public function testimoni()
+    {
+        return view('moduls.psikotes-paid.testimoni');
+    }
+
     public function instruksi()
     {
         return view('moduls.psikotes-paid.instruksi');
@@ -3181,5 +3190,69 @@ class LandingController extends Controller
     public function EndBDI()
     {
         return view('moduls.psikotes-paid.tools.bdi.summary');
+    }
+
+    public function premium_class_new(Request $request)
+
+    {
+        $faqs = [
+            [
+                'ask' => 'Apakah hasil tugas dapat saya lampirkan sebagai portofolio?',
+                'answer' => 'Tentu, SobatBinar diperbolehkan menggunakan tugas yang dikerjakan selama kelas sebagai bagian dari portofolio. Ini bisa menjadi bukti nyata atas keterampilan yang telah dipelajari dan dikembangkan selama mengikuti program Premium Class'
+            ],
+            [
+                'ask' => 'Bisakah saya menjadwalkan ulang sesi kelas ketika saya berhalangan hadir?',
+                'answer' => 'Ya, penjadwalan ulang kelas dapat dilakukan berdasarkan kesepakatan dengan mentor. SobatBinar disarankan memberi konfirmasi sebelumnya agar proses penjadwalan berjalan lancar dan sesuai ketentuan yang berlaku.
+'
+            ],
+            [
+                'ask' => 'Kapan sertifikat akan diberikan?',
+                'answer' => 'Setelah pembelajaran berakhir serta telah menyelesaikan tugas dengan baik maka SobatBinar dapat memperoleh sertifikat.'
+
+            ],
+            [
+                'ask' => 'Apakah ada batas waktu untuk mengerjakan studi kasus?',
+                'answer' => 'Ya, studi kasus memiliki batas waktu penyelesaian yang telah ditentukan. Informasi mengenai deadline akan disampaikan di awal kelas dan tercantum dalam panduan program.'
+
+            ],
+            [
+                'ask' => 'Apakah mentor tersedia setiap waktu untuk menjawab pertanyaan saya?',
+                'answer' => 'Mentor tidak tersedia setiap waktu. Namun, SobatBinar tetap dapat mengajukan pertanyaan kapan saja, dan mentor akan merespons sesuai dengan jadwal atau jam operasional yang telah ditentukan.'
+
+            ],
+        ];
+        $alur_pendaftaran = [
+            [
+                'title' => "Pengisian Link Google Form",
+                'description' => "klik mulai sekarang pada layanan berbinar consulting dan isi data diri sobatbinar secara lengkap dan jelas sesuai yang tersedia dalam link",
+                'link' => "assets/images/landing/asset-consulting/link-google-form.png"
+            ],
+            [
+                'title' => "Konfirmasi Pendaftaran",
+                'description' => "lakukan konfirmasi kepada (cp) tim berbinar dan tunggu 1x24 jam untuk dapatkan informasi selengkapnya",
+                'link' => "assets/images/landing/asset-consulting/check-mark-pendaftaran.png"
+            ],
+            [
+                'title' => "Informasi Jadwal dan Pembayaran",
+                'description' => "(cp) tim berbinar akan melakukan konfirmasi untuk pemberitahuan mengenai ketersediaan jadwal consulting dan melakukan pembayaran pada rekening bank yang tersedia",
+                'link' => "assets/images/landing/asset-consulting/jadwal-dan-pembayaran.png"
+            ],
+            [
+                'title' => "Verifikasi Pembayaran",
+                'description' => "kirimkan bukti pembayaran kepada (cp) tim berbinar untuk melakukan pengecekan",
+                'link' => "assets/images/landing/asset-consulting/check-mark-pembayaran.png"
+            ],
+            [
+                'title' => "Jadwal pelaksanaan",
+                'description' => "(cp) tim berbinar akan mengirimkan jadwal yang telah ditentukan beserta dengan link yang akan diakses dan teknis pelaksanaan",
+                'link' => "assets/images/landing/asset-consulting/jadwal-pelaksanaan.png"
+            ],
+            [
+                'title' => "Pelaksanaan Layanan Consulting",
+                'description' => "setelah mengetahui keseluruhan informasi, sobatbinar bisa memulai layanan consulting bersama konsultan sesuai jadwal yang telah ditentukan",
+                'link' => "assets/images/landing/asset-consulting/layanan-consulting.png"
+            ]
+        ];
+        return view ('moduls.landing-new.produk-premium-class', compact ('faqs', 'alur_pendaftaran'));
     }
 }

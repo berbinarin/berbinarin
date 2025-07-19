@@ -85,6 +85,11 @@ Route::prefix('produk')->name('product.')->group(function () {
         Route::get('/', [ConsultingController::class, 'index'])->name('index');
     });
 
+    // Produk EmoShuffle
+    Route::prefix('emo-shuffle')->group(function () {
+        Route::get('/', [LandingController::class, 'emoShuffle'])->name('emoShuffle');
+    });
+
     // Product Class
     Route::prefix('class')->name('class.')->group(function () {
         Route::get('/', [ClassController::class, 'class'])->name('index');
@@ -103,23 +108,18 @@ Route::prefix('produk')->name('product.')->group(function () {
         });
 
         // Class Bisikan
-        Route::prefix('bisikan')->name('bisikan.')->group(function () {
-            Route::get('/', [BisikanController::class, 'index'])->name('index');
+        Route::prefix('bisikan')->group(function () {
+            Route::get('/', [LandingController::class, 'bisikan_new'])->name('bisikan');
         });
 
-        // Class Premium
-        Route::prefix('premium-class')->name('premium-class.')->group(function () {
-            Route::get('/', [PremiumClassController::class, 'index'])->name('index');
+        // Class Premium-class
+        Route::prefix('premium-class')->group(function () {
+            Route::get('/', [LandingController::class, 'premium_class_new'])->name('premium-class-new');
         });
 
         Route::prefix('berarty')->name('berarty.')->group(function () {
             Route::get('/', [BerartyController::class, 'index'])->name('index');
         });
-    });
-
-    // Product EmoShuffle
-    Route::prefix('emo-shuffle')->name('emo-shuffle.')->group(function () {
-        Route::get('/', [EmoShuffleController::class, 'index'])->name('index');
     });
 });
 
@@ -182,13 +182,16 @@ Route::prefix('/berbinarplus')->group(function () {
 });
 
 // Psikotest Paid
-// Route::prefix('/psikotest-paid')->group(function () {
-//     //Biodata Psikotest
-//     Route::resource('/user-clinical', UserClinicalController::class);
-//     Route::resource('/user-company', UserCompanyController::class);
-//     Route::resource('/user-community', UserCommunityController::class);
-//     Route::resource('/user-education', UserEducationController::class);
-//     Route::resource('/user-individual', UserIndividualController::class);
+Route::prefix('/psikotest-paid')->group(function () {
+    Route::get('/', [LandingController::class, 'psikotestPaid'])->name('psikotest-paid.homepage');
+    Route::get('/testimoni', [LandingController::class, 'testimoni'])->name('psikotest-paid.testimoni');
+
+    //Biodata Psikotest
+    Route::resource('/user-clinical', UserClinicalController::class);
+    Route::resource('/user-company', UserCompanyController::class);
+    Route::resource('/user-community', UserCommunityController::class);
+    Route::resource('/user-education', UserEducationController::class);
+    Route::resource('/user-individual', UserIndividualController::class);
 
 //     Route::post('/reg-page-3', [UserPsikotestPaidController::class, 'postRegPage3'])->name('psikotest-paid.postRegPage3');
 //     Route::post('/reg-page-1', [UserPsikotestPaidController::class, 'postRegPage1'])->name('psikotest-paid.postRegPage1');
@@ -336,7 +339,7 @@ Route::prefix('/berbinarplus')->group(function () {
 //             Route::get('/{id}/complete', [VakController::class, 'completeTest'])->name('psikotest-paid.VAK.complete');
 //         });
 //     });
-// });
+});
 
 
 // Route get image from storage
