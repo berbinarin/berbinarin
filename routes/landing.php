@@ -122,6 +122,9 @@ Route::prefix('arteri')->group(function () {
 
 // Psikotest Paid
 Route::prefix('/psikotest-paid')->group(function () {
+    Route::get('/', [LandingController::class, 'psikotestPaid'])->name('psikotest-paid.homepage');
+    Route::get('/testimoni', [LandingController::class, 'testimoni'])->name('psikotest-paid.testimoni');
+
     //Biodata Psikotest
     Route::resource('/user-clinical', UserClinicalController::class);
     Route::resource('/user-company', UserCompanyController::class);

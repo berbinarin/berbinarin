@@ -3055,6 +3055,16 @@ class LandingController extends Controller
         return redirect()->route('home');
     }
 
+    public function psikotestPaid()
+    {
+        return view('moduls.psikotes-paid.homepage');
+    }
+
+    public function testimoni()
+    {
+        return view('moduls.psikotes-paid.testimoni');
+    }
+
     public function instruksi()
     {
         return view('moduls.psikotes-paid.instruksi');
