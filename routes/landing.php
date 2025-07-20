@@ -109,7 +109,7 @@ Route::prefix('produk')->name('product.')->group(function () {
 
         // Class Bisikan
         Route::prefix('bisikan')->name('bisikan.')->group(function () {
-            Route::get('/', [LandingController::class, 'bisikan_new'])->name('bisikan');
+            Route::get('/', [BisikanController::class, 'index'])->name('index');
         });
 
         // Class Premium-class
