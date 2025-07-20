@@ -80,7 +80,7 @@
                                 type="radio"
                                 name="setuju"
                                 value="Ya"
-                                class="h-5 w-5 appearance-none rounded-full border-2 border-black transition duration-200 checked:scale-110 checked:border-blue-600 checked:bg-[#6083F2]"
+                                class="h-4 w-4 appearance-none rounded-full border-2 border-black transition duration-200 checked:scale-110 checked:border-blue-600 checked:bg-[#6083F2]"
                             />
                             <span
                                 class="text-base font-medium text-black"
