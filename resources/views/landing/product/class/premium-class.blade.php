@@ -8,6 +8,51 @@
 )
 
 @section("content")
+    @php
+        $alurPendaftaran = [
+            [
+                "icon" => "search-icon.png",
+                "teks" => "Calon peserta dapat memilih kelas yang telah disediakan oleh Berbinar Insightful Indonesia melalui <i>link</i> pendaftaran yang telah disediakan.",
+            ],
+            [
+                "icon" => "openbook-icon.png",
+                "teks" => "Calon peserta wajib membaca booklet <i>PREMIUM CLASS</i> dengan cermat guna kejelasan teknis dari layanan yang akan diambil.",
+            ],
+            [
+                "icon" => "pen-icon.png",
+                "teks" => "Calon peserta wajib mengisi data <i>form</i> pendaftaran dengan jelas dan benar guna keperluan dokumen peserta kedepannya.",
+            ],
+            [
+                "icon" => "checkmark-icon.png",
+                "teks" => "Calon peserta wajib memilih jenis kelas yang telah disediakan.",
+            ],
+            [
+                "icon" => "creditcard-icon.png",
+                "teks" => "Calon peserta wajib membayar harga kelas lalu dilampirkan pada <i>form</i> pendaftaran.",
+            ],
+            [
+                "icon" => "inbox.png",
+                "teks" => "Calon peserta akan menjadi peserta apabila telah menerima <i>email</i> konfirmasi pendaftaran.",
+            ],
+            [
+                "icon" => "link.png",
+                "teks" => "Peserta wajib membaca <i>email</i> konfirmasi pendaftaran dengan cermat karena memuat <i>link pre-test</i> dari kelas yang akan diambil.",
+            ],
+            [
+                "icon" => "incoming-call.png",
+                "teks" => "Peserta diharap menghubungi narahubung <i>Premium Class</i> apabila selama 3 (tiga) hari kerja tidak menerima <i>email</i> konfirmasi pendaftaran.",
+            ],
+            [
+                "icon" => "brain.png",
+                "teks" => "Peserta wajib mengisi <i>pre-test</i> dari kelas yang akan diambil sebelum memulai layanan <i>Premium Class</i>.",
+            ],
+            [
+                "icon" => "calendar.png",
+                "teks" => "Peserta akan dihubungi <i>via whatsapp</i> dan <i>email</i> untuk kelanjutan jadwal <i>premium class</i> yang diambil.",
+            ],
+        ];
+    @endphp
+
     <!-- Judul-Start -->
     <section id="customSection" class="mb-12 w-full overflow-x-hidden">
         <div class="absolute left-0 top-0 h-fit w-1/2 pt-32 md:block md:w-1/3 md:pt-0 lg:w-1/4">
@@ -82,7 +127,7 @@
                 Mentor
                 <span class="bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-2 text-white">Premium Class</span>
             </h1>
-            <div class="flex flex-col justify-center gap-4 px-4 py-10 md:flex-row md:items-center md:justify-center">
+            <div class="flex flex-col justify-center gap-4 px-4 py-10 md:ml-12 md:flex-row md:items-center md:justify-center">
                 <img src="{{ asset("assets/images/landing/produk/premium-class/banner-2.png") }}" class="hidden object-cover md:block" />
 
                 <img src="{{ asset("assets/images/landing/produk/premium-class/banner-2-2.png") }}" class="block object-cover md:hidden" />
@@ -133,7 +178,7 @@
     <!-- Mentor Premium Class-End -->
 
     <!-- Jenis Layanan-Start (Desktop) -->
-    <section class="hidden w-full pt-16 md:block" style="padding-left: 70px; padding-right: 70px">
+    <section class="hidden w-full pt-10 md:block" style="padding-left: 70px; padding-right: 70px">
         <!-- BAGIAN BACKGROUND HEADER -->
         <div class="relative left-1/2 w-[90%] -translate-x-1/2 overflow-hidden rounded-3xl" style="height: 350px; background-color: #205467">
             <img src="{{ asset("assets/images/landing/produk/premium-class/banner-3.png") }}" class="absolute h-full w-full object-cover" style="z-index: -20" />
@@ -188,7 +233,7 @@
     <!-- Jenis Layanan-End (Desktop) -->
 
     <!-- Alur Pendaftaran-Start (Desktop)-->
-    <section class="mt-20 hidden min-h-[900px] w-full md:block">
+    <section class="mt-20 hidden min-h-[600px] w-full md:block">
         <div class="flex flex-col px-4">
             <h1 class="w-full text-center text-4xl font-semibold text-black">
                 Alur Pendaftaran
@@ -478,131 +523,23 @@
                 <span class="bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-2 text-white">Premium Class</span>
             </h1>
 
-            <div class="swiper classSwiper mt-10 h-[1161px] pb-20">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide relative mb-6 mt-3 h-[225px] rounded-2xl bg-white px-8 py-6 drop-shadow-lg" style="opacity: 0.9">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/search-icon.png") }}" alt="Ikon pencarian" class="justify-self-center object-cover" />
+            <div class="mt-10 grid grid-cols-1 gap-6 pb-7">
+                @foreach ($alurPendaftaran as $step)
+                    <div class="relative h-[225px] rounded-2xl bg-white px-8 py-6 drop-shadow-lg" style="opacity: 0.9">
+                        <img src="{{ asset("assets/images/landing/produk/premium-class/" . $step["icon"]) }}" alt="Ikon" class="mx-auto object-cover" />
                         <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
                         <div class="flex flex-col pt-5 text-justify text-sm text-[#70787D]">
-                            <h1>
-                                Calon peserta dapat memilih kelas yang telah disediakan oleh Berbinar Insightful Indonesia melalui
-                                <i>link</i>
-                                pendaftaran yang telah disediakan
-                            </h1>
+                            <h1>{!! $step["teks"] !!}</h1>
                         </div>
                     </div>
-                    <div class="swiper-slide relative mb-6 mt-3 h-[225px] rounded-2xl bg-white px-8 py-6 drop-shadow-lg" style="opacity: 0.9">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/openbook-icon.png") }}" alt="Ikon buku terbuka" class="justify-self-center object-cover" />
-                        <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
-                        <div class="flex flex-col pt-5 text-justify text-sm text-[#70787D]">
-                            <h1>
-                                Calon peserta wajib membaca booklet
-                                <i>PREMIUM CLASS</i>
-                                dengan cermat guna kejelasan teknis dari layanan yang akan diambil.
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="swiper-slide relative mb-6 mt-3 h-[225px] rounded-2xl bg-white px-8 py-6 drop-shadow-lg" style="opacity: 0.9">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/pen-icon.png") }}" alt="Ikon pena" class="justify-self-center object-cover" />
-                        <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
-                        <div class="flex flex-col pt-5 text-justify text-sm text-[#70787D]">
-                            <h1>
-                                Calon peserta wajib mengisi data
-                                <i>form</i>
-                                pendaftaran dengan jelas dan benar guna keperluan dokumen peserta kedepannya.
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="swiper-slide relative mb-6 mt-3 h-[225px] rounded-2xl bg-white px-8 py-6 drop-shadow-lg" style="opacity: 0.9">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/checkmark-icon.png") }}" alt="Ikon centang" class="justify-self-center object-cover" />
-                        <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
-                        <div class="flex flex-col pt-5 text-justify text-sm text-[#70787D]">
-                            <h1>Calon peserta wajib memilih jenis kelas yang telah disediakan.</h1>
-                        </div>
-                    </div>
-                    <div class="swiper-slide relative mb-6 mt-3 h-[225px] rounded-2xl bg-white px-8 py-6 drop-shadow-lg" style="opacity: 0.9">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/creditcard-icon.png") }}" alt="Ikon kartu kredit" class="justify-self-center object-cover" />
-                        <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
-                        <div class="flex flex-col pt-5 text-justify text-sm text-[#70787D]">
-                            <h1>
-                                Calon peserta wajib membayar harga kelas lalu dilampirkan pada
-                                <i>form</i>
-                                pendaftaran.
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="swiper-slide relative mb-6 mt-3 h-[225px] rounded-2xl bg-white px-8 py-6 drop-shadow-lg" style="opacity: 0.9">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/inbox.png") }}" alt="Ikon kotak masuk" class="justify-self-center object-cover" />
-                        <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
-                        <div class="flex flex-col pt-5 text-justify text-sm text-[#70787D]">
-                            <h1>
-                                Calon peserta akan menjadi peserta apabila telah menerima
-                                <i>email</i>
-                                konfirmasi pendaftaran
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="swiper-slide relative mb-6 mt-3 h-[225px] rounded-2xl bg-white px-8 py-6 drop-shadow-lg" style="opacity: 0.9">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/link.png") }}" alt="Ikon tautan" class="justify-self-center object-cover" />
-                        <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
-                        <div class="flex flex-col pt-5 text-justify text-sm text-[#70787D]">
-                            <h1>
-                                Peserta wajib membaca
-                                <i>email</i>
-                                konfirmasi pendaftaran dengan cermat karena memuat
-                                <i>link pre-test</i>
-                                dari kelas yang akan diambil
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="swiper-slide relative mb-6 mt-3 h-[225px] rounded-2xl bg-white px-8 py-6 drop-shadow-lg" style="opacity: 0.9">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/incoming-call.png") }}" alt="Ikon panggilan masuk" class="justify-self-center object-cover" />
-                        <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
-                        <div class="flex flex-col pt-5 text-justify text-sm text-[#70787D]">
-                            <h1>
-                                Peserta diharap menghubungi narahubung
-                                <i>Premium Class</i>
-                                apabila selama 3 (tiga) hari kerja tidak menerima
-                                <i>email</i>
-                                konfirmasi pendaftaran
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="swiper-slide relative mb-6 mt-3 h-[225px] rounded-2xl bg-white px-8 py-6 drop-shadow-lg" style="opacity: 0.9">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/brain.png") }}" alt="Ikon otak" class="justify-self-center object-cover" />
-                        <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
-                        <div class="flex flex-col pt-5 text-justify text-sm text-[#70787D]">
-                            <h1>
-                                Peserta wajib mengisi
-                                <i>pre-test</i>
-                                dari kelas yang akan diambil sebelum memulai layanan
-                                <i>Premium Class</i>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="swiper-slide relative mb-6 mt-3 h-[225px] rounded-2xl bg-white px-8 py-6 drop-shadow-lg" style="opacity: 0.9">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/calendar.png") }}" alt="Ikon kalender" class="justify-self-center object-cover" />
-                        <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
-                        <div class="flex flex-col pt-5 text-justify text-sm text-[#70787D]">
-                            <h1>
-                                Peserta akan dihubungi
-                                <i>via whatsapp</i>
-                                dan
-                                <i>email</i>
-                                untuk kelanjutan jadwal
-                                <i>premium class</i>
-                                yang diambil
-                            </h1>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
     <!-- Alur Pendaftaran-End (Mobile)-->
 
     <!-- Harga Section-Start (Desktop) -->
-    <section class="mb-12 hidden w-full md:block" style="padding-top: 64px; overflow: visible">
+    <section class="mb-10 hidden w-full md:block" style="padding-top: 64px; overflow: visible">
         <!-- BAGIAN BACKGROUND HEADER -->
         <div class="relative left-1/2 w-[85%] -translate-x-1/2 overflow-hidden rounded-3xl" style="height: 350px; background-color: #205467">
             <img src="{{ asset("assets/images/landing/produk/premium-class/banner-4.png") }}" class="absolute h-full w-full rounded-3xl object-cover" style="z-index: -20" />
@@ -775,7 +712,7 @@
     <!-- Harga Section-End (Mobile) -->
 
     <!-- Benefit Section-Start -->
-    <section class="mt-12 w-full md:mt-20">
+    <section class="mt-12 w-full md:mt-14">
         <div class="flex flex-col px-4 py-10 md:px-16">
             <h1 class="mb-10 w-full text-center text-2xl font-semibold text-black md:text-4xl">
                 Benefit
@@ -959,7 +896,7 @@
     <!-- Benefit Section-End -->
 
     <!-- FAQ -->
-    <section class="z-10 mx-4 pb-[50px] pt-[50px] sm:mx-20 md:pb-[75px] md:pt-[75px]">
+    <section class="z-10 mx-4 pb-[50px] pt-[25px] sm:mx-20 md:pb-[75px] md:pt-[50px]">
         <ul class="flex flex-col">
             <!-- FAQ 1 -->
             <li x-data="accordion(0)" :class="`bg-white py-2 shadow-sm rounded-lg my-2 border ${isActive() ? 'border-2 border-blue-500' : 'border'}`">
@@ -1234,23 +1171,23 @@
                 },
             });
 
-            var swiper = new Swiper('.classSwiper', {
-                direction: 'vertical',
-                slidesPerView: 'auto',
-                spaceBetween: 10,
-                initialSlide: 0,
-                loop: false,
-                slidesPerGroup: 1,
-                scrollbar: {
-                    el: '.swiper-scrollbar',
-                    hide: false,
-                    draggable: true,
-                },
-                // Prevent slider from showing partial slides
-                watchOverflow: true,
-                allowTouchMove: true,
-                grabCursor: true,
-            });
+            // var swiper = new Swiper('.classSwiper', {
+            //     direction: 'vertical',
+            //     slidesPerView: 'auto',
+            //     spaceBetween: 10,
+            //     initialSlide: 0,
+            //     loop: false,
+            //     slidesPerGroup: 1,
+            //     scrollbar: {
+            //         el: '.swiper-scrollbar',
+            //         hide: false,
+            //         draggable: true,
+            //     },
+            //     // Prevent slider from showing partial slides
+            //     watchOverflow: true,
+            //     allowTouchMove: true,
+            //     grabCursor: true,
+            // });
             const premiumClassSwiper = new Swiper('.premiumClassSwiper', {
                 slidesPerView: 5,
                 spaceBetween: 20,
