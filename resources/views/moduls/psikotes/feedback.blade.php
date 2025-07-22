@@ -6,8 +6,8 @@
 
 @section('content')
 <sections>
-    <div class="min-h-screen flex justify-center items-center">
-        <div class="flex flex-col md:flex-row w-full md:max-w-[90%] mb-10 mt-28 md:mt-36 justify-center shadow-xl bg-white rounded-3xl p-7 sm:p-10 relative">
+    <div class="md:min-h-screen flex justify-center items-center">
+        <div class="flex flex-col md:flex-row w-full md:max-w-[90%] md:mb-10 mt-20 md:mt-36 justify-center md:shadow-xl md:bg-white rounded-3xl p-7 sm:p-10 relative">
             <div class="lg:w-[95%]">
 
                 <div class="flex flex-row justify-between mb-8">
@@ -26,10 +26,10 @@
                     method="GET" class="rating">
                     @csrf
 
-                    <div class="rating_list flex lg:w-[80%] flex-col md:flex-row mb-1 lg:mb-12 justify-self-center justify-center gap-4">
+                    <div class="rating_list flex lg:w-[80%] flex-row mb-1 lg:mb-12 justify-self-center justify-center md:gap-4">
                         <div class="rating_item flex flex-col items-center">
                             <input class="hidden peer" id="rating-5-1" type="radio" value="5" name="rating" required>
-                            <label for="rating-5-1" class="cursor-pointer peer-checked:ring-4 peer-checked:ring-[#75BADB] rounded-full transition group relative w-36 h-36 md:w-24 md:h-32 lg:w-28 lg:h-32 xl:w-48 xl:h-48 flex items-center justify-center">
+                            <label for="rating-5-1" class="cursor-pointer peer-checked:ring-4 peer-checked:ring-[#75BADB] rounded-full transition group relative w-16 h-16 md:w-24 md:h-32 lg:w-28 lg:h-32 xl:w-48 xl:h-48 flex items-center justify-center">
                                 <span class="block w-full h-full relative">
                                     <!-- Default image -->
                                     <img src="{{ asset('assets/images/psikotes/feedback/1-wahoo.png') }}"
@@ -45,7 +45,7 @@
 
                         <div class="rating_item flex flex-col items-center">
                             <input class="hidden peer" id="rating-4-1" type="radio" value="4" name="rating">
-                            <label for="rating-4-1" class="cursor-pointer peer-checked:ring-4 peer-checked:ring-[#4CAF50] rounded-full transition group relative w-36 h-36 md:w-24 md:h-32 lg:w-28 lg:h-32 xl:w-48 xl:h-48 flex items-center justify-center">
+                            <label for="rating-4-1" class="cursor-pointer peer-checked:ring-4 peer-checked:ring-[#4CAF50] rounded-full transition group relative w-16 h-16 md:w-24 md:h-32 lg:w-28 lg:h-32 xl:w-48 xl:h-48 flex items-center justify-center">
                                 <span class="block w-full h-full relative">
                                     <!-- Default image -->
                                     <img src="{{ asset('assets/images/psikotes/feedback/2-happy.png') }}"
@@ -61,7 +61,7 @@
 
                         <div class="rating_item flex flex-col items-center">
                             <input class="hidden peer" id="rating-3-1" type="radio" value="3" name="rating">
-                            <label for="rating-3-1" class="cursor-pointer peer-checked:ring-4 peer-checked:ring-[#FFE500] rounded-full transition group relative w-36 h-36 md:w-24 md:h-32 lg:w-28 lg:h-32 xl:w-48 xl:h-48 flex items-center justify-center">
+                            <label for="rating-3-1" class="cursor-pointer peer-checked:ring-4 peer-checked:ring-[#FFE500] rounded-full transition group relative w-16 h-16 md:w-24 md:h-32 lg:w-28 lg:h-32 xl:w-48 xl:h-48 flex items-center justify-center">
                                 <span class="block w-full h-full relative">
                                     <!-- Default image -->
                                     <img src="{{ asset('assets/images/psikotes/feedback/3-neutral.png') }}"
@@ -77,7 +77,7 @@
 
                         <div class="rating_item flex flex-col items-center">
                             <input class="hidden peer" id="rating-2-1" type="radio" value="2" name="rating">
-                            <label for="rating-2-1" class="cursor-pointer peer-checked:ring-4 peer-checked:ring-[#FF543E] rounded-full transition group relative w-36 h-36 md:w-24 md:h-32 lg:w-28 lg:h-32 xl:w-48 xl:h-48 flex items-center justify-center">
+                            <label for="rating-2-1" class="cursor-pointer peer-checked:ring-4 peer-checked:ring-[#FF543E] rounded-full transition group relative w-16 h-16 md:w-24 md:h-32 lg:w-28 lg:h-32 xl:w-48 xl:h-48 flex items-center justify-center">
                                 <span class="block w-full h-full relative">
                                     <!-- Default image -->
                                     <img src="{{ asset('assets/images/psikotes/feedback/4-bummed.png') }}"
@@ -93,7 +93,7 @@
 
                         <div class="rating_item flex flex-col items-center">
                             <input class="hidden peer" id="rating-1-1" type="radio" value="1" name="rating">
-                            <label for="rating-1-1" class="cursor-pointer peer-checked:ring-4 peer-checked:ring-[#FF004F] rounded-full transition group relative w-36 h-36 md:w-24 md:h-32 lg:w-28 lg:h-32 xl:w-48 xl:h-48 flex items-center justify-center">
+                            <label for="rating-1-1" class="cursor-pointer peer-checked:ring-4 peer-checked:ring-[#FF004F] rounded-full transition group relative w-16 h-16 md:w-24 md:h-32 lg:w-28 lg:h-32 xl:w-48 xl:h-48 flex items-center justify-center">
                                 <span class="block w-full h-full relative">
                                     <!-- Default image -->
                                     <img src="{{ asset('assets/images/psikotes/feedback/5-pissed.png') }}"
@@ -115,11 +115,11 @@
                         </div>
                         <div class="text-center justify-items-center w-full">
                             <textarea placeholder="Ceritakan pengalaman SobatBinar ketika mengisi tes psikotes ini" id="experience" name="experience"
-                                class="mt-1 block w-full md:w-full px-2.5 py-1.5 lg:py-3 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none lg:h-48 focus:ring-primary focus:border-primary text-sm lg:text-lg"></textarea>
+                                class="mt-1 block w-full md:w-full px-2.5 py-1.5 lg:py-3 bg-gray-50 border border-gray-100 rounded-md shadow-md focus:outline-none h-32 lg:h-48 focus:ring-primary focus:border-primary text-sm lg:text-lg"></textarea>
                         </div>
 
                         <div class="flex flex-col w-full md:flex-row gap-5 justify-center items-center pt-8">
-                            <button type="submit" class="rounded-lg bg-gradient-to-r mb-5 lg:mx-2 from-[#3986A3] to-[#225062] px-10 lg:w-1/3 py-1.5 font-medium text-white text-lg max-sm:text-[15px]">Kirim</button>
+                            <button type="submit" class="rounded-lg bg-gradient-to-r mb-5 lg:mx-2 from-[#3986A3] to-[#225062] px-10 w-full lg:w-1/3 py-1.5 font-medium text-white text-lg max-sm:text-[15px]">Kirim</button>
                         </div>
 
                     </div>

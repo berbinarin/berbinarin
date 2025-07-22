@@ -1,4 +1,4 @@
-@extends('landing.layouts.app', [
+@extends('moduls.psikotes.layouts.main', [
 'title' => 'Psikotest Berbinar',
 'active' => 'Test',
 'page' => 'Tes',
@@ -6,8 +6,7 @@
 
 @section('content')
 <section>
-    <h2 class="text-[#333333] text-center font-bold text-5xl mt-28 mb-10 lg:mt-36 lg:mb-14">Psikotes <span class="bg-gradient-to-r from-[#3986A3] to-[#25586A] bg-clip-text text-transparent">Berbinar</span></h2>
-    <div class="rounded-3xl justify-center flex relative lg:mb-20">
+    <div class="rounded-3xl justify-center flex relative max-sm:p-5 lg:mt-20 lg:mb-20">
         <div class="rounded-3xl overflow-hidden flex flex-row justify-center items-left lg:shadow-2xl" style="box-shadow: 0 0 25px rgba(0,0,0,0.25);">
 
 
@@ -40,7 +39,7 @@
                                         <div class="text-center flex items-center justify-center lg:mb-5">
                                             <label class="flex items-center cursor-pointer">
                                                 <input type="radio" name="answer" value="1" class="peer hidden" />
-                                                <div class="w-16 h-16 lg:w-16 lg:h-16 rounded-full border border-gray-300
+                                                <div class="w-14 h-14 lg:w-16 lg:h-16 rounded-full border border-gray-300
                                                 peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary-alt
                                                 transition flex items-center justify-center font-bold lg:text-2xl
                                                 shadow-[0_0_10px_0_#3986A380]">
@@ -49,8 +48,8 @@
                                             </label>
                                         </div>
                                         <div class="my-2 md:my-0 max-sm:mx-4 flex flex-col items-center justify-center">
-                                            <p class="text-sm text-center lg:text-lg radio-label" data-value="1">Sangat Tidak <span class="md:hidden">Sesuai</span></p>
-                                            <p class="text-sm text-center hidden md:block lg:text-lg radio-label" data-value="1">Sesuai</p>
+                                            <p class="text-lg text-center radio-label" data-value="1">Sangat Tidak <span class="md:hidden">Sesuai</span></p>
+                                            <p class="text-lg text-center hidden md:block radio-label" data-value="1">Sesuai</p>
                                         </div>
                                     </div>
 
@@ -59,7 +58,7 @@
                                         <div class="text-center flex items-center justify-center lg:mb-5">
                                             <label class="flex items-center cursor-pointer">
                                                 <input type="radio" name="answer" value="2" class="peer hidden" />
-                                                <div class="w-16 h-16 lg:w-16 lg:h-16 rounded-full border border-gray-300
+                                                <div class="w-14 h-14 lg:w-16 lg:h-16 rounded-full border border-gray-300
                                                 peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary-alt
                                                 transition flex items-center justify-center font-bold lg:text-2xl
                                                 shadow-[0_0_10px_0_#3986A380]">
@@ -68,7 +67,7 @@
                                             </label>
                                         </div>
                                         <div class="my-2 md:my-0 max-sm:mx-4 flex flex-col items-center justify-center">
-                                            <p class="text-sm text-center lg:text-lg radio-label" data-value="2">Tidak Sesuai</p>
+                                            <p class="text-lg text-center radio-label" data-value="2">Tidak Sesuai</p>
                                         </div>
                                     </div>
 
@@ -76,7 +75,7 @@
                                         <div class="text-center flex items-center justify-center lg:mb-5">
                                             <label class="flex items-center cursor-pointer">
                                                 <input type="radio" name="answer" value="3" class="peer hidden" />
-                                                <div class="w-16 h-16 lg:w-16 lg:h-16 rounded-full border border-gray-300
+                                                <div class="w-14 h-14 lg:w-16 lg:h-16 rounded-full border border-gray-300
                                                 peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary-alt
                                                 transition flex items-center justify-center font-bold lg:text-2xl
                                                 shadow-[0_0_10px_0_#3986A380]">
@@ -85,7 +84,7 @@
                                             </label>
                                         </div>
                                         <div class="my-2 md:my-0 max-sm:mx-4 flex flex-col items-center justify-center">
-                                            <p class="text-sm text-center lg:text-lg radio-label" data-value="3">Ragu-ragu</p>
+                                            <p class="text-lg text-center radio-label" data-value="3">Ragu-ragu</p>
                                         </div>
                                     </div>
 
@@ -93,7 +92,7 @@
                                         <div class="text-center flex items-center justify-center lg:mb-5">
                                             <label class="flex items-center cursor-pointer">
                                                 <input type="radio" name="answer" value="4" class="peer hidden" />
-                                                <div class="w-16 h-16 lg:w-16 lg:h-16 rounded-full border border-gray-300
+                                                <div class="w-14 h-14 lg:w-16 lg:h-16 rounded-full border border-gray-300
                                                 peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary-alt
                                                 transition flex items-center justify-center font-bold lg:text-2xl
                                                 shadow-[0_0_10px_0_#3986A380]">
@@ -102,7 +101,7 @@
                                             </label>
                                         </div>
                                         <div class="my-2 md:my-0 max-sm:mx-4 flex flex-col items-center justify-center">
-                                            <p class="text-sm text-center lg:text-lg radio-label" data-value="4">Sesuai</p>
+                                            <p class="text-lg text-center radio-label" data-value="4">Sesuai</p>
                                         </div>
                                     </div>
 
@@ -110,7 +109,7 @@
                                         <div class="text-center flex items-center justify-center lg:mb-5">
                                             <label class="flex items-center cursor-pointer">
                                                 <input type="radio" name="answer" value="5" class="peer hidden" />
-                                                <div class="w-16 h-16 lg:w-16 lg:h-16 rounded-full border border-gray-300
+                                                <div class="w-14 h-14 lg:w-16 lg:h-16 rounded-full border border-gray-300
                                                 peer-checked:bg-primary peer-checked:text-white peer-checked:border-primary-alt
                                                 transition flex items-center justify-center font-bold lg:text-2xl
                                                 shadow-[0_0_10px_0_#3986A380]">
@@ -119,7 +118,7 @@
                                             </label>
                                         </div>
                                         <div class="my-2 md:my-0 max-sm:mx-4 flex flex-col items-center justify-center">
-                                            <p class="text-sm text-center lg:text-lg radio-label" data-value="5">Sangat Sesuai</p>
+                                            <p class="text-lg text-center radio-label" data-value="5">Sangat Sesuai</p>
                                         </div>
                                     </div>
                                 </div>
@@ -139,7 +138,7 @@
                     <div class="bg-white">
                         {{-- HERO IMG DESKTOP --}}
                         <div
-                            class="absolute right-44 top-1/2 -translate-y-1/2"
+                            class="absolute right-44 top-1/2 -translate-y-1/2 max-sm:hidden"
                             style="width: 300px; height: 300px; border-radius: 50%; background: #A2D7F0CC; filter: blur(60px); opacity: 1; z-index: 0;"
                         ></div>
                         <img src="{{ asset('assets/images/psikotes/progress4.png') }}" alt="Ilustrasi-Test" class="w-[500px] h-[400px] hidden lg:block mt-24 scale-75" data-aos="fade-left" data-aos-duration="1500">
