@@ -248,6 +248,14 @@
                                             </p>
                                             <input type="date" name="date_end[]" class="rounded-lg border-gray-300 px-3 py-2" required />
                                         </div>
+                                        <div class="flex items-end gap-2 mt-2">
+                                            <button type="button"
+                                                class="btn-delete-riwayat flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-600 transition hover:bg-red-600 hover:text-white hover:border-red-600 shadow-sm"
+                                                title="Hapus riwayat jabatan">
+                                                <i class="bx bx-trash text-lg"></i>
+                                                <span>Hapus</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </template>
@@ -295,6 +303,14 @@
                     photoLabel.style.display = 'inline-block';
                     photoPreviewContainer.innerHTML = '';
                     photoName.textContent = '';
+                }
+            });
+            riwayatContainer.addEventListener('click', function (e) {
+                if (e.target.closest('.btn-delete-riwayat')) {
+                    const row = e.target.closest('.riwayat-row');
+                    if (row) {
+                        row.remove();
+                    }
                 }
             });
         });

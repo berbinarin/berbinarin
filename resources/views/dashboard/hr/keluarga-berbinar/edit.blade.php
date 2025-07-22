@@ -5,7 +5,9 @@
     ]
 )
 
+
 @section("content")
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const addRiwayatButton = document.getElementById('addRiwayatButton');
@@ -16,12 +18,22 @@
                 const clone = riwayatTemplate.content.cloneNode(true);
                 riwayatContainer.appendChild(clone);
             });
-
             riwayatContainer.addEventListener('click', function (e) {
                 if (e.target.closest('.btn-delete-riwayat')) {
-                    const row = e.target.closest('.riwayat-row');
-                    if (row) {
-                        row.remove();
+                    const rows = riwayatContainer.querySelectorAll('.riwayat-row');
+                    if (rows.length > 1) {
+                        const row = e.target.closest('.riwayat-row');
+                        if (row) {
+                            row.remove();
+                        }
+                    } else {
+                        Swal.fire({
+                            icon: 'warning',
+                            iconColor: '#3986A3',
+                            title: 'Perhatian',
+                            text: 'Minimal harus ada satu riwayat jabatan.',
+                            confirmButtonColor: '#3986A3'
+                        });
                     }
                 }
             });
@@ -218,6 +230,14 @@
                                             </p>
                                             <input type="date" name="date_end[]" value="{{ $record->date_end }}" class="rounded-lg border-gray-300 px-3 py-2" required />
                                         </div>
+                                        <div class="flex items-end gap-2 mt-2">
+                                            <button type="button"
+                                                class="btn-delete-riwayat flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-600 transition hover:bg-red-600 hover:text-white hover:border-red-600 shadow-sm"
+                                                title="Hapus riwayat jabatan">
+                                                <i class="bx bx-trash text-lg"></i>
+                                                <span>Hapus</span>
+                                            </button>
+                                        </div>
 
                                         <!-- Awards Field (MOTM) -->
                                         @if($loop->first)
@@ -294,6 +314,14 @@
                                                 <i class="bx bxs-star text-xs text-red-600"></i>
                                             </p>
                                             <input type="date" name="date_end[]" class="rounded-lg border-gray-300 px-3 py-2" required />
+                                        </div>
+                                         <div class="flex items-end gap-2 mt-2">
+                                            <button type="button"
+                                                class="btn-delete-riwayat flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-600 transition hover:bg-red-600 hover:text-white hover:border-red-600 shadow-sm"
+                                                title="Hapus riwayat jabatan">
+                                                <i class="bx bx-trash text-lg"></i>
+                                                <span>Hapus</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
