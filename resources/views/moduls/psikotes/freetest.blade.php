@@ -1,4 +1,4 @@
-@extends('moduls.psikotes.layouts.main', [
+@extends('landing.layouts.app', [
 'title' => 'Psikotest Berbinar',
 'active' => 'Test',
 'page' => 'Tes',

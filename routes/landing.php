@@ -17,8 +17,13 @@ use App\Http\Controllers\Landing\Product\Counseling\CounselingController;
 use App\Http\Controllers\Landing\Product\Psikotest\PsikotestController;
 use App\Http\Controllers\Landing\Product\EmoShuffle\EmoShuffleController;
 use App\Http\Controllers\Landing\Product\ProductController;
+use App\Http\Controllers\Dashboard\ClassPM\AuthUserController;
 use App\Http\Controllers\Dashboard\PTPM\Psikotest\PsikotestFree\FeedbackController;
+use App\Http\Controllers\Dashboard\PTPM\PsikotestFree\PsikotestFreeController;
 use App\Http\Controllers\Dashboard\HR\_InternshipController;
+use App\Http\Controllers\Dashboard\PsikotestFree\PsikotestFreeController as PsikotestFreePsikotestFreeController;
+use App\Http\Controllers\Dashboard\PsikotestTestProductManagement\Psikotest\PsikotestFree\QuestionController;
+use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
 
 // Home
@@ -39,14 +44,28 @@ Route::prefix('produk')->name('product.')->group(function () {
     // Product Konseling
     Route::prefix('konseling')->name('counseling.')->group(function () {
         Route::get('/', [CounselingController::class, 'index'])->name('index');
-        Route::get('/daftar-konseling', [CounselingController::class, 'registration'])->name('registration');
-        Route::get('/jadwal-konseling', [CounselingController::class, 'schedule'])->name('schedule');
-        Route::get('/data-diri-konseling', [CounselingController::class, 'personalData'])->name('personal_data');
-        Route::get('/cerita-konseling', [CounselingController::class, 'story'])->name('story');
-        Route::get('/summary-konseling', [CounselingController::class, 'summary'])->name('summary');
-        Route::post('/jadwal-konseling', [CounselingController::class, 'storeSchedule'])->name('submit_schedule');
-        Route::post('/data-diri-konseling', [CounselingController::class, 'storePersonalData'])->name('submit_personal_data');
-        Route::post('/cerita-konseling', [CounselingController::class, 'storeStory'])->name('story_store');
+        Route::get('/daftar-konseling', [CounselingController::class, 'registrationKonseling'])->name('registration');
+
+        // Pendaftaran Konseling (Psikolog)
+        Route::prefix('psikolog')->name('psikolog.')->group(function () {
+            Route::get('/', [CounselingController::class, 'showPsikologForm'])->name('index');
+            Route::get('/registrasi', [CounselingController::class, 'showPsikologRegistration'])->name('registrasi');
+            Route::post('/registrasi', [CounselingController::class, 'storePsikologRegistration'])->name('store');
+        });
+
+        // Pendaftaran Konseling (Peer Counselor)
+        Route::prefix('peer-counselor')->name('peer-counselor.')->group(function () {
+            Route::get('/daftar-peer', [CounselingController::class, 'registrationPeer'])->name('registration');
+            Route::get('/', [CounselingController::class, 'showPeerForm'])->name('index');
+            Route::post('/', [CounselingController::class, 'storePeerRegistration'])->name('store');
+        });
+
+        // BerbinarForU
+        Route::prefix('berbinar-for-u')->name('berbinar-for-u.')->group(function () {
+            Route::get('/', [CounselingController::class, 'ShowBerbinarForUForm'])->name('index');
+            Route::post('/', [CounselingController::class, 'storeBerbinarForURegistration'])->name('store');
+        });
+
     });
 
     // Product Psikotest
@@ -64,6 +83,11 @@ Route::prefix('produk')->name('product.')->group(function () {
 
     Route::prefix('consulting')->name('consulting.')->group(function () {
         Route::get('/', [ConsultingController::class, 'index'])->name('index');
+    });
+
+    // Produk EmoShuffle
+    Route::prefix('emo-shuffle')->name('emo-shuffle.')->group(function () {
+        Route::get('/', [EmoShuffleController::class, 'index'])->name('index');
     });
 
     // Product Class
@@ -88,7 +112,7 @@ Route::prefix('produk')->name('product.')->group(function () {
             Route::get('/', [BisikanController::class, 'index'])->name('index');
         });
 
-        // Class Premium
+        // Class Premium-class
         Route::prefix('premium-class')->name('premium-class.')->group(function () {
             Route::get('/', [PremiumClassController::class, 'index'])->name('index');
         });
@@ -96,11 +120,6 @@ Route::prefix('produk')->name('product.')->group(function () {
         Route::prefix('berarty')->name('berarty.')->group(function () {
             Route::get('/', [BerartyController::class, 'index'])->name('index');
         });
-    });
-
-    // Product EmoShuffle
-    Route::prefix('emo-shuffle')->name('emo-shuffle.')->group(function () {
-        Route::get('/', [EmoShuffleController::class, 'index'])->name('index');
     });
 });
 
@@ -129,21 +148,56 @@ Route::prefix('arteri')->name('arteri.')->group(function () {
     Route::get('/kategori/{slug}', [ArteriController::class, 'category'])->name('category');
 });
 
+// Psikotest Free
+Route::prefix('psikotest-free')->name('psikotest-free.')->group(function () {
+    Route::get('/start', [LandingController::class, 'psikotestFreeStart'])->name('start');
+    Route::get('/psikotest/free/{test_id}/questions/{question_order}', [QuestionController::class, 'show'])->name('question.show');
+});
 
-// // Psikotest Paid
-// Route::prefix('/psikotest-paid')->group(function () {
-//     //Biodata Psikotest
-//     Route::resource('/user-clinical', UserClinicalController::class);
-//     Route::resource('/user-company', UserCompanyController::class);
-//     Route::resource('/user-community', UserCommunityController::class);
-//     Route::resource('/user-education', UserEducationController::class);
-//     Route::resource('/user-individual', UserIndividualController::class);
+Route::get('/psikotest/free', [PsikotestFreePsikotestFreeController::class, 'index'])->name('test.index');
+Route::post('/psikotest/free', [PsikotestFreePsikotestFreeController::class, 'store'])->name('test.store');
+Route::get('/psikotest/free/start', [LandingController::class, 'psikotestFreeStart'])->name('psikotestFreeStart');
+Route::get('/psikotest/free/{test_id}/Biodata', [UserPsikotestFreeController::class, 'show'])->name('biodata.show');
+Route::post('/psikotest/free/{test_id}/Biodata', [UserPsikotestFreeController::class, 'store'])->name('biodata.store');
+Route::post('/psikotest/free/{test_id}/questions/{question_order}', [QuestionController::class, 'storeAnswer'])->name('question.storeAnswer');
+Route::get('/psikotest/free/{test_id}/{user_id}/feedback', [FeedbackController::class, 'show'])->name('.psikotestpaid');
+Route::post('/psikotest/free/{test_id}/{user_id}/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+Route::get('/psikotest/free/{test_id}/{user_id}/results', [ResultController::class, 'show'])->name('result.show');
+Route::post('/psikotest/free/{test_id}/{user_id}/finish-test', [ResultController::class, 'finishTest'])->name('result.finishTest');
+
+
+Route::prefix('/berbinarplus')->group(function () {
+    Route::get('/register', [AuthUserController::class, 'showRegister'])->name('berbinarplus.register');
+    Route::post('/register', [AuthUserController::class, 'register'])->name('berbinarplus.register.post');
+    Route::get('/register/success', [AuthUserController::class, 'success'])->name('berbinarplus.register.success');
+
+    Route::get('/login', [AuthUserController::class, 'showLogin'])->name('berbinarplus.login');
+    Route::post('/login', [AuthUserController::class, 'login'])->name('berbinarplus.login.post');
+
+    Route::post('/logout', [AuthUserController::class, 'logout'])->name('berbinarplus.logout.post');
+
+    Route::group(['middleware' => ['auth.berbinarplus:berbinarplus']], function () {
+        Route::get('/dashboard', [AuthUserController::class, 'dashboard'])->name('berbinarplus.dashboard');
+    });
+});
+
+// Psikotest Paid
+Route::prefix('/psikotest-paid')->group(function () {
+    Route::get('/', [LandingController::class, 'psikotestPaid'])->name('psikotest-paid.homepage');
+    Route::get('/testimoni', [LandingController::class, 'testimoni'])->name('psikotest-paid.testimoni');
+
+    //Biodata Psikotest
+    // Route::resource('/user-clinical', UserClinicalController::class);
+    // Route::resource('/user-company', UserCompanyController::class);
+    // Route::resource('/user-community', UserCommunityController::class);
+    // Route::resource('/user-education', UserEducationController::class);
+    // Route::resource('/user-individual', UserIndividualController::class);
 
 //     Route::post('/reg-page-3', [UserPsikotestPaidController::class, 'postRegPage3'])->name('psikotest-paid.postRegPage3');
 //     Route::post('/reg-page-1', [UserPsikotestPaidController::class, 'postRegPage1'])->name('psikotest-paid.postRegPage1');
 //     Route::post('/reg-page-2', [UserPsikotestPaidController::class, 'postRegPage2'])->name('psikotest-paid.postRegPage2');
 
-//     Route::get('/login', [UserPsikotestPaidController::class, 'showLogin'])->name('psikotest-paid.showLogin');
+    // Route::get('/login', [UserPsikotestPaidController::class, 'showLogin'])->name('psikotest-paid.showLogin');
 //     Route::post('/login', [UserPsikotestPaidController::class, 'login'])->name('psikotest-paid.login');
 //     Route::post('/logout', [UserPsikotestPaidController::class, 'logout'])->name('psikotest-paid.logout');
 
@@ -285,7 +339,7 @@ Route::prefix('arteri')->name('arteri.')->group(function () {
 //             Route::get('/{id}/complete', [VakController::class, 'completeTest'])->name('psikotest-paid.VAK.complete');
 //         });
 //     });
-// });
+});
 
 
 // Route get image from storage

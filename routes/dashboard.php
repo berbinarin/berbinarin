@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\ClassPM\BerbinarPlusController;
 use App\Http\Controllers\Dashboard\CounselingPM\PeerCounselorController;
 use App\Http\Controllers\Dashboard\CounselingPM\PeerCounselorScheduleController;
+use App\Http\Controllers\Dashboard\CounselingPM\BerbinarForUController;
 use App\Http\Controllers\Dashboard\CounselingPM\PsychologistController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\HR\ajaxInternship;
@@ -15,6 +16,7 @@ use App\Http\Controllers\Dashboard\HR\PositionRequirementController;
 use App\Http\Controllers\Dashboard\Marketing\Arteri\ArticleController;
 use App\Http\Controllers\Dashboard\Marketing\Arteri\AuthorController;
 use App\Http\Controllers\Dashboard\Marketing\Arteri\CategoryController;
+use App\Http\Controllers\Dashboard\ClassPM\BerbinarPlusDashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(function () {
@@ -33,13 +35,16 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
 
         // Peer Counselor Schedule
         Route::resource('/peer-counselor-schedules', PeerCounselorScheduleController::class)->except('create', 'show', 'edit');
+
+        // Berbinar For U
+        Route::resource('/berbinar-for-u', BerbinarForUController::class);
     });
 
     // Class Product Management
     route::middleware('role:class-pm')->group(function () {
-
         // Berbinar Plus
-        Route::resource('/berbinar-plus', BerbinarPlusController::class)->only('index');
+        Route::resource('/berbinar-plus', BerbinarPlusController::class);
+        Route::resource('/berbinar-plus-class', BerbinarPlusDashboardController::class);
     });
 
 

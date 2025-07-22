@@ -285,6 +285,7 @@
                   Bianca (<a href="https://wa.me/6289508781453" class="text-blue-500">089508781453</a>)<br>
                   Nanda  (<a href="https://wa.me/628111990797" class="text-blue-500">08111990797</a>)<br>
                   Ismalia (<a href="https://wa.me/6285174386120" class="text-blue-500">085174386120</a>)<br>
+
                 </p>
               </div>
 

@@ -1,4 +1,4 @@
-<!-- <form method="POST" action=" {{ route('berbinarplus.login.post') }} "> -->
+{{-- <!-- <form method="POST" action=" {{ route('berbinarplus.login.post') }} "> --> --}}
 @extends('moduls.berbinar-plus.layouts.main',[
 'title' => 'Registrasi Berbinar+',
 'active' => 'Berbinar+',
