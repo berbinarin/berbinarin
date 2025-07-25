@@ -121,9 +121,15 @@
 
                     <!-- Topik Konseling -->
                     <h1 class="my-8 text-center text-2xl font-bold">Topik Konseling</h1>
-                    <div>
-                        <label class="font-semibold">Tuliskan Apa yang Ingin Anda Ceritakan</label>
-                        <textarea required name="cerita" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="4" placeholder="Tulislah hal yang ingin Anda konsultasikan">{{ old("cerita") }}</textarea>
+                    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                        <div>
+                            <label class="font-semibold">Tuliskan Apa yang Ingin Anda Ceritakan</label>
+                            <textarea required name="cerita" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="1" placeholder="Tulislah hal yang ingin Anda konsultasikan">{{ old("cerita") }}</textarea>
+                        </div>
+                        <div>
+                            <label class="font-semibold">Ceritakan hal yang ingin anda konsultasikan</label>
+                            <textarea required name="cerita" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="1" placeholder="Tulislah hal yang ingin Anda konsultasikan">{{ old("cerita") }}</textarea>
+                        </div>
                     </div>
 
                     <div class="mt-8 flex gap-4 border-t-2 border-t-gray-400 pt-5">
