@@ -8,7 +8,7 @@
 <style>
     .step-section { display: none; }
     .step-section.active { display: block; }
-    
+
     .text-gradient {
         background: linear-gradient(to right, #F7B23B, #916823);
         background-clip: text;
@@ -29,7 +29,7 @@
                 <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span class="sm:block hidden ml-0.5">pilih konseling</span></p>
             </div>
         </a>
-        
+
         <div class="flex items-center space-x-1 cursor-pointer" id="openModal">
             <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}" alt="Syarat & Ketentuan" class="h-3 w-auto">
             <p class="text-[15px] font-semibold text-[#3986A3]"><span class="sm:block hidden">Syarat & Ketentuan</span><span class="sm:hidden block">S&K</span></p>
@@ -69,8 +69,8 @@
                     <span class="font-semibold">Lokasi offline Konseling</span>
                 </div>
                 <ol class="list-decimal mt-1 space-y-1 pl-7">
-                    <li class="max-sm:text-sm">a. Psikolog: Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, Jakarta, Malang, dan Kalimantan Utara (Tarakan)</li>
-                    <li class="max-sm:text-sm">b. Peer Counselor: Bekasi, Jakarta, Tangerang Selatan, Padang, Wonogiri, dan Malang</li>
+                    <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, Makassar, Samarinda, Jakarta, dan Malang</li>
+                    <li class="max-sm:text-sm">b. Peer Counselor : Tangerang Selatan, Malang, dan Surabaya</li>
                 </ol>
             </div>
 
@@ -387,12 +387,12 @@
             el.classList.remove('active');
         });
         document.getElementById('step-' + step).classList.add('active');
-        
+
         // Show/hide appropriate headers
         document.getElementById('step-1-header').style.display = step === 1 ? 'flex' : 'none';
         document.getElementById('step-2-header').style.display = step === 2 ? 'flex' : 'none';
         document.getElementById('step-3-header').style.display = step === 3 ? 'flex' : 'none';
-        
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -422,7 +422,7 @@
     function validateStep1() {
         const requiredFields = ['jadwal_tanggal', 'jadwal_pukul', 'metode', 'sesi'];
         const metode = document.getElementById('metode-select').value;
-        
+
         if (metode === 'offline') {
             requiredFields.push('daerah');
         }
@@ -438,7 +438,7 @@
             } else {
                 field = document.querySelector(`[name="${fieldName}"]`);
             }
-            
+
             if (!field || field.value.trim() === '' || field.value === 'Pilih metode konseling') {
                 return 'Data "' + getFieldLabel(fieldName) + '" belum diisi.';
             }
@@ -529,14 +529,14 @@
         showStep(step);
     }
 
-    function prevStep(step) { 
-        showStep(step); 
+    function prevStep(step) {
+        showStep(step);
     }
 
     // Validasi pengiriman formulir
     document.getElementById('multiStepForm').addEventListener('submit', function(event) {
         event.preventDefault();
-        
+
         const errorMessage = validateStep3();
         if (errorMessage) {
             Swal.fire({
@@ -554,7 +554,7 @@
         // Memastikan daerah diatur ke 'Online' jika metode online
         const metode = document.getElementById('metode-select').value;
         const daerahSelect = document.getElementById('daerah-select');
-        
+
         if (metode === 'online') {
             daerahSelect.value = 'Online';
         }
@@ -609,16 +609,16 @@
     // Update available times based on selected date
     function updateAvailableTimes(selectedDate) {
         const waktuSelect = document.getElementById('waktu-konseling');
-        
+
         // Clear previous options
         waktuSelect.innerHTML = '<option value="" disabled selected>Pilih Waktu Konseling</option>';
-        
+
         if (selectedDate) {
             const dayName = getDayName(selectedDate);
-            
+
             // Filter jadwal based on selected day
             const filteredJadwal = jadwalPeerData.filter(jadwal => jadwal.hari === dayName);
-            
+
             if (filteredJadwal.length > 0) {
                 filteredJadwal.forEach(jadwal => {
                     const option = document.createElement('option');
@@ -628,7 +628,7 @@
                     option.textContent = `${formattedStartTime} - ${formattedEndTime}`;
                     waktuSelect.appendChild(option);
                 });
-                
+
                 waktuSelect.disabled = false;
             } else {
                 const option = document.createElement('option');
@@ -641,7 +641,7 @@
         } else {
             waktuSelect.disabled = true;
         }
-        
+
         // Reset price when date changes
         updateHarga();
     }
@@ -668,25 +668,25 @@
         const sesi = document.getElementById('sesi-select').value;
         const hargaInput = document.getElementById('harga-input');
         const hargaHidden = document.getElementById('harga-hidden');
-        
+
         if (!tanggal || !waktu || !metode || !sesi) {
             hargaInput.value = '';
             if (hargaHidden) hargaHidden.value = '';
             return;
         }
-        
+
         let harga = 0;
-        
+
         // Peer Counselor pricing (no weekend difference)
         if (metode === 'online') {
             harga = {1: 45000, 2: 90000, 3: 135000}[parseInt(sesi)];
         } else if (metode === 'offline') {
             harga = {1: 55000, 2: 110000, 3: 165000}[parseInt(sesi)];
         }
-        
+
         // Display formatted price
         hargaInput.value = harga ? 'Rp ' + harga.toLocaleString('id-ID') : '';
-        
+
         // Store raw integer value for form submission
         if (!hargaHidden) {
             const hiddenInput = document.createElement('input');
@@ -697,7 +697,7 @@
         }
         document.getElementById('harga-hidden').value = harga;
     }
-    
+
     // Add event listeners for price updates
     document.getElementById('waktu-konseling').addEventListener('change', updateHarga);
     document.getElementById('sesi-select').addEventListener('change', updateHarga);

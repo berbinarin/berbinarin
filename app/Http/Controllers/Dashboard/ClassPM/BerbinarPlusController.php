@@ -18,4 +18,12 @@ class BerbinarPlusController extends Controller
         $berbinarpClasses = Berbinarp_class::all();
         return view('dashboard.class-pm.berbinar-plus.index', compact('berbinarpEnrollments', 'berbinarpUsers', 'berbinarpClasses'));
     }
+
+    public function users()
+    {
+        $berbinarpEnrollments = Berbinarp_enrollments::with('user')->get();
+        $berbinarpUsers = Berbinarp_user::all();
+        $berbinarpClasses = Berbinarp_class::all();
+        return view('dashboard.class-pm.berbinar-plus.user.index', compact('berbinarpEnrollments', 'berbinarpUsers', 'berbinarpClasses'));
+    }
 }

@@ -8,7 +8,7 @@
 <style>
     .step-section { display: none; }
     .step-section.active { display: block; }
-    
+
     .text-gradient {
         background: linear-gradient(to right, #F7B23B, #916823);
         background-clip: text;
@@ -29,7 +29,7 @@
                 <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span class="sm:block hidden ml-0.5">pilih konseling</span></p>
             </div>
         </a>
-        
+
         <div class="flex items-center space-x-1 cursor-pointer" id="openModal">
             <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}" alt="Syarat & Ketentuan" class="h-3 w-auto">
             <p class="text-[15px] font-semibold text-[#3986A3]"><span class="sm:block hidden">Syarat & Ketentuan</span><span class="sm:hidden block">S&K</span></p>
@@ -71,8 +71,8 @@
                     <span class="font-semibold">Lokasi offline Konseling</span>
                 </div>
                 <ol class="list-decimal mt-1 space-y-1 pl-7">
-                    <li class="max-sm:text-sm">a. Psikolog: Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, Jakarta, Malang, dan Kalimantan Utara (Tarakan)</li>
-                    <li class="max-sm:text-sm">b. Peer Counselor: Bekasi, Jakarta, Tangerang Selatan, Padang, Wonogiri, dan Malang</li>
+                    <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, Makassar, Samarinda, Jakarta, dan Malang</li>
+                    <li class="max-sm:text-sm">b. Peer Counselor : Tangerang Selatan, Malang, dan Surabaya</li>
                 </ol>
             </div>
 
@@ -386,18 +386,18 @@
 
 {{-- Script untuk logika form --}}
 <script>
-    // Logika navigasi 
+    // Logika navigasi
     function showStep(step) {
         document.querySelectorAll('.step-section').forEach(function (el) {
             el.classList.remove('active');
         });
         document.getElementById('step-' + step).classList.add('active');
-        
+
         // Tampilkan/sembunyikan header yang sesuai
         document.getElementById('step-1-header').style.display = step === 1 ? 'flex' : 'none';
         document.getElementById('step-2-header').style.display = step === 2 ? 'flex' : 'none';
         document.getElementById('step-3-header').style.display = step === 3 ? 'flex' : 'none';
-        
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -427,7 +427,7 @@
     function validateStep1() {
         const requiredFields = ['jadwal_tanggal', 'jadwal_pukul', 'metode', 'sesi'];
         const metode = document.getElementById('metode-select').value;
-        
+
         if (metode === 'offline') {
             requiredFields.push('daerah');
         }
@@ -443,7 +443,7 @@
             } else {
                 field = document.querySelector(`[name="${fieldName}"]`);
             }
-            
+
             if (!field || field.value.trim() === '' || field.value === 'Pilih metode konseling') {
                 return 'Data "' + getFieldLabel(fieldName) + '" belum diisi.';
             }
@@ -534,14 +534,14 @@
         showStep(step);
     }
 
-    function prevStep(step) { 
-        showStep(step); 
+    function prevStep(step) {
+        showStep(step);
     }
 
     // Validasi pengiriman formulir
     document.getElementById('multiStepForm').addEventListener('submit', function(event) {
         event.preventDefault();
-        
+
         const errorMessage = validateStep3();
         if (errorMessage) {
             Swal.fire({
@@ -559,7 +559,7 @@
         // Memastikan daerah diatur ke 'Online' jika metode online
         const metode = document.getElementById('metode-select').value;
         const daerahSelect = document.getElementById('daerah-select');
-        
+
         if (metode === 'online') {
             daerahSelect.value = 'Online';
         }
@@ -594,7 +594,7 @@
     document.getElementById('metode-select').addEventListener('change', function() {
         const daerahContainer = document.getElementById('daerah-container');
         const daerahSelect = document.getElementById('daerah-select');
-        
+
         if (this.value === 'offline') {
             daerahContainer.style.display = 'block';
             daerahSelect.required = true;
@@ -604,7 +604,7 @@
             daerahSelect.required = false;
             daerahSelect.value = 'Online';
         }
-        
+
         // Perbarui harga ketika metode berubah
         updateHarga();
     });

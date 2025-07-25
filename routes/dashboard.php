@@ -45,6 +45,13 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
         // Berbinar Plus
         Route::resource('/berbinar-plus', BerbinarPlusController::class);
         Route::resource('/berbinar-plus-class', BerbinarPlusDashboardController::class);
+        Route::get('/berbinar-plus-class-create', [BerbinarPlusDashboardController::class, 'create'])->name('berbinar-plus-class.create');
+        Route::post('/berbinar-plus-class-store', [BerbinarPlusDashboardController::class, 'store'])->name('berbinar-plus-class.store');
+        Route::get('/berbinar-plus-class-show', [BerbinarPlusDashboardController::class, 'show'])->name('berbinar-plus-class.show');
+        Route::get('/berbinar-plus-user-index', [BerbinarPlusController::class, 'users'])->name('berbinar-plus-users');
+        Route::get('/berbinar-plus-user-create', [BerbinarPlusDashboardController::class, 'createUser'])->name('berbinar-plus-users.create');
+        Route::post('/berbinar-plus-user-store', [BerbinarPlusDashboardController::class, 'storeUser'])->name('berbinar-plus-users.store');
+        Route::get('/berbinar-plus-user-show', [BerbinarPlusDashboardController::class, 'showUser'])->name('berbinar-plus-users.show');
     });
 
 
@@ -75,7 +82,7 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
         Route::resource('/divisions', DivisionController::class);
     });
 
-    // marketing |  Marketing Strategist and Sales 
+    // marketing |  Marketing Strategist and Sales
     Route::middleware('role:marketing')->group(function () {
 
         Route::prefix('arteri')->name('arteri.')->group(function () {

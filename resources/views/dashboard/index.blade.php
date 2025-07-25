@@ -37,10 +37,11 @@
 
                         @role ('class-pm')
                             <p tabindex="0"
-                                class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
-                                Dashboard</p>
-                            <p class="w-2/4 text-disabled">
-                                Fitur ini menampilkan jumlah user yang sedang mendaftar pada Berbinar Plus
+                                class="focus:outline-none text-4xl font-bold leading-normal mx-10 text-gray-800 mb-2">
+                                Dashboard Berbinar +</p>
+                            <p class="w-5/6 text-[#333333] lg:text-lg mx-10">
+                                Halaman utama yang menampilkan ringkasan data program Berbinar+
+                                serta akses cepat untuk mengelola kelas, pendaftar, dan paket layanan secara efisien.
                             </p>
                         @endrole
                         @role('marketing')
@@ -66,14 +67,14 @@
                             <p class="w-2/4 text-disabled"></p>
                         @endif
                         @if (Auth::user()->role == 'PsikotestPaid')
-                        <p 
+                        <p
                         class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
                         Dashboard PsikotestPaid</p>
                     <p class="w-2/4 text-disabled">Dashboard </p>
                         @else
                             <p class="text-disabled"></p>
                         @endif
-                        
+
                     </div>
                 </div>
             </div>
@@ -154,7 +155,7 @@
                         </div>
                     </div>
             @endrole
-            
+
             @role ('counseling-pm')
                 <div class="flex flex-row w-full gap-6">
                     <div class="flex items-center p-8 bg-white shadow rounded-lg">
@@ -204,16 +205,27 @@
             @endrole
 
             @role('class-pm')
-                <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                        <div
+                <div class="flex flex-row items-center mx-10 py-12 px-20 justify-between gap-12 bg-white shadow-xl rounded-3xl">
+                    <div class="bg-[#6482AD] w-1/2 rounded-3xl p-6 h-96"><div class="flex flex-row justify-between"><p class="text-white text-xl font-semibold">Class Berbinar +</p><img src="{{ asset('assets/images/dashboard/svg-icon/person.png') }}" alt=""></div>
+                        <div class="h-full flex flex-col justify-end">
+                            <span class="block text-4xl text-white font-bold">360</span>
+                            <p class="text-white text-xl mb-10 font-semibold">Staff</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#85B3E2] w-1/2 rounded-3xl p-6 h-96"><div class="flex flex-row justify-between"><p class="text-white text-xl font-semibold">Pendaftar</p><img src="{{ asset('assets/images/dashboard/svg-icon/list.png') }}" alt=""></div>
+                        <div class="h-full flex flex-col justify-end">
+                            <span class="block text-4xl text-white font-bold">360</span>
+                            <p class="text-white text-xl mb-10 font-semibold">Pendaftar</p>
+                        </div>
+                    </div>
+                        <!-- <div
                             class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
                             <i class='bx bx-user text-2xl'></i>
                         </div>
                         <div>
                             <span class="block text-2xl font-bold">{{ $totalBerbinarPlusUser }}</span>
                             <span class="block text-gray-500">Total Users</span>
-                        </div>
-                    </div>
+                        </div> -->
                 </div>
             @endrole
 
@@ -244,7 +256,7 @@
                     </div>
                 </div>
             @endrole
-                
+
             @if (Auth::user()->role == 'PsikotestFree')
                 <div class="flex flex-row w-full gap-6">
                     <div class="flex items-center p-8 bg-white shadow rounded-lg">
@@ -342,7 +354,7 @@
                     </div>
                 </div>
             @endif
-            
+
 
         </div>
     </section>
