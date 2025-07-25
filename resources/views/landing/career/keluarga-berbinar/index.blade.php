@@ -7,6 +7,28 @@
 
 @section("content")
 
+    @if(empty($listStaff))
+        {{-- Empty state untuk hero section --}}
+        <section class="mx-auto mt-32 w-full min-w-96 lg:mt-44">
+            <div class="mx-auto w-full">
+                <h1 class="mb-8 py-2 text-center text-4xl font-semibold text-slate-900 md:text-5xl lg:mb-16">
+                    Keluarga
+                    <span class="bg-primary p-2 text-white">Berbinar</span>
+                </h1>
+
+                <div class="flex h-96 w-full items-center justify-center lg:h-[500px]">
+                    <div class="text-center">
+                        <div class="mx-auto mb-4 flex w-full items-center justify-center">
+                            <img src="{{ asset("assets/images/landing/arteri/empty-icon.png") }}" alt="empty image" class="h-32 object-cover sm:h-44 md:h-48 lg:h-52" />
+                        </div>
+                        <span class="mx-auto mb-2 block text-center text-lg font-semibold sm:text-xl md:text-2xl lg:text-3xl">Oops!</span>
+                        <p class="mx-auto block max-w-sm text-center text-[#606060] md:max-w-md">Sepertinya belum ada data keluarga Berbinar di sini. Kami sedang mempersiapkan informasi terbaru tentang tim kami. Stay tuned!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @else
+
     {{-- header & selection menu --}}
     <section class="mx-auto mt-32 w-full min-w-96 bg-[#F7F9FA] lg:mt-44">
         {{-- filter tahun --}}
@@ -787,6 +809,7 @@
     </script>
 @endsection
 
+@endif
 @section("script")
     
 @endsection

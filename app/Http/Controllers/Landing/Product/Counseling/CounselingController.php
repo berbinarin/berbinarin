@@ -265,7 +265,7 @@ class CounselingController extends Controller
             ],
             [
                 'question' => 'Apakah privasi saya akan terjamin?',
-                'answer' => 'Tentu saja, seluruh hal yang akan kamu sampaikan saat sesi konseling akan dijaga kerahasiaannya oleh psikolog/peer counsellor kami. Selain itu, psikolog serta peer counsellor kami sangat menjunjung tinggi kode etik psikologi, sehingga kamu dapat bebas dalam menyampaikan sesuatu saat sesi konseling berlangsung.
+                'answer' => 'Tentu saja, seluruh hal yang akan kamu sampaikan saat sesi konseling akan dijaga kerahasiaannya oleh psikolog/peer counselor kami. Selain itu, psikolog serta peer counselor kami sangat menjunjung tinggi kode etik psikologi, sehingga kamu dapat bebas dalam menyampaikan sesuatu saat sesi konseling berlangsung.
             '
             ],
             [
@@ -308,7 +308,7 @@ class CounselingController extends Controller
             [
                 'image' => 'assets/images/landing/asset-konseling/vector/peercounselor.png',
                 'nama' => 'Peer Counselor',
-                'deskripsi' => 'Konseling bersama Peer Conselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
+                'deskripsi' => 'Konseling bersama Peer Counselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
             ],
         ];
 
@@ -323,7 +323,7 @@ class CounselingController extends Controller
             [
                 'image' => 'assets/images/landing/asset-konseling/vector/peercounselor.png',
                 'nama' => 'Umum',
-                'deskripsi' => 'Konseling bersama Peer Conselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
+                'deskripsi' => 'Konseling bersama Peer Counselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
             ],
             [
                 'image' => 'assets/images/landing/asset-konseling/vector/berbinarforu.png',
