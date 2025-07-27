@@ -109,9 +109,20 @@
                                     <td class="border border-gray-300 px-4 py-2">Kegiatan Sosial yang Pernah/Sedang Diikuti</td>
                                     <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->kegiatan_sosial }}</td>
                                 </tr>
-                                <tr>
                                     <td class="border border-gray-300 px-4 py-2">Hal yang Ingin Diceritakan</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->cerita }}</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->cerita_utama }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Informasi Tambahan</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->cerita_tambahan }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Alasan Konseling</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->alasan_konseling }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Harapan Setelah Konseling</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $BerbinarForUDataDetails->harapan_konseling }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -127,17 +138,14 @@
         <!-- Modal Header -->
         <div class="text-center p-6">
             <!-- Warning Icon -->
-            <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-red-100 mb-4">
-                <svg class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                </svg>
+            <div class="flex justify-center mb-4">
+                <img src="{{ asset('assets/images/dashboard/svg-icon/warning.svg') }}" alt="Warning Icon" class="h-12 w-12">
             </div>
             <!-- Title -->
             <h3 class="text-xl font-semibold text-gray-900 mb-2">Konfirmasi Hapus Data</h3>
             <!-- Message -->
             <p class="text-gray-600 mb-6">
                 Apakah Anda yakin ingin menghapus data Berbinar For U ini? 
-                <span class="block text-sm text-gray-500 mt-1">Data yang sudah dihapus tidak dapat dikembalikan.</span>
             </p>
         </div>
         

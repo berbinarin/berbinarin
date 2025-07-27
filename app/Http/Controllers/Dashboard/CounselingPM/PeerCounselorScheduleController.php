@@ -28,7 +28,7 @@ class PeerCounselorScheduleController extends Controller
         $konselling->fill($validatedData);
         $konselling->save();
 
-        Alert::toast('New Peer Coonsellor Schedule Added', 'success')->autoClose(5000);;
+        Alert::toast('Jadwal Peer Counselor berhasil ditambahkan', 'success')->autoClose(5000);;
         return redirect()->route('dashboard.peer-counselor-schedules.index');
     }
 
@@ -54,7 +54,7 @@ class PeerCounselorScheduleController extends Controller
         $jadwalPeer->penanggung_jawab = $validatedData['penanggung_jawab'];
         $jadwalPeer->save();
 
-        Alert::toast('A Peer Consellor Schedule Updated', 'success')->autoClose(5000);
+        Alert::toast('Jadwal Peer Counselor berhasil diedit', 'success')->autoClose(5000);
         return redirect()->route('dashboard.peer-counselor-schedules.index');
     }
 
@@ -62,7 +62,7 @@ class PeerCounselorScheduleController extends Controller
     public function destroy($id)
     {
         jadwalPeer::where('id', $id)->delete();
-        Alert::toast('A Peer Coonsellor Schedule Deleted', 'success')->autoClose(5000);
+        Alert::toast('Jadwal Peer Coonsellor berhasil dihapus', 'success')->autoClose(5000);
         return redirect()->route('dashboard.peer-counselor-schedules.index');
     }
 }
