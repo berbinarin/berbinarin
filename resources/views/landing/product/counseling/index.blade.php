@@ -253,8 +253,8 @@
                                     <span class="font-semibold">Lokasi offline Konseling</span>
                                 </div>
                                 <ol class="list-decimal mt-1 space-y-1 pl-7">
-                                    <li class="max-sm:text-sm">a. Psikolog: Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, Jakarta, Malang, dan Kalimantan Utara (Tarakan)</li>
-                                    <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Bekasi, Jakarta, Tangerang Selatan, Padang, Wonogiri, dan Malang</li>
+                                    <li class="max-sm:text-sm">a. Psikolog: Subaraya, Kediri, Sidoarjo, Makassar, Samarinda, Jakarta, dan Malang</li>
+                                    <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Tangerang Selatan, Malang, dan Surabaya</li>
                                 </ol>
                             </div>
 
@@ -706,80 +706,7 @@
         </ul>
     </section>
 
-    {{-- SCRIPT ACCORDION FAQS --}}
-    <script>
-        document.addEventListener('alpine:init', () => {
-            Alpine.store('accordion', {
-                tab: 0,
-            });
 
-            Alpine.data('accordion', (idx) => ({
-                init() {
-                    this.idx = idx;
-                },
-                idx: -1,
-                handleClick() {
-                    this.$store.accordion.tab = this.$store.accordion.tab === this.idx ? 0 : this.idx;
-                },
-                handleRotate() {
-                    return this.$store.accordion.tab === this.idx ? 'rotate-180' : '';
-                },
-                handleToggle() {
-                    return this.$store.accordion.tab === this.idx ? `max-height: ${this.$refs.tab.scrollHeight}px` : '';
-                },
-                isActive() {
-                    return this.$store.accordion.tab === this.idx ? 'border-active' : '';
-                },
-            }));
-        });
-    </script>
-
-    <script>
-        document.querySelectorAll('.openModalBtn').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                document.getElementById('modal').classList.remove('hidden');
-            });
-        });
-
-        document.getElementById('closeModal').addEventListener('click', function () {
-            document.getElementById('modal').classList.add('hidden');
-        });
-
-        allModals = ['.modal1', '.modal2', '.modal3'];
-        const modalin = document.querySelector('.modalin');
-        const header = document.querySelector('.header');
-        const hero = document.querySelector('.hero');
-
-        const openModal = (modal) => {
-            const modalOpen = document.querySelector(modal);
-            modalOpen.classList.remove('hidden');
-            modalin.classList.remove('hidden');
-            header.classList.remove('fixed');
-            hero.style.height = '33rem';
-        };
-
-        const closeModal = (modal) => {
-            const modalClose = document.querySelector(modal);
-            modalClose.classList.add('hidden');
-            modalin.classList.add('hidden');
-            header.classList.add('fixed');
-            hero.style.height = '';
-        };
-
-        document.querySelectorAll('.openModal').forEach((button) => {
-            button.addEventListener('click', () => {
-                const modalIndex = button.dataset.modalIndex;
-                openModal(allModals[modalIndex]);
-            });
-        });
-
-        document.querySelectorAll('.closeModal').forEach((button) => {
-            button.addEventListener('click', () => {
-                const modalIndex = button.dataset.modalIndex;
-                closeModal(allModals[modalIndex]);
-            });
-        });
-    </script>
 @endsection
 
 @section("script")
@@ -894,6 +821,33 @@
             },
         });
 
+
+    // SCRIPT ACCORDION FAQS
+        document.addEventListener('alpine:init', () => {
+            Alpine.store('accordion', {
+                tab: 0,
+            });
+
+            Alpine.data('accordion', (idx) => ({
+                init() {
+                    this.idx = idx;
+                },
+                idx: -1,
+                handleClick() {
+                    this.$store.accordion.tab = this.$store.accordion.tab === this.idx ? 0 : this.idx;
+                },
+                handleRotate() {
+                    return this.$store.accordion.tab === this.idx ? 'rotate-180' : '';
+                },
+                handleToggle() {
+                    return this.$store.accordion.tab === this.idx ? `max-height: ${this.$refs.tab.scrollHeight}px` : '';
+                },
+                isActive() {
+                    return this.$store.accordion.tab === this.idx ? 'border-active' : '';
+                },
+            }));
+        });
+
         // Swiper Testimoni Berbinar
         var swiper = new Swiper('#swiperTestimoni', {
             slidesPerView: 3,
@@ -938,5 +892,37 @@
                 },
             },
         });
+
+        document.querySelectorAll('.openModalBtn').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Modal utama
+        var modal = document.getElementById('modal');
+        if (modal) {
+            modal.classList.remove('hidden');
+        }
+        // Modal terms jika ada
+        var termsModal = document.getElementById('termsModal');
+        if (termsModal && btn.dataset.terms) {
+            termsModal.classList.remove('hidden');
+        }
+    });
+});
+
+// Tutup modal ketika klik di luar konten modal atau tombol close
+document.addEventListener('click', function(e) {
+    var modal = document.getElementById('modal');
+    if (modal && !modal.classList.contains('hidden')) {
+        if (e.target === modal) {
+            modal.classList.add('hidden');
+        }
+    }
+    var termsModal = document.getElementById('termsModal');
+    if (termsModal && !termsModal.classList.contains('hidden')) {
+        if (e.target === termsModal) {
+            termsModal.classList.add('hidden');
+        }
+    }
+});
     </script>
 @endsection

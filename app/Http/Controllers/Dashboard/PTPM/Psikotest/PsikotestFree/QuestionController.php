@@ -12,20 +12,20 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class QuestionController extends Controller
 {
-    public function show($test_id, $question_order)
+    public function show()
     {
-        // Verifikasi sesi untuk test_id
-        if (!session()->has('test_id') || session('test_id') != $test_id) {
-            return redirect()->route('test.index');
-        }
+        // // Verifikasi sesi untuk test_id
+        // if (!session()->has('test_id') || session('test_id') != $test_id) {
+        //     return redirect()->route('test.index');
+        // }
 
-        $question = Question::where('id', $question_order)->firstOrFail();
+        // $question = Question::where('id', $question_order)->firstOrFail();
 
-        // Hitung progressbar soal
-        $totalQuestions = Question::count();
-        $progress = ($question_order / $totalQuestions) * 100;
+        // // Hitung progressbar soal
+        // $totalQuestions = Question::count();
+        // $progress = ($question_order / $totalQuestions) * 100;
 
-        return view('moduls.psikotes.freetest', compact('question', 'test_id', 'question_order', 'progress'));
+        return view('moduls.psikotes.freetest');
     }
 
     // Menyimpan jawaban dan mengarahkan ke pertanyaan berikutnya

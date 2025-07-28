@@ -178,14 +178,14 @@ class CounselingController extends Controller
                 'region' => 'Surabaya'
             ],
             [
-                'name' => 'Melisa Nur Amelia',
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/melisa.png',
-                'region' => 'Jombang'
-            ],
-            [
                 'name' => "Rizka Arista Sabilla ",
                 'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/rizka.png',
                 'region' => 'Nganjuk'
+            ],
+            [
+                'name' => 'Melisa Nur Amelia',
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/melisa.png',
+                'region' => 'Jombang'
             ]
         ];
 

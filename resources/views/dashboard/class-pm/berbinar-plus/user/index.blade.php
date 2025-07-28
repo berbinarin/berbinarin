@@ -11,13 +11,12 @@
       <div class="py-4 md:pt-12 md:pb-7">
         <div>
           <p tabindex="0" class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal mb-2 text-gray-800">
-            Daftar <span class="italic">Class</span>
+            Data Pendaftar
           </p>
           <p class="w-full text-[#333333] lg:text-lg">
-            Halaman ini berisi daftar kelas yang tersedia dalam program Berbinar+ berisi jadwal, fasilitator, kapasitas, dan status kelas.
-            Admin dapat menambah, mengubah, atau menghapus kelas serta melihat jumlah peserta yang terdaftar di setiap kelas secara langsung.
+            Halaman ini menampilkan data lengkap peserta yang telah mendaftar ke program Berbinar+, termasuk informasi pribadi, kelas yang diikuti, dan paket layanan yang dipilih.
         </p>
-        <a href="{{ route("dashboard.berbinar-plus-class.create") }}" class="mt-8 inline-flex items-start justify-start rounded-lg bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
+        <a href="{{ route("dashboard.berbinar-plus-users.create") }}" class="mt-8 inline-flex items-start justify-start rounded-lg bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
             <p class="text-dark font-medium leading-none">Tambah Data</p>
         </a>
     </div>
@@ -30,36 +29,49 @@
                         <thead>
                             <tr class="mt-4">
                                 <th class="sticky-col sticky-col-1 bg-white px-6 py-3 text-center text-base font-bold leading-4 tracking-wider text-black">No</th>
-                                <th class="sticky-col sticky-col-2 bg-white px-6 py-3 text-start text-base font-bold leading-4 tracking-wider text-black">Nama Class</th>
-                                <th class="bg-white px-6 py-3 text-start text-base font-bold leading-4 tracking-wider text-black">Jumlah Pedaftar</th>
+                                <th class="sticky-col sticky-col-2 bg-white px-6 py-3 text-start text-base font-bold leading-4 tracking-wider text-black">Nama Lengkap</th>
+                                <th class="bg-white px-6 py-3 text-center text-base font-bold leading-4 tracking-wider text-black">Tanggal Daftar</th>
+                                <th class="bg-white px-6 py-3 text-center text-base font-bold leading-4 tracking-wider text-black">Email</th>
+                                <th class="bg-white px-6 py-3 text-center text-base font-bold leading-4 tracking-wider text-black">Pilihan Kelas</th>
                                 <th class="bg-white px-6 right-0 py-3 text-center text-base font-bold leading-4 tracking-wider text-black">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($berbinarpClasses as $index => $class)
+                            @foreach ($berbinarpUsers as $index => $user)
                                 <tr class="border-b border-gray-200 hover:bg-gray-200 odd:bg-gray-100 even:bg-white">
                                     <td class="whitespace-no-wrap text-center sticky-col sticky-col-1 px-6 py-4">
                                         {{ $index + 1 }}
                                     </td>
+
                                     <td class="whitespace-no-wrap sticky-col sticky-col-2 px-6 py-4">
-                                        {{ $class->title }}
+                                        Morgan Vero
                                     </td>
-                                    <td class="whitespace-no-wrap px-6 py-4">
-                                        {{-- Ganti dengan jumlah peserta jika ada relasi, contoh: $class->enrollments->count() --}}
-                                        {{-- Sementara tampilkan 0 --}}
-                                        0
+
+                                    <td class="whitespace-no-wrap text-center px-6 py-4">
+                                        2025-07-07
                                     </td>
+
+                                    <td class="whitespace-no-wrap text-center px-6 py-4">
+                                        Morgan@gmail.com
+                                    </td>
+
+                                    <td class="whitespace-no-wrap text-center px-6 py-4">
+                                        Product Manager
+                                    </td>
+
                                     <td class="whitespace-no-wrap flex items-center justify-center gap-2 px-6 py-4">
                                         <!-- Tombol Detail -->
-                                        <a href="{{ route('dashboard.berbinar-plus-class.show', $class->id) }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #3b82f6">
+                                        <a href="{{ route("dashboard.berbinar-plus-users.show") }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #3b82f6">
                                             <i class="bx bx-show text-white"></i>
                                         </a>
+
                                         <!-- Tombol Edit -->
-                                        <a href="{{ route('dashboard.berbinar-plus-class.edit', $class->id) }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #e9b306">
+                                        <a href="{{ route("dashboard.berbinar-plus.index") }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #e9b306">
                                             <i class="bx bx-edit-alt text-black"></i>
                                         </a>
+
                                         <!-- Tombol Hapus -->
-                                        <button type="button" onclick="openDeleteModal({{ $class->id }})" class="inline-flex items-start justify-start rounded p-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #ef4444">
+                                        <button type="button" onclick="" class="inline-flex items-start justify-start rounded p-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #ef4444">
                                             <i class="bx bx-trash-alt text-white"></i>
                                         </button>
                                     </td>

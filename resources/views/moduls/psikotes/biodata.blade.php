@@ -1,37 +1,48 @@
-{{-- @extends('moduls.psikotes.layouts.main', [
-'title' => 'Psikotest Berbinar',
-'active' => 'Test',
-'page' => 'Biodata'
+@extends('landing.layouts.app', [
+    'title' => 'Psikotest Berbinar',
+    'active' => 'Test',
+    'page' => 'Biodata',
 ])
 
-
 @section('content')
-<sections>
-    <div class="h-screen flex justify-center">
-        <div class="w-full md:max-w-3xl flex flex-col bg-primary items-center z-38 py-16 px-10">
-            <div class="flex flex-col w-full justify-center bg-white rounded-3xl p-7 sm:p-10">
-
+    <sections>
+        <div class="min-h-screen flex justify-center items-center bg-gray-100">
+            <div class="flex flex-col w-full md:max-w-[90%] mb-10 mt-28 md:mt-36 justify-center lg:shadow-xl lg:bg-white rounded-3xl p-7 sm:p-10 relative">
                 <div>
-                    <h2 class="text-center text-4xl font-bold mb-1">Biodata</h2>
-                    <p class="text-center text-disabled text-base mt-5 mb-5">Isi biodata dibawah ini dengan benar
-                        untuk melihat hasil psikotes</p>
-                </div>
-                <form action="{{ route('biodata.store', ['test_id' => $test_id]) }}" method="POST" class="w-full justify-center content-center">
-                    @csrf
-                    <div class=" border-gray-900/10 pb-2 flex flex-col justify-center items-center">
+                    <div class="flex flex-row justify-between mb-8">
+                        <!-- Tombol Kembali -->
+                        <a href="{{ route('product.psikotest.index') }}">
+                            <div class="flex cursor-pointer items-center space-x-2 lg:order-1">
+                                <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.svg") }}" alt="Left Arrow" class="h-3 w-auto lg:h-5" />
+                                <p class="text-[15px] font-semibold text-[#3986A3] xl:text-lg">Kembali</p>
+                            </div>
+                        </a>
 
-                        <div class="w-64 sm:w-96 flex flex-col gap-5 justify-center">
-                            <div>
-                                <label for="name" class="block text-base font-medium leading-6 text-gray-900"></label>
-                                <div class="mt-2">
-                                    <input required type="text" name="name" id="name" autocomplete="given-name" class="block w-full h-11 rounded-full border-0 px-5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-base focus:ring-2 focus:ring-inset focus:ring-primary sm:leading-6" placeholder="Nama">
-                                </div>
+                    </div>
+
+
+                <h2 class="text-center mb-8 bg-gradient-to-r from-[#F7B23B] to-[#916823] bg-clip-text text-transparent text-4xl font-bold">Isi Biodata</h2>
+                </div>
+                <form action="{{ route('psikotest-free.start') }}" method="GET"
+                    class="w-full justify-center content-center" onsubmit="formatDateOfBirth()">
+                    @csrf
+                    <div class="border-gray-900/10 pb-2 flex flex-col justify-center items-center">
+                        <div class="w-full flex flex-col gap-5 justify-center">
+                            <div class="mb-3">
+                                <label for="name" class="block text-sm xl:text-base font-medium text-gray-700">Nama</label>
+                                <input type="text" id="name" name="name" placeholder="Budi Berbinar" class="mt-1 max-sm:shadow-lg block w-full md:w-full px-2.5 py-1.5 lg:py-3 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm lg:text-lg" required>
                             </div>
 
-                            <div>
-                                <label for="gender" class="block text-sm font-medium leading-6 text-gray-900"></label>
+                            <div class="mb-3">
+                                <label for="email" class="block text-sm xl:text-base font-medium text-gray-700">Email</label>
+                                <input type="email" id="email" name="email" autocomplete="email" placeholder="berbinar@gmail.com" class="mt-1  max-sm:shadow-lg block w-full md:w-full px-2.5 py-1.5 lg:py-3 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm lg:text-lg" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="gender" class="block text-sm xl:text-base font-medium text-gray-700">Jenis Kelamin</label>
                                 <div class="mt-2">
-                                    <select required id="gender" name="gender" autocomplete="gender" class="block w-full h-11 rounded-full border-0 px-5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-base focus:ring-2 focus:ring-inset focus:ring-primary sm:leading-6">
+                                    <select required id="gender" name="gender" autocomplete="gender"
+                                        class="mt-1  max-sm:shadow-lg block w-full md:w-full px-2.5 py-1.5 lg:py-3 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm lg:text-lg" required>
                                         <option class="text-gray-400" value="default" selected disabled>Jenis Kelamin
                                         </option>
                                         <option class="text-black" value="Male">Laki-laki</option>
@@ -41,125 +52,90 @@
                             </div>
 
                             <div>
-                                <label for="date_of_birth" class="block text-sm font-medium leading-6 text-gray-900"></label>
-                                <div class="mt-2">
-                                    <input required type="text" name="date_of_birth" id="date_of_birth" autocomplete="given-name" class="block w-full h-11 rounded-full border-0 px-5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 justify-center placeholder:text-gray-400 placeholder:text-base focus:ring-2 focus:ring-inset focus:ring-primary sm:leading-6" onfocus="(this.type='date')" placeholder="Tanggal Lahir">
+                                <label for="date_of_birth"
+                                    class="block text-sm xl:text-base font-medium text-gray-700">Tanggal Lahir</label>
+                                <div class="relative mt-2">
+                                    <input required type="text" name="date_of_birth" id="date_of_birth"
+                                        autocomplete="bday"
+                                        placeholder="dd/mm/yyyy"
+                                        class="mt-1  max-sm:shadow-lg block w-full md:w-full px-2.5 py-1.5 lg:py-3 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm lg:text-lg placeholder:text-gray-700" />
+                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/date.png') }}"
+                                        id="date_of_birth_icon"
+                                        class="absolute max-sm:hidden right-3 top-1/2 -translate-y-1/2 h-5 w-5 object-contain cursor-pointer" />
                                 </div>
                             </div>
 
                             <div>
-                                <label for="email" class="block text-sm font-medium leading-6 text-gray-900"></label>
-                                <div class="mt-2">
-                                    <input required id="email" name="email" type="email" autocomplete="email" class="block w-full h-11 rounded-full border-0 px-5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-base focus:ring-2 focus:ring-inset focus:ring-primary sm:leading-6" placeholder="Email">
+                                <label for="date_of_test"
+                                    class="block text-sm xl:text-base font-medium text-gray-700">Tanggal Mengikuti Tes</label>
+                                <div class="relative mt-2">
+                                    <input required type="text" name="date_of_test" id="date_of_test"
+                                        autocomplete="today"
+                                        placeholder="dd/mm/yyyy"
+                                        class="mt-1  max-sm:shadow-lg block w-full md:w-full px-2.5 py-1.5 lg:py-3 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-sm lg:text-lg placeholder:text-gray-700" />
+                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/date.png') }}"
+                                        id="date_of_test_icon"
+                                        class="absolute max-sm:hidden right-3 top-1/2 -translate-y-1/2 h-5 w-5 object-contain cursor-pointer" />
                                 </div>
                             </div>
 
-                            <!-- <div>
-                                <label for="test_date" class="block text-sm font-medium leading-6 text-gray-900"></label>
-                                <div class="datekons mt-2">
-                                    <input required type="text" name="test_date" id="test_date" autocomplete="test_date" e class="block w-full h-11 rounded-full border-0 px-5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-base focus:ring-2 focus:ring-inset focus:ring-primary sm:leading-6" onfocus="(this.type='date')" placeholder="Tanggal Mengikuti Tes">
-                                </div>
-                            </div> -->
+
                         </div>
-                </form>
-                <div class="flex flex-col w-full md:flex-row gap-5 justify-center items-center pt-8">
-                    <button type="submit" class="text-lg text-white bg-primary rounded-full font-semibold hover:bg-amber-300 hover:text-primary hover:font-semibold duration-500 px-10 py-2.5 w-auto">Simpan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</sections>
-
-<script>
-    // Get the current date 
-    const currentDate = new Date().toISOString().slice(0, 10);
-
-    // Set the value of the input field to the current date 
-    document.getElementById('tgl_tes').value = currentDate;
-</script>
-@endsection --}}
-
-@extends('moduls.psikotes.layouts.main', [
-    'title' => 'Psikotest Berbinar',
-    'active' => 'Test',
-    'page' => 'Biodata',
-])
-
-@section('content')
-    <sections>
-        <div class="h-screen flex justify-center">
-            <div class="w-full md:max-w-3xl flex flex-col bg-primary items-center z-38 py-16 px-10">
-                <div class="flex flex-col w-full justify-center bg-white rounded-3xl p-7 sm:p-10">
-                    <div>
-                        <h2 class="text-center text-4xl font-bold mb-1">Biodata</h2>
-                        <p class="text-center text-disabled text-base mt-5 mb-5">Isi biodata dibawah ini dengan benar untuk
-                            melihat hasil psikotes</p>
                     </div>
-                    <form action="{{ route('biodata.store', ['test_id' => $test_id]) }}" method="POST"
-                        class="w-full justify-center content-center" onsubmit="formatDateOfBirth()">
-                        @csrf
-                        <div class="border-gray-900/10 pb-2 flex flex-col justify-center items-center">
-                            <div class="w-64 sm:w-96 flex flex-col gap-5 justify-center">
-                                <div>
-                                    <label for="name"
-                                        class="block text-base font-medium leading-6 text-gray-900"></label>
-                                    <div class="mt-2">
-                                        <input required type="text" name="name" id="name"
-                                            autocomplete="given-name"
-                                            class="block w-full h-11 rounded-full border-0 px-5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-base focus:ring-2 focus:ring-inset focus:ring-primary sm:leading-6"
-                                            placeholder="Nama">
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label for="gender" class="block text-sm font-medium leading-6 text-gray-900"></label>
-                                    <div class="mt-2">
-                                        <select required id="gender" name="gender" autocomplete="gender"
-                                            class="block w-full h-11 rounded-full border-0 px-5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-base focus:ring-2 focus:ring-inset focus:ring-primary sm:leading-6">
-                                            <option class="text-gray-400" value="default" selected disabled>Jenis Kelamin
-                                            </option>
-                                            <option class="text-black" value="Male">Laki-laki</option>
-                                            <option class="text-black" value="Female">Perempuan</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label for="date_of_birth"
-                                        class="block text-sm font-medium leading-6 text-gray-900"></label>
-                                    <div class="mt-2">
-                                        <input required type="date" name="date_of_birth" id="date_of_birth"
-                                            autocomplete="bday"
-                                            class="block w-full h-11 rounded-full border-0 px-5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 justify-center placeholder:text-gray-400 placeholder:text-base focus:ring-2 focus:ring-inset focus:ring-primary sm:leading-6">
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label for="email" class="block text-sm font-medium leading-6 text-gray-900"></label>
-                                    <div class="mt-2">
-                                        <input required id="email" name="email" type="email" autocomplete="email"
-                                            class="block w-full h-11 rounded-full border-0 px-5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-base focus:ring-2 focus:ring-inset focus:ring-primary sm:leading-6"
-                                            placeholder="Email">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="flex flex-col w-full md:flex-row gap-5 justify-center items-center pt-8">
-                            <button type="submit"
-                                class="text-lg text-white rounded-full font-semibold hover:text-primary hover:font-semibold duration-500 px-10 py-2.5 w-auto">Simpan</button>
-                        </div>
-                    </form>
-                </div>
+                    <div class="flex flex-col w-full md:flex-row gap-5 justify-center items-center pt-8">
+                        <button type="submit" class="rounded-lg bg-gradient-to-r mb-5 lg:mx-2 from-[#3986A3] to-[#225062] lg:px-10 w-full lg:w-1/3 py-1.5 font-medium text-white text-lg max-sm:text-[15px]">Selanjutnya</button>
+                    </div>
+                </form>
             </div>
         </div>
     </sections>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     <script>
-        function formatDateOfBirth() {
-            const dateOfBirthInput = document.getElementById('tgl_tes');
-            const [year, month, day] = dateOfBirthValue.split('-');
-            const formattedDateOfBirth = `${day}-${month}-${year}`;
-            dateOfBirthInput.value = formattedDateOfBirth;
+        flatpickr("#date_of_birth", {
+            dateFormat: "d/m/Y",
+            allowInput: true
+        });
+        flatpickr("#date_of_test", {
+            dateFormat: "d/m/Y",
+            allowInput: true
+        });
+
+        function formatDateInputs(e) {
+            // Tanggal Lahir
+            const dobInput = document.getElementById('date_of_birth');
+            if (dobInput && dobInput.value) {
+                const [year, month, day] = dobInput.value.split('-');
+                dobInput.value = `${day}/${month}/${year}`;
+            }
+            // Tanggal Tes
+            const dotInput = document.getElementById('date_of_test');
+            if (dotInput && dotInput.value) {
+                const [year, month, day] = dotInput.value.split('-');
+                dotInput.value = `${day}/${month}/${year}`;
+            }
         }
+        document.querySelector('form').addEventListener('submit', formatDateInputs);
+
+        document.getElementById('openModal').addEventListener('click', function() {
+            document.getElementById('modal').classList.remove('hidden');
+        });
+
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('modal').classList.add('hidden');
+        });
+
+        const genderSelect = document.getElementById('gender');
+        function updateGenderColor() {
+            if (genderSelect.value === 'default') {
+                genderSelect.classList.add('text-gray-700');
+            } else {
+                genderSelect.classList.remove('text-gray-700');
+            }
+        }
+        genderSelect.addEventListener('change', updateGenderColor);
+        // Jalankan saat halaman pertama kali load
+        updateGenderColor();
     </script>
 @endsection

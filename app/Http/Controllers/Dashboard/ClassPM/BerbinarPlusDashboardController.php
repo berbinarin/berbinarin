@@ -10,7 +10,18 @@ class BerbinarPlusDashboardController extends Controller
     public function index()
     {
         $classes = Berbinarp_class::all();
-        return view('dashboard.class-pm.berbinar-plus-class.index', compact('classes'));
+        return view('dashboard.class-pm.berbinar-plus.index', compact('classes'));
+    }
+
+    public function show()
+    {
+        return view('dashboard.class-pm.berbinar-plus.class.detail');
+    }
+
+    public function create()
+    {
+        return view('dashboard.class-pm.berbinar-plus.class.create');
+        return redirect()->back()->with('success', 'Kelas berhasil diupdate');
     }
 
     public function store(Request $request)
@@ -51,6 +62,49 @@ class BerbinarPlusDashboardController extends Controller
     }
 
     public function destroy($id)
+    {
+        $class = Berbinarp_class::findOrFail($id);
+        $class->delete();
+        return redirect()->back()->with('success', 'Kelas berhasil dihapus');
+    }
+
+
+        public function showUser()
+    {
+        return view('dashboard.class-pm.berbinar-plus.user.detail');
+    }
+
+    public function createUser()
+    {
+        return view('dashboard.class-pm.berbinar-plus.user.create');
+        return redirect()->back()->with('success', 'Kelas berhasil diupdate');
+    }
+
+    public function storeUser(Request $request)
+    {
+        return redirect()->back()->with('success', 'Kelas berhasil ditambahkan');
+    }
+
+    public function updateUser(Request $request, $id)
+    {
+        $class = Berbinarp_class::findOrFail($id);
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'price' => 'nullable|integer',
+            'thumbnail' => 'nullable|image|max:2048',
+        ]);
+
+        $data = $request->only(['title', 'description', 'price']);
+        if ($request->hasFile('thumbnail')) {
+            $data['thumbnail'] = $request->file('thumbnail')->store('class_thumbnails', 'public');
+        }
+        $class->update($data);
+
+        return redirect()->back()->with('success', 'Kelas berhasil diupdate');
+    }
+
+    public function destroyUser($id)
     {
         $class = Berbinarp_class::findOrFail($id);
         $class->delete();

@@ -159,6 +159,90 @@
                             </div>
                         </div>
 
+
+                        {{-- BOOKLET --}}
+                        <p class="mb-1">Sudah Membaca Booklet dan Menyetujui segala ketentuan yang ada pada Booklet</p>
+                        <div class="mb-4 flex items-center">
+                            <input type="checkbox" class="form-checkbox h-5 w-5 bg-gray-100 border border-gray-500 rounded-[5px] shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                                id="bookletCheckbox" onclick="showModalBooklet()">
+                            <a href="#" class="ml-2 text-sm" onclick="showModalBooklet()">Setuju</a>
+                        </div>
+
+                        <div id="bookletModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
+                            <div
+                                class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0 sm:items-top">
+                                <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                                    <div class="absolute inset-0 bg-gray-500 opacity-50"></div>
+                                </div>
+                                <span class="hidden sm:inline-block sm:align-middle sm:h-screen"
+                                    aria-hidden="true">&#8203;</span>
+                                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+                                    role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4"
+                                        style="background-color: white; @media (max-width: 640px) { background-color: white; }">
+                                        >
+                                        <div class="sm:flex sm:items-start">
+                                            <div class="mt-3 text-center sm:mt-0 sm:ml-2 sm:mr-2 sm:text-left">
+                                                <h3 class="text-lg leading-6 font-medium text-gray-900 font-bold"
+                                                    id="modal-headline">
+
+                                                    Booklet
+                                                </h3>
+                                                <div class="mt-2">
+                                                    <p class="text-sm text-gray-500 flex text-justify">
+                                                        Lorem ipsum dolor sit amet consectetur. Malesuada facilisi neque
+                                                        imperdiet egestas consectetur integer cursus. At ultrices diam
+                                                        enim fusce lectus ut ultrices sed. Est eget arcu nascetur non.
+                                                        Velit morbi massa urna ut libero blandit. Dui vulputate cursus
+                                                        faucibus venenatis tellus lacus tristique commodo ac. Id egestas
+                                                        ut arcu odio amet purus. At arcu eu phasellus id egestas amet
+                                                        nulla. At amet sed proin quis nunc. At aliquam feugiat fringilla
+                                                        adipiscing morbi turpis. Commodo odio consequat eget habitant
+                                                        tortor. Tincidunt volutpat viverra iaculis commodo quam montes
+                                                        nulla integer. Nunc purus ornare pretium vel id vitae nunc. Amet
+                                                        ipsum orci morbi aliquam nunc dictum.
+                                                    </p>
+                                                    <p class="text-sm text-gray-500 flex text-justify">
+                                                        Ac viverra imperdiet quis neque dui ornare sed in nunc. Purus
+                                                        porttitor dignissim eget sodales enim tempor. Id massa sit
+                                                        imperdiet eget sem.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse mb-2">
+                                        <div class="flex items-start justify-start w-full">
+
+                                            <!-- Menggunakan div tambahan untuk mengatur letak -->
+
+                                            <input type="checkbox"
+                                                class="form-checkbox h-5 w-5 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+                                                id="agreeCheckbox" onchange="closeModal()">
+                                            <label for="agreeCheckbox" class="ml-2 cursor-pointer">I Agree with <span
+                                                    class="text-blue-500">Booklet</span></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script>
+                            const bookletCheckbox = document.getElementById('bookletCheckbox');
+                            const bookletModal = document.getElementById('bookletModal');
+                            const agreeCheckbox = document.getElementById('agreeCheckbox');
+
+                            function showModalBooklet() {
+                                bookletModal.classList.remove('hidden');
+                            }
+
+                            function closeModal() {
+                                bookletModal.classList.add('hidden');
+                                bookletCheckbox.checked = true;
+                            }
+                        </script>
+
+
                         {{-- NEXT BUTTON --}}
                         <div id="nextButton" class="flex justify-center w-full pt-6 mb-4">
                             <button id="nextButton" type="button" class="next-button w-full mt-4 md:w-auto bg-gradient-to-r from-[#3986A3] to-[#15323D] text-white py-2 px-20 xl:px-40 rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary">Selanjutnya</button>
@@ -278,86 +362,7 @@
                                 id="otherReasonText" name="otherReasonText" placeholder="Please specify">
                         </div>
 
-                        {{-- BOOKLET --}}
-                        <!-- <div class="mb-4 flex items-center">
-                            <input type="checkbox" class="form-checkbox h-5 w-5 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
-                                id="bookletCheckbox" onclick="showModalBooklet()">
-                            <a href="#" class="ml-2" onclick="showModalBooklet()"><strong>Booklet</strong></a>
-                        </div>
 
-                        <div id="bookletModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
-                            <div
-                                class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0 sm:items-top">
-                                <div class="fixed inset-0 transition-opacity" aria-hidden="true">
-                                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-                                </div>
-                                <span class="hidden sm:inline-block sm:align-middle sm:h-screen"
-                                    aria-hidden="true">&#8203;</span>
-                                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
-                                    role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-                                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4"
-                                        style="background-color: white; @media (max-width: 640px) { background-color: white; }">
-                                        >
-                                        <div class="sm:flex sm:items-start">
-                                            <div class="mt-3 text-center sm:mt-0 sm:ml-2 sm:mr-2 sm:text-left">
-                                                <h3 class="text-lg leading-6 font-medium text-gray-900 font-bold"
-                                                    id="modal-headline">
-
-                                                    Booklet
-                                                </h3>
-                                                <div class="mt-2">
-                                                    <p class="text-sm text-gray-500 flex text-justify">
-                                                        Lorem ipsum dolor sit amet consectetur. Malesuada facilisi neque
-                                                        imperdiet egestas consectetur integer cursus. At ultrices diam
-                                                        enim fusce lectus ut ultrices sed. Est eget arcu nascetur non.
-                                                        Velit morbi massa urna ut libero blandit. Dui vulputate cursus
-                                                        faucibus venenatis tellus lacus tristique commodo ac. Id egestas
-                                                        ut arcu odio amet purus. At arcu eu phasellus id egestas amet
-                                                        nulla. At amet sed proin quis nunc. At aliquam feugiat fringilla
-                                                        adipiscing morbi turpis. Commodo odio consequat eget habitant
-                                                        tortor. Tincidunt volutpat viverra iaculis commodo quam montes
-                                                        nulla integer. Nunc purus ornare pretium vel id vitae nunc. Amet
-                                                        ipsum orci morbi aliquam nunc dictum.
-                                                    </p>
-                                                    <p class="text-sm text-gray-500 flex text-justify">
-                                                        Ac viverra imperdiet quis neque dui ornare sed in nunc. Purus
-                                                        porttitor dignissim eget sodales enim tempor. Id massa sit
-                                                        imperdiet eget sem.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse mb-2">
-                                        <div class="flex items-start justify-start w-full"> -->
-
-                                            <!-- Menggunakan div tambahan untuk mengatur letak -->
-
-                                            <!-- <input type="checkbox"
-                                                class="form-checkbox h-5 w-5 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
-                                                id="agreeCheckbox" onchange="closeModal()">
-                                            <label for="agreeCheckbox" class="ml-2 cursor-pointer">I Agree with <span
-                                                    class="text-blue-500">Booklet</span></label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <script>
-                            const bookletCheckbox = document.getElementById('bookletCheckbox');
-                            const bookletModal = document.getElementById('bookletModal');
-                            const agreeCheckbox = document.getElementById('agreeCheckbox');
-
-                            function showModalBooklet() {
-                                bookletModal.classList.remove('hidden');
-                            }
-
-                            function closeModal() {
-                                bookletModal.classList.add('hidden');
-                                bookletCheckbox.checked = true;
-                            }
-                        </script> -->
 
 
                         {{-- BACK AND SUBMIT BUTTONS --}}
@@ -652,7 +657,7 @@
 
         genderRadios.forEach(radio => {
             radio.addEventListener('change', function () {
-                genderSelected.textContent = this.value;        
+                genderSelected.textContent = this.value;
                 genderSelected.classList.remove('text-gray-500');
                 genderSelected.classList.add('text-black');
                 genderDropdown.classList.add('hidden');

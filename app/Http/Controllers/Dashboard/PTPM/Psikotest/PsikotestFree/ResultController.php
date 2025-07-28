@@ -9,17 +9,17 @@ use App\Models\UserPsikotest;
 
 class ResultController extends Controller
 {
-    public function show($test_id, $user_id)
+    public function show()
     {
-        if (!session()->has('test_id') || session('test_id') != $test_id) {
-            return redirect()->route('test.index');
-        }
+        // if (!session()->has('test_id') || session('test_id') != $test_id) {
+        //     return redirect()->route('test.index');
+        // }
 
-        $test = Test::findOrFail($test_id);
-        $user = UserPsikotest::findOrFail($user_id);
-        $result = Result::where('test_id', $test_id)->firstOrFail();
+        // $test = Test::findOrFail($test_id);
+        // $user = UserPsikotest::findOrFail($user_id);
+        // $result = Result::where('test_id', $test_id)->firstOrFail();
 
-        return view('moduls.psikotes.hasiltes', compact('test', 'user', 'result'));
+        return view('moduls.psikotes.hasiltes');
     }
 
     public function finishTest($test_id, $user_id)
