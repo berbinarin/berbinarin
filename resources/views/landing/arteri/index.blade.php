@@ -140,7 +140,7 @@
                                 <div class="mb-2 flex w-full items-center justify-between gap-2 lg:justify-start">
                                     <div class="flex items-center justify-center gap-2">
                                         <div class="size-6 overflow-hidden rounded-full">
-                                            <img src="{{ asset("/image/" . $article->author->profil_image) ? asset("assets/images/landing/arteri/" . $article->author->profil_image) : asset("assets/images/landing/arteri/dummy.png") }}" alt="profile dummy" class="object-cover" />
+                                            <img src="{{ asset("/image/" . $article->author->profil_image) ? asset("/image/" . $article->author->profil_image) : asset("assets/images/landing/arteri/dummy.png") }}" alt="profile dummy" class="object-cover" />
                                         </div>
                                         <span class="text-sm text-gray-600">{{ $article->author->name_author }}</span>
                                     </div>
