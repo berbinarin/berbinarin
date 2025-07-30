@@ -71,8 +71,8 @@
                     <span class="font-semibold">Lokasi offline Konseling</span>
                 </div>
                 <ol class="list-decimal mt-1 space-y-1 pl-7">
-                    <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, Makassar, Samarinda, Jakarta, dan Malang</li>
-                    <li class="max-sm:text-sm">b. Peer Counselor : Tangerang Selatan, Malang, dan Surabaya</li>
+                    <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
+                    <li class="max-sm:text-sm">b. Peer Counselor : Surabaya, Jombang, dan Nganjuk</li>
                 </ol>
             </div>
 
@@ -161,12 +161,7 @@
                             <option value="Surabaya">Surabaya</option>
                             <option value="Kediri">Kediri</option>
                             <option value="Sidoarjo">Sidoarjo</option>
-                            <option value="Denpasar">Denpasar</option>
-                            <option value="Makassar">Makassar</option>
-                            <option value="Samarinda">Samarinda</option>
                             <option value="Jakarta">Jakarta</option>
-                            <option value="Malang">Malang</option>
-                            <option value="Kalimantan Utara (Tarakan)">Kalimantan Utara (Tarakan)</option>
                         </select>
                         <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon h-2 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300">
                     </div>
