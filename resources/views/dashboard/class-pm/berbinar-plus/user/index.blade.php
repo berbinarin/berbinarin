@@ -44,15 +44,15 @@
                                     </td>
 
                                     <td class="whitespace-no-wrap sticky-col sticky-col-2 px-6 py-4">
-                                        Morgan Vero
+                                        {{ $user->first_name }}
                                     </td>
 
                                     <td class="whitespace-no-wrap text-center px-6 py-4">
-                                        2025-07-07
+                                        {{ $user->created_at }}
                                     </td>
 
                                     <td class="whitespace-no-wrap text-center px-6 py-4">
-                                        Morgan@gmail.com
+                                        {{ $user->email }}
                                     </td>
 
                                     <td class="whitespace-no-wrap text-center px-6 py-4">
@@ -61,12 +61,12 @@
 
                                     <td class="whitespace-no-wrap flex items-center justify-center gap-2 px-6 py-4">
                                         <!-- Tombol Detail -->
-                                        <a href="{{ route("dashboard.berbinar-plus-users.show") }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #3b82f6">
+                                        <a href="{{ route('dashboard.berbinar-plus-users.show', $user->id) }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #3b82f6">
                                             <i class="bx bx-show text-white"></i>
                                         </a>
 
                                         <!-- Tombol Edit -->
-                                        <a href="{{ route("dashboard.berbinar-plus.index") }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #e9b306">
+                                        <a href="{{ route('dashboard.berbinar-plus-users.edit', $user->id) }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #e9b306">
                                             <i class="bx bx-edit-alt text-black"></i>
                                         </a>
 

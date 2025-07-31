@@ -1,7 +1,7 @@
 @extends(
     "dashboard.layouts.app",
     [
-        "title" => "Tambah Data Berbinar Plus User",
+        "title" => "Ubah Data Berbinar Plus User",
     ]
 )
 
@@ -13,12 +13,12 @@
                     <a href="{{ route("dashboard.berbinar-plus-users") }}">
                         <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
                     </a>
-                    <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Tambah Data Pendaftar</p>
+                    <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Ubah Data Pendaftar</p>
                 </div>
                 <p class="w-full text-disabled">Formulir untuk menambahkan peserta baru ke program Berbinar+ secara manual, lengkap dengan informasi pribadi, pilihan kelas, dan paket layanan yang dipilih.</p>
             </div>
             <div class="rounded-3xl bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
-                <form action="{{ route('dashboard.berbinar-plus-users.store') }}" method="POST">
+                <form action="{{ route('dashboard.berbinar-plus-users.update', $user->id) }}" method="POST">
                     @csrf
                     <input type="hidden" name="kategori" value="berbinar-plus" />
 
@@ -29,21 +29,21 @@
                             <div>
                                 <label class="text-lg">Nama Lengkap</label>
                                 <div class="relative w-full">
-                                    <input type="text" id="first_name" name="first_name" placeholder="Budi Berbinar" class="peer w-full rounded-lg border-gray-300 px-4 py-4 shadow-sm" />
+                                    <input type="text" id="first_name" name="first_name" placeholder="Budi Berbinar" class="peer w-full rounded-lg border-gray-300 px-4 py-4 shadow-sm" value="{{ $user->first_name }}" />
                                 </div>
                             </div>
 
                             <div>
                                 <label class="text-lg">Nomor WhatsApp</label>
                                 <div class="relative w-full">
-                                    <input type="text" id="wa_number" name="wa_number" placeholder="Masukkan Nomor WhatsApp " class="peer w-full rounded-lg border-gray-300 px-4 py-4 shadow-sm" />
+                                    <input type="text" id="wa_number" name="wa_number" placeholder="Masukkan Nomor WhatsApp " class="peer w-full rounded-lg border-gray-300 px-4 py-4 shadow-sm" value="{{ $user->wa_number }}" />
                                 </div>
                             </div>
 
                             <div>
                                 <label class="text-lg">Email</label>
                                 <div class="relative w-full">
-                                    <input type="email" id="email" name="email" placeholder="Berbinar@gmail.com" class="peer w-full rounded-lg border-gray-300 px-4 py-4 shadow-sm" />
+                                    <input type="email" id="email" name="email" placeholder="Berbinar@gmail.com" class="peer w-full rounded-lg border-gray-300 px-4 py-4 shadow-sm" value="{{ $user->email }}" />
                                 </div>
                             </div>
 
@@ -52,7 +52,9 @@
                                 <button type="button"
                                     id="genderToggle"
                                     class="flex justify-between items-center w-full rounded-lg border border-gray-300 bg-white px-4 py-4 shadow-sm focus:outline-none">
-                                    <span id="genderSelected" class="text-gray-500">Pilih Jenis Kelamin</span>
+                                    <span id="genderSelected" class="{{ $user->gender ? 'text-black' : 'text-gray-500' }}">
+                                        {{ $user->gender ?? 'Pilih Jenis Kelamin' }}
+                                    </span>
                                     <img src="{{ asset('assets/images/landing/produk/emo/chevron.png') }}" alt=""
                                         class="transform transition-transform w-[.9rem] mr-1" id="genderIcon">
                                 </button>
@@ -60,12 +62,12 @@
                                     id="genderDropdown">
                                     <div class="p-2" style="background-color: white;">
                                         <label class="flex items-center mb-2">
-                                            <input class="form-check-input mr-2" type="radio" id="gender" name="gender" value="Laki-laki" required>
-                                            Laki-laki
+                                            <input class="form-check-input mr-2" type="radio" id="gender" name="gender" value="Laki-laki"
+                                            {{ $user->gender === 'Laki-laki' ? 'checked' : '' }} required>
                                         </label>
                                         <label class="flex items-center">
-                                            <input class="form-check-input mr-2" type="radio" id="gender" name="gender" value="Perempuan" required>
-                                            Perempuan
+                                            <input class="form-check-input mr-2" type="radio" id="gender" name="gender" value="Perempuan"
+                                            {{ $user->gender === 'Perempuan' ? 'checked' : '' }} required>
                                         </label>
                                     </div>
                                 </div>
@@ -74,14 +76,14 @@
                             <div>
                                 <label class="text-lg">Pendidikan Terakhir</label>
                                 <div class="relative w-full">
-                                    <input type="text" id="last_education" name="last_education" placeholder="SMA" class="peer w-full rounded-lg border-gray-300 px-4 py-4 shadow-sm" />
+                                    <input type="text" id="last_education" name="last_education" placeholder="SMA" class="peer w-full rounded-lg border-gray-300 px-4 py-4 shadow-sm" value="{{ $user->last_education }}" />
                                 </div>
                             </div>
 
                             <div>
                                 <label class="text-lg">Usia</label>
                                 <div class="relative w-full">
-                                    <input type="text" id="age" name="age" placeholder="Usia Kamu Sekarang" class="peer w-full rounded-lg border-gray-300 px-4 py-4 shadow-sm" />
+                                    <input type="text" id="age" name="age" placeholder="Usia Kamu Sekarang" class="peer w-full rounded-lg border-gray-300 px-4 py-4 shadow-sm" value="{{ $user->age }}" />
                                 </div>
                             </div>
 
@@ -115,7 +117,7 @@
                             <div>
                                 <label class="text-lg">Darimana SobatBinar mengetahui layanan produk BERBINAR+</label>
                                 <div class="relative w-full">
-                                    <input type="text" id="knowing_source" name="knowing_source" placeholder="Dari mana nihh" class="peer w-full rounded-lg border-gray-300 px-4 py-4 shadow-sm" />
+                                    <input type="text" id="knowing_source" name="knowing_source" placeholder="Dari mana nihh" class="peer w-full rounded-lg border-gray-300 px-4 py-4 shadow-sm" value="{{ $user->knowing_source }}" />
                                 </div>
                             </div>
 
@@ -163,6 +165,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const genderIcon = document.getElementById('genderIcon');
     const genderRadios = document.querySelectorAll('input[name="gender"]');
     const genderSelected = document.getElementById('genderSelected');
+    const currentGender = @json($user->gender);
+    if (currentGender) {
+        genderSelected.textContent = currentGender;
+        genderSelected.classList.remove('text-gray-500');
+        genderSelected.classList.add('text-black');
+    }
 
     genderToggle.addEventListener('click', function (e) {
         e.stopPropagation();

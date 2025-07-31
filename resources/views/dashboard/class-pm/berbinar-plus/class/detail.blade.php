@@ -21,29 +21,13 @@
 
                 <div class="mb-6">
                     <h1 class="mb-6 text-2xl text-primary-alt font-bold">Nama <span class="italic">Class</span></h1>
-                    <p class="font-semibold text-lg">Product Management</p>
+                    <p class="font-semibold text-lg">{{ $class->title }}</p>
                 </div>
 
                 <div class="mb-20">
-
                     <h1 class="mb-6 text-2xl text-primary-alt font-bold">Deskripsi</h1>
-                    <p class="font-semibold text-lg mb-6">Kelas yang ditawarkan untuk membantu dalam menentukan strategi perusahaan yang berhubungan dengan pengembangan & peluncuran suatu produk bisnis. </p>
-                    <div class="flex items-start gap-2">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Lokasi" class="h-5 w-4 mt-0.5" />
-                        <div>
-                            <span class="font-bold text-xl">Pengembangan Produk Digital</span>
-                            <p class="font-semibold text-lg">Pelajari langkah-langkah sederhana untuk mengembangkan produk digital Cocok untuk kamu yang baru ingin mengenal dunia teknologi dan ingin tahu bagaimana ide bisa menjadi solusi nyata.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start gap-2">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Lokasi" class="h-5 w-4 mt-0.5" />
-                        <div>
-                            <span class="font-bold text-xl">Pengenalan & Strategi Product Management dalam Dunia Kerja</span>
-                            <p class="font-semibold text-lg">Pelajari peran Product Manager dan dasar-dasar strategi manajemen produk dengan cara yang ringan dan praktis, cocok untuk Kamu yang ingin memahami profesi ini lebih dalam.</p>
-                        </div>
-                    </div>
-
+                    <p class="font-semibold text-lg mb-6">{{ $class->description }}</p>
+                    {{-- Tambahkan field lain jika perlu --}}
                 </div>
 
             </div>

@@ -10,7 +10,7 @@
         <div class="flex w-full flex-col">
             <div class="py-4 md:pb-7 md:pt-12">
                 <div class="mb-2 flex items-center gap-2">
-                    <a href="{{ route("dashboard.berbinar-plus.index") }}">
+                    <a href="{{ route("dashboard.berbinar-plus-users") }}">
                         <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
                     </a>
                     <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Detail Data Pendaftar</p>
@@ -24,32 +24,32 @@
 
                     <div class="flex flex-col mb-2">
                         <h2 class="font-semibold text-lg mb-2 text-gray-500">Nama Lengkap</h2>
-                        <p class="font-semibold text-lg">Morgan Vero</p>
+                        <p class="font-semibold text-lg">{{ $user->first_name }}</p>
                     </div>
 
                     <div class="flex flex-col mb-2">
                         <h2 class="font-semibold text-lg mb-2 text-gray-500">Telepon/HP</h2>
-                        <p class="font-semibold text-lg">081234567890</p>
+                        <p class="font-semibold text-lg">{{ $user->wa_number }}</p>
                     </div>
 
                     <div class="flex flex-col mb-2">
                         <h2 class="font-semibold text-lg mb-2 text-gray-500">Alamat Email</h2>
-                        <p class="font-semibold text-lg">berbinar@gmail.com</p>
+                        <p class="font-semibold text-lg">{{ $user->email }}</p>
                     </div>
 
                     <div class="flex flex-col mb-2">
                         <h2 class="font-semibold text-lg mb-2 text-gray-500">Jenis Kelamin</h2>
-                        <p class="font-semibold text-lg">Laki-laki</p>
+                        <p class="font-semibold text-lg">{{ $user->gender }}</p>
                     </div>
 
                     <div class="flex flex-col mb-2">
                         <h2 class="font-semibold text-lg mb-2 text-gray-500">Pendidikan Terakhir</h2>
-                        <p class="font-semibold text-lg">SMA</p>
+                        <p class="font-semibold text-lg">{{ $user->last_education }}</p>
                     </div>
 
                     <div class="flex flex-col mb-2">
                         <h2 class="font-semibold text-lg mb-2 text-gray-500">Usia</h2>
-                        <p class="font-semibold text-lg">18</p>
+                        <p class="font-semibold text-lg">{{ $user->age}}</p>
                     </div>
 
                 </div>
@@ -76,7 +76,7 @@
 
                         <div class="flex flex-col mb-2">
                             <h2 class="font-semibold text-lg mb-2 text-gray-500">Darimana SobatBinar mengetahui layanan produk BERBINAR+</h2>
-                            <p class="font-semibold text-lg">Instagram</p>
+                            <p class="font-semibold text-lg">{{ $user->knowing_source }}</p>
                         </div>
 
                     </div>
