@@ -420,11 +420,11 @@
                             <div class="my-2 flex justify-center md:hidden">
                                 <img src="{{ asset("assets/images/landing/asset-beranda/produk/moodscantees.webp") }}" alt="MoodScan Tees" class="h-auto w-[280px] object-contain" />
                             </div>
-                            <p class="text-justify text-lg text-[#70787D] max-sm:text-[15px] mb-2">
+                            <p class="text-justify text-[#70787D] max-sm:text-[15px] mb-2">
                                 Moodscan Tees adalah kaos nyaman dengan desain psikologis hasil kolaborasi ciamik antara Berbinar Insightful Indonesia dengan Esize yang dapat meningkatkan kesehatan mental sekaligus menampilkan gaya yang unik penuh makna.
                             </p>
-                            <h2 class="font-bold text-lg max-sm:text-[20px] mb-2">Detail:</h2>
-                            <ul class="list-disc space-y-3 pl-5 mb-4 text-lg text-justify text-[#3F3F3F] max-sm:space-y-1 max-sm:text-[15px]">
+                            <h2 class="font-bold max-sm:text-[20px] mb-2">Detail:</h2>
+                            <ul class="list-disc space-y-3 pl-5 mb-4 text-justify text-[#3F3F3F] max-sm:space-y-1 max-sm:text-[15px]">
                                 <li>
                                     <p class="text-[#70787D]">Terdapat tampilan Barcode QR di belakang kaos yang menyimpan berbagai kutipan psikologis inspiratif dan memberikan refleksi.</p>
                                 </li>
@@ -437,7 +437,7 @@
                             </ul>
 
                             <h1 class="text-gradient-yellow mb-2 text-2xl font-bold max-sm:mb-0 max-sm:text-2xl">MoodScan Tees</h1>
-                            <ul class="list-disc space-y-3 pl-5 text-justify text-[#3F3F3F] marker:text-[#3986A3] max-sm:space-y-1 text-lg max-sm:text-[15px]">
+                            <ul class="list-disc space-y-3 pl-5 text-justify text-[#3F3F3F] marker:text-[#3986A3] max-sm:space-y-1 max-sm:text-[15px]">
                                 <li>
                                     <h2 class="font-bold max-sm:text-[20px]">Mood</h2>
                                     <p class="text-[#70787D]">Mood adalah kondisi emosional atau suasana hati yang dialami oleh seorang individu atau sekelompok orang pada waktu tertentu, dapat berubah sesuai dengan situasi yang dihadapi, serta dipengaruhi oleh berbagai faktor seperti lingkungan, pengalaman, maupun interaksi sosial.</p>
