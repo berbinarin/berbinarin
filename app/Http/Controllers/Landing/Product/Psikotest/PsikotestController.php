@@ -524,30 +524,9 @@ class PsikotestController extends Controller
         ]);
     }
 
-    public function registration()
+    public function daftar()
     {
-        $layanan_psikotes = [
-            [
-                'image' => 'assets/images/landing/asset-psikotes/illustrasi/individu.png',
-                'name' => 'Individu'
-            ],
-            [
-                'image' => 'assets/images/landing/asset-psikotes/illustrasi/perusahaan.png',
-                'name' => 'Perusahaan'
-            ],
-            [
-                'image' => 'assets/images/landing/asset-psikotes/illustrasi/komunitas.png',
-                'name' => 'Komunitas'
-            ],
-            [
-                'image' => 'assets/images/landing/asset-psikotes/illustrasi/pendidikan.png',
-                'name' => 'Pendidikan'
-            ],
-        ];
-
-        return view('landing.product.psikotest.registration')->with([
-            'layanan_psikotes' => $layanan_psikotes
-        ]);
+        return view('landing.product.psikotest.daftar-konseling')->with([]);
     }
 
     public function schedule()

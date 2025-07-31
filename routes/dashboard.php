@@ -75,7 +75,7 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
         Route::resource('/divisions', DivisionController::class);
     });
 
-    // marketing |  Marketing Strategist and Sales 
+    // marketing |  Marketing Strategist and Sales
     Route::middleware('role:marketing')->group(function () {
 
         Route::prefix('arteri')->name('arteri.')->group(function () {
@@ -90,6 +90,9 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
             Route::resource('/articles', ArticleController::class);
         });
     });
+
+    // PAPI KOSTICK
+    
 
 
 

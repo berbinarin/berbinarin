@@ -71,7 +71,7 @@ Route::prefix('produk')->name('product.')->group(function () {
     // Product Psikotest
     Route::prefix('psikotes')->name('psikotest.')->group(function () {
         Route::get('/', [PsikotestController::class, 'index'])->name('index');
-        Route::get('/daftar', [PsikotestController::class, 'registration'])->name('registration');
+        Route::get('/daftar', [PsikotestController::class, 'daftar'])->name('daftar');
         Route::get('/jadwal', [PsikotestController::class, 'schedule'])->name('schedule');
         Route::post('/jadwal', [PsikotestController::class, 'storeSchedule'])->name('schedule.store');
         Route::get('/data-diri', [PsikotestController::class, 'personalData'])->name('personal_data');
@@ -79,6 +79,7 @@ Route::prefix('produk')->name('product.')->group(function () {
         Route::get('/summary', [PsikotestController::class, 'summary'])->name('summary');
         Route::get('/feedback', [FeedbackController::class, 'show'])->name('feedback');
         Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+
     });
 
     Route::prefix('consulting')->name('consulting.')->group(function () {
@@ -152,6 +153,7 @@ Route::prefix('arteri')->name('arteri.')->group(function () {
 Route::prefix('psikotest-free')->name('psikotest-free.')->group(function () {
     Route::get('/start', [LandingController::class, 'psikotestFreeStart'])->name('start');
     Route::get('/psikotest/free/{test_id}/questions/{question_order}', [QuestionController::class, 'show'])->name('question.show');
+
 });
 
 Route::get('/psikotest/free', [PsikotestFreePsikotestFreeController::class, 'index'])->name('test.index');
@@ -179,6 +181,12 @@ Route::prefix('/berbinarplus')->group(function () {
     Route::group(['middleware' => ['auth.berbinarplus:berbinarplus']], function () {
         Route::get('/dashboard', [AuthUserController::class, 'dashboard'])->name('berbinarplus.dashboard');
     });
+});
+
+//daftar konseling
+Route::prefix('konseling')->group(function () {
+    Route::get('/daftar', [LandingController::class, 'konselingDaftar'])->name('konseling.daftar');
+    Route::get('/daftar-konseling', [LandingController::class, 'konseling'])->name('konseling.daftar-konseling');
 });
 
 // Psikotest Paid
