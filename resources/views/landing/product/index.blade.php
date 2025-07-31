@@ -420,24 +420,35 @@
                             <div class="my-2 flex justify-center md:hidden">
                                 <img src="{{ asset("assets/images/landing/asset-beranda/produk/moodscantees.webp") }}" alt="MoodScan Tees" class="h-auto w-[280px] object-contain" />
                             </div>
-                            <p class="text-justify text-[#70787D] max-sm:text-[15px]">
-                                MoodScan Tees adalah kaos nyaman dengan desain psikologis hasil kolaborasi ciamik antara Berbinar Insightful Indonesia dengan Esize. Tidak hanya tampil gaya, kaos ini juga dapat memberikan kebahagiaan dan dukungan psikologis setiap kali dikenakan.
-                                <br />
-                                Hanya mulai dari Rp 79.900, kamu sudah bisa mendapatkan kaos MoodScan Tees yang siap mendukung dan menginspirasimu sepanjang hari!
+                            <p class="text-justify text-lg text-[#70787D] max-sm:text-[15px] mb-2">
+                                Moodscan Tees adalah kaos nyaman dengan desain psikologis hasil kolaborasi ciamik antara Berbinar Insightful Indonesia dengan Esize yang dapat meningkatkan kesehatan mental sekaligus menampilkan gaya yang unik penuh makna.
                             </p>
-                            <h1 class="text-gradient-yellow mb-2 mt-2 text-2xl font-bold max-sm:mb-0 max-sm:text-xl">Fitur</h1>
-                            <ul class="list-disc space-y-3 pl-5 text-justify text-[#3F3F3F] marker:text-[#3986A3] max-sm:space-y-1 max-sm:text-[15px]">
+                            <h2 class="font-bold text-lg max-sm:text-[20px] mb-2">Detail:</h2>
+                            <ul class="list-disc space-y-3 pl-5 mb-4 text-lg text-justify text-[#3F3F3F] max-sm:space-y-1 max-sm:text-[15px]">
                                 <li>
-                                    <p class="text-[#70787D]">Berdesain psikologis untuk meningkatkan kesehatan mental sekaligus menciptakan gaya yang unik dan penuh makna.</p>
-                                </li>
-                                <li>
-                                    <p class="text-[#70787D]">Barcode QR yang menyimpan berbagai kutipan-kutipan psikologis inspiratif dan memberikan refleksi.</p>
+                                    <p class="text-[#70787D]">Terdapat tampilan Barcode QR di belakang kaos yang menyimpan berbagai kutipan psikologis inspiratif dan memberikan refleksi.</p>
                                 </li>
                                 <li>
                                     <p class="text-[#70787D]">Berbahan 100% Cotton Combed berkualitas tinggi yang memberikan kenyamanan maksimal untuk digunakan sehari-hari.</p>
                                 </li>
                                 <li>
                                     <p class="text-[#70787D]">Tersedia variasi ukuran yang dapat disesuaikan dengan kebutuhan dan cocok untuk berbagai bentuk tubuh.</p>
+                                </li>
+                            </ul>
+
+                            <h1 class="text-gradient-yellow mb-2 text-2xl font-bold max-sm:mb-0 max-sm:text-2xl">MoodScan Tees</h1>
+                            <ul class="list-disc space-y-3 pl-5 text-justify text-[#3F3F3F] marker:text-[#3986A3] max-sm:space-y-1 text-lg max-sm:text-[15px]">
+                                <li>
+                                    <h2 class="font-bold max-sm:text-[20px]">Mood</h2>
+                                    <p class="text-[#70787D]">Mood adalah kondisi emosional atau suasana hati yang dialami oleh seorang individu atau sekelompok orang pada waktu tertentu, dapat berubah sesuai dengan situasi yang dihadapi, serta dipengaruhi oleh berbagai faktor seperti lingkungan, pengalaman, maupun interaksi sosial.</p>
+                                </li>
+                                <li>
+                                    <h2 class="font-bold max-sm:text-[20px]">Scan</h2>
+                                    <p class="text-[#70787D]">Scan adalah proses memindai atau menangkap gambar, dokumen, atau objek cepat menggunakan alat khusus seperti pemindai (scanner) atau kamera digital, dengan tujuan untuk memeriksa, mendeteksi, atau mengidentifikasi informasi tersebut secara efisien dan akurat.</p>
+                                </li>
+                                <li>
+                                    <h2 class="font-bold max-sm:text-[20px]">Tees</h2>
+                                    <p class="text-[#70787D]">Tees adalah istilah lain dari T-Shirt, yaitu jenis kaos oblong berlengan pendek yang sangat populer dan nyaman digunakan dalam berbagai aktivitas sehari-hari. Biasanya, kaos ini terbuat dari bahan yang ringan dan mudah menyerap keringat, sehingga cocok untuk dipakai dalam berbagai cuaca dan gaya berpakaian kasual atau santai.</p>
                                 </li>
                             </ul>
                         </div>
