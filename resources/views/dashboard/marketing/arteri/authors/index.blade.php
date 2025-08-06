@@ -26,7 +26,6 @@
                                     <th>No</th>
                                     <th>Profil</th>
                                     <th class="text-left">Nama Penulis</th>
-                                    <th class="text-center">Jumlah Artikel</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -38,10 +37,6 @@
                                             <img src="{{ $author->profil_image ? asset("/image/" . $author->profil_image) : asset("assets/images/landing/arteri/dummy.png") }}" alt="Foto Profil" class="h-12 w-12 rounded-full" />
                                         </td>
                                         <td class="whitespace-normal break-words text-left font-semibold" style="min-width: 300px">{{ $author->name_author }}</td>
-                                        <td class="whitespace-normal break-words text-center font-semibold" style="min-width: 300px">
-                                            {{ $author->articles_count }}
-                                            <!-- Menampilkan jumlah artikel -->
-                                        </td>
                                         <td class="whitespace-no-wrap px-6 py-4 text-center">
                                             <div class="flex items-center justify-center gap-2">
                                                 <!-- Tombol Edit -->
@@ -268,7 +263,9 @@
             avatarPreview.src = penulisImageUrl || '{{ asset("assets/images/dashboard/svg-icon/user.svg") }}';
 
             document.getElementById('edit-penulis-modal').classList.remove('hidden');
+            document.getElementById('edit-penulis-modal').classList.add('flex');
             document.getElementById('edit-penulis-backdrop').classList.remove('hidden');
+            document.getElementById('edit-penulis-backdrop').classList.add('flex');
         }
 
         // Fungsi untuk menutup modal Edit Penulis
