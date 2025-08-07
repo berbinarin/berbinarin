@@ -182,6 +182,28 @@
                         <input id="harga-input" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="Rp 0,00" readonly>
                     </div>
                 </div>
+                {{-- Kode Promo --}}
+                <div class="flex flex-col space-y-1">
+                    <p class="text-[#333333] sm:text-[17px] text-sm">Kode Promo</p>
+                    <div class="relative">
+                        <input type="text" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="Berbinar">
+                        <button type="button" class="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer flex bg-gradient-to-r from-[#F7B23B] to-[#916823] text-white justify-between gap-2 py-[4px] px-2  rounded-md items-center">Redeem Code</button>
+                    </div>
+                </div>
+                {{-- Bukti Kartu Pelajar --}}
+                <div class="mb-4 rounded-lg" style="background-color: white;">
+                    <label for="bukti_kartu">Bukti Kartu Pelajar</label>
+                    <div class="relative w-full flex items-center">
+                        <input type="file" id="bukti_kartu" name="bukti_kartu" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" required/>
+                        <div class="mt-1 block w-full h-12 pl-2 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary pointer-events-none cursor-pointer content-center flex items-center">
+                            <button type="button" class="pointer-events-none border flex justify-between gap-2 py-[4px] px-2 border-[#B3B3B3] rounded-md cursor-pointer items-center">
+                                <img src="{{ asset('assets/images/landing/produk/emo/upload-line-icon.png') }}" alt="" class="w-4 h-4">
+                                Upload
+                            </button>
+                            <span id="fileName" class="ml-3 text-base text-gray-600 truncate"></span>
+                        </div>
+                    </div>
+                </div>
                 <div class="flex justify-center items-center pt-10">
                     <button type="button" class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-24 sm:w-auto w-full rounded-xl" onclick="validateAndNextStep(2)">Selanjutnya</button>
                 </div>
@@ -721,6 +743,18 @@
 
     document.getElementById('closeModal').addEventListener('click', function() {
         document.getElementById('modal').classList.add('hidden');
+    });
+</script>
+
+<script>
+    const fileNameSpan = document.getElementById('fileName');
+    fileNameSpan.textContent = "No File";
+    document.getElementById('bukti_kartu').addEventListener('change', function(e) {
+        if (this.files && this.files.length > 0) {
+            fileNameSpan.textContent = this.files[0].name;
+        } else {
+            fileNameSpan.textContent = "No File";
+        }
     });
 </script>
 @endsection
