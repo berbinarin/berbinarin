@@ -38,7 +38,7 @@
                             <input required type="text" id="tanggal_lahir" name="tanggal_lahir" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" readonly />
                         </div>
                         <div>
-                            <label class="font-semibold">Kota Domisili</label>
+                            <label class="font-semibold">Tempat Lahir</label>
                             <input required type="text" name="tempat_lahir" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Kota Domisili" />
                         </div>
                         <div>
@@ -124,11 +124,19 @@
                     <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <div>
                             <label class="font-semibold">Tuliskan Apa yang Ingin Anda Ceritakan</label>
-                            <textarea required name="cerita" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="1" placeholder="Tulislah hal yang ingin Anda konsultasikan">{{ old("cerita") }}</textarea>
+                            <textarea required name="cerita_utama" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="3" placeholder="Tuliskan hal utama yang ingin Anda konsultasikan">{{ old('cerita_utama') }}</textarea>
                         </div>
                         <div>
-                            <label class="font-semibold">Ceritakan hal yang ingin anda konsultasikan</label>
-                            <textarea required name="cerita" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="1" placeholder="Tulislah hal yang ingin Anda konsultasikan">{{ old("cerita") }}</textarea>
+                            <label class="font-semibold">Tuliskan Informasi Tambahan</label>
+                            <textarea required name="cerita_tambahan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="3" placeholder="Informasi tambahan yang dapat membantu Peer Counselor">{{ old('cerita_tambahan') }}</textarea>
+                        </div>
+                        <div>
+                            <label class="font-semibold">Apa yang Mendorong Anda untuk Konseling?</label>
+                            <textarea required name="alasan_konseling" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="3" placeholder="Alasan mencari dukungan Peer Counselor">{{ old('alasan_konseling') }}</textarea>
+                        </div>
+                        <div>
+                            <label class="font-semibold">Harapan Setelah Konseling</label>
+                            <textarea required name="harapan_konseling" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="3" placeholder="Harapan setelah mengikuti konseling">{{ old('harapan_konseling') }}</textarea>
                         </div>
                     </div>
 

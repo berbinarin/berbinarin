@@ -129,9 +129,9 @@
                         <img src="{{ asset('assets/images/landing/asset-konseling/vector/date.png') }}" class="absolute top-1/3 h-4 w-auto object-contain max-sm:hidden lg:right-5" onclick="document.getElementById('tanggal_lahir').focus()" />
                     </div>
                 </div>
-                {{-- Kota Domisili --}}
+                {{-- Tempat Lahir --}}
                 <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Kota Domisili</p>
+                    <p class="text-sm text-[#333333] sm:text-[17px]">Tempat Lahir</p>
                     <div class="relative">
                         <input name="tempat_lahir" type="text" class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none" placeholder="Surabaya" />
                     </div>
@@ -264,25 +264,25 @@
                 <div class="mb-10">
                     <p class="text-[#333333] sm:text-[17px] text-sm mb-3">Tuliskan Apa yang Ingin Anda Ceritakan</p>
                     <div class="relative">
-                        <textarea name="cerita" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 pt-3 h-36 cursor-pointer focus:ring-[#3986A3] text-start resize-none" placeholder="Tidak ada minimum/batas jumlah kata"></textarea>
+                        <textarea name="cerita_utama" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 pt-3 h-36 cursor-pointer focus:ring-[#3986A3] text-start resize-none" placeholder="Tidak ada minimum/batas jumlah kata"></textarea>
                     </div>
                 </div>
                 <div class="mb-10">
                     <p class="text-[#333333] sm:text-[17px] text-sm mb-3">Tuliskan informasi tambahan mengenai kondisi yang anda alami yang sekiranya dapat membantu <span class="italic">Peer Counselor</span> untuk lebih memahami anda</p>
                     <div class="relative">
-                        <textarea name="cerita" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 pt-3 h-36 cursor-pointer focus:ring-[#3986A3] text-start resize-none" placeholder="Tidak ada minimum/batas jumlah kata"></textarea>
+                        <textarea name="cerita_tambahan" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 pt-3 h-36 cursor-pointer focus:ring-[#3986A3] text-start resize-none" placeholder="Tidak ada minimum/batas jumlah kata"></textarea>
                     </div>
                 </div>
                 <div class="mb-10">
                     <p class="text-[#333333] sm:text-[17px] text-sm mb-3">Apa yang mendorong anda untuk mencari dukungan dari <span class="italic">Peer Counselor</span></p>
                     <div class="relative">
-                        <textarea name="cerita" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 pt-3 h-36 cursor-pointer focus:ring-[#3986A3] text-start resize-none" placeholder="Tidak ada minimum/batas jumlah kata"></textarea>
+                        <textarea name="alasan_konseling" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 pt-3 h-36 cursor-pointer focus:ring-[#3986A3] text-start resize-none" placeholder="Tidak ada minimum/batas jumlah kata"></textarea>
                     </div>
                 </div>
                 <div class="mb-10">
                     <p class="text-[#333333] sm:text-[17px] text-sm mb-3">Harapan yang diinginkan setelah melakukan konseling</p>
                     <div class="relative">
-                        <textarea name="cerita" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 pt-3 h-36 cursor-pointer focus:ring-[#3986A3] text-start resize-none" placeholder="Tidak ada minimum/batas jumlah kata"></textarea>
+                        <textarea name="harapan_konseling" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 pt-3 h-36 cursor-pointer focus:ring-[#3986A3] text-start resize-none" placeholder="Tidak ada minimum/batas jumlah kata"></textarea>
                     </div>
                 </div>
 
@@ -377,9 +377,18 @@
     }
 
     function validateStep2() {
-        const cerita = document.querySelector('[name="cerita"]');
-        if (!cerita || cerita.value.trim() === '') {
-            return '"' + getFieldLabel('cerita') + '" belum diisi :(';
+        const requiredFields = [
+            'cerita_utama',
+            'cerita_tambahan',
+            'alasan_konseling',
+            'harapan_konseling'
+        ];
+
+        for (let fieldName of requiredFields) {
+            const field = document.querySelector(`[name="${fieldName}"]`);
+            if (!field || field.value.trim() === ''){
+                return '"' + getFieldLabel(fieldName) + '" belum diisi : (';
+            }
         }
         return null;
     }
