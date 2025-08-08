@@ -48,4 +48,9 @@ class Berbinarp_user extends Authenticatable
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
+
+    public function enrollment()
+    {
+        return $this->hasOne(Berbinarp_enrollments::class, 'user_id');
+    }
 }

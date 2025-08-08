@@ -43,7 +43,7 @@
                             class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" readonly/>
                     </div>
                     <div>
-                        <label class="font-semibold">Kota Domisili</label>
+                        <label class="font-semibold">Tempat Lahir</label>
                         <input required type="text" name="tempat_lahir" value="{{ $PeerConsellorDataDetails->tempat_lahir }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Tempat Lahir" />
                     </div>
                     <div>
@@ -135,12 +135,14 @@
                             value="{{ \Carbon\Carbon::parse($PeerConsellorDataDetails->jadwal_tanggal)->translatedFormat('l') }}"
                             class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm bg-gray-100" readonly />
                     </div>
-                    <div>
-                        <label class="font-semibold">Waktu Konseling</label>
-                        <select name="jadwal_pukul" id="waktu-konseling" required class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
-                            <option value="" disabled>Pilih Waktu Konseling</option>
-                        </select>
-                    </div>
+                    <select name="jadwal_pukul" id="waktu-konseling" required class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
+                        <option value="" disabled>Pilih Waktu Konseling</option>
+                        @foreach($jadwalHariIni as $jadwal)
+                            <option value="{{ $jadwal['waktu'] }}" {{ $PeerConsellorDataDetails->jadwal_pukul == $jadwal['waktu'] ? 'selected' : '' }}>
+                                {{ $jadwal['waktu'] }}
+                            </option>
+                        @endforeach
+                    </select>
                     <div>
                         <label class="font-semibold">Metode Konseling</label>
                         <select required name="metode" id="metode-select" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
@@ -202,21 +204,19 @@
     </div>
 </section>
 
-<!-- Modal Konfirmasi -->
-<div id="confirmModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-    <div class="bg-white rounded-lg p-6 max-w-md w-full text-center">
-        <div class="flex justify-center mb-4">
-            <svg class="h-12 w-12 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
-            </svg>
-        </div>
-        <p class="text-lg mb-6">Apakah Anda yakin ingin membatalkan perubahan data ini?</p>
-        <div class="flex justify-center gap-4">
-            <button id="confirmCancel" class="px-6 py-2 bg-[#3986A3] text-white rounded-lg hover:bg-[#2d6b7a]">Ya, Batalkan</button>
-            <button id="cancelCancel" class="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">Lanjutkan Edit</button>
+    <!-- Modal Konfirmasi -->
+    <div id="confirmModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black bg-opacity-50">
+        <div class="w-full max-w-md rounded-lg bg-white p-6 text-center">
+            <div class="mb-4 flex justify-center">
+                <img src="{{ asset("assets/images/dashboard/svg-icon/warning.svg") }}" alt="Warning Icon" class="h-12 w-12" />
+            </div>
+            <p class="mb-6 text-lg">Apakah Anda yakin ingin membatalkan perubahan data ini?</p>
+            <div class="flex justify-center gap-4">
+                <button id="confirmCancel" class="rounded-lg bg-[#3986A3] px-6 py-2 text-white">OK</button>
+                <button id="cancelCancel" class="rounded-lg border border-[#3986A3] px-6 py-2 text-[#3986A3]">Cancel</button>
+            </div>
         </div>
     </div>
-</div>
 
 <!-- Modal Konfirmasi dan Script -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -251,6 +251,22 @@
     }
 
     document.addEventListener("DOMContentLoaded", function () {
+            const cancelButton = document.getElementById('cancelButton');
+            const confirmModal = document.getElementById('confirmModal');
+            const confirmCancel = document.getElementById('confirmCancel');
+            const cancelCancel = document.getElementById('cancelCancel');
+
+            cancelButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                confirmModal.classList.remove('hidden');
+            });
+
+            confirmCancel.addEventListener('click', function() {
+                window.location.href = "{{ route('dashboard.peer-counselors.show', $PeerConsellorDataDetails->id) }}";            });
+
+            cancelCancel.addEventListener('click', function() {
+                confirmModal.classList.add('hidden');
+            });
         // Form submission validation
         document.getElementById('editForm').addEventListener('submit', function(e) {
             if (!validateForm()) {
@@ -300,32 +316,6 @@
 
         document.getElementById('sesi-select').addEventListener('change', updateHarga);
 
-        // Cancel button functionality with SweetAlert
-        const cancelButton = document.getElementById('cancelButton');
-
-        cancelButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            Swal.fire({
-                title: 'Batalkan Perubahan Data?',
-                text: 'Perubahan yang sudah diisi akan hilang. Apakah Anda yakin ingin membatalkan?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#3986A3',
-                cancelButtonColor: '#ffffff',
-                confirmButtonText: 'Ya, Batalkan',
-                cancelButtonText: 'Lanjutkan Edit',
-                customClass: {
-                    confirmButton: 'px-6 py-2 text-white rounded-lg mr-3',
-                    cancelButton: 'px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50'
-                },
-                buttonsStyling: false
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "{{ route('dashboard.peer-counselors.index') }}";
-                }
-            });
-        });
 
         // Update hari when date changes
         document.getElementById('tglkonseling').addEventListener('change', function() {
@@ -344,6 +334,38 @@
             const hariMap = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
             hariInput.value = hariMap[dateObj.getDay()];
         });
+
+        function updateAvailableTimes(dateStr) {
+            const waktuSelect = document.getElementById('waktu-konseling');
+            waktuSelect.innerHTML = '<option value="" disabled selected>Pilih Waktu Konseling</option>';
+
+            if (!dateStr) return;
+
+            // Ambil hari dari tanggal
+            const parts = dateStr.split('/');
+            if (parts.length !== 3) return;
+            const dateObj = new Date(parts[2], parts[1] - 1, parts[0]);
+            const hariMap = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            const hari = hariMap[dateObj.getDay()];
+
+            // Filter jadwal sesuai hari
+            const jadwalHariIni = jadwalPeerData.filter(j => j.hari === hari);
+
+            // Isi pilihan jadwal
+            jadwalHariIni.forEach(jadwal => {
+                const waktu = jadwal.pukul_mulai.substring(0,5) + ' - ' + jadwal.pukul_selesai.substring(0,5);
+                const option = document.createElement('option');
+                option.value = waktu;
+                option.textContent = waktu;
+                // Pilih value jika sama dengan data user
+                if (waktu === "{{ $PeerConsellorDataDetails->jadwal_pukul }}") {
+                    option.selected = true;
+                }
+                waktuSelect.appendChild(option);
+            });
+        }
+
+
     });
 </script>
 @endsection
