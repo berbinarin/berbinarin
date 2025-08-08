@@ -208,24 +208,16 @@
                 <div class="flex flex-row items-center mx-10 py-12 px-20 justify-between gap-12 bg-white shadow-xl rounded-3xl">
                     <div class="bg-[#6482AD] w-1/2 rounded-3xl p-6 h-96"><div class="flex flex-row justify-between"><p class="text-white text-xl font-semibold">Class Berbinar +</p><img src="{{ asset('assets/images/dashboard/svg-icon/person.png') }}" alt=""></div>
                         <div class="h-full flex flex-col justify-end">
-                            <span class="block text-4xl text-white font-bold">360</span>
-                            <p class="text-white text-xl mb-10 font-semibold">Staff</p>
+                            <span class="block text-4xl text-white font-bold">{{ $totalBerbinarPlusClass }}</span>
+                            <p class="text-white text-xl mb-10 font-semibold">Class</p>
                         </div>
                     </div>
                     <div class="bg-[#85B3E2] w-1/2 rounded-3xl p-6 h-96"><div class="flex flex-row justify-between"><p class="text-white text-xl font-semibold">Pendaftar</p><img src="{{ asset('assets/images/dashboard/svg-icon/list.png') }}" alt=""></div>
                         <div class="h-full flex flex-col justify-end">
-                            <span class="block text-4xl text-white font-bold">360</span>
-                            <p class="text-white text-xl mb-10 font-semibold">Pendaftar</p>
+                            <span class="block text-4xl text-white font-bold">{{ $totalBerbinarPlusUser }}</span>
+                            <p class="text-white text-xl mb-10 font-semibold">User</p>
                         </div>
                     </div>
-                        <!-- <div
-                            class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
-                            <i class='bx bx-user text-2xl'></i>
-                        </div>
-                        <div>
-                            <span class="block text-2xl font-bold">{{ $totalBerbinarPlusUser }}</span>
-                            <span class="block text-gray-500">Total Users</span>
-                        </div> -->
                 </div>
             @endrole
 
