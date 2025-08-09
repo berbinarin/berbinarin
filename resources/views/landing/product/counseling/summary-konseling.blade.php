@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <div id="modal" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
+    <div id="modal" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 items-center justify-center z-30" style="display: none;">
         <div class="h-auto max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
             <h1 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-center text-3xl font-bold max-sm:text-2xl">Syarat dan Ketentuan</h1>
             <div class="mb-6">
@@ -98,11 +98,13 @@
 
 <script>
     document.getElementById('openModal').addEventListener('click', function() {
-        document.getElementById('modal').classList.remove('hidden');
+        var modal = document.getElementById('modal');
+        modal.style.display = 'flex';
     });
 
     document.getElementById('closeModal').addEventListener('click', function() {
-        document.getElementById('modal').classList.add('hidden');
+        var modal = document.getElementById('modal');
+        modal.style.display = 'none';
     });
 </script>
 @endsection
