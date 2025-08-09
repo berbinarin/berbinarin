@@ -59,7 +59,7 @@
                                                 <!--header siniiiiii-->
                                                 <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
                                                     <h3 class="text-3xl font-semibold">
-                                                        Edit Peer Counselor Schedule
+                                                        Edit Jadwal Peer Counselor
                                                     </h3>
                                                     <button
                                                         class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -130,7 +130,7 @@
                                                 <!--header-->
                                                 <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
                                                     <h3 class="text-3xl font-semibold">
-                                                        Delete Peer Counselor Schedule
+                                                        Hapus Jadwal Peer Counselor
                                                     </h3>
                                                     <button
                                                         class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -146,7 +146,7 @@
                                                         @csrf
                                                         @method("DELETE")
                                                         <input type="hidden" name="id">
-                                                        <p class="mb-6">Are you sure want to delete peer counsellor schedule in <b>{{ $item->hari }}</b> on <b>{{ $item->pukul_mulai }} - {{ $item->pukul_selesai }}</b> ?</p>
+                                                        <p class="mb-6">Apakah Anda yakin ingin menghapus jadwal Peer Counselor pada hari <b>{{ $item->hari }}</b> pukul <b>{{ $item->pukul_mulai }} - {{ $item->pukul_selesai }}</b> ?</p>
                                                         <!--footer-->
                                                         <div class="flex items-center justify-end pt-3 border-t border-solid border-blueGray-200 rounded-b">
                                                             <button
