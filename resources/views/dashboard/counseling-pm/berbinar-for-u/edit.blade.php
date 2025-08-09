@@ -41,7 +41,7 @@
                                 class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" readonly />
                         </div>
                         <div>
-                            <label class="font-semibold">Kota Domisili</label>
+                            <label class="font-semibold">Tempat Lahir</label>
                             <input required type="text" name="tempat_lahir" value="{{ $BerbinarForUDataDetails->tempat_lahir }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Kota Domisili" />
                         </div>
                         <div>
@@ -124,9 +124,23 @@
 
                     <!-- Topik Konseling -->
                     <h1 class="my-8 text-center text-2xl font-bold">Topik Konseling</h1>
-                    <div>
-                        <label class="font-semibold">Tuliskan Apa yang Ingin Anda Ceritakan</label>
-                        <textarea required name="cerita" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="4" placeholder="Tulislah hal yang ingin Anda konsultasikan">{{ $BerbinarForUDataDetails->cerita }}</textarea>
+                    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                        <div>
+                            <label class="font-semibold">Tuliskan Apa yang Ingin Anda Ceritakan</label>
+                            <textarea required name="cerita_utama" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="4" placeholder="Tuliskan hal utama yang ingin Anda konsultasikan">{{ $BerbinarForUDataDetails->cerita_utama }}</textarea>
+                        </div>
+                        <div class="">
+                            <label class="font-semibold">Tuliskan Informasi Tambahan</label>
+                            <textarea required name="cerita_tambahan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="4" placeholder="Informasi tambahan yang dapat membantu Peer Counselor">{{ $BerbinarForUDataDetails->cerita_tambahan }}</textarea>
+                        </div>
+                        <div class="">
+                            <label class="font-semibold">Apa yang Mendorong Anda untuk Konseling?</label>
+                            <textarea required name="alasan_konseling" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="4" placeholder="Alasan mencari dukungan Peer Counselor">{{ $BerbinarForUDataDetails->alasan_konseling }}</textarea>
+                        </div>
+                        <div class="">
+                            <label class="font-semibold">Harapan Setelah Konseling</label>
+                            <textarea required name="harapan_konseling" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="4" placeholder="Harapan setelah mengikuti konseling">{{ $BerbinarForUDataDetails->harapan_konseling }}</textarea>
+                        </div>
                     </div>
 
                     <div class="mt-8 flex gap-4 border-t-2 border-t-gray-400 pt-5">
@@ -144,7 +158,7 @@
             <div class="mb-4 flex justify-center">
                 <img src="{{ asset("assets/images/dashboard/svg-icon/warning.svg") }}" alt="Warning Icon" class="h-12 w-12" />
             </div>
-            <p class="mb-6 text-lg">Apakah Anda yakin ingin membatalkan penambahan data ini?</p>
+            <p class="mb-6 text-lg">Apakah Anda yakin ingin membatalkan edit data ini?</p>
             <div class="flex justify-center gap-4">
                 <button id="confirmCancel" class="rounded-lg bg-[#3986A3] px-6 py-2 text-white">OK</button>
                 <button id="cancelCancel" class="rounded-lg border border-[#3986A3] px-6 py-2 text-[#3986A3]">Cancel</button>
@@ -173,7 +187,7 @@
             });
 
             confirmCancel.addEventListener('click', function() {
-                window.location.href = "{{ route('dashboard.berbinar-for-u.index') }}";
+                window.location.href = "{{ route('dashboard.berbinar-for-u.show', $BerbinarForUDataDetails->id) }}";
             });
 
             cancelCancel.addEventListener('click', function() {

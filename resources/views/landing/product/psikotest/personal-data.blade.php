@@ -41,7 +41,7 @@
                     </p>
                 </div>
 
-                <div id="modal" class="fixed inset-0 -top-6 z-30 flex hidden items-center justify-center bg-gray-900 bg-opacity-50 backdrop-blur-md max-sm:-top-2">
+                <div id="modal" class="fixed inset-0 -top-6 z-30 hidden items-center justify-center bg-gray-900 bg-opacity-50 backdrop-blur-md max-sm:-top-2">
                     <div class="h-auto max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 shadow-md max-lg:h-[90%] max-sm:w-[86%] max-sm:px-2">
                         <h1 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text pb-4 text-center text-3xl font-bold text-transparent max-sm:text-2xl">Syarat dan Ketentuan</h1>
                         <div class="mb-6">
@@ -49,11 +49,12 @@
                                 <img src="{{ asset("assets/images/landing/asset-konseling/vector/location.png") }}" alt="Lokasi" class="mt-0.5 h-5 w-5" />
                                 <span class="font-semibold">Lokasi offline Konseling</span>
                             </div>
-                            <ol class="mt-1 list-decimal space-y-1 pl-7">
-                                <li class="max-sm:text-sm">a. Psikolog: Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, Jakarta, Malang, dan Kalimantan Utara (Tarakan)</li>
-                                <li class="max-sm:text-sm">b. Peer Counselor: Bekasi, Jakarta, Tangerang Selatan, Padang, Wonogiri, dan Malang</li>
-                            </ol>
+                            <ol class="list-decimal mt-1 space-y-1 pl-7">
+                            <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
+                            <li class="max-sm:text-sm">b. Peer Counselor : Surabaya, Jombang, dan Nganjuk</li>
+                        </ol>
                         </div>
+                    </div>
 
                         <div class="mb-6">
                             <div class="flex items-start gap-2">
@@ -172,11 +173,15 @@
         });
 
         document.getElementById('openModal').addEventListener('click', function () {
-            document.getElementById('modal').classList.remove('hidden');
+            const modal = document.getElementById('modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
         });
 
         document.getElementById('closeModal').addEventListener('click', function () {
-            document.getElementById('modal').classList.add('hidden');
+            const modal = document.getElementById('modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
         });
     </script>
 @endsection

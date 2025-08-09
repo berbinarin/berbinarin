@@ -33,7 +33,7 @@ class PsychologistController extends Controller
             'metode' => 'required',
             'sesi' => 'required',
             'daerah' => 'nullable',
-            'harga' => 'required', 
+            'harga' => 'required',
             'nama' => 'required',
             'no_wa' => 'required',
             'email' => 'required',
@@ -92,7 +92,7 @@ class PsychologistController extends Controller
         $konselling->fill($validatedData);
         $konselling->save();
 
-        Alert::toast('New Psikolog Appointment Data Added', 'success')->autoClose(5000);
+        Alert::toast('Data Psikolog Berhasil di Tambahkan', 'success')->autoClose(5000);
         return redirect()->route('dashboard.psychologists.index');
     }
 
@@ -173,14 +173,13 @@ class PsychologistController extends Controller
         $PsikologDataDetails->fill($validatedData);
         $PsikologDataDetails->save();
 
-        Alert::toast('A Psikolog Appointment Data Updated', 'success')->autoClose(5000);
+        Alert::toast('Data Psikolog Berhasil di Edit', 'success')->autoClose(5000);
         return redirect()->route('dashboard.psychologists.show', $id);
     }
     public function destroy($id)
     {
         KonsellingPsikolog::where('id', $id)->delete();
-        Alert::toast('A Psikolog Appointment Data Deleted', 'success')->autoClose(5000);
+        Alert::toast('Data Psikolog Berhasil di Hapus', 'success')->autoClose(5000);
         return redirect()->route('dashboard.psychologists.index');
     }
 }
-

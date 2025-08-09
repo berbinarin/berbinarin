@@ -16,11 +16,21 @@ class ArticleController extends Controller
      */
     public function index()
     {
-
-        // Mengambil semua data pada tabel articles
         $articles = Article::with('category', 'author')->get();
 
-        return view('dashboard.marketing.arteri.articles.index', compact('articles'));
+        $categories = $articles->pluck('category')->unique('id')->filter();
+
+        // Generate warna dari id
+        $categoryColors = [];
+        foreach ($categories as $cat) {
+            $hash = crc32($cat->id);
+            // Generate warna
+            $hue = $hash % 360;
+            $color = "hsl($hue, 80%, 70%)";
+            $categoryColors[$cat->id] = $color;
+        }
+
+        return view('dashboard.marketing.arteri.articles.index', compact('articles', 'categoryColors'));
     }
 
     /**
@@ -67,10 +77,20 @@ class ArticleController extends Controller
      */
     public function show(string $id)
     {
-        // Ambil artikel berdasarkan ID
         $article = Article::with('category', 'author')->findOrFail($id);
+        
+        $categories = collect([$article->category]);
+        $categoryColors = [];
+        foreach ($categories as $cat) {
+            if ($cat) {
+                $hash = crc32($cat->id);
+                $hue = $hash % 360;
+                $color = "hsl($hue, 80%, 70%)";
+                $categoryColors[$cat->id] = $color;
+            }
+        }
 
-        return view('dashboard.marketing.arteri.articles.show', compact('article'));
+        return view('dashboard.marketing.arteri.articles.show', compact('article', 'categoryColors'));
     }
 
     /**

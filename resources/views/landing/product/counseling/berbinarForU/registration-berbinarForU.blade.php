@@ -8,7 +8,7 @@
 <style>
     .step-section { display: none; }
     .step-section.active { display: block; }
-    
+
     .text-gradient {
         background: linear-gradient(to right, #F7B23B, #916823);
         background-clip: text;
@@ -29,7 +29,7 @@
                 <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span class="sm:block hidden ml-0.5">pilih konseling</span></p>
             </div>
         </a>
-        
+
         <div class="flex items-center space-x-1 cursor-pointer" id="openModal">
             <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}" alt="Syarat & Ketentuan" class="h-3 w-auto">
             <p class="text-[15px] font-semibold text-[#3986A3]"><span class="sm:block hidden">Syarat & Ketentuan</span><span class="sm:hidden block">S&K</span></p>
@@ -57,8 +57,8 @@
                     <span class="font-semibold">Lokasi offline Konseling</span>
                 </div>
                 <ol class="list-decimal mt-1 space-y-1 pl-7">
-                    <li class="max-sm:text-sm">a. Psikolog: Surabaya, Kediri, Sidoarjo, Denpasar, Samarinda, Jakarta, Malang, dan Kalimantan Utara (Tarakan)</li>
-                    <li class="max-sm:text-sm">b. Peer Counselor: Bekasi, Jakarta, Tangerang Selatan, Padang, Wonogiri, dan Malang</li>
+                    <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
+                    <li class="max-sm:text-sm">b. Peer Counselor : Surabaya, Jombang, dan Nganjuk</li>
                 </ol>
             </div>
 
@@ -129,9 +129,9 @@
                         <img src="{{ asset('assets/images/landing/asset-konseling/vector/date.png') }}" class="absolute top-1/3 h-4 w-auto object-contain max-sm:hidden lg:right-5" onclick="document.getElementById('tanggal_lahir').focus()" />
                     </div>
                 </div>
-                {{-- Kota Domisili --}}
+                {{-- Tempat Lahir --}}
                 <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Kota Domisili</p>
+                    <p class="text-sm text-[#333333] sm:text-[17px]">Tempat Lahir</p>
                     <div class="relative">
                         <input name="tempat_lahir" type="text" class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none" placeholder="Surabaya" />
                     </div>
@@ -212,7 +212,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <h1 class="font text-gradient my-10 text-center text-3xl font-semibold max-sm:mx-2 max-sm:text-[29px]">Riwayat Pendidikan</h1>
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                 {{-- Pendidikan Terakhir --}}
@@ -260,11 +260,32 @@
         {{-- STEP 2: Cerita Konseling --}}
         <div id="step-2" class="step-section">
             <h1 class="max-sm:text-[29px] text-3xl font font-semibold text-center max-sm:mx-2 text-gradient my-6">Mari Cerita</h1>
-            <div class="flex flex-col space-y-1">
-                <p class="text-[#333333] sm:text-[17px] text-sm">Tuliskan Apa yang Ingin Anda Ceritakan</p>
-                <div class="relative">
-                    <textarea name="cerita" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 pt-3 h-96 cursor-pointer focus:ring-[#3986A3] text-start resize-none" placeholder="Tidak ada minimum/batas jumlah kata"></textarea>
+            <div class="flex flex-col">
+                <div class="mb-10">
+                    <p class="text-[#333333] sm:text-[17px] text-sm mb-3">Tuliskan Apa yang Ingin Anda Ceritakan</p>
+                    <div class="relative">
+                        <textarea name="cerita_utama" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 pt-3 h-36 cursor-pointer focus:ring-[#3986A3] text-start resize-none" placeholder="Tidak ada minimum/batas jumlah kata"></textarea>
+                    </div>
                 </div>
+                <div class="mb-10">
+                    <p class="text-[#333333] sm:text-[17px] text-sm mb-3">Tuliskan informasi tambahan mengenai kondisi yang anda alami yang sekiranya dapat membantu <span class="italic">Peer Counselor</span> untuk lebih memahami anda</p>
+                    <div class="relative">
+                        <textarea name="cerita_tambahan" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 pt-3 h-36 cursor-pointer focus:ring-[#3986A3] text-start resize-none" placeholder="Tidak ada minimum/batas jumlah kata"></textarea>
+                    </div>
+                </div>
+                <div class="mb-10">
+                    <p class="text-[#333333] sm:text-[17px] text-sm mb-3">Apa yang mendorong anda untuk mencari dukungan dari <span class="italic">Peer Counselor</span></p>
+                    <div class="relative">
+                        <textarea name="alasan_konseling" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 pt-3 h-36 cursor-pointer focus:ring-[#3986A3] text-start resize-none" placeholder="Tidak ada minimum/batas jumlah kata"></textarea>
+                    </div>
+                </div>
+                <div class="mb-10">
+                    <p class="text-[#333333] sm:text-[17px] text-sm mb-3">Harapan yang diinginkan setelah melakukan konseling</p>
+                    <div class="relative">
+                        <textarea name="harapan_konseling" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 pt-3 h-36 cursor-pointer focus:ring-[#3986A3] text-start resize-none" placeholder="Tidak ada minimum/batas jumlah kata"></textarea>
+                    </div>
+                </div>
+
             </div>
             <div class="flex justify-center items-center pt-10">
                 <div class="w-full flex justify-center">
@@ -299,11 +320,11 @@
             el.classList.remove('active');
         });
         document.getElementById('step-' + step).classList.add('active');
-        
+
         // Show/hide appropriate headers
         document.getElementById('step-1-header').style.display = step === 1 ? 'flex' : 'none';
         document.getElementById('step-2-header').style.display = step === 2 ? 'flex' : 'none';
-        
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -356,9 +377,18 @@
     }
 
     function validateStep2() {
-        const cerita = document.querySelector('[name="cerita"]');
-        if (!cerita || cerita.value.trim() === '') {
-            return '"' + getFieldLabel('cerita') + '" belum diisi :(';
+        const requiredFields = [
+            'cerita_utama',
+            'cerita_tambahan',
+            'alasan_konseling',
+            'harapan_konseling'
+        ];
+
+        for (let fieldName of requiredFields) {
+            const field = document.querySelector(`[name="${fieldName}"]`);
+            if (!field || field.value.trim() === ''){
+                return '"' + getFieldLabel(fieldName) + '" belum diisi : (';
+            }
         }
         return null;
     }
@@ -386,14 +416,14 @@
         showStep(step);
     }
 
-    function prevStep(step) { 
-        showStep(step); 
+    function prevStep(step) {
+        showStep(step);
     }
 
     // Validasi pengiriman formulir
     document.getElementById('multiStepForm').addEventListener('submit', function(event) {
         event.preventDefault();
-        
+
         const errorMessage = validateStep2();
         if (errorMessage) {
             Swal.fire({

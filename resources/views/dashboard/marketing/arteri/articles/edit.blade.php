@@ -1,229 +1,207 @@
-@extends('dashboard.layouts.app', [
-    'title' => 'Dashboard Arteri', 
-])
+@extends(
+    "dashboard.layouts.app",
+    [
+        "title" => "Dashboard Arteri",
+    ]
+)
 
-@section('content')
-    <form action="{{ route('dashboard.arteri.articles.update', $article->id) }}" enctype="multipart/form-data" method="POST">
+@section("content")
+    <form action="{{ route("dashboard.arteri.articles.update", $article->id) }}" enctype="multipart/form-data" method="POST">
         @csrf
-        @method('PUT')
-        <section class="flex w-full h-full">
-            <div class="flex flex-col w-full h-full">
-                <div class="py-4 md:pt-12 md:pb-7">
-                    <div class="flex flex-col">
-                        <p class="font-bold text-red-700">( Fitur save tidak ada, sebaiknya jangan pindah halaman saat
-                            perubahan berlangsung ! )</p>
-                        <div class="flex items-center justify-between pt-2">
-                            <p class="text-4xl font-bold">Edit Artikel</p>
-                            <a>
-                                <button type="submit"
-                                    class="focus:ring-2 focus:ring-offset-2  mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded-lg">
-                                    <p class=" font-medium leading-none text-dark">Update</p>
-                                </button>
+        @method("PUT")
+        <section class="flex h-full w-full">
+            <div class="flex h-full w-full flex-col">
+                <div class="py-4 md:pb-7 md:pt-12">
+                    <div class="">
+                        <div class="mb-2 flex items-center gap-2">
+                            <a href="{{ route("dashboard.arteri.articles.index") }}">
+                                <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
                             </a>
+                            <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Edit Artikel</p>
                         </div>
+                        <p class="w-3/4 text-disabled">Fitur ini digunakan untuk edit data Artikel seperti Judul, Penulis, Kategori, Tautan, dan Sampul Artikel.</p>
                     </div>
                 </div>
-                <div class="grid-cols-2 grid gap-10 w-full" style="color: #9B9B9B">
-                    <div class="flex flex-col gap-2 w-full">
-                        <p>Judul</p>
-                        <input
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="nama_judul" type="text" name="title" value="{{ $article->title }}" required>
-                    </div>
-                    <div class="flex flex-col gap-2 w-full">
-                        <p>Penulis</p>
-                        <div class="relative">
-                            <select
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="nama_penulis" name="author_id" required>
-                                @foreach ($authors as $author)
-                                    <option value="{{ $author->id }}"
-                                        {{ $article->author_id == $author->id ? 'selected' : '' }}>
-                                        {{ $author->name_author }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            <div class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                <i class='bx bx-chevron-down'></i>
+                <div class="max-h-[74vh] overflow-y-auto rounded-lg border bg-white p-6 shadow-sm">
+                    <div class="mb-6">
+                        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                            <!-- Judul -->
+                            <div>
+                                <label for="title" class="mb-2 block text-lg font-semibold leading-6 text-gray-500">Judul</label>
+                                <input type="text" name="title" id="title" class="block w-full rounded-lg border border-gray-300 px-4 py-3 text-base text-black shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-primary" placeholder="Masukkan Judul" value="{{ old("title", $article->title) }}" required />
+                            </div>
+                            <!-- Penulis -->
+                            <div>
+                                <label for="author_id" class="mb-2 block text-lg font-semibold leading-6 text-gray-500">Penulis</label>
+                                <select id="author_id" name="author_id" required class="block w-full rounded-lg border border-gray-300 px-4 py-3 text-base text-black shadow-sm focus:ring-2 focus:ring-primary">
+                                    <option value="" disabled>Pilih Penulis</option>
+                                    @foreach ($authors as $author)
+                                        <option value="{{ $author->id }}" {{ $article->author_id == $author->id ? "selected" : "" }}>
+                                            {{ $author->name_author }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+                            <!-- Unggah Sampul -->
+                            <div class="row-span-2">
+                                <label for="cover_image" class="mb-2 block text-lg font-semibold leading-6 text-gray-500">Unggah Sampul</label>
+                                <label for="file-upload" class="relative flex h-40 w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg border border-gray-300 bg-gray-50 transition-colors duration-200 hover:bg-gray-100">
+                                    @if ($article->cover_image)
+                                        <img id="image-preview" class="radius-1" src="{{ asset("/image/" . $article->cover_image) }}" alt="Sampul" class="absolute h-full w-full object-cover p-1" />
+                                    @else
+                                        <svg id="upload-icon" class="mb-2 h-12 w-12 text-gray-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v-1.75a2.75 2.75 0 012.75-2.75h3.75A2.75 2.75 0 0112 12.75v1.75h-4.5a1.25 1.25 0 000 2.5h4.5v1.75a2.75 2.75 0 01-2.75 2.75H5.75A2.75 2.75 0 013 19.25v-1.75zm18 1.75v-1.75a2.75 2.75 0 00-2.75-2.75h-3.75A2.75 2.75 0 0012 16.5v1.75h4.5a1.25 1.25 0 010 2.5H12v1.75a2.75 2.75 0 002.75 2.75h3.75A2.75 2.75 0 0021 22.25v-1.75z" />
+                                        </svg>
+                                    @endif
+                                    <input id="file-upload" name="cover_image" type="file" class="hidden" accept="image/*" onchange="showFilename()" />
+                                </label>
+                            </div>
+                            <div>
+                                <label for="category_id" class="mb-2 block text-lg font-semibold leading-6 text-gray-500">Kategori</label>
+                                <select id="category_id" name="category_id" required class="block w-full rounded-lg border border-gray-300 px-4 py-3 text-base text-black shadow-sm focus:ring-2 focus:ring-primary">
+                                    <option value="" disabled>Pilih Kategori</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}" {{ $article->category_id == $category->id ? "selected" : "" }}>
+                                            {{ $category->name_category }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div>
+                                <label for="url" class="mb-2 block text-lg font-semibold leading-6 text-gray-500">Tautan</label>
+                                <input type="text" name="url" id="url" class="block w-full rounded-lg border border-gray-300 px-4 py-3 text-base text-black shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-primary" placeholder="Url Artikel" value="{{ old("url", $article->url) }}" />
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-col gap-2 w-full" style="color: #9B9B9B">
-                        <p>Sampul</p>
-                        <label for="file-upload"
-                            class="flex flex-col items-center justify-center w-full h-48 rounded border-2 border-gray-300 bg-white cursor-pointer hover:bg-gray-100 transition-colors duration-200"
-                            style="height: 300px">
-                            <div id="iconText" class="p-3 bg-gray-100 rounded-full">
-                                <div class="p-4 bg-gray-200 rounded-full">
-                                    <i class="bx bx-upload text-gray-500 text-4xl"></i>
-                                </div>
-                            </div>
-                            <span id="uploadText" class="font-semibold text-gray-500">
-                                Unggah sampul ukuran 16:9
-                            </span>
-                            <img id="image-preview" class="hidden w-full h-full object-contain rounded" />
-                            <input id="file-upload" name="cover_image" type="file" class="hidden" accept="image/*"
-                                onchange="showFilename()" />
-                        </label>
-                        @if ($article->cover_image)
-                            <p class="mt-2 text-sm text-gray-500">Sampul saat ini: <a
-                                    href="{{ asset('/image/' . $article->cover_image) }}" target="_blank"
-                                    class="text-primary underline">Lihat Sampul</a></p>
-                        @endif
+                    <div class="mt-6">
+                        <textarea id="my-editor" name="content" rows="10" cols="80">{{ old("content", $article->content) }}</textarea>
                     </div>
-                    <div class="flex flex-col gap-2 w-full">
-                        <p>Kategori</p>
-                        <div class="relative">
-                            <select
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="nama_kategori" name="category_id" required>
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}"
-                                        {{ $article->category_id == $category->id ? 'selected' : '' }}>
-                                        {{ $category->name_category }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            <div class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                <i class='bx bx-chevron-down'></i>
-                            </div>
-                        </div>
+                    <div class="bottom-0 mt-6 flex justify-end bg-white pb-2 pt-4">
+                        <button type="submit" name="submit" class="inline-flex rounded bg-primary px-6 py-3 hover:bg-primary focus:outline-none">
+                            <p class="text-base font-semibold leading-none text-white">Update</p>
+                        </button>
                     </div>
-                </div>
-                <div class="py-10">
-                    <textarea id="my-editor" name="content" rows="10" cols="80">
-                        {{ $article->content }}
-            </textarea>
                 </div>
             </div>
         </section>
+
         <!-- Modal untuk memasukkan URL Google Drive -->
-        <div id="gdrive-modal" class="hidden fixed inset-0 z-50 bg-black bg-opacity-50">
-            <div class="flex items-center justify-center min-h-screen">
-                <div class="bg-white rounded-lg shadow-lg w-96 p-6">
-                    <h2 class="text-lg font-semibold mb-4 text-gray-800">Masukkan URL Google Drive</h2>
-                    <input id="gdrive-url" type="text" placeholder="Masukkan URL Google Drive"
-                        class="w-full border border-gray-300 rounded-lg p-2 mb-4 focus:outline-none focus:ring-2 focus:ring-primary">
-                    <div id="gdrive-error" class="hidden text-red-500 text-sm mb-4"></div>
+        <div id="gdrive-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50">
+            <div class="flex min-h-screen items-center justify-center">
+                <div class="w-96 rounded-lg bg-white p-6 shadow-lg">
+                    <h2 class="mb-4 text-lg font-semibold text-gray-800">Masukkan URL Google Drive</h2>
+                    <input id="gdrive-url" type="text" placeholder="Masukkan URL Google Drive" class="mb-4 w-full rounded-lg border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-primary" />
+                    <div id="gdrive-error" class="mb-4 hidden text-sm text-red-500"></div>
                     <div class="flex justify-end gap-2">
-                        <button id="gdrive-cancel" type="button"
-                                class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 focus:outline-none">
-                            Batal
-                        </button>
-                        <button id="gdrive-insert" type="button"
-                                class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark focus:outline-none">
-                            Tambahkan
-                        </button>
+                        <button id="gdrive-cancel" type="button" class="rounded-lg bg-gray-300 px-4 py-2 text-gray-700 hover:bg-gray-400 focus:outline-none">Batal</button>
+                        <button id="gdrive-insert" type="button" class="hover:bg-primary-dark rounded-lg bg-primary px-4 py-2 text-white focus:outline-none">Tambahkan</button>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-        @include('dashboard.marketing.arteri.articles.warning')
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.tiny.cloud/1/uy9sjhjaxq12cc39rm7y0870rohtequenkkgp68a67aweqr3/tinymce/6/tinymce.min.js"
-            referrerpolicy="origin"></script>
+    @include("dashboard.marketing.arteri.articles.warning")
 
-        <script>
-            $(document).ready(function() {
-                tinymce.init({
-                selector: '#my-editor',
-                height: 500,
-                plugins: 'lists link image table code help wordcount fontselect fontsizeselect',
-                toolbar: 'undo redo | formatselect | ' +
-                    'fontselect fontsizeselect | ' +
-                    'bold italic underline | forecolor backcolor | ' +
-                    'alignleft aligncenter alignright alignjustify | ' +
-                    'bullist numlist outdent indent | ' +
-                    'image gdrive link table | ' +
-                    'removeformat | help',
-                font_size_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt 48pt 72pt',
-                // Custom google drive image 
-                setup: function (editor) {
-                    editor.ui.registry.addButton('gdrive', {
-                        text: 'GDrive Image',
-                        tooltip: 'Insert Google Drive Image',
-                        onAction: function () {
-                            // Tampilkan modal
-                            const modal = document.getElementById('gdrive-modal');
-                            const input = document.getElementById('gdrive-url');
-                            const errorContainer = document.getElementById('gdrive-error');
-                            const cancelButton = document.getElementById('gdrive-cancel');
-                            const insertButton = document.getElementById('gdrive-insert');
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/uy9sjhjaxq12cc39rm7y0870rohtequenkkgp68a67aweqr3/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#my-editor',
+            height: 500,
+            plugins: 'lists link image table code help wordcount fontselect fontsizeselect',
+            toolbar: 'undo redo | formatselect | ' + 'fontselect fontsizeselect | ' + 'bold italic underline | forecolor backcolor | ' + 'alignleft aligncenter alignright alignjustify | ' + 'bullist numlist outdent indent | ' + 'image gdrive link table | ' + 'removeformat | help',
+            font_size_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt 48pt 72pt',
+            // Custom google drive image
+            setup: function (editor) {
+                editor.ui.registry.addButton('gdrive', {
+                    text: 'GDrive Image',
+                    tooltip: 'Insert Google Drive Image',
+                    onAction: function () {
+                        // Tampilkan modal
+                        const modal = document.getElementById('gdrive-modal');
+                        const input = document.getElementById('gdrive-url');
+                        const errorContainer = document.getElementById('gdrive-error');
+                        const cancelButton = document.getElementById('gdrive-cancel');
+                        const insertButton = document.getElementById('gdrive-insert');
 
-                            modal.classList.remove('hidden'); // Tampilkan modal
-                            input.value = ''; // Reset input
-                            errorContainer.classList.add('hidden'); // Sembunyikan pesan kesalahan
+                        modal.classList.remove('hidden'); // Tampilkan modal
+                        input.value = ''; // Reset input
+                        errorContainer.classList.add('hidden'); // Sembunyikan pesan kesalahan
 
-                            // Tombol batal
-                            cancelButton.onclick = function () {
-                                modal.classList.add('hidden'); // Sembunyikan modal
-                            };
+                        // Tombol batal
+                        cancelButton.onclick = function () {
+                            modal.classList.add('hidden'); // Sembunyikan modal
+                        };
 
-                            // Tombol tambahkan
-                            insertButton.onclick = function () {
-                                const driveUrl = input.value.trim();
-                                if (!driveUrl) {
-                                    // Tampilkan pesan kesalahan jika URL kosong
-                                    errorContainer.textContent = "URL tidak boleh kosong.";
-                                    errorContainer.classList.remove('hidden');
-                                    return;
-                                }
+                        // Tombol tambahkan
+                        insertButton.onclick = function () {
+                            const driveUrl = input.value.trim();
+                            if (!driveUrl) {
+                                // Tampilkan pesan kesalahan jika URL kosong
+                                errorContainer.textContent = 'URL tidak boleh kosong.';
+                                errorContainer.classList.remove('hidden');
+                                return;
+                            }
 
-                                // Ekstrak fileId dari URL Google Drive
-                                let fileId = '';
-                                if (driveUrl.includes('/file/d/')) {
-                                    fileId = driveUrl.split('/file/d/')[1].split('/')[0];
-                                } else if (driveUrl.includes('id=')) {
-                                    fileId = driveUrl.split('id=')[1].split('&')[0];
-                                } else if (driveUrl.match(/[-\w]{25,}/)) {
-                                    fileId = driveUrl.match(/[-\w]{25,}/)[0];
-                                }
+                            // Ekstrak fileId dari URL Google Drive
+                            let fileId = '';
+                            if (driveUrl.includes('/file/d/')) {
+                                fileId = driveUrl.split('/file/d/')[1].split('/')[0];
+                            } else if (driveUrl.includes('id=')) {
+                                fileId = driveUrl.split('id=')[1].split('&')[0];
+                            } else if (driveUrl.match(/[-\w]{25,}/)) {
+                                fileId = driveUrl.match(/[-\w]{25,}/)[0];
+                            }
 
-                                if (fileId) {
-                                    const directUrl = 'https://lh3.googleusercontent.com/d/' + fileId + '?t=' + new Date().getTime();
-                                    editor.insertContent('<img src="' + directUrl + '" alt="Google Drive Image" />');
-                                    modal.classList.add('hidden'); 
-                                } else {
-                                    // Tampilkan pesan kesalahan jika format URL tidak valid
-                                    errorContainer.textContent = "Format URL Google Drive tidak valid.";
-                                    errorContainer.classList.remove('hidden');
-                                }
-                            };
-                        }
-                    });
+                            if (fileId) {
+                                const directUrl = 'https://lh3.googleusercontent.com/d/' + fileId + '?t=' + new Date().getTime();
+                                editor.insertContent('<img src="' + directUrl + '" alt="Google Drive Image" />');
+                                modal.classList.add('hidden');
+                            } else {
+                                // Tampilkan pesan kesalahan jika format URL tidak valid
+                                errorContainer.textContent = 'Format URL Google Drive tidak valid.';
+                                errorContainer.classList.remove('hidden');
+                            }
+                        };
+                    },
+                });
+            },
+        });
+
+        function showFilename() {
+            const input = document.getElementById('file-upload');
+            const uploadText = document.getElementById('uploadText');
+            const uploadIcon = document.getElementById('upload-icon');
+            const imagePreview = document.getElementById('image-preview');
+            const label = input.closest('label');
+
+            if (input.files && input.files.length > 0) {
+                // Create image preview if it doesn't exist
+                if (!imagePreview) {
+                    const img = document.createElement('img');
+                    img.id = 'image-preview';
+                    img.className = 'absolute h-full w-full object-cover p-1';
+                    label.insertBefore(img, label.firstChild);
                 }
-            });
 
-            });
+                // Update the preview
+                const preview = document.getElementById('image-preview');
+                preview.src = URL.createObjectURL(input.files[0]);
+                preview.classList.remove('hidden');
 
-            function showFilename() {
-                const input = document.getElementById('file-upload');
-                const uploadText = document.getElementById('uploadText');
-                const iconText = document.getElementById('iconText');
-                const imagePreview = document.getElementById('image-preview');
-                const filenameDisplay = document.getElementById('filename-display');
-
-                if (input.files && input.files.length > 0) {
-                    // Hide the icon and text
-                    iconText.classList.add('hidden');
-                    uploadText.classList.add('hidden');
-
-                    // Show the image preview
-                    imagePreview.classList.remove('hidden');
-                    imagePreview.src = URL.createObjectURL(input.files[0]);
-
-                    // Show and update the filename display
-                    filenameDisplay.textContent = input.files[0].name;
-                    filenameDisplay.classList.remove('hidden');
-                } else {
-                    // Reset to initial state
-                    iconText.classList.remove('hidden');
-                    uploadText.classList.remove('hidden');
+                // Hide upload icon and update text
+                if (uploadIcon) uploadIcon.classList.add('hidden');
+                uploadText.textContent = input.files[0].name;
+                uploadText.classList.add('bg-white/80', 'px-2', 'rounded');
+            } else {
+                if (imagePreview) {
+                    imagePreview.src = '';
                     imagePreview.classList.add('hidden');
-                    filenameDisplay.classList.add('hidden');
-                    uploadText.textContent = "Unggah sampul ukuran 16:9";
                 }
+                if (uploadIcon) uploadIcon.classList.remove('hidden');
             }
-        </script>
-    @endsection
+        }
+    </script>
+@endsection

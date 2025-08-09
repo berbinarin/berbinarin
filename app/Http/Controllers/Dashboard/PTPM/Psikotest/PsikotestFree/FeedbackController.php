@@ -10,17 +10,9 @@ use Illuminate\Http\Request;
 class FeedbackController extends Controller
 {
     // Menampilkan formulir untuk mengisi feedback
-    public function show($test_id, $user_id)
+    public function show()
     {
-        // Verifikasi session untuk test_id
-        if (!session()->has('test_id') || session('test_id') != $test_id) {
-            return redirect()->route('test.index');
-        }
-
-        // Ambil data user berdasarkan `user_id`
-        $user = UserPsikotest::findOrFail($user_id);
-
-        return view('moduls.psikotes.feedback', compact('test_id', 'user_id', 'user'));
+        return view('moduls.psikotes.feedback');
     }
 
     // Menyimpan feedback ke dalam database dan mengarahkan ke halaman hasil

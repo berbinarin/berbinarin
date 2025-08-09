@@ -90,7 +90,7 @@
                         <input required type="text" id="tanggal_lahir" name="tanggal_lahir" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" readonly/>
                     </div>
                     <div>
-                        <label class="font-semibold">Kota Domisili</label>
+                        <label class="font-semibold">Tempat Lahir</label>
                         <input required type="text" name="tempat_lahir" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="Masukkan Tempat Lahir" />
                     </div>
                     <div>
@@ -185,6 +185,19 @@
         </div>
     </div>
 </section>
+<!-- Modal Konfirmasi -->
+    <div id="confirmModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black bg-opacity-50">
+        <div class="w-full max-w-md rounded-lg bg-white p-6 text-center">
+            <div class="mb-4 flex justify-center">
+                <img src="{{ asset("assets/images/dashboard/svg-icon/warning.svg") }}" alt="Warning Icon" class="h-12 w-12" />
+            </div>
+            <p class="mb-6 text-lg">Apakah Anda yakin ingin membatalkan penambahan data ini?</p>
+            <div class="flex justify-center gap-4">
+                <button id="confirmCancel" class="rounded-lg bg-[#3986A3] px-6 py-2 text-white">OK</button>
+                <button id="cancelCancel" class="rounded-lg border border-[#3986A3] px-6 py-2 text-[#3986A3]">Cancel</button>
+            </div>
+        </div>
+    </div>
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
@@ -284,6 +297,24 @@
             allowInput: true,
         });
 
+        const cancelButton = document.getElementById('cancelButton');
+        const confirmModal = document.getElementById('confirmModal');
+        const confirmCancel = document.getElementById('confirmCancel');
+        const cancelCancel = document.getElementById('cancelCancel');
+
+            cancelButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                confirmModal.classList.remove('hidden');
+            });
+
+            confirmCancel.addEventListener('click', function() {
+                window.location.href = "{{ route('dashboard.peer-counselors.index') }}";
+            });
+
+            cancelCancel.addEventListener('click', function() {
+                confirmModal.classList.add('hidden');
+            });
+
         // Show/hide daerah
         document.getElementById('metode-select').addEventListener('change', function() {
             const daerahContainer = document.getElementById('daerah-container');
@@ -301,11 +332,6 @@
         document.getElementById('waktu-konseling').addEventListener('change', updateHarga);
         document.getElementById('sesi-select').addEventListener('change', updateHarga);
 
-        document.getElementById('cancelButton').addEventListener('click', function() {
-            if (confirm('Apakah Anda yakin ingin membatalkan penambahan data ini?')) {
-                window.location.href = "{{ route('dashboard.peer-counselors.index') }}";
-            }
-        });
     });
 </script>
 @endsection

@@ -178,14 +178,14 @@ class CounselingController extends Controller
                 'region' => 'Surabaya'
             ],
             [
-                'name' => 'Melisa Nur Amelia',
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/melisa.png',
-                'region' => 'Jombang'
-            ],
-            [
                 'name' => "Rizka Arista Sabilla ",
                 'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/rizka.png',
                 'region' => 'Nganjuk'
+            ],
+            [
+                'name' => 'Melisa Nur Amelia',
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/melisa.png',
+                'region' => 'Jombang'
             ]
         ];
 
@@ -492,8 +492,11 @@ class CounselingController extends Controller
             'asal_sekolah' => 'required',
             'riwayat_pekerjaan' => 'required',
             'kegiatan_sosial' => 'required',
-            'cerita' => 'required',
-            'kategori' => 'required'
+            'kategori' => 'required',
+            'cerita_utama' => 'required',
+            'cerita_tambahan' => 'required',
+            'alasan_konseling' => 'required',
+            'harapan_konseling' => 'required',
         ]);
 
         try {
@@ -502,17 +505,6 @@ class CounselingController extends Controller
 
             $data = $request->all();
             $data['tanggal_lahir'] = $tanggalLahir ? $tanggalLahir->format('Y-m-d') : null;
-
-            // Cek duplikasi berdasarkan email dan tanggal lahir
-            $existing = BerbinarForU::where('email', $data['email'])
-                ->where('tanggal_lahir', $data['tanggal_lahir'])
-                ->first();
-
-            if ($existing) {
-                return redirect()->back()
-                    ->with('error', 'Data sudah pernah didaftarkan. Silakan cek email Anda atau gunakan data lain.')
-                    ->withInput();
-            }
 
             BerbinarForU::create($data);
 
