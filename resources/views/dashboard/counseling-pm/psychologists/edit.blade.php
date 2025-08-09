@@ -239,7 +239,7 @@
         });
 
         confirmCancel.addEventListener('click', function() {
-            window.location.href = "{{ route('dashboard.psychologists.index') }}";
+            window.location.href = "{{ route('dashboard.psychologists.show',$PsikologDataDetails->id) }}";
         });
 
         cancelCancel.addEventListener('click', function() {

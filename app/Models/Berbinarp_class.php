@@ -9,4 +9,9 @@ class Berbinarp_class extends Model
 {
     protected $table = 'berbinarp_class';
     protected $fillable = ['title', 'description', 'price', 'thumbnail'];
+
+    public function enrollments()
+    {
+        return $this->hasMany(Berbinarp_enrollments::class, 'class_id');
+    }
 }

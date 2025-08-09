@@ -190,50 +190,43 @@ class BerbinarPlusController extends Controller
             'age' => 'required|integer',
             'wa_number' => 'required',
             'last_education' => 'required',
-            'kelas' => 'required', 
+            'kelas' => 'required',
             'paket-layanan' => 'required',
             'bukti_transfer' => 'required',
             'knowing_source' => 'required',
         ]);
 
-        try {
-            $user = Berbinarp_user::create([
-                'email' => $request->email,
-                'password' => Hash::make('abcdefgh123'),
-                'first_name' => $request->first_name,
-                'last_name' => $request->last_name,
-                'gender' => $request->gender,
-                'age' => $request->age,
-                'wa_number' => $request->wa_number,
-                'last_education' => $request->last_education,
-                'knowing_source' => $request->knowing_source,
-            ]);
+        $user = Berbinarp_user::create([
+            'email' => $request->email,
+            'password' => Hash::make('abcdefgh123'),
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'gender' => $request->gender,
+            'age' => $request->age,
+            'wa_number' => $request->wa_number,
+            'last_education' => $request->last_education,
+            'knowing_source' => $request->knowing_source,
+        ]);
 
-            $buktiPath = null;
-            if ($request->hasFile('bukti_transfer')) {
-                $buktiPath = $request->file('bukti_transfer')->store('bukti_transfer', 'public');
-            }
-
-            $enrollmentDate = now()->toDateString();
-            $expiredDate = now()->addDays(30)->toDateString();
-
-            Berbinarp_enrollments::create([
-                'user_id' => $user->id,
-                'class_id' => $request->kelas, // langsung ID dari select
-                'class_progress' => 1, // atau sesuai kebutuhan
-                'service_package' => $request->input('paket-layanan'),
-                'transfer_evidance' => $buktiPath,
-                'enrollment_date' => $enrollmentDate,
-                'expired_date' => $expiredDate,
-                'completed_date' => null,
-            ]);
-            
-
-            Alert::toast('Formulir Pendaftaran Berhasil', 'success')->autoClose(5000);
-            return response()->json(['redirect' => route('product.class.berbinar-plus.success')]);
-        } catch (\Exception $e) {
-            Alert::toast('Terjadi kesalahan saat menyimpan data: ' . $e->getMessage(), 'error')->autoClose(5000);
-            return redirect()->back();
+        $buktiPath = null;
+        if ($request->hasFile('bukti_transfer')) {
+            $buktiPath = $request->file('bukti_transfer')->store('bukti_transfer', 'public');
         }
+
+        $enrollmentDate = now()->toDateString();
+        $expiredDate = now()->addDays(30)->toDateString();
+
+        Berbinarp_enrollments::create([
+            'user_id' => $user->id,
+            'class_id' => $request->kelas,
+            'class_progress' => 1,
+            'service_package' => $request->input('paket-layanan'),
+            'transfer_evidance' => $buktiPath,
+            'enrollment_date' => $enrollmentDate,
+            'expired_date' => $expiredDate,
+            'completed_date' => null,
+        ]);
+
+        return response()->json(['redirect' => route('product.class.berbinar-plus.success')]);
     }
 }

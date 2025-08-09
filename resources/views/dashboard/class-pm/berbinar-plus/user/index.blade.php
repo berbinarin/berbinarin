@@ -16,7 +16,7 @@
           <p class="w-full text-[#333333] lg:text-lg">
             Halaman ini menampilkan data lengkap peserta yang telah mendaftar ke program Berbinar+, termasuk informasi pribadi, kelas yang diikuti, dan paket layanan yang dipilih.
         </p>
-        <a href="{{ route("dashboard.berbinar-plus-users.create") }}" class="mt-8 inline-flex items-start justify-start rounded-lg bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
+        <a href="{{ route("dashboard.berbinar-plus.create") }}" class="mt-8 inline-flex items-start justify-start rounded-lg bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
             <p class="text-dark font-medium leading-none">Tambah Data</p>
         </a>
     </div>
@@ -42,36 +42,30 @@
                                     <td class="whitespace-no-wrap text-center sticky-col sticky-col-1 px-6 py-4">
                                         {{ $index + 1 }}
                                     </td>
-
                                     <td class="whitespace-no-wrap sticky-col sticky-col-2 px-6 py-4">
-                                        Morgan Vero
+                                        {{ $user->first_name }} {{ $user->last_name }}
                                     </td>
-
                                     <td class="whitespace-no-wrap text-center px-6 py-4">
-                                        2025-07-07
+                                        {{ $user->created_at ? $user->created_at->format('d-m-Y') : '-' }}
                                     </td>
-
                                     <td class="whitespace-no-wrap text-center px-6 py-4">
-                                        Morgan@gmail.com
+                                        {{ $user->email }}
                                     </td>
-
                                     <td class="whitespace-no-wrap text-center px-6 py-4">
-                                        Product Manager
+                                        {{ $user->enrollment && $user->enrollment->class ? $user->enrollment->class->title : '-' }}
                                     </td>
-
                                     <td class="whitespace-no-wrap flex items-center justify-center gap-2 px-6 py-4">
                                         <!-- Tombol Detail -->
-                                        <a href="{{ route("dashboard.berbinar-plus-users.show") }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #3b82f6">
+                                        <a href="{{ route('dashboard.berbinar-plus.show', $user->id) }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #3b82f6">
                                             <i class="bx bx-show text-white"></i>
                                         </a>
-
                                         <!-- Tombol Edit -->
-                                        <a href="{{ route("dashboard.berbinar-plus.index") }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #e9b306">
+                                        <a href="{{ route('dashboard.berbinar-plus.edit', $user->id) }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #e9b306">
                                             <i class="bx bx-edit-alt text-black"></i>
                                         </a>
-
+                                       
                                         <!-- Tombol Hapus -->
-                                        <button type="button" onclick="" class="inline-flex items-start justify-start rounded p-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #ef4444">
+                                        <button type="button" onclick="openDeleteModal({{ $user->id }})" class="inline-flex items-start justify-start rounded p-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #ef4444">
                                             <i class="bx bx-trash-alt text-white"></i>
                                         </button>
                                     </td>
@@ -85,33 +79,20 @@
     </section>
 
     <!-- Modal Konfirmasi Hapus -->
-    <div id="deleteModal" class="fixed inset-0 z-10 hidden overflow-y-auto">
-        <div class="flex min-h-screen items-center justify-center px-4 text-center">
-            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-            <div class="transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:w-full sm:max-w-lg">
-                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                    <div class="sm:flex sm:items-start">
-                        <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                            <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
-                            </svg>
-                        </div>
-                        <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                            <h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title">Konfirmasi Hapus</h3>
-                            <div class="mt-2">
-                                <p class="text-sm text-gray-500">Apakah Anda yakin ingin menghapus divisi ini? Semua sub divisi terkait juga akan dihapus.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                    <form id="deleteForm" method="POST">
-                        @csrf
-                        @method("DELETE")
-                        <button type="submit" class="inline-flex w-full justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">Hapus</button>
-                    </form>
-                    <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:w-auto sm:text-sm" onclick="closeDeleteModal()">Batal</button>
-                </div>
+    <div id="deleteModal" class="fixed inset-0 z-10 hidden items-center justify-center bg-black bg-opacity-50 flex">
+        <div class="w-full max-w-md rounded-lg bg-white p-6 text-center">
+            <div class="mb-4 flex justify-center">
+                <img src="{{ asset('assets/images/dashboard/svg-icon/warning.svg') }}" alt="Warning Icon" class="h-12 w-12" />
+            </div>
+            <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900" id="modal-title">Konfirmasi Hapus</h3>
+            <p class="mb-6 text-base text-gray-500">Apakah Anda yakin ingin menghapus user ini? Semua data terkait juga akan dihapus.</p>
+            <div class="flex w-full justify-center gap-4">
+                <form id="deleteForm" method="POST" class="w-1/2">
+                    @csrf
+                    @method("DELETE")
+                    <button type="submit" class="rounded-lg bg-[#3986A3] w-full px-6 py-2 text-white text-center focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2">Hapus</button>
+                </form>
+                <button type="button" class="rounded-lg border border-[#3986A3] w-1/2 px-6 py-2 text-[#3986A3]" onclick="closeDeleteModal()">Batal</button>
             </div>
         </div>
     </div>
@@ -128,16 +109,16 @@
 
 
     <script>
-        let deleteModal = document.getElementById('deleteModal');
-        let deleteForm = document.getElementById('deleteForm');
+    let deleteModal = document.getElementById('deleteModal');
+    let deleteForm = document.getElementById('deleteForm');
 
-        function openDeleteModal(divisionId) {
-            deleteForm.action = `/dashboard/divisions/${divisionId}`;
-            deleteModal.classList.remove('hidden');
-        }
+    function openDeleteModal(userId) {
+        deleteForm.action = `/dashboard/berbinar-plus/${userId}`;
+        deleteModal.classList.remove('hidden');
+    }
 
-        function closeDeleteModal() {
-            deleteModal.classList.add('hidden');
-        }
-    </script>
+    function closeDeleteModal() {
+        deleteModal.classList.add('hidden');
+    }
+</script>
 @endsection

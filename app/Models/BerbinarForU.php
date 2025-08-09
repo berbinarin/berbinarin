@@ -28,8 +28,11 @@ class BerbinarForU extends Model
         'asal_sekolah',
         'riwayat_pekerjaan',
         'kegiatan_sosial',
-        'cerita',
-        'kategori'
+        'kategori',
+        'cerita_utama',
+        'cerita_tambahan',
+        'alasan_konseling',
+        'harapan_konseling',
     ];
 
     public function userDetail()

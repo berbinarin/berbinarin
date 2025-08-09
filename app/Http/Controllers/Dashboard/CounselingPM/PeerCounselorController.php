@@ -82,7 +82,7 @@ class PeerCounselorController extends Controller
         $konselling->fill($validatedData);
         $konselling->save();
 
-        Alert::toast('New Peer Counselor Appointment Data Added', 'success')->autoClose(5000);
+        Alert::toast('Data Peer Counselor berhasil ditambahkan', 'success')->autoClose(5000);
         return redirect()->route('dashboard.peer-counselors.index');
     }
 
@@ -96,9 +96,27 @@ class PeerCounselorController extends Controller
     public function edit(Request $request, $id)
     {
         $PeerConsellorDataDetails = KonsellingPeer::findOrFail($id);
+
+        // Ambil hari konseling dari tanggal konseling untuk di ubah menjadi hari
+        $hariKonseling = date('l', strtotime($PeerConsellorDataDetails->jadwal_tanggal));
         $jadwalPeerCounselors = JadwalPeer::all();
+
+        // Ambil jadwal sesuai hari konseling dan format jam tanpa detik
+        $jadwalHariIni = JadwalPeer::where('hari', $hariKonseling)
+            ->get()
+            ->map(function ($jadwal) {
+                return [
+                    'id' => $jadwal->id,
+                    'waktu' => substr($jadwal->pukul_mulai, 0, 5) . ' - ' . substr($jadwal->pukul_selesai, 0, 5),
+                ];
+            });
+
         $konselling = $request->session()->get('konselling');
-        return view('dashboard.counseling-pm.peer-counselors.edit', ['PeerConsellorDataDetails' => $PeerConsellorDataDetails], compact('jadwalPeerCounselors', 'konselling'));
+
+        return view(
+            'dashboard.counseling-pm.peer-counselors.edit',
+            compact('PeerConsellorDataDetails', 'jadwalHariIni', 'jadwalPeerCounselors', 'konselling')
+        );
     }
 
     public function update(Request $request, $id)
@@ -156,14 +174,14 @@ class PeerCounselorController extends Controller
         $PeerConsellorDataDetails->fill($validatedData);
         $PeerConsellorDataDetails->save();
 
-        Alert::toast('A Peer Counselor Appointment Data Updated', 'success')->autoClose(5000);
+        Alert::toast('Data Peer Counselor berhasil diedit', 'success')->autoClose(5000);
         return redirect()->route('dashboard.peer-counselors.show', $id);
     }
 
     public function destroy($id)
     {
         KonsellingPeer::where('id', $id)->delete();
-        Alert::toast('A Peer Counselor Appointment Data Deleted', 'success')->autoClose(5000);
+        Alert::toast('Data Peer Counselor berhasil dihapus', 'success')->autoClose(5000);
         return redirect()->route('dashboard.peer-counselors.index');
     }
 }

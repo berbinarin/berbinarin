@@ -110,7 +110,7 @@
                                     <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->status_pernikahan }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-gray-300 px-4 py-2">Alamat</td>
+                                    <td class="border border-gray-300 px-4 py-2">Alamat Domisili</td>
                                     <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->alamat }}</td>
                                 </tr>
                                 <tr>
@@ -151,30 +151,27 @@
 
 <!-- Delete Confirmation Modal -->
 <div id="deleteModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black bg-opacity-50">
-    <div class="bg-white rounded-2xl shadow-xl max-w-md w-full mx-4">
+    <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4">
         <!-- Modal Header -->
         <div class="text-center p-6">
             <!-- Warning Icon -->
-            <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-red-100 mb-4">
-                <svg class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                </svg>
+            <div class="flex justify-center mb-4">
+                <img src="{{ asset('assets/images/dashboard/svg-icon/warning.svg') }}" alt="Warning Icon" class="h-12 w-12">
             </div>
             <!-- Title -->
             <h3 class="text-xl font-semibold text-gray-900 mb-2">Konfirmasi Hapus Data</h3>
             <!-- Message -->
             <p class="text-gray-600 mb-6">
-                Apakah Anda yakin ingin menghapus data peer counselor ini? 
-                <span class="block text-sm text-gray-500 mt-1">Data yang sudah dihapus tidak dapat dikembalikan.</span>
+                Apakah Anda yakin ingin menghapus data ini? 
             </p>
         </div>
         
         <!-- Modal Actions -->
         <div class="flex gap-3 px-6 pb-6">
-            <button id="cancelDelete" class="flex-1 px-4 py-3 text-gray-700 bg-white border-2 border-gray-300 rounded-xl hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 font-medium transition-colors">
+            <button id="cancelDelete" class="flex-1 px-4 py-3 text-gray-700 bg-white border-2 border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 font-medium transition-colors">
                 Batal
             </button>
-            <button id="confirmDelete" class="flex-1 px-4 py-3 text-white rounded-xl font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors" style="background-color: #3986A3;" onmouseover="this.style.backgroundColor='#2d6b7a'" onmouseout="this.style.backgroundColor='#3986A3'">
+            <button id="confirmDelete" class="flex-1 px-4 py-3 text-white rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors" style="background-color: #3986A3;" onmouseover="this.style.backgroundColor='#2d6b7a'" onmouseout="this.style.backgroundColor='#3986A3'">
                 Ya, Hapus!
             </button>
         </div>
