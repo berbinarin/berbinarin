@@ -6,7 +6,7 @@
 )
 
 @section("content")
-    <div class="mb-[86px] mt-16 flex min-h-screen flex-col items-center justify-center gap-10 px-4 py-10 text-center md:mt-12">
+    <div class="mt-16 flex min-h-[calc(100vh-200px)] flex-col items-center justify-center gap-10 px-4 py-10 text-center md:mt-12">
         <!-- Judul -->
         <h1 class="font-plusJakartaSans text-[24px] font-bold text-[#333333] md:text-4xl">
             Tingkatkan Potensi dengan
@@ -53,7 +53,7 @@
   <button
     class="w-[320px] md:w-auto rounded-xl bg-gradient-to-r from-[#F7B23B] to-[#916823] px-5 py-3 font-plusJakartaSans text-lg font-semibold text-white md:text-2xl"
   >
-    Ikuti Tes Kepribadian Gratis
+    Ikuti Tes Kepribadian Grati
   </button>
 </div>
 
