@@ -51,7 +51,7 @@
     <section class="mb-16 flex flex-col overflow-x-hidden px-4 lg:px-14">
         {{-- heading --}}
         <div class="mb-4 flex w-full flex-col">
-            <h1 class="mb-4 bg-gradient-to-r from-[#3886A3] to-[#225062] bg-clip-text text-center text-3xl font-semibold text-transparent md:text-4xl lg:text-start">ArteRi (Artikel Berbinar)</h1>
+            <h1 class="mb-4 bg-gradient-to-r from-[#3886A3] to-[#225062] bg-clip-text text-center text-3xl font-semibold text-transparent md:text-4xl lg:text-start">ArteRi : Artikel Berbinar</h1>
             <p class="text-center text-base font-normal text-[#606060] lg:text-justify lg:text-lg">Disini kami membagikan tips, info kesehatan, berita-berita terbaru mengenai dunia psikologi, dan lain sebagainya</p>
         </div>
         {{-- menu filter --}}
