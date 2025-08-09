@@ -57,14 +57,39 @@
         {{-- menu filter --}}
         <div class="mb-8 flex w-full flex-col items-center justify-between lg:flex-row lg:gap-x-4">
             {{-- filter button --}}
-            <div class="filter-container mb-4 flex flex-wrap items-center justify-center gap-4 lg:mb-0 lg:flex-grow lg:flex-nowrap lg:justify-start lg:overflow-x-scroll lg:scrollbar-hide">
-                <a href="{{ route("arteri.index") }}" class="{{ !isset($category) ? 'bg-primary text-white' : '' }} max-sm:border-[#606060]/20 w-fit rounded-lg max-sm:border px-8 py-1 font-semibold text-slate-800">Semua</a>
-                {{-- @dump($categories) --}}
-                @foreach ($categories as $cat)
-                    <a href="{{ route("arteri.category", ["slug" => $cat->slug]) }}" class="{{ isset($category) && $category->id === $cat->id ? "bg-[#3986A3] text-white" : "" }} max-sm:border-[#606060]/20 w-fit text-nowrap rounded-lg max-sm:border px-8 py-1 font-semibold text-slate-800">
-                        {{ $cat->name_category }}
-                    </a>
-                @endforeach
+            <div
+                x-data="{
+                    start: 0,
+                    visible: 3,
+                    cats: @js($categories),
+                    get shown() { return this.cats.slice(this.start, this.start + this.visible); },
+                    prev() { if(this.start > 0) this.start--; },
+                    next() { if(this.start + this.visible < this.cats.length) this.start++; }
+                }"
+                class="filter-container mb-4 flex items-center gap-2"
+            >
+                <button
+                    type="button"
+                    @click="prev"
+                    :disabled="start === 0"
+                    class="px-2 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+                    aria-label="Kategori sebelumnya"
+                >&lt;</button>
+                <a href="{{ route('arteri.index') }}" class="{{ !isset($category) ? 'bg-primary text-white' : '' }} w-fit rounded-lg px-8 py-1 font-semibold text-slate-800 flex-shrink-0">Semua</a>
+                <template x-for="cat in shown" :key="cat.id">
+                    <a
+                        :href="'/arteri/kategori/' + cat.slug"
+                        :class="'w-fit text-nowrap rounded-lg px-8 py-1 font-semibold text-slate-800 flex-shrink-0 ' + ({{ isset($category) ? '$category->id' : 'null' }} === cat.id ? 'bg-[#3986A3] text-white' : '')"
+                        x-text="cat.name_category"
+                    ></a>
+                </template>
+                <button
+                    type="button"
+                    @click="next"
+                    :disabled="start + visible >= cats.length"
+                    class="px-2 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
+                    aria-label="Kategori berikutnya"
+                >&gt;</button>
             </div>
             {{-- menu select sort method --}}
             <div class="flex flex-none items-center justify-end gap-4">
@@ -103,8 +128,7 @@
                             {{-- @dump($article->cover_image) --}}
                             <div class="mx-auto mb-4 w-full max-w-2xl">
                                 <div class="relative aspect-video w-full overflow-hidden rounded-lg">
-                                    <!-- <img src="{{ asset("assets/images/landing/arteri/" . $article->cover_image) }}" loading="lazy" alt="artikel-banner-small" class="absolute inset-0 h-full w-full object-cover" /> -->
-                                    <img src="{{ asset("assets/images/landing/arteri/artikel-banner-small.png") }}" loading="lazy" alt="artikel-banner-small" class="absolute inset-0 h-full w-full object-cover" />
+                                    <img src="{{ asset("/image/" . $article->cover_image) }}" loading="lazy" alt="artikel-banner-small" class="absolute inset-0 h-full w-full object-cover" />
                                 </div>
 
                             </div>
@@ -116,7 +140,7 @@
                                 <div class="mb-2 flex w-full items-center justify-between gap-2 lg:justify-start">
                                     <div class="flex items-center justify-center gap-2">
                                         <div class="size-6 overflow-hidden rounded-full">
-                                            <img src="{{ $article->author->profil_image ? asset("assets/images/landing/arteri/" . $article->author->profil_image) : asset("assets/images/landing/arteri/dummy.png") }}" alt="profile dummy" class="object-cover" />
+                                            <img src="{{ asset("/image/" . $article->author->profil_image) ? asset("/image/" . $article->author->profil_image) : asset("assets/images/landing/arteri/dummy.png") }}" alt="profile dummy" class="object-cover" />
                                         </div>
                                         <span class="text-sm text-gray-600">{{ $article->author->name_author }}</span>
                                     </div>

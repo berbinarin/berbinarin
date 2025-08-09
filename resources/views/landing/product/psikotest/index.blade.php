@@ -427,9 +427,9 @@
             <div class="relative flex h-full flex-col justify-center space-y-3 text-left max-md:text-center">
                 <h1 class="bg-gradient-to-l from-[#CF942E] to-[#F7B23B] bg-clip-text text-5xl font-semibold text-transparent max-md:text-4xl max-sm:text-3xl sm:text-black">Psikotes Individu</h1>
                 <p class="text-justify text-lg text-[#3F3F3F] max-lg:text-[17px] max-sm:text-[15px] max-sm:leading-normal">Psikotes individu dapat memprediksi potensi yang dimiliki dalam kaitannya dengan pencapaian hasil belajar atau kemampuan di masa yang akan datang.</p>
-                <a href="{{ route("product.psikotest.registration") }}">
+                <a href="https://psikotes.berbinar.in/">
                     <div class="relative z-10 flex justify-start max-md:justify-center">
-                        <a href="{{ route("product.psikotest.registration") }}" class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar Psikotes Individu</a>
+                        <a href="https://psikotes.berbinar.in/" class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar Psikotes Individu</a>
                     </div>
                 </a>
             </div>
@@ -470,7 +470,7 @@
                                 </div>
 
                                 <div class="my-3 flex justify-center">
-                                    <a href="{{ route("product.psikotest.registration") }}" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white">Mulai Sekarang</a>
+                                    <a href="https://psikotes.berbinar.in/" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white">Mulai Sekarang</a>
                                 </div>
                             </div>
                         </div>
@@ -509,7 +509,7 @@
                     </div>
 
                     <div class="mt-3 flex w-full justify-center">
-                        <a href="{{ route("product.psikotest.registration") }}" class="w-full rounded-xl bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] py-1.5 text-[13px] text-white">Mulai Sekarang</a>
+                        <a href="https://psikotes.berbinar.in/" class="w-full rounded-xl bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] py-1.5 text-[13px] text-white">Mulai Sekarang</a>
                     </div>
                 </div>
             @endforeach
@@ -526,9 +526,9 @@
             <div class="relative flex h-full flex-col justify-center space-y-3 text-left max-md:text-center">
                 <h1 class="bg-gradient-to-l from-[#CF942E] to-[#F7B23B] bg-clip-text text-5xl font-semibold text-transparent max-md:text-4xl max-sm:text-3xl sm:text-black">Psikotes Perusahaan</h1>
                 <p class="text-justify text-lg text-[#3F3F3F] max-lg:text-[17px] max-sm:text-[15px] max-sm:leading-normal">Psikotes untuk supervisor digunakan untuk melihat potensi, kelebihan dan kekurangan, serta kecenderungan kepribadian seorang kandidat dan melihat apakah kandidat tersebut cocok ditempatkan di suatu posisi pekerjaan.</p>
-                <a href="{{ route("product.psikotest.registration") }}">
+                <a href="https://psikotes.berbinar.in/">
                     <div class="relative z-10 flex justify-start max-md:justify-center">
-                        <a href="{{ route("product.psikotest.registration") }}" class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar Psikotes Perusahaan</a>
+                        <a href="https://psikotes.berbinar.in/" class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar Psikotes Perusahaan</a>
                     </div>
                 </a>
             </div>
@@ -605,7 +605,7 @@
                                     </div>
 
                                     <div class="my-4 flex justify-center">
-                                        <a href="{{ route("product.psikotest.registration") }}" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-[16px] text-white">Mulai Sekarang</a>
+                                        <a href="https://psikotes.berbinar.in/" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-[16px] text-white">Mulai Sekarang</a>
                                     </div>
                                 </div>
                             </div>
@@ -676,7 +676,7 @@
                         </div>
 
                         <div class="my-4 flex justify-center">
-                            <a href="{{ route("product.psikotest.registration") }}" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-[16px] text-white">Mulai Sekarang</a>
+                            <a href="https://psikotes.berbinar.in/" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-[16px] text-white">Mulai Sekarang</a>
                         </div>
                     </div>
                 @endforeach
@@ -752,7 +752,7 @@
                                     </div>
 
                                     <div class="my-4 flex justify-center">
-                                        <a href="{{ route("product.psikotest.registration") }}" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-[16px] text-white">Mulai Sekarang</a>
+                                        <a href="https://psikotes.berbinar.in/" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-[16px] text-white">Mulai Sekarang</a>
                                     </div>
                                 </div>
                             </div>
@@ -823,7 +823,7 @@
                         </div>
 
                         <div class="my-4 flex justify-center">
-                            <a href="{{ route("product.psikotest.registration") }}" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-[16px] text-white">Mulai Sekarang</a>
+                            <a href="https://psikotes.berbinar.in/" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-[16px] text-white">Mulai Sekarang</a>
                         </div>
                     </div>
                 @endforeach
@@ -840,9 +840,9 @@
             <div class="relative flex h-full flex-col justify-center space-y-3 text-left max-md:text-center">
                 <h1 class="bg-gradient-to-l from-[#CF942E] to-[#F7B23B] bg-clip-text text-5xl font-semibold text-transparent max-md:text-4xl max-sm:text-3xl sm:text-black">Psikotes Kategori Pendidikan</h1>
                 <p class="text-justify text-lg text-[#3F3F3F] max-lg:text-[17px] max-sm:text-[15px] max-sm:leading-normal">Psikotes untuk Instansi Pendidikan digunakan untuk mengenal gaya belajar, cita-cita, jurusan, minat bakat yang sesuai dengan SobatBinar.</p>
-                <a href="{{ route("product.psikotest.registration") }}">
+                <a href="https://psikotes.berbinar.in/">
                     <div class="relative z-10 flex justify-start max-md:justify-center">
-                        <a href="{{ route("product.psikotest.registration") }}" class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar Psikotes Instansi Pendidikan</a>
+                        <a href="https://psikotes.berbinar.in/" class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar Psikotes Instansi Pendidikan</a>
                     </div>
                 </a>
             </div>
@@ -890,7 +890,7 @@
                                 </div>
 
                                 <div class="my-3 flex justify-center">
-                                    <a href="{{ route("product.psikotest.registration") }}" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white">Mulai Sekarang</a>
+                                    <a href="https://psikotes.berbinar.in/" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white">Mulai Sekarang</a>
                                 </div>
                             </div>
                         </div>
@@ -934,7 +934,7 @@
                     </div>
 
                     <div class="mt-3 flex w-full justify-center">
-                        <a href="{{ route("product.psikotest.registration") }}" class="w-full rounded-xl bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] py-1.5 text-[13px] text-white">Mulai Sekarang</a>
+                        <a href="https://psikotes.berbinar.in/" class="w-full rounded-xl bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] py-1.5 text-[13px] text-white">Mulai Sekarang</a>
                     </div>
                 </div>
             @endforeach
@@ -950,9 +950,9 @@
             <div class="relative flex h-full flex-col justify-center space-y-3 text-left max-md:text-center">
                 <h1 class="bg-gradient-to-l from-[#CF942E] to-[#F7B23B] bg-clip-text text-5xl font-semibold text-transparent max-md:text-4xl max-sm:text-3xl sm:text-black">Psikotes Kategori Komunitas</h1>
                 <p class="text-justify text-lg text-[#3F3F3F] max-lg:text-[17px] max-sm:text-[15px] max-sm:leading-normal">Psikotes untuk Komunitas ini bertujuan untuk mengetahui kesiapan pernikahan, menjadi orang tua, kecocokan bersama pasangan, tingkat stress, depresi, kecemasan, memori, dan demensia.</p>
-                <a href="{{ route("product.psikotest.registration") }}">
+                <a href="https://psikotes.berbinar.in/">
                     <div class="relative z-10 flex justify-start max-md:justify-center">
-                        <a href="{{ route("product.psikotest.registration") }}" class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar Psikotes Komunitas</a>
+                        <a href="https://psikotes.berbinar.in/" class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar Psikotes Komunitas</a>
                     </div>
                 </a>
             </div>
@@ -995,7 +995,7 @@
                                 </div>
 
                                 <div class="my-3 flex justify-center">
-                                    <a href="{{ route("product.psikotest.registration") }}" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white">Mulai Sekarang</a>
+                                    <a href="https://psikotes.berbinar.in/" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white">Mulai Sekarang</a>
                                 </div>
                             </div>
                         </div>
@@ -1034,7 +1034,7 @@
                     </div>
 
                     <div class="mt-3 flex w-full justify-center">
-                        <a href="{{ route("product.psikotest.registration") }}" class="w-full rounded-xl bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] py-1.5 text-[13px] text-white">Mulai Sekarang</a>
+                        <a href="https://psikotes.berbinar.in/" class="w-full rounded-xl bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] py-1.5 text-[13px] text-white">Mulai Sekarang</a>
                     </div>
                 </div>
             @endforeach
@@ -1161,9 +1161,9 @@
                     </div>
                 </div>
 
-                <a href="{{ route("product.psikotest.registration") }}">
+                <a href="https://psikotes.berbinar.in/">
                     <div class="z-10 flex justify-start max-md:justify-center">
-                        <a href="{{ route("product.psikotest.registration") }}" class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar Psikotes Komunitas</a>
+                        <a href="https://psikotes.berbinar.in/" class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar Psikotes Komunitas</a>
                     </div>
                 </a>
             </div>

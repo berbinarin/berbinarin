@@ -44,19 +44,21 @@
                                         <td class="text-center">{{ $article->author->name_author }}</td>
                                         <td class="px-6 py-4 whitespace-no-wrap text-center">
                                             <button type="button"
-                                                class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-center justify-center py-2 px-4 focus:outline-none rounded-3xl bg-blue-500">
+                                                class="focus:ring-2 focus:ring-offset-2 mt-4 sm:mt-0 inline-flex items-center justify-center py-2 px-4 focus:outline-none rounded-3xl"
+                                                style="background: {{ $categoryColors[$article->category->id] ?? '#E9B306' }};">
                                                 <p class="font-medium leading-none text-white">
-                                                    {{ $article->category->name_category }}</p>
+                                                    {{ $article->category->name_category }}
+                                                </p>
                                             </button>
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap text-center">
                                             <div class="flex justify-center items-center gap-2">
                                                 <a href="{{ route('dashboard.arteri.articles.show', $article->id) }}"
                                                     class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-2 focus:outline-none rounded hover:bg-yellow-700"
-                                                    style="background-color: #04CA00;">
+                                                    style="background-color: #3B82F6;">
                                                     <i class='bx bx-show-alt text-white'></i>
                                                 </a>
-                                                <a href="{{ route('dashboard.arteri.articles.update', $article->id) }}"
+                                                <a href="{{ route('dashboard.arteri.articles.edit', $article->id) }}"
                                                     class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-2 focus:outline-none rounded hover:bg-yellow-700"
                                                     style="background-color: #E9B306;">
                                                     <i class='bx bx-edit-alt text-white'></i>
