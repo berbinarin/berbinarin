@@ -74,8 +74,9 @@ class ArteriController extends Controller
         // Mengembalikan artikel berdasarkan slug
         $title = str_replace('-', ' ', $slug);
 
+        $whereTitle = '%' . str_replace('-', '%', strtolower($slug)) . '%';
         $article = Article::with('category', 'author')
-            ->whereRaw('LOWER(title) LIKE ?', ['%' . strtolower($title) . '%'])
+            ->whereRaw('LOWER(title) LIKE ?', [$whereTitle])
             ->firstOrFail();
 
         // Method untuk memgirim data ke Helpers 
