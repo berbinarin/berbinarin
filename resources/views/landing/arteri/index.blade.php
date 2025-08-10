@@ -117,8 +117,9 @@
                     {{-- @dump($article->category->name_category) --}}
                     {{-- @dump($article->author->name_author) --}}
                     {{-- card --}}
-                    <a href="{{ route("arteri.detail", ["id" => $article->id]) }}">
-                        <div class="relative rounded-xl border border-[#606060]/20 px-5 py-3 lg:border-none lg:px-0 lg:py-0 lg:shadow-none">
+                    {{-- ['slug' => Str::slug($article['title'])]) --}}
+                        <a href="{{ route('arteri.detail', ['slug' => Str::slug($article['title'])]) }}" data-id="{{ $article->id }}" class="article-link">                        
+                            <div class="relative rounded-xl border border-[#606060]/20 px-5 py-3 lg:border-none lg:px-0 lg:py-0 lg:shadow-none">
                             {{-- badge kategori --}}
                             <span class="absolute left-8 top-6 rounded-full bg-[#FD9399D9]/90 px-3.5 py-1 text-sm text-white lg:left-3 lg:top-3 lg:px-3.5 lg:py-1.5 lg:text-base z-10">
                                 {{ $article->category->name_category }}
@@ -173,6 +174,27 @@
 
 @section("script")
     <script>
+        document.querySelectorAll('.article-link').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var articleId = this.getAttribute('data-id');
+                var url = this.getAttribute('href');
+                fetch(`/arteri/${articleId}/view`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    window.location.href = url;
+                })
+                .catch(() => {
+                    window.location.href = url; // fallback jika gagal
+                });
+            });
+        });
         var swiper = new Swiper('#swiperArteriHero', {
             loop: true,
             speed: 1000,

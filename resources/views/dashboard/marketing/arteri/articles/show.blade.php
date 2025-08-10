@@ -63,7 +63,9 @@
                         <div>
                             <label class="mb-2 block text-lg font-semibold leading-6 text-gray-500">Tautan</label>
                             <div class="block w-full break-all rounded-lg border border-gray-200 bg-gray-100 px-4 py-3 text-base text-black shadow-sm">
-                                {{ $article->url ?? "-" }}
+                                <a href="{{ $currentUrl }}" target="_blank" class="text-primary underline hover:text-blue-700">
+                                    {{ $currentUrl }}
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -220,15 +222,23 @@
             new Chart(ageCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['Pembaca', 'Reaksi', 'Di bagikan'],
-                    datasets: [
-                        {
-                            label: 'Jumlah Pembaca',
-                            data: [65, 59, 80],
-                            backgroundColor: ['rgba(16, 102, 129, 0.6)', 'rgba(233, 179, 6, 0.6)', 'rgba(35, 42, 202, 0.6)'],
-                        },
-                    ],
-                },
+                labels: ['Pembaca', 'Reaksi', 'Di bagikan'],
+                datasets: [
+                    {
+                        label: 'Jumlah Pembaca',
+                        data: [
+                            {{ $viewers }},
+                            {{ collect($reactionCounts)->sum() }},
+                            {{ $totalShare }}
+                        ],
+                        backgroundColor: [
+                            'rgba(16, 102, 129, 0.6)', // Pembaca
+                            'rgba(233, 179, 6, 0.6)',  // Reaksi
+                            'rgba(35, 42, 202, 0.6)'   // Di bagikan
+                        ],
+                    },
+                ],
+            },
                 options: {
                     indexAxis: 'y',
                     responsive: true,
@@ -331,7 +341,13 @@
                     datasets: [
                         {
                             label: 'Jumlah Pembaca',
-                            data: [12, 18, 25, 30, 15],
+                            data: [
+                                {{ $reactionCounts[0] }},
+                                {{ $reactionCounts[1] }},
+                                {{ $reactionCounts[2] }},
+                                {{ $reactionCounts[3] }},
+                                {{ $reactionCounts[4] }}
+                            ],
                             backgroundColor: gradients,
                         },
                     ],

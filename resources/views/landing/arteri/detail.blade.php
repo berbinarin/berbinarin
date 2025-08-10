@@ -7,6 +7,28 @@
     ]
 )
 
+@section("meta")
+    <!-- Open Graph Meta Tags untuk sharing -->
+    <meta property="og:title" content="{{ $article->title }}" />
+    <meta property="og:description" content="{{ $description }}" />
+    <meta property="og:image" content="{{ $imageUrl }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="{{ $currentUrl }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Berbinar Insightful Indonesia" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ $article->title }}" />
+    <meta name="twitter:description" content="{{ $description }}" />
+    <meta name="twitter:image" content="{{ $imageUrl }}" />
+    
+    <!-- WhatsApp Meta Tags -->
+    <meta property="og:image:alt" content="{{ $article->title }}" />
+    <meta name="description" content="{{ $description }}" />
+@endsection
+
 @section("style")
     <style>
         .prose p {
@@ -85,6 +107,8 @@
             transform: scale(1.15);
             filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
         }
+
+        
     </style>
 @endsection
 
@@ -97,7 +121,7 @@
         </div>
 
         <!-- Main Content Container -->
-        <div class="relative z-10 mx-auto w-full max-w-7xl">
+        <div  class="relative z-10 mx-auto w-full max-w-7xl">
             <!-- Article Container -->
             <div class="w-full rounded-xl bg-white p-6 shadow-sm md:p-8 lg:p-10">
                 <!-- Category Tag -->
@@ -153,20 +177,35 @@
                         </div>
 
                         <div class="flex flex-wrap justify-center md:justify-start md:pl-6">
-                            <!-- Item 1 -->
-                            <img src="{{ asset("assets/images/landing/arteri/feedback/1-wahoo.png") }}" data-hover="{{ asset("assets/images/landing/arteri/feedback/1-wahoo2.png") }}" data-normal="{{ asset("assets/images/landing/arteri/feedback/1-wahoo.png") }}" class="reaction-img h-[72px] w-[72px]" onclick="setActiveReaction(this)" />
-
-                            <!-- Item 2 -->
-                            <img src="{{ asset("assets/images/landing/arteri/feedback/2-happy.png") }}" data-hover="{{ asset("assets/images/landing/arteri/feedback/2-happy2.png") }}" data-normal="{{ asset("assets/images/landing/arteri/feedback/2-happy.png") }}" class="reaction-img h-[70px] w-[70px]" onclick="setActiveReaction(this)" />
-
-                            <!-- Item 3 -->
-                            <img src="{{ asset("assets/images/landing/arteri/feedback/3-neutral.png") }}" data-hover="{{ asset("assets/images/landing/arteri/feedback/3-neutral2.png") }}" data-normal="{{ asset("assets/images/landing/arteri/feedback/3-neutral.png") }}" class="reaction-img h-[72px] w-[72px]" onclick="setActiveReaction(this)" />
-
-                            <!-- Item 4 -->
-                            <img src="{{ asset("assets/images/landing/arteri/feedback/4-bummed.png") }}" data-hover="{{ asset("assets/images/landing/arteri/feedback/4-bummed2.png") }}" data-normal="{{ asset("assets/images/landing/arteri/feedback/4-bummed.png") }}" class="reaction-img h-[72px] w-[72px]" onclick="setActiveReaction(this)" />
-
-                            <!-- Item 5 -->
-                            <img src="{{ asset("assets/images/landing/arteri/feedback/5-pissed.png") }}" data-hover="{{ asset("assets/images/landing/arteri/feedback/5-pissed2.png") }}" data-normal="{{ asset("assets/images/landing/arteri/feedback/5-pissed.png") }}" class="reaction-img h-[72px] w-[72px]" onclick="setActiveReaction(this)" />
+                            @php
+                                $reactions = [
+                                    ['label' => 'sangat senang', 'img' => '1-wahoo.png', 'hover' => '1-wahoo2.png'],
+                                    ['label' => 'senang', 'img' => '2-happy.png', 'hover' => '2-happy2.png'],
+                                    ['label' => 'biasa saja', 'img' => '3-neutral.png', 'hover' => '3-neutral2.png'],
+                                    ['label' => 'bosan', 'img' => '4-bummed.png', 'hover' => '4-bummed2.png'],
+                                    ['label' => 'tidak suka', 'img' => '5-pissed.png', 'hover' => '5-pissed2.png'],
+                                ];
+                            @endphp
+                            {{-- Debugg --}}
+                            {{-- <pre>
+                            userReaction: {{ $userReaction ? $userReaction->reaction_type : 'null' }}
+                            </pre> --}}
+                            @foreach ($reactions as $idx => $reaction)
+                            <form action="{{ url('/arteri/'.$article->id.'/reaction') }}" method="POST" style="display:inline;">
+                                @csrf
+                                <input type="hidden" name="reaction_type" value="{{ $reaction['label'] }}">
+                                <button type="submit" style="background: none; border: none; padding: 0; margin: 0;" class="reaction-btn">
+                                    <img
+                                        id="reaction-img-{{ $idx }}"
+                                        src="{{ asset('assets/images/landing/arteri/feedback/'.$reaction['img']) }}"
+                                        data-hover="{{ asset('assets/images/landing/arteri/feedback/'.$reaction['hover']) }}"
+                                        data-normal="{{ asset('assets/images/landing/arteri/feedback/'.$reaction['img']) }}"
+                                        class="reaction-img h-[72px] w-[72px] {{ (isset($userReaction) && $userReaction->reaction_type === $reaction['label']) ? 'active' : '' }}"
+                                        alt="{{ $reaction['label'] }}"
+                                    />
+                                </button>
+                            </form>
+                            @endforeach
                         </div>
                     </div>
 
@@ -192,65 +231,92 @@
             <p class="my-3 text-sm text-gray-600">Share this link via</p>
 
             <div class="mb-4 flex justify-between">
-                <a href="https://twitter.com/share?url={{ urlencode(request()->fullUrl()) }}" target="_blank" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
+                <a href="{{ $shareButtons['twitter'] ?? '#' }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
                     <img src="{{ asset("assets/images/landing/logo/sosmed-icon/x.png") }}" class="h-5 w-5" />
-                </a>
-                <a href="https://www.instagram.com/" target="_blank" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
-                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/instagram.png") }}" class="h-5 w-5" />
-                </a>
-                <a href="https://wa.me/?text={{ urlencode(request()->fullUrl()) }}" target="_blank" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
-                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/whatsapp.png") }}" class="h-5 w-5" />
-                </a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}" target="_blank" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
-                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/facebook.png") }}" class="h-5 w-5" />
-                </a>
-                <a href="https://t.me/share/url?url={{ urlencode(request()->fullUrl()) }}" target="_blank" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
-                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/telegram.png") }}" class="h-5 w-5" />
-                </a>
+                    </a>
+                    <a href="{{ $shareButtons['linkedin'] ?? '#' }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
+                        <img src="{{ asset("assets/images/landing/logo/sosmed-icon/linkedin.png") }}" class="h-5 w-5" />
+                    </a>
+                    <a href="{{ $shareButtons['whatsapp'] ?? '#' }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
+                        <img src="{{ asset("assets/images/landing/logo/sosmed-icon/whatsapp.png") }}" class="h-5 w-5" />
+                    </a>
+                    <a href="{{ $shareButtons['facebook'] ?? '#' }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
+                        <img src="{{ asset("assets/images/landing/logo/sosmed-icon/facebook.png") }}" class="h-5 w-5" />
+                    </a>
+                    <a href="{{ $shareButtons['telegram'] ?? '#' }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
+                        <img src="{{ asset("assets/images/landing/logo/sosmed-icon/telegram.png") }}" class="h-5 w-5" />
+                    </a>
             </div>
 
             <p class="mb-2 text-sm text-gray-600">Or copy link</p>
             <div class="flex">
-                <input type="text" id="shareLink" value="{{ request()->fullUrl() }}" class="flex-1 rounded-l border px-2 py-1 text-sm" readonly />
-                <button onclick="copyShareLink()" class="rounded-r bg-[#225062] px-3 text-white">Copy</button>
+                <input type="text" id="shareLink" value="{{ $currentUrl }}" class="flex-1 rounded-l border px-2 py-1 text-sm" readonly />
+                <button onclick="copyShareLink(); trackShare()" class="rounded-r bg-[#225062]  w-20 text-white">Copy</button>
             </div>
         </div>
     </div>
+    <form id="shareTrackForm" action="{{ url('/arteri/'.$article->id.'/share') }}" method="POST" style="display:none;">
+        @csrf
+    </form>
 @endsection
 
 @section("script")
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         let activeReaction = null;
 
-        function setActiveReaction(element) {
-            if (activeReaction === element) {
-                element.classList.remove('active');
-                element.src = element.dataset.normal;
-                activeReaction = null;
-                return;
-            }
-
+        document.addEventListener('DOMContentLoaded', function () {
+            let activeReaction = document.querySelector('.reaction-img.active');
             if (activeReaction) {
-                activeReaction.classList.remove('active');
-                activeReaction.src = activeReaction.dataset.normal;
+                activeReaction.src = activeReaction.dataset.hover;
             }
 
-            element.classList.add('active');
-            element.src = element.dataset.hover;
-            activeReaction = element;
-        }
+            document.querySelectorAll('.reaction-img').forEach((img) => {
+                img.addEventListener('mouseover', function () {
+                    if (this !== activeReaction) {
+                        this.src = this.dataset.hover;
+                    }
+                });
 
-        document.querySelectorAll('.reaction-img').forEach((img) => {
-            img.addEventListener('mouseover', function () {
-                if (this !== activeReaction) {
-                    this.src = this.dataset.hover;
-                }
+                img.addEventListener('mouseout', function () {
+                    if (this !== activeReaction) {
+                        this.src = this.dataset.normal;
+                    }
+                });
+
+                img.closest('button').addEventListener('click', function () {
+                    if (activeReaction && activeReaction !== img) {
+                        activeReaction.classList.remove('active');
+                        activeReaction.src = activeReaction.dataset.normal;
+                    }
+                    img.classList.add('active');
+                    img.src = img.dataset.hover;
+                    activeReaction = img;
+                });
             });
 
-            img.addEventListener('mouseout', function () {
-                if (this !== activeReaction) {
-                    this.src = this.dataset.normal;
-                }
+            // AJAX Reaction
+            document.querySelectorAll('.reaction-btn').forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var form = this.closest('form');
+                    var formData = new FormData(form);
+                    
+                    fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
+                    },
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(text => {
+                    // console.log("Isi respon:", text); 
+                })
+                .catch(error => console.error('Terjadi kesalahan:', error));
+
+                });
             });
         });
 
@@ -260,11 +326,89 @@
         }
 
         function copyShareLink() {
-            let copyText = document.getElementById('shareLink');
+            const copyText = document.getElementById('shareLink');
+            const copyButton = copyText.nextElementSibling;
+            
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(copyText.value).then(() => {
+                    showSuccessToast();
+                    updateCopyButton(copyButton);
+                }).catch(() => {
+                    fallbackCopyTextToClipboard(copyText, copyButton);
+                });
+            } else {
+                fallbackCopyTextToClipboard(copyText, copyButton);
+            }
+        }
+
+        function fallbackCopyTextToClipboard(copyText, copyButton) {
             copyText.select();
             copyText.setSelectionRange(0, 99999);
-            document.execCommand('copy');
-            alert('Link disalin ke clipboard!');
+            
+            try {
+                document.execCommand('copy');
+                showSuccessToast();
+                updateCopyButton(copyButton);
+            } catch (err) {
+                console.error('Fallback: Could not copy text: ', err);
+                showErrorToast();
+            }
+        }
+
+        function showSuccessToast() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Link berhasil disalin!',
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                showCloseButton: true,
+                timer: 2000,
+                timerProgressBar: true,
+                background: '#ffffff',
+                color: '#374151',
+                customClass: {
+                    popup: 'colored-toast'
+                }
+            });
+        }
+
+        function updateCopyButton(button) {
+            const originalText = button.innerHTML;
+            const originalColor = button.style.backgroundColor;
+            
+            button.innerHTML = 'Copied!';
+            button.style.backgroundColor = '#3986A3';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.backgroundColor = originalColor || '#225062';
+                button.disabled = false;
+            }, 2000);
+        }
+
+        document.getElementById('shareModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                toggleShareModal(false);
+            }
+        });
+
+        function trackShare() {
+            fetch("{{ url('/arteri/'.$article->id.'/share') }}", {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Accept': 'application/json'
+                }
+            })
+             .then(response => response.json())
+            .then(data => {
+                // console.log(data.success || 'Share tercatat!');
+            })
+            .catch(error => {
+                // console.error(error);
+            });
         }
     </script>
 @endsection
