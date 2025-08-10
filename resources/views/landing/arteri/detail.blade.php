@@ -7,131 +7,408 @@
     ]
 )
 
+@section("meta")
+    <!-- Open Graph Meta Tags untuk sharing -->
+    <meta property="og:title" content="{{ $article->title }}" />
+    <meta property="og:description" content="{{ $description }}" />
+    <meta property="og:image" content="{{ $imageUrl }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="{{ $currentUrl }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Berbinar Insightful Indonesia" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ $article->title }}" />
+    <meta name="twitter:description" content="{{ $description }}" />
+    <meta name="twitter:image" content="{{ $imageUrl }}" />
+    
+    <!-- WhatsApp Meta Tags -->
+    <meta property="og:image:alt" content="{{ $article->title }}" />
+    <meta name="description" content="{{ $description }}" />
+@endsection
+
 @section("style")
     <style>
         .prose p {
             text-align: justify;
-            color: #0f172a; /* text-slate-900 */
+            color: #0f172a;
         }
 
         @media (max-width: 768px) {
             .prose blockquote p {
-                font-size: 1.25rem; /* md:text-2xl */
+                font-size: 1.25rem;
             }
             .prose p {
-                font-size: 1rem; /* md:text-2xl */
+                font-size: 1rem;
             }
-
         }
 
         .prose blockquote {
             position: relative;
-            border-left: 4px solid #06b6d4; /* border-cyan-500 */
-            padding-left: 2rem; /* px-8 */
-            font-size: 1.25rem; /* text-xl */
-            color: #374151; /* text-gray-700 */
-            max-width: 72rem; /* lg:max-w-6xl */
+            border-left: 4px solid #06b6d4;
+            padding-left: 2rem;
+            font-size: 1.25rem;
+            color: #374151;
+            max-width: 72rem;
         }
+
         @media (min-width: 768px) {
             .prose blockquote {
-                font-size: 1.5rem; /* md:text-2xl */
-            }
-        }
-        @media (min-width: 1024px) {
-            .prose blockquote {
-                font-size: 1.875rem; /* lg:text-3xl */
+                font-size: 1.5rem;
             }
         }
 
-        /* Adding quote symbols */
+        @media (min-width: 1024px) {
+            .prose blockquote {
+                font-size: 1.875rem;
+            }
+        }
+
         .prose blockquote p {
             position: relative;
             display: inline-block;
             font-style: normal;
-            color: #1c1917; /* text-stone-900 */
+            color: #1c1917;
         }
 
         .prose blockquote p::before {
-            content: "\201C"; /* Opening quote */
+            content: '\201C';
             position: absolute;
             left: -1rem;
             top: -0.5rem;
-            font-size: 2.25rem; /* text-4xl */
-            color: #06b6d4; /* text-cyan-500 */
+            font-size: 2.25rem;
+            color: #06b6d4;
         }
 
         .prose blockquote p::after {
-            content: "\201E"; /* Closing quote */
+            content: '\201E';
             position: absolute;
             bottom: -0.5rem;
             right: -1rem;
-            font-size: 2.25rem; /* text-4xl */
-            color: #06b6d4; /* text-cyan-500 */
+            font-size: 2.25rem;
+            color: #06b6d4;
         }
+
+        .reaction-img {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            transform: scale(1);
+        }
+
+        .reaction-img:hover,
+        .reaction-img.active {
+            transform: scale(1.1);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .reaction-img.active {
+            transform: scale(1.15);
+            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+        }
+
+        
     </style>
 @endsection
 
 @section("content")
-    {{-- @dump($article) --}}
-    {{-- @dump($article->category->name_category) --}}
-    <section class="relative mb-12 h-full w-full px-4 pt-24 lg:px-20 lg:pt-32 overflow-visible">
-        {{-- heading --}}
-        <div class="flex h-full w-full flex-col items-center justify-center">
-            <div class="w-full flex flex-col">
-                <!-- BLUR SETENGAH LINGKARAN PEMBATAS KANAN -->
-                <div class="relative hidden -top-64 h-0 lg:block">
-                    <div class="absolute -right-32 top-0 z-0 md:-right-40" style="width: 300px; height: 500px; border-top-left-radius: 420px; border-bottom-left-radius: 420px; border-top-right-radius: 420px; background: #a2d7f0; filter: blur(60px); opacity: 0.4; top: -100px; z-index: 0;"></div>
-                </div>
-            </div>
-            <div class="mb-4 flex w-full flex-wrap items-center justify-center gap-4">
-                {{-- color for category ? --}}
-                <span class="rounded-xl bg-[#FD9399D9]/90 px-3 py-1 text-sm text-white lg:text-lg">
-                    {{ $article->category->name_category }}
-                </span>
-            </div>
-            <h1 class="mb-4 text-center text-xl font-bold text-slate-900 md:text-2xl lg:text-4xl">
-                {{ $article->title }}
-            </h1>
-            <div class="mb-8 hidden w-full items-center justify-center gap-2 lg:flex">
-                <img src="{{ asset("/image/" . $article->author->profil_image) }}" alt="profile dummy" class="size-6 rounded-full object-cover" />
-                <span class="text-slate-700">{{ $article->author->name_author }}</span>
-                <span class="text-slate-700">&bull;</span>
-                <span class="text-slate-700">{{ $article->created_at->format("d F Y") }}</span>
-            </div>
-            <img src="{{ asset("/image/" . $article->cover_image) }}" alt="cover" class="mb-4 z-10 aspect-video w-full rounded-xl object-cover" />
-            {{-- [MOBILE] published_at and author --}}
-            <div class="flex w-full items-center justify-between lg:hidden">
-                <span class="text-sm text-slate-700">{{ $article->created_at->format("d F Y") }}</span>
-                <span class="flex items-center justify-start gap-2">
-                    <img src="{{ asset("/image/" . $article->author->profil_image) }}" alt="writer profile" class="size-5 rounded-full object-cover" />
-                    <span class="text-sm text-slate-700">{{ $article->author->name_author }}</span>
-                </span>
-            </div>
+    <section class="relative mb-12 h-full w-full overflow-visible px-4 pt-24 lg:px-20 lg:pt-32">
+        <!-- Background Blur Elements -->
+        <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+            <div class="absolute -left-32 top-0 hidden h-[500px] w-[300px] rounded-full bg-[#c7f8ff] opacity-60 blur-[60px] lg:block"></div>
+            <div class="absolute -right-32 top-0 hidden h-[500px] w-[300px] rounded-full bg-[#a2d7f0] opacity-40 blur-[60px] lg:block"></div>
         </div>
 
-        <!-- BLUR SETENGAH LINGKARAN PEMBATAS KIRI -->
-        <div class="relative hidden h-0 lg:block">
-            <div class="absolute -left-32 top-0 z-0 md:-left-40" style="width: 300px; height: 500px; border-top-left-radius: 420px; border-bottom-left-radius: 420px; border-top-right-radius: 420px; background: #c7f8ff; filter: blur(60px); opacity: 0.6; top: -200px; z-index: 0;"></div>
-        </div>
-
-        <div class="mb-4 flex w-full flex-col z-10 items-center justify-center">
-            <article class="prose prose-sm z-10 max-w-none md:prose-base lg:prose-lg">
-                <div class="z-10">
-                    {!! $article->content !!}
+        <!-- Main Content Container -->
+        <div  class="relative z-10 mx-auto w-full max-w-7xl">
+            <!-- Article Container -->
+            <div class="w-full rounded-xl bg-white p-6 shadow-sm md:p-8 lg:p-10">
+                <!-- Category Tag -->
+                <div class="mb-4 flex w-full flex-wrap items-center justify-center gap-4">
+                    <span class="rounded-xl bg-[#FD9399D9]/90 px-3 py-1 text-sm text-white lg:text-lg">
+                        {{ $article->category->name_category }}
+                    </span>
                 </div>
-            </article>
 
-            <div class="w-full flex flex-row justify-between">
-                <!-- BLUR SETENGAH LINGKARAN PEMBATAS KIRI -->
-                <div class="relative hidden -top-64 h-0 lg:block">
-                    <div class="absolute -left-32 top-0 z-0 md:-left-40" style="width: 300px; height: 500px; border-top-left-radius: 420px; border-bottom-left-radius: 420px; border-top-right-radius: 420px; background: #c7f8ff; filter: blur(60px); opacity: 0.6; top: -100px; z-index: 0;"></div>
+                <!-- Article Title -->
+                <h1 class="mb-4 text-center text-xl font-bold text-slate-900 md:text-2xl lg:text-4xl">
+                    {{ $article->title }}
+                </h1>
+
+                <!-- Desktop Author & Date -->
+                <div class="mb-8 hidden w-full items-center justify-center gap-2 lg:flex">
+                    <img src="{{ asset("/image/" . $article->author->profil_image) }}" alt="profile dummy" class="size-6 rounded-full object-cover" />
+                    <span class="text-slate-700">{{ $article->author->name_author }}</span>
+                    <span class="text-slate-700">&bull;</span>
+                    <span class="text-slate-700">{{ $article->created_at->format("d F Y") }}</span>
                 </div>
-                <!-- BLUR SETENGAH LINGKARAN PEMBATAS KANAN -->
-                <div class="relative hidden -top-64 h-0 lg:block">
-                    <div class="absolute -right-32 top-0 z-0 md:-right-40" style="width: 300px; height: 500px; border-top-left-radius: 420px; border-bottom-left-radius: 420px; border-top-right-radius: 420px; background: #a2d7f0; filter: blur(60px); opacity: 0.6; top: -100px; z-index: 0;"></div>
+
+                <!-- Article Cover Image -->
+                <img src="{{ asset("/image/" . $article->cover_image) }}" alt="cover" class="z-10 mb-4 aspect-video w-full rounded-xl object-cover" />
+
+                <!-- Mobile Author & Date -->
+                <div class="mb-6 flex w-full items-center justify-between lg:hidden">
+                    <span class="text-sm text-slate-700">{{ $article->created_at->format("d F Y") }}</span>
+                    <span class="flex items-center justify-start gap-2">
+                        <img src="{{ asset("/image/" . $article->author->profil_image) }}" alt="writer profile" class="size-5 rounded-full object-cover" />
+                        <span class="text-sm text-slate-700">{{ $article->author->name_author }}</span>
+                    </span>
+                </div>
+
+                <!-- Article Content -->
+                <div class="z-10 mb-4 flex w-full flex-col items-center justify-center">
+                    <article class="prose prose-sm z-10 max-w-none md:prose-base lg:prose-lg">
+                        <div class="z-10">
+                            {!! $article->content !!}
+                        </div>
+                    </article>
                 </div>
             </div>
 
+            <!-- Reaction Section -->
+            <div class="mt-10 flex flex-col rounded-xl bg-white py-3">
+                <!-- Container untuk judul, gambar, dan button -->
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                    <div class="flex-1">
+                        <div class="mb-4 flex items-center pl-4">
+                            <div class="mr-2 h-6 w-1 rounded-full bg-blue-600"></div>
+                            <h2 class="text-lg font-semibold">Reaction</h2>
+                        </div>
+
+                        <div class="flex flex-wrap justify-center md:justify-start md:pl-6">
+                            @php
+                                $reactions = [
+                                    ['label' => 'sangat senang', 'img' => '1-wahoo.png', 'hover' => '1-wahoo2.png'],
+                                    ['label' => 'senang', 'img' => '2-happy.png', 'hover' => '2-happy2.png'],
+                                    ['label' => 'biasa saja', 'img' => '3-neutral.png', 'hover' => '3-neutral2.png'],
+                                    ['label' => 'bosan', 'img' => '4-bummed.png', 'hover' => '4-bummed2.png'],
+                                    ['label' => 'tidak suka', 'img' => '5-pissed.png', 'hover' => '5-pissed2.png'],
+                                ];
+                            @endphp
+                            {{-- Debugg --}}
+                            {{-- <pre>
+                            userReaction: {{ $userReaction ? $userReaction->reaction_type : 'null' }}
+                            </pre> --}}
+                            @foreach ($reactions as $idx => $reaction)
+                            <form action="{{ url('/arteri/'.$article->id.'/reaction') }}" method="POST" style="display:inline;">
+                                @csrf
+                                <input type="hidden" name="reaction_type" value="{{ $reaction['label'] }}">
+                                <button type="submit" style="background: none; border: none; padding: 0; margin: 0;" class="reaction-btn">
+                                    <img
+                                        id="reaction-img-{{ $idx }}"
+                                        src="{{ asset('assets/images/landing/arteri/feedback/'.$reaction['img']) }}"
+                                        data-hover="{{ asset('assets/images/landing/arteri/feedback/'.$reaction['hover']) }}"
+                                        data-normal="{{ asset('assets/images/landing/arteri/feedback/'.$reaction['img']) }}"
+                                        class="reaction-img h-[72px] w-[72px] {{ (isset($userReaction) && $userReaction->reaction_type === $reaction['label']) ? 'active' : '' }}"
+                                        alt="{{ $reaction['label'] }}"
+                                    />
+                                </button>
+                            </form>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center px-4 md:justify-end md:px-0 md:pr-6">
+                        <a href="javascript:void(0)" onclick="toggleShareModal(true)" class="mt-6 flex w-[90%] items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#3886A3] to-[#225062] px-6 py-2 font-medium text-white md:w-auto">
+                            <span>Bagikan</span>
+                            <img src="{{ asset("assets/images/landing/arteri/upload.svg") }}" class="h-5 w-5" />
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- Modal Share -->
+    <div id="shareModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50">
+        <div class="relative w-[300px] rounded-xl bg-white p-5">
+            <button onclick="toggleShareModal(false)" class="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded border border-gray-400 text-lg font-bold text-gray-500 hover:border-gray-600 hover:text-gray-800">X</button>
+
+            <h2 class="text-bold mb-1 text-lg font-bold">Share</h2>
+            <hr />
+
+            <p class="my-3 text-sm text-gray-600">Share this link via</p>
+
+            <div class="mb-4 flex justify-between">
+                <a href="{{ $shareButtons['twitter'] ?? '#' }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
+                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/x.png") }}" class="h-5 w-5" />
+                    </a>
+                    <a href="{{ $shareButtons['linkedin'] ?? '#' }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
+                        <img src="{{ asset("assets/images/landing/logo/sosmed-icon/linkedin.png") }}" class="h-5 w-5" />
+                    </a>
+                    <a href="{{ $shareButtons['whatsapp'] ?? '#' }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
+                        <img src="{{ asset("assets/images/landing/logo/sosmed-icon/whatsapp.png") }}" class="h-5 w-5" />
+                    </a>
+                    <a href="{{ $shareButtons['facebook'] ?? '#' }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
+                        <img src="{{ asset("assets/images/landing/logo/sosmed-icon/facebook.png") }}" class="h-5 w-5" />
+                    </a>
+                    <a href="{{ $shareButtons['telegram'] ?? '#' }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
+                        <img src="{{ asset("assets/images/landing/logo/sosmed-icon/telegram.png") }}" class="h-5 w-5" />
+                    </a>
+            </div>
+
+            <p class="mb-2 text-sm text-gray-600">Or copy link</p>
+            <div class="flex">
+                <input type="text" id="shareLink" value="{{ $currentUrl }}" class="flex-1 rounded-l border px-2 py-1 text-sm" readonly />
+                <button onclick="copyShareLink(); trackShare()" class="rounded-r bg-[#225062]  w-20 text-white">Copy</button>
+            </div>
+        </div>
+    </div>
+    <form id="shareTrackForm" action="{{ url('/arteri/'.$article->id.'/share') }}" method="POST" style="display:none;">
+        @csrf
+    </form>
+@endsection
+
+@section("script")
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        let activeReaction = null;
+
+        document.addEventListener('DOMContentLoaded', function () {
+            let activeReaction = document.querySelector('.reaction-img.active');
+            if (activeReaction) {
+                activeReaction.src = activeReaction.dataset.hover;
+            }
+
+            document.querySelectorAll('.reaction-img').forEach((img) => {
+                img.addEventListener('mouseover', function () {
+                    if (this !== activeReaction) {
+                        this.src = this.dataset.hover;
+                    }
+                });
+
+                img.addEventListener('mouseout', function () {
+                    if (this !== activeReaction) {
+                        this.src = this.dataset.normal;
+                    }
+                });
+
+                img.closest('button').addEventListener('click', function () {
+                    if (activeReaction && activeReaction !== img) {
+                        activeReaction.classList.remove('active');
+                        activeReaction.src = activeReaction.dataset.normal;
+                    }
+                    img.classList.add('active');
+                    img.src = img.dataset.hover;
+                    activeReaction = img;
+                });
+            });
+
+            // AJAX Reaction
+            document.querySelectorAll('.reaction-btn').forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var form = this.closest('form');
+                    var formData = new FormData(form);
+                    
+                    fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
+                    },
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(text => {
+                    // console.log("Isi respon:", text); 
+                })
+                .catch(error => console.error('Terjadi kesalahan:', error));
+
+                });
+            });
+        });
+
+        function toggleShareModal(show) {
+            document.getElementById('shareModal').classList.toggle('hidden', !show);
+            document.getElementById('shareModal').classList.toggle('flex', show);
+        }
+
+        function copyShareLink() {
+            const copyText = document.getElementById('shareLink');
+            const copyButton = copyText.nextElementSibling;
+            
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(copyText.value).then(() => {
+                    showSuccessToast();
+                    updateCopyButton(copyButton);
+                }).catch(() => {
+                    fallbackCopyTextToClipboard(copyText, copyButton);
+                });
+            } else {
+                fallbackCopyTextToClipboard(copyText, copyButton);
+            }
+        }
+
+        function fallbackCopyTextToClipboard(copyText, copyButton) {
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            
+            try {
+                document.execCommand('copy');
+                showSuccessToast();
+                updateCopyButton(copyButton);
+            } catch (err) {
+                console.error('Fallback: Could not copy text: ', err);
+                showErrorToast();
+            }
+        }
+
+        function showSuccessToast() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Link berhasil disalin!',
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                showCloseButton: true,
+                timer: 2000,
+                timerProgressBar: true,
+                background: '#ffffff',
+                color: '#374151',
+                customClass: {
+                    popup: 'colored-toast'
+                }
+            });
+        }
+
+        function updateCopyButton(button) {
+            const originalText = button.innerHTML;
+            const originalColor = button.style.backgroundColor;
+            
+            button.innerHTML = 'Copied!';
+            button.style.backgroundColor = '#3986A3';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.backgroundColor = originalColor || '#225062';
+                button.disabled = false;
+            }, 2000);
+        }
+
+        document.getElementById('shareModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                toggleShareModal(false);
+            }
+        });
+
+        function trackShare() {
+            fetch("{{ url('/arteri/'.$article->id.'/share') }}", {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Accept': 'application/json'
+                }
+            })
+             .then(response => response.json())
+            .then(data => {
+                // console.log(data.success || 'Share tercatat!');
+            })
+            .catch(error => {
+                // console.error(error);
+            });
+        }
+    </script>
 @endsection

@@ -51,7 +51,7 @@
     <section class="mb-16 flex flex-col overflow-x-hidden px-4 lg:px-14">
         {{-- heading --}}
         <div class="mb-4 flex w-full flex-col">
-            <h1 class="mb-4 bg-gradient-to-r from-[#3886A3] to-[#225062] bg-clip-text text-center text-3xl font-semibold text-transparent md:text-4xl lg:text-start">ArteRi (Artikel Berbinar)</h1>
+            <h1 class="mb-4 bg-gradient-to-r from-[#3886A3] to-[#225062] bg-clip-text text-center text-3xl font-semibold text-transparent md:text-4xl lg:text-start">ArteRi : Artikel Berbinar</h1>
             <p class="text-center text-base font-normal text-[#606060] lg:text-justify lg:text-lg">Disini kami membagikan tips, info kesehatan, berita-berita terbaru mengenai dunia psikologi, dan lain sebagainya</p>
         </div>
         {{-- menu filter --}}
@@ -117,8 +117,9 @@
                     {{-- @dump($article->category->name_category) --}}
                     {{-- @dump($article->author->name_author) --}}
                     {{-- card --}}
-                    <a href="{{ route("arteri.detail", ["id" => $article->id]) }}">
-                        <div class="relative rounded-xl border border-[#606060]/20 px-5 py-3 lg:border-none lg:px-0 lg:py-0 lg:shadow-none">
+                    {{-- ['slug' => Str::slug($article['title'])]) --}}
+                        <a href="{{ route('arteri.detail', ['slug' => Str::slug($article['title'])]) }}" data-id="{{ $article->id }}" class="article-link">                        
+                            <div class="relative rounded-xl border border-[#606060]/20 px-5 py-3 lg:border-none lg:px-0 lg:py-0 lg:shadow-none">
                             {{-- badge kategori --}}
                             <span class="absolute left-8 top-6 rounded-full bg-[#FD9399D9]/90 px-3.5 py-1 text-sm text-white lg:left-3 lg:top-3 lg:px-3.5 lg:py-1.5 lg:text-base z-10">
                                 {{ $article->category->name_category }}
@@ -173,6 +174,27 @@
 
 @section("script")
     <script>
+        document.querySelectorAll('.article-link').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var articleId = this.getAttribute('data-id');
+                var url = this.getAttribute('href');
+                fetch(`/arteri/${articleId}/view`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    window.location.href = url;
+                })
+                .catch(() => {
+                    window.location.href = url; // fallback jika gagal
+                });
+            });
+        });
         var swiper = new Swiper('#swiperArteriHero', {
             loop: true,
             speed: 1000,

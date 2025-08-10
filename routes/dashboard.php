@@ -17,6 +17,7 @@ use App\Http\Controllers\Dashboard\Marketing\Arteri\ArticleController;
 use App\Http\Controllers\Dashboard\Marketing\Arteri\AuthorController;
 use App\Http\Controllers\Dashboard\Marketing\Arteri\CategoryController;
 use App\Http\Controllers\Dashboard\ClassPM\BerbinarPlusDashboardController;
+use App\Http\Controllers\Dashboard\ClassPM\BerbinarClassController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(function () {
@@ -42,21 +43,19 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
 
     // Class Product Management
     route::middleware('role:class-pm')->group(function () {
+        // Berbinar Plus Class
+        Route::resource('/berbinar-class', BerbinarClassController::class);
         // Berbinar Plus
         Route::resource('/berbinar-plus', BerbinarPlusController::class);
-        Route::resource('/berbinar-plus-class', BerbinarPlusDashboardController::class);
-        Route::get('/berbinar-plus-class-create', [BerbinarPlusDashboardController::class, 'create'])->name('berbinar-plus-class.create');
-        Route::post('/berbinar-plus-class-store', [BerbinarPlusDashboardController::class, 'store'])->name('berbinar-plus-class.store');
-        Route::get('/berbinar-plus-class/{id}', [BerbinarPlusDashboardController::class, 'show'])->name('berbinar-plus-class.show');
-        Route::get('/berbinar-plus-class/{id}/edit', [BerbinarPlusDashboardController::class, 'edit'])->name('berbinar-plus-class.edit');
-        Route::post('/berbinar-plus-class/{id}/update', [BerbinarPlusDashboardController::class, 'update'])->name('berbinar-plus-class.update');
 
-        Route::get('/berbinar-plus-user-index', [BerbinarPlusController::class, 'users'])->name('berbinar-plus-users');
-        Route::get('/berbinar-plus-user-create', [BerbinarPlusDashboardController::class, 'createUser'])->name('berbinar-plus-users.create');
-        Route::post('/berbinar-plus-user-store', [BerbinarPlusDashboardController::class, 'storeUser'])->name('berbinar-plus-users.store');
-        Route::get('/berbinar-plus-user/{id}', [BerbinarPlusDashboardController::class, 'showUser'])->name('berbinar-plus-users.show');
-        Route::get('/berbinar-plus-user/{id}/edit', [BerbinarPlusDashboardController::class, 'editUser'])->name('berbinar-plus-users.edit');
-        Route::post('/berbinar-plus-user/{id}/update', [BerbinarPlusDashboardController::class, 'updateUser'])->name('berbinar-plus-users.update');
+
+        // Route::get('/berbinar-plus-class-create', [BerbinarPlusDashboardController::class, 'create'])->name('berbinar-plus-class.create');
+        // Route::post('/berbinar-plus-class-store', [BerbinarPlusDashboardController::class, 'store'])->name('berbinar-plus-class.store');
+        // Route::get('/berbinar-plus-class-show', [BerbinarPlusDashboardController::class, 'show'])->name('berbinar-plus-class.show');
+        // Route::get('/berbinar-plus-user-index', [BerbinarPlusController::class, 'users'])->name('berbinar-plus-users');
+        // Route::get('/berbinar-plus-user-create', [BerbinarPlusDashboardController::class, 'createUser'])->name('berbinar-plus-users.create');
+        // Route::post('/berbinar-plus-user-store', [BerbinarPlusDashboardController::class, 'storeUser'])->name('berbinar-plus-users.store');
+        // Route::get('/berbinar-plus-user-show', [BerbinarPlusDashboardController::class, 'showUser'])->name('berbinar-plus-users.show');
     });
 
 

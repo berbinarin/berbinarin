@@ -8,6 +8,8 @@ use App\Models\Articles\Author;
 use App\Models\Articles\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Articles\Interaction;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -16,11 +18,21 @@ class ArticleController extends Controller
      */
     public function index()
     {
-
-        // Mengambil semua data pada tabel articles
         $articles = Article::with('category', 'author')->get();
 
-        return view('dashboard.marketing.arteri.articles.index', compact('articles'));
+        $categories = $articles->pluck('category')->unique('id')->filter();
+
+        // Generate warna dari id
+        $categoryColors = [];
+        foreach ($categories as $cat) {
+            $hash = crc32($cat->id);
+            // Generate warna
+            $hue = $hash % 360;
+            $color = "hsl($hue, 80%, 70%)";
+            $categoryColors[$cat->id] = $color;
+        }
+
+        return view('dashboard.marketing.arteri.articles.index', compact('articles', 'categoryColors'));
     }
 
     /**
@@ -67,10 +79,33 @@ class ArticleController extends Controller
      */
     public function show(string $id)
     {
-        // Ambil artikel berdasarkan ID
         $article = Article::with('category', 'author')->findOrFail($id);
+        $interactions = Interaction::where('article_id', $article->id)->get();
 
-        return view('dashboard.marketing.arteri.articles.show', compact('article'));
+        $currentUrl = route('arteri.detail', ['slug' => Str::slug($article->title)]);
+
+
+        $viewers = $interactions->sum('views');
+        $totalShare = $interactions->sum('shares');
+
+        $reactionLabels = ['tidak suka', 'bosan', 'biasa saja', 'senang', 'sangat senang'];
+        $reactionCounts = [];
+        foreach ($reactionLabels as $label) {
+            $reactionCounts[] = $interactions->where('reaction_type', $label)->count();
+        }
+
+        $categories = collect([$article->category]);
+        $categoryColors = [];
+        foreach ($categories as $cat) {
+            if ($cat) {
+                $hash = crc32($cat->id);
+                $hue = $hash % 360;
+                $color = "hsl($hue, 80%, 70%)";
+                $categoryColors[$cat->id] = $color;
+            }
+        }
+
+        return view('dashboard.marketing.arteri.articles.show', compact('article', 'categoryColors', 'viewers', 'totalShare', 'reactionCounts', 'currentUrl'));
     }
 
     /**

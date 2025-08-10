@@ -8,6 +8,7 @@ use App\Models\Articles\Author;
 use App\Models\Articles\Category;
 use App\Models\Berbinarp_enrollments;
 use App\Models\Berbinarp_user;
+use App\Models\Berbinarp_class;
 use App\Models\Dimension;
 use App\Models\Hiring_Positions;
 use App\Models\Hiring_Positions_Job_Descriptions;
@@ -48,6 +49,7 @@ class DashboardController extends Controller
         $totalQuestion = Question::count('id');
 
         $totalBerbinarPlusUser = Berbinarp_user::count('id');
+        $totalBerbinarPlusClass = Berbinarp_class::count('id');
 
         $totalUserPsikotestPaid = UserPsikotestPaid::count('id');
 
@@ -93,7 +95,6 @@ class DashboardController extends Controller
             'HiringPosisitonsRequirement' => $HiringPosisitonsRequirement,
             'totalUserPsikotest' => $totalUserPsikotest,
             'totalQuestion' => $totalQuestion,
-            "totalBerbinarPlusUser" => $totalBerbinarPlusUser,
             'totalUserPsikotestPaid' => $totalUserPsikotestPaid,
             'individu' => $individu,
             'educationalInstitution' => $educationalInstitution,
@@ -103,7 +104,10 @@ class DashboardController extends Controller
             'authorCount' => $authorCount,
             'categoryCount' => $categoryCount,
             'staff' => $staff,
-            'subDivisions' => $subDivisions
+            'subDivisions' => $subDivisions,
+            "totalBerbinarPlusUser" => $totalBerbinarPlusUser,
+            "totalBerbinarPlusClass" => $totalBerbinarPlusClass,
+
         ]);
     }
    

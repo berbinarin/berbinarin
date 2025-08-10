@@ -238,7 +238,7 @@
                 </div>
                 {{-- Kota Domisili --}}
                 <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Kota Domisili</p>
+                    <p class="text-sm text-[#333333] sm:text-[17px]">Tempat Lahir</p>
                     <div class="relative">
                         <input name="tempat_lahir" type="text" class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none" placeholder="Surabaya" />
                     </div>

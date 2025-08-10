@@ -49,7 +49,10 @@ class BerbinarForUController extends Controller
             'asal_sekolah' => 'required',
             'riwayat_pekerjaan' => 'required',
             'kegiatan_sosial' => 'required',
-            'cerita' => 'required',
+            'cerita_utama' => 'required',
+            'cerita_tambahan' => 'required',
+            'alasan_konseling' => 'required',
+            'harapan_konseling' => 'required',
         ]);
 
         // Convert tanggal d/m/Y to Y-m-d
@@ -60,7 +63,7 @@ class BerbinarForUController extends Controller
         $berbinarForU->fill($validatedData);
         $berbinarForU->save();
 
-        Alert::toast('New Berbinar For U Data Added', 'success')->autoClose(5000);
+        Alert::toast('Data Berbinar For U berhasil ditambahkan', 'success')->autoClose(5000);
         return redirect()->route('dashboard.berbinar-for-u.index');
     }
 
@@ -90,7 +93,10 @@ class BerbinarForUController extends Controller
             'asal_sekolah' => 'required',
             'riwayat_pekerjaan' => 'required',
             'kegiatan_sosial' => 'required',
-            'cerita' => 'required',
+            'cerita_utama' => 'required',
+            'cerita_tambahan' => 'required',
+            'alasan_konseling' => 'required',
+            'harapan_konseling' => 'required',
         ]);
 
         // Convert tanggal
@@ -99,7 +105,7 @@ class BerbinarForUController extends Controller
         $BerbinarForUDataDetails = BerbinarForU::findOrFail($id);
         $BerbinarForUDataDetails->update($validatedData);
 
-        Alert::toast('Berbinar For U Data Updated', 'success')->autoClose(5000);
+        Alert::toast('Data Berbinar For U berhasil diedit', 'success')->autoClose(5000);
         return redirect()->route('dashboard.berbinar-for-u.show', $id);
     }
 
@@ -108,7 +114,7 @@ class BerbinarForUController extends Controller
         $BerbinarForUDataDetails = BerbinarForU::findOrFail($id);
         $BerbinarForUDataDetails->delete();
 
-        Alert::toast('Berbinar For U Data Deleted', 'success')->autoClose(5000);
+        Alert::toast('Data Berbinar For U berhasil dihapus.', 'success')->autoClose(5000);
         return redirect()->route('dashboard.berbinar-for-u.index');
     }
 }
