@@ -8,6 +8,8 @@ use App\Models\Articles\Author;
 use App\Models\Articles\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Articles\Interaction;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -78,7 +80,20 @@ class ArticleController extends Controller
     public function show(string $id)
     {
         $article = Article::with('category', 'author')->findOrFail($id);
-        
+        $interactions = Interaction::where('article_id', $article->id)->get();
+
+        $currentUrl = route('arteri.detail', ['slug' => Str::slug($article->title)]);
+
+
+        $viewers = $interactions->sum('views');
+        $totalShare = $interactions->sum('shares');
+
+        $reactionLabels = ['tidak suka', 'bosan', 'biasa saja', 'senang', 'sangat senang'];
+        $reactionCounts = [];
+        foreach ($reactionLabels as $label) {
+            $reactionCounts[] = $interactions->where('reaction_type', $label)->count();
+        }
+
         $categories = collect([$article->category]);
         $categoryColors = [];
         foreach ($categories as $cat) {
@@ -90,7 +105,7 @@ class ArticleController extends Controller
             }
         }
 
-        return view('dashboard.marketing.arteri.articles.show', compact('article', 'categoryColors'));
+        return view('dashboard.marketing.arteri.articles.show', compact('article', 'categoryColors', 'viewers', 'totalShare', 'reactionCounts', 'currentUrl'));
     }
 
     /**
