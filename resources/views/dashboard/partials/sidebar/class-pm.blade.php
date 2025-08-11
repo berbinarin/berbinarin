@@ -2,7 +2,7 @@
     if (! function_exists("isRouteNameStartWith")) {
         function isRouteNameStartWith($routeName)
         {
-            return Str::startsWith(Route::currentRouteName(), $routeName) ? "text-prirmary" : "";
+            return Str::startsWith(Route::currentRouteName(), $routeName) ? "text-primary" : "";
         }
     }
 @endphp

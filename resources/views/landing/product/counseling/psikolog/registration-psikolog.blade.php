@@ -202,7 +202,7 @@
                     <p class="text-[#333333] sm:text-[17px] text-sm">Kode Promo</p>
                     <div class="relative">
                         <input type="text" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="Berbinar">
-                        <button type="button" class="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer flex bg-gradient-to-r from-[#F7B23B] to-[#916823] text-white justify-between gap-2 py-[4px] px-2  rounded-md items-center">Redeem Code</button>
+                        <button type="button" class="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer flex bg-[#106681] text-white justify-between gap-2 py-[4px] px-2  rounded-md items-center">Redeem Code</button>
                     </div>
                 </div>
                 {{-- Bukti Kartu Pelajar --}}
