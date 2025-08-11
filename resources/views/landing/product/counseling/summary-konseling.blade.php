@@ -40,7 +40,7 @@
                         <img src="{{ asset("assets/images/landing/asset-konseling/vector/payment.png") }}" alt="Pembayaran" class="mt-0.5 h-5 w-5" />
                         <span class="font-semibold">Pembayaran</span>
                     </div>
-                    <ul class="mt-1 list-decimal space-y-1 pl-7">
+                    <ul class="mt-1 list-disc space-y-1 pl-7">
                         <li class="max-sm:text-sm">Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n. Berbinar Insightful Indonesia dengan aturan transfer 1×24 jam.</li>
                     </ul>
                 </div>
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="mt-4 flex justify-center lg:gap-x-3">
-                    <button id="closeModal" class="text-md w-full rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-24 py-2 text-white max-sm:text-[15px] sm:w-auto">Tutup</button>
+                    <button id="closeModal" class="text-md w-full rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-24 py-2 text-white max-sm:text-[15px] sm:w-auto">Saya Mengerti</button>
                 </div>
             </div>
         </div>
