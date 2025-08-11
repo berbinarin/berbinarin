@@ -17,13 +17,13 @@
     <meta property="og:url" content="{{ $currentUrl }}" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Berbinar Insightful Indonesia" />
-    
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="{{ $article->title }}" />
     <meta name="twitter:description" content="{{ $description }}" />
     <meta name="twitter:image" content="{{ $imageUrl }}" />
-    
+
     <!-- WhatsApp Meta Tags -->
     <meta property="og:image:alt" content="{{ $article->title }}" />
     <meta name="description" content="{{ $description }}" />
@@ -44,13 +44,22 @@
             word-wrap: break-word;
         }
 
-        /* Media Queries */
+        /* Media Queries untuk Mobile */
         @media (max-width: 768px) {
-            .prose blockquote p {
-                font-size: 14px;
+            .prose blockquote {
+                padding-left: 1.5rem;
+                /* margin-left: 0.5rem; */
+                font-size: 1rem;
             }
-            .prose p {
-                font-size: 12px;
+
+            .prose blockquote p::before {
+                left: -1.2rem;
+                font-size: 2rem;
+            }
+
+            .prose blockquote p::after {
+                right: -0.8rem;
+                font-size: 2rem;
             }
         }
 
@@ -61,8 +70,8 @@
             padding-left: 2rem;
             font-size: 1.25rem;
             color: #374151;
-            max-width: 100%;
-            quotes: '\201C' '\201D' '\2018' '\2019'; /* Menentukan tanda kutip yang akan digunakan */
+            max-width: 80%;
+            quotes: '\201C' '\201D' '\2018' '\2019';
         }
 
         @media (min-width: 768px) {
@@ -83,25 +92,29 @@
             font-style: normal;
             color: #1c1917;
             max-width: 100%;
+            padding: 0.5rem 0;
         }
 
         .prose blockquote p::before {
-            content: open-quote; /* Menggunakan open-quote dari quotes property */
+            content: open-quote;
             position: absolute;
-            left: -1rem;
-            top: -0.5rem;
-            font-size: 2.25rem;
+            left: -1.5rem;
+            top: 0;
+            font-size: 2.5rem;
             color: #06b6d4;
+            line-height: 1;
         }
 
         .prose blockquote p::after {
-            content: close-quote; /* Menggunakan close-quote dari quotes property */
+            content: close-quote;
             position: absolute;
-            bottom: -0.5rem;
-            right: -1rem;
-            font-size: 2.25rem;
+            right: -4rem;
+            bottom: 0;
+            font-size: 2.5rem;
             color: #06b6d4;
+            line-height: 1;
         }
+
         /* Content Containers */
         .rounded-xl {
             overflow: hidden;
@@ -170,7 +183,7 @@
         </div>
 
         <!-- Main Content Container -->
-        <div  class="relative z-10 mx-auto w-full max-w-7xl">
+        <div class="relative z-10 mx-auto w-full max-w-7xl">
             <!-- Article Container -->
             <div class="w-full rounded-xl bg-white p-6 shadow-sm md:p-8 lg:p-10">
                 <!-- Category Tag -->
@@ -228,32 +241,28 @@
                         <div class="flex flex-wrap justify-center md:justify-start md:pl-6">
                             @php
                                 $reactions = [
-                                    ['label' => 'sangat senang', 'img' => '1-wahoo.png', 'hover' => '1-wahoo2.png'],
-                                    ['label' => 'senang', 'img' => '2-happy.png', 'hover' => '2-happy2.png'],
-                                    ['label' => 'biasa saja', 'img' => '3-neutral.png', 'hover' => '3-neutral2.png'],
-                                    ['label' => 'bosan', 'img' => '4-bummed.png', 'hover' => '4-bummed2.png'],
-                                    ['label' => 'tidak suka', 'img' => '5-pissed.png', 'hover' => '5-pissed2.png'],
+                                    ["label" => "sangat senang", "img" => "1-wahoo.png", "hover" => "1-wahoo2.png"],
+                                    ["label" => "senang", "img" => "2-happy.png", "hover" => "2-happy2.png"],
+                                    ["label" => "biasa saja", "img" => "3-neutral.png", "hover" => "3-neutral2.png"],
+                                    ["label" => "bosan", "img" => "4-bummed.png", "hover" => "4-bummed2.png"],
+                                    ["label" => "tidak suka", "img" => "5-pissed.png", "hover" => "5-pissed2.png"],
                                 ];
                             @endphp
+
                             {{-- Debugg --}}
-                            {{-- <pre>
-                            userReaction: {{ $userReaction ? $userReaction->reaction_type : 'null' }}
-                            </pre> --}}
+                            {{--
+                                <pre>
+                                userReaction: {{ $userReaction ? $userReaction->reaction_type : 'null' }}
+                                </pre>
+                            --}}
                             @foreach ($reactions as $idx => $reaction)
-                            <form action="{{ url('/arteri/'.$article->id.'/reaction') }}" method="POST" style="display:inline;">
-                                @csrf
-                                <input type="hidden" name="reaction_type" value="{{ $reaction['label'] }}">
-                                <button type="submit" style="background: none; border: none; padding: 0; margin: 0;" class="reaction-btn">
-                                    <img
-                                        id="reaction-img-{{ $idx }}"
-                                        src="{{ asset('assets/images/landing/arteri/feedback/'.$reaction['img']) }}"
-                                        data-hover="{{ asset('assets/images/landing/arteri/feedback/'.$reaction['hover']) }}"
-                                        data-normal="{{ asset('assets/images/landing/arteri/feedback/'.$reaction['img']) }}"
-                                        class="reaction-img h-[72px] w-[72px] {{ (isset($userReaction) && $userReaction->reaction_type === $reaction['label']) ? 'active' : '' }}"
-                                        alt="{{ $reaction['label'] }}"
-                                    />
-                                </button>
-                            </form>
+                                <form action="{{ url("/arteri/" . $article->id . "/reaction") }}" method="POST" style="display: inline">
+                                    @csrf
+                                    <input type="hidden" name="reaction_type" value="{{ $reaction["label"] }}" />
+                                    <button type="submit" style="background: none; border: none; padding: 0; margin: 0" class="reaction-btn">
+                                        <img id="reaction-img-{{ $idx }}" src="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["img"]) }}" data-hover="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["hover"]) }}" data-normal="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["img"]) }}" class="reaction-img {{ isset($userReaction) && $userReaction->reaction_type === $reaction["label"] ? "active" : "" }} h-[72px] w-[72px]" alt="{{ $reaction["label"] }}" />
+                                    </button>
+                                </form>
                             @endforeach
                         </div>
                     </div>
@@ -280,31 +289,31 @@
             <p class="my-3 text-sm text-gray-600">Share this link via</p>
 
             <div class="mb-4 flex justify-between">
-                <a href="{{ $shareButtons['twitter'] ?? '#' }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
+                <a href="{{ $shareButtons["twitter"] ?? "#" }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
                     <img src="{{ asset("assets/images/landing/logo/sosmed-icon/x.png") }}" class="h-5 w-5" />
-                    </a>
-                    <a href="{{ $shareButtons['linkedin'] ?? '#' }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
-                        <img src="{{ asset("assets/images/landing/logo/sosmed-icon/linkedin.png") }}" class="h-5 w-5" />
-                    </a>
-                    <a href="{{ $shareButtons['whatsapp'] ?? '#' }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
-                        <img src="{{ asset("assets/images/landing/logo/sosmed-icon/whatsapp.png") }}" class="h-5 w-5" />
-                    </a>
-                    <a href="{{ $shareButtons['facebook'] ?? '#' }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
-                        <img src="{{ asset("assets/images/landing/logo/sosmed-icon/facebook.png") }}" class="h-5 w-5" />
-                    </a>
-                    <a href="{{ $shareButtons['telegram'] ?? '#' }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
-                        <img src="{{ asset("assets/images/landing/logo/sosmed-icon/telegram.png") }}" class="h-5 w-5" />
-                    </a>
+                </a>
+                <a href="{{ $shareButtons["linkedin"] ?? "#" }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
+                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/linkedin.png") }}" class="h-5 w-5" />
+                </a>
+                <a href="{{ $shareButtons["whatsapp"] ?? "#" }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
+                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/whatsapp.png") }}" class="h-5 w-5" />
+                </a>
+                <a href="{{ $shareButtons["facebook"] ?? "#" }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
+                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/facebook.png") }}" class="h-5 w-5" />
+                </a>
+                <a href="{{ $shareButtons["telegram"] ?? "#" }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
+                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/telegram.png") }}" class="h-5 w-5" />
+                </a>
             </div>
 
             <p class="mb-2 text-sm text-gray-600">Or copy link</p>
             <div class="flex">
                 <input type="text" id="shareLink" value="{{ $currentUrl }}" class="flex-1 rounded-l border px-2 py-1 text-sm" readonly />
-                <button onclick="copyShareLink(); trackShare()" class="rounded-r bg-[#225062]  w-20 text-white">Copy</button>
+                <button onclick="copyShareLink(); trackShare()" class="w-20 rounded-r bg-[#225062] text-white">Copy</button>
             </div>
         </div>
     </div>
-    <form id="shareTrackForm" action="{{ url('/arteri/'.$article->id.'/share') }}" method="POST" style="display:none;">
+    <form id="shareTrackForm" action="{{ url("/arteri/" . $article->id . "/share") }}" method="POST" style="display: none">
         @csrf
     </form>
 @endsection
@@ -345,26 +354,25 @@
             });
 
             // AJAX Reaction
-            document.querySelectorAll('.reaction-btn').forEach(function(btn) {
-                btn.addEventListener('click', function(e) {
+            document.querySelectorAll('.reaction-btn').forEach(function (btn) {
+                btn.addEventListener('click', function (e) {
                     e.preventDefault();
                     var form = this.closest('form');
                     var formData = new FormData(form);
-                    
-                    fetch(form.action, {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                        'Accept': 'application/json'
-                    },
-                    body: formData
-                })
-                .then(response => response.text())
-                .then(text => {
-                    // console.log("Isi respon:", text); 
-                })
-                .catch(error => console.error('Terjadi kesalahan:', error));
 
+                    fetch(form.action, {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            Accept: 'application/json',
+                        },
+                        body: formData,
+                    })
+                        .then((response) => response.text())
+                        .then((text) => {
+                            // console.log("Isi respon:", text);
+                        })
+                        .catch((error) => console.error('Terjadi kesalahan:', error));
                 });
             });
         });
@@ -377,14 +385,17 @@
         function copyShareLink() {
             const copyText = document.getElementById('shareLink');
             const copyButton = copyText.nextElementSibling;
-            
+
             if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(copyText.value).then(() => {
-                    showSuccessToast();
-                    updateCopyButton(copyButton);
-                }).catch(() => {
-                    fallbackCopyTextToClipboard(copyText, copyButton);
-                });
+                navigator.clipboard
+                    .writeText(copyText.value)
+                    .then(() => {
+                        showSuccessToast();
+                        updateCopyButton(copyButton);
+                    })
+                    .catch(() => {
+                        fallbackCopyTextToClipboard(copyText, copyButton);
+                    });
             } else {
                 fallbackCopyTextToClipboard(copyText, copyButton);
             }
@@ -393,7 +404,7 @@
         function fallbackCopyTextToClipboard(copyText, copyButton) {
             copyText.select();
             copyText.setSelectionRange(0, 99999);
-            
+
             try {
                 document.execCommand('copy');
                 showSuccessToast();
@@ -409,7 +420,7 @@
                 icon: 'success',
                 title: 'Link berhasil disalin!',
                 toast: true,
-                position: "top-end",
+                position: 'top-end',
                 showConfirmButton: false,
                 showCloseButton: true,
                 timer: 2000,
@@ -417,19 +428,19 @@
                 background: '#ffffff',
                 color: '#374151',
                 customClass: {
-                    popup: 'colored-toast'
-                }
+                    popup: 'colored-toast',
+                },
             });
         }
 
         function updateCopyButton(button) {
             const originalText = button.innerHTML;
             const originalColor = button.style.backgroundColor;
-            
+
             button.innerHTML = 'Copied!';
             button.style.backgroundColor = '#3986A3';
             button.disabled = true;
-            
+
             setTimeout(() => {
                 button.innerHTML = originalText;
                 button.style.backgroundColor = originalColor || '#225062';
@@ -437,27 +448,27 @@
             }, 2000);
         }
 
-        document.getElementById('shareModal').addEventListener('click', function(e) {
+        document.getElementById('shareModal').addEventListener('click', function (e) {
             if (e.target === this) {
                 toggleShareModal(false);
             }
         });
 
         function trackShare() {
-            fetch("{{ url('/arteri/'.$article->id.'/share') }}", {
+            fetch('{{ url("/arteri/" . $article->id . "/share") }}', {
                 method: 'POST',
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    'Accept': 'application/json'
-                }
+                    Accept: 'application/json',
+                },
             })
-             .then(response => response.json())
-            .then(data => {
-                // console.log(data.success || 'Share tercatat!');
-            })
-            .catch(error => {
-                // console.error(error);
-            });
+                .then((response) => response.json())
+                .then((data) => {
+                    // console.log(data.success || 'Share tercatat!');
+                })
+                .catch((error) => {
+                    // console.error(error);
+                });
         }
     </script>
 @endsection
