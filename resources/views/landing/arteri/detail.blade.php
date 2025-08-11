@@ -31,27 +31,38 @@
 
 @section("style")
     <style>
+        /* Base Styles */
+        .prose {
+            max-width: 100%;
+            width: 100%;
+        }
+
         .prose p {
             text-align: justify;
             color: #0f172a;
+            max-width: 100%;
+            word-wrap: break-word;
         }
 
+        /* Media Queries */
         @media (max-width: 768px) {
             .prose blockquote p {
-                font-size: 1.25rem;
+                font-size: 14px;
             }
             .prose p {
-                font-size: 1rem;
+                font-size: 12px;
             }
         }
 
+        /* Blockquote Styles */
         .prose blockquote {
             position: relative;
             border-left: 4px solid #06b6d4;
             padding-left: 2rem;
             font-size: 1.25rem;
             color: #374151;
-            max-width: 72rem;
+            max-width: 100%;
+            quotes: '\201C' '\201D' '\2018' '\2019'; /* Menentukan tanda kutip yang akan digunakan */
         }
 
         @media (min-width: 768px) {
@@ -68,13 +79,14 @@
 
         .prose blockquote p {
             position: relative;
-            display: inline-block;
+            display: inline;
             font-style: normal;
             color: #1c1917;
+            max-width: 100%;
         }
 
         .prose blockquote p::before {
-            content: '\201C';
+            content: open-quote; /* Menggunakan open-quote dari quotes property */
             position: absolute;
             left: -1rem;
             top: -0.5rem;
@@ -83,14 +95,39 @@
         }
 
         .prose blockquote p::after {
-            content: '\201E';
+            content: close-quote; /* Menggunakan close-quote dari quotes property */
             position: absolute;
             bottom: -0.5rem;
             right: -1rem;
             font-size: 2.25rem;
             color: #06b6d4;
         }
+        /* Content Containers */
+        .rounded-xl {
+            overflow: hidden;
+        }
 
+        /* Media Elements */
+        .prose img,
+        .prose iframe,
+        .prose video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Tables */
+        .prose table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+            margin: 1rem 0;
+        }
+
+        /* Reaction Styles */
         .reaction-img {
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             cursor: pointer;
@@ -108,7 +145,19 @@
             filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
         }
 
-        
+        /* Background Elements */
+        .pointer-events-none {
+            pointer-events: none;
+        }
+
+        /* Utility Classes */
+        .max-w-full {
+            max-width: 100%;
+        }
+
+        .overflow-x-auto {
+            overflow-x: auto;
+        }
     </style>
 @endsection
 
@@ -145,21 +194,21 @@
                 </div>
 
                 <!-- Article Cover Image -->
-                <img src="{{ asset("/image/" . $article->cover_image) }}" alt="cover" class="z-10 mb-4 aspect-video w-full rounded-xl object-cover" />
+                <img src="{{ asset("/image/" . $article->cover_image) }}" alt="cover" class="z-10 mb-4 aspect-video w-full max-w-full rounded-xl object-cover" />
 
                 <!-- Mobile Author & Date -->
                 <div class="mb-6 flex w-full items-center justify-between lg:hidden">
-                    <span class="text-sm text-slate-700">{{ $article->created_at->format("d F Y") }}</span>
                     <span class="flex items-center justify-start gap-2">
                         <img src="{{ asset("/image/" . $article->author->profil_image) }}" alt="writer profile" class="size-5 rounded-full object-cover" />
                         <span class="text-sm text-slate-700">{{ $article->author->name_author }}</span>
                     </span>
+                    <span class="text-sm text-slate-700">{{ $article->created_at->format("d F Y") }}</span>
                 </div>
 
-                <!-- Article Content -->
+                <!-- Article Content - Fixed Section -->
                 <div class="z-10 mb-4 flex w-full flex-col items-center justify-center">
-                    <article class="prose prose-sm z-10 max-w-none md:prose-base lg:prose-lg">
-                        <div class="z-10">
+                    <article class="prose prose-sm z-10 w-full max-w-full md:prose-base lg:prose-lg">
+                        <div class="z-10 w-full max-w-full overflow-x-auto">
                             {!! $article->content !!}
                         </div>
                     </article>
