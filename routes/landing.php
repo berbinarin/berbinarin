@@ -51,9 +51,12 @@ Route::prefix('produk')->name('product.')->group(function () {
 
         // Pendaftaran Konseling (Psikolog)
         Route::prefix('psikolog')->name('psikolog.')->group(function () {
+            Route::get('/daftar-psikolog', [CounselingController::class, 'registrationPsikolog'])->name('registration');
             Route::get('/', [CounselingController::class, 'showPsikologForm'])->name('index');
             Route::get('/registrasi', [CounselingController::class, 'showPsikologRegistration'])->name('registrasi');
             Route::post('/registrasi', [CounselingController::class, 'storePsikologRegistration'])->name('store');
+            Route::get('/staff', [CounselingController::class, 'showPsikologStaffForm'])->name('staff');
+            Route::post('/staff', [CounselingController::class, 'storePsikologStaffRegistration'])->name('staff.store');
         });
 
         // Pendaftaran Konseling (Peer Counselor)
@@ -151,7 +154,7 @@ Route::prefix('arteri')->name('arteri.')->group(function () {
     Route::get('/kategori/{slug}', [ArteriController::class, 'category'])->name('category');
     Route::post('/{articleId}/reaction', [ArteriController::class, 'reaction']);
     Route::post('/{articleId}/share', [ArteriController::class, 'share'])->name('share');
-    Route::post('/{articleId}/view', [ArteriController::class, 'view'])->name('view'); 
+    Route::post('/{articleId}/view', [ArteriController::class, 'view'])->name('view');
 });
 
 // Psikotest Free

@@ -45,14 +45,14 @@
 @endsection
 
 @php
-    function italic_en($text) {
-        $enWords = [
-            'Peer Counselor',   'Universitas', 'Diploma', 'Registration'
-        ];
-        foreach ($enWords as $word) {
-            $text = str_replace($word, "<i>$word</i>", $text);
+    if (!function_exists('italic_en')) {
+        function italic_en($text) {
+            $enWords = ['Peer Counselor', 'Universitas', 'Diploma', 'Registration'];
+            foreach ($enWords as $word) {
+                $text = str_replace($word, "<i>$word</i>", $text);
+            }
+            return $text;
         }
-        return $text;
     }
 @endphp
 
@@ -70,12 +70,12 @@
                     </div>
 
                     <div class="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-20 justify-center transition-all duration-300 group-hover:-translate-y-0.5 group-hover:scale-y-[0.83] group-hover:mb-1.5">
-                        @if ($konseling["nama"] === "Peer Counselor")
-                            <a href="{{ route("product.counseling.peer-counselor.registration") }}">
+                        @if ($konseling["nama"] === "Psikolog Staff")
+                            <a href="{{ route("product.counseling.psikolog.staff") }}">
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar {!! italic_en($konseling["nama"]) !!}</button>
                             </a>
                         @else
-                            <a href="{{ route("product.counseling.psikolog.registration") }}">
+                            <a href="{{ route("product.counseling.psikolog.index") }}">
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar {!! italic_en($konseling["nama"]) !!}</button>
                             </a>
                         @endif
@@ -97,11 +97,11 @@
                     <img src="{{ asset($konseling["image"]) }}" alt="{{ $konseling["nama"] }}" class="h-36 w-auto object-contain" />
                     <div class="flex justify-center">
                         @if ($konseling["nama"] === "Peer Counselor")
-                            <a href="{{ route("product.counseling.peer-counselor.registration") }}">
+                            <a href="{{ route("product.counseling.psikolog.staff") }}">
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:px-6 max-sm:text-[15px]">Daftar {!! italic_en($konseling["nama"]) !!}</button>
                             </a>
                         @else
-                            <a href="{{ route("product.counseling.psikolog.registration") }}">
+                            <a href="{{ route("product.counseling.psikolog.index") }}">
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:px-6 max-sm:text-[15px]">Daftar {!! italic_en($konseling["nama"]) !!}</button>
                             </a>
                         @endif

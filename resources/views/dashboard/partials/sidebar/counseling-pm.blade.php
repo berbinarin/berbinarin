@@ -34,3 +34,17 @@
         <span class="ml-4 text-base font-bold leading-5">Berbinar For U Data</span>
     </a>
 </li>
+
+<li class="dark-hover:text-blue-300 my-5 rounded-lg p-2">
+    <a href="{{ route("dashboard.vouchers.index") }}" class="{{ isRouteNameStartWith("dashboard.vouchers") }} flex flex-row items-center text-gray-700 duration-700 hover:text-primary">
+        <i class="bx bx-credit-card {{ isRouteNameStartWith("dashboard.vouchers") }} mr-2 text-lg text-gray-700"></i>
+        <span class="ml-4 text-base font-bold leading-5">Kode Voucher</span>
+    </a>
+</li>
+
+<li class="dark-hover:text-blue-300 my-5 rounded-lg p-2">
+    <a href="{{ route("dashboard.psikolog-staff.index") }}" class="{{ isRouteNameStartWith("dashboard.psikolog-staff") }} flex flex-row items-center text-gray-700 duration-700 hover:text-primary">
+        <i class="bx bx-table {{ isRouteNameStartWith("dashboard.psikolog-staff") }} mr-2 text-lg text-gray-700"></i>
+        <span class="ml-4 text-base font-bold leading-5">Psikolog Staff</span>
+    </a>
+</li>

@@ -39,6 +39,16 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
 
         // Berbinar For U
         Route::resource('/berbinar-for-u', BerbinarForUController::class);
+
+        // Kode Voucher
+        Route::get('/vouchers', [PsychologistController::class, 'voucherIndex'])->name('vouchers.index');
+
+        // Psikolog Staff
+        Route::get('/psikolog-staff', [PeerCounselorController::class, 'staffIndex'])->name('psikolog-staff.index');
+        Route::get('/psikolog-staff/create', [PeerCounselorController::class, 'staffCreate'])->name('psikolog-staff.create');
+        Route::get('/psikolog-staff/edit', [PeerCounselorController::class, 'staffEdit'])->name('psikolog-staff.edit');
+        Route::get('/psikolog-staff/show', [PeerCounselorController::class, 'staffShow'])->name('psikolog-staff.show');
+
     });
 
     // Class Product Management

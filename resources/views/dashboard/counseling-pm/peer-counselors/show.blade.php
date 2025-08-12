@@ -162,10 +162,10 @@
             <h3 class="text-xl font-semibold text-gray-900 mb-2">Konfirmasi Hapus Data</h3>
             <!-- Message -->
             <p class="text-gray-600 mb-6">
-                Apakah Anda yakin ingin menghapus data ini? 
+                Apakah Anda yakin ingin menghapus data ini?
             </p>
         </div>
-        
+
         <!-- Modal Actions -->
         <div class="flex gap-3 px-6 pb-6">
             <button id="cancelDelete" class="flex-1 px-4 py-3 text-gray-700 bg-white border-2 border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 font-medium transition-colors">
@@ -184,45 +184,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const deleteModal = document.getElementById('deleteModal');
     const cancelDelete = document.getElementById('cancelDelete');
     const confirmDelete = document.getElementById('confirmDelete');
-    
+
     if (deleteButton) {
         deleteButton.addEventListener('click', function() {
             deleteModal.classList.remove('hidden');
         });
     }
-    
+
     if (cancelDelete) {
         cancelDelete.addEventListener('click', function() {
             deleteModal.classList.add('hidden');
         });
     }
-    
+
     if (confirmDelete) {
         confirmDelete.addEventListener('click', function() {
             const id = deleteButton.getAttribute('data-id');
-            
+
             // Create and submit form
             const form = document.createElement('form');
             form.method = 'POST';
             form.action = `{{ route('dashboard.peer-counselors.destroy', '') }}/${id}`;
-            
+
             const csrfToken = document.createElement('input');
             csrfToken.type = 'hidden';
             csrfToken.name = '_token';
             csrfToken.value = '{{ csrf_token() }}';
-            
+
             const methodInput = document.createElement('input');
             methodInput.type = 'hidden';
             methodInput.name = '_method';
             methodInput.value = 'DELETE';
-            
+
             form.appendChild(csrfToken);
             form.appendChild(methodInput);
             document.body.appendChild(form);
             form.submit();
         });
     }
-    
+
     // Close modal when clicking outside
     deleteModal.addEventListener('click', function(e) {
         if (e.target === deleteModal) {
