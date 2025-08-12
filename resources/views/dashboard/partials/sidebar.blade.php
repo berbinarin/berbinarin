@@ -18,7 +18,7 @@
     @endphp
 
     {{-- LIST MENU --}}
-    <ul class="mt-10 text-gray-700 dark:text-gray-400">
+    <ul class="mt-10 text-gray-700 dark:text-gray-400 overflow-y-auto overflow-x-hidden">
         <!-- Links -->
         <li class="dark-hover:text-blue-300 mt-1 rounded-lg p-2">
             <a href="{{ route("dashboard.index") }}" class="{{ Request::is("dashboard") ? "text-primary" : "" }} flex flex-row items-center text-gray-700 duration-700 hover:text-primary">
