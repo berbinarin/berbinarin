@@ -20,7 +20,7 @@
             <form action="{{ route('dashboard.psikolog-staff.index') }}" method="GET" id="editForm">
                 @csrf
                 @method('PUT')
-                <input type="hidden" name="kategori" value="peer-counselor">
+                <input type="hidden" name="kategori" value="psikolog-staff">
 
                 <!-- Data Diri -->
                 <h1 class="mb-6 text-center text-2xl font-bold">Data Diri</h1>
@@ -306,7 +306,7 @@
             });
 
             confirmCancel.addEventListener('click', function() {
-                window.location.href = "{{ route('dashboard.peer-counselors.index') }}";
+                window.location.href = "{{ route('dashboard.psikolog-staff.index') }}";
             });
 
             cancelCancel.addEventListener('click', function() {

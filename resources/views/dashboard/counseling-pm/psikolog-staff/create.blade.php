@@ -19,7 +19,7 @@
         <div class="rounded-md bg-white px-4 py-4 mb-7 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
             <form action="{{ route('dashboard.psikolog-staff.index') }}" method="GET">
                 @csrf
-                <input type="hidden" name="kategori" value="peer-counselor">
+                <input type="hidden" name="kategori" value="psikolog-staff">
 
                 <!-- Data Diri -->
                 <h1 class="mb-6 text-center text-2xl font-bold">Data Diri</h1>
@@ -305,7 +305,7 @@
             });
 
             confirmCancel.addEventListener('click', function() {
-                window.location.href = "{{ route('dashboard.peer-counselors.index') }}";
+                window.location.href = "{{ route('dashboard.psikolog-staff.index') }}";
             });
 
             cancelCancel.addEventListener('click', function() {
