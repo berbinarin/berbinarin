@@ -69,8 +69,8 @@
                     <span class="font-semibold">Lokasi offline Konseling</span>
                 </div>
                 <ol class="list-decimal mt-1 space-y-1 pl-7">
-                    <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, Makassar, Samarinda, Jakarta, dan Malang</li>
-                    <li class="max-sm:text-sm">b. Peer Counselor : Tangerang Selatan, Malang, dan Surabaya</li>
+                    <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
+                    <li class="max-sm:text-sm">b. Peer Counselor : Surabaya, Jombang, dan Nganjuk</li>
                 </ol>
             </div>
 
@@ -156,12 +156,9 @@
                     <div class="relative">
                         <select name="daerah" id="daerah-select" class="dropdown-select bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3] appearance-none">
                             <option value="">Pilih Daerah Konseling</option>
-                            <option value="Bekasi">Bekasi</option>
-                            <option value="Jakarta">Jakarta</option>
-                            <option value="Tangerang Selatan">Tangerang Selatan</option>
-                            <option value="Padang">Padang</option>
-                            <option value="Wonogiri">Wonogiri</option>
-                            <option value="Malang">Malang</option>
+                            <option value="Surabaya">Surabaya</option>
+                            <option value="Jombang">Jombang</option>
+                            <option value="Nganjuk">Nganjuk</option>
                         </select>
                         <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon h-2 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300">
                     </div>
@@ -219,7 +216,7 @@
                 </div>
                 {{-- Kota Domisili --}}
                 <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Kota Domisili</p>
+                    <p class="text-sm text-[#333333] sm:text-[17px]">Tempat Lahir</p>
                     <div class="relative">
                         <input name="tempat_lahir" type="text" class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none" placeholder="Surabaya" />
                     </div>
