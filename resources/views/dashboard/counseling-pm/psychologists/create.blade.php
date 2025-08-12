@@ -22,7 +22,7 @@
                 @csrf
                 <input type="hidden" name="kategori" value="psikolog">
 
-                                <!-- Data Konseling -->
+                <!-- Data Konseling -->
                 <h1 class="my-8 text-center text-2xl font-bold">Data Konseling</h1>
                 <div class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>
