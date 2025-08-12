@@ -317,6 +317,26 @@ class CounselingController extends Controller
         ]);
     }
 
+    public function registrationPsikolog()
+    {
+        $konselings = [
+            [
+                'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
+                'nama' => 'Psikolog Umum',
+                'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
+            ],
+            [
+                'image' => 'assets/images/landing/asset-konseling/vector/psikolog-staff.png',
+                'nama' => 'Psikolog Staff',
+                'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
+            ],
+        ];
+
+        return view('landing.product.counseling.registration-psikolog')->with([
+            'konselings' => $konselings
+        ]);
+    }
+
     public function registrationPeer()
     {
         $konselings = [
@@ -342,6 +362,11 @@ class CounselingController extends Controller
         return view('landing.product.counseling.psikolog.registration-psikolog');
     }
 
+    public function showPsikologStaffForm()
+    {
+        return view('landing.product.counseling.staff.registration-psikolog-staff');
+    }
+
     public function showPeerForm()
     {
         $jadwalPeerCounselors = jadwalPeer::all();
@@ -364,6 +389,61 @@ class CounselingController extends Controller
     }
 
     public function storePsikologRegistration(Request $request)
+    {
+        $request->validate([
+            'jadwal_tanggal' => 'required',
+            'jadwal_pukul' => 'required',
+            'metode' => 'required',
+            'daerah' => 'nullable',
+            'sesi' => 'required',
+            'harga' => 'required',
+            'nama' => 'required',
+            'email' => 'required',
+            'tanggal_Lahir' => 'required',
+            'tempat_lahir' => 'required',
+            'alamat' => 'required',
+            'status_pernikahan' => 'required',
+            'jenis_kelamin' => 'required',
+            'no_wa' => 'required',
+            'suku' => 'required',
+            'agama' => 'required',
+            'posisi_anak' => 'required',
+            'hobi' => 'required',
+            'pendidikan' => 'required',
+            'asal_sekolah' => 'required',
+            'riwayat_pekerjaan' => 'required',
+            'kegiatan_sosial' => 'required',
+            'cerita' => 'required',
+            'kategori' => 'required'
+        ]);
+
+        try {
+            // Convert date format from d/m/Y to Y-m-d
+            $tanggalLahir = \DateTime::createFromFormat('d/m/Y', $request->tanggal_Lahir);
+            $jadwalTanggal = \DateTime::createFromFormat('d/m/Y', $request->jadwal_tanggal);
+
+            $data = $request->all();
+            $data['tanggal_Lahir'] = $tanggalLahir ? $tanggalLahir->format('Y-m-d') : null;
+            $data['jadwal_tanggal'] = $jadwalTanggal ? $jadwalTanggal->format('Y-m-d') : null;
+            $data['sesi'] = intval($data['sesi']); // pastikan sesi integer
+
+            // Jika metode online, daerah ikut 'Online'
+            if ($data['metode'] === 'online') {
+                $data['daerah'] = 'Online';
+            }
+
+            // dd($data);
+            KonsellingPsikolog::create($data);
+
+            return view('landing.product.counseling.summary-konseling');
+        } catch (\Exception $e) {
+            return redirect()->back()
+                ->with('error', 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.')
+                ->withInput();
+        }
+    }
+
+    public function storePsikologStaffRegistration(Request $request)
     {
         $request->validate([
             'jadwal_tanggal' => 'required',
