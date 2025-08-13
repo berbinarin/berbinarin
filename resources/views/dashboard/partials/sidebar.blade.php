@@ -1,4 +1,4 @@
-<nav class="flex w-56 flex-col items-center bg-white py-8 pl-10 pr-6">
+<nav class="flex w-56 flex-col items-center bg-white overflow-y-auto overflow-x-hidden py-8 pl-10 pr-6">
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-rounded/css/uicons-thin-rounded.css" />
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css" />
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css" />
@@ -18,7 +18,7 @@
     @endphp
 
     {{-- LIST MENU --}}
-    <ul class="mt-10 text-gray-700 dark:text-gray-400 overflow-y-auto overflow-x-hidden">
+    <ul class="mt-10 text-gray-700 dark:text-gray-400">
         <!-- Links -->
         <li class="dark-hover:text-blue-300 mt-1 rounded-lg p-2">
             <a href="{{ route("dashboard.index") }}" class="{{ Request::is("dashboard") ? "text-primary" : "" }} flex flex-row items-center text-gray-700 duration-700 hover:text-primary">

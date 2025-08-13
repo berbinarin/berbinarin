@@ -12,7 +12,7 @@
                 </a>
                 <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Tambah Data Psikolog Staff</p>
             </div>
-            <p class="w-3/4 text-disabled">
+            <p class="w-full text-disabled">
                 Halaman yang digunakan untuk menambahkan, mengelola, dan melengkapi seluruh data pribadi, latar belakang, serta informasi penting lainnya dari psikolog secara detail untuk keperluan administrasi dan monitoring.
             </p>
         </div>
