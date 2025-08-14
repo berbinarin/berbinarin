@@ -57,6 +57,7 @@ Route::prefix('produk')->name('product.')->group(function () {
             Route::post('/registrasi', [CounselingController::class, 'storePsikologRegistration'])->name('store');
             Route::get('/staff', [CounselingController::class, 'showPsikologStaffForm'])->name('staff');
             Route::post('/staff', [CounselingController::class, 'storePsikologStaffRegistration'])->name('staff.store');
+            Route::get('/cek-voucher', [CounselingController::class, 'cekVoucher']);
         });
 
         // Pendaftaran Konseling (Peer Counselor)
