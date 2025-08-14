@@ -44,8 +44,4 @@ class KonsellingPsikolog extends Model
         return $this->belongsTo(UserDetail::class);
     }
 
-    public function voucher()
-    {
-        return $this->belongsTo(CodeVoucher::class, 'kode_promo', 'code');
-    }
 }
