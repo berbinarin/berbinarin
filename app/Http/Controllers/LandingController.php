@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Http;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Hiring_Positions_Requirements;
 use App\Models\Hiring_Positions_Job_Descriptions;
+use Jenssegers\Agent\Agent;
 
 class LandingController extends Controller
 {
@@ -3064,8 +3065,20 @@ class LandingController extends Controller
     }
 
     public function psikotestPaid()
+{
+    $agent = new Agent();
+
+    if ($agent->isMobile() && !$agent->isTablet()) {
+        // Kalau user pakai HP, arahkan ke halaman error
+        return view('moduls.psikotes-paid.block-mobile');
+    }
+
+    // Kalau bukan mobile, tampilkan halaman psikotes
+    return view('moduls.psikotes-paid.homepage');
+}
+    public function konselingDaftar()
     {
-        return view('moduls.psikotes-paid.homepage');
+        return view('landing.product.psikotest.daftar-konseling');
     }
 
     public function testimoni()

@@ -348,7 +348,7 @@ class CounselingController extends Controller
             [
                 'image' => 'assets/images/landing/asset-konseling/vector/berbinarforu.png',
                 'nama' => 'Berbinar For U',
-                'deskripsi' => 'Berbinar For U adalah layanan curhat online gratis, nyaman, aman, dan anonim yang dijawab langsung oleh psikolog profesional terpercaya.',
+                'deskripsi' => 'Berbinar For U adalah layanan konseling bersama dengan Peer Counselor yang, dengan harga gratis dan terjamin profesionalitasnya, bagi kamu yang beruntung!',
             ],
         ];
 
