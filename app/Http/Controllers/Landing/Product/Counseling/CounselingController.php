@@ -7,6 +7,7 @@ use App\Models\KonsellingPsikolog;
 use App\Models\jadwalPeer;
 use App\Models\KonsellingPeer;
 use App\Models\BerbinarForU;
+use App\Models\CodeVoucher;
 use Illuminate\Http\Request;
 
 class CounselingController extends Controller
@@ -388,9 +389,10 @@ class CounselingController extends Controller
         return view('landing.product.counseling.psikolog.registrasi-psikolog');
     }
 
+
     public function storePsikologRegistration(Request $request)
     {
-        $request->validate([
+        $rules = [
             'jadwal_tanggal' => 'required',
             'jadwal_pukul' => 'required',
             'metode' => 'required',
@@ -414,25 +416,35 @@ class CounselingController extends Controller
             'riwayat_pekerjaan' => 'required',
             'kegiatan_sosial' => 'required',
             'cerita' => 'required',
-            'kategori' => 'required'
-        ]);
+            'kategori' => 'required',
+            'bukti_kartu_pelajar' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+        ];
+        if ($request->kategori === 'pelajar') {
+            $rules['bukti_kartu_pelajar'] = 'required|file|mimes:jpg,jpeg,png,pdf|max:2048';
+        }
+
+        $validatedData = $request->validate($rules);
 
         try {
             // Convert date format from d/m/Y to Y-m-d
             $tanggalLahir = \DateTime::createFromFormat('d/m/Y', $request->tanggal_Lahir);
             $jadwalTanggal = \DateTime::createFromFormat('d/m/Y', $request->jadwal_tanggal);
 
-            $data = $request->all();
+            $data = $validatedData;
             $data['tanggal_Lahir'] = $tanggalLahir ? $tanggalLahir->format('Y-m-d') : null;
             $data['jadwal_tanggal'] = $jadwalTanggal ? $jadwalTanggal->format('Y-m-d') : null;
-            $data['sesi'] = intval($data['sesi']); // pastikan sesi integer
-
-            // Jika metode online, daerah ikut 'Online'
+            $data['sesi'] = intval($data['sesi']);
             if ($data['metode'] === 'online') {
                 $data['daerah'] = 'Online';
             }
 
-            // dd($data);
+            // LOGIKA SAMA SEPERTI BERBINARPLUS
+            if ($request->hasFile('bukti_kartu_pelajar')) {
+                $data['bukti_kartu_pelajar'] = $request->file('bukti_kartu_pelajar')->store('bukti_kartu_pelajar', 'public');
+            } else {
+                $data['bukti_kartu_pelajar'] = null;
+            }
+
             KonsellingPsikolog::create($data);
 
             return view('landing.product.counseling.summary-konseling');
@@ -594,6 +606,19 @@ class CounselingController extends Controller
                 ->with('error', 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.')
                 ->withInput();
         }
+    }
+
+    public function cekVoucher(Request $request)
+    {
+        $voucher = CodeVoucher::where('code', $request->code)->first();
+        if ($voucher) {
+            return response()->json([
+                'valid' => true,
+                'percentage' => $voucher->percentage,
+                'category' => $voucher->category
+            ]);
+        }
+        return response()->json(['valid' => false]);
     }
 
     // public function summary()
