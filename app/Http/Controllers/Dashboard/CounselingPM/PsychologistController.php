@@ -183,9 +183,6 @@ class PsychologistController extends Controller
         return redirect()->route('dashboard.psychologists.index');
     }
 
-    public function voucherIndex()
-    {
-        return view('dashboard.counseling-pm.kode-voucher.index');
-    }
+    
 
 }
