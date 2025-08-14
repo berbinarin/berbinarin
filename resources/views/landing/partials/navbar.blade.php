@@ -14,8 +14,8 @@
         function isNavbarActiveMobile($routeName)
         {
             return Str::startsWith(Route::currentRouteName(), $routeName)
-                ? "block py-4 text-2xl font-medium text-[#3886A3]"
-                : "block py-4 text-2xl font-medium text-gray-600";
+                ? "font-Plus-Jakarta-Sans block py-4 text-2xl font-medium text-[#3886A3]"
+                : "font-Plus-Jakarta-Sans block py-4 text-2xl font-medium text-gray-600";
         }
     }
 @endphp

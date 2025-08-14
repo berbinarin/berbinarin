@@ -12,7 +12,7 @@
                 <div class="py-4 md:pb-7 md:pt-12">
                     <div>
                         <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Data Penulis</p>
-                        <p class="w-2/4 text-disabled">Menampilkan daftar penulis, memungkinkan admin untuk mengelola kontributor dan kontennya.</p>
+                        <p text-disabled">Menampilkan daftar penulis, memungkinkan admin untuk mengelola kontributor dan kontennya.</p>
                         <button onclick="bukaModalTambahPenulis()" type="button" class="mt-8 inline-flex items-start justify-start rounded-lg bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
                             <p class="text-dark font-medium leading-none">Tambah Penulis</p>
                         </button>
@@ -26,6 +26,7 @@
                                     <th>No</th>
                                     <th>Profil</th>
                                     <th class="text-left">Nama Penulis</th>
+                                    <th>Jumlah Artikel</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -37,6 +38,7 @@
                                             <img src="{{ $author->profil_image ? asset("/image/" . $author->profil_image) : asset("assets/images/landing/arteri/dummy.png") }}" alt="Foto Profil" class="h-12 w-12 rounded-full" />
                                         </td>
                                         <td class="whitespace-normal break-words text-left font-semibold" style="min-width: 300px">{{ $author->name_author }}</td>
+                                        <td class="whitespace-normal break-words text-center font-semibold" style="min-width: 300px">{{ $author->articles_count }}</td>
                                         <td class="whitespace-no-wrap px-6 py-4 text-center">
                                             <div class="flex items-center justify-center gap-2">
                                                 <!-- Tombol Edit -->
