@@ -126,6 +126,72 @@
         </div>
     </div>
 
+    {{-- Modal untuk kode voucher --}}
+
+    <div id="Voucher" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
+        <div class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
+            <h1 class="bg-gradient-to-r from-[#3986A3] to-[#15323D] bg-clip-text text-transparent pb-6 text-center text-3xl font-bold max-sm:text-lg">Promo KTM dan Kartu Pelajar <br class=""> Produk Konseling Bersama Psikolog</h1>
+            <div class="mb-6">
+                <div class="max-h-[440px] lg:max-h-96 overflow-y-auto">
+
+                <h2 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-2xl font-bold max-sm:text-lg">Syarat dan Ketentuan</h2>
+                <ul class="list-disc text-black marker:text-primary pl-6">
+                    <li class="mb-2">
+                        <p class="font-semibold">Promo Berlaku untuk:</p>
+                        <p class="max-sm:text-sm text-disabled pl-7">
+                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
+                                <li>Siswa aktif jenjang SMP/SMA/sederajat.</li>
+                                <li>Mahasiswa aktif jenjang D3, D4, atau S1.</li>
+                                <li>Dibuktikan dengan mengupload Kartu Tanda Mahasiswa (KTM) atau Kartu Pelajar yang masih berlaku saat melakukan pendaftaran</li>
+                            </ol>
+                        </p>
+
+                    </li>
+                    <li class="mb-2">
+                        <p class="font-semibold">Diskon/Penawaran:</p>
+                        <p class="max-sm:text-sm text-disabled pl-7">
+                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
+                                <li>Potongan harga sebesar 20% untuk setiap sesi konseling individu.</li>
+                                <li>Promo hanya berlaku untuk layanan konseling online.</li>
+                            </ol>
+                        </p>
+                    </li>
+
+                    <li class="mb-2">
+                        <p class="font-semibold">Cara Menggunakan Promo:</p>
+                        <p class="max-sm:text-sm text-disabled pl-7">
+                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
+                                <li>Daftar melalui website berbinar konseling <br> <a href="https://berbinar.in/produk/konseling" class="text-blue-500">https://berbinar.in/produk/<br class="hidden max-sm:block">konseling</a></li>
+                                <li>Upload KTM/kartu pelajar saat pendaftaran.</li>
+                                <li>Cantumkan kode promo #KONSELINGPELAJAR</li>
+                            </ol>
+                        </p>
+                    </li>
+
+                    <li class="mb-2">
+                        <p class="font-semibold">Ketentuan Tambahan:</p>
+                        <p class="max-sm:text-sm text-disabled pl-7">
+                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
+                                <li>Promo hanya berlaku untuk 1x sesi per individu, kecuali dinyatakan lain.</li>
+                                <li>Tidak dapat memilih Psikolog yang akan menangani</li>
+                                <li>Tidak dapat digabungkan dengan promo lainnya.</li>
+                                <li>Tidak berlaku untuk layanan lanjutan atau paket konseling tertentu.</li>
+                                <li>Pihak penyelenggara berhak membatalkan promo jika ditemukan penyalahgunaan (misalnya kartu tidak valid atau sudah tidak aktif).</li>
+                            </ol>
+                        </p>
+                    </li>
+                </ul>
+                </div>
+
+            </div>
+
+
+            <div class="mt-4 justify-center flex lg:gap-x-3">
+                <button id="closeVoucher" class="w-[90%] lg:w-1/4 rounded-xl border-[1.5px] bg-gradient-to-r from-[#3986A3] to-[#15323D] border-[#225062] bg-transparent px-4 py-1.5 font-medium text-white max-sm:text-[15px]">Saya Mengerti</button>
+            </div>
+        </div>
+    </div>
+
     {{-- Form Input Pendafataran --}}
 
     <form id="multiStepForm" action="{{ route('product.counseling.psikolog.store') }}" method="POST" class="flex flex-col">

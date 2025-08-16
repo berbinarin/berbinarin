@@ -7,13 +7,12 @@ use App\Models\Articles\Article;
 use App\Models\Articles\Category;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\Articles\Interaction;
+use App\Helpers\CategoryColorHelper;
 use App\Helpers\InteractionHelper;
 use Illuminate\Http\Request;
 
-
 class ArteriController extends Controller
 {
-
     public function index()
     {
         $sort = request('sort') ?? 'terbaru';
@@ -31,12 +30,24 @@ class ArteriController extends Controller
         foreach ($articles as $article) {
             $dom = new \DOMDocument();
             @$dom->loadHTML($article->content);
-
             $pTags = $dom->getElementsByTagName('p');
             $article->first_paragraph = $pTags->length > 0 ? $pTags->item(0)->textContent : '';
         }
+
         $categories = Category::all();
-        return view('landing.arteri.index', compact('articles', 'categories', 'sort', 'heroArticles'));
+        
+        $categoryColors = [];
+        foreach ($categories as $cat) {
+            $categoryColors[$cat->id] = CategoryColorHelper::getColor($cat->id);
+        }
+
+    return view('landing.arteri.index', [
+            'articles' => $articles,
+            'categories' => $categories,
+            'sort' => $sort,
+            'heroArticles' => $heroArticles,
+            'categoryColors' => $categoryColors
+        ]);
     }
 
     public function category($slug)
@@ -60,37 +71,39 @@ class ArteriController extends Controller
             $pTags = $dom->getElementsByTagName('p');
             $article->first_paragraph = $pTags->length > 0 ? $pTags->item(0)->textContent : '';
         }
-        $categories = Category::all();
 
+        $categories = Category::all();
         $heroArticles = Article::with(['category', 'author'])->latest()->take(3)->get();
 
-        return view('landing.arteri.index', compact('articles', 'categories', 'category', 'sort', 'heroArticles'));
+        $categoryColors = [];
+        foreach ($categories as $cat) {
+            $categoryColors[$cat->id] = CategoryColorHelper::getColor($cat->id);
+        }
+
+        return view('landing.arteri.index', compact(
+            'articles', 
+            'categories', 
+            'category', 
+            'sort', 
+            'heroArticles', 
+            'categoryColors'
+        ));
     }
-
-
 
     public function show($slug)
     {
-        // Mengembalikan artikel berdasarkan slug
         $title = str_replace('-', ' ', $slug);
-
         $whereTitle = '%' . str_replace('-', '%', strtolower($slug)) . '%';
         $article = Article::with('category', 'author')
             ->whereRaw('LOWER(title) LIKE ?', [$whereTitle])
             ->firstOrFail();
 
-        // Method untuk memgirim data ke Helpers 
-        // if (
-        //     request()->query('from') === 'index' &&
-        //     request()->method() === 'GET' &&
-        //     !session()->has('success')
-        // ) {
-        //     InteractionHelper::trackView($article->id);
-        // }
-        // Ambil user_token dari cookie
+        $categoryColors = [
+            $article->category->id => CategoryColorHelper::getColor($article->category->id)
+        ];
+
         $userToken = Cookie::get('user_token');
         $ipAddress = request()->ip();
-
 
         $userReaction = Interaction::where('article_id', $article->id)
             ->where(function ($query) use ($userToken, $ipAddress) {
@@ -99,14 +112,10 @@ class ArteriController extends Controller
             })
             ->first();
 
-        // URL untuk Button Share
         $currentUrl = route('arteri.detail', ['slug' => $slug]);
         $description = strip_tags($article->content);
         $description = substr($description, 0, 160) . '...';
-
-        // imageurl untuk share
         $imageUrl = asset('/image/' . $article->cover_image);
-
 
         $shareButtons = [
             'facebook' => "https://www.facebook.com/sharer/sharer.php?u=" . urlencode($currentUrl) . "&quote=" . urlencode($article->title),
@@ -116,7 +125,16 @@ class ArteriController extends Controller
             'telegram' => "https://t.me/share/url?url=" . urlencode($currentUrl) . "&text=" . urlencode($article->title . "\n\n" . $description)
         ];
 
-        return view('landing.arteri.detail', compact('article', 'shareButtons', 'currentUrl', 'imageUrl', 'description', 'slug', 'userReaction'));
+        return view('landing.arteri.detail', compact(
+            'article',
+            'shareButtons',
+            'currentUrl',
+            'imageUrl',
+            'description',
+            'slug',
+            'userReaction',
+            'categoryColors'
+        ));
     }
 
     public function view(Request $request, $articleId)
@@ -148,6 +166,4 @@ class ArteriController extends Controller
             'reaction' => $request->reaction
         ]);
     }
-
-    
 }

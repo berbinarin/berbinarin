@@ -78,6 +78,11 @@
             .prose blockquote {
                 font-size: 1.5rem;
             }
+
+            .reaction-img {
+                height: 90px !important;
+                width: 90px !important;
+            }
         }
 
         @media (min-width: 1024px) {
@@ -140,11 +145,12 @@
             margin: 1rem 0;
         }
 
-        /* Reaction Styles */
         .reaction-img {
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             cursor: pointer;
             transform: scale(1);
+            height: 72px;
+            width: 72px;
         }
 
         .reaction-img:hover,
@@ -188,7 +194,7 @@
             <div class="w-full rounded-xl bg-white p-6 shadow-sm md:p-8 lg:p-10">
                 <!-- Category Tag -->
                 <div class="mb-4 flex w-full flex-wrap items-center justify-center gap-4">
-                    <span class="rounded-xl bg-[#FD9399D9]/90 px-3 py-1 text-sm text-white lg:text-lg">
+                    <span class="rounded-xl px-3 py-1 text-sm text-white lg:text-lg" style="background-color: {{ $categoryColors[$article->category->id] ?? "#FD9399D9" }}">
                         {{ $article->category->name_category }}
                     </span>
                 </div>
@@ -260,7 +266,7 @@
                                     @csrf
                                     <input type="hidden" name="reaction_type" value="{{ $reaction["label"] }}" />
                                     <button type="submit" style="background: none; border: none; padding: 0; margin: 0" class="reaction-btn">
-                                        <img id="reaction-img-{{ $idx }}" src="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["img"]) }}" data-hover="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["hover"]) }}" data-normal="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["img"]) }}" class="reaction-img {{ isset($userReaction) && $userReaction->reaction_type === $reaction["label"] ? "active" : "" }} h-[72px] w-[72px]" alt="{{ $reaction["label"] }}" />
+                                        <img id="reaction-img-{{ $idx }}" src="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["img"]) }}" data-hover="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["hover"]) }}" data-normal="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["img"]) }}" class="reaction-img {{ isset($userReaction) && $userReaction->reaction_type === $reaction["label"] ? "active" : "" }}" alt="{{ $reaction["label"] }}" />
                                     </button>
                                 </form>
                             @endforeach
