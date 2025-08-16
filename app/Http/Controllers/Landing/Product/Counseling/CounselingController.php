@@ -418,6 +418,10 @@ class CounselingController extends Controller
             'cerita' => 'required',
             'kategori' => 'required',
             'bukti_kartu_pelajar' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            // Tambahkan validasi voucher
+            'kategori_voucher' => 'nullable|string',
+            'code_voucher' => 'nullable|string',
+            'presentase_diskon' => 'nullable|integer',
         ];
         if ($request->kategori === 'pelajar') {
             $rules['bukti_kartu_pelajar'] = 'required|file|mimes:jpg,jpeg,png,pdf|max:2048';
@@ -444,6 +448,9 @@ class CounselingController extends Controller
             } else {
                 $data['bukti_kartu_pelajar'] = null;
             }
+
+            // Voucher info sudah otomatis masuk dari form (hidden input)
+            // Jika ingin ambil dari model, bisa tambahkan logika di sini
 
             KonsellingPsikolog::create($data);
 
@@ -512,7 +519,7 @@ class CounselingController extends Controller
 
     public function storePeerRegistration(Request $request)
     {
-        $request->validate([
+        $rules = [
             'jadwal_tanggal' => 'required',
             'jadwal_pukul' => 'required',
             'metode' => 'required',
@@ -536,23 +543,41 @@ class CounselingController extends Controller
             'riwayat_pekerjaan' => 'required',
             'kegiatan_sosial' => 'required',
             'cerita' => 'required',
-            'kategori' => 'required'
-        ]);
+            'kategori' => 'required',
+            'kategori_voucher' => 'nullable|string',
+            'code_voucher' => 'nullable|string',
+            'presentase_diskon' => 'nullable|integer',
+            'bukti_kartu_pelajar' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+        ];
+
+        // Jika voucher pelajar, bukti kartu pelajar wajib
+        if ($request->kategori_voucher === 'pelajar') {
+            $rules['bukti_kartu_pelajar'] = 'required|file|mimes:jpg,jpeg,png,pdf|max:2048';
+        }
+
+        $validatedData = $request->validate($rules);
 
         try {
             // Convert date format from d/m/Y to Y-m-d
             $tanggalLahir = \DateTime::createFromFormat('d/m/Y', $request->tanggal_Lahir);
             $jadwalTanggal = \DateTime::createFromFormat('d/m/Y', $request->jadwal_tanggal);
 
-            $data = $request->all();
+            $data = $validatedData;
             $data['tanggal_Lahir'] = $tanggalLahir ? $tanggalLahir->format('Y-m-d') : null;
             $data['jadwal_tanggal'] = $jadwalTanggal ? $jadwalTanggal->format('Y-m-d') : null;
-            $data['sesi'] = intval($data['sesi']); // pastikan sesi integer
-            $data['harga'] = intval($data['harga']); // pastikan harga integer
+            $data['sesi'] = intval($data['sesi']);
+            $data['harga'] = intval($data['harga']);
 
             // Jika metode online, daerah ikut 'Online'
             if ($data['metode'] === 'online') {
                 $data['daerah'] = 'Online';
+            }
+
+            // Simpan file bukti kartu pelajar jika ada
+            if ($request->hasFile('bukti_kartu_pelajar')) {
+                $data['bukti_kartu_pelajar'] = $request->file('bukti_kartu_pelajar')->store('bukti_kartu_pelajar', 'public');
+            } else {
+                $data['bukti_kartu_pelajar'] = null;
             }
 
             KonsellingPeer::create($data);
@@ -564,6 +589,7 @@ class CounselingController extends Controller
                 ->withInput();
         }
     }
+
 
     public function storeBerbinarForURegistration(Request $request)
     {
@@ -608,17 +634,24 @@ class CounselingController extends Controller
         }
     }
 
+    // Contoh di Controller
     public function cekVoucher(Request $request)
     {
-        $voucher = CodeVoucher::where('code', $request->code)->first();
-        if ($voucher) {
-            return response()->json([
-                'valid' => true,
-                'percentage' => $voucher->percentage,
-                'category' => $voucher->category
-            ]);
+        $code = $request->input('code');
+        $voucher = CodeVoucher::where('code', $code)->first();
+
+        if (!$voucher) {
+            return response()->json(['valid' => false]);
         }
-        return response()->json(['valid' => false]);
+
+        return response()->json([
+            'valid' => true,
+            'category' => $voucher->category,
+            'percentage' => $voucher->percentage,
+            'jenis_pendaftaran' => $voucher->jenis_pendaftaran,
+            'tipe' => $voucher->tipe,
+            'detail' => $voucher->detail,
+        ]);
     }
 
     // public function summary()

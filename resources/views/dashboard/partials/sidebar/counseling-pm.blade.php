@@ -49,10 +49,10 @@
         <span class="ml-4 text-base font-bold leading-5">Kode Voucher</span>
     </a>
 </li>
-
-<li class="dark-hover:text-blue-300 my-5 rounded-lg p-2 {{ isRouteNameStartWith('dashboard.psikolog-staff', 'bg') }}">
-    <a href="{{ route('dashboard.psikolog-staff.index') }}" class="flex flex-row items-center duration-700 {{ isRouteNameStartWith('dashboard.psikolog-staff') }}">
-        <i class="bx bx-table mr-2 text-lg {{ Str::startsWith(Route::currentRouteName(), 'dashboard.psikolog-staff') ? 'text-white' : 'text-gray-700' }}"></i>
+{{-- 
+<li class="dark-hover:text-blue-300 my-5 rounded-lg p-2">
+    <a href="{{ route("dashboard.psikolog-staff.index") }}" class="{{ isRouteNameStartWith("dashboard.psikolog-staff") }} flex flex-row items-center text-gray-700 duration-700 hover:text-primary">
+        <i class="bx bx-table {{ isRouteNameStartWith("dashboard.psikolog-staff") }} mr-2 text-lg text-gray-700"></i>
         <span class="ml-4 text-base font-bold leading-5">Psikolog Staff</span>
     </a>
-</li>
+</li> --}}

@@ -15,5 +15,10 @@ class CodeVoucher extends Model
         'code',
         'percentage',
         'service_type',
+        'jenis_pendaftaran',
+        'nama_voucher',
+        'tipe',
+        'detail',
     ];
+
 }
