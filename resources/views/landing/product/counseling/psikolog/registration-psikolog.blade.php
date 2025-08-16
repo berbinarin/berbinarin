@@ -147,7 +147,7 @@
 
     {{-- Form Input Pendafataran --}}
 
-<form id="multiStepForm" action="{{ route('product.counseling.psikolog.store') }}" method="POST" class="flex flex-col" enctype="multipart/form-data">
+    <form id="multiStepForm" action="{{ route('product.counseling.psikolog.store') }}" method="POST" class="flex flex-col" enctype="multipart/form-data">
             @csrf
 
         {{-- STEP 1: Pilih Jadwal Konseling --}}
@@ -516,101 +516,114 @@
     }
 
     function redeemVoucher() {
-    const kode = document.getElementById('kode_promo').value.trim();
-    const hargaInput = document.getElementById('harga-input');
-    const hargaAsli = parseInt(hargaInput.dataset.hargaAsli);
-    const hargaAsliSpan = document.getElementById('harga-asli');
-    const hargaDiskonSpan = document.getElementById('harga-diskon');
+        const kode = document.getElementById('kode_promo').value.trim();
+        const hargaInput = document.getElementById('harga-input');
+        const hargaAsli = parseInt(hargaInput.dataset.hargaAsli);
+        const hargaAsliSpan = document.getElementById('harga-asli');
+        const hargaDiskonSpan = document.getElementById('harga-diskon');
 
-    if (!kode) {
-        Swal.fire({
-            toast: true,
-            position: "top-end",
-            icon: "error",
-            title: "Masukkan kode promo terlebih dahulu.",
-            showConfirmButton: false,
-            showCloseButton: true,
-            timer: 4000
-        });
-        return;
-    }
-    if (!hargaAsli) {
-        Swal.fire({
-            toast: true,
-            position: "top-end",
-            icon: "error",
-            title: "Silakan pilih jadwal, metode, dan sesi terlebih dahulu.",
-            showConfirmButton: false,
-            showCloseButton: true,
-            timer: 4000
-        });
-        return;
-    }
-
-    fetch('/produk/konseling/psikolog/cek-voucher?code=' + encodeURIComponent(kode))
-        .then(res => res.json())
-        .then(data => {
-            if (data.valid) {
-                const diskon = data.percentage;
-                const hargaDiskon = hargaAsli - (hargaAsli * diskon / 100);
-                hargaAsliSpan.textContent = 'Rp' + hargaAsli.toLocaleString();
-                hargaAsliSpan.className = 'harga-coret'; // Tercoret
-                hargaDiskonSpan.textContent = 'Rp' + hargaDiskon.toLocaleString();
-                hargaInput.value = hargaDiskon;
-                hargaInput.dataset.hargaFinal = hargaDiskon;
-
-                if (data.category && data.category.toLowerCase() === 'pelajar') {
-                    document.getElementById('bukti-kartu-pelajar-container').style.display = 'block';
-                    document.getElementById('bukti_kartu_pelajar').setAttribute('required', 'required');
-                    document.getElementById('bukti_kartu_pelajar').removeAttribute('disabled');
-                } else {
-                    document.getElementById('bukti-kartu-pelajar-container').style.display = 'none';
-                    document.getElementById('bukti_kartu_pelajar').removeAttribute('required');
-                    document.getElementById('bukti_kartu_pelajar').removeAttribute('disabled');
-                }
-
-                Swal.fire({
-                    toast: true,
-                    position: "top-end",
-                    icon: "success",
-                    title: "Kode voucher berhasil digunakan!",
-                    showConfirmButton: false,
-                    showCloseButton: true,
-                    timer: 4000
-                });
-            } else {
-                hargaAsliSpan.textContent = 'Rp' + hargaAsli.toLocaleString();
-                hargaAsliSpan.className = ''; // Tidak tercoret
-                hargaDiskonSpan.textContent = '';
-                hargaInput.value = hargaAsli;
-                hargaInput.dataset.hargaFinal = hargaAsli;
-
-                document.getElementById('bukti-kartu-pelajar-container').style.display = 'none';
-                document.getElementById('bukti_kartu_pelajar').removeAttribute('required');
-
-                Swal.fire({
-                    toast: true,
-                    position: "top-end",
-                    icon: "error",
-                    title: "Kode voucher tidak valid!",
-                    showConfirmButton: false,
-                    showCloseButton: true,
-                    timer: 4000
-                });
-            }
-        })
-        .catch(() => {
+        // Validasi input kosong
+        if (!kode) {
             Swal.fire({
                 toast: true,
                 position: "top-end",
                 icon: "error",
-                title: "Kode voucher tidak valid!",
+                title: "Masukkan kode promo terlebih dahulu.",
                 showConfirmButton: false,
                 showCloseButton: true,
                 timer: 4000
             });
-        });
+            return;
+        }
+
+        // Validasi harga belum dipilih
+        if (!hargaAsli) {
+            Swal.fire({
+                toast: true,
+                position: "top-end",
+                icon: "error",
+                title: "Silakan pilih jadwal, metode, dan sesi terlebih dahulu.",
+                showConfirmButton: false,
+                showCloseButton: true,
+                timer: 4000
+            });
+            return;
+        }
+
+        fetch('/produk/konseling/psikolog/cek-voucher?code=' + encodeURIComponent(kode))
+            .then(res => res.json())
+            .then(data => {
+                if (data.valid) {
+                    // Jika kode valid: tampilkan modal dan update harga
+                    const diskon = data.percentage;
+                    const hargaDiskon = hargaAsli - (hargaAsli * diskon / 100);
+                    
+                    hargaAsliSpan.textContent = 'Rp' + hargaAsli.toLocaleString();
+                    hargaAsliSpan.className = 'harga-coret';
+                    hargaDiskonSpan.textContent = 'Rp' + hargaDiskon.toLocaleString();
+                    hargaInput.value = hargaDiskon;
+                    hargaInput.dataset.hargaFinal = hargaDiskon;
+
+                    // Toggle upload KTM jika kode untuk pelajar
+                    const buktiContainer = document.getElementById('bukti-kartu-pelajar-container');
+                    const buktiInput = document.getElementById('bukti_kartu_pelajar');
+                    
+                    if (data.category?.toLowerCase() === 'pelajar') {
+                        buktiContainer.style.display = 'block';
+                        buktiInput.setAttribute('required', 'required');
+                    } else {
+                        buktiContainer.style.display = 'none';
+                        buktiInput.removeAttribute('required');
+                    }
+
+                    // Tampilkan modal syarat & ketentuan
+                    document.getElementById('modal').classList.remove('hidden');
+
+                } else {
+                    // Jika kode tidak valid: reset harga dan tampilkan Swal
+                    hargaAsliSpan.textContent = 'Rp' + hargaAsli.toLocaleString();
+                    hargaAsliSpan.className = '';
+                    hargaDiskonSpan.textContent = '';
+                    hargaInput.value = hargaAsli;
+
+                    document.getElementById('bukti-kartu-pelajar-container').style.display = 'none';
+                    document.getElementById('bukti_kartu_pelajar').removeAttribute('required');
+
+                    Swal.fire({
+                        toast: true,
+                        position: "top-end",
+                        icon: "error",
+                        title: "Kode voucher tidak valid!",
+                        showConfirmButton: false,
+                        showCloseButton: true,
+                        timer: 4000
+                    });
+                }
+            })
+            .catch(() => {
+                Swal.fire({
+                    toast: true,
+                    position: "top-end",
+                    icon: "error",
+                    title: "Terjadi kesalahan saat memverifikasi kode.",
+                    showConfirmButton: false,
+                    showCloseButton: true,
+                    timer: 4000
+                });
+            });
     }
+
+    document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('modal').classList.add('hidden');
+    });
+
+    ['openModal', 'openModal2', 'openModal3'].forEach(id => {
+        document.getElementById(id)?.addEventListener('click', function() {
+            document.getElementById('modal').classList.remove('hidden');
+        });
+    });
+
+    
     function tampilkanHarga(hargaAsli, hargaDiskon) {
         document.getElementById('harga-asli').textContent = 'Rp' + hargaAsli.toLocaleString();
         document.getElementById('harga-diskon').textContent = 'Rp' + hargaDiskon.toLocaleString();
