@@ -20,7 +20,9 @@ class CodeVoucherController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create() {}
+    public function create() {
+        return view('dashboard.counseling-pm.kode-voucher.create');
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -54,7 +56,7 @@ class CodeVoucherController extends Controller
      */
     public function edit(string $id)
     {
-        
+        return view('dashboard.counseling-pm.kode-voucher.edit', compact('id'));
     }
 
     /**

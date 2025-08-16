@@ -141,6 +141,34 @@
                                     <td class="border border-gray-300 px-4 py-2">Hal yang Ingin Diceritakan</td>
                                     <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->cerita }}</td>
                                 </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Kategori Voucher</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->kategori_voucher ?? '-' }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Kode Voucher</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PeerConsellorDataDetails->code_voucher ?? '-' }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Presentase Diskon</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">
+                                        {{ $PeerConsellorDataDetails->presentase_diskon ? $PeerConsellorDataDetails->presentase_diskon . '%' : '-' }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Bukti Kartu Pelajar</td>
+                                    <td class="border border-gray-300 px-4 py-2">
+                                        @if($PeerConsellorDataDetails->bukti_kartu_pelajar)
+                                            <a href="{{ asset('storage/' . $PeerConsellorDataDetails->bukti_kartu_pelajar) }}" target="_blank">
+                                                <img src="{{ asset('storage/' . $PeerConsellorDataDetails->bukti_kartu_pelajar) }}"
+                                                    alt="Bukti Kartu Pelajar"
+                                                    style="max-width:120px;max-height:120px;border-radius:8px;border:1px solid #ccc;">
+                                            </a>
+                                        @else
+                                            <span>-</span>
+                                        @endif
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
