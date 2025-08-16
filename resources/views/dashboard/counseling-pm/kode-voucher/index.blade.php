@@ -23,8 +23,11 @@
                                 <tr>
                                     <th style="text-align: center">No</th>
                                     <th style="text-align: center">Kategori Voucher</th>
+                                    <th style="text-align: center">Nama Voucher</th>
                                     <th style="text-align: center">Kode Voucher</th>
                                     <th style="text-align: center">Persentase Diskon</th>
+                                    <th style="text-align: center">Tipe Voucher</th>
+                                    <th style="text-align: center">Detail</th>
                                     <th style="text-align: center">Action</th>
                                 </tr>
                             </thead>
@@ -33,10 +36,13 @@
                                 <tr>
                                     <td class="text-center">{{ $i+1 }}</td>
                                     <td class="text-center">{{ $voucher->category }}</td>
+                                    <td class="text-center">{{ $voucher->name }}</td>
                                     <td class="text-center">{{ $voucher->code }}</td>
                                     <td class="text-center">{{ $voucher->percentage }}%</td>
+                                    <td class="text-center">{{ $voucher->voucher_type }}</td>
+                                    <td class="text-center">{{ $voucher->voucher_detail }}</td>
                                     <td class="text-center flex flex-row justify-center gap-2">
-                                        <a href="javascript:void(0);" onclick="openEditModal({{ $voucher->id }}, '{{ $voucher->category }}', '{{ $voucher->code }}', '{{ $voucher->percentage }}', '{{ $voucher->service_type }}')" class="inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-600 rounded">
+                                        <a href="javascript:void(0);" onclick="openEditModal({{ $voucher->id }}, '{{ $voucher->category }}', '{{ $voucher->name }}', '{{ $voucher->code }}', '{{ $voucher->percentage }}', '{{ $voucher->service_type }}', '{{ $voucher->voucher_type }}', '{{ $voucher->voucher_detail }}')" class="inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-600 rounded">
                                             <i class='bx bx-edit text-white'></i>
                                         </a>
                                         <button type="button" onclick="openDeleteModal({{ $voucher->id }})" class="inline-flex items-start justify-start p-3 bg-red-500 hover:bg-red-600 rounded">
@@ -56,11 +62,17 @@
                                 <h3 class="mb-4 text-xl leading-6 text-black font-bold" id="modal-title">Add Kode Voucher</h3>
                                 <form id="createForm" method="POST" action="{{ route('dashboard.code-voucher.store') }}">
                                     @csrf
-                                    <div class="mb-6 text-left">
-                                        <label class="block mb-1 font-medium text-gray-600">Kategori Voucher</label>
-                                        <input type="text" name="category" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Pelajar" required>
+                                    <div class="flex flex-row justify-between gap-2 mb-6">
+                                        <div class="text-left w-1/2">
+                                            <label class="block mb-1 font-medium text-gray-600">Kategori Voucher</label>
+                                            <input type="text" name="category" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Pelajar" required>
+                                        </div>
+                                        <div class="text-left w-1/2">
+                                            <label class="block mb-1 font-medium text-gray-600">Nama Voucher</label>
+                                            <input type="text" name="name" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Nama Voucher" required>
+                                        </div>
                                     </div>
-                                    <div class="flex flex-row justify-between gap-2 mb-10">
+                                    <div class="flex flex-row justify-between gap-2 mb-6">
                                         <div class="text-left w-1/2">
                                             <label class="block mb-1 font-medium text-gray-600">Kode Voucher</label>
                                             <input type="text" name="code" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Berbinar123" required>
@@ -70,8 +82,26 @@
                                             <span class="absolute right-10 translate-y-2 text-disabled text-base pointer-events-none">%</span>
                                             <input type="number" name="percentage" class="w-full rounded-lg border border-gray-300 px-3 py-2" min="1" max="100" placeholder="90" required>
                                         </div>
-                                        <input type="hidden" name="service_type" value="psikolog">
                                     </div>
+                                    <div class="flex flex-row justify-between gap-2 mb-6">
+                                        <div class="text-left w-1/2">
+                                            <label class="block mb-1 font-medium text-gray-600">Tipe Voucher</label>
+                                            <select name="voucher_type" id="voucherType" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                                <option value="">Pilih Tipe</option>
+                                                <option value="metode">Metode</option>
+                                                <option value="hari">Hari</option>
+                                                <option value="sesi">Sesi</option>
+                                            </select>
+                                        </div>
+                                        <div class="text-left w-1/2">
+                                            <label class="block mb-1 font-medium text-gray-600" id="voucherDetailLabel">Detail</label>
+                                            <select name="voucher_detail" id="voucherDetail" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                                <option value="">Pilih Detail</option>
+                                                <!-- Options will be populated by JavaScript based on voucher type -->
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="service_type" value="psikolog">
                                     <div class="flex w-full justify-center gap-4">
                                         <button type="button" class="rounded-lg border border-[#3986A3] w-1/2 px-6 py-2 text-[#3986A3] focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2" onclick="closeCreateModal()">Batal</button>
                                         <button type="submit" class="rounded-lg bg-[#3986A3] w-1/2 px-6 py-2 text-white text-center hover:bg-[#3986A3] focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2">Simpan</button>
@@ -89,11 +119,17 @@
                                 <form id="editForm" method="POST" action="">
                                     @csrf
                                     @method('PUT')
-                                    <div class="mb-6 text-left">
-                                        <label class="block mb-1 font-medium text-gray-600">Kategori Voucher</label>
-                                        <input type="text" name="category" id="editCategory" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                    <div class="flex flex-row justify-between gap-2 mb-6">
+                                        <div class="text-left w-1/2">
+                                            <label class="block mb-1 font-medium text-gray-600">Kategori Voucher</label>
+                                            <input type="text" name="category" id="editCategory" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                        </div>
+                                        <div class="text-left w-1/2">
+                                            <label class="block mb-1 font-medium text-gray-600">Nama Voucher</label>
+                                            <input type="text" name="name" id="editName" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                        </div>
                                     </div>
-                                    <div class="flex flex-row justify-between gap-2 mb-10">
+                                    <div class="flex flex-row justify-between gap-2 mb-6">
                                         <div class="text-left w-1/2">
                                             <label class="block mb-1 font-medium text-gray-600">Kode Voucher</label>
                                             <input type="text" name="code" id="editCode" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
@@ -102,6 +138,24 @@
                                             <label class="block mb-1 font-medium text-gray-600">Diskon</label>
                                             <span class="absolute right-10 translate-y-2 text-disabled text-base pointer-events-none">%</span>
                                             <input type="number" name="percentage" id="editPercentage" class="w-full rounded-lg border border-gray-300 px-3 py-2" min="1" max="100" required>
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-row justify-between gap-2 mb-6">
+                                        <div class="text-left w-1/2">
+                                            <label class="block mb-1 font-medium text-gray-600">Tipe Voucher</label>
+                                            <select name="voucher_type" id="editVoucherType" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                                <option value="">Pilih Tipe</option>
+                                                <option value="metode">Metode</option>
+                                                <option value="hari">Hari</option>
+                                                <option value="sesi">Sesi</option>
+                                            </select>
+                                        </div>
+                                        <div class="text-left w-1/2">
+                                            <label class="block mb-1 font-medium text-gray-600" id="editVoucherDetailLabel">Detail</label>
+                                            <select name="voucher_detail" id="editVoucherDetail" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                                <option value="">Pilih Detail</option>
+                                                <!-- Options will be populated by JavaScript based on voucher type -->
+                                            </select>
                                         </div>
                                     </div>
                                     <input type="hidden" name="service_type" id="editServiceType" value="psikolog">
@@ -150,13 +204,19 @@
     </script>
 
     <script>
-        function openEditModal(id, category, code, percentage, service_type = 'psikolog') {
+        function openEditModal(id, category, name, code, percentage, service_type = 'psikolog', voucher_type = '', voucher_detail = '') {
             document.getElementById('editModal').classList.remove('hidden');
             document.getElementById('editCategory').value = category;
+            document.getElementById('editName').value = name;
             document.getElementById('editCode').value = code;
             document.getElementById('editPercentage').value = percentage;
             document.getElementById('editServiceType').value = service_type;
+            document.getElementById('editVoucherType').value = voucher_type;
+            document.getElementById('editVoucherDetail').value = voucher_detail;
             document.getElementById('editForm').action = '/dashboard/code-voucher/' + id;
+            
+            // Update the detail options based on voucher type
+            updateVoucherDetailOptions('editVoucherType', 'editVoucherDetail', voucher_detail);
         }
         function closeEditModal() {
             document.getElementById('editModal').classList.add('hidden');
@@ -175,6 +235,84 @@
         function closeDeleteModal() {
             deleteModal.classList.add('hidden');
         }
+    </script>
+
+    <script>
+        const voucherTypeOptions = {
+            'metode': [
+                { value: 'offline', text: 'Offline' },
+                { value: 'online', text: 'Online' }
+            ],
+            'hari': [
+                { value: 'weekdays', text: 'Weekdays' },
+                { value: 'weekend', text: 'Weekend' }
+            ],
+            'sesi': [
+                { value: '1 jam', text: '1 Jam' },
+                { value: '2 jam', text: '2 Jam' },
+                { value: '3 jam', text: '3 Jam' }
+            ]
+        };
+
+        function updateVoucherDetailOptions(dropdownId, detailSelectId, selectedValue = '') {
+            const dropdown = document.getElementById(dropdownId);
+            const detailSelect = document.getElementById(detailSelectId);
+
+            detailSelect.innerHTML = '<option value="">Pilih Detail</option>';
+
+            const selectedType = dropdown.value;
+
+            if (selectedType && voucherTypeOptions[selectedType]) {
+                voucherTypeOptions[selectedType].forEach(option => {
+                    const optionElement = document.createElement('option');
+                    optionElement.value = option.value;
+                    optionElement.textContent = option.text;
+                    if (selectedValue && option.value === selectedValue) {
+                        optionElement.selected = true;
+                    }
+                    detailSelect.appendChild(optionElement);
+                });
+            }
+        }
+
+        function updateVoucherDetailLabel(dropdownId, labelId) {
+            const dropdown = document.getElementById(dropdownId);
+            const label = document.getElementById(labelId);
+            
+            dropdown.addEventListener('change', function() {
+                switch(this.value) {
+                    case 'metode':
+                        label.textContent = 'Metode';
+                        break;
+                    case 'hari':
+                        label.textContent = 'Hari';
+                        break;
+                    case 'sesi':
+                        label.textContent = 'Durasi';
+                        break;
+                    default:
+                        label.textContent = 'Detail';
+                }
+
+                const detailSelectId = labelId === 'voucherDetailLabel' ? 'voucherDetail' : 'editVoucherDetail';
+                updateVoucherDetailOptions(dropdownId, detailSelectId);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            updateVoucherDetailLabel('voucherType', 'voucherDetailLabel');
+
+            updateVoucherDetailLabel('editVoucherType', 'editVoucherDetailLabel');
+
+            document.getElementById('voucherType').addEventListener('change', function() {
+                updateVoucherDetailOptions('voucherType', 'voucherDetail');
+            });
+            
+            document.getElementById('editVoucherType').addEventListener('change', function() {
+                updateVoucherDetailOptions('editVoucherType', 'editVoucherDetail');
+            });
+        });
     </script>
 
 @endsection
