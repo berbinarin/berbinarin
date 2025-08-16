@@ -573,7 +573,6 @@
         const hargaAsliSpan = document.getElementById('harga-asli');
         const hargaDiskonSpan = document.getElementById('harga-diskon');
 
-        // Validasi input kosong
         if (!kode) {
             Swal.fire({
                 toast: true,
@@ -587,7 +586,6 @@
             return;
         }
 
-        // Validasi harga belum dipilih
         if (!hargaAsli) {
             Swal.fire({
                 toast: true,
@@ -605,7 +603,6 @@
             .then(res => res.json())
             .then(data => {
                 if (data.valid) {
-                    // Jika kode valid: tampilkan modal dan update harga
                     const diskon = data.percentage;
                     const hargaDiskon = hargaAsli - (hargaAsli * diskon / 100);
 
@@ -615,10 +612,9 @@
                     hargaInput.value = hargaDiskon;
                     hargaInput.dataset.hargaFinal = hargaDiskon;
 
-                    // Toggle upload KTM jika kode untuk pelajar
+                    // Toggle upload KTM
                     const buktiContainer = document.getElementById('bukti-kartu-pelajar-container');
                     const buktiInput = document.getElementById('bukti_kartu_pelajar');
-
                     if (data.category?.toLowerCase() === 'pelajar') {
                         buktiContainer.style.display = 'block';
                         buktiInput.setAttribute('required', 'required');
@@ -627,11 +623,23 @@
                         buktiInput.removeAttribute('required');
                     }
 
-                    // Tampilkan modal syarat & ketentuan
+                    // Ubah event "S&K" agar buka modal voucher, bukan modal default
+                    const syaratButtons = ['openModal', 'openModal2', 'openModal3'];
+                    syaratButtons.forEach(id => {
+                        const btn = document.getElementById(id);
+                        if (btn) {
+                            btn.onclick = function() {
+                                document.getElementById('voucher').classList.remove('hidden');
+                                document.getElementById('modal').classList.add('hidden');
+                            };
+                        }
+                    });
+
+                    // langsung buka modal voucher saat sukses
                     document.getElementById('voucher').classList.remove('hidden');
 
                 } else {
-                    // Jika kode tidak valid: reset harga dan tampilkan Swal
+                    // Reset harga
                     hargaAsliSpan.textContent = 'Rp' + hargaAsli.toLocaleString();
                     hargaAsliSpan.className = '';
                     hargaDiskonSpan.textContent = '';
@@ -639,6 +647,17 @@
 
                     document.getElementById('bukti-kartu-pelajar-container').style.display = 'none';
                     document.getElementById('bukti_kartu_pelajar').removeAttribute('required');
+
+                    // kembalikan tombol S&K ke modal syarat ketentuan biasa
+                    const syaratButtons = ['openModal', 'openModal2', 'openModal3'];
+                    syaratButtons.forEach(id => {
+                        const btn = document.getElementById(id);
+                        if (btn) {
+                            btn.onclick = function() {
+                                document.getElementById('modal').classList.remove('hidden');
+                            };
+                        }
+                    });
 
                     Swal.fire({
                         toast: true,
@@ -663,6 +682,8 @@
                 });
             });
     }
+
+
 
     document.getElementById('closeModal').addEventListener('click', function() {
         document.getElementById('modal').classList.add('hidden');
