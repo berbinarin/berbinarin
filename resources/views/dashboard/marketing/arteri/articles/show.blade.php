@@ -63,7 +63,9 @@
                         <div>
                             <label class="mb-2 block text-lg font-semibold leading-6 text-gray-500">Tautan</label>
                             <div class="block w-full break-all rounded-lg border border-gray-200 bg-gray-100 px-4 py-3 text-base text-black shadow-sm">
-                                {{ $article->url ?? "-" }}
+                                <a href="{{ $currentUrl }}" target="_blank" class="text-primary underline hover:text-blue-700">
+                                    {{ $currentUrl }}
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -75,8 +77,8 @@
                             <div class="mb-4 flex items-center justify-between">
                                 <h2 class="text-xl font-semibold text-[#106681]">Demografi Pembaca</h2>
                                 <div class="relative">
-                                    <select x-model="graph" class="rounded-lg border border-gray-300 bg-white px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#106681]">
-                                        <option selected>All</option>
+                                    <select x-model="graph" class="rounded-lg border border-gray-300 bg-white px-7 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#106681]">
+                                        <option value="demografi" selected>All</option>
                                         <option value="pembaca">Pembaca</option>
                                         <option value="reaksi">Reaksi</option>
                                         <option value="dibagikan">Di bagikan</option>
@@ -84,7 +86,7 @@
                                 </div>
                             </div>
 
-                            <div x-show="graph === 'demografi'" x-cloak>
+                            <div>
                                 <canvas id="ageChart" class="w-full" style="height: 350px"></canvas>
                                 <div class="mt-2 flex justify-center gap-4 text-xs">
                                     <div class="flex items-center gap-1">
@@ -98,20 +100,6 @@
                                     <div class="flex items-center gap-1">
                                         <span class="inline-block h-3 w-3 rounded bg-[#232ACA]"></span>
                                         Di bagikan
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div x-show="graph === 'gender'" x-cloak>
-                                <canvas id="genderChart" class="w-full" style="height: 250px"></canvas>
-                                <div class="mt-2 flex justify-center gap-4 text-xs">
-                                    <div class="flex items-center gap-1">
-                                        <span class="inline-block h-3 w-3 rounded bg-[#106681]"></span>
-                                        Laki-laki
-                                    </div>
-                                    <div class="flex items-center gap-1">
-                                        <span class="inline-block h-3 w-3 rounded bg-[#232ACA]"></span>
-                                        Perempuan
                                     </div>
                                 </div>
                             </div>
@@ -142,7 +130,7 @@
                                 <img src="{{ asset("assets/images/dashboard/arteri/sangat-senang.svg") }}" alt="Sangat Senang" class="h-560 w-60" />
                             </div>
 
-                            <div x-show="graph === 'interaksi'" x-cloak>
+                            <div>
                                 <canvas id="timeChart" class="w-full" style="height: 250px"></canvas>
                                 <div class="mt-2 flex justify-center gap-4 text-xs">
                                     <div class="flex items-center gap-1">
@@ -164,32 +152,6 @@
                                     <div class="flex items-center gap-1">
                                         <span class="inline-block h-3 w-3 rounded bg-[#78BAD7]"></span>
                                         Sangat Senang
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div x-show="graph === 'rating'" x-cloak>
-                                <canvas id="ratingChart" class="w-full" style="height: 250px"></canvas>
-                                <div class="mt-2 flex justify-center gap-4 text-xs">
-                                    <div class="flex items-center gap-1">
-                                        <span class="inline-block h-3 w-3 rounded bg-[#FF6B6B]"></span>
-                                        1 Bintang
-                                    </div>
-                                    <div class="flex items-center gap-1">
-                                        <span class="inline-block h-3 w-3 rounded bg-[#FF9A3C]"></span>
-                                        2 Bintang
-                                    </div>
-                                    <div class="flex items-center gap-1">
-                                        <span class="inline-block h-3 w-3 rounded bg-[#FFE066]"></span>
-                                        3 Bintang
-                                    </div>
-                                    <div class="flex items-center gap-1">
-                                        <span class="inline-block h-3 w-3 rounded bg-[#A685E2]"></span>
-                                        4 Bintang
-                                    </div>
-                                    <div class="flex items-center gap-1">
-                                        <span class="inline-block h-3 w-3 rounded bg-[#75BADB]"></span>
-                                        5 Bintang
                                     </div>
                                 </div>
                             </div>
@@ -215,20 +177,28 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Data dummy chart kiri
+            // Data chart kiri
             const ageCtx = document.getElementById('ageChart').getContext('2d');
             new Chart(ageCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['Pembaca', 'Reaksi', 'Di bagikan'],
-                    datasets: [
-                        {
-                            label: 'Jumlah Pembaca',
-                            data: [65, 59, 80],
-                            backgroundColor: ['rgba(16, 102, 129, 0.6)', 'rgba(233, 179, 6, 0.6)', 'rgba(35, 42, 202, 0.6)'],
-                        },
-                    ],
-                },
+                labels: ['Pembaca', 'Reaksi', 'Di bagikan'],
+                datasets: [
+                    {
+                        label: 'Jumlah Pembaca',
+                        data: [
+                            {{ $viewers }},
+                            {{ collect($reactionCounts)->sum() }},
+                            {{ $totalShare }}
+                        ],
+                        backgroundColor: [
+                            'rgba(16, 102, 129, 0.6)', // Pembaca
+                            'rgba(233, 179, 6, 0.6)',  // Reaksi
+                            'rgba(35, 42, 202, 0.6)'   // Di bagikan
+                        ],
+                    },
+                ],
+            },
                 options: {
                     indexAxis: 'y',
                     responsive: true,
@@ -248,6 +218,13 @@
                     },
                     plugins: {
                         legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.parsed.x}`;
+                                }
+                            }
+                        }
                     },
                 },
                 plugins: [
@@ -284,7 +261,45 @@
                 ],
             });
 
-            // Data dummy chart kanan
+            // Script filter data
+            const ageChart = Chart.getChart('ageChart');
+            const filterSelect = document.querySelector('select[x-model="graph"]');
+
+            filterSelect.addEventListener('change', function () {
+                let data, labels, bgColor;
+                if (this.value === 'pembaca') {
+                    data = [{{ $viewers }}];
+                    labels = ['Pembaca'];
+                    bgColor = ['rgba(16, 102, 129, 0.6)'];
+                } else if (this.value === 'reaksi') {
+                    data = [{{ collect($reactionCounts)->sum() }}];
+                    labels = ['Reaksi'];
+                    bgColor = ['rgba(233, 179, 6, 0.6)'];
+                } else if (this.value === 'dibagikan') {
+                    data = [{{ $totalShare }}];
+                    labels = ['Di bagikan'];
+                    bgColor = ['rgba(35, 42, 202, 0.6)'];
+                } else { 
+                    data = [
+                        {{ $viewers }},
+                        {{ collect($reactionCounts)->sum() }},
+                        {{ $totalShare }}
+                    ];
+                    labels = ['Pembaca', 'Reaksi', 'Di bagikan'];
+                    bgColor = [
+                        'rgba(16, 102, 129, 0.6)',
+                        'rgba(233, 179, 6, 0.6)',
+                        'rgba(35, 42, 202, 0.6)'
+                    ];
+                }
+
+                ageChart.data.labels = labels;
+                ageChart.data.datasets[0].data = data;
+                ageChart.data.datasets[0].backgroundColor = bgColor;
+                ageChart.update();
+            });
+
+            // Data chart kanan
             const timeCtx = document.getElementById('timeChart').getContext('2d');
             const gradients = [
                 (() => {
@@ -331,7 +346,13 @@
                     datasets: [
                         {
                             label: 'Jumlah Pembaca',
-                            data: [12, 18, 25, 30, 15],
+                            data: [
+                                {{ $reactionCounts[0] }},
+                                {{ $reactionCounts[1] }},
+                                {{ $reactionCounts[2] }},
+                                {{ $reactionCounts[3] }},
+                                {{ $reactionCounts[4] }}
+                            ],
                             backgroundColor: gradients,
                         },
                     ],
@@ -355,6 +376,13 @@
                     },
                     plugins: {
                         legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.parsed.x}`;
+                                }
+                            }
+                        }
                     },
                 },
                 plugins: [
@@ -390,6 +418,83 @@
                         },
                     },
                 ],
+            });
+
+            // Script filter 
+            const timeChart = Chart.getChart('timeChart');
+            const rightFilterSelect = document.querySelector('div[x-data="{ graph: \'interaksi\' }"] select[x-model="graph"]');
+
+            rightFilterSelect.addEventListener('change', function () {
+                let data, labels, bgColor;
+                const gradients = [
+                    (() => {
+                        const grad = timeChart.ctx.createLinearGradient(0, 0, 400, 0);
+                        grad.addColorStop(0, 'rgba(255, 6, 79, 0.5)');
+                        grad.addColorStop(1, 'rgba(249, 152, 62, 0.5)');
+                        return grad;
+                    })(),
+                    (() => {
+                        const grad = timeChart.ctx.createLinearGradient(0, 0, 400, 0);
+                        grad.addColorStop(0, 'rgba(255, 87, 62, 0.4)');
+                        grad.addColorStop(1, 'rgba(233, 178, 79, 0.4)');
+                        return grad;
+                    })(),
+                    (() => {
+                        const grad = timeChart.ctx.createLinearGradient(0, 0, 400, 0);
+                        grad.addColorStop(0, 'rgba(255, 229, 1, 0.4)');
+                        grad.addColorStop(1, 'rgba(249, 183, 51, 0.4)');
+                        return grad;
+                    })(),
+                    (() => {
+                        const grad = timeChart.ctx.createLinearGradient(0, 0, 400, 0);
+                        grad.addColorStop(0, 'rgba(81, 175, 79, 0.4)');
+                        grad.addColorStop(1, 'rgba(228, 177, 61, 0.4)');
+                        return grad;
+                    })(),
+                    (() => {
+                        const grad = timeChart.ctx.createLinearGradient(0, 0, 400, 0);
+                        grad.addColorStop(0, 'rgba(120, 186, 215, 0.4)');
+                        grad.addColorStop(1, 'rgba(233, 178, 79, 0.4)');
+                        return grad;
+                    })(),
+                ];
+
+                if (this.value === 'tidak-suka') {
+                    data = [{{ $reactionCounts[0] }}];
+                    labels = ['Tidak Suka'];
+                    bgColor = [gradients[0]];
+                } else if (this.value === 'bosan') {
+                    data = [{{ $reactionCounts[1] }}];
+                    labels = ['Bosan'];
+                    bgColor = [gradients[1]];
+                } else if (this.value === 'biasa-saja') {
+                    data = [{{ $reactionCounts[2] }}];
+                    labels = ['Biasa Saja'];
+                    bgColor = [gradients[2]];
+                } else if (this.value === 'senang') {
+                    data = [{{ $reactionCounts[3] }}];
+                    labels = ['Senang'];
+                    bgColor = [gradients[3]];
+                } else if (this.value === 'sangat-senang') {
+                    data = [{{ $reactionCounts[4] }}];
+                    labels = ['Sangat Senang'];
+                    bgColor = [gradients[4]];
+                } else { 
+                    data = [
+                        {{ $reactionCounts[0] }},
+                        {{ $reactionCounts[1] }},
+                        {{ $reactionCounts[2] }},
+                        {{ $reactionCounts[3] }},
+                        {{ $reactionCounts[4] }}
+                    ];
+                    labels = ['Tidak Suka', 'Bosan', 'Biasa Saja', 'Senang', 'Sangat Senang'];
+                    bgColor = gradients;
+                }
+
+                timeChart.data.labels = labels;
+                timeChart.data.datasets[0].data = data;
+                timeChart.data.datasets[0].backgroundColor = bgColor;
+                timeChart.update();
             });
         });
     </script>

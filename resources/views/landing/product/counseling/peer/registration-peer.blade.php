@@ -19,6 +19,17 @@
     select {
         background-image: none !important;
     }
+    .harga-coret {
+        text-decoration: line-through;
+        color: #b3b3b3;
+        font-size: 15px;
+        margin-right: 8px;
+    }
+    .harga-diskon {
+        color: #3986A3;
+        font-weight: bold;
+        font-size: 17px;
+    }
 </style>
 
 <div class="sm:mt-36 mt-24 sm:mb-20 mb-8 sm:mx-24 mx-4 md:bg-white bg-none justify-center flex flex-col md:shadow-lg shadow-none rounded-2xl px-12 max-md:px-1 py-6">
@@ -112,7 +123,7 @@
         </div>
     </div>
 
-    <form id="multiStepForm" action="{{ route('product.counseling.peer-counselor.store') }}" method="POST" class="flex flex-col">
+    <form id="multiStepForm" action="{{ route('product.counseling.peer-counselor.store') }}" method="POST" class="flex flex-col" enctype="multipart/form-data">
         @csrf
 
         {{-- STEP 1: Pilih Jadwal Konseling --}}
@@ -179,7 +190,37 @@
                 <div class="flex flex-col space-y-1">
                     <p class="text-[#333333] sm:text-[17px] text-sm">Harga</p>
                     <div class="relative">
-                        <input id="harga-input" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="Rp 0,00" readonly>
+                        <div id="harga-tampil" class="bg-[#F1F3F6] md:shadow-none shadow-md sm:text-[17px] border-none rounded-lg w-full px-3 py-3 flex items-center">
+                            <span id="harga-asli" class="">Rp0,00</span>
+                            <span id="harga-diskon" class="harga-diskon"></span>
+                        </div>
+                        <input type="hidden" name="harga" id="harga-hidden">
+                    </div>
+                </div>
+                {{-- Kode Promo --}}
+                <div class="flex flex-col space-y-1">
+                    <p class="text-[#333333] sm:text-[17px] text-sm">Kode Promo</p>
+                    <div class="relative">
+                        <input type="text" id="kode_promo" name="kode_promo" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="Berbinar">
+                        <button type="button" onclick="redeemVoucherPeer()" class="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer flex bg-gradient-to-r from-[#F7B23B] to-[#916823] text-white justify-between gap-2 py-[4px] px-2  rounded-md items-center">Redeem Code</button>
+                    </div>
+                </div>
+                <input type="hidden" name="kategori_voucher" id="kategori_voucher">
+                <input type="hidden" name="code_voucher" id="code_voucher">
+                <input type="hidden" name="presentase_diskon" id="presentase_diskon">
+
+                {{-- Bukti Kartu Pelajar --}}
+                <div class="mb-4 rounded-lg" id="bukti-kartu-pelajar-container" style="background-color: white;display:none;">
+                    <label for="bukti_kartu_pelajar">Bukti Kartu Pelajar</label>
+                    <div class="relative w-full flex items-center">
+                        <input type="file" id="bukti_kartu_pelajar" name="bukti_kartu_pelajar" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
+                        <div class="mt-1 block w-full h-12 pl-2 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary pointer-events-none cursor-pointer content-center flex items-center">
+                            <button type="button" class="pointer-events-none border flex justify-between gap-2 py-[4px] px-2 border-[#B3B3B3] rounded-md cursor-pointer items-center">
+                                <img src="{{ asset('assets/images/landing/produk/emo/upload-line-icon.png') }}" alt="" class="w-4 h-4">
+                                Upload
+                            </button>
+                            <span id="fileName" class="ml-3 text-base text-gray-600 truncate"></span>
+                        </div>
                     </div>
                 </div>
                 <div class="flex justify-center items-center pt-10">
@@ -476,30 +517,6 @@
         return null;
     }
 
-    function nextStep(step) {
-        let errorMessage = null;
-
-        if (step === 2) {
-            errorMessage = validateStep1();
-        } else if (step === 3) {
-            errorMessage = validateStep2();
-        }
-
-        if (errorMessage) {
-            Swal.fire({
-                toast: true,
-                position: "top-end",
-                icon: "error",
-                title: errorMessage,
-                showConfirmButton: false,
-                showCloseButton: true,
-                timer: 4000
-            });
-            return;
-        }
-
-        showStep(step);
-    }
 
     function validateAndNextStep(step) {
         let errorMessage = null;
@@ -556,11 +573,21 @@
             daerahSelect.value = 'Online';
         }
 
-        // Ensure price is stored as integer
-        const hargaDisplayInput = document.getElementById('harga-input');
-        hargaDisplayInput.disabled = true; // Don't submit the display input
+        // Harga final
+        const hargaHidden = document.getElementById('harga-hidden');
+if (!hargaHidden.value || hargaHidden.value === "0") {
+    Swal.fire({
+        toast: true,
+        position: "top-end",
+        icon: "error",
+        title: "Harga belum dipilih.",
+        showConfirmButton: false,
+        showCloseButton: true,
+        timer: 4000
+    });
+    return;
+}
 
-        // Jika validasi berhasil, baru kirim formulir
         this.submit();
     });
 
@@ -657,42 +684,49 @@
         updateHarga();
     });
 
-    // Harga calculation for peer counselor
+    function updateHargaDisplayPeer(harga, diskon) {
+        const hargaAsliSpan = document.getElementById('harga-asli');
+        const hargaDiskonSpan = document.getElementById('harga-diskon');
+        const hargaHidden = document.getElementById('harga-hidden');
+        if (diskon && diskon < harga) {
+            hargaAsliSpan.textContent = 'Rp ' + harga.toLocaleString('id-ID');
+            hargaAsliSpan.className = 'harga-coret';
+            hargaDiskonSpan.textContent = 'Rp ' + diskon.toLocaleString('id-ID');
+            hargaDiskonSpan.className = 'harga-diskon';
+            hargaHidden.value = diskon;
+        } else {
+            hargaAsliSpan.textContent = 'Rp ' + harga.toLocaleString('id-ID');
+            hargaAsliSpan.className = '';
+            hargaDiskonSpan.textContent = '';
+            hargaHidden.value = harga;
+        }
+    }
+
     function updateHarga() {
         const tanggal = document.getElementById('tglkonseling').value;
         const waktu = document.getElementById('waktu-konseling').value;
         const metode = document.getElementById('metode-select').value;
         const sesi = document.getElementById('sesi-select').value;
-        const hargaInput = document.getElementById('harga-input');
-        const hargaHidden = document.getElementById('harga-hidden');
 
         if (!tanggal || !waktu || !metode || !sesi) {
-            hargaInput.value = '';
-            if (hargaHidden) hargaHidden.value = '';
+            updateHargaDisplayPeer(0, null);
             return;
         }
 
         let harga = 0;
-
-        // Peer Counselor pricing (no weekend difference)
         if (metode === 'online') {
             harga = {1: 45000, 2: 90000, 3: 135000}[parseInt(sesi)];
         } else if (metode === 'offline') {
             harga = {1: 55000, 2: 110000, 3: 165000}[parseInt(sesi)];
         }
 
-        // Display formatted price
-        hargaInput.value = harga ? 'Rp ' + harga.toLocaleString('id-ID') : '';
-
-        // Store raw integer value for form submission
-        if (!hargaHidden) {
-            const hiddenInput = document.createElement('input');
-            hiddenInput.type = 'hidden';
-            hiddenInput.name = 'harga';
-            hiddenInput.id = 'harga-hidden';
-            document.getElementById('multiStepForm').appendChild(hiddenInput);
+        // Cek apakah ada diskon voucher yang sudah diredeem
+        const diskon = document.getElementById('harga-hidden').value;
+        if (diskon && parseInt(diskon) < harga) {
+            updateHargaDisplayPeer(harga, parseInt(diskon));
+        } else {
+            updateHargaDisplayPeer(harga, null);
         }
-        document.getElementById('harga-hidden').value = harga;
     }
 
     // Add event listeners for price updates
@@ -722,5 +756,84 @@
     document.getElementById('closeModal').addEventListener('click', function() {
         document.getElementById('modal').classList.add('hidden');
     });
+</script>
+
+<script>
+    // Ganti semua 'bukti_kartu' menjadi 'bukti_kartu_pelajar' di JS
+    const fileNameSpan = document.getElementById('fileName');
+    fileNameSpan.textContent = "No File";
+    document.getElementById('bukti_kartu_pelajar').addEventListener('change', function(e) {
+        if (this.files && this.files.length > 0) {
+            fileNameSpan.textContent = this.files[0].name;
+        } else {
+            fileNameSpan.textContent = "No File";
+        }
+    });
+
+    // --- Voucher Logic for Peer ---
+    function isVoucherEligiblePeer(voucher, metode, sesi) {
+        if (!voucher.valid || voucher.jenis_pendaftaran !== 'peer counseling') return false;
+        if (voucher.tipe === 'metode') {
+            return metode.toLowerCase() === voucher.detail.toLowerCase();
+        } else if (voucher.tipe === 'sesi') {
+            return voucher.detail.replace(/\s/g, '') === ('sesi' + sesi).replace(/\s/g, '');
+        }
+        return false;
+    }
+
+    function redeemVoucherPeer() {
+        const kode = document.getElementById('kode_promo').value.trim();
+        const metode = document.getElementById('metode-select').value;
+        const sesi = document.getElementById('sesi-select').value;
+        const hargaHidden = document.getElementById('harga-hidden');
+        const harga = hargaHidden.value ? parseInt(hargaHidden.value) : 0;
+
+        if (!kode) {
+            Swal.fire({ toast: true, position: "top-end", icon: "error", title: "Masukkan kode promo terlebih dahulu.", showConfirmButton: false, timer: 4000 });
+            return;
+        }
+        if (!harga || !metode || !sesi) {
+            Swal.fire({ toast: true, position: "top-end", icon: "error", title: "Silakan pilih metode dan sesi terlebih dahulu.", showConfirmButton: false, timer: 4000 });
+            return;
+        }
+
+        fetch('/produk/konseling/psikolog/cek-voucher?code=' + encodeURIComponent(kode))
+            .then(res => res.json())
+            .then(voucher => {
+                if (isVoucherEligiblePeer(voucher, metode, sesi)) {
+                    const diskon = harga - (harga * voucher.percentage / 100);
+                    updateHargaDisplayPeer(harga, diskon);
+
+                    // Set hidden input voucher info
+                    document.getElementById('kategori_voucher').value = voucher.category || '';
+                    document.getElementById('code_voucher').value = voucher.code || kode;
+                    document.getElementById('presentase_diskon').value = voucher.percentage || 0;
+
+                    // Tampilkan bukti kartu pelajar jika kategori pelajar
+                    if (voucher.category && voucher.category.toLowerCase() === 'pelajar') {
+                        document.getElementById('bukti-kartu-pelajar-container').style.display = 'block';
+                        document.getElementById('bukti_kartu_pelajar').setAttribute('required', 'required');
+                        document.getElementById('bukti_kartu_pelajar').removeAttribute('disabled');
+                    } else {
+                        document.getElementById('bukti-kartu-pelajar-container').style.display = 'none';
+                        document.getElementById('bukti_kartu_pelajar').removeAttribute('required');
+                        document.getElementById('bukti_kartu_pelajar').removeAttribute('disabled');
+                    }
+                    Swal.fire({ toast: true, position: "top-end", icon: "success", title: "Kode voucher berhasil digunakan!", showConfirmButton: false, timer: 4000 });
+                } else {
+                    // Kosongkan jika tidak eligible
+                    document.getElementById('kategori_voucher').value = '';
+                    document.getElementById('code_voucher').value = '';
+                    document.getElementById('presentase_diskon').value = '';
+                    updateHarga();
+                    document.getElementById('bukti-kartu-pelajar-container').style.display = 'none';
+                    document.getElementById('bukti_kartu_pelajar').removeAttribute('required');
+                    Swal.fire({ toast: true, position: "top-end", icon: "error", title: "Kode voucher tidak berlaku!", showConfirmButton: false, timer: 4000 });
+                }
+            })
+            .catch(() => {
+                Swal.fire({ toast: true, position: "top-end", icon: "error", title: "Kode voucher tidak valid!", showConfirmButton: false, timer: 4000 });
+            });
+    }
 </script>
 @endsection

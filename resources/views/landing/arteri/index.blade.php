@@ -43,9 +43,7 @@
 @section("content")
     {{-- hero section --}}
 
-    <x-arteri.hero-arteri :heroArticles="$heroArticles" class="overflow-visible" />
-
-
+    <x-arteri.hero-arteri :heroArticles="$heroArticles" :categoryColors="$categoryColors" class="overflow-visible" />
 
     {{-- list artikel section --}}
     <section class="mb-16 flex flex-col overflow-x-hidden px-4 lg:px-14">
@@ -57,40 +55,49 @@
         {{-- menu filter --}}
         <div class="mb-8 flex w-full flex-col items-center justify-between lg:flex-row lg:gap-x-4">
             {{-- filter button --}}
-            <div
-                x-data="{
-                    start: 0,
-                    visible: 3,
-                    cats: @js($categories),
-                    get shown() { return this.cats.slice(this.start, this.start + this.visible); },
-                    prev() { if(this.start > 0) this.start--; },
-                    next() { if(this.start + this.visible < this.cats.length) this.start++; }
-                }"
-                class="filter-container mb-4 flex items-center gap-2"
-            >
-                <button
-                    type="button"
-                    @click="prev"
-                    :disabled="start === 0"
-                    class="px-2 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
-                    aria-label="Kategori sebelumnya"
-                >&lt;</button>
-                <a href="{{ route('arteri.index') }}" class="{{ !isset($category) ? 'bg-primary text-white' : '' }} w-fit rounded-lg px-8 py-1 font-semibold text-slate-800 flex-shrink-0">Semua</a>
-                <template x-for="cat in shown" :key="cat.id">
-                    <a
-                        :href="'/arteri/kategori/' + cat.slug"
-                        :class="'w-fit text-nowrap rounded-lg px-8 py-1 font-semibold text-slate-800 flex-shrink-0 ' + ({{ isset($category) ? '$category->id' : 'null' }} === cat.id ? 'bg-[#3986A3] text-white' : '')"
-                        x-text="cat.name_category"
-                    ></a>
-                </template>
-                <button
-                    type="button"
-                    @click="next"
-                    :disabled="start + visible >= cats.length"
-                    class="px-2 py-1 rounded bg-gray-200 hover:bg-gray-300 disabled:opacity-50"
-                    aria-label="Kategori berikutnya"
-                >&gt;</button>
+            <div x-data="{
+                start: 0,
+                visible: 3,
+                cats: [{ id: null, slug: '', name_category: 'Semua' }, ...@js($categories)],
+                activeId: {{ isset($category) ? $category->id : "null" }},
+                get shown() {
+                    return this.cats.slice(this.start, this.start + this.visible)
+                },
+                prev() {
+                    if (this.start > 0) this.start--
+                },
+                next() {
+                    if (this.start + this.visible < this.cats.length) this.start++
+                },
+                init() {
+                    const updateVisible = () => {
+                        this.visible = window.innerWidth < 768 ? 2 : 3
+                    }
+                    updateVisible()
+                    window.addEventListener('resize', updateVisible)
+                },
+            }" class="filter-container mb-4 w-full lg:w-auto">
+                <div class="relative flex items-center justify-center lg:justify-start gap-2 overflow-x-auto pb-2">
+                    {{-- Tombol prev --}}
+                    <button type="button" @click="prev" :disabled="start === 0" class="sticky left-0 z-10 rounded bg-gray-200 px-2 py-1 hover:bg-gray-300 disabled:opacity-50" aria-label="Kategori sebelumnya">&lt;</button>
+
+                    {{-- Kategori list --}}
+                    <div class="flex gap-2">
+                        <template x-for="cat in shown" :key="cat.id ?? 'all'">
+                            <a
+                                :href="cat.id === null ? '{{ route("arteri.index") }}' : '/arteri/kategori/' + cat.slug"
+                                :class="'min-w-[120px] text-center rounded-lg px-4 py-1 font-semibold flex-shrink-0 '
+                           + (activeId === cat.id ? 'bg-[#3986A3] text-white' : 'text-slate-800')"
+                                x-text="cat.name_category"
+                            ></a>
+                        </template>
+                    </div>
+
+                    {{-- Tombol next --}}
+                    <button type="button" @click="next" :disabled="start + visible >= cats.length" class="sticky right-0 z-10 rounded bg-gray-200 px-2 py-1 hover:bg-gray-300 disabled:opacity-50" aria-label="Kategori berikutnya">&gt;</button>
+                </div>
             </div>
+
             {{-- menu select sort method --}}
             <div class="flex flex-none items-center justify-end gap-4">
                 <span class="text-slate-800">Urutkan berdasarkan:</span>
@@ -114,29 +121,23 @@
             <div class="mb-8 grid grid-cols-1 gap-x-3 gap-y-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-10">
                 {{-- container --}}
                 @foreach ($articles as $article)
-                    {{-- @dump($article->category->name_category) --}}
-                    {{-- @dump($article->author->name_author) --}}
-                    {{-- card --}}
-                    <a href="{{ route("arteri.detail", ["id" => $article->id]) }}">
+                    <a href="{{ route("arteri.detail", ["slug" => Str::slug($article["title"])]) }}" data-id="{{ $article->id }}" class="article-link">
                         <div class="relative rounded-xl border border-[#606060]/20 px-5 py-3 lg:border-none lg:px-0 lg:py-0 lg:shadow-none">
                             {{-- badge kategori --}}
-                            <span class="absolute left-8 top-6 rounded-full bg-[#FD9399D9]/90 px-3.5 py-1 text-sm text-white lg:left-3 lg:top-3 lg:px-3.5 lg:py-1.5 lg:text-base z-10">
+                            <span class="absolute left-8 top-6 z-10 rounded-full px-3.5 py-1 text-sm text-white lg:left-3 lg:top-3 lg:px-3.5 lg:py-1.5 lg:text-base" style="background-color: {{ $categoryColors[$article->category->id] }}">
                                 {{ $article->category->name_category }}
                             </span>
 
                             {{-- image --}}
-                            {{-- @dump($article->cover_image) --}}
                             <div class="mx-auto mb-4 w-full max-w-2xl">
                                 <div class="relative aspect-video w-full overflow-hidden rounded-lg">
                                     <img src="{{ asset("/image/" . $article->cover_image) }}" loading="lazy" alt="artikel-banner-small" class="absolute inset-0 h-full w-full object-cover" />
                                 </div>
-
                             </div>
 
                             {{-- artikel description --}}
                             <div class="flex w-full flex-col">
                                 {{-- author --}}
-                                {{-- @dump($article->author->profil_image) --}}
                                 <div class="mb-2 flex w-full items-center justify-between gap-2 lg:justify-start">
                                     <div class="flex items-center justify-center gap-2">
                                         <div class="size-6 overflow-hidden rounded-full">
@@ -145,13 +146,11 @@
                                         <span class="text-sm text-gray-600">{{ $article->author->name_author }}</span>
                                     </div>
                                     <span class="hidden text-sm text-gray-600 lg:inline-block">&bull;</span>
-                                    {{-- @dump($article->created_at->format('d F Y')) --}}
                                     <span class="text-sm text-gray-600">
                                         {{ $article->created_at->format("d F Y") }}
                                     </span>
                                 </div>
                                 {{-- title --}}
-                                {{-- @dump($article->title) --}}
                                 <h3 class="mb-2 line-clamp-2 w-full justify-start text-lg font-semibold text-gray-700 lg:w-3/4">
                                     {{ $article->title }}
                                 </h3>
@@ -173,6 +172,27 @@
 
 @section("script")
     <script>
+        document.querySelectorAll('.article-link').forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                var articleId = this.getAttribute('data-id');
+                var url = this.getAttribute('href');
+                fetch(`/arteri/${articleId}/view`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        Accept: 'application/json',
+                    },
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        window.location.href = url;
+                    })
+                    .catch(() => {
+                        window.location.href = url; // fallback jika gagal
+                    });
+            });
+        });
         var swiper = new Swiper('#swiperArteriHero', {
             loop: true,
             speed: 1000,

@@ -14,15 +14,18 @@
     </div>
 
     @php
-        $role = Auth()->user()->getRoleNames()->first();
+        $role = Auth()
+            ->user()
+            ->getRoleNames()
+            ->first();
     @endphp
 
     {{-- LIST MENU --}}
-    <ul class="mt-10 text-gray-700 dark:text-gray-400">
+    <ul class="mt-10 overflow-y-auto overflow-x-hidden text-gray-700 dark:text-gray-400">
         <!-- Links -->
-        <li class="dark-hover:text-blue-300 mt-1 rounded-lg p-2">
-            <a href="{{ route("dashboard.index") }}" class="{{ Request::is("dashboard") ? "text-primary" : "" }} flex flex-row items-center text-gray-700 duration-700 hover:text-primary">
-                <i class="i fi-tr-chart-line-up {{ Request::is("dashboard") ? "text-primary" : "" }} mr-2 text-xl text-gray-700"></i>
+        <li class="{{ Request::is("dashboard") ? "rounded-xl bg-[#3986A3]" : "" }} mt-1 rounded-lg p-2">
+            <a href="{{ route("dashboard.index") }}" class="{{ Request::is("dashboard") ? "text-white" : "text-gray-700 hover:text-primary" }} flex flex-row items-center duration-700">
+                <i class="i fi-tr-chart-line-up {{ Request::is("dashboard") ? "text-white" : "text-gray-700" }} mr-2 text-xl"></i>
                 <span class="ml-4 text-lg font-bold leading-5">Dashboard</span>
             </a>
         </li>

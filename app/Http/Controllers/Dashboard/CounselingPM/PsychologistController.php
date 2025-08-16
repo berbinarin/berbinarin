@@ -53,7 +53,7 @@ class PsychologistController extends Controller
             'cerita' => 'required',
         ]);
 
-        // Konversi tanggal 
+        // Konversi tanggal
         $validatedData['jadwal_tanggal'] = Carbon::createFromFormat('d-m-Y', $validatedData['jadwal_tanggal'])->format('Y-m-d');
         $validatedData['tanggal_Lahir'] = Carbon::createFromFormat('d/m/Y', $validatedData['tanggal_lahir'])->format('Y-m-d');
 
@@ -64,7 +64,7 @@ class PsychologistController extends Controller
             $validatedData['daerah'] = 'Online';
         }
 
-        // Hitung harga 
+        // Hitung harga
         $tanggal = Carbon::parse($validatedData['jadwal_tanggal']);
         $isWeekend = in_array($tanggal->dayOfWeek, [Carbon::SATURDAY, Carbon::SUNDAY]);
         $sesi = $validatedData['sesi'];
@@ -141,7 +141,7 @@ class PsychologistController extends Controller
             'cerita' => 'required',
         ]);
 
-        // Konversi tanggal 
+        // Konversi tanggal
         $validatedData['jadwal_tanggal'] = Carbon::createFromFormat('d-m-Y', $validatedData['jadwal_tanggal'])->format('Y-m-d');
         $validatedData['tanggal_Lahir'] = Carbon::createFromFormat('d/m/Y', $validatedData['tanggal_lahir'])->format('Y-m-d');
 
@@ -182,4 +182,7 @@ class PsychologistController extends Controller
         Alert::toast('Data Psikolog Berhasil di Hapus', 'success')->autoClose(5000);
         return redirect()->route('dashboard.psychologists.index');
     }
+
+    
+
 }

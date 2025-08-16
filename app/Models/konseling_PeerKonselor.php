@@ -17,8 +17,8 @@ class konseling_PeerKonselor extends Model
         return $this->belongsTo(UserDetail::class);
     }
 
-    public function JadwalPeerKonseling()
-    {
-        return $this->belongsTo(JadwalPeerKonseling::class, 'jadwal_peer_konseling_id');
-    }
+    // public function JadwalPeerKonseling()
+    // {
+    //     return $this->belongsTo(JadwalPeerKonseling::class, 'jadwal_peer_konseling_id');
+    // }
 }

@@ -16,9 +16,11 @@ use App\Http\Controllers\Dashboard\HR\PositionRequirementController;
 use App\Http\Controllers\Dashboard\Marketing\Arteri\ArticleController;
 use App\Http\Controllers\Dashboard\Marketing\Arteri\AuthorController;
 use App\Http\Controllers\Dashboard\Marketing\Arteri\CategoryController;
+use App\Http\Controllers\Dashboard\CounselingPM\CodeVoucherController;
 use App\Http\Controllers\Dashboard\ClassPM\BerbinarPlusDashboardController;
 use App\Http\Controllers\Dashboard\ClassPM\BerbinarClassController;
 use Illuminate\Support\Facades\Route;
+use League\CommonMark\Extension\CommonMark\Node\Inline\Code;
 
 Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(function () {
 
@@ -39,6 +41,16 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
 
         // Berbinar For U
         Route::resource('/berbinar-for-u', BerbinarForUController::class);
+
+        // Kode Voucher
+        Route::resource('/code-voucher', CodeVoucherController::class);
+
+        // Psikolog Staff
+        Route::get('/psikolog-staff', [PeerCounselorController::class, 'staffIndex'])->name('psikolog-staff.index');
+        Route::get('/psikolog-staff/create', [PeerCounselorController::class, 'staffCreate'])->name('psikolog-staff.create');
+        Route::get('/psikolog-staff/edit', [PeerCounselorController::class, 'staffEdit'])->name('psikolog-staff.edit');
+        Route::get('/psikolog-staff/show', [PeerCounselorController::class, 'staffShow'])->name('psikolog-staff.show');
+
     });
 
     // Class Product Management
@@ -101,6 +113,9 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
             Route::resource('/articles', ArticleController::class);
         });
     });
+
+    // PAPI KOSTICK
+    
 
 
 

@@ -25,7 +25,6 @@
                 </div>
 
                 <div class="mb-20">
-
                     <h1 class="mb-6 text-2xl text-primary-alt font-bold">Deskripsi</h1>
                     <p class="font-semibold text-lg mb-6">{{ $class->description }} </p>
                     {{-- <div class="flex items-start gap-2">

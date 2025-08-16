@@ -31,15 +31,20 @@ class KonsellingPsikolog extends Model
         'riwayat_pekerjaan',
         'hobi',
         'kegiatan_sosial',
+        'bukti_kartu_pelajar',
         'cerita',
         'harga',
         'daerah',
         'sesi',
         'kategori',
+        'kategori_voucher',
+        'code_voucher',
+        'presentase_diskon',
     ];
 
     public function userDetail()
     {
         return $this->belongsTo(UserDetail::class);
     }
+
 }

@@ -29,7 +29,7 @@
                 border 0.3s;
             transform-origin: center;
             overflow: hidden;
-            border: 2px solid transparent; 
+            border: 2px solid transparent;
         }
 
         .group:hover {
@@ -75,7 +75,7 @@
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar {!! italic_en($konseling["nama"]) !!}</button>
                             </a>
                         @else
-                            <a href="{{ route("product.counseling.psikolog.index") }}">
+                            <a href="{{ route("product.counseling.psikolog.registration") }}">
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar {!! italic_en($konseling["nama"]) !!}</button>
                             </a>
                         @endif
@@ -101,7 +101,7 @@
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:px-6 max-sm:text-[15px]">Daftar {!! italic_en($konseling["nama"]) !!}</button>
                             </a>
                         @else
-                            <a href="{{ route("product.counseling.psikolog.index") }}">
+                            <a href="{{ route("product.counseling.psikolog.registration") }}">
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:px-6 max-sm:text-[15px]">Daftar {!! italic_en($konseling["nama"]) !!}</button>
                             </a>
                         @endif

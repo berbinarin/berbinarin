@@ -184,4 +184,27 @@ class PeerCounselorController extends Controller
         Alert::toast('Data Peer Counselor berhasil dihapus', 'success')->autoClose(5000);
         return redirect()->route('dashboard.peer-counselors.index');
     }
+
+    public function staffIndex()
+    {
+        return view('dashboard.counseling-pm.psikolog-staff.index');
+    }
+
+    public function staffCreate()
+    {
+        $jadwalPeerCounselors = JadwalPeer::all();
+        return view('dashboard.counseling-pm.psikolog-staff.create', compact('jadwalPeerCounselors'));
+    }
+
+    public function staffEdit()
+    {
+        $jadwalPeerCounselors = JadwalPeer::all();
+        return view('dashboard.counseling-pm.psikolog-staff.edit', compact('jadwalPeerCounselors'));
+    }
+
+    public function staffShow()
+    {
+        $jadwalPeerCounselors = JadwalPeer::all();
+        return view('dashboard.counseling-pm.psikolog-staff.show', compact('jadwalPeerCounselors'));
+    }
 }

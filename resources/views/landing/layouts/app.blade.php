@@ -4,6 +4,9 @@
         {{-- Header --}}
         @include("landing.partials.header")
 
+        {{-- Meta --}}
+        @yield('meta')
+
         {{-- Additional Style --}}
         @yield("style")
     </head>

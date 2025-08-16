@@ -8,34 +8,25 @@ use App\Models\Articles\Author;
 use App\Models\Articles\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Articles\Interaction;
+use Illuminate\Support\Str;
+use App\Helpers\CategoryColorHelper;
 
 class ArticleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $articles = Article::with('category', 'author')->get();
-
         $categories = $articles->pluck('category')->unique('id')->filter();
 
-        // Generate warna dari id
         $categoryColors = [];
         foreach ($categories as $cat) {
-            $hash = crc32($cat->id);
-            // Generate warna
-            $hue = $hash % 360;
-            $color = "hsl($hue, 80%, 70%)";
-            $categoryColors[$cat->id] = $color;
+            $categoryColors[$cat->id] = CategoryColorHelper::getColor($cat->id);
         }
 
         return view('dashboard.marketing.arteri.articles.index', compact('articles', 'categoryColors'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $categories = Category::all();
@@ -44,9 +35,6 @@ class ArticleController extends Controller
         return view('dashboard.marketing.arteri.articles.create', compact('categories', 'authors'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -57,10 +45,8 @@ class ArticleController extends Controller
             'content' => 'required|string',
         ]);
 
-        // Menyimpan file gambar
         $coverImagePath = $request->file('cover_image')->store('uploads/articles', 'public');
 
-        // Menyimpan data ke database
         Article::create([
             'title' => $request->input('title'),
             'cover_image' => $coverImagePath,
@@ -72,32 +58,33 @@ class ArticleController extends Controller
         return redirect()->route('dashboard.arteri.articles.index')->with('success', 'Artikel berhasil ditambahkan!');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         $article = Article::with('category', 'author')->findOrFail($id);
-        
+        $interactions = Interaction::where('article_id', $article->id)->get();
+        $currentUrl = route('arteri.detail', ['slug' => Str::slug($article->title)]);
+
+        $viewers = $interactions->sum('views');
+        $totalShare = $interactions->sum('shares');
+
+        $reactionLabels = ['tidak suka', 'bosan', 'biasa saja', 'senang', 'sangat senang'];
+        $reactionCounts = [];
+        foreach ($reactionLabels as $label) {
+            $reactionCounts[] = $interactions->where('reaction_type', $label)->count();
+        }
+
         $categories = collect([$article->category]);
         $categoryColors = [];
         foreach ($categories as $cat) {
             if ($cat) {
-                $hash = crc32($cat->id);
-                $hue = $hash % 360;
-                $color = "hsl($hue, 80%, 70%)";
-                $categoryColors[$cat->id] = $color;
+                $categoryColors[$cat->id] = CategoryColorHelper::getColor($cat->id);
             }
         }
 
-        return view('dashboard.marketing.arteri.articles.show', compact('article', 'categoryColors'));
+        return view('dashboard.marketing.arteri.articles.show', compact('article', 'categoryColors', 'viewers', 'totalShare', 'reactionCounts', 'currentUrl'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
-
     {
         $article = Article::findOrFail($id);
         $categories = Category::all();
@@ -105,9 +92,6 @@ class ArticleController extends Controller
         return view('dashboard.marketing.arteri.articles.edit', compact('article', 'categories', 'authors'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $request->validate([
@@ -138,9 +122,6 @@ class ArticleController extends Controller
         return redirect()->route('dashboard.arteri.articles.index')->with('success', 'Artikel berhasil diperbarui!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $article = Article::findOrFail($id);
