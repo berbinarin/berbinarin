@@ -19,6 +19,25 @@
     select {
         background-image: none !important;
     }
+
+    .harga-coret {
+    text-decoration: line-through;
+    color: #b3b3b3;
+    font-size: 15px;
+    margin-right: 8px;
+    }
+    .harga-diskon {
+        color: #3986A3;
+        font-weight: bold;
+        font-size: 17px;
+    }
+    #harga-tampil, #harga-input {
+        min-height: 48px;
+        font-size: 17px;
+        display: flex;
+        align-items: center;
+    }
+
 </style>
 
 <div class="sm:mt-36 mt-24 sm:mb-20 mb-8 sm:mx-24 mx-4 md:bg-white bg-none justify-center flex flex-col md:shadow-lg shadow-none rounded-2xl px-12 max-md:px-1 py-6">
@@ -62,61 +81,50 @@
 
     {{-- Modal untuk syarat dan ketentuan --}}
 
-    <div id="modal" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
+        <div id="modal" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
         <div class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
-            <h1 class="bg-gradient-to-r from-[#3986A3] to-[#15323D] bg-clip-text text-transparent pb-6 text-center text-3xl font-bold max-sm:text-lg">Promo KTM dan Kartu Pelajar <br class=""> Produk Konseling Bersama Psikolog</h1>
+            <h1 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-center text-3xl font-bold max-sm:text-2xl">Syarat dan Ketentuan</h1>
             <div class="mb-6">
-                <div class="max-h-[440px] lg:max-h-96 overflow-y-auto">
-
-                <h2 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-2xl font-bold max-sm:text-lg">Syarat dan Ketentuan</h2>
-                <ul class="list-disc text-black marker:text-primary pl-6">
-                    <li class="mb-2">
-                        <p class="font-semibold">Promo Berlaku untuk:</p>
-                        <p class="max-sm:text-sm text-disabled pl-7">
-                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
-                                <li>Siswa aktif jenjang SMP/SMA/sederajat.</li>
-                                <li>Mahasiswa aktif jenjang D3, D4, atau S1.</li>
-                                <li>Dibuktikan dengan mengupload Kartu Tanda Mahasiswa (KTM) atau Kartu Pelajar yang masih berlaku saat melakukan pendaftaran</li>
-                            </ol>
-                        </p>
-
-                    </li>
-                    <li class="mb-2">
-                        <p class="font-semibold">Diskon/Penawaran:</p>
-                        <p class="max-sm:text-sm text-disabled pl-7">
-                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
-                                <li>Potongan harga sebesar 20% untuk setiap sesi konseling individu.</li>
-                                <li>Promo hanya berlaku untuk layanan konseling online.</li>
-                            </ol>
-                        </p>
-                    </li>
-
-                    <li class="mb-2">
-                        <p class="font-semibold">Cara Menggunakan Promo:</p>
-                        <p class="max-sm:text-sm text-disabled pl-7">
-                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
-                                <li>Daftar melalui website berbinar konseling <br> <a href="https://berbinar.in/produk/konseling" class="text-blue-500">https://berbinar.in/produk/<br class="hidden max-sm:block">konseling</a></li>
-                                <li>Upload KTM/kartu pelajar saat pendaftaran.</li>
-                                <li>Cantumkan kode promo #KONSELINGPELAJAR</li>
-                            </ol>
-                        </p>
-                    </li>
-
-                    <li class="mb-2">
-                        <p class="font-semibold">Ketentuan Tambahan:</p>
-                        <p class="max-sm:text-sm text-disabled pl-7">
-                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
-                                <li>Promo hanya berlaku untuk 1x sesi per individu, kecuali dinyatakan lain.</li>
-                                <li>Tidak dapat memilih Psikolog yang akan menangani</li>
-                                <li>Tidak dapat digabungkan dengan promo lainnya.</li>
-                                <li>Tidak berlaku untuk layanan lanjutan atau paket konseling tertentu.</li>
-                                <li>Pihak penyelenggara berhak membatalkan promo jika ditemukan penyalahgunaan (misalnya kartu tidak valid atau sudah tidak aktif).</li>
-                            </ol>
-                        </p>
-                    </li>
-                </ul>
+                <div class="flex items-start gap-2">
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Lokasi" class="h-5 w-5 mt-0.5" />
+                    <span class="font-semibold">Lokasi offline Konseling</span>
                 </div>
+                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                    <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
+                    <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Surabaya, Jombang, dan Nganjuk</li>
+                </ol>
+            </div>
 
+            <div class="mb-6">
+                <div class="flex items-start gap-2">
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/payment.png') }}" alt="Pembayaran" class="h-5 w-5 mt-0.5" />
+                    <span class="font-semibold">Pembayaran</span>
+                </div>
+                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                    <li class="max-sm:text-sm">Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n. Berbinar Insightful Indonesia dengan aturan transfer 1×24 jam.</li>
+                </ol>
+            </div>
+
+            <div class="mb-6">
+                <div class="flex items-start gap-2">
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.png') }}" alt="Pembalasan Pesan" class="h-5 w-5 mt-0.5" />
+                    <span class="font-semibold">Pembalasan Pesan</span>
+                </div>
+                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, pendaftaran oleh klien secara otomatis dibatalkan.</li>
+                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, jadwal yang sudah ditentukan oleh klien berhak untuk diubah oleh Tim Berbinar dan kesepakatan dari klien.</li>
+                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 2×24 jam setelah melakukan pembayaran, pembayaran dianggap hangus.</li>
+                </ol>
+            </div>
+
+            <div class="mb-6">
+                <div class="flex items-start gap-2">
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/cancel.png') }}" alt="Pengajuan Pembatalan" class="h-5 w-5 mt-0.5" />
+                    <span class="font-semibold">Pengajuan Pembatalan</span>
+                </div>
+                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                    <li class="max-sm:text-sm">Pengajuan proses pembatalan layanan konseling dapat dilakukan dalam kurun waktu 1×24 jam setelah proses administrasi dan dana yang telah dibayarkan akan dikembalikan 100%.</li>
+                </ol>
             </div>
 
 
@@ -128,7 +136,7 @@
 
     {{-- Modal untuk kode voucher --}}
 
-    <div id="Voucher" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
+    <div id="voucher" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
         <div class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
             <h1 class="bg-gradient-to-r from-[#3986A3] to-[#15323D] bg-clip-text text-transparent pb-6 text-center text-3xl font-bold max-sm:text-lg">Promo KTM dan Kartu Pelajar <br class=""> Produk Konseling Bersama Psikolog</h1>
             <div class="mb-6">
@@ -194,8 +202,8 @@
 
     {{-- Form Input Pendafataran --}}
 
-    <form id="multiStepForm" action="{{ route('product.counseling.psikolog.store') }}" method="POST" class="flex flex-col">
-        @csrf
+    <form id="multiStepForm" action="{{ route('product.counseling.psikolog.staff.store') }}" method="POST" class="flex flex-col" enctype="multipart/form-data">
+            @csrf
 
         {{-- STEP 1: Pilih Jadwal Konseling --}}
         <div id="step-1" class="step-section active">
@@ -261,22 +269,26 @@
                 <div class="flex flex-col space-y-1">
                     <p class="text-[#333333] sm:text-[17px] text-sm">Harga</p>
                     <div class="relative">
-                        <input name="harga" id="harga-input" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="Rp 0,00" readonly>
+                        <div id="harga-tampil" class="bg-[#F1F3F6] md:shadow-none shadow-md sm:text-[17px] border-none rounded-lg w-full px-3 py-3">
+                            <span id="harga-asli" class="" style="">Rp.0,00</span>
+                            <span id="harga-diskon" class="harga-diskon"></span>
+                        </div>
+                        <input type="hidden" name="harga" id="harga-input">
                     </div>
                 </div>
                 {{-- Kode Promo --}}
                 <div class="flex flex-col space-y-1">
                     <p class="text-[#333333] sm:text-[17px] text-sm">Kode Promo</p>
                     <div class="relative">
-                        <input type="text" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="Berbinar">
-                        <button type="button" class="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer flex bg-[#106681] text-white justify-between gap-2 py-[4px] px-2  rounded-md items-center">Redeem Code</button>
+                        <input type="text" id="kode_promo" name="kode_promo" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="Berbinar">
+                        <button type="button" onclick="redeemVoucher()" class="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer flex bg-[#106681] text-white justify-between gap-2 py-[4px] px-2  rounded-md items-center">Redeem Code</button>
                     </div>
                 </div>
                 {{-- Bukti Kartu Pelajar --}}
-                <div class="mb-4 rounded-lg" style="background-color: white;">
-                    <label for="bukti_kartu">Bukti Kartu Pelajar</label>
+                <div class="mb-4 rounded-lg" id="bukti-kartu-pelajar-container" style="background-color: white;display:none;">
+                    <label for="bukti_kartu_pelajar">Bukti Kartu Pelajar</label>
                     <div class="relative w-full flex items-center">
-                        <input type="file" id="bukti_kartu" name="bukti_kartu" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" required/>
+                        <input type="file" id="bukti_kartu_pelajar" name="bukti_kartu_pelajar" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
                         <div class="mt-1 block w-full h-12 pl-2 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary pointer-events-none cursor-pointer content-center flex items-center">
                             <button type="button" class="pointer-events-none border flex justify-between gap-2 py-[4px] px-2 border-[#B3B3B3] rounded-md cursor-pointer items-center">
                                 <img src="{{ asset('assets/images/landing/produk/emo/upload-line-icon.png') }}" alt="" class="w-4 h-4">
@@ -521,30 +533,161 @@
     }
 
     function validateStep1() {
-        const requiredFields = ['jadwal_tanggal', 'jadwal_pukul', 'metode', 'sesi'];
-        const metode = document.getElementById('metode-select').value;
+    const requiredFields = ['jadwal_tanggal', 'jadwal_pukul', 'metode', 'sesi'];
+    const metode = document.getElementById('metode-select').value;
 
-        if (metode === 'offline') {
-            requiredFields.push('daerah');
+    if (metode === 'offline') {
+        requiredFields.push('daerah');
+    }
+
+    // Cek kategori voucher dari hasil redeem
+    const kategoriVoucher = document.getElementById('bukti-kartu-pelajar-container').style.display === 'block' ? 'pelajar' : '';
+
+    for (let fieldName of requiredFields) {
+        let field;
+        if (fieldName === 'metode') {
+            field = document.getElementById('metode-select');
+        } else if (fieldName === 'sesi') {
+            field = document.getElementById('sesi-select');
+        } else if (fieldName === 'daerah') {
+            field = document.getElementById('daerah-select');
+        } else {
+            field = document.querySelector(`[name="${fieldName}"]`);
         }
 
-        for (let fieldName of requiredFields) {
-            let field;
-            if (fieldName === 'metode') {
-                field = document.getElementById('metode-select');
-            } else if (fieldName === 'sesi') {
-                field = document.getElementById('sesi-select');
-            } else if (fieldName === 'daerah') {
-                field = document.getElementById('daerah-select');
-            } else {
-                field = document.querySelector(`[name="${fieldName}"]`);
-            }
-
-            if (!field || field.value.trim() === '' || field.value === 'Pilih metode konseling') {
-                return 'Data "' + getFieldLabel(fieldName) + '" belum diisi.';
-            }
+        if (!field || field.value.trim() === '' || field.value === 'Pilih metode konseling') {
+            return 'Data "' + getFieldLabel(fieldName) + '" belum diisi.';
         }
-        return null;
+    }
+
+    // Jika kategori pelajar, cek bukti kartu pelajar
+    if (kategoriVoucher === 'pelajar') {
+        const buktiKartu = document.getElementById('bukti_kartu_pelajar');
+        if (!buktiKartu.files || buktiKartu.files.length === 0) {
+            return 'Bukti Kartu Pelajar wajib diupload untuk kategori pelajar.';
+        }
+    }
+
+    return null;
+    }
+
+    function redeemVoucher() {
+        const kode = document.getElementById('kode_promo').value.trim();
+        const hargaInput = document.getElementById('harga-input');
+        const hargaAsli = parseInt(hargaInput.dataset.hargaAsli);
+        const hargaAsliSpan = document.getElementById('harga-asli');
+        const hargaDiskonSpan = document.getElementById('harga-diskon');
+
+        // Validasi input kosong
+        if (!kode) {
+            Swal.fire({
+                toast: true,
+                position: "top-end",
+                icon: "error",
+                title: "Masukkan kode promo terlebih dahulu.",
+                showConfirmButton: false,
+                showCloseButton: true,
+                timer: 4000
+            });
+            return;
+        }
+
+        // Validasi harga belum dipilih
+        if (!hargaAsli) {
+            Swal.fire({
+                toast: true,
+                position: "top-end",
+                icon: "error",
+                title: "Silakan pilih jadwal, metode, dan sesi terlebih dahulu.",
+                showConfirmButton: false,
+                showCloseButton: true,
+                timer: 4000
+            });
+            return;
+        }
+
+        fetch('/produk/konseling/psikolog/cek-voucher?code=' + encodeURIComponent(kode))
+            .then(res => res.json())
+            .then(data => {
+                if (data.valid) {
+                    // Jika kode valid: tampilkan modal dan update harga
+                    const diskon = data.percentage;
+                    const hargaDiskon = hargaAsli - (hargaAsli * diskon / 100);
+
+                    hargaAsliSpan.textContent = 'Rp' + hargaAsli.toLocaleString();
+                    hargaAsliSpan.className = 'harga-coret';
+                    hargaDiskonSpan.textContent = 'Rp' + hargaDiskon.toLocaleString();
+                    hargaInput.value = hargaDiskon;
+                    hargaInput.dataset.hargaFinal = hargaDiskon;
+
+                    // Toggle upload KTM jika kode untuk pelajar
+                    const buktiContainer = document.getElementById('bukti-kartu-pelajar-container');
+                    const buktiInput = document.getElementById('bukti_kartu_pelajar');
+
+                    if (data.category?.toLowerCase() === 'pelajar') {
+                        buktiContainer.style.display = 'block';
+                        buktiInput.setAttribute('required', 'required');
+                    } else {
+                        buktiContainer.style.display = 'none';
+                        buktiInput.removeAttribute('required');
+                    }
+
+                    // Tampilkan modal syarat & ketentuan
+                    document.getElementById('voucher').classList.remove('hidden');
+
+                } else {
+                    // Jika kode tidak valid: reset harga dan tampilkan Swal
+                    hargaAsliSpan.textContent = 'Rp' + hargaAsli.toLocaleString();
+                    hargaAsliSpan.className = '';
+                    hargaDiskonSpan.textContent = '';
+                    hargaInput.value = hargaAsli;
+
+                    document.getElementById('bukti-kartu-pelajar-container').style.display = 'none';
+                    document.getElementById('bukti_kartu_pelajar').removeAttribute('required');
+
+                    Swal.fire({
+                        toast: true,
+                        position: "top-end",
+                        icon: "error",
+                        title: "Kode voucher tidak valid!",
+                        showConfirmButton: false,
+                        showCloseButton: true,
+                        timer: 4000
+                    });
+                }
+            })
+            .catch(() => {
+                Swal.fire({
+                    toast: true,
+                    position: "top-end",
+                    icon: "error",
+                    title: "Terjadi kesalahan saat memverifikasi kode.",
+                    showConfirmButton: false,
+                    showCloseButton: true,
+                    timer: 4000
+                });
+            });
+    }
+
+    document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('modal').classList.add('hidden');
+    });
+
+    document.getElementById('closeVoucher').addEventListener('click', function() {
+        document.getElementById('voucher').classList.add('hidden');
+    });
+
+    ['openModal', 'openModal2', 'openModal3'].forEach(id => {
+        document.getElementById(id)?.addEventListener('click', function() {
+            document.getElementById('modal').classList.remove('hidden');
+        });
+    });
+
+
+    function tampilkanHarga(hargaAsli, hargaDiskon) {
+        document.getElementById('harga-asli').textContent = 'Rp' + hargaAsli.toLocaleString();
+        document.getElementById('harga-diskon').textContent = 'Rp' + hargaDiskon.toLocaleString();
+        document.getElementById('harga-input').value = hargaDiskon;
     }
 
     function validateStep2() {
@@ -660,6 +803,10 @@
             daerahSelect.value = 'Online';
         }
 
+        const hargaInput = document.getElementById('harga-input');
+        hargaInput.value = hargaInput.dataset.hargaFinal || hargaInput.dataset.hargaAsli;
+
+
         // Jika validasi berhasil, baru kirim formulir
         this.submit();
     });
@@ -707,32 +854,48 @@
 
     // Logika Penentuan harga
     function updateHarga() {
-        const tanggal = document.getElementById('tglkonseling').value;
-        const metode = document.getElementById('metode-select').value;
-        const sesi = document.getElementById('sesi-select').value;
-        const hargaInput = document.getElementById('harga-input');
-        if (!tanggal || !metode || !sesi) {
-            hargaInput.value = '';
-            return;
-        }
-        const dateParts = tanggal.split('/');
-        if (dateParts.length !== 3) {
-            hargaInput.value = '';
-            return;
-        }
-        const dateObj = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
-        const day = dateObj.getDay();
-        const isWeekend = (day === 0 || day === 6);
-        let harga = 0;
-        if (!isWeekend) {
-            if (metode === 'online') harga = {1: 150000, 2: 300000, 3: 450000}[sesi];
-            else if (metode === 'offline') harga = {1: 175000, 2: 350000, 3: 525000}[sesi];
-        } else {
-            if (metode === 'online') harga = {1: 200000, 2: 340000, 3: 500000}[sesi];
-            else if (metode === 'offline') harga = {1: 225000, 2: 340000, 3: 500000}[sesi];
-        }
-        hargaInput.value = Number.isInteger(harga) ? harga : '';
+    const tanggal = document.getElementById('tglkonseling').value;
+    const metode = document.getElementById('metode-select').value;
+    const sesi = document.getElementById('sesi-select').value;
+    const hargaInput = document.getElementById('harga-input');
+    const hargaAsliSpan = document.getElementById('harga-asli');
+    const hargaDiskonSpan = document.getElementById('harga-diskon');
+
+    if (!tanggal || !metode || !sesi) {
+         hargaInput.value = Number.isInteger(harga) ? harga : '';
+    hargaInput.dataset.hargaAsli = harga;
+    hargaInput.dataset.hargaFinal = harga;
+    hargaAsliSpan.textContent = harga ? 'Rp' + harga.toLocaleString() : '';
+    hargaAsliSpan.className = ''; // Tidak tercoret
+    hargaDiskonSpan.textContent = '';
+return;
     }
+    const dateParts = tanggal.split('/');
+    if (dateParts.length !== 3) {
+        hargaInput.value = '';
+        hargaInput.dataset.hargaAsli = '';
+        hargaInput.dataset.hargaFinal = '';
+        hargaAsliSpan.textContent = '';
+        hargaDiskonSpan.textContent = '';
+        return;
+    }
+    const dateObj = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+    const day = dateObj.getDay();
+    const isWeekend = (day === 0 || day === 6);
+    let harga = 0;
+    if (!isWeekend) {
+        if (metode === 'online') harga = {1: 150000, 2: 300000, 3: 450000}[sesi];
+        else if (metode === 'offline') harga = {1: 175000, 2: 350000, 3: 525000}[sesi];
+    } else {
+        if (metode === 'online') harga = {1: 200000, 2: 340000, 3: 500000}[sesi];
+        else if (metode === 'offline') harga = {1: 225000, 2: 340000, 3: 500000}[sesi];
+    }
+    hargaInput.value = Number.isInteger(harga) ? harga : '';
+    hargaInput.dataset.hargaAsli = harga;
+    hargaInput.dataset.hargaFinal = harga;
+    hargaAsliSpan.textContent = harga ? 'Rp' + harga.toLocaleString() : '';
+    hargaDiskonSpan.textContent = '';
+}
     document.getElementById('tglkonseling').addEventListener('change', updateHarga);
     document.getElementById('metode-select').addEventListener('change', updateHarga);
     document.getElementById('sesi-select').addEventListener('change', updateHarga);
@@ -763,15 +926,15 @@
 </script>
 
 <script>
-    const fileNameSpan = document.getElementById('fileName');
-    fileNameSpan.textContent = "No File";
-    document.getElementById('bukti_kartu').addEventListener('change', function(e) {
-        if (this.files && this.files.length > 0) {
-            fileNameSpan.textContent = this.files[0].name;
-        } else {
-            fileNameSpan.textContent = "No File";
-        }
-    });
+const fileNameSpan = document.getElementById('fileName');
+fileNameSpan.textContent = "No File";
+document.getElementById('bukti_kartu_pelajar').addEventListener('change', function(e) {
+    if (this.files && this.files.length > 0) {
+        fileNameSpan.textContent = this.files[0].name;
+    } else {
+        fileNameSpan.textContent = "No File";
+    }
+});
 </script>
 @endsection
 

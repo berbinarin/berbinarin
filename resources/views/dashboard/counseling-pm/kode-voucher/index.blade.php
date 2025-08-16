@@ -11,7 +11,7 @@
                     <div class="">
                         <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Kode Voucher</p>
                         <p class="text-disabled">Halaman yang menampilkan dan mengelola Kode Voucher.</p>
-                        <a href="javascript:void(0);" onclick="openCreateModal()" class="mt-8 inline-flex items-start justify-start rounded bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
+                        <a href="{{ route("dashboard.code-voucher.create") }}" class="mt-8 inline-flex items-start justify-start rounded bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
                             <p class="text-dark font-medium leading-none">Tambah Data</p>
                         </a>
                     </div>
@@ -28,7 +28,7 @@
                                     <th style="text-align: center">Persentase Diskon</th>
                                     <th style="text-align: center">Tipe Voucher</th>
                                     <th style="text-align: center">Detail</th>
-                                    <th style="text-align: center">Action</th>
+                                    <th style="text-align: center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,7 +42,7 @@
                                     <td class="text-center">{{ $voucher->voucher_type }}</td>
                                     <td class="text-center">{{ $voucher->voucher_detail }}</td>
                                     <td class="text-center flex flex-row justify-center gap-2">
-                                        <a href="javascript:void(0);" onclick="openEditModal({{ $voucher->id }}, '{{ $voucher->category }}', '{{ $voucher->name }}', '{{ $voucher->code }}', '{{ $voucher->percentage }}', '{{ $voucher->service_type }}', '{{ $voucher->voucher_type }}', '{{ $voucher->voucher_detail }}')" class="inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-600 rounded">
+                                        <a href="{{ route("dashboard.code-voucher.edit", $voucher->id) }}" class="inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-600 rounded">
                                             <i class='bx bx-edit text-white'></i>
                                         </a>
                                         <button type="button" onclick="openDeleteModal({{ $voucher->id }})" class="inline-flex items-start justify-start p-3 bg-red-500 hover:bg-red-600 rounded">
@@ -214,7 +214,7 @@
             document.getElementById('editVoucherType').value = voucher_type;
             document.getElementById('editVoucherDetail').value = voucher_detail;
             document.getElementById('editForm').action = '/dashboard/code-voucher/' + id;
-            
+
             // Update the detail options based on voucher type
             updateVoucherDetailOptions('editVoucherType', 'editVoucherDetail', voucher_detail);
         }
@@ -278,7 +278,7 @@
         function updateVoucherDetailLabel(dropdownId, labelId) {
             const dropdown = document.getElementById(dropdownId);
             const label = document.getElementById(labelId);
-            
+
             dropdown.addEventListener('change', function() {
                 switch(this.value) {
                     case 'metode':
@@ -308,7 +308,7 @@
             document.getElementById('voucherType').addEventListener('change', function() {
                 updateVoucherDetailOptions('voucherType', 'voucherDetail');
             });
-            
+
             document.getElementById('editVoucherType').addEventListener('change', function() {
                 updateVoucherDetailOptions('editVoucherType', 'editVoucherDetail');
             });
