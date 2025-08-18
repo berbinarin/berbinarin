@@ -243,6 +243,7 @@
                             <span id="fileName" class="ml-3 text-base text-gray-600 truncate"></span>
                         </div>
                     </div>
+                    <p class="mt-2 text-xs text-gray-500">Max: 1MB (jpg, jpeg, png)</p>
                 </div>
                 <div class="flex justify-center items-center pt-10">
                     <button type="button" class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-24 sm:w-auto w-full rounded-xl" onclick="validateAndNextStep(2)">Selanjutnya</button>
@@ -685,7 +686,25 @@
         const fileNameSpan = document.getElementById('fileName');
         fileNameSpan.textContent = "No File";
         document.getElementById('bukti_kartu_pelajar').addEventListener('change', function(e) {
-            fileNameSpan.textContent = this.files && this.files.length > 0 ? this.files[0].name : "No File";
+            const file = this.files[0];
+            if (file) {
+                if (file.size > 1024 * 1024) { // 1 MB
+                    Swal.fire({
+                        toast: true,
+                        position: "top-end",
+                        icon: "error",
+                        title: "Ukuran file maksimal 1 MB!",
+                        showConfirmButton: false,
+                        timer: 4000
+                    });
+                    this.value = ""; 
+                    document.getElementById('fileName').textContent = "No File";
+                } else {
+                    document.getElementById('fileName').textContent = file.name;
+                }
+            } else {
+                document.getElementById('fileName').textContent = "No File";
+            }
         });
 
         // --- Dropdown Icon Rotation ---

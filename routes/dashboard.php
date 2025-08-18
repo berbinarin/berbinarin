@@ -30,17 +30,20 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
     // Couseling PM |  Counseling Product Management
     route::middleware('role:counseling-pm')->group(function () {
 
+        // Data
+        Route::get('/data', [PsychologistController::class, 'dataIndex'])->name('data.index');
+
         // Psychologis
-        Route::resource('/psychologists', PsychologistController::class);
+        Route::resource('/data/psychologists', PsychologistController::class);
 
         // Peer Counselor
-        Route::resource('/peer-counselors', PeerCounselorController::class);
+        Route::resource('/data/peer-counselors', PeerCounselorController::class);
 
         // Peer Counselor Schedule
         Route::resource('/peer-counselor-schedules', PeerCounselorScheduleController::class)->except('create', 'show', 'edit');
 
         // Berbinar For U
-        Route::resource('/berbinar-for-u', BerbinarForUController::class);
+        Route::resource('/data/berbinar-for-u', BerbinarForUController::class);
 
         // Kode Voucher
         Route::resource('/code-voucher', CodeVoucherController::class);
