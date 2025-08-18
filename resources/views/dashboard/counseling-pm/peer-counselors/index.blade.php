@@ -11,7 +11,12 @@
             <div class="w-full">
                 <div class="py-4 md:pb-7 md:pt-12">
                     <div class="">
-                        <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Konseling Peer Counselor Data</p>
+                        <div class="flex flex-row gap-2">
+                            <a href="{{ route("dashboard.data.index") }}">
+                                <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
+                            </a>
+                            <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Konseling Peer Counselor Data</p>
+                        </div>
                         <p class="text-disabled">Fitur ini digunakan untuk menampilkan data pendaftar konseling yang mendaftar melalui situs web Berbinar.</p>
                         <a href="{{ route('dashboard.peer-counselors.create') }}" class="mt-8 inline-flex items-start justify-start rounded bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
                             <p class="text-dark font-medium leading-none">Tambah Data</p>
@@ -58,7 +63,7 @@
                                         </td>
                                     </tr>
                                 @empty
-                                    
+
                                 @endforelse
                             </tbody>
                         </table>

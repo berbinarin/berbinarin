@@ -10,9 +10,12 @@
             <div class="w-full">
                 <div class="py-4 md:pt-12 md:pb-7">
                     <div class="">
-                        <p tabindex="0"
-                            class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
-                            Konseling Psikolog Data</p>
+                        <div class="flex flex-row gap-2">
+                            <a href="{{ route("dashboard.data.index") }}">
+                                <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
+                            </a>
+                            <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Konseling Psikolog Data</p>
+                        </div>
                         <p class="w-full text-disabled">Fitur ini digunakan untuk menampilkan data pendaftar konseling yang
                             mendaftar melalui situs web Berbinar.</p>
                         <a href="{{ route('dashboard.psychologists.create') }}" type="button"

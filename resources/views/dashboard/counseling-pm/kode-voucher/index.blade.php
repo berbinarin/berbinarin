@@ -75,7 +75,11 @@
                                     <div class="flex flex-row justify-between gap-2 mb-5">
                                         <div class="text-left w-1/2">
                                             <label class="block mb-1 font-medium text-gray-600">Kategori Voucher</label>
-                                            <input type="text" name="category" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Pelajar" required>
+                                            <select name="category" id="createCategory" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                                <option value="" disabled selected>Pilih Kategori</option>
+                                                <option value="umum">Umum</option>
+                                                <option value="pelajar">Pelajar</option>
+                                            </select>
                                         </div>
                                         <div class="text-left w-1/2">
                                             <label class="block mb-1 font-medium text-gray-600">Nama Voucher</label>
@@ -136,7 +140,11 @@
                                     <div class="flex flex-row justify-between gap-2 mb-5">
                                         <div class="text-left w-1/2">
                                             <label class="block mb-1 font-medium text-gray-600">Kategori Voucher</label>
-                                            <input type="text" name="category" id="editCategory" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                            <select name="category" id="editCategory" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                                <option value="" disabled selected>Pilih Kategori</option>
+                                                <option value="umum">Umum</option>
+                                                <option value="pelajar">Pelajar</option>
+                                            </select>
                                         </div>
                                         <div class="text-left w-1/2">
                                             <label class="block mb-1 font-medium text-gray-600">Nama Voucher</label>
@@ -229,14 +237,19 @@
             document.getElementById('editForm').action = '/dashboard/code-voucher/' + id;
             document.getElementById('editNamaVoucher').value = nama_voucher;
 
-            // Set value Jenis Pendaftaran
-            document.getElementById('editJenisPendaftaran').addEventListener('change', function() {
-                updateTipeOptionsEdit();
-            });
+            // Set value Jenis Pendaftaran dan update tipe options
+            document.getElementById('editJenisPendaftaran').value = service_type;
+            updateTipeOptionsEdit();
+
             // Set tipe voucher
             const tipeSelect = document.getElementById('editTipeVoucher');
             tipeSelect.value = tipe;
             updateDetailOptionsEdit(detail);
+
+            // Event listener jika Jenis Pendaftaran diubah
+            document.getElementById('editJenisPendaftaran').addEventListener('change', function() {
+                updateTipeOptionsEdit();
+            });
         }
     </script>
 
@@ -311,33 +324,29 @@
     const tipe = document.getElementById('tipeVoucher');
     tipe.innerHTML = '<option value="" disabled selected>Pilih Tipe</option>';
 
-    if (category === 'psikolog') {
+    // Tipe voucher untuk psikolog dan peer counseling
+    if (category === 'psikolog' || category === 'peer counseling') {
         tipe.innerHTML += '<option value="tanggal">Tanggal</option>';
         tipe.innerHTML += '<option value="sesi">Sesi</option>';
         tipe.innerHTML += '<option value="metode">Metode</option>';
-    } else if (category === 'peer counseling') {
-        tipe.innerHTML += '<option value="sesi">Sesi</option>';
-        tipe.innerHTML += '<option value="metode">Metode</option>';
     }
-    updateDetailOptions(); // Reset detail options
-}
+    updateDetailOptions(); 
+    }
     </script>
 
     <script>
         function updateTipeOptionsEdit() {
-    const category = document.getElementById('editCategorySelect').value;
+    const category = document.getElementById('editJenisPendaftaran').value;
     const tipe = document.getElementById('editTipeVoucher');
     tipe.innerHTML = '<option value="" disabled selected>Pilih Tipe</option>';
 
-    if (category === 'psikolog') {
+    // Tipe voucher untuk psikolog dan peer counseling
+    if (category === 'psikolog' || category === 'peer counseling') {
         tipe.innerHTML += '<option value="tanggal">Tanggal</option>';
         tipe.innerHTML += '<option value="sesi">Sesi</option>';
         tipe.innerHTML += '<option value="metode">Metode</option>';
-    } else if (category === 'peer counseling') {
-        tipe.innerHTML += '<option value="sesi">Sesi</option>';
-        tipe.innerHTML += '<option value="metode">Metode</option>';
     }
-    updateDetailOptionsEdit(); // Reset detail options
+    updateDetailOptionsEdit(); 
 }
     </script>
 
