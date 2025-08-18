@@ -174,11 +174,11 @@
                 </div>
 
                 <div class="mt-8 flex gap-4 border-t-2 border-t-gray-400 pt-5">
-                    <button type="submit" class="rounded-xl flex-1 flex items-center justify-center h-12 text-lg" style="width: 50%; background: #3986A3; color: #fff;">
-                        Simpan
-                    </button>
                     <button type="button" id="cancelButton" class="rounded-xl flex-1 flex items-center justify-center h-12 text-lg" style="width: 50%; border: 2px solid #3986A3; color: #3986A3;">
                         Batal
+                    </button>
+                    <button type="submit" class="rounded-xl flex-1 flex items-center justify-center h-12 text-lg" style="width: 50%; background: #3986A3; color: #fff;">
+                        Simpan
                     </button>
                 </div>
             </form>
@@ -219,20 +219,20 @@
 
     function updateAvailableTimes(selectedDate) {
         const waktuSelect = document.getElementById('waktu-konseling');
-        
+
         // Clear previous options
         waktuSelect.innerHTML = '<option value="" disabled selected>Pilih Waktu Konseling</option>';
-        
+
         if (selectedDate) {
             const dayName = getDayName(selectedDate);
-            
+
             // Update hari field
             const hariInput = document.getElementById('hari_konseling');
             hariInput.value = dayName;
-            
+
             // Filter jadwal based on selected day
             const filteredJadwal = jadwalPeerData.filter(jadwal => jadwal.hari === dayName);
-            
+
             if (filteredJadwal.length > 0) {
                 filteredJadwal.forEach(jadwal => {
                     const option = document.createElement('option');
@@ -242,7 +242,7 @@
                     option.textContent = `${formattedStartTime} - ${formattedEndTime}`;
                     waktuSelect.appendChild(option);
                 });
-                
+
                 waktuSelect.disabled = false;
             } else {
                 const option = document.createElement('option');
@@ -266,19 +266,19 @@
         const metode = document.getElementById('metode-select').value;
         const sesi = document.getElementById('sesi-select').value;
         const hargaInput = document.getElementById('harga-input');
-        
+
         if (!tanggal || !waktu || !metode || !sesi) {
             hargaInput.value = '';
             return;
         }
-        
+
         let harga = 0;
         if (metode === 'online') {
             harga = {1: 45000, 2: 90000, 3: 135000}[parseInt(sesi)];
         } else if (metode === 'offline') {
             harga = {1: 55000, 2: 110000, 3: 165000}[parseInt(sesi)];
         }
-        
+
         hargaInput.value = harga ? 'Rp ' + harga.toLocaleString('id-ID') : '';
     }
 

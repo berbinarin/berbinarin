@@ -36,7 +36,7 @@
                         </div>
                         <div>
                             <label class="font-semibold">Tanggal Lahir</label>
-                            <input required type="text" id="tanggal_lahir" name="tanggal_lahir" 
+                            <input required type="text" id="tanggal_lahir" name="tanggal_lahir"
                                 value="{{ \Carbon\Carbon::parse($BerbinarForUDataDetails->tanggal_lahir)->format('d/m/Y') }}"
                                 class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" readonly />
                         </div>
@@ -144,8 +144,8 @@
                     </div>
 
                     <div class="mt-8 flex gap-4 border-t-2 border-t-gray-400 pt-5">
-                        <button type="submit" class="flex h-12 flex-1 items-center justify-center rounded-xl text-lg" style="width: 50%; background: #3986a3; color: #fff">Simpan</button>
                         <button type="button" id="cancelButton" class="flex h-12 flex-1 items-center justify-center rounded-xl text-lg" style="width: 50%; border: 2px solid #3986a3; color: #3986a3">Batal</button>
+                        <button type="submit" class="flex h-12 flex-1 items-center justify-center rounded-xl text-lg" style="width: 50%; background: #3986a3; color: #fff">Simpan</button>
                     </div>
                 </form>
             </div>
