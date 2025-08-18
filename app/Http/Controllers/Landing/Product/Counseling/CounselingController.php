@@ -417,14 +417,13 @@ class CounselingController extends Controller
             'kegiatan_sosial' => 'required',
             'cerita' => 'required',
             'kategori' => 'required',
-            'bukti_kartu_pelajar' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
-            // Tambahkan validasi voucher
+            'bukti_kartu_pelajar' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:1024',
             'kategori_voucher' => 'nullable|string',
             'code_voucher' => 'nullable|string',
             'presentase_diskon' => 'nullable|integer',
         ];
         if ($request->kategori === 'pelajar') {
-            $rules['bukti_kartu_pelajar'] = 'required|file|mimes:jpg,jpeg,png,pdf|max:2048';
+            $rules['bukti_kartu_pelajar'] = 'required|file|mimes:jpg,jpeg,png,pdf|max:1024';
         }
 
         $validatedData = $request->validate($rules);
@@ -547,12 +546,12 @@ class CounselingController extends Controller
             'kategori_voucher' => 'nullable|string',
             'code_voucher' => 'nullable|string',
             'presentase_diskon' => 'nullable|integer',
-            'bukti_kartu_pelajar' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
+            'bukti_kartu_pelajar' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:1024',
         ];
 
         // Jika voucher pelajar, bukti kartu pelajar wajib
         if ($request->kategori_voucher === 'pelajar') {
-            $rules['bukti_kartu_pelajar'] = 'required|file|mimes:jpg,jpeg,png,pdf|max:2048';
+            $rules['bukti_kartu_pelajar'] = 'required|file|mimes:jpg,jpeg,png,pdf|max:1024';
         }
 
         $validatedData = $request->validate($rules);
