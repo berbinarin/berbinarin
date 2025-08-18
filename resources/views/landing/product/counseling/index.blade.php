@@ -468,7 +468,7 @@
                         Offline
                         </button>
                         </div>
-                        
+
                         <div class="relative w-full max-w-[270px] mx-auto flex justify-center">
                         <div x-show="tab === 'online'"
                         x-transition:enter="transition transform ease-in duration-500"
@@ -488,9 +488,9 @@
                         </div>
                         @endforeach
                         </div>
-                        
+
                         <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-divider.svg') }}" alt="Vector" class="my-5 w-full">
-                        
+
                         <div class="space-y-1">
                         @foreach ($weekdayPricesOn as $weekdayPriceOn)
                         <div class="flex items-center justify-between">
@@ -613,23 +613,23 @@
                         <div class="inline-flex items-start gap-2">
                             <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="check icon" class="mt-[3px] h-[18px] w-[18px]" />
 
-                            <span class="leading-snug">Lorem ipsum dolor sit amet consectetur.</span>
+                            <span class="leading-snug">Bisa dilakukan di mana saja</span>
                         </div>
 
                         <div class="inline-flex items-start gap-2">
-                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="cross icon" class="mt-[3px] h-[18px] w-[18px]" />
+                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="cross icon" class="mt-[3px] h-[18px] w-[18px]" />
 
-                            <span class="leading-snug">Lorem ipsum dolor sit amet consectetur.</span>
+                            <span class="leading-snug">Fleksibel, kapanpun tersedia</span>
                         </div>
                         <div class="inline-flex items-start gap-2">
-                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="cross icon" class="mt-[3px] h-[18px] w-[18px]" />
+                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="cross icon" class="mt-[3px] h-[18px] w-[18px]" />
 
-                            <span class="leading-snug">Lorem ipsum dolor sit amet consectetur.</span>
+                            <span class="leading-snug">Menggunakan Zoom Meeting</span>
                         </div>
                     </div>
 
-                    <button class="pt-6">
-                        <a href="#" class="rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] px-[50px] py-2 font-plusJakartaSans text-[14px] font-semibold text-white">Mulai Sekarang</a>
+                    <button class="pt-12">
+                        <a href="#" class="rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] px-[83.75px] py-2 font-plusJakartaSans text-[14px] font-semibold text-white">Mulai Sekarang</a>
                     </button>
                 </div>
                 <!-- Offline -->
@@ -653,27 +653,27 @@
 
                     <div class="mx-auto my-6 h-[1px] w-[270px] bg-gradient-to-r from-transparent via-[#D7E6ED] to-transparent"></div>
 
-                    <div class="flex flex-col items-start justify-start space-y-2 text-left font-plusJakartaSans text-lg font-medium text-[#70787D]">
+                    <div class="flex flex-col items-start justify-start space-y-2 text-justify font-plusJakartaSans text-lg font-medium text-[#70787D]">
                         <div class="inline-flex items-start gap-2">
                             <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="check icon" class="mt-[3px] h-[18px] w-[18px]" />
 
-                            <span class="leading-snug">Lorem ipsum dolor sit amet consectetur.</span>
+                            <span class="leading-snug">Bertemu langsung dengan Peer Counselor</span>
                         </div>
 
                         <div class="inline-flex items-start gap-2">
-                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="cross icon" class="mt-[3px] h-[18px] w-[18px]" />
+                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="cross icon" class="mt-[3px] h-[18px] w-[18px]" />
 
-                            <span class="leading-snug">Lorem ipsum dolor sit amet consectetur.</span>
+                            <span class="leading-snug">Bisa pilih tempat dan waktu yang nyaman</span>
                         </div>
                         <div class="inline-flex items-start gap-2">
-                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="cross icon" class="mt-[3px] h-[18px] w-[18px]" />
+                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="cross icon" class="mt-[3px] h-[18px] w-[18px]" />
 
-                            <span class="leading-snug">Lorem ipsum dolor sit amet consectetur.</span>
+                            <span class="leading-snug">Lebih personal dan tatap muka</span>
                         </div>
                     </div>
 
                     <button class="pt-6">
-                        <a href="#" class="rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] px-[50px] py-2 font-plusJakartaSans text-[14px] font-semibold text-white">Mulai Sekarang</a>
+                        <a href="#" class="rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] px-[83.75px] py-2 font-plusJakartaSans text-[14px] font-semibold text-white">Mulai Sekarang</a>
                     </button>
                 </div>
             </div>
