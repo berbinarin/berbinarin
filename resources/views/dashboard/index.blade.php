@@ -35,6 +35,15 @@
                                 yang mendaftar melalui situs web Berbinar</p>
                         @endrole
 
+{{--
+                        @role ('psikolog-staff-pm')
+                            <p tabindex="0"
+                                class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
+                                Dashboard Psikolog Staff</p>
+                            <p class="w-full text-disabled">Dashboard ini menampilkan ringkasan data staf psikolog dan voucher aktif, untuk membantu mengelola data psikolog staff. dan kode voucher dengan lebih mudah.</p>
+                        @endrole
+--}}
+
                         @role ('class-pm')
                             <p tabindex="0"
                                 class="focus:outline-none text-4xl font-bold leading-normal mx-10 text-gray-800 mb-2">
@@ -203,6 +212,35 @@
                     </div>
                 </div>
             @endrole
+
+{{--
+            @role ('psikolog-staff-pm')
+                <div class="flex flex-row w-full gap-6">
+                    <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                        <div
+                            class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                            <i class='bx bx-table text-2xl'></i>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold">1</span>
+                            <span class="block text-gray-500">Psikolog Staff</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                        <div
+                            class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                            <i class='bx bx-credit-card text-2xl'></i>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold">1</span>
+                            <span class="block text-gray-500">Voucher</span>
+                        </div>
+                    </div>
+
+                </div>
+            @endrole
+--}}
 
             @role('class-pm')
                 <div class="flex flex-row items-center mx-10 py-12 px-20 justify-between gap-12 bg-white shadow-xl rounded-3xl">
