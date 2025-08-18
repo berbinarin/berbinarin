@@ -57,7 +57,15 @@
 @endphp
 
 @section("content")
-    <h1 class="font text-gradient mt-28 text-center text-4xl font-semibold leading-snug text-black max-md:mx-10 max-sm:mx-2 max-sm:text-[29px] sm:mt-32">Tentukan jenis sesi konselingmu</h1>
+    <div class="mt-28 sm:mt-32 leading-snug">
+        <a href="{{ route('product.counseling.index') }}">
+            <div class="flex items-center justify-end space-x-2 cursor-pointer w-1/5 max-sm:w-1/4">
+                <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow" class="h-3 w-auto">
+                <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span class="sm:block hidden ml-0.5">pilih konseling</span></p>
+            </div>
+        </a>
+        <h1 class="font text-gradient text-center text-4xl font-semibold text-black pb-1 max-md:mx-10 max-sm:mx-2 max-sm:text-[29px]">Tentukan Jenis Sesi Konselingmu</h1>
+    </div>
 
     <div class="mx-20 my-12 hidden items-center justify-center space-x-5 md:flex">
         @foreach ($konselings as $konseling)
