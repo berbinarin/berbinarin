@@ -84,7 +84,6 @@ class DashboardController extends Controller
         $staff = TableStaff::all();
         $subDivisions = SubDivision::count();
 
-
         return view('dashboard.index', [
             "PeerConsellorSchedule" => $PeerConsellorSchedule,
             "PeerConsellorData" => $PeerConsellorData,
