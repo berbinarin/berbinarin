@@ -468,8 +468,8 @@
                         </div>
 
                         <!-- Button -->
-                        <button class="pt-5 md:pt-6">
-                            <a href="#" class="block w-full rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] py-2 text-center font-plusJakartaSans text-sm font-semibold text-white md:px-[83.75px] md:text-[14px]">Mulai Sekarang</a>
+                        <button id="openModal" class="pt-5 md:pt-6">
+                            <a href="#" class="openModalBtn block w-full rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] py-2 text-center font-plusJakartaSans text-sm font-semibold text-white md:px-[83.75px] md:text-[14px]">Mulai Sekarang</a>
                         </button>
                     </div>
                 </div>
@@ -516,8 +516,8 @@
                         </div>
 
                         <!-- Button -->
-                        <button class="pt-5 md:pt-6">
-                            <a href="#" class="block w-full rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] py-2 text-center font-plusJakartaSans text-sm font-semibold text-white md:px-[83.75px] md:text-[14px]">Mulai Sekarang</a>
+                        <button id="openModal" class="pt-5 md:pt-6">
+                            <a href="#" class="openModalBtn block w-full rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] py-2 text-center font-plusJakartaSans text-sm font-semibold text-white md:px-[83.75px] md:text-[14px]">Mulai Sekarang</a>
                         </button>
                     </div>
                 </div>

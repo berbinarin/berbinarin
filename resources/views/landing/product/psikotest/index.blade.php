@@ -715,7 +715,7 @@
                                     @endforeach
                                 </div>
                                 <!-- Button -->
-                                <button class="pt-6"><a href="#" class="rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] px-[50px] py-2 font-plusJakartaSans text-[14px] font-semibold text-white">Mulai Sekarang</a></button>
+                                <button class="pt-6"><a href="https://psikotes.berbinar.in/" class="rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] px-[50px] py-2 font-plusJakartaSans text-[14px] font-semibold text-white">Mulai Sekarang</a></button>
                             </div>
                         </div>
                     @endforeach
@@ -1137,7 +1137,7 @@
                                     @endforeach
                                 </div>
                                 <!-- Button -->
-                                <button class="pt-6"><a href="#" class="rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] px-[50px] py-2 font-plusJakartaSans text-[14px] font-semibold text-white">Mulai Sekarang</a></button>
+                                <button class="pt-6"><a href="https://psikotes.berbinar.in/" class="rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] px-[50px] py-2 font-plusJakartaSans text-[14px] font-semibold text-white">Mulai Sekarang</a></button>
                             </div>
                         </div>
                     @endforeach
@@ -1255,7 +1255,7 @@
                                     @endforeach
                                 </div>
                                 <!-- Button -->
-                                <button class="pt-6"><a href="#" class="rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] px-[50px] py-2 font-plusJakartaSans text-[14px] font-semibold text-white">Mulai Sekarang</a></button>
+                                <button class="pt-6"><a href="https://psikotes.berbinar.in/" class="rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] px-[50px] py-2 font-plusJakartaSans text-[14px] font-semibold text-white">Mulai Sekarang</a></button>
                             </div>
                         </div>
                     @endforeach
