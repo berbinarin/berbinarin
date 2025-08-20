@@ -22,27 +22,29 @@
                             <thead>
                                 <tr>
                                     <th style="text-align: center">No</th>
+                                    <th style="text-align: center">Jenis Pendaftaran</th>
                                     <th style="text-align: center">Kategori Voucher</th>
                                     <th style="text-align: center">Nama Voucher</th>
                                     <th style="text-align: center">Kode Voucher</th>
                                     <th style="text-align: center">Persentase Diskon</th>
                                     <th style="text-align: center">Tipe Voucher</th>
-                                    <th style="text-align: center">Detail</th>
-                                    <th style="text-align: center">Aksi</th>
+                                    <th style="text-align: center">Detail Voucher</th>
+                                    <th style="text-align: center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($vouchers as $i => $voucher)
                                 <tr>
                                     <td class="text-center">{{ $i+1 }}</td>
+                                    <td class="text-center">{{ $voucher->jenis_pendaftaran }}</td>
                                     <td class="text-center">{{ $voucher->category }}</td>
-                                    <td class="text-center">{{ $voucher->name }}</td>
+                                    <td class="text-center">{{ $voucher->nama_voucher }}</td>
                                     <td class="text-center">{{ $voucher->code }}</td>
                                     <td class="text-center">{{ $voucher->percentage }}%</td>
-                                    <td class="text-center">{{ $voucher->voucher_type }}</td>
-                                    <td class="text-center">{{ $voucher->voucher_detail }}</td>
+                                    <td class="text-center">{{ $voucher->tipe }}</td>
+                                    <td class="text-center">{{ $voucher->detail }}</td>
                                     <td class="text-center flex flex-row justify-center gap-2">
-                                        <a href="{{ route("dashboard.code-voucher.edit", $voucher->id) }}" class="inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-600 rounded">
+                                        <a href="javascript:void(0);" onclick="openEditModal({{ $voucher->id }}, '{{ $voucher->category }}', '{{ $voucher->code }}', '{{ $voucher->percentage }}', '{{ $voucher->service_type }}', '{{ $voucher->tipe }}', '{{ $voucher->detail }}', '{{ $voucher->nama_voucher }}')" class="inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-600 rounded">
                                             <i class='bx bx-edit text-white'></i>
                                         </a>
                                         <button type="button" onclick="openDeleteModal({{ $voucher->id }})" class="inline-flex items-start justify-start p-3 bg-red-500 hover:bg-red-600 rounded">
@@ -62,17 +64,29 @@
                                 <h3 class="mb-4 text-xl leading-6 text-black font-bold" id="modal-title">Add Kode Voucher</h3>
                                 <form id="createForm" method="POST" action="{{ route('dashboard.code-voucher.store') }}">
                                     @csrf
-                                    <div class="flex flex-row justify-between gap-2 mb-6">
+                                    <div class="mb-5 text-left mt-12">
+                                        <label class="block mb-1 font-medium text-gray-600">Jenis Pendaftaran</label>
+                                        <select name="jenis_pendaftaran" id="createJenisPendaftaran" class="w-full rounded-lg border border-gray-300 px-3 py-2" required onchange="updateTipeOptions()">
+                                            <option value="" disabled selected>Pilih Jenis Pendaftaran</option>
+                                            <option value="peer counseling">Peer Counseling</option>
+                                            <option value="psikolog">Psikolog</option>
+                                        </select>
+                                    </div>
+                                    <div class="flex flex-row justify-between gap-2 mb-5">
                                         <div class="text-left w-1/2">
                                             <label class="block mb-1 font-medium text-gray-600">Kategori Voucher</label>
-                                            <input type="text" name="category" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Pelajar" required>
+                                            <select name="category" id="createCategory" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                                <option value="" disabled selected>Pilih Kategori</option>
+                                                <option value="umum">Umum</option>
+                                                <option value="pelajar">Pelajar</option>
+                                            </select>
                                         </div>
                                         <div class="text-left w-1/2">
                                             <label class="block mb-1 font-medium text-gray-600">Nama Voucher</label>
-                                            <input type="text" name="name" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Nama Voucher" required>
+                                            <input type="text" name="nama_voucher" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Berbinar123" required>
                                         </div>
                                     </div>
-                                    <div class="flex flex-row justify-between gap-2 mb-6">
+                                    <div class="flex flex-row justify-between gap-2 mb-5">
                                         <div class="text-left w-1/2">
                                             <label class="block mb-1 font-medium text-gray-600">Kode Voucher</label>
                                             <input type="text" name="code" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Berbinar123" required>
@@ -83,24 +97,20 @@
                                             <input type="number" name="percentage" class="w-full rounded-lg border border-gray-300 px-3 py-2" min="1" max="100" placeholder="90" required>
                                         </div>
                                     </div>
-                                    <div class="flex flex-row justify-between gap-2 mb-6">
+                                    <div class="flex flex-row justify-between gap-2 mb-5">
                                         <div class="text-left w-1/2">
                                             <label class="block mb-1 font-medium text-gray-600">Tipe Voucher</label>
-                                            <select name="voucher_type" id="voucherType" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
-                                                <option value="">Pilih Tipe</option>
-                                                <option value="metode">Metode</option>
-                                                <option value="hari">Hari</option>
-                                                <option value="sesi">Sesi</option>
+                                            <select name="tipe" id="tipeVoucher" class="w-full rounded-lg border border-gray-300 px-3 py-2" required onchange="updateDetailOptions()">
+                                                <option value="" disabled selected>Pilih Tipe</option>
                                             </select>
                                         </div>
                                         <div class="text-left w-1/2">
-                                            <label class="block mb-1 font-medium text-gray-600" id="voucherDetailLabel">Detail</label>
-                                            <select name="voucher_detail" id="voucherDetail" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
-                                                <option value="">Pilih Detail</option>
-                                                <!-- Options will be populated by JavaScript based on voucher type -->
+                                            <label class="block mb-1 font-medium text-gray-600">Detail Voucher</label>
+                                            <select name="detail" id="detailVoucher" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                                <option value="" disabled selected>Pilih Detail</option>
                                             </select>
                                         </div>
-                                    </div>
+                                    </div>  
                                     <input type="hidden" name="service_type" value="psikolog">
                                     <div class="flex w-full justify-center gap-4">
                                         <button type="button" class="rounded-lg border border-[#3986A3] w-1/2 px-6 py-2 text-[#3986A3] focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2" onclick="closeCreateModal()">Batal</button>
@@ -119,17 +129,29 @@
                                 <form id="editForm" method="POST" action="">
                                     @csrf
                                     @method('PUT')
-                                    <div class="flex flex-row justify-between gap-2 mb-6">
+                                    <div class="mb-5 text-left mt-12">
+                                        <label class="block mb-1 font-medium text-gray-600">Jenis Pendaftaran</label>
+                                        <select name="jenis_pendaftaran" id="editJenisPendaftaran" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                            <option value="" disabled selected>Pilih Jenis Pendaftaran</option>
+                                            <option value="peer counseling">Peer Counseling</option>
+                                            <option value="psikolog">Psikolog</option>
+                                        </select>
+                                    </div>
+                                    <div class="flex flex-row justify-between gap-2 mb-5">
                                         <div class="text-left w-1/2">
                                             <label class="block mb-1 font-medium text-gray-600">Kategori Voucher</label>
-                                            <input type="text" name="category" id="editCategory" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                            <select name="category" id="editCategory" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                                <option value="" disabled selected>Pilih Kategori</option>
+                                                <option value="umum">Umum</option>
+                                                <option value="pelajar">Pelajar</option>
+                                            </select>
                                         </div>
                                         <div class="text-left w-1/2">
                                             <label class="block mb-1 font-medium text-gray-600">Nama Voucher</label>
-                                            <input type="text" name="name" id="editName" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                            <input type="text" name="nama_voucher" id="editNamaVoucher" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
                                         </div>
                                     </div>
-                                    <div class="flex flex-row justify-between gap-2 mb-6">
+                                    <div class="flex flex-row justify-between gap-2 mb-5">
                                         <div class="text-left w-1/2">
                                             <label class="block mb-1 font-medium text-gray-600">Kode Voucher</label>
                                             <input type="text" name="code" id="editCode" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
@@ -140,21 +162,20 @@
                                             <input type="number" name="percentage" id="editPercentage" class="w-full rounded-lg border border-gray-300 px-3 py-2" min="1" max="100" required>
                                         </div>
                                     </div>
-                                    <div class="flex flex-row justify-between gap-2 mb-6">
+                                    <div class="flex flex-row justify-between gap-2 mb-5">
                                         <div class="text-left w-1/2">
                                             <label class="block mb-1 font-medium text-gray-600">Tipe Voucher</label>
-                                            <select name="voucher_type" id="editVoucherType" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
-                                                <option value="">Pilih Tipe</option>
-                                                <option value="metode">Metode</option>
-                                                <option value="hari">Hari</option>
+                                            <select name="tipe" id="editTipeVoucher" class="w-full rounded-lg border border-gray-300 px-3 py-2" required onchange="updateDetailOptionsEdit()">
+                                                <option value="" disabled selected>Pilih Tipe</option>
+                                                <option value="tanggal">Tanggal</option>
                                                 <option value="sesi">Sesi</option>
+                                                <option value="metode">Metode</option>
                                             </select>
                                         </div>
                                         <div class="text-left w-1/2">
-                                            <label class="block mb-1 font-medium text-gray-600" id="editVoucherDetailLabel">Detail</label>
-                                            <select name="voucher_detail" id="editVoucherDetail" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
-                                                <option value="">Pilih Detail</option>
-                                                <!-- Options will be populated by JavaScript based on voucher type -->
+                                            <label class="block mb-1 font-medium text-gray-600">Detail Voucher</label>
+                                            <select name="detail" id="editDetailVoucher" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                                <option value="" disabled selected>Pilih Detail</option>
                                             </select>
                                         </div>
                                     </div>
@@ -201,10 +222,13 @@
         function closeCreateModal() {
             document.getElementById('createModal').classList.add('hidden');
         }
+        function closeEditModal() {
+            document.getElementById('editModal').classList.add('hidden');
+        }
     </script>
 
     <script>
-        function openEditModal(id, category, name, code, percentage, service_type = 'psikolog', voucher_type = '', voucher_detail = '') {
+        function openEditModal(id, category, code, percentage, service_type = 'psikolog', tipe = '', detail = '', nama_voucher = '') {
             document.getElementById('editModal').classList.remove('hidden');
             document.getElementById('editCategory').value = category;
             document.getElementById('editName').value = name;
@@ -214,12 +238,21 @@
             document.getElementById('editVoucherType').value = voucher_type;
             document.getElementById('editVoucherDetail').value = voucher_detail;
             document.getElementById('editForm').action = '/dashboard/code-voucher/' + id;
+            document.getElementById('editNamaVoucher').value = nama_voucher;
 
-            // Update the detail options based on voucher type
-            updateVoucherDetailOptions('editVoucherType', 'editVoucherDetail', voucher_detail);
-        }
-        function closeEditModal() {
-            document.getElementById('editModal').classList.add('hidden');
+            // Set value Jenis Pendaftaran dan update tipe options
+            document.getElementById('editJenisPendaftaran').value = service_type;
+            updateTipeOptionsEdit();
+
+            // Set tipe voucher
+            const tipeSelect = document.getElementById('editTipeVoucher');
+            tipeSelect.value = tipe;
+            updateDetailOptionsEdit(detail);
+
+            // Event listener jika Jenis Pendaftaran diubah
+            document.getElementById('editJenisPendaftaran').addEventListener('change', function() {
+                updateTipeOptionsEdit();
+            });
         }
     </script>
 
@@ -238,81 +271,86 @@
     </script>
 
     <script>
-        const voucherTypeOptions = {
-            'metode': [
-                { value: 'offline', text: 'Offline' },
-                { value: 'online', text: 'Online' }
-            ],
-            'hari': [
-                { value: 'weekdays', text: 'Weekdays' },
-                { value: 'weekend', text: 'Weekend' }
-            ],
-            'sesi': [
-                { value: '1 jam', text: '1 Jam' },
-                { value: '2 jam', text: '2 Jam' },
-                { value: '3 jam', text: '3 Jam' }
-            ]
-        };
+        function updateDetailOptions() {
+            const tipe = document.getElementById('tipeVoucher').value;
+            const detail = document.getElementById('detailVoucher');
+            detail.innerHTML = '<option value="" disabled selected>Pilih Detail</option>';
 
-        function updateVoucherDetailOptions(dropdownId, detailSelectId, selectedValue = '') {
-            const dropdown = document.getElementById(dropdownId);
-            const detailSelect = document.getElementById(detailSelectId);
-
-            detailSelect.innerHTML = '<option value="">Pilih Detail</option>';
-
-            const selectedType = dropdown.value;
-
-            if (selectedType && voucherTypeOptions[selectedType]) {
-                voucherTypeOptions[selectedType].forEach(option => {
-                    const optionElement = document.createElement('option');
-                    optionElement.value = option.value;
-                    optionElement.textContent = option.text;
-                    if (selectedValue && option.value === selectedValue) {
-                        optionElement.selected = true;
-                    }
-                    detailSelect.appendChild(optionElement);
-                });
+            if (tipe === 'tanggal') {
+                detail.innerHTML += '<option value="weekdays">Weekdays</option>';
+                detail.innerHTML += '<option value="weekend">Weekend</option>';
+            } else if (tipe === 'metode') {
+                detail.innerHTML += '<option value="online">Online</option>';
+                detail.innerHTML += '<option value="offline">Offline</option>';
+            } else if (tipe === 'sesi') {
+                detail.innerHTML += '<option value="sesi 1">Sesi 1</option>';
+                detail.innerHTML += '<option value="sesi 2">Sesi 2</option>';
+                detail.innerHTML += '<option value="sesi 3">Sesi 3</option>';
             }
         }
+    </script>
 
-        function updateVoucherDetailLabel(dropdownId, labelId) {
-            const dropdown = document.getElementById(dropdownId);
-            const label = document.getElementById(labelId);
+    <script>
+        function updateDetailOptionsEdit(selectedDetail = '') {
+            const tipe = document.getElementById('editTipeVoucher').value;
+            const detail = document.getElementById('editDetailVoucher');
+            detail.innerHTML = '<option value="" disabled>Pilih Detail</option>';
 
-            dropdown.addEventListener('change', function() {
-                switch(this.value) {
-                    case 'metode':
-                        label.textContent = 'Metode';
-                        break;
-                    case 'hari':
-                        label.textContent = 'Hari';
-                        break;
-                    case 'sesi':
-                        label.textContent = 'Durasi';
-                        break;
-                    default:
-                        label.textContent = 'Detail';
-                }
+            let options = [];
+            if (tipe === 'tanggal') {
+                options = [
+                    {value: 'weekdays', text: 'Weekdays'},
+                    {value: 'weekend', text: 'Weekend'}
+                ];
+            } else if (tipe === 'metode') {
+                options = [
+                    {value: 'online', text: 'Online'},
+                    {value: 'offline', text: 'Offline'}
+                ];
+            } else if (tipe === 'sesi') {
+                options = [
+                    {value: 'sesi 1', text: 'Sesi 1'},
+                    {value: 'sesi 2', text: 'Sesi 2'},
+                    {value: 'sesi 3', text: 'Sesi 3'}
+                ];
+            }
 
-                const detailSelectId = labelId === 'voucherDetailLabel' ? 'voucherDetail' : 'editVoucherDetail';
-                updateVoucherDetailOptions(dropdownId, detailSelectId);
+            options.forEach(opt => {
+                detail.innerHTML += `<option value="${opt.value}"${selectedDetail === opt.value ? ' selected' : ''}>${opt.text}</option>`;
             });
         }
+    </script>
 
-        document.addEventListener('DOMContentLoaded', function() {
+    <script>
+        function updateTipeOptions() {
+    const category = document.getElementById('createJenisPendaftaran').value;
+    const tipe = document.getElementById('tipeVoucher');
+    tipe.innerHTML = '<option value="" disabled selected>Pilih Tipe</option>';
 
-            updateVoucherDetailLabel('voucherType', 'voucherDetailLabel');
+    // Tipe voucher untuk psikolog dan peer counseling
+    if (category === 'psikolog' || category === 'peer counseling') {
+        tipe.innerHTML += '<option value="tanggal">Tanggal</option>';
+        tipe.innerHTML += '<option value="sesi">Sesi</option>';
+        tipe.innerHTML += '<option value="metode">Metode</option>';
+    }
+    updateDetailOptions(); 
+    }
+    </script>
 
-            updateVoucherDetailLabel('editVoucherType', 'editVoucherDetailLabel');
+    <script>
+        function updateTipeOptionsEdit() {
+    const category = document.getElementById('editJenisPendaftaran').value;
+    const tipe = document.getElementById('editTipeVoucher');
+    tipe.innerHTML = '<option value="" disabled selected>Pilih Tipe</option>';
 
-            document.getElementById('voucherType').addEventListener('change', function() {
-                updateVoucherDetailOptions('voucherType', 'voucherDetail');
-            });
-
-            document.getElementById('editVoucherType').addEventListener('change', function() {
-                updateVoucherDetailOptions('editVoucherType', 'editVoucherDetail');
-            });
-        });
+    // Tipe voucher untuk psikolog dan peer counseling
+    if (category === 'psikolog' || category === 'peer counseling') {
+        tipe.innerHTML += '<option value="tanggal">Tanggal</option>';
+        tipe.innerHTML += '<option value="sesi">Sesi</option>';
+        tipe.innerHTML += '<option value="metode">Metode</option>';
+    }
+    updateDetailOptionsEdit(); 
+}
     </script>
 
 @endsection

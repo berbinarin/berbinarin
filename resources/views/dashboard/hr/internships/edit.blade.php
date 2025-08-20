@@ -16,7 +16,7 @@
                 @csrf
                 @method("PUT")
 
-                <div class="flex flex-row gap-4">
+                <div class="flex flex-row gap-4 mb-7">
                     <!-- Left Table -->
                     <div class="w-full md:w-1/2">
                         <div class="overflow-hidden rounded-lg bg-white p-4 shadow-sm">

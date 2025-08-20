@@ -37,6 +37,9 @@ class KonsellingPsikolog extends Model
         'daerah',
         'sesi',
         'kategori',
+        'kategori_voucher',
+        'code_voucher',
+        'presentase_diskon',
     ];
 
     public function userDetail()

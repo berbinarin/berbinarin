@@ -35,7 +35,11 @@ class KonsellingPeer extends Model
         'hobi',
         'kegiatan_sosial',
         'cerita',
-        'kategori'
+        'kategori',
+        'kategori_voucher',
+        'code_voucher',
+        'presentase_diskon',
+        'bukti_kartu_pelajar',
     ];
 
     public function userDetail()

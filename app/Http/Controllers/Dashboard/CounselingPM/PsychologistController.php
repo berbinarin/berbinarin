@@ -183,6 +183,9 @@ class PsychologistController extends Controller
         return redirect()->route('dashboard.psychologists.index');
     }
 
-    
+    public function dataIndex()
+    {
+        return view('dashboard.counseling-pm.data.index');
+    }
 
 }
