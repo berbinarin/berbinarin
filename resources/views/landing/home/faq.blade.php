@@ -23,7 +23,7 @@
                     </h2>
                     <div x-ref="tab" :style="handleToggle()" class="overflow-hidden max-h-0 duration-500 transition-all">
                         <p class="mt-3 max-sm:mt-2 text-[#6F6C90] text-justify max-sm:text-[15px]">
-                            Ada tiga yang menjadi unggulan di Berbinar yaitu <span class="text-[#3986A3] font-bold">psikotes</span>, <span class="text-[#3986A3] font-bold">konseling</span>, dan <span class="text-[#3986A3] font-bold italic">class</span>. Jika SobatBinar yang membutuhkan bantuan konseling psikologis, <span class="italic">mentoring</span> ataupun psikotes untuk persiapan menuju dunia kerja, bisa segera menghubungi Berbinar di <a href="https://wa.me/628214186980" class="font-bold">0821-4186-980</a>
+                            Ada tiga yang menjadi unggulan di Berbinar yaitu <span class="text-[#3986A3] font-bold">psikotes</span>, <span class="text-[#3986A3] font-bold">konseling</span>, dan <span class="text-[#3986A3] font-bold italic">class</span>. Jika SobatBinar yang membutuhkan bantuan konseling psikologis, <span class="italic">mentoring</span> ataupun psikotes untuk persiapan menuju dunia kerja, bisa segera menghubungi Berbinar di <a href="https://wa.me/6282141869800" class="font-bold">0821-4186-9800</a>
                         </p>
                     </div>
                 </div>
@@ -32,12 +32,12 @@
                     <template x-if="$store.accordion.tab === 0">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M20 20L4 4M20 4L4 20" stroke="#3986A3" stroke-width="3" stroke-linecap="round"/>
-                        </svg>   
+                        </svg>
                     </template>
                     <template x-if="$store.accordion.tab !== 0">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_7503_13741)">
                             <path d="M22.3996 8L11.9996 19.2L1.59961 8" stroke="#3986A3" stroke-width="3" stroke-linecap="square"/></g><defs><clipPath id="clip0_7503_13741"><rect width="24" height="24" fill="white"/></clipPath></defs>
-                        </svg>                                
+                        </svg>
                     </template>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                     </h2>
                     <div x-ref="tab" :style="handleToggle()" class="overflow-hidden max-h-0 duration-500 transition-all">
                         <p class="mt-3 max-sm:mt-2 text-[#6F6C90] text-justify max-sm:text-[15px]">
-                            Tentu saja! Berbinar menghargai penuh privasi dan data diri SobatBinar sesuai kode etik psikologi Indonesia, jadi jangan khawatir ya! Tunggu apalagi? Yuk, daftar sekarang SobatBinar! 
+                            Tentu saja! Berbinar menghargai penuh privasi dan data diri SobatBinar sesuai kode etik psikologi Indonesia, jadi jangan khawatir ya! Tunggu apalagi? Yuk, daftar sekarang SobatBinar!
                         </p>
                     </div>
                 </div>
@@ -61,12 +61,12 @@
                     <template x-if="$store.accordion.tab === 1">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M20 20L4 4M20 4L4 20" stroke="#3986A3" stroke-width="3" stroke-linecap="round"/>
-                        </svg>   
+                        </svg>
                     </template>
                     <template x-if="$store.accordion.tab !== 1">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_7503_13741)">
                             <path d="M22.3996 8L11.9996 19.2L1.59961 8" stroke="#3986A3" stroke-width="3" stroke-linecap="square"/></g><defs><clipPath id="clip0_7503_13741"><rect width="24" height="24" fill="white"/></clipPath></defs>
-                        </svg>                                
+                        </svg>
                     </template>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                     </h2>
                     <div x-ref="tab" :style="handleToggle()" class="overflow-hidden max-h-0 duration-500 transition-all">
                         <p class="mt-3 max-sm:mt-2 text-[#6F6C90] text-justify max-sm:text-[15px]">
-                            Berbinar terbuka untuk berbagai jenis kerjasama! Kirimkan ide atau proposal melalui <a href="https://wa.me/628214186980" class="font-bold">0821-4186-980</a> atau <a href="mailto:marketing.berbinar.in@gmail.com" class="font-bold">marketing.berbinar.in@gmail.com</a>. Berbinar akan dengan senang hati membahas peluang kerja sama yang bisa menguntungkan kedua belah pihak melalui meeting untuk diskusi selanjutnya. 
+                            Berbinar terbuka untuk berbagai jenis kerjasama! Kirimkan ide atau proposal melalui <a href="https://wa.me/6282141869800" class="font-bold">0821-4186-9800</a> atau <a href="mailto:marketing.berbinar.in@gmail.com" class="font-bold">marketing.berbinar.in@gmail.com</a>. Berbinar akan dengan senang hati membahas peluang kerja sama yang bisa menguntungkan kedua belah pihak melalui meeting untuk diskusi selanjutnya.
                         </p>
                     </div>
                 </div>
@@ -90,12 +90,12 @@
                     <template x-if="$store.accordion.tab === 1">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M20 20L4 4M20 4L4 20" stroke="#3986A3" stroke-width="3" stroke-linecap="round"/>
-                        </svg>   
+                        </svg>
                     </template>
                     <template x-if="$store.accordion.tab !== 1">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_7503_13741)">
                             <path d="M22.3996 8L11.9996 19.2L1.59961 8" stroke="#3986A3" stroke-width="3" stroke-linecap="square"/></g><defs><clipPath id="clip0_7503_13741"><rect width="24" height="24" fill="white"/></clipPath></defs>
-                        </svg>                                
+                        </svg>
                     </template>
                 </div>
             </div>

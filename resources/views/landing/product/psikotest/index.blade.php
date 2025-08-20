@@ -5,6 +5,250 @@
     ]
 )
 
+@php
+    $tests = [
+        [
+            "nama" => "Tes Memori 🧠",
+            "harga_awal" => 129999,
+            "harga_diskon" => 110000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "cross"],
+            ],
+        ],
+        [
+            "nama" => "Tes Self-Love ❤️",
+            "harga_awal" => 99999,
+            "harga_diskon" => 89999,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "cross"],
+            ],
+        ],
+        [
+            "nama" => "Tes Demensia 🧠",
+            "harga_awal" => 199999,
+            "harga_diskon" => 180000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "cross"],
+            ],
+        ],
+        [
+            "nama" => "Tes Stress 😰",
+            "harga_awal" => 159000,
+            "harga_diskon" => 140000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "check"],
+            ],
+        ],
+        [
+            "nama" => "Tes Depresi 😢",
+            "harga_awal" => 159000,
+            "harga_diskon" => 140000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "check"],
+            ],
+        ],
+        [
+            "nama" => "Tes Kecemasan 😟",
+            "harga_awal" => 159000,
+            "harga_diskon" => 140000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "cross"],
+            ],
+        ],
+        [
+            "nama" => "Tes Kecemasan+ 😟",
+            "harga_awal" => 229000,
+            "harga_diskon" => 210000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "check"],
+            ],
+        ],
+        [
+            "nama" => "Tes Fungsi Kognitif 💡",
+            "harga_awal" => 129999,
+            "harga_diskon" => 110000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "cross"],
+            ],
+        ],
+    ];
+
+    $pendidikan = [
+        [
+            "nama" => "Paket WOW Gaya Belajar",
+            "harga_awal" => 99999,
+            "harga_diskon" => 89999,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "cross"],
+                ["text" => "Konseling Hasil Tes", "status" => "check"],
+            ],
+        ],
+        [
+            "nama" => "Paket Hemat Cita-cita",
+            "harga_awal" => 99999,
+            "harga_diskon" => 89999,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "cross"],
+            ],
+        ],
+        [
+            "nama" => "Paket Lengkap Tes Kepribadian",
+            "harga_awal" => 129999,
+            "harga_diskon" => 110000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "check"],
+            ],
+        ],
+        [
+            "nama" => "Tes Memori",
+            "harga_awal" => 99999,
+            "harga_diskon" => 89999,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "cross"],
+            ],
+        ],
+        [
+            "nama" => "Tes Paket Mini Penjurusan",
+            "harga_awal" => 255500,
+            "harga_diskon" => 230000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "cross"],
+            ],
+        ],
+        [
+            "nama" => "Tes Paket Gold Penjurusan",
+            "harga_awal" => 319000,
+            "harga_diskon" => 290000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "cross"],
+            ],
+        ],
+        [
+            "nama" => "Paket Tahu Bakat Minat",
+            "harga_awal" => 351000,
+            "harga_diskon" => 320000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "check"],
+            ],
+        ],
+        [
+            "nama" => "Paket Lengkap Penjurusan",
+            "harga_awal" => 399000,
+            "harga_diskon" => 360000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "check"],
+            ],
+        ],
+    ];
+    $communite = [
+        [
+            "nama" => "Tes Kesiapan Pernikahan",
+            "harga_awal" => 299999,
+            "harga_diskon" => 270000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "cross"],
+                ["text" => "Konseling Hasil Tes", "status" => "check"],
+            ],
+        ],
+        [
+            "nama" => "Tes Kesiapan Menjadi Orang Tua",
+            "harga_awal" => 299999,
+            "harga_diskon" => 270000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "cross"],
+            ],
+        ],
+        [
+            "nama" => "Tes Kecocokan Pasangan",
+            "harga_awal" => 299999,
+            "harga_diskon" => 270000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "check"],
+            ],
+        ],
+        [
+            "nama" => "Tes Stress",
+            "harga_awal" => 159999,
+            "harga_diskon" => 140000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "cross"],
+            ],
+        ],
+        [
+            "nama" => "Tes Depresi",
+            "harga_awal" => 159999,
+            "harga_diskon" => 140000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "cross"],
+            ],
+        ],
+        [
+            "nama" => "Tes Kecemasan",
+            "harga_awal" => 159999,
+            "harga_diskon" => 140000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "cross"],
+            ],
+        ],
+        [
+            "nama" => "Tes Kecemasan+",
+            "harga_awal" => 299999,
+            "harga_diskon" => 275000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "check"],
+            ],
+        ],
+        [
+            "nama" => "Tes Fungsi Kognitif",
+            "harga_awal" => 129999,
+            "harga_diskon" => 110000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "check"],
+            ],
+        ],
+        [
+            "nama" => "Tes Memori",
+            "harga_awal" => 129999,
+            "harga_diskon" => 110000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "check"],
+            ],
+        ],
+        [
+            "nama" => "Tes Demensia",
+            "harga_awal" => 199999,
+            "harga_diskon" => 180000,
+            "benefits" => [
+                ["text" => "Laporan Tertulis", "status" => "check"],
+                ["text" => "Konseling Hasil Tes", "status" => "check"],
+            ],
+        ],
+    ];
+@endphp
+
 @section("style")
     <style>
         .text-gradient {
@@ -446,39 +690,35 @@
         <div class="swiperContainer relative z-10 hidden md:block">
             <div class="swiper" id="swiperIndividu">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="relative flex h-full min-h-[304px] w-full min-w-[251px] flex-col overflow-hidden rounded-xl bg-white px-6 py-8 shadow-lg">
-                            <!-- Ribbon -->
-                            <div class="absolute right-0 top-0">
-                                <div class="flex h-8 w-[140px] translate-x-[35px] translate-y-[18px] rotate-45 items-center justify-center bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] font-plusJakartaSans text-sm font-bold text-white shadow-md">70%</div>
-                            </div>
-                            <!-- Title & Harga -->
-                            <div class="flex flex-col items-start justify-start text-center font-plusJakartaSans font-semibold">
-                                <span class="mb-2 text-xl text-black">Tes Memori‍ 🧠</span>
-                                <div class="flex flex-col items-start justify-start">
-                                    <span class="-mb-3 text-base text-[#676767] line-through">Rp129.999</span>
-                                    <span class="bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] bg-clip-text text-[32px] text-transparent">Rp450.000</span>
+                    @foreach ($tests as $test)
+                        <div class="swiper-slide">
+                            <div class="relative flex h-full min-h-[304px] w-full min-w-[251px] flex-col overflow-hidden rounded-xl bg-white px-6 py-8 shadow-lg">
+                                <!-- Ribbon -->
+                                <div class="absolute right-0 top-0"><div class="flex h-8 w-[140px] translate-x-[35px] translate-y-[18px] rotate-45 items-center justify-center bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] font-plusJakartaSans text-sm font-bold text-white shadow-md">8%</div></div>
+                                <!-- Title & Harga -->
+                                <div class="flex flex-col items-start justify-start text-center font-plusJakartaSans font-semibold">
+                                    <span class="mb-2 text-[19px] text-black">{{ $test["nama"] }}</span>
+                                    <div class="flex flex-col items-start justify-start">
+                                        <span class="-mb-3 text-base text-[#676767] line-through">Rp{{ number_format($test["harga_awal"], 0, ",", ".") }}</span>
+                                        <span class="bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] bg-clip-text text-[32px] text-transparent">Rp{{ number_format($test["harga_diskon"], 0, ",", ".") }}</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- garis divided -->
-                            <div class="mx-auto my-6 h-[1px] w-[150px] bg-gradient-to-r from-transparent via-[#D7E6ED] to-transparent"></div>
-                            <!-- List benefit -->
-                            <div class="flex flex-col items-start justify-start space-y-2 text-left font-plusJakartaSans text-base font-medium text-[#70787D]">
-                                <div class="flex items-center gap-2">
-                                    <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                    <span>Laporan Tertulis</span>
+                                <!-- garis divided -->
+                                <div class="mx-auto my-6 h-[1px] w-[150px] bg-gradient-to-r from-transparent via-[#D7E6ED] to-transparent"></div>
+                                <!-- List benefit -->
+                                <div class="flex flex-col items-start justify-start space-y-2 text-left font-plusJakartaSans text-base font-medium text-[#70787D]">
+                                    @foreach ($test["benefits"] as $benefit)
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/" . $benefit["status"] . ".svg") }}" alt="{{ $benefit["status"] }}" class="mt-1 h-[18px] w-[18px]" />
+                                            <span>{{ $benefit["text"] }}</span>
+                                        </div>
+                                    @endforeach
                                 </div>
-                                <div class="flex items-center gap-2">
-                                    <img src="{{ asset("assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                    <span>Konseling Hasil Tes</span>
-                                </div>
+                                <!-- Button -->
+                                <button class="pt-6"><a href="https://psikotes.berbinar.in/" class="rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] px-[50px] py-2 font-plusJakartaSans text-[14px] font-semibold text-white">Mulai Sekarang</a></button>
                             </div>
-                            <!-- Button -->
-                            <button class="pt-6">
-                                <a href="#" class="rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] px-[50px] py-2 font-plusJakartaSans text-[14px] font-semibold text-white">Mulai Sekarang</a>
-                            </button>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
 
                 <p class="mt-2 text-[16px] text-[#4F4F4F] max-sm:text-[14px]">*Harga masih bisa dinegosiasikan dan menyesuaikan dengan benefit yang ingin didapatkan.</p>
@@ -487,34 +727,40 @@
         </div>
 
         {{-- TAMPILAN MOBILE --}}
-        <div class="relative z-10 mt-5 grid grid-cols-2 justify-between gap-4 max-md:mx-20 max-sm:mx-4 md:hidden">
-            @foreach ($individus as $individu)
-                <div class="flex h-full w-full flex-col items-center justify-center rounded-2xl bg-white p-4 text-center shadow-md">
-                    <img src="{{ asset($individu["illustrasi"]) }}" alt="{{ $individu["jenis_tes"] }}" class="h-10 w-auto object-contain" />
-                    <p class="dynamic-height text-[16px] font-medium leading-none text-black max-sm:mt-1">
-                        {{ $individu["jenis_tes"] }}
-                    </p>
-                    <p class="mt-0.5 text-[22px] font-semibold leading-none text-[#3986A3]">
-                        {{ $individu["harga"] }}
-                        <span class="align-top text-[13px] text-[#70787D]">*</span>
-                    </p>
-                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-1 w-full" />
+        <div class="relative z-10 mt-5 grid grid-cols-2 gap-3 max-sm:mx-3 md:hidden">
+            @foreach ($tests as $test)
+                <div class="relative flex h-full max-h-[200px] w-full flex-col overflow-hidden rounded-md bg-white px-3 py-4 shadow-md">
+                    <!-- Ribbon -->
+                    <div class="absolute right-0 top-0">
+                        <div class="flex h-5 w-[80px] translate-x-[18px] translate-y-[10px] rotate-45 items-center justify-center bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] font-plusJakartaSans text-[10px] font-bold text-white shadow">8%</div>
+                    </div>
 
-                    <div class="flex flex-col gap-y-0.5 text-left">
-                        <div class="flex items-start gap-1">
-                            <img src="{{ asset($individu["keterangan"]["laporan_tertulis"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $individu["keterangan"]["laporan_tertulis"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3.5 w-3.5 object-contain max-sm:h-3 max-sm:w-3" />
-                            <span class="leading-snug text-[#70787D] max-sm:text-[14px] max-sm:leading-tight">Laporan Tertulis</span>
-                        </div>
-
-                        <div class="flex items-start gap-1">
-                            <img src="{{ asset($individu["keterangan"]["konseling_hasil_tes"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $individu["keterangan"]["konseling_hasil_tes"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3.5 w-3.5 object-contain max-sm:h-3 max-sm:w-3" />
-                            <span class="leading-snug text-[#70787D] max-sm:text-[14px] max-sm:leading-tight">Konseling Hasil Tes</span>
+                    <!-- Title & Harga -->
+                    <div class="flex flex-col items-start font-plusJakartaSans font-semibold">
+                        <span class="mb-1 text-[11px] text-black">{{ $test["nama"] }}</span>
+                        <div class="flex flex-col items-start">
+                            <span class="-mb-1 text-[11px] text-[#676767] line-through">Rp{{ number_format($test["harga_awal"], 0, ",", ".") }}</span>
+                            <span class="bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] bg-clip-text text-lg text-transparent">Rp{{ number_format($test["harga_diskon"], 0, ",", ".") }}</span>
                         </div>
                     </div>
 
-                    <div class="mt-3 flex w-full justify-center">
-                        <a href="https://psikotes.berbinar.in/" class="w-full rounded-xl bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] py-1.5 text-[13px] text-white">Mulai Sekarang</a>
+                    <!-- garis divided -->
+                    <div class="mx-auto my-2 h-[1px] w-[80px] bg-gradient-to-r from-transparent via-[#D7E6ED] to-transparent"></div>
+
+                    <!-- List benefit -->
+                    <div class="flex flex-col items-start space-y-1 font-plusJakartaSans text-[11px] font-medium text-[#70787D]">
+                        @foreach ($test["benefits"] as $benefit)
+                            <div class="flex items-center gap-1">
+                                <img src="{{ asset("assets/images/landing/asset-psikotes/icon/" . $benefit["status"] . ".svg") }}" alt="{{ $benefit["status"] }}" class="h-[12px] w-[12px]" />
+                                <span>{{ $benefit["text"] }}</span>
+                            </div>
+                        @endforeach
                     </div>
+
+                    <!-- Button -->
+                    <button class="pt-3">
+                        <a href="#" class="block w-full rounded-md bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] py-1 text-center font-plusJakartaSans text-[11px] font-semibold text-white">Mulai</a>
+                    </button>
                 </div>
             @endforeach
         </div>
@@ -551,74 +797,69 @@
             <div class="swiperContainer relative z-10 hidden md:block">
                 <div class="swiper" id="swiperPerusahaanStaff">
                     <div class="swiper-wrapper">
-                        <!-- Card 1 -->
-                        <div class="swiper-slide">
-                            <!-- Tambahin relative + overflow-hidden -->
-                            <div class="relative flex h-full min-h-[514px] w-full max-w-[344px] flex-col overflow-hidden rounded-xl bg-white px-6 py-8 shadow-lg">
-                                <!-- Ribbon -->
-                                <div class="absolute right-0 top-0">
-                                    <div class="flex h-8 w-[140px] translate-x-[35px] translate-y-[18px] rotate-45 items-center justify-center bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] font-plusJakartaSans text-sm font-bold text-white shadow-md">70%</div>
+                        @foreach ($staffs as $staff)
+                            <div class="swiper-slide">
+                                <div class="flex h-full max-h-[500px] w-full max-w-[350px] flex-col items-center justify-center rounded-2xl bg-white p-4 text-center shadow-md">
+                                    <p class="text-lg font-medium text-black">{{ $staff["paket"] }}</p>
+                                    <p class="my-2 text-[32px] font-semibold leading-none text-[#3986A3]">
+                                        {{ $staff["harga"] }}
+                                        <span class="align-top text-[18px] text-[#70787D]">*</span>
+                                    </p>
+                                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-4 w-full" />
+
+                                    <div class="flex flex-col space-y-1 text-left">
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset($staff["keterangan"]["tes_intelegensi"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["tes_intelegensi"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                            <span class="text-[#70787D]">Tes Intelegensi</span>
+                                        </div>
+
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset($staff["keterangan"]["tes_sikap_kerja"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["tes_sikap_kerja"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                            <span class="text-[#70787D]">Tes Sikap Kerja</span>
+                                        </div>
+
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset($staff["keterangan"]["tes_kepribadian"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["tes_kepribadian"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                            <span class="text-[#70787D]">Tes Kepribadian</span>
+                                        </div>
+
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset($staff["keterangan"]["focus_group_discussion"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["focus_group_discussion"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                            <span class="text-[#70787D]">Focus Group Discussion</span>
+                                        </div>
+
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset($staff["keterangan"]["wawancara"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["wawancara"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                            <span class="text-[#70787D]">Wawancara</span>
+                                        </div>
+
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset($staff["keterangan"]["psikogram"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["psikogram"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                            <span class="text-[#70787D]">Psikogram</span>
+                                        </div>
+
+                                        <div class="flex items-start gap-1">
+                                            <img src="{{ asset($staff["keterangan"]["deskripsi"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["deskripsi"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3.5 w-3.5 object-contain" />
+                                            <span class="leading-snug text-[#70787D]">Deskripsi Karakteristik, Kelemahan, Kelebihan, dan Rekomendasi</span>
+                                        </div>
+
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset($staff["keterangan"]["proyeksi_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["proyeksi_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                            <span class="text-[#70787D]">Proyeksi Pengembangan</span>
+                                        </div>
+
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset($staff["keterangan"]["saran_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["saran_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                            <span class="text-[#70787D]">Saran Pengembangan</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="my-4 flex justify-center">
+                                        <a href="https://psikotes.berbinar.in/" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-[16px] text-white">Mulai Sekarang</a>
+                                    </div>
                                 </div>
-
-                                <!-- Title & Harga -->
-                                <div class="flex flex-col items-start justify-start text-center font-plusJakartaSans font-semibold">
-                                    <span class="mb-2 text-xl text-black">Paket 1</span>
-                                    <div class="flex flex-col items-start justify-start">
-                                        <span class="-mb-3 text-lg text-[#676767] line-through">Rp129.999</span>
-                                        <span class="bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] bg-clip-text text-[32px] text-transparent">Rp450.000</span>
-                                    </div>
-                                </div>
-
-                                <!-- garis divided -->
-                                <div class="my-6 h-[2px] w-[296px] bg-gradient-to-r from-transparent via-[#D7E6ED] to-transparent"></div>
-
-                                <!-- List benefit -->
-                                <div class="flex flex-col items-start justify-start space-y-2 text-left font-plusJakartaSans text-base font-medium text-[#70787D]">
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Tes Intelegensi</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Tes Sikap Kerja</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Tes Kepribadian</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Focus Group Discussion</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Wawancara</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Psikogram</span>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="check" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Deskripsi Karakteristik, Kelemahan, Kelebihan, dan Rekomendasi</span>
-                                    </div>
-
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Proyeksi Pengembangan</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Saran Pengembangan</span>
-                                    </div>
-                                </div>
-
-                                <!-- Button -->
-                                <button class="pt-6">
-                                    <a href="#" class="rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] px-24 py-2 font-plusJakartaSans text-[14px] font-semibold text-white">Mulai Sekarang</a>
-                                </button>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
 
                     <p class="mt-2 text-[16px] text-[#4F4F4F] max-sm:text-[14px]">*Harga masih bisa dinegosiasikan dan menyesuaikan dengan benefit yang ingin didapatkan.</p>
@@ -703,74 +944,69 @@
             <div class="swiperContainer relative z-10 hidden md:block">
                 <div class="swiper" id="swiperPerusahaanSupervisor">
                     <div class="swiper-wrapper">
-                        <!-- Card 1 -->
-                        <div class="swiper-slide">
-                            <!-- Tambahin relative + overflow-hidden -->
-                            <div class="relative flex h-full min-h-[514px] w-full max-w-[344px] flex-col overflow-hidden rounded-xl bg-white px-6 py-8 shadow-lg">
-                                <!-- Ribbon -->
-                                <div class="absolute right-0 top-0">
-                                    <div class="flex h-8 w-[140px] translate-x-[35px] translate-y-[18px] rotate-45 items-center justify-center bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] font-plusJakartaSans text-sm font-bold text-white shadow-md">70%</div>
+                        @foreach ($supervisors as $supervisor)
+                            <div class="swiper-slide">
+                                <div class="flex h-full max-h-[500px] w-full max-w-[350px] flex-col items-center justify-center rounded-2xl bg-white p-4 text-center shadow-md">
+                                    <p class="text-lg font-medium text-black">{{ $supervisor["paket"] }}</p>
+                                    <p class="my-2 text-[32px] font-semibold leading-none text-[#3986A3]">
+                                        {{ $supervisor["harga"] }}
+                                        <span class="align-top text-[18px] text-[#70787D]">*</span>
+                                    </p>
+                                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-4 w-full" />
+
+                                    <div class="flex flex-col space-y-1 text-left">
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset($supervisor["keterangan"]["tes_intelegensi"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["tes_intelegensi"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                            <span class="text-[#70787D]">Tes Intelegensi</span>
+                                        </div>
+
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset($supervisor["keterangan"]["tes_sikap_kerja"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["tes_sikap_kerja"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                            <span class="text-[#70787D]">Tes Sikap Kerja</span>
+                                        </div>
+
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset($supervisor["keterangan"]["tes_kepribadian"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["tes_kepribadian"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                            <span class="text-[#70787D]">Tes Kepribadian</span>
+                                        </div>
+
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset($supervisor["keterangan"]["focus_group_discussion"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["focus_group_discussion"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                            <span class="text-[#70787D]">Focus Group Discussion</span>
+                                        </div>
+
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset($supervisor["keterangan"]["wawancara"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["wawancara"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                            <span class="text-[#70787D]">Wawancara</span>
+                                        </div>
+
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset($supervisor["keterangan"]["psikogram"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["psikogram"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                            <span class="text-[#70787D]">Psikogram</span>
+                                        </div>
+
+                                        <div class="flex items-start gap-1">
+                                            <img src="{{ asset($supervisor["keterangan"]["deskripsi"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["deskripsi"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3.5 w-3.5" />
+                                            <span class="leading-snug text-[#70787D]">Deskripsi Karakteristik, Kelemahan, Kelebihan, dan Rekomendasi</span>
+                                        </div>
+
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset($supervisor["keterangan"]["proyeksi_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["proyeksi_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                            <span class="text-[#70787D]">Proyeksi Pengembangan</span>
+                                        </div>
+
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset($supervisor["keterangan"]["saran_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["saran_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                            <span class="text-[#70787D]">Saran Pengembangan</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="my-4 flex justify-center">
+                                        <a href="https://psikotes.berbinar.in/" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-[16px] text-white">Mulai Sekarang</a>
+                                    </div>
                                 </div>
-
-                                <!-- Title & Harga -->
-                                <div class="flex flex-col items-start justify-start text-center font-plusJakartaSans font-semibold">
-                                    <span class="mb-2 text-xl text-black">Paket 1</span>
-                                    <div class="flex flex-col items-start justify-start">
-                                        <span class="-mb-3 text-lg text-[#676767] line-through">Rp129.999</span>
-                                        <span class="bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] bg-clip-text text-[32px] text-transparent">Rp450.000</span>
-                                    </div>
-                                </div>
-
-                                <!-- garis divided -->
-                                <div class="my-6 h-[2px] w-[296px] bg-gradient-to-r from-transparent via-[#D7E6ED] to-transparent"></div>
-
-                                <!-- List benefit -->
-                                <div class="flex flex-col items-start justify-start space-y-2 text-left font-plusJakartaSans text-base font-medium text-[#70787D]">
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Tes Intelegensi</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Tes Sikap Kerja</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Tes Kepribadian</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Focus Group Discussion</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Wawancara</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Psikogram</span>
-                                    </div>
-                                    <div class="flex items-start gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/check.svg") }}" alt="check" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Deskripsi Karakteristik, Kelemahan, Kelebihan, dan Rekomendasi</span>
-                                    </div>
-
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Proyeksi Pengembangan</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ asset("assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="nguwawor" class="mt-1 h-[18px] w-[18px]" />
-                                        <span>Saran Pengembangan</span>
-                                    </div>
-                                </div>
-
-                                <!-- Button -->
-                                <button class="pt-6">
-                                    <a href="#" class="rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] px-24 py-2 font-plusJakartaSans text-[14px] font-semibold text-white">Mulai Sekarang</a>
-                                </button>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
 
                     <p class="mt-2 text-[16px] text-[#4F4F4F] max-sm:mx-4 max-sm:text-[13px] max-sm:leading-tight">*Harga masih bisa dinegosiasikan dan menyesuaikan dengan benefit yang ingin didapatkan.</p>
@@ -873,39 +1109,35 @@
         <div class="swiperContainer relative z-10 hidden md:block">
             <div class="swiper" id="swiperPendidikan">
                 <div class="swiper-wrapper">
-                    @foreach ($pendidikans as $pendidikan)
+                    @foreach ($pendidikan as $pendidik)
                         <div class="swiper-slide">
-                            <div class="flex h-full max-h-[350px] w-full max-w-[250px] flex-col items-center justify-center rounded-2xl bg-white p-4 text-center shadow-md">
-                                <img src="{{ asset($pendidikan["illustrasi"]) }}" alt="{{ $pendidikan["paket"] }}" class="h-14 w-auto object-contain" />
-                                <p class="mt-1 min-h-[50px] items-center text-lg font-medium leading-snug text-black">
-                                    {{ $pendidikan["paket"] }}
-                                </p>
-                                <p class="-mt-1 text-[32px] font-semibold leading-none text-[#3986A3]">
-                                    {{ $pendidikan["harga"] }}
-                                    <span class="align-top text-[18px] text-[#70787D]">*</span>
-                                </p>
-                                <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-4 w-full" />
-
-                                <div class="flex flex-col space-y-1">
-                                    <div class="flex items-center gap-1">
-                                        <img src="{{ asset($pendidikan["keterangan"]["laporan_tertulis"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $pendidikan["keterangan"]["laporan_tertulis"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
-                                        <span class="text-[#70787D]">Laporan Tertulis</span>
-                                    </div>
-
-                                    <div class="flex items-center gap-1">
-                                        <img src="{{ asset($pendidikan["keterangan"]["tes_gaya_belajar"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $pendidikan["keterangan"]["tes_gaya_belajar"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
-                                        <span class="text-[#70787D]">Konseling Hasil Tes</span>
-                                    </div>
-
-                                    <div class="flex items-center gap-1">
-                                        <img src="{{ asset($pendidikan["keterangan"]["konseling_hasil_tes"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $pendidikan["keterangan"]["konseling_hasil_tes"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
-                                        <span class="text-[#70787D]">Konseling Hasil Tes</span>
+                            <div class="relative flex h-full min-h-[304px] w-full min-w-[251px] flex-col overflow-hidden rounded-xl bg-white px-6 py-8 shadow-lg">
+                                <!-- Ribbon -->
+                                <div class="absolute right-0 top-0"><div class="flex h-8 w-[140px] translate-x-[35px] translate-y-[18px] rotate-45 items-center justify-center bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] font-plusJakartaSans text-sm font-bold text-white shadow-md">8%</div></div>
+                                <!-- Title & Harga -->
+                                <div class="flex flex-col items-start justify-start text-start font-plusJakartaSans font-semibold">
+                                    <span class="{{ str_word_count($pendidik["nama"]) === 2 ? "mb-[36px]" : "mb-2" }} block w-[75%] text-lg text-black">
+                                        {{ $pendidik["nama"] }}
+                                    </span>
+                                    <div class="flex flex-col items-start justify-start">
+                                        <span class="-mb-3 text-base text-[#676767] line-through">Rp{{ number_format($pendidik["harga_awal"], 0, ",", ".") }}</span>
+                                        <span class="bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] bg-clip-text text-[32px] text-transparent">Rp{{ number_format($pendidik["harga_diskon"], 0, ",", ".") }}</span>
                                     </div>
                                 </div>
 
-                                <div class="my-3 flex justify-center">
-                                    <a href="https://psikotes.berbinar.in/" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white">Mulai Sekarang</a>
+                                <!-- garis divided -->
+                                <div class="mx-auto my-6 h-[1px] w-[150px] bg-gradient-to-r from-transparent via-[#D7E6ED] to-transparent"></div>
+                                <!-- List benefit -->
+                                <div class="flex flex-col items-start justify-start space-y-2 text-left font-plusJakartaSans text-base font-medium text-[#70787D]">
+                                    @foreach ($pendidik["benefits"] as $benefit)
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/" . $benefit["status"] . ".svg") }}" alt="{{ $benefit["status"] }}" class="mt-1 h-[18px] w-[18px]" />
+                                            <span>{{ $benefit["text"] }}</span>
+                                        </div>
+                                    @endforeach
                                 </div>
+                                <!-- Button -->
+                                <button class="pt-6"><a href="https://psikotes.berbinar.in/" class="rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] px-[50px] py-2 font-plusJakartaSans text-[14px] font-semibold text-white">Mulai Sekarang</a></button>
                             </div>
                         </div>
                     @endforeach
@@ -918,38 +1150,44 @@
 
         {{-- TAMPILAN MOBILE --}}
         <div class="relative z-10 mt-5 grid grid-cols-2 justify-between gap-4 max-md:mx-20 max-sm:mx-4 md:hidden">
-            @foreach ($pendidikans as $pendidikan)
-                <div class="flex h-full w-full flex-col items-center justify-center rounded-2xl bg-white p-4 text-center shadow-md">
-                    <img src="{{ asset($pendidikan["illustrasi"]) }}" alt="{{ $pendidikan["paket"] }}" class="h-10 w-auto object-contain" />
-                    <p class="dynamic-height text-[16px] font-medium leading-none text-black">
-                        {{ $pendidikan["paket"] }}
-                    </p>
-                    <p class="mt-0.5 text-[22px] font-semibold leading-none text-[#3986A3]">
-                        {{ $pendidikan["harga"] }}
-                        <span class="align-top text-[13px] text-[#70787D]">*</span>
-                    </p>
-                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-1 w-full" />
+            @foreach ($pendidikan as $pendidik)
+                <div class="relative flex h-full max-h-[200px] w-full flex-col overflow-hidden rounded-md bg-white px-3 py-4 shadow-md">
+                    <!-- Ribbon -->
+                    <div class="absolute right-0 top-0">
+                        <div class="flex h-5 w-[80px] translate-x-[18px] translate-y-[10px] rotate-45 items-center justify-center bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] font-plusJakartaSans text-[10px] font-bold text-white shadow">8%</div>
+                    </div>
 
-                    <div class="flex flex-col gap-y-0.5 text-left">
-                        <div class="flex items-start gap-1">
-                            <img src="{{ asset($pendidikan["keterangan"]["laporan_tertulis"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $pendidikan["keterangan"]["laporan_tertulis"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3 w-3 object-contain" />
-                            <span class="leading-snug text-[#70787D] max-sm:text-[14px] max-sm:leading-tight">Laporan Tertulis</span>
+                    <!-- Title & Harga -->
+                    <div class="flex flex-col items-start font-plusJakartaSans font-semibold">
+                        <div class="flex flex-col items-start">
+                            <span class="{{ str_word_count($pendidik["nama"]) === 2 ? "mb-3" : "mb-1" }} block w-[100px] whitespace-normal break-words text-xs text-black">
+                                {{ $pendidik["nama"] }}
+                            </span>
                         </div>
 
-                        <div class="flex items-start gap-1">
-                            <img src="{{ asset($pendidikan["keterangan"]["tes_gaya_belajar"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $pendidikan["keterangan"]["tes_gaya_belajar"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3 w-3 object-contain" />
-                            <span class="leading-snug text-[#70787D] max-sm:text-[14px] max-sm:leading-tight">Tes Gaya Belajar</span>
-                        </div>
-
-                        <div class="flex items-start gap-1">
-                            <img src="{{ asset($pendidikan["keterangan"]["konseling_hasil_tes"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $pendidikan["keterangan"]["konseling_hasil_tes"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3 w-3 object-contain" />
-                            <span class="leading-snug text-[#70787D] max-sm:text-[14px] max-sm:leading-tight">Konseling Hasil Tes</span>
+                        <div class="flex flex-col items-start">
+                            <span class="-mb-1 text-[11px] text-[#676767] line-through">Rp{{ number_format($pendidik["harga_awal"], 0, ",", ".") }}</span>
+                            <span class="bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] bg-clip-text text-lg text-transparent">Rp{{ number_format($pendidik["harga_diskon"], 0, ",", ".") }}</span>
                         </div>
                     </div>
 
-                    <div class="mt-3 flex w-full justify-center">
-                        <a href="https://psikotes.berbinar.in/" class="w-full rounded-xl bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] py-1.5 text-[13px] text-white">Mulai Sekarang</a>
+                    <!-- garis divided -->
+                    <div class="mx-auto my-2 h-[1px] w-[80px] bg-gradient-to-r from-transparent via-[#D7E6ED] to-transparent"></div>
+
+                    <!-- List benefit -->
+                    <div class="flex flex-col items-start space-y-1 font-plusJakartaSans text-[11px] font-medium text-[#70787D]">
+                        @foreach ($pendidik["benefits"] as $benefit)
+                            <div class="flex items-center gap-1">
+                                <img src="{{ asset("assets/images/landing/asset-psikotes/icon/" . $benefit["status"] . ".svg") }}" alt="{{ $benefit["status"] }}" class="h-[12px] w-[12px]" />
+                                <span>{{ $benefit["text"] }}</span>
+                            </div>
+                        @endforeach
                     </div>
+
+                    <!-- Button -->
+                    <button class="pt-3">
+                        <a href="#" class="block w-full rounded-md bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] py-1 text-center font-plusJakartaSans text-[11px] font-semibold text-white">Mulai</a>
+                    </button>
                 </div>
             @endforeach
         </div>
@@ -983,34 +1221,41 @@
         <div class="swiperContainer relative z-10 hidden md:block">
             <div class="swiper" id="swiperKomunitas">
                 <div class="swiper-wrapper">
-                    @foreach ($communitys as $community)
+                    @foreach ($communite as $comm)
                         <div class="swiper-slide">
-                            <div class="flex h-full max-h-[330px] w-full max-w-[250px] flex-col items-center justify-center rounded-2xl bg-white p-4 text-center shadow-md">
-                                <img src="{{ asset($community["illustrasi"]) }}" alt="{{ $community["paket"] }}" class="h-14 w-auto object-contain" />
-                                <p class="mt-1 min-h-[50px] items-center text-lg font-medium leading-snug text-black">
-                                    {{ $community["paket"] }}
-                                </p>
-                                <p class="-mt-1 text-[32px] font-semibold leading-none text-[#3986A3]">
-                                    {{ $community["harga"] }}
-                                    <span class="align-top text-[18px] text-[#70787D]">*</span>
-                                </p>
-                                <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-4 w-full" />
-
-                                <div class="flex flex-col space-y-1">
-                                    <div class="flex items-center gap-1">
-                                        <img src="{{ asset($community["keterangan"]["laporan_tertulis"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $community["keterangan"]["laporan_tertulis"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
-                                        <span class="text-[#70787D]">Laporan Tertulis</span>
-                                    </div>
-
-                                    <div class="flex items-center gap-1">
-                                        <img src="{{ asset($community["keterangan"]["konseling_hasil_tes"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $community["keterangan"]["konseling_hasil_tes"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
-                                        <span class="text-[#70787D]">Konseling Hasil Tes</span>
+                            <div class="relative flex h-full min-h-[304px] w-full min-w-[251px] flex-col overflow-hidden rounded-xl bg-white px-6 py-8 shadow-lg">
+                                <!-- Ribbon -->
+                                <div class="absolute right-0 top-0"><div class="flex h-8 w-[140px] translate-x-[35px] translate-y-[18px] rotate-45 items-center justify-center bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] font-plusJakartaSans text-sm font-bold text-white shadow-md">8%</div></div>
+                                <!-- Title & Harga -->
+                                <div class="flex flex-col items-start justify-start text-start font-plusJakartaSans font-semibold">
+                                    <span class="{{
+                                        $comm["nama"] === "Tes Fungsi Kognitif"
+                                            ? "mb-[36px]"
+                                            : (str_word_count($comm["nama"]) === 2
+                                                ? "mb-[36px]"
+                                                : "mb-2")
+                                    }} block w-[75%] text-lg text-black">
+                                        {{ $comm["nama"] }}
+                                    </span>
+                                    <div class="flex flex-col items-start justify-start">
+                                        <span class="-mb-3 text-base text-[#676767] line-through">Rp{{ number_format($comm["harga_awal"], 0, ",", ".") }}</span>
+                                        <span class="bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] bg-clip-text text-[32px] text-transparent">Rp{{ number_format($comm["harga_diskon"], 0, ",", ".") }}</span>
                                     </div>
                                 </div>
 
-                                <div class="my-3 flex justify-center">
-                                    <a href="https://psikotes.berbinar.in/" class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white">Mulai Sekarang</a>
+                                <!-- garis divided -->
+                                <div class="mx-auto my-6 h-[1px] w-[150px] bg-gradient-to-r from-transparent via-[#D7E6ED] to-transparent"></div>
+                                <!-- List benefit -->
+                                <div class="flex flex-col items-start justify-start space-y-2 text-left font-plusJakartaSans text-base font-medium text-[#70787D]">
+                                    @foreach ($comm["benefits"] as $benefit)
+                                        <div class="flex items-center gap-1">
+                                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/" . $benefit["status"] . ".svg") }}" alt="{{ $benefit["status"] }}" class="mt-1 h-[18px] w-[18px]" />
+                                            <span>{{ $benefit["text"] }}</span>
+                                        </div>
+                                    @endforeach
                                 </div>
+                                <!-- Button -->
+                                <button class="pt-6"><a href="https://psikotes.berbinar.in/" class="rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] px-[50px] py-2 font-plusJakartaSans text-[14px] font-semibold text-white">Mulai Sekarang</a></button>
                             </div>
                         </div>
                     @endforeach
@@ -1023,33 +1268,50 @@
 
         {{-- TAMPILAN MOBILE --}}
         <div class="relative z-10 mt-5 grid grid-cols-2 justify-between gap-4 max-md:mx-20 max-sm:mx-4 md:hidden">
-            @foreach ($communitys as $community)
-                <div class="flex h-full w-full flex-col items-center justify-center rounded-2xl bg-white p-4 text-center shadow-md">
-                    <img src="{{ asset($community["illustrasi"]) }}" alt="{{ $community["paket"] }}" class="h-10 w-auto object-contain" />
-                    <p class="dynamic-height-3 text-[16px] font-medium leading-none text-black">
-                        {{ $community["paket"] }}
-                    </p>
-                    <p class="mt-0.5 text-[22px] font-semibold leading-none text-[#3986A3]">
-                        {{ $community["harga"] }}
-                        <span class="align-top text-[13px] text-[#70787D]">*</span>
-                    </p>
-                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-1 w-full" />
+            @foreach ($communite as $comm)
+                <div class="relative flex h-full max-h-[200px] w-full flex-col overflow-hidden rounded-md bg-white px-3 py-4 shadow-md">
+                    <!-- Ribbon -->
+                    <div class="absolute right-0 top-0">
+                        <div class="flex h-5 w-[80px] translate-x-[18px] translate-y-[10px] rotate-45 items-center justify-center bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] font-plusJakartaSans text-[10px] font-bold text-white shadow">8%</div>
+                    </div>
 
-                    <div class="flex flex-col gap-y-0.5 text-left">
-                        <div class="flex items-start gap-1">
-                            <img src="{{ asset($community["keterangan"]["laporan_tertulis"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $community["keterangan"]["laporan_tertulis"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3 w-3 object-contain" />
-                            <span class="leading-snug text-[#70787D] max-sm:text-[14px] max-sm:leading-tight">Laporan Tertulis</span>
+                    <!-- Title & Harga -->
+                    <div class="flex flex-col items-start font-plusJakartaSans font-semibold">
+                        <div class="flex flex-col items-start">
+                            <span class="{{
+                                ($comm["nama"] === "Tes Fungsi Kognitif"
+                                        ? "mb-1"
+                                        : str_word_count($comm["nama"]) === 2)
+                                    ? "mb-4"
+                                    : "mb-1"
+                            }} block w-[110px] whitespace-normal break-words text-xs text-black">
+                                {{ $comm["nama"] }}
+                            </span>
                         </div>
 
-                        <div class="flex items-start gap-1">
-                            <img src="{{ asset($community["keterangan"]["konseling_hasil_tes"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $community["keterangan"]["konseling_hasil_tes"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3 w-3 object-contain" />
-                            <span class="leading-snug text-[#70787D] max-sm:text-[14px] max-sm:leading-tight">Konseling Hasil Tes</span>
+                        <div class="flex flex-col items-start">
+                            <span class="-mb-1 text-[11px] text-[#676767] line-through">Rp{{ number_format($comm["harga_awal"], 0, ",", ".") }}</span>
+                            <span class="bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] bg-clip-text text-lg text-transparent">Rp{{ number_format($comm["harga_diskon"], 0, ",", ".") }}</span>
                         </div>
                     </div>
 
-                    <div class="mt-3 flex w-full justify-center">
-                        <a href="https://psikotes.berbinar.in/" class="w-full rounded-xl bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] py-1.5 text-[13px] text-white">Mulai Sekarang</a>
+                    <!-- garis divided -->
+                    <div class="mx-auto my-2 h-[1px] w-[80px] bg-gradient-to-r from-transparent via-[#D7E6ED] to-transparent"></div>
+
+                    <!-- List benefit -->
+                    <div class="flex flex-col items-start space-y-1 font-plusJakartaSans text-[11px] font-medium text-[#70787D]">
+                        @foreach ($comm["benefits"] as $benefit)
+                            <div class="flex items-center gap-1">
+                                <img src="{{ asset("assets/images/landing/asset-psikotes/icon/" . $benefit["status"] . ".svg") }}" alt="{{ $benefit["status"] }}" class="h-[12px] w-[12px]" />
+                                <span>{{ $benefit["text"] }}</span>
+                            </div>
+                        @endforeach
                     </div>
+
+                    <!-- Button -->
+                    <button class="pt-3">
+                        <a href="#" class="block w-full rounded-md bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] py-1 text-center font-plusJakartaSans text-[11px] font-semibold text-white">Mulai</a>
+                    </button>
                 </div>
             @endforeach
         </div>

@@ -26,6 +26,6 @@
     <a href="{{ route('dashboard.divisions.index') }}"
        class="flex flex-row items-center duration-700 {{ Str::startsWith(Route::currentRouteName(), 'dashboard.divisions') ? 'text-white' : 'text-gray-700 hover:text-primary' }}">
         <i class="bi bi-files mr-2 text-lg {{ Str::startsWith(Route::currentRouteName(), 'dashboard.divisions') ? 'text-white' : 'text-gray-700' }}"></i>
-        <span class="ml-4 text-base font-bold leading-5">Manage Division</span>
+        <span class="ml-4 text-base font-bold leading-5">Kelola Divisi</span>
     </a>
 </li>

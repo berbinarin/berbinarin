@@ -8,6 +8,7 @@ use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use Jenssegers\Agent\Agent;
 
 class AuthController extends Controller
 {
@@ -34,6 +35,11 @@ class AuthController extends Controller
 
     public function login()
     {
+         $agent = new Agent();
+
+        if ($agent->isMobile() && !$agent->isTablet()) {
+            return view('auth.block-mobile');
+        }
         return view('auth.login');
     }
 

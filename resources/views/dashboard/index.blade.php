@@ -24,7 +24,7 @@
                         @role('hr_data-analyst')
                             <p tabindex="0" class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
                                 Dashboard Keluarga Berbinar</p>
-                            <p class="w-full text-disabled">Ringkasan real-time status staf, divisi, dan aktivitas keluarga Berbinar dalam satu tampilan.</p>
+                            <p class="w-full text-disabled">Ringkasan waktu nyata status staf, divisi, dan aktivitas keluarga Berbinar dalam satu tampilan.</p>
                         @endrole
 
                         @role ('counseling-pm')
@@ -127,10 +127,164 @@
             @endrole
 
             @role ('hr_data-analyst')
-                    <div class="w-full">
-                        <div class="rounded-md bg-white px-4 py-8 md:px-8 md:py-10 xl:px-10 w-full max-w-[1230px] mx-auto">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                                <div class="text-white rounded-lg flex flex-col justify-between p-4 sm:p-6 relative" style="background-color: #6B82A7; min-height: 150px;">
+                <div class="flex flex-col xl:w-[80vw] gap-6">
+                    <div class="flex flex-row w-full gap-6">
+
+                        <div class="flex w-1/3 items-center p-8 bg-white shadow rounded-lg">
+                            <div
+                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                                <i class='bx bx-user text-3xl'></i>
+                            </div>
+                            <div>
+                                <span class="block text-2xl font-bold">{{ $staff->where('status', true)->count() }}</span>
+                                <span class="block text-gray-500">Staf aktif</span>
+                            </div>
+                        </div>
+
+                        <div class="flex w-1/3 items-center p-8 bg-white shadow rounded-lg">
+                            <div
+                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                                <i class='bx bxs-graduation text-3xl'></i>
+                            </div>
+                            <div>
+                                <span class="block text-2xl font-bold">{{ $staff->where('status', false)->count() }}</span>
+                                <span class="block text-gray-500">Staf tidak aktif</span>
+                            </div>
+                        </div>
+
+                        <div class="flex w-1/3 items-center p-8 bg-white shadow rounded-lg">
+                            <div
+                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                                <i class='bx bxs-buildings text-3xl'></i>
+                            </div>
+                            <div>
+                                <span class="block text-2xl font-bold">{{ $subDivisions }}</span>
+                                <span class="block text-gray-500">Subdivisi</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Charts Section -->
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="flex h-[330px] flex-col rounded-xl bg-white px-6 py-4 shadow">
+                            <div class="mb-4">
+                                <h1 class="text-[28px] text-[#75BADB]"><b>Analisis keluarga Berbinar</b></h1>
+                                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                                    <p class="text-[14px]">Berikut ini merupakan visualisasi diagram keluarga Berbinar</p>
+                                </div>
+                            </div>
+                            <div class="flex w-full flex-col items-center h-full">
+                                <canvas id="marketingChart" class="mb-1" style="max-height: 180px;"></canvas>
+                                <div class="mb-4 flex gap-4 text-xs">
+                                    @php
+                                        $chartLabels = ['Staf aktif', 'Staf tidak aktif', 'Subdivisi'];
+                                        $chartColors = ['#106681', '#E9B306', '#232ACA'];
+                                    @endphp
+                                    @foreach($chartLabels as $i => $label)
+                                        <div class="flex items-center gap-1">
+                                            <span class="inline-block h-3 w-3 rounded" style="background: {{ $chartColors[$i] }}"></span>
+                                            {{ $label }}
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @section('script')
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            const chartDataValues = [{{ $staff->where('status', true)->count() }}, {{ $staff->where('status', false)->count() }}, {{ $subDivisions }}];
+                            const chartColors = ['rgba(16, 102, 129, 0.6)', 'rgba(233, 179, 6, 0.6)', 'rgba(35, 42, 202, 0.6)'];
+                            const solidColors = ['#106681', '#E9B306', '#232ACA'];
+                            const chartLabels = ['Staf aktif', 'Staf tidak aktif', 'Subdivisi'];
+
+                            const ctx = document.getElementById('marketingChart').getContext('2d');
+                            const chartData = {
+                                labels: chartLabels,
+                                datasets: [
+                                    {
+                                        label: 'Jumlah',
+                                        data: chartDataValues,
+                                        backgroundColor: chartColors,
+                                        borderRadius: 0,
+                                        barThickness: 30,
+                                    },
+                                ],
+                            };
+
+                            new Chart(ctx, {
+                                type: 'bar',
+                                data: chartData,
+                                options: {
+                                    indexAxis: 'y',
+                                    scales: {
+                                        x: {
+                                            beginAtZero: true,
+                                            grid: { color: '#eee' },
+                                            position: 'top',
+                                            ticks: {
+                                                stepSize: 20,
+                                                callback: function(value) {
+                                                    return value % 20 === 0 ? value : '';
+                                                }
+                                            },
+                                            min: 0,
+                                            max: 100, // Fixed maximum scale at 100
+                                            suggestedMax: 100 // Ensure the scale always goes up to 100
+                                        },
+                                        y: {
+                                            grid: { color: '#eee' },
+                                        },
+                                    },
+                                    plugins: {
+                                        legend: { display: false },
+                                    },
+                                    animation: false,
+                                },
+                                plugins: [
+                                    {
+                                        afterDatasetsDraw: function (chart) {
+                                            const ctx = chart.ctx;
+                                            chart.data.datasets.forEach(function (dataset, i) {
+                                                const meta = chart.getDatasetMeta(i);
+                                                meta.data.forEach(function (bar, index) {
+                                                    const value = dataset.data[index];
+                                                    ctx.save();
+                                                    ctx.font = 'bold 14px sans-serif';
+                                                    if (value >= Math.max(...chartDataValues) * 0.8) {
+                                                        ctx.fillStyle = '#fff';
+                                                        ctx.textAlign = 'right';
+                                                        ctx.textBaseline = 'middle';
+                                                        ctx.fillText(value, bar.x - 10, bar.y);
+                                                    } else {
+                                                        ctx.fillStyle = '#444';
+                                                        ctx.textAlign = 'left';
+                                                        ctx.textBaseline = 'middle';
+                                                        ctx.fillText(value, bar.x + 10, bar.y);
+                                                    }
+                                                    if (value > 0) {
+                                                        const solidColor = solidColors[index % solidColors.length];
+                                                        const barHeight = bar.height || (bar.base - bar.y) * 2;
+                                                        ctx.fillStyle = solidColor;
+                                                        ctx.fillRect(bar.x - 6, bar.y - barHeight / 2, 12, barHeight);
+                                                    }
+                                                    ctx.restore();
+                                                });
+                                            });
+                                        },
+                                    },
+                                ],
+                            });
+                        });
+                    </script>
+                @endsection
+
+
+                                {{--
+                                <div class="text-white rounded-lg flex flex-col justify-between p-4 sm:p-6 relative" style="background-color: #ffffff; min-height: 150px;">
                                     <div class="flex justify-between items-center">
                                         <span class="text-sm sm:text-lg font-semibold">Staff Aktif</span>
                                         <i class='bx bx-user text-xl sm:text-2xl'></i>
@@ -140,7 +294,7 @@
                                         <p class="mt-1 text-sm sm:text-base">Staff</p>
                                     </div>
                                 </div>
-                                <div class="text-white rounded-lg flex flex-col justify-between p-4 sm:p-6 relative" style="background-color: #8BA9C7; min-height: 150px;">
+                                <div class="text-white rounded-lg flex flex-col justify-between p-4 sm:p-6 relative" style="background-color: #ffffff; min-height: 150px;">
                                     <div class="flex justify-between items-center">
                                         <span class="text-sm sm:text-lg font-semibold">Staff Tidak Aktif</span>
                                         <i class='bx bxs-graduation text-xl sm:text-2xl'></i>
@@ -150,19 +304,19 @@
                                         <p class="mt-1 text-sm sm:text-base">Staff</p>
                                     </div>
                                 </div>
-                                <div class="text-white rounded-lg flex flex-col justify-between p-4 sm:p-6 relative sm:col-span-2 md:col-span-1" style="background-color: #8DB8E2; min-height: 150px;">
+                                <div class="text-white rounded-lg flex flex-col justify-between p-4 sm:p-6 relative sm:col-span-2 md:col-span-1" style="background-color: #ffffff; min-height: 150px;">
                                     <div class="flex justify-between items-center">
-                                        <span class="text-sm sm:text-lg font-semibold">Jumlah Sub Divisi</span>
+                                        <span class="text-sm sm:text-lg font-semibold">Jumlah Subdivisi</span>
                                         <i class='bx bxs-buildings text-xl sm:text-2xl'></i>
                                     </div>
                                     <div class="mt-4 sm:mt-8">
                                         <p class="text-3xl sm:text-4xl md:text-5xl font-bold">{{ $subDivisions }}</p>
-                                        <p class="mt-1 text-sm sm:text-base">Sub Divisi</p>
+                                        <p class="mt-1 text-sm sm:text-base">Subdivisi</p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                                --}}
+
+
             @endrole
 
             @role ('counseling-pm')

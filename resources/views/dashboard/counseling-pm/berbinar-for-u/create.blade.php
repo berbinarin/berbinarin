@@ -157,8 +157,8 @@
             </div>
             <p class="mb-6 text-lg">Apakah Anda yakin ingin membatalkan penambahan data ini?</p>
             <div class="flex justify-center gap-4">
-                <button id="confirmCancel" class="rounded-lg bg-[#3986A3] px-6 py-2 text-white">OK</button>
-                <button id="cancelCancel" class="rounded-lg border border-[#3986A3] px-6 py-2 text-[#3986A3]">Cancel</button>
+                <button id="confirmCancel" class="w-1/3 rounded-lg bg-[#3986A3] px-6 py-2 text-white">OK</button>
+                <button id="cancelCancel" class="w-1/3 rounded-lg border border-[#3986A3] px-6 py-2 text-[#3986A3]">Cancel</button>
             </div>
         </div>
     </div>

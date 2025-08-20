@@ -35,11 +35,10 @@
         <div class="flex w-full flex-col">
             <div class="py-4 md:pb-7 md:pt-12">
                 <div class="">
-                    <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Staff Data Management</p>
-                    <p class="w-3/4 text-disabled">
-                        Pada halaman ini, admin dapat melakukan tambah, edit, ataupun hapus terhadap data seluruh staff di Berbinar.
-                        <br />
-                        Data tersebut yang menjadi bahan untuk ditampilkan pada website resmi Berbinar pada bagian Keluarga Berbinar
+                    <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Pengelolaan Data Staf</p>
+                    <p class="w-full text-disabled">
+                        Pada halaman ini, admin dapat melakukan tambah, ubah, ataupun hapus terhadap data seluruh staf di Berbinar.
+                        Data tersebut yang menjadi bahan untuk ditampilkan pada situs resmi Berbinar pada bagian keluarga Berbinar
                     </p>
                     <a href="{{ route("dashboard.keluarga-berbinar.create") }}">
                         <button type="button" class="mt-8 inline-flex items-start justify-start rounded-lg bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
@@ -48,7 +47,7 @@
                     </a>
                 </div>
             </div>
-            <div class="rounded-md bg-white px-4 py-4 md:px-8 md:py-7 xl:px-10">
+            <div class="rounded-md bg-white px-4 py-4 mb-7 md:px-8 md:py-7 xl:px-10">
                 <div class="mb-4 mt-4 overflow-x-auto">
                     <table id="example" class="min-w-full pt-5 leading-normal">
                         <thead>
@@ -58,7 +57,7 @@
                                 <th class="bg-white px-6 py-3 text-center text-base font-bold leading-4 tracking-wider text-black">Divisi</th>
                                 <th class="bg-white px-6 py-3 text-center text-base font-bold leading-4 tracking-wider text-black">Waktu Menjabat</th>
                                 <th class="bg-white px-6 py-3 text-center text-base font-bold leading-4 tracking-wider text-black">Prestasi</th>
-                                <th class="bg-white px-6 py-3 text-center text-base font-bold leading-4 tracking-wider text-black">Action</th>
+                                <th class="bg-white px-6 py-3 text-center text-base font-bold leading-4 tracking-wider text-black">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -86,16 +85,16 @@
                                     </td>
                                     <td class="whitespace-no-wrap flex items-center justify-center gap-2 px-6 py-4">
                                         <a href="{{ route("dashboard.keluarga-berbinar.show", $staff->id) }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #3b82f6">
-                                            <i class="bx bx-show text-white"></i>
+                                            <i class="bx bxs-show text-white"></i>
                                         </a>
                                         <a href="{{ route("dashboard.keluarga-berbinar.edit", $staff->id) }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #e9b306">
-                                            <i class="bx bx-edit-alt text-black"></i>
+                                            <i class="bx bxs-edit-alt text-white"></i>
                                         </a>
                                         <form action="{{ route("dashboard.keluarga-berbinar.destroy", $staff->id) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
                                             <button type="submit" class="inline-flex items-start justify-start rounded p-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #ef4444">
-                                                <i class="bx bx-trash-alt text-white"></i>
+                                                <i class="bx bxs-trash-alt text-white"></i>
                                             </button>
                                         </form>
                                     </td>
