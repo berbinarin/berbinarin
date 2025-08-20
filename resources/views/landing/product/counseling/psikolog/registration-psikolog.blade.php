@@ -32,7 +32,7 @@
         font-size: 17px;
     }
     #harga-tampil, #harga-input {
-        min-height: 48px; 
+        min-height: 48px;
         font-size: 17px;
         display: flex;
         align-items: center;
@@ -444,8 +444,14 @@
 {{-- Script untuk logika form --}}
 <script>
    // --- Konstanta Harga ---
+        // const HARGA = {
+        //     online: { weekdays: [150000, 300000, 450000], weekend: [200000, 340000, 500000] },
+        //     offline: { weekdays: [175000, 350000, 525000], weekend: [225000, 340000, 500000] }
+        // };
+
+        // Harga Diskon
         const HARGA = {
-            online: { weekdays: [150000, 300000, 450000], weekend: [200000, 340000, 500000] },
+            online: { weekdays: [135000, 275000, 415000], weekend: [180000, 310000, 460000] },
             offline: { weekdays: [175000, 350000, 525000], weekend: [225000, 340000, 500000] }
         };
 
@@ -697,7 +703,7 @@
                         showConfirmButton: false,
                         timer: 4000
                     });
-                    this.value = ""; 
+                    this.value = "";
                     document.getElementById('fileName').textContent = "No File";
                 } else {
                     document.getElementById('fileName').textContent = file.name;
