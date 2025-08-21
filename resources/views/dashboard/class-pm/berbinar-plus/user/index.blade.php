@@ -57,13 +57,12 @@
                                     <td class="whitespace-no-wrap flex items-center justify-center gap-2 px-6 py-4">
                                         <!-- Tombol Detail -->
                                         <a href="{{ route('dashboard.berbinar-plus.show', $user->id) }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #3b82f6">
-                                        <!-- Tombol Edit -->
-                                        <a href="{{ route('dashboard.berbinar-plus-users.edit', $user->id) }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #e9b306">
-
-                                        <a href="{{ route('dashboard.berbinar-plus.edit', $user->id) }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #e9b306">
-                                            <i class="bx bx-edit-alt text-black"></i>
+                                            <i class="bx bx-show-alt text-white"></i>
                                         </a>
-
+                                        <!-- Tombol Edit -->
+                                        <a href="{{ route('dashboard.berbinar-plus.edit', $user->id) }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #e9b306">
+                                            <i class="bx bx-edit-alt text-white"></i>
+                                        </a>
                                         <!-- Tombol Hapus -->
                                         <button type="button" onclick="openDeleteModal({{ $user->id }})" class="inline-flex items-start justify-start rounded p-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #ef4444">
                                             <i class="bx bx-trash-alt text-white"></i>
