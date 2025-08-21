@@ -82,7 +82,7 @@
 
     {{-- Modal untuk syarat dan ketentuan --}}
 
-        <div id="modal" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
+    <div id="modal" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
         <div class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
             <h1 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-center text-3xl font-bold max-sm:text-2xl">Syarat dan Ketentuan</h1>
             <div class="mb-6">
@@ -253,9 +253,9 @@
     </div>
 
 
-{{-- Form Input Pendafataran --}}
-<form id="multiStepForm" action="{{ route('product.counseling.psikolog.store') }}" method="POST" class="flex flex-col" enctype="multipart/form-data">
-            @csrf
+    {{-- Form Input Pendafataran --}}
+    <form id="multiStepForm" action="{{ route('product.counseling.psikolog.store') }}" method="POST" class="flex flex-col" enctype="multipart/form-data">
+    @csrf
 
         {{-- STEP 1: Pilih Jadwal Konseling --}}
 
@@ -535,7 +535,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   {{-- Eror handling Jika data gagal di simpan ke DB --}}
+    {{-- Eror handling Jika data gagal di simpan ke DB --}}
     @if(session('error'))
         <script>
             Swal.fire({
@@ -859,4 +859,3 @@
         });
 </script>
 @endsection
-
