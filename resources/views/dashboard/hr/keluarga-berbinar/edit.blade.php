@@ -110,7 +110,7 @@
                     </p>
                 </div>
             </div>
-            <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 mb-7 md:px-8 md:py-7 xl:px-10">
+            <div class="rounded-lg bg-white px-4 py-4 shadow mb-7 md:px-8 md:py-7 xl:px-10">
                 <form action="{{ route("dashboard.keluarga-berbinar.update", $staff->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method("PUT")

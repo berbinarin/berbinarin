@@ -16,7 +16,7 @@
                         </a>
                         <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Detail Data Divisi</p>
                     </div>
-                    <p class="w-3/4 text-disabled">Dalam halaman ini terdapat informasi detail mengenai data divisi dalam keluarga Berbinar. Data tersebut meliputi nama divisi dan subdivisi jika ada.</p>
+                    <p class="w-full text-disabled">Dalam halaman ini terdapat informasi detail mengenai data divisi dalam keluarga Berbinar. Data tersebut meliputi nama divisi dan subdivisi jika ada.</p>
                 </div>
                 <div class="flex items-center gap-5 pb-8">
                     <a href="{{ route("dashboard.divisions.edit", $division->id) }}">
@@ -32,7 +32,7 @@
                         </button>
                     </form>
                 </div>
-                <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+                <div class="rounded-lg bg-white px-4 py-4 shadow md:px-8 md:py-7 xl:px-10">
                     <div class="mb-4 mt-4 overflow-x-auto">
                         <div class="flex flex-col gap-10">
                             <div>
