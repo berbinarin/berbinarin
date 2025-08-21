@@ -62,7 +62,7 @@ class KeluargaBerbinarController extends Controller
             ]);
         }
 
-        return redirect()->route('dashboard.keluarga-berbinar.index')->with('success', 'Data staff berhasil ditambahkan.');
+        return redirect()->route('dashboard.keluarga-berbinar.index')->with('success', 'Data staf berhasil ditambahkan.');
     }
 
     public function show($id)
@@ -121,7 +121,7 @@ class KeluargaBerbinarController extends Controller
             ]);
         }
 
-        return redirect()->route('dashboard.keluarga-berbinar.index')->with('success', 'Data staff berhasil diperbarui.');
+        return redirect()->route('dashboard.keluarga-berbinar.index')->with('success', 'Data staf berhasil diperbarui.');
     }
 
     public function destroy($id)
@@ -130,6 +130,6 @@ class KeluargaBerbinarController extends Controller
         $staff->records()->delete();
         $staff->delete();
 
-        return redirect()->route('dashboard.keluarga-berbinar.index')->with('success', 'Data staff berhasil dihapus.');
+        return redirect()->route('dashboard.keluarga-berbinar.index')->with('success', 'Data staf berhasil dihapus.');
     }
 }

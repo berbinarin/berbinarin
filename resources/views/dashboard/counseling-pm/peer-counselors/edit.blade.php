@@ -188,15 +188,15 @@
                 </div>
 
                 <div class="mt-8 flex gap-4 border-t-2 border-t-gray-400 pt-5">
-                    <button type="submit"
-                        class="rounded-xl flex-1 flex items-center justify-center h-12 text-lg"
-                        style="width: 50%; background: #3986A3; color: #fff;">
-                        Simpan
-                    </button>
                     <button type="button" id="cancelButton"
                         class="rounded-xl flex-1 flex items-center justify-center h-12 text-lg"
                         style="width: 50%; border: 2px solid #3986A3; color: #3986A3;">
                         Batal
+                    </button>
+                    <button type="submit"
+                        class="rounded-xl flex-1 flex items-center justify-center h-12 text-lg"
+                        style="width: 50%; background: #3986A3; color: #fff;">
+                        Simpan
                     </button>
                 </div>
             </form>
@@ -212,8 +212,8 @@
             </div>
             <p class="mb-6 text-lg">Apakah Anda yakin ingin membatalkan perubahan data ini?</p>
             <div class="flex justify-center gap-4">
-                <button id="confirmCancel" class="rounded-lg bg-[#3986A3] px-6 py-2 text-white">OK</button>
-                <button id="cancelCancel" class="rounded-lg border border-[#3986A3] px-6 py-2 text-[#3986A3]">Cancel</button>
+                <button id="confirmCancel" class="w-1/3 rounded-lg bg-[#3986A3] px-6 py-2 text-white">OK</button>
+                <button id="cancelCancel" class="w-1/3 rounded-lg border border-[#3986A3] px-6 py-2 text-[#3986A3]">Cancel</button>
             </div>
         </div>
     </div>
@@ -234,7 +234,7 @@
     function validateForm() {
         const whatsappInput = document.getElementById('no_wa');
         const number = whatsappInput.value;
-        
+
         if (number && !validateWhatsApp(number)) {
             Swal.fire({
                 title: 'Nomor WhatsApp Tidak Valid',
@@ -246,7 +246,7 @@
             whatsappInput.focus();
             return false;
         }
-        
+
         return true;
     }
 

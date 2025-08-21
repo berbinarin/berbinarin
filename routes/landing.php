@@ -159,15 +159,14 @@ Route::prefix('arteri')->name('arteri.')->group(function () {
 });
 
 // Psikotest Free
-Route::prefix('psikotest-free')->name('psikotest-free.')->group(function () {
-    Route::get('/start', [LandingController::class, 'psikotestFreeStart'])->name('start');
-    Route::get('/psikotest/free/{test_id}/questions/{question_order}', [QuestionController::class, 'show'])->name('question.show');
-
-    Route::get('/psikotest/free/questions', [QuestionController::class, 'show'])->name('question.show');
-    Route::get('/psikotest/free/biodata', [UserPsikotestFreeController::class, 'show'])->name('biodata.show');
-    Route::get('/psikotest/free/feedback', [FeedbackController::class, 'show'])->name('feedback.show');
-    Route::get('/psikotest/free/results', [ResultController::class, 'show'])->name('result.show');
-});
+// Route::prefix('psikotest-free')->name('psikotest-free.')->group(function () {
+//     Route::get('/start', [LandingController::class, 'psikotestFreeStart'])->name('start');
+//     Route::get('/psikotest/free/{test_id}/questions/{question_order}', [QuestionController::class, 'show'])->name('question.show');
+//     Route::get('/psikotest/free/questions', [QuestionController::class, 'show'])->name('question.show');
+//     Route::get('/psikotest/free/biodata', [UserPsikotestFreeController::class, 'show'])->name('biodata.show');
+//     Route::get('/psikotest/free/feedback', [FeedbackController::class, 'show'])->name('feedback.show');
+//     Route::get('/psikotest/free/results', [ResultController::class, 'show'])->name('result.show');
+// });
 
 
 // Route::prefix('/berbinarplus')->group(function () {

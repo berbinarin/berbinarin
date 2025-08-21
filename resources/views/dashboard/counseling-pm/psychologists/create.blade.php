@@ -176,15 +176,15 @@
                 </div>
 
                 <div class="mt-8 flex gap-4 border-t-2 border-t-gray-400 pt-5">
-                    <button type="submit"
-                        class="rounded-xl flex-1 flex items-center justify-center h-12 text-lg"
-                        style="width: 50%; background: #3986A3; color: #fff;">
-                        Simpan
-                    </button>
                     <button type="button" id="cancelButton"
-                        class="rounded-xl flex-1 flex items-center justify-center h-12 text-lg"
+                        class="w-1/3 rounded-xl flex-1 flex items-center justify-center h-12 text-lg"
                         style="width: 50%; border: 2px solid #3986A3; color: #3986A3;">
                         Batal
+                    </button>
+                    <button type="submit"
+                        class="w-1/3 rounded-xl flex-1 flex items-center justify-center h-12 text-lg"
+                        style="width: 50%; background: #3986A3; color: #fff;">
+                        Simpan
                     </button>
                 </div>
             </form>

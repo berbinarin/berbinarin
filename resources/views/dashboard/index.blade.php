@@ -330,7 +330,7 @@
                     </div>
 
                     <!-- Charts Section -->
-                    <div class="grid grid-cols-1 gap-6">
+                    <div class="w-full grid grid-cols-1 gap-6">
                         <div class="flex h-[330px] flex-col rounded-xl bg-white px-6 py-4 shadow">
                             <div class="mb-4">
                                 <h1 class="text-[28px] text-[#75BADB]"><b>Analisis keluarga Berbinar</b></h1>
