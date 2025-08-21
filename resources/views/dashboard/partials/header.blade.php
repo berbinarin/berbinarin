@@ -11,5 +11,5 @@
 <!--Responsive Extension Datatables CSS-->
 <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet" />
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="{{ asset("assets/css/dashboard.css") }}" />
+{{-- <link rel="stylesheet" href="{{ asset("assets/css/dashboard.css") }}" /> --}}
 @vite("resources/css/app.css")
