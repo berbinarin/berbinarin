@@ -20,15 +20,15 @@
                 </div>
                 <div class="flex items-center gap-5">
                     <a href="{{ route("dashboard.keluarga-berbinar.edit", $staff->id) }}">
-                        <button type="button" class="mt-8 inline-flex items-start justify-start rounded-lg bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
-                            <p class="text-dark font-medium leading-none">Ubah</p>
+                        <button type="button" class="mt-8 inline-flex items-start justify-start rounded-lg border-2 border-primary bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
+                            <p class="text-dark font-medium leading-none">Ubah data</p>
                         </button>
                     </a>
                     <form action="{{ route("dashboard.keluarga-berbinar.destroy", $staff->id) }}" method="POST">
                         @csrf
                         @method("DELETE")
-                        <button type="submit" class="mt-8 inline-flex items-start justify-start rounded-lg bg-red-400 px-6 py-3 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
-                            <p class="text-dark font-medium leading-none">Hapus</p>
+                        <button type="submit" class="mt-8 inline-flex items-start justify-start rounded-lg border-2 border-primary px-6 py-3 text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
+                            <p class="text-dark font-medium leading-none">Hapus data</p>
                         </button>
                     </form>
                 </div>

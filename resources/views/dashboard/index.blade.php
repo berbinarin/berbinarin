@@ -390,14 +390,14 @@
                                             grid: { color: '#eee' },
                                             position: 'top',
                                             ticks: {
-                                                stepSize: 20,
+                                                stepSize: 50,
                                                 callback: function(value) {
-                                                    return value % 20 === 0 ? value : '';
+                                                    return value % 50 === 0 ? value : '';
                                                 }
                                             },
                                             min: 0,
-                                            max: 100, // Fixed maximum scale at 100
-                                            suggestedMax: 100 // Ensure the scale always goes up to 100
+                                            max: 250, // Fixed maximum scale at 250
+                                            suggestedMax: 250 // Ensure the scale always goes up to 250
                                         },
                                         y: {
                                             grid: { color: '#eee' },
