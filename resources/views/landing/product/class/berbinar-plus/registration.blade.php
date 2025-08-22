@@ -181,7 +181,7 @@
                                                         <div class="swiper-wrapper">
                                                             @for ($i = 1; $i <= 23; $i++)
                                                                 <div class="swiper-slide">
-                                                                    <img src="{{ asset('assets/images/products/berbinar-plus/booklet/' . $i . '.png') }}" alt="Booklet {{ $i }}" class="w-full rounded-lg" />
+                                                                    <img src="{{ asset('assets/images/products/berbinar-plus/booklet/' . $i . '.png') }}" alt="Booklet {{ $i }}" class="w-full rounded-2xl" />
                                                                 </div>
                                                             @endfor
                                                         </div>
