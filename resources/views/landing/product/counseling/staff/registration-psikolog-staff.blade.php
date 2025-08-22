@@ -135,61 +135,6 @@
         </div>
     </div>
 
-    {{-- Modal untuk kode voucher --}}
-
-    <div id="voucher" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
-        <div class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
-            <h1 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-center text-3xl font-bold max-sm:text-2xl">Syarat dan Ketentuan</h1>
-            <div class="mb-6">
-                <div class="flex items-start gap-2">
-                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Lokasi" class="h-5 w-5 mt-0.5" />
-                    <span class="font-semibold">Lokasi offline Konseling</span>
-                </div>
-                <ol class="list-decimal mt-1 space-y-1 pl-7">
-                    <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
-                    <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Surabaya, Jombang, dan Nganjuk</li>
-                </ol>
-            </div>
-
-            <div class="mb-6">
-                <div class="flex items-start gap-2">
-                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/payment.png') }}" alt="Pembayaran" class="h-5 w-5 mt-0.5" />
-                    <span class="font-semibold">Pembayaran</span>
-                </div>
-                <ol class="list-decimal mt-1 space-y-1 pl-7">
-                    <li class="max-sm:text-sm">Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n. Berbinar Insightful Indonesia dengan aturan transfer 1×24 jam.</li>
-                </ol>
-            </div>
-
-            <div class="mb-6">
-                <div class="flex items-start gap-2">
-                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.png') }}" alt="Pembalasan Pesan" class="h-5 w-5 mt-0.5" />
-                    <span class="font-semibold">Pembalasan Pesan</span>
-                </div>
-                <ol class="list-decimal mt-1 space-y-1 pl-7">
-                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, pendaftaran oleh klien secara otomatis dibatalkan.</li>
-                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, jadwal yang sudah ditentukan oleh klien berhak untuk diubah oleh Tim Berbinar dan kesepakatan dari klien.</li>
-                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 2×24 jam setelah melakukan pembayaran, pembayaran dianggap hangus.</li>
-                </ol>
-            </div>
-
-            <div class="mb-6">
-                <div class="flex items-start gap-2">
-                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/cancel.png') }}" alt="Pengajuan Pembatalan" class="h-5 w-5 mt-0.5" />
-                    <span class="font-semibold">Pengajuan Pembatalan</span>
-                </div>
-                <ol class="list-decimal mt-1 space-y-1 pl-7">
-                    <li class="max-sm:text-sm">Pengajuan proses pembatalan layanan konseling dapat dilakukan dalam kurun waktu 1×24 jam setelah proses administrasi dan dana yang telah dibayarkan akan dikembalikan 100%.</li>
-                </ol>
-            </div>
-
-
-            <div class="mt-4 justify-center flex lg:gap-x-3">
-                <button id="closeModal" class="w-[90%] lg:w-1/4 rounded-xl border-[1.5px] bg-gradient-to-r from-[#3986A3] to-[#15323D] border-[#225062] bg-transparent px-4 py-1.5 font-medium text-white max-sm:text-[15px]">Saya Mengerti</button>
-            </div>
-        </div>
-    </div>
-
     {{-- Modal untuk syarat dan ketentuan --}}
     <div id="voucher" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
         <div class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
@@ -253,9 +198,9 @@
     </div>
 
 
-    {{-- Form Input Pendafataran --}}
-    <form id="multiStepForm" action="{{ route('product.counseling.psikolog.store') }}" method="POST" class="flex flex-col" enctype="multipart/form-data">
-    @csrf
+{{-- Form Input Pendafataran --}}
+<form id="multiStepForm" action="{{ route('product.counseling.psikolog.store') }}" method="POST" class="flex flex-col" enctype="multipart/form-data">
+            @csrf
 
         {{-- STEP 1: Pilih Jadwal Konseling --}}
 
@@ -276,7 +221,6 @@
                     <p class="text-[#333333] sm:text-[17px] text-sm">Waktu Konseling</p>
                     <div class="relative">
                         <input type="text" id="waktukonseling" name="jadwal_pukul" required class="bg-[#F1F3F6] border-none md:shadow-none shadow-md rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="--:--" autocomplete="off" readonly>
-                        <span class="absolute left-[64px] top-1/2 -translate-y-1/2 text-[#333] text-base pointer-events-none">WIB</span>
                         <img src="{{ asset('assets/images/landing/asset-konseling/vector/clock.png') }}" class="h-4 w-auto object-contain absolute max-sm:hidden right-5 top-1/2 -translate-y-1/2" onclick="document.getElementById('waktukonseling').focus()">
                     </div>
                 </div>
@@ -535,7 +479,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    {{-- Eror handling Jika data gagal di simpan ke DB --}}
+   {{-- Eror handling Jika data gagal di simpan ke DB --}}
     @if(session('error'))
         <script>
             Swal.fire({
@@ -561,7 +505,7 @@
 
         // --- Helper Validasi ---
         function getFieldLabel(fieldName) {
-            const field = document.querySelector(`[name="${fieldName}"]`);
+            const field = document.querySelector([name="${fieldName}"]);
             if (field) {
                 const container = field.closest('.flex.flex-col.space-y-1');
                 if (container) {
@@ -589,7 +533,7 @@
                 if (fieldName === 'metode') field = document.getElementById('metode-select');
                 else if (fieldName === 'sesi') field = document.getElementById('sesi-select');
                 else if (fieldName === 'daerah') field = document.getElementById('daerah-select');
-                else field = document.querySelector(`[name="${fieldName}"]`);
+                else field = document.querySelector([name="${fieldName}"]);
                 if (!field || field.value.trim() === '' || field.value === 'Pilih metode konseling') {
                     return 'Data "' + getFieldLabel(fieldName) + '" belum diisi.';
                 }
@@ -609,7 +553,7 @@
                 'pendidikan', 'asal_sekolah', 'riwayat_pekerjaan', 'kegiatan_sosial'
             ];
             for (let fieldName of requiredFields) {
-                let field = document.querySelector(`[name="${fieldName}"]`);
+                let field = document.querySelector([name="${fieldName}"]);
                 if (!field || field.value.trim() === '') {
                     return '"' + getFieldLabel(fieldName) + '" belum diisi :(';
                 }
