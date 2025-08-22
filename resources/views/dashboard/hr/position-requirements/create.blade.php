@@ -14,19 +14,19 @@
                     <a href="{{ route('dashboard.position-requirements.index') }}">
                         <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                     </a>
-                    <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Tambah Position Requirement</p>
+                    <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Tambah Persyaratan Posisi</p>
                 </div>
                 <p class="w-3/4 text-disabled">
-                    Admin dapat menambahkan requirement posisi yang akan ditampilkan pada website careers Berbinarin.
+                    Admin dapat menambahkan Persyaratan posisi yang akan ditampilkan pada situs karir Berbinarin.
                 </p>
             </div>
         </div>
-        <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+        <div class="rounded-md bg-white px-4 py-4 shadow-lg mb-7 shadow-gray-400 md:px-8 md:py-7 xl:px-10">
             <form action="{{ route('dashboard.position-requirements.store') }}" method="POST">
                 @csrf
                 <div class="mb-4 mt-4 overflow-x-auto">
                     <div class="mb-8">
-                        <h1 class="text-2xl font-bold">Data Position Requirement</h1>
+                        <h1 class="text-2xl font-bold">Data persyaratan posisi</h1>
                         <div class="grid grid-cols-1 gap-6 pt-5 md:grid-cols-2">
                             <!-- Nama Posisi -->
                             <div class="flex flex-col gap-2 md:col-span-2">
@@ -44,10 +44,10 @@
                             <!-- Requirement -->
                             <div class="flex flex-col gap-2 md:col-span-2">
                                 <p class="flex gap-1 text-lg font-semibold">
-                                    Requirement
+                                    Persyaratan
                                     <i class="bx bxs-star text-xs text-red-600"></i>
                                 </p>
-                                <textarea id="requirement" name="requirement" rows="5" placeholder="Requirement" class="rounded-lg border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none" required></textarea>
+                                <textarea id="requirement" name="requirement" rows="5" placeholder="Persyaratan" class="rounded-lg border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none" required></textarea>
                             </div>
                         </div>
                     </div>

@@ -329,7 +329,7 @@ class CounselingController extends Controller
             [
                 'image' => 'assets/images/landing/asset-konseling/vector/psikolog-staff.png',
                 'nama' => 'Psikolog Staff',
-                'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
+                'deskripsi' => 'Salah satu benefit ekslusif bagi setiap staf yang bekerja di PT Berbinar Insightful Indonesia untuk melakukan konseling bersama Psikolog berizin prakter aktif (SIPP)',
             ],
         ];
 

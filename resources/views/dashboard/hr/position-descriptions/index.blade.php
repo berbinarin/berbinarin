@@ -11,22 +11,22 @@
             <div class="w-full">
                 <div class="py-4 md:pb-7 md:pt-12">
                     <div class="">
-                        <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Position Job Descriptions Management Data</p>
-                        <p class="w-2/4 text-disabled">Fitur ini digunakan untuk mengatur dan memanajemen data deskripsi posisi hiring yang sedang atau akan dibukan atau telah dibuka yang ditampilkan pada website careers Berbinarin.</p>
+                        <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Manajemen data deskripsi posisi</p>
+                        <p class="w-full text-disabled">Fitur ini digunakan untuk mengatur dan memanajemen data deskripsi posisi yang sedang atau akan dibuka atau telah dibuka yang ditampilkan pada situs karir Berbinarin.</p>
                         <a href="{{ route('dashboard.position-descriptions.create') }}" class="mt-8 inline-flex items-start justify-start rounded-lg bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
                             <p class="text-dark font-medium leading-none">Tambah Data</p>
                         </a>
                     </div>
                 </div>
-                <div class="rounded-md bg-white px-4 py-4 md:px-8 md:py-7 xl:px-10">
+                <div class="rounded-md bg-white px-4 py-4 mb-7 md:px-8 md:py-7 xl:px-10">
                     <div class="mt-4 overflow-x-auto">
                         <table id="example" class="display" style="overflow-x: scroll">
                             <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Posisi</th>
-                                    <th>Job Description</th>
-                                    <th>Actions</th>
+                                    <th>Deskripsi Pekerjaan</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

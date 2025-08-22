@@ -7,10 +7,10 @@
   <div class="flex flex-col w-full">
     <div class="py-4 md:pt-12 md:pb-7">
       <p tabindex="0" class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
-        Detail Data Internship
+        Detail Data Magang
       </p>
-      <p class="w-full md:w-2/4 text-gray-600">
-        Fitur ini digunakan untuk menampilkan detail data pendaftar yang telah melakukan pendaftaran internship di laman web Berbinar Career.
+      <p class="w-full md:w-full text-gray-600">
+        Fitur ini digunakan untuk menampilkan detail data pendaftar yang telah melakukan pendaftaran magang di situs Berbinar karir.
       </p>
       <div class="flex gap-4 mt-8">
         <form action="{{ route('dashboard.internships.index') }}" method="get">
@@ -81,15 +81,15 @@
   <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="delete-modal-{{ $Internship->id}}-backdrop"></div>
 
     <!-- tabel kiri start -->
-    <div class="flex flex-row gap-4">
+    <div class="flex flex-row gap-4 ">
       <div class="w-full md:w-1/2">
         <div class="bg-white overflow-hidden shadow-sm rounded-lg p-4">
           <!-- Judul table Kiri -->
           <div class="flex items-center mb-4">
             <div class="w-full flex justify-between">
-              <p class="text-xl w-2/6 font-semibold bg-gray-100 py-1 px-4 rounded-l-lg m-0 flex-grow text-start">Fields</p>
+              <p class="text-xl w-2/6 font-semibold bg-gray-100 py-1 px-4 rounded-l-lg m-0 flex-grow text-start">Kolom</p>
               <div class="w-1 bg-gray-300 h-full"></div>
-              <p class="text-xl w-4/6 font-semibold bg-gray-100 py-1 px-4 rounded-r-lg m-0 flex-grow text-start">Details</p>
+              <p class="text-xl w-4/6 font-semibold bg-gray-100 py-1 px-4 rounded-r-lg m-0 flex-grow text-start">Detail</p>
             </div>
           </div>
           <!-- Value Table kiri -->
@@ -200,9 +200,9 @@
           <!-- Judul table Kanan -->
           <div class="flex items-center mb-4">
             <div class="w-full flex justify-between">
-              <p class="text-xl w-2/6 font-semibold bg-gray-100 py-1 px-4 rounded-l-lg m-0 flex-grow-0 text-start">Fields</p>
+              <p class="text-xl w-2/6 font-semibold bg-gray-100 py-1 px-4 rounded-l-lg m-0 flex-grow-0 text-start">Kolom</p>
               <div class="w-1 bg-gray-300 h-full"></div>
-              <p class="text-xl w-4/6 font-semibold bg-gray-100 py-1 px-4 rounded-r-lg m-0 flex-grow-0 text-start">Details</p>
+              <p class="text-xl w-4/6 font-semibold bg-gray-100 py-1 px-4 rounded-r-lg m-0 flex-grow-0 text-start">Detail</p>
             </div>
           </div>
           <!-- Values Table kanan -->

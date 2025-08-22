@@ -1,4 +1,4 @@
-<nav class="flex w-56 flex-col items-center bg-white py-8 pl-10 pr-6">
+<nav class="flex w-56 flex-col items-center bg-white overflow-y-auto overflow-x-hidden py-8 pl-10 pr-6">
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-rounded/css/uicons-thin-rounded.css" />
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css" />
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css" />

@@ -73,7 +73,7 @@
 
     {{-- Modal untuk syarat dan ketentuan --}}
 
-    <div id="modal" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
+        <div id="modal" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
         <div class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
             <h1 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-center text-3xl font-bold max-sm:text-2xl">Syarat dan Ketentuan</h1>
             <div class="mb-6">
@@ -126,68 +126,6 @@
         </div>
     </div>
 
-    {{-- Modal untuk syarat dan ketentuan --}}
-    <div id="voucher" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
-        <div class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
-            <h1 class="bg-gradient-to-r from-[#3986A3] to-[#15323D] bg-clip-text text-transparent pb-6 text-center text-3xl font-bold max-sm:text-lg">Promo KTM dan Kartu Pelajar <br class=""> Produk Konseling Bersama Psikolog</h1>
-            <div class="mb-6">
-                <div class="max-h-[440px] lg:max-h-96 overflow-y-auto">
-
-                <h2 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-2xl font-bold max-sm:text-lg">Syarat dan Ketentuan</h2>
-                <ul class="list-disc text-black marker:text-primary pl-6">
-                    <li class="mb-2">
-                        <p class="font-semibold">Promo Berlaku untuk:</p>
-                        <p class="max-sm:text-sm text-disabled pl-7">
-                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
-                                <li>Siswa aktif jenjang SMP/SMA/sederajat.</li>
-                                <li>Mahasiswa aktif jenjang D3, D4, atau S1.</li>
-                                <li>Dibuktikan dengan mengupload Kartu Tanda Mahasiswa (KTM) atau Kartu Pelajar yang masih berlaku saat melakukan pendaftaran</li>
-                            </ol>
-                        </p>
-
-                    </li>
-                    <li class="mb-2">
-                        <p class="font-semibold">Diskon/Penawaran:</p>
-                        <p class="max-sm:text-sm text-disabled pl-7">
-                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
-                                <li>Potongan harga sebesar 20% untuk setiap sesi konseling individu.</li>
-                                <li>Promo hanya berlaku untuk layanan konseling online.</li>
-                            </ol>
-                        </p>
-                    </li>
-
-                    <li class="mb-2">
-                        <p class="font-semibold">Cara Menggunakan Promo:</p>
-                        <p class="max-sm:text-sm text-disabled pl-7">
-                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
-                                <li>Daftar melalui website berbinar konseling <br> <a href="https://berbinar.in/produk/konseling" class="text-blue-500">https://berbinar.in/produk/<br class="hidden max-sm:block">konseling</a></li>
-                                <li>Upload KTM/kartu pelajar saat pendaftaran.</li>
-                                <li>Cantumkan kode promo #KONSELINGPELAJAR</li>
-                            </ol>
-                        </p>
-                    </li>
-
-                    <li class="mb-2">
-                        <p class="font-semibold">Ketentuan Tambahan:</p>
-                        <p class="max-sm:text-sm text-disabled pl-7">
-                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
-                                <li>Promo hanya berlaku untuk 1x sesi per individu, kecuali dinyatakan lain.</li>
-                                <li>Tidak dapat memilih Psikolog yang akan menangani</li>
-                                <li>Tidak dapat digabungkan dengan promo lainnya.</li>
-                                <li>Tidak berlaku untuk layanan lanjutan atau paket konseling tertentu.</li>
-                                <li>Pihak penyelenggara berhak membatalkan promo jika ditemukan penyalahgunaan (misalnya kartu tidak valid atau sudah tidak aktif).</li>
-                            </ol>
-                        </p>
-                    </li>
-                </ul>
-                </div>
-            </div>
-            <div class="mt-4 justify-center flex lg:gap-x-3">
-                <button id="closeVoucher" class="w-[90%] lg:w-1/4 rounded-xl border-[1.5px] bg-gradient-to-r from-[#3986A3] to-[#15323D] border-[#225062] bg-transparent px-4 py-1.5 font-medium text-white max-sm:text-[15px]">Saya Mengerti</button>
-            </div>
-        </div>
-    </div>
-
     <form id="multiStepForm" action="{{ route('product.counseling.peer-counselor.store') }}" method="POST" class="flex flex-col" enctype="multipart/form-data">
         @csrf
 
@@ -208,10 +146,9 @@
                 <div class="flex flex-col space-y-1">
                     <p class="text-[#333333] sm:text-[17px] text-sm">Waktu Konseling</p>
                     <div class="relative">
-                        <select name="jadwal_pukul" id="waktu-konseling" required class="dropdown-select bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3] appearance-none" disabled>
-                            <option value="" disabled selected>Pilih tanggal terlebih dahulu</option>
-                        </select>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon h-2 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300">
+                        <input type="text" id="waktukonseling" name="jadwal_pukul" required class="bg-[#F1F3F6] border-none md:shadow-none shadow-md rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="--:--" autocomplete="off" readonly>
+                        <span class="absolute left-[64px] top-1/2 -translate-y-1/2 text-[#333] text-base pointer-events-none">WIB</span>
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/clock.png') }}" class="h-4 w-auto object-contain absolute max-sm:hidden right-5 top-1/2 -translate-y-1/2" onclick="document.getElementById('waktukonseling').focus()">
                     </div>
                 </div>
                 {{-- Metode Konseling --}}
@@ -485,14 +422,14 @@
 
 {{-- Script untuk logika form --}}
 <script>
-    // Step navigation logic
+    // Logika navigasi
     function showStep(step) {
         document.querySelectorAll('.step-section').forEach(function (el) {
             el.classList.remove('active');
         });
         document.getElementById('step-' + step).classList.add('active');
 
-        // Show/hide appropriate headers
+        // Tampilkan/sembunyikan header yang sesuai
         document.getElementById('step-1-header').style.display = step === 1 ? 'flex' : 'none';
         document.getElementById('step-2-header').style.display = step === 2 ? 'flex' : 'none';
         document.getElementById('step-3-header').style.display = step === 3 ? 'flex' : 'none';
@@ -524,30 +461,161 @@
     }
 
     function validateStep1() {
-        const requiredFields = ['jadwal_tanggal', 'jadwal_pukul', 'metode', 'sesi'];
-        const metode = document.getElementById('metode-select').value;
+    const requiredFields = ['jadwal_tanggal', 'jadwal_pukul', 'metode', 'sesi'];
+    const metode = document.getElementById('metode-select').value;
 
-        if (metode === 'offline') {
-            requiredFields.push('daerah');
+    if (metode === 'offline') {
+        requiredFields.push('daerah');
+    }
+
+    // Cek kategori voucher dari hasil redeem
+    const kategoriVoucher = document.getElementById('bukti-kartu-pelajar-container').style.display === 'block' ? 'pelajar' : '';
+
+    for (let fieldName of requiredFields) {
+        let field;
+        if (fieldName === 'metode') {
+            field = document.getElementById('metode-select');
+        } else if (fieldName === 'sesi') {
+            field = document.getElementById('sesi-select');
+        } else if (fieldName === 'daerah') {
+            field = document.getElementById('daerah-select');
+        } else {
+            field = document.querySelector(`[name="${fieldName}"]`);
         }
 
-        for (let fieldName of requiredFields) {
-            let field;
-            if (fieldName === 'metode') {
-                field = document.getElementById('metode-select');
-            } else if (fieldName === 'sesi') {
-                field = document.getElementById('sesi-select');
-            } else if (fieldName === 'daerah') {
-                field = document.getElementById('daerah-select');
-            } else {
-                field = document.querySelector(`[name="${fieldName}"]`);
-            }
-
-            if (!field || field.value.trim() === '' || field.value === 'Pilih metode konseling') {
-                return 'Data "' + getFieldLabel(fieldName) + '" belum diisi.';
-            }
+        if (!field || field.value.trim() === '' || field.value === 'Pilih metode konseling') {
+            return 'Data "' + getFieldLabel(fieldName) + '" belum diisi.';
         }
-        return null;
+    }
+
+    // Jika kategori pelajar, cek bukti kartu pelajar
+    if (kategoriVoucher === 'pelajar') {
+        const buktiKartu = document.getElementById('bukti_kartu_pelajar');
+        if (!buktiKartu.files || buktiKartu.files.length === 0) {
+            return 'Bukti Kartu Pelajar wajib diupload untuk kategori pelajar.';
+        }
+    }
+
+    return null;
+    }
+
+    function redeemVoucher() {
+        const kode = document.getElementById('kode_promo').value.trim();
+        const hargaInput = document.getElementById('harga-input');
+        const hargaAsli = parseInt(hargaInput.dataset.hargaAsli);
+        const hargaAsliSpan = document.getElementById('harga-asli');
+        const hargaDiskonSpan = document.getElementById('harga-diskon');
+
+        // Validasi input kosong
+        if (!kode) {
+            Swal.fire({
+                toast: true,
+                position: "top-end",
+                icon: "error",
+                title: "Masukkan kode promo terlebih dahulu.",
+                showConfirmButton: false,
+                showCloseButton: true,
+                timer: 4000
+            });
+            return;
+        }
+
+        // Validasi harga belum dipilih
+        if (!hargaAsli) {
+            Swal.fire({
+                toast: true,
+                position: "top-end",
+                icon: "error",
+                title: "Silakan pilih jadwal, metode, dan sesi terlebih dahulu.",
+                showConfirmButton: false,
+                showCloseButton: true,
+                timer: 4000
+            });
+            return;
+        }
+
+        fetch('/produk/konseling/psikolog/cek-voucher?code=' + encodeURIComponent(kode))
+            .then(res => res.json())
+            .then(data => {
+                if (data.valid) {
+                    // Jika kode valid: tampilkan modal dan update harga
+                    const diskon = data.percentage;
+                    const hargaDiskon = hargaAsli - (hargaAsli * diskon / 100);
+
+                    hargaAsliSpan.textContent = 'Rp' + hargaAsli.toLocaleString();
+                    hargaAsliSpan.className = 'harga-coret';
+                    hargaDiskonSpan.textContent = 'Rp' + hargaDiskon.toLocaleString();
+                    hargaInput.value = hargaDiskon;
+                    hargaInput.dataset.hargaFinal = hargaDiskon;
+
+                    // Toggle upload KTM jika kode untuk pelajar
+                    const buktiContainer = document.getElementById('bukti-kartu-pelajar-container');
+                    const buktiInput = document.getElementById('bukti_kartu_pelajar');
+
+                    if (data.category?.toLowerCase() === 'pelajar') {
+                        buktiContainer.style.display = 'block';
+                        buktiInput.setAttribute('required', 'required');
+                    } else {
+                        buktiContainer.style.display = 'none';
+                        buktiInput.removeAttribute('required');
+                    }
+
+                    // Tampilkan modal syarat & ketentuan
+                    document.getElementById('voucher').classList.remove('hidden');
+
+                } else {
+                    // Jika kode tidak valid: reset harga dan tampilkan Swal
+                    hargaAsliSpan.textContent = 'Rp' + hargaAsli.toLocaleString();
+                    hargaAsliSpan.className = '';
+                    hargaDiskonSpan.textContent = '';
+                    hargaInput.value = hargaAsli;
+
+                    document.getElementById('bukti-kartu-pelajar-container').style.display = 'none';
+                    document.getElementById('bukti_kartu_pelajar').removeAttribute('required');
+
+                    Swal.fire({
+                        toast: true,
+                        position: "top-end",
+                        icon: "error",
+                        title: "Kode voucher tidak valid!",
+                        showConfirmButton: false,
+                        showCloseButton: true,
+                        timer: 4000
+                    });
+                }
+            })
+            .catch(() => {
+                Swal.fire({
+                    toast: true,
+                    position: "top-end",
+                    icon: "error",
+                    title: "Terjadi kesalahan saat memverifikasi kode.",
+                    showConfirmButton: false,
+                    showCloseButton: true,
+                    timer: 4000
+                });
+            });
+    }
+
+    document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('modal').classList.add('hidden');
+    });
+
+    document.getElementById('closeVoucher').addEventListener('click', function() {
+        document.getElementById('voucher').classList.add('hidden');
+    });
+
+    ['openModal', 'openModal2', 'openModal3'].forEach(id => {
+        document.getElementById(id)?.addEventListener('click', function() {
+            document.getElementById('modal').classList.remove('hidden');
+        });
+    });
+
+
+    function tampilkanHarga(hargaAsli, hargaDiskon) {
+        document.getElementById('harga-asli').textContent = 'Rp' + hargaAsli.toLocaleString();
+        document.getElementById('harga-diskon').textContent = 'Rp' + hargaDiskon.toLocaleString();
+        document.getElementById('harga-input').value = hargaDiskon;
     }
 
     function validateStep2() {
@@ -657,96 +725,44 @@ if (!hargaHidden.value || hargaHidden.value === "0") {
         this.submit();
     });
 
-    // Jadwal peer counselor data
-    const jadwalPeerData = @json($jadwalPeerCounselors);
-
-    // Function to get day name from date
-    function getDayName(dateString) {
-        const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-        const dateParts = dateString.split('/');
-        const dateObj = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
-        return days[dateObj.getDay()];
-    }
-
-    // Function to format time to HH:MM
-    function formatTime(timeString) {
-        // Remove seconds if present and ensure HH:MM format
-        const timeParts = timeString.split(':');
-        const hours = timeParts[0].padStart(2, '0');
-        const minutes = timeParts[1] ? timeParts[1].padStart(2, '0') : '00';
-        return `${hours}:${minutes}`;
-    }
-
-    // Flatpickr initialization
+    // Flatpickr untuk tanggal konseling
     document.addEventListener("DOMContentLoaded", function () {
-        // Jadwal Konseling Date
+        // Tanggal Jadwal Konseling
         flatpickr("#tglkonseling", {
             dateFormat: "d/m/Y",
             allowInput: true,
             minDate: new Date().fp_incr(7),
-            onChange: function(selectedDates, dateStr, instance) {
-                updateAvailableTimes(dateStr);
-            }
         });
-
-        // Data Diri Tanggal Lahir
+        // Waktu Jadwal Konseling
+        flatpickr("#waktukonseling", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+            time_24hr: true
+        });
+        // Tanggal Lahir Data Diri
         flatpickr("#tanggal_lahir", {
             dateFormat: "d/m/Y",
             allowInput: true,
         });
     });
 
-    // Update available times based on selected date
-    function updateAvailableTimes(selectedDate) {
-        const waktuSelect = document.getElementById('waktu-konseling');
-
-        // Clear previous options
-        waktuSelect.innerHTML = '<option value="" disabled selected>Pilih Waktu Konseling</option>';
-
-        if (selectedDate) {
-            const dayName = getDayName(selectedDate);
-
-            // Filter jadwal based on selected day
-            const filteredJadwal = jadwalPeerData.filter(jadwal => jadwal.hari === dayName);
-
-            if (filteredJadwal.length > 0) {
-                filteredJadwal.forEach(jadwal => {
-                    const option = document.createElement('option');
-                    const formattedStartTime = formatTime(jadwal.pukul_mulai);
-                    const formattedEndTime = formatTime(jadwal.pukul_selesai);
-                    option.value = `${formattedStartTime} - ${formattedEndTime}`;
-                    option.textContent = `${formattedStartTime} - ${formattedEndTime}`;
-                    waktuSelect.appendChild(option);
-                });
-
-                waktuSelect.disabled = false;
-            } else {
-                const option = document.createElement('option');
-                option.value = '';
-                option.textContent = 'Tidak ada jadwal tersedia untuk hari ini';
-                option.disabled = true;
-                waktuSelect.appendChild(option);
-                waktuSelect.disabled = true;
-            }
-        } else {
-            waktuSelect.disabled = true;
-        }
-
-        // Reset price when date changes
-        updateHarga();
-    }
-
-    // Show/hide daerah konseling
+    // Tampilkan/sembunyikan daerah konseling
     document.getElementById('metode-select').addEventListener('change', function() {
         const daerahContainer = document.getElementById('daerah-container');
+        const daerahSelect = document.getElementById('daerah-select');
+
         if (this.value === 'offline') {
             daerahContainer.style.display = 'block';
-            document.getElementById('daerah-select').required = true;
+            daerahSelect.required = true;
+            daerahSelect.value = '';
         } else {
             daerahContainer.style.display = 'none';
-            document.getElementById('daerah-select').required = false;
-            document.getElementById('daerah-select').value = '';
+            daerahSelect.required = false;
+            daerahSelect.value = 'Online';
         }
+
+        // Perbarui harga ketika metode berubah
         updateHarga();
     });
 
@@ -794,19 +810,44 @@ if (!hargaHidden.value || hargaHidden.value === "0") {
             updateHargaDisplayPeer(harga, null);
         }
     }
-
-    // Add event listeners for price updates
-    document.getElementById('waktu-konseling').addEventListener('change', updateHarga);
+    const dateParts = tanggal.split('/');
+    if (dateParts.length !== 3) {
+        hargaInput.value = '';
+        hargaInput.dataset.hargaAsli = '';
+        hargaInput.dataset.hargaFinal = '';
+        hargaAsliSpan.textContent = '';
+        hargaDiskonSpan.textContent = '';
+        return;
+    }
+    const dateObj = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+    const day = dateObj.getDay();
+    const isWeekend = (day === 0 || day === 6);
+    let harga = 0;
+    if (!isWeekend) {
+        if (metode === 'online') harga = {1: 150000, 2: 300000, 3: 450000}[sesi];
+        else if (metode === 'offline') harga = {1: 175000, 2: 350000, 3: 525000}[sesi];
+    } else {
+        if (metode === 'online') harga = {1: 200000, 2: 340000, 3: 500000}[sesi];
+        else if (metode === 'offline') harga = {1: 225000, 2: 340000, 3: 500000}[sesi];
+    }
+    hargaInput.value = Number.isInteger(harga) ? harga : '';
+    hargaInput.dataset.hargaAsli = harga;
+    hargaInput.dataset.hargaFinal = harga;
+    hargaAsliSpan.textContent = harga ? 'Rp' + harga.toLocaleString() : '';
+    hargaDiskonSpan.textContent = '';
+}
+    document.getElementById('tglkonseling').addEventListener('change', updateHarga);
+    document.getElementById('metode-select').addEventListener('change', updateHarga);
     document.getElementById('sesi-select').addEventListener('change', updateHarga);
 
-    // Dropdown icon rotate
+    // Rotasi ikon dropdown
     document.querySelectorAll('.dropdown-select').forEach((select, index) => {
         const icon = document.querySelectorAll('.dropdown-icon')[index];
         select.addEventListener('click', function () { icon.classList.toggle('rotate-180'); });
         select.addEventListener('blur', function () { icon.classList.remove('rotate-180'); });
     });
 
-    // Modal functionality for all steps
+    // Fungsionalitas modal untuk semua langkah
     document.getElementById('openModal').addEventListener('click', function() {
         document.getElementById('modal').classList.remove('hidden');
     });

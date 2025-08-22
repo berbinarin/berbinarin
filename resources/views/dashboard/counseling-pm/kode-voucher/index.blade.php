@@ -11,7 +11,7 @@
                     <div class="">
                         <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Kode Voucher</p>
                         <p class="text-disabled">Halaman yang menampilkan dan mengelola Kode Voucher.</p>
-                        <a href="javascript:void(0);" onclick="openCreateModal()" class="mt-8 inline-flex items-start justify-start rounded bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
+                        <a href="{{ route("dashboard.code-voucher.create") }}" class="mt-8 inline-flex items-start justify-start rounded bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
                             <p class="text-dark font-medium leading-none">Tambah Data</p>
                         </a>
                     </div>
@@ -231,9 +231,12 @@
         function openEditModal(id, category, code, percentage, service_type = 'psikolog', tipe = '', detail = '', nama_voucher = '') {
             document.getElementById('editModal').classList.remove('hidden');
             document.getElementById('editCategory').value = category;
+            document.getElementById('editName').value = name;
             document.getElementById('editCode').value = code;
             document.getElementById('editPercentage').value = percentage;
             document.getElementById('editServiceType').value = service_type;
+            document.getElementById('editVoucherType').value = voucher_type;
+            document.getElementById('editVoucherDetail').value = voucher_detail;
             document.getElementById('editForm').action = '/dashboard/code-voucher/' + id;
             document.getElementById('editNamaVoucher').value = nama_voucher;
 
