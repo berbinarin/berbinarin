@@ -505,7 +505,7 @@
 
         // --- Helper Validasi ---
         function getFieldLabel(fieldName) {
-            const field = document.querySelector([name="${fieldName}"]);
+            const field = document.querySelector(`[name="${fieldName}"]`);
             if (field) {
                 const container = field.closest('.flex.flex-col.space-y-1');
                 if (container) {
@@ -533,7 +533,7 @@
                 if (fieldName === 'metode') field = document.getElementById('metode-select');
                 else if (fieldName === 'sesi') field = document.getElementById('sesi-select');
                 else if (fieldName === 'daerah') field = document.getElementById('daerah-select');
-                else field = document.querySelector([name="${fieldName}"]);
+                else field = document.querySelector(`[name="${fieldName}"]`);
                 if (!field || field.value.trim() === '' || field.value === 'Pilih metode konseling') {
                     return 'Data "' + getFieldLabel(fieldName) + '" belum diisi.';
                 }
@@ -553,7 +553,7 @@
                 'pendidikan', 'asal_sekolah', 'riwayat_pekerjaan', 'kegiatan_sosial'
             ];
             for (let fieldName of requiredFields) {
-                let field = document.querySelector([name="${fieldName}"]);
+                let field = document.querySelector(`[name="${fieldName}"]`);
                 if (!field || field.value.trim() === '') {
                     return '"' + getFieldLabel(fieldName) + '" belum diisi :(';
                 }
@@ -803,3 +803,4 @@
         });
 </script>
 @endsection
+
