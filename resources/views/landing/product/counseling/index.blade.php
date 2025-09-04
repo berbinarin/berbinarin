@@ -195,10 +195,12 @@
     </style>
 @endsection
 
+
 @php
-    function italic_en($text)
-    {
-        $enWords = ["Peer Counselor", "counselor peer", "Online", "Offline", "Registration", "Weekend", "Weekdays", "Zoom Meeting", "Region", "Session", "Price", "Testimoni", "FAQ", "Berbinar", "User"];
+    function italic_en($text) {
+        $enWords = [
+            'Peer Counselor', 'peer counselor', 'Online', 'Offline', 'Registration', 'Weekend', 'Weekdays', 'Zoom Meeting', 'Region', 'Session', 'Price', 'Testimoni', 'FAQ', 'Berbinar', 'User'
+        ];
         foreach ($enWords as $word) {
             $text = str_replace($word, "<i>$word</i>", $text);
         }
@@ -236,25 +238,21 @@
                     </div>
 
                     <div class="lg:order-4">
-                        <p class="text-justify text-lg text-[#70787D] max-lg:text-[17px] max-sm:text-[15px] max-sm:leading-normal">
-                            Merasa terjebak dalam rutinitas yang membosankan? Membutuhkan panduan untuk mengatasi masalah hidup? Konseling Berbinar solusinya! Bersama para psikolog dan
-                            <i>peer counselor</i>
-                            yang berpengalaman, Berbinar siap membantu klien untuk menemukan solusi tepat mengenai masalah yang dihadapi, dengan mencapai pertumbuhan untuk menuju hidup yang lebih baik.
-                        </p>
+                        <p class="text-justify text-lg text-[#70787D] max-lg:text-[17px] max-sm:text-[15px] max-sm:leading-normal">Merasa terjebak dalam rutinitas yang membosankan? Membutuhkan panduan untuk mengatasi masalah hidup? Konseling Berbinar solusinya! Bersama para psikolog dan <i>peer counselor</i> yang berpengalaman, Berbinar siap membantu klien untuk menemukan solusi tepat mengenai masalah yang dihadapi, dengan mencapai pertumbuhan untuk menuju hidup yang lebih baik.</p>
                     </div>
 
                     <div id="openModal" class="flex justify-start lg:order-5">
-                        <button class="text-md openModalBtn rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Lakukan Konseling</button>
+                        <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px] openModalBtn">Lakukan Konseling</button>
                     </div>
-                    <div id="modal" class="fixed inset-0 -top-6 z-30 flex hidden items-center justify-center bg-gray-900 bg-opacity-50 backdrop-blur-md max-sm:-top-2">
-                        <div class="h-auto max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 shadow-md max-lg:h-[90%] max-sm:w-[86%] max-sm:px-2">
-                            <h1 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text pb-4 text-center text-3xl font-bold text-transparent max-sm:text-2xl">Syarat dan Ketentuan</h1>
+                    <div id="modal" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md inset-0 -top-6 z-30 flex hidden items-center justify-center max-sm:-top-2">
+                        <div class="h-auto max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
+                            <h1 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-center text-3xl font-bold max-sm:text-2xl">Syarat dan Ketentuan</h1>
                             <div class="mb-6">
                                 <div class="flex items-start gap-2">
-                                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/location.png") }}" alt="Lokasi" class="mt-0.5 h-5 w-5" />
+                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Lokasi" class="h-5 w-5 mt-0.5" />
                                     <span class="font-semibold">Lokasi offline Konseling</span>
                                 </div>
-                                <ol class="mt-1 list-decimal space-y-1 pl-7">
+                                <ol class="list-decimal mt-1 space-y-1 pl-7">
                                     <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
                                     <li class="max-sm:text-sm">
                                         b.
@@ -266,20 +264,20 @@
 
                             <div class="mb-6">
                                 <div class="flex items-start gap-2">
-                                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/payment.png") }}" alt="Pembayaran" class="mt-0.5 h-5 w-5" />
+                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/payment.png') }}" alt="Pembayaran" class="h-5 w-5 mt-0.5" />
                                     <span class="font-semibold">Pembayaran</span>
                                 </div>
-                                <ol class="mt-1 list-decimal space-y-1 pl-7">
+                                <ol class="list-decimal mt-1 space-y-1 pl-7">
                                     <li class="max-sm:text-sm">Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n. Berbinar Insightful Indonesia dengan aturan transfer 1×24 jam.</li>
                                 </ol>
                             </div>
 
                             <div class="mb-6">
                                 <div class="flex items-start gap-2">
-                                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/chat.png") }}" alt="Pembalasan Pesan" class="mt-0.5 h-5 w-5" />
+                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.png') }}" alt="Pembalasan Pesan" class="h-5 w-5 mt-0.5" />
                                     <span class="font-semibold">Pembalasan Pesan</span>
                                 </div>
-                                <ol class="mt-1 list-decimal space-y-1 pl-7">
+                                <ol class="list-decimal mt-1 space-y-1 pl-7">
                                     <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, pendaftaran oleh klien secara otomatis dibatalkan.</li>
                                     <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, jadwal yang sudah ditentukan oleh klien berhak untuk diubah oleh Tim Berbinar dan kesepakatan dari klien.</li>
                                     <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 2×24 jam setelah melakukan pembayaran, pembayaran dianggap hangus.</li>
@@ -288,16 +286,17 @@
 
                             <div class="mb-6">
                                 <div class="flex items-start gap-2">
-                                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/cancel.png") }}" alt="Pengajuan Pembatalan" class="mt-0.5 h-5 w-5" />
+                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/cancel.png') }}" alt="Pengajuan Pembatalan" class="h-5 w-5 mt-0.5" />
                                     <span class="font-semibold">Pengajuan Pembatalan</span>
                                 </div>
-                                <ol class="mt-1 list-decimal space-y-1 pl-7">
+                                <ol class="list-decimal mt-1 space-y-1 pl-7">
                                     <li class="max-sm:text-sm">Pengajuan proses pembatalan layanan konseling dapat dilakukan dalam kurun waktu 1×24 jam setelah proses administrasi dan dana yang telah dibayarkan akan dikembalikan 100%.</li>
                                 </ol>
                             </div>
 
-                            <div class="mt-4 flex justify-center lg:gap-x-3">
-                                <a href="{{ route("product.counseling.registration") }}">
+
+                            <div class="mt-4 justify-center flex lg:gap-x-3">
+                                <a href="{{ route('product.counseling.registration') }}">
                                     <button id="" class="rounded-md bg-gradient-to-r from-[#3986A3] to-[#225062] px-20 py-1.5 font-medium text-white max-sm:text-[15px]">Saya Mengerti</button>
                                 </a>
                             </div>
@@ -423,102 +422,113 @@
         <div class="absolute inset-0 flex rounded-3xl bg-[#2D6B8280] max-md:hidden"></div>
 
         <div class="relative flex flex-col justify-center space-y-4 text-center">
-            <h1 class="text-3xl font-semibold text-white max-sm:text-xl">Jadwalkan Konselingmu Bersama Psikolog Kami</h1>
+            <h1 class="text-3xl font-semibold text-white max-sm:text-2xl">Jadwalkan Konselingmu Bersama Psikolog Kami</h1>
 
-            <div class="flex flex-col items-center gap-y-10 md:mx-20 md:flex-row md:justify-center md:gap-x-20 md:gap-y-0">
-                <!-- Weekdays -->
-                <div class="flex w-full max-w-[318px] flex-col items-center">
-                    <!-- Judul -->
-                    <div class="mb-4 flex flex-row items-center justify-center">
-                        <p class="text-lg font-medium italic text-white md:text-2xl">Weekdays</p>
-                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/sun.png") }}" alt="Vector" class="ml-2 h-4 w-auto md:h-5" />
+            <div class="mx-20 flex flex-row justify-center gap-x-20 max-md:flex-col max-md:gap-y-[250px]">
+                <div class="mt-6 flex flex-1 flex-col">
+                    <div class="flex flex-row items-center justify-center space-x-0.5">
+                        <p class="text-2xl font-medium italic text-white">Weekdays</p>
+                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/sun.png") }}" alt="Vector" class="h-5 w-auto" />
                     </div>
 
-                    <!-- Card -->
-                    <div class="relative flex h-full max-w-[318px] flex-col overflow-hidden rounded-xl bg-white px-4 py-5 shadow-lg md:max-h-[394px] md:px-6 md:py-6">
-                        <!-- Ribbon -->
-                        <div class="absolute right-0 top-0">
-                            <div class="flex h-6 w-[110px] translate-x-[28px] translate-y-[12px] rotate-45 items-center justify-center bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] font-plusJakartaSans text-[11px] font-bold text-white shadow-md md:h-8 md:w-[140px] md:translate-x-[35px] md:translate-y-[18px] md:text-sm">8%</div>
-                        </div>
+                    <div class="relative mx-auto mt-3 flex w-full max-w-[270px] justify-center">
+                        <div class="absolute rounded-xl bg-white bg-opacity-90 px-10 py-4 shadow-md backdrop-blur-sm max-xl:p-4 max-md:px-8 max-sm:px-6">
+                            <p class="text-md font-semibold italic text-black">Online</p>
+                            <div class="mt-1 flex flex-row items-center justify-center">
+                                <p class="text-3xl font-semibold text-[#3986A3] max-lg:text-2xl">Rp150.000</p>
+                                <p class="text-sm text-black">/1jam</p>
+                            </div>
 
-                        <!-- Online -->
-                        <div class="flex flex-col items-start font-plusJakartaSans font-semibold">
-                            <span class="mb-1 text-base text-black md:mb-2 md:text-xl">Online👩‍💻</span>
-                            <div class="flex flex-col items-start">
-                                <span class="-mb-1 text-sm text-[#676767] line-through md:-mb-1 md:text-lg">Rp150.000</span>
-                                <div class="flex items-baseline gap-2">
-                                    <span class="bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] bg-clip-text text-2xl text-transparent md:text-[32px]">Rp135.000</span>
-                                    <span class="-top-1 font-plusJakartaSans text-sm font-normal text-black md:-top-2 md:text-lg">/jam</span>
-                                </div>
+                            <p class="text-md mt-4 font-semibold italic text-black">Offline</p>
+                            <div class="mt-1 flex flex-row items-center justify-center">
+                                <p class="text-3xl font-semibold text-[#3986A3] max-lg:text-2xl">Rp175.000</p>
+                                <p class="text-sm text-black">/1jam</p>
+                            </div>
+
+                            <div id="openModal" class="mb-1 mt-4 flex justify-center">
+                                <button class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white openModalBtn">Mulai Sekarang</button>
                             </div>
                         </div>
-
-                        <!-- Divider -->
-                        <div class="mx-auto my-4 h-[1px] w-full max-w-[220px] bg-gradient-to-r from-transparent via-[#D7E6ED] to-transparent md:my-6 md:w-[270px]"></div>
-
-                        <!-- Offline -->
-                        <div class="flex flex-col items-start font-plusJakartaSans font-semibold">
-                            <span class="mb-1 text-base text-black md:mb-2 md:text-xl">Offline🙋‍♀️</span>
-                            <div class="flex flex-col items-start">
-                                <div class="flex items-baseline gap-1">
-                                    <span class="bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] bg-clip-text text-2xl text-transparent md:text-[32px]">Rp175.000</span>
-                                    <span class="-top-1 font-plusJakartaSans text-sm font-normal text-black md:-top-2 md:text-lg">/jam</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Button -->
-                        <button id="openModal" class="pt-5 md:pt-6">
-                            <a href="#" class="openModalBtn block w-full rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] py-2 text-center font-plusJakartaSans text-sm font-semibold text-white md:px-[83.75px] md:text-[14px]">Mulai Sekarang</a>
+                    </div>
+                    {{--
+                        <div x-data="{ tab: 'online' }" class="mt-2 w-full flex flex-col items-center">
+                        <!-- Tab Navigation -->
+                        <div class="flex justify-between mb-4 p-1 bg-white shadow-md max-w-64 rounded-2xl items-center">
+                        <button
+                        @click="tab = 'online'"
+                        :class="{'bg-gradient-to-r from-[#3986A3] to-[#15323D] font-medium text-white': tab === 'online'}"
+                        class="py-2 px-7 rounded-xl text-[#3986A3] font-medium">
+                        Online
                         </button>
-                    </div>
+                        <button
+                        @click="tab = 'offline'"
+                        :class="{'bg-gradient-to-r from-[#3986A3] to-[#15323D] font-medium text-white': tab === 'offline'}"
+                        class="py-2 px-7 rounded-xl text-[#3986A3] font-medium">
+                        Offline
+                        </button>
+                        </div>
+
+                        <div class="relative w-full max-w-[270px] mx-auto flex justify-center">
+                        <div x-show="tab === 'online'"
+                        x-transition:enter="transition transform ease-in duration-500"
+                        x-transition:enter-start="translate-y-4 opacity-0"
+                        x-transition:enter-end="translate-y-0 opacity-100"
+                        x-transition:leave="transition transform ease-out duration-500"
+                        x-transition:leave-start="translate-y-0 opacity-100"
+                        x-transition:leave-end="translate-y-4 opacity-0"
+                        x-cloak
+                        class="absolute bg-white p-4 rounded-xl shadow-md">
+                        <div class="flex flex-col">
+                        <div class="space-y-1">
+                        @foreach ($weeksOn as $weekOn)
+                        <div class="flex gap-x-1">
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-centang.svg') }}" alt="Vector" class="h-5 w-auto">
+                        <p class="text-sm text-justify text-[#70787D]">{{ $weekOn['description'] }}</p>
+                        </div>
+                        @endforeach
+                        </div>
+
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-divider.svg') }}" alt="Vector" class="my-5 w-full">
+
+                        <div class="space-y-1">
+                        @foreach ($weekdayPricesOn as $weekdayPriceOn)
+                        <div class="flex items-center justify-between">
+                        <p class="text-black text-sm min-w-28 text-left">{{ $weekdayPriceOn['session'] }}</p>
+                        <div class="h-0.5 w-6 bg-[#3986A3]"></div>
+                        <p class="text-black text-sm min-w-24 text-right">{{ $weekdayPriceOn['price'] }}</p>
+                        </div>
+                        @endforeach
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                    --}}
                 </div>
 
-                <!-- Weekends (copy structure di atas, ganti harga & text sesuai kebutuhan) -->
-                <div class="flex w-full max-w-[318px] flex-col items-center">
-                    <!-- Judul -->
-                    <div class="mb-4 flex flex-row items-center justify-center">
-                        <p class="text-lg font-medium italic text-white md:text-2xl">Weekends</p>
-                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/sunglasses.png") }}" alt="Vector" class="ml-2 h-6 w-auto md:h-8" />
+                <div class="mt-6 flex flex-1 flex-col">
+                    <div class="flex flex-row items-center justify-center space-x-0.5">
+                        <p class="text-2xl font-medium italic text-white">Weekend</p>
+                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/sunglasses.png") }}" alt="Vector" class="h-8 w-auto" />
                     </div>
 
-                    <!-- Card -->
-                    <div class="relative flex h-full max-w-[318px] flex-col overflow-hidden rounded-xl bg-white px-4 py-5 shadow-lg md:max-h-[394px] md:px-6 md:py-6">
-                        <!-- Ribbon -->
-                        <div class="absolute right-0 top-0">
-                            <div class="flex h-6 w-[110px] translate-x-[28px] translate-y-[12px] rotate-45 items-center justify-center bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] font-plusJakartaSans text-[11px] font-bold text-white shadow-md md:h-8 md:w-[140px] md:translate-x-[35px] md:translate-y-[18px] md:text-sm">8%</div>
-                        </div>
+                    <div class="relative mx-auto mt-3 flex w-full max-w-[270px] justify-center">
+                        <div class="absolute rounded-xl bg-white bg-opacity-90 px-10 py-4 shadow-md backdrop-blur-sm max-xl:p-4 max-md:px-8 max-sm:px-6">
+                            <p class="text-md font-semibold italic text-black">Online</p>
+                            <div class="mt-1 flex flex-row items-center justify-center">
+                                <p class="text-3xl font-semibold text-[#3986A3] max-lg:text-2xl">Rp200.000</p>
+                                <p class="text-sm text-black">/1jam</p>
+                            </div>
 
-                        <!-- Online -->
-                        <div class="flex flex-col items-start font-plusJakartaSans font-semibold">
-                            <span class="mb-1 text-base text-black md:mb-2 md:text-xl">Online👩‍💻</span>
-                            <div class="flex flex-col items-start">
-                                <span class="-mb-1 text-sm text-[#676767] line-through md:-mb-1 md:text-lg">Rp200.000</span>
-                                <div class="flex items-baseline gap-1">
-                                    <span class="bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] bg-clip-text text-2xl text-transparent md:text-[32px]">Rp180.000</span>
-                                    <span class="-top-1 font-plusJakartaSans text-sm font-normal text-black md:-top-2 md:text-lg">/jam</span>
-                                </div>
+                            <p class="text-md mt-4 font-semibold italic text-black">Offline</p>
+                            <div class="mt-1 flex flex-row items-center justify-center">
+                                <p class="text-3xl font-semibold text-[#3986A3] max-lg:text-2xl">Rp225.000</p>
+                                <p class="text-sm text-black">/1jam</p>
+                            </div>
+
+                            <div id="openModal" class="mb-1 mt-4 flex justify-center">
+                                <button class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white openModalBtn">Mulai Sekarang</button>
                             </div>
                         </div>
-
-                        <!-- Divider -->
-                        <div class="mx-auto my-4 h-[1px] w-full max-w-[220px] bg-gradient-to-r from-transparent via-[#D7E6ED] to-transparent md:my-6 md:w-[270px]"></div>
-
-                        <!-- Offline -->
-                        <div class="flex flex-col items-start font-plusJakartaSans font-semibold">
-                            <span class="mb-1 text-base text-black md:mb-2 md:text-xl">Offline🙋‍♀️</span>
-                            <div class="flex flex-col items-start">
-                                <div class="flex items-baseline gap-1">
-                                    <span class="bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] bg-clip-text text-2xl text-transparent md:text-[32px]">Rp225.000</span>
-                                    <span class="-top-1 font-plusJakartaSans text-sm font-normal text-black md:-top-2 md:text-lg">/jam</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Button -->
-                        <button id="openModal" class="pt-5 md:pt-6">
-                            <a href="#" class="openModalBtn block w-full rounded-lg bg-gradient-to-r from-[#F7B23B] via-[#D29732] to-[#AD7D29] py-2 text-center font-plusJakartaSans text-sm font-semibold text-white md:px-[83.75px] md:text-[14px]">Mulai Sekarang</a>
-                        </button>
                     </div>
                 </div>
             </div>
@@ -527,7 +537,7 @@
 
     {{-- PEER COUNSELOR BERBINAR --}}
     <section>
-        <div class="mx-[320px] mt-80 justify-center text-center max-xl:mx-12 max-md:mt-20 max-sm:mx-3 max-sm:mt-5">
+        <div class="mx-[320px] mt-60 justify-center text-center max-xl:mx-12 max-md:mt-20 max-sm:mx-3 max-sm:mt-5">
             <h1 class="font text-4xl font-semibold text-black max-sm:text-[29px]">
                 <i>Peer Counselor</i>
                 <span class="bg-[#3886A3] px-2 text-white">Berbinar</span>
@@ -571,10 +581,7 @@
         <div class="absolute inset-0 flex rounded-3xl bg-[#2D6B8280] max-md:hidden"></div>
 
         <div class="relative flex flex-col justify-center space-y-5 text-center">
-            <h1 class="text-3xl font-semibold text-white">
-                Konseling Bersama
-                <i>Peer Counselor</i>
-            </h1>
+            <h1 class="text-3xl font-semibold text-white">Konseling Bersama <i>Peer Counselor</i></h1>
 
             <div class="mx-20 flex flex-row justify-center gap-x-20 max-md:flex-col max-md:gap-y-[250px]">
                 <div class="mt-6 flex flex-1 justify-center">
@@ -591,7 +598,7 @@
                             </div>
 
                             <div id="openModal" class="mb-1 mt-5 flex justify-center">
-                                <button class="openModalBtn rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white">Mulai Sekarang</button>
+                                <button class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white openModalBtn">Mulai Sekarang</button>
                             </div>
                         </div>
                     </div>
@@ -611,7 +618,7 @@
                             </div>
 
                             <div id="openModal" class="mb-1 mt-5 flex justify-center">
-                                <button class="openModalBtn rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white">Mulai Sekarang</button>
+                                <button class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white openModalBtn">Mulai Sekarang</button>
                             </div>
                         </div>
                     </div>
@@ -621,7 +628,7 @@
     </div>
 
     {{-- TESTIMONI USER --}}
-    <section class="mt-60 max-md:mt-0">
+    <section class="mt-40 max-md:mt-0">
         <h1 class="font mt-8 text-center text-4xl font-semibold text-black max-md:mx-10 max-sm:mx-2 max-sm:mt-2 max-sm:text-[29px]">
             Kata Mereka Setelah Konseling
             <span class="bg-primary px-2 text-white">Berbinar</span>
@@ -816,7 +823,7 @@
             },
         });
 
-        // SCRIPT ACCORDION FAQS
+    // SCRIPT ACCORDION FAQS
         document.addEventListener('alpine:init', () => {
             Alpine.store('accordion', {
                 tab: 0,
@@ -887,8 +894,8 @@
             },
         });
 
-        document.querySelectorAll('.openModalBtn').forEach(function (btn) {
-            btn.addEventListener('click', function (e) {
+        document.querySelectorAll('.openModalBtn').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 // Modal utama
                 var modal = document.getElementById('modal');
@@ -904,7 +911,7 @@
         });
 
         // Tutup modal ketika klik di luar konten modal atau tombol close
-        document.addEventListener('click', function (e) {
+        document.addEventListener('click', function(e) {
             var modal = document.getElementById('modal');
             if (modal && !modal.classList.contains('hidden')) {
                 if (e.target === modal) {
