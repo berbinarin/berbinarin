@@ -51,7 +51,7 @@
                             </div>
                             <ol class="list-decimal mt-1 space-y-1 pl-7">
                             <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
-                            <li class="max-sm:text-sm">b. Peer Counselor : Surabaya, Jombang, dan Nganjuk</li>
+                            <li class="max-sm:text-sm">b. Peer Counselor : Jakarta, Makassar, dan Nganjuk</li>
                         </ol>
                         </div>
                     </div>

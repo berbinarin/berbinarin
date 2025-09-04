@@ -176,7 +176,7 @@ class CounselingController extends Controller
             [
                 'name' => "Adinda Fasya Az-zahra D.",
                 'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/adinda.png',
-                'region' => 'Surabaya'
+                'region' => 'Jakarta'
             ],
             [
                 'name' => "Rizka Arista Sabilla ",
@@ -184,9 +184,9 @@ class CounselingController extends Controller
                 'region' => 'Nganjuk'
             ],
             [
-                'name' => 'Melisa Nur Amelia',
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/melisa.png',
-                'region' => 'Jombang'
+                'name' => 'Nurfadila Aulia Muslimin',
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/nurfadila.png',
+                'region' => 'Makassar'
             ]
         ];
 
