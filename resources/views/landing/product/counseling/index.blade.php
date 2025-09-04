@@ -259,7 +259,7 @@
                                     <li class="max-sm:text-sm">
                                         b.
                                         <i>Peer Counselor</i>
-                                        : Surabaya, Jombang, dan Nganjuk
+                                        : Jakarta, Makassar, dan Nganjuk
                                     </li>
                                 </ol>
                             </div>
