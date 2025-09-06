@@ -76,7 +76,7 @@
     @include('sweetalert::alert')
 
     <script src="{{ asset('assets/js/jquery.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.datables.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
     <script>
         new DataTable('#example');
     </script>
