@@ -771,18 +771,18 @@
 
         // Harga final
         const hargaHidden = document.getElementById('harga-hidden');
-if (!hargaHidden.value || hargaHidden.value === "0") {
-    Swal.fire({
-        toast: true,
-        position: "top-end",
-        icon: "error",
-        title: "Harga belum dipilih.",
-        showConfirmButton: false,
-        showCloseButton: true,
-        timer: 4000
-    });
-    return;
-}
+        if (!hargaHidden.value || hargaHidden.value === "0") {
+            Swal.fire({
+                toast: true,
+                position: "top-end",
+                icon: "error",
+                title: "Harga belum dipilih.",
+                showConfirmButton: false,
+                showCloseButton: true,
+                timer: 4000
+            });
+            return;
+        }
 
         this.submit();
     });
@@ -848,9 +848,12 @@ if (!hargaHidden.value || hargaHidden.value === "0") {
 
     function updateHarga() {
         const tanggal = document.getElementById('tglkonseling').value;
-        const waktu = document.getElementById('waktu-konseling').value;
+        const waktu = document.getElementById('waktukonseling').value;
         const metode = document.getElementById('metode-select').value;
         const sesi = document.getElementById('sesi-select').value;
+        const hargaInput = document.getElementById('harga-hidden');
+        const hargaAsliSpan = document.getElementById('harga-asli');
+        const hargaDiskonSpan = document.getElementById('harga-diskon');
 
         if (!tanggal || !waktu || !metode || !sesi) {
             updateHargaDisplayPeer(0, null);
@@ -871,33 +874,34 @@ if (!hargaHidden.value || hargaHidden.value === "0") {
         } else {
             updateHargaDisplayPeer(harga, null);
         }
+
+        const dateParts = tanggal.split('/');
+        if (dateParts.length !== 3) {
+            hargaInput.value = '';
+            hargaInput.dataset.hargaAsli = '';
+            hargaInput.dataset.hargaFinal = '';
+            hargaAsliSpan.textContent = '';
+            hargaDiskonSpan.textContent = '';
+        } else {
+            const dateObj = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+            const day = dateObj.getDay();
+            const isWeekend = (day === 0 || day === 6);
+            let harga = 0;
+            if (!isWeekend) {
+                if (metode === 'online') harga = {1: 150000, 2: 300000, 3: 450000}[sesi];
+                else if (metode === 'offline') harga = {1: 175000, 2: 350000, 3: 525000}[sesi];
+            } else {
+                if (metode === 'online') harga = {1: 200000, 2: 340000, 3: 500000}[sesi];
+                else if (metode === 'offline') harga = {1: 225000, 2: 340000, 3: 500000}[sesi];
+            }
+            hargaInput.value = Number.isInteger(harga) ? harga : '';
+            hargaInput.dataset.hargaAsli = harga;
+            hargaInput.dataset.hargaFinal = harga;
+            hargaAsliSpan.textContent = harga ? 'Rp' + harga.toLocaleString() : '';
+            hargaDiskonSpan.textContent = '';
+        }
     }
-    const dateParts = tanggal.split('/');
-    if (dateParts.length !== 3) {
-        hargaInput.value = '';
-        hargaInput.dataset.hargaAsli = '';
-        hargaInput.dataset.hargaFinal = '';
-        hargaAsliSpan.textContent = '';
-        hargaDiskonSpan.textContent = '';
-        return;
-    }
-    const dateObj = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
-    const day = dateObj.getDay();
-    const isWeekend = (day === 0 || day === 6);
-    let harga = 0;
-    if (!isWeekend) {
-        if (metode === 'online') harga = {1: 150000, 2: 300000, 3: 450000}[sesi];
-        else if (metode === 'offline') harga = {1: 175000, 2: 350000, 3: 525000}[sesi];
-    } else {
-        if (metode === 'online') harga = {1: 200000, 2: 340000, 3: 500000}[sesi];
-        else if (metode === 'offline') harga = {1: 225000, 2: 340000, 3: 500000}[sesi];
-    }
-    hargaInput.value = Number.isInteger(harga) ? harga : '';
-    hargaInput.dataset.hargaAsli = harga;
-    hargaInput.dataset.hargaFinal = harga;
-    hargaAsliSpan.textContent = harga ? 'Rp' + harga.toLocaleString() : '';
-    hargaDiskonSpan.textContent = '';
-}
+
     document.getElementById('tglkonseling').addEventListener('change', updateHarga);
     document.getElementById('metode-select').addEventListener('change', updateHarga);
     document.getElementById('sesi-select').addEventListener('change', updateHarga);
