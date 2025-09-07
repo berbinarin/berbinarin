@@ -13,13 +13,13 @@
                 <a href="{{ route('dashboard.peer-counselors.show', $PeerConsellorDataDetails->id) }}">
                     <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                 </a>
-                <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Edit Data Peer Counselor</p>
+                <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Ubah Data Peer Counselor</p>
             </div>
-            <p class="w-3/4 text-disabled">
+            <p class="w-full text-disabled">
                 Halaman yang digunakan untuk mengedit, mengelola, dan melengkapi seluruh data pribadi, latar belakang, serta informasi penting lainnya dari peer counselor secara detail untuk keperluan administrasi dan monitoring.
             </p>
         </div>
-        <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+        <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 mb-7 md:px-8 md:py-7 xl:px-10">
             <form action="{{ route('dashboard.peer-counselors.update', $PeerConsellorDataDetails->id) }}" method="POST" id="editForm">
                 @csrf
                 @method('PUT')

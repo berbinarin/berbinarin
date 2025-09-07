@@ -38,7 +38,7 @@
                             <p tabindex="0"
                                 class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
                                 Dashboard</p>
-                            <p class="w-2/4 text-disabled">Fitur ini digunakan untuk menampilkan data pendaftar konseling
+                            <p class="w-full text-disabled">Fitur ini digunakan untuk menampilkan data pendaftar konseling
                                 yang mendaftar melalui situs web Berbinar</p>
                         @endrole
 
@@ -199,7 +199,7 @@
                         const positionsCount = parseInt(document.getElementById('positions-count').textContent);
                         const jobDescriptionsCount = parseInt(document.getElementById('job-descriptions-count').textContent);
                         const requirementsCount = parseInt(document.getElementById('requirements-count').textContent);
-                        
+
                         const chartDataValues = [positionsCount, jobDescriptionsCount, requirementsCount];
                         const chartColors = ['rgba(16, 102, 129, 0.6)', 'rgba(233, 179, 6, 0.6)', 'rgba(35, 42, 202, 0.6)'];
                         const solidColors = ['#106681', '#E9B306', '#232ACA'];
@@ -492,7 +492,7 @@
                         </div>
                         <div>
                             <span class="block text-2xl font-bold">{{ $PeerConsellorSchedule }}</span>
-                            <span class="block text-gray-500">Peer Counselor Schedule</span>
+                            <span class="block text-gray-500">Jadwal Peer Counselor</span>
                         </div>
                     </div>
 
@@ -503,7 +503,7 @@
                         </div>
                         <div>
                             <span class="block text-2xl font-bold">{{ $PeerConsellorData }}</span>
-                            <span class="block text-gray-500">Peer Counselor Data</span>
+                            <span class="block text-gray-500">Data Peer Counselor</span>
                         </div>
                     </div>
 
@@ -514,7 +514,7 @@
                         </div>
                         <div>
                             <span class="block text-2xl font-bold">{{ $PsikologData }}</span>
-                            <span class="block text-gray-500">Psikolog Data</span>
+                            <span class="block text-gray-500">Data Psikolog</span>
                         </div>
                     </div>
 
@@ -525,7 +525,7 @@
                         </div>
                         <div>
                             <span class="block text-2xl font-bold">{{ $BerbinarForU }}</span>
-                            <span class="block text-gray-500">Berbinar For U Data</span>
+                            <span class="block text-gray-500">Data Berbinar For U</span>
                         </div>
                     </div>
                 </div>

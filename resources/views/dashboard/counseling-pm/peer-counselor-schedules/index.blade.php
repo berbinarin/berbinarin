@@ -5,15 +5,15 @@
 ])
 
 @section('content')
-    <section class="flex w-full">
+    <section class="flex flex-col w-full">
         <div class="flex flex-col">
             <div class="w-full">
                 <div class="py-4 md:pt-12 md:pb-7">
                     <div class="">
                         <p tabindex="0"
                             class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
-                            Peer Counselor Schedule</p>
-                        <p class="w-3/4 text-disabled">Fitur ini digunakan untuk menampilkan jadwal yang tersedia untuk pendaftar konseling yang mendaftar melalui situs web Berbinar.</p>
+                            Jadwal Peer Counselor</p>
+                        <p class="w-full text-disabled">Fitur ini digunakan untuk menampilkan jadwal yang tersedia untuk pendaftar konseling yang mendaftar melalui situs web Berbinar.</p>
                         <button onclick="toggleModal('modal-id')" type="button"
                             class="focus:ring-2 focus:ring-offset-2  mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded">
                             <p class=" font-medium leading-none text-dark">Tambah Data</p>
@@ -30,7 +30,7 @@
                                     <th style="text-align: center">Pukul Mulai</th>
                                     <th style="text-align: center">Pukul Selesai</th>
                                     <th style="text-align: center">Penanggung Jawab</th>
-                                    <th style="text-align: center">Action</th>
+                                    <th style="text-align: center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -182,7 +182,7 @@
                 <!--header-->
                 <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
                     <h3 class="text-3xl font-semibold">
-                        Add Peer Counselor Schedule
+                        Tambah Jadwal Peer Counselor
                     </h3>
                     <button
                         class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -234,7 +234,7 @@
                             <button
                                 class="text-gray-500 background-transparent font-bold  px-6 py-2 text-base outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                 type="button" onclick="toggleModal('modal-id')">
-                                Close
+                                Tutup
                             </button>
                             <button type="submit" name="submit"
                                 class="focus:ring-2  mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-primary hover:bg-primary focus:outline-none rounded">

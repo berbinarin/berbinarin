@@ -29,7 +29,7 @@
                                     <th style="text-align: center">Persentase Diskon</th>
                                     <th style="text-align: center">Tipe Voucher</th>
                                     <th style="text-align: center">Detail Voucher</th>
-                                    <th style="text-align: center">Action</th>
+                                    <th style="text-align: center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -110,7 +110,7 @@
                                                 <option value="" disabled selected>Pilih Detail</option>
                                             </select>
                                         </div>
-                                    </div>  
+                                    </div>
                                     <input type="hidden" name="service_type" value="psikolog">
                                     <div class="flex w-full justify-center gap-4">
                                         <button type="button" class="rounded-lg border border-[#3986A3] w-1/2 px-6 py-2 text-[#3986A3] focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2" onclick="closeCreateModal()">Batal</button>
@@ -333,7 +333,7 @@
         tipe.innerHTML += '<option value="sesi">Sesi</option>';
         tipe.innerHTML += '<option value="metode">Metode</option>';
     }
-    updateDetailOptions(); 
+    updateDetailOptions();
     }
     </script>
 
@@ -349,7 +349,7 @@
         tipe.innerHTML += '<option value="sesi">Sesi</option>';
         tipe.innerHTML += '<option value="metode">Metode</option>';
     }
-    updateDetailOptionsEdit(); 
+    updateDetailOptionsEdit();
 }
     </script>
 

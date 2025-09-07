@@ -18,7 +18,7 @@
                 </div>
                 <p class="w-3/4 text-disabled">Halaman yang digunakan untuk menambahkan, mengelola, dan melengkapi kode voucher.</p>
             </div>
-            <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+            <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 mb-7 md:px-8 md:py-7 xl:px-10">
                 <form id="createForm" method="POST" action="{{ route("dashboard.code-voucher.store") }}">
                     @csrf
 

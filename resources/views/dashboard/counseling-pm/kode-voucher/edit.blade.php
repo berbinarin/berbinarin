@@ -17,11 +17,11 @@
                 Halaman yang digunakan untuk mengubah, mengelola, dan melengkapi kode voucher.
             </p>
         </div>
-        <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+        <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 mb-7 md:px-8 md:py-7 xl:px-10">
             <form id="createForm" method="POST" action="{{ route('dashboard.code-voucher.store') }}">
                 @csrf
                 <input type="hidden" name="service_type" value="psikolog">
-                
+
                 <!-- Voucher Container -->
                 <div id="voucherContainer">
                     <!-- Initial Voucher Row -->
@@ -173,7 +173,7 @@
         const voucherRow = selectElement.closest('.voucher-row');
         const detailSelect = voucherRow.querySelector('.voucher-detail');
         const detailLabel = voucherRow.querySelector('.detail-label');
-        
+
         // Update label based on type
         switch(voucherType) {
             case 'metode':
@@ -188,10 +188,10 @@
             default:
                 detailLabel.textContent = 'Detail';
         }
-        
+
         // Update options
         detailSelect.innerHTML = '<option value="">Pilih Detail</option>';
-        
+
         if (voucherType && voucherTypeOptions[voucherType]) {
             voucherTypeOptions[voucherType].forEach(option => {
                 const optionElement = document.createElement('option');
@@ -219,7 +219,7 @@
             const clone = template.content.cloneNode(true);
             const newRow = clone.querySelector('.voucher-row');
             voucherContainer.appendChild(clone);
-            
+
             // Add event listener to the new select element
             const newSelect = newRow.querySelector('.voucher-type');
             newSelect.addEventListener('change', function() {
@@ -241,11 +241,11 @@
     function closeCreateModal() {
         // Your existing close modal function
         document.getElementById('confirmModal').classList.remove('hidden');
-        
+
         document.getElementById('confirmCancel').addEventListener('click', function() {
             window.location.href = "{{ route('dashboard.code-voucher.index') }}";
         });
-        
+
         document.getElementById('cancelCancel').addEventListener('click', function() {
             document.getElementById('confirmModal').classList.add('hidden');
         });

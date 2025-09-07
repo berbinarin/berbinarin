@@ -13,11 +13,11 @@
                 </a>
                 <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Tambah Data Peer Counselor</p>
             </div>
-            <p class="w-3/4 text-disabled">
+            <p class="w-full text-disabled">
                 Halaman yang digunakan untuk menambahkan, mengelola, dan melengkapi seluruh data pribadi, latar belakang, serta informasi penting lainnya dari peer counselor secara detail untuk keperluan administrasi dan monitoring.
             </p>
         </div>
-        <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+        <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 mb-7 md:px-8 md:py-7 xl:px-10">
             <form action="{{ route('dashboard.peer-counselors.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name="kategori" value="peer-counselor">

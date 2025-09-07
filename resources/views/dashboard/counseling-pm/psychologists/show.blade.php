@@ -5,7 +5,7 @@
 ])
 
 @section('content')
-    <section class="flex w-full p-6 bg-gray-100">
+    <section class="flex w-full bg-gray-100">
         <div class="flex flex-col w-full">
             <div class="w-full">
                 <div class="py-4 md:pt-12 md:pb-7">
@@ -23,18 +23,207 @@
                     </p>
                     <div class="mt-8 sm:mt-3 flex space-x-4">
                         <a href="{{ route('dashboard.psychologists.edit', $PsikologDataDetails->id) }}" type="button"
-                            class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded">
-                            <p class="font-medium leading-none text-dark">Edit Data</p>
+                            class="mt-8 inline-flex items-start justify-start rounded-lg border-2 border-primary bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
+                            <p class="font-medium leading-none text-dark">Ubah Data</p>
                         </a>
                         <button type="button" id="deleteButton" data-id="{{ $PsikologDataDetails->id }}"
-                            class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded">
-                            <p class="font-medium leading-none text-dark">Delete Data</p>
+                            class="mt-8 inline-flex items-start justify-start rounded-lg border-2 border-primary px-6 py-3 text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
+                            <p class="font-medium leading-none text-dark">Hapus Data</p>
                         </button>
                     </div>
                 </div>
-                <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-md shadow-lg">
-                    <div class="mt-4 overflow-x-auto">
-                        <table class="w-full table-auto border-collapse border border-gray-300">
+                <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 mb-7 rounded-md shadow-lg">
+                    <div class="overflow-x-auto flex flex-col gap-6">
+
+                        <div class="border border-gray-500 rounded-3xl overflow-hidden">
+                            <div class="bg-[#3986A380] py-3 px-6">Informasi Konseling</div>
+                            <div class="w-full flex flex-row">
+                                <div class="w-2/3 flex flex-col gap-4 py-4">
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-1/3">Nama</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ $PsikologDataDetails->nama }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-1/3">Tanggal Konseling</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ \Carbon\Carbon::parse($PsikologDataDetails->jadwal_tanggal)->format('d-m-Y') }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-1/3">Waktu</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ $PsikologDataDetails->jadwal_pukul }} &nbsp;WIB</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-1/3">Metode</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ $PsikologDataDetails->metode }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-1/3">Sesi</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ $PsikologDataDetails->sesi }} &nbsp;Jam</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-1/3">Daerah</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ $PsikologDataDetails->daerah }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-1/3">Harga</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">Rp. &nbsp;{{ $PsikologDataDetails->harga }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="py-4 flex flex-row gap-3 italic w-1/3">
+                                    <div class="">Tanggal Pendaftaran</div>
+                                    <div class="capitalize">{{ \Carbon\Carbon::parse($PsikologDataDetails->created_at)->format('d-m-Y') }}</div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="border border-gray-500 rounded-3xl overflow-hidden">
+                            <div class="bg-[#3986A380] py-3 px-6">Informasi Konseling</div>
+                            <div class="w-full flex flex-row">
+                                <div class="w-full flex flex-col gap-4 py-4">
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Nomor WhatsApp</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize"><a href="https://wa.me/62{{ ltrim($PsikologDataDetails->no_wa, '0') }}" target="_blank" class="text-blue-500 hover:text-blue-700 underline">{{ $PsikologDataDetails->no_wa }}</a></div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Email</div>
+                                        <div>:</div>
+                                        <div class="pl-4"><a href="mailto:{{ $PsikologDataDetails->email }}" class="text-blue-500 hover:text-blue-700 underline">{{ $PsikologDataDetails->email }}</a></div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Jenis Kelamin</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ $PsikologDataDetails->jenis_kelamin }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Agama</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ $PsikologDataDetails->agama }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Tempat Lahir</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ $PsikologDataDetails->tempat_lahir }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Suku</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ $PsikologDataDetails->suku }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Status Pernikahan</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ $PsikologDataDetails->status_pernikahan }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Alamat Domisili</div>
+                                        <div>:</div>
+                                        <div class="pl-4">{{ $PsikologDataDetails->alamat }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Posisi Anak</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ $PsikologDataDetails->posisi_anak }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Pendidikan</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ $PsikologDataDetails->pendidikan }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Asal Sekolah/Universitas</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ $PsikologDataDetails->asal_sekolah }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Pekerjaan</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ $PsikologDataDetails->riwayat_pekerjaan }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Hobi</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ $PsikologDataDetails->hobi }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Kegiatan Sosial</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ $PsikologDataDetails->kegiatan_sosial }}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="border border-gray-500 rounded-3xl overflow-hidden">
+                            <div class="bg-[#3986A380] py-3 px-6">Informasi Konseling</div>
+                            <div class="w-full flex flex-row">
+                                <div class="w-full flex flex-col gap-4 py-4">
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Hal yang ingin diceritakan</div>
+                                        <div>:</div>
+                                        <div class="pl-4 capitalize">{{ $PsikologDataDetails->cerita }}</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="border border-gray-500 rounded-3xl overflow-hidden">
+                            <div class="bg-[#3986A380] py-3 px-6">Informasi Konseling</div>
+                            <div class="w-full flex flex-row">
+                                <div class="w-full flex flex-col gap-4 py-4">
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Kategori Voucher</div>
+                                        <div>:</div>
+                                        <div class="pl-4">{{ $PsikologDataDetails->kategori_voucher ?? '-' }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Kode Voucher</div>
+                                        <div>:</div>
+                                        <div class="pl-4">{{ $PsikologDataDetails->code_voucher ?? '-' }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Persentase Diskon</div>
+                                        <div>:</div>
+                                        <div class="pl-4">{{ $PsikologDataDetails->presentase_diskon ? $PsikologDataDetails->presentase_diskon . '%' : '-' }}</div>
+                                    </div>
+                                    <div class="flex flex-row px-6">
+                                        <div class="w-[21.78%]">Bukti Kartu Pelajar</div>
+                                        <div>:</div>
+                                        <div class="pl-4">
+                                            @if($PsikologDataDetails->bukti_kartu_pelajar)
+                                                <a href="{{ asset('storage/' . $PsikologDataDetails->bukti_kartu_pelajar) }}" target="_blank">
+                                                    <img src="{{ asset('storage/' . $PsikologDataDetails->bukti_kartu_pelajar) }}"
+                                                        alt="Bukti Kartu Pelajar"
+                                                        style="max-width:120px;max-height:120px;border-radius:8px;border:1px solid #ccc;">
+                                                </a>
+                                            @else
+                                                <span>-</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {{-- <table class="w-full table-auto border-collapse border border-gray-300">
                             <thead class="bg-gray-200">
                                 <tr>
                                     <th class="border border-gray-300 px-4 py-2 text-left">Field</th>
@@ -125,7 +314,7 @@
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Alamat Domisili</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->alamat }}</td>
+                                    <td class="border border-gray-300 px-4 py-2">{{ $PsikologDataDetails->alamat }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Posisi Anak</td>
@@ -134,12 +323,12 @@
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Pendidikan</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->pendidikan }}
+                                    <td class="border border-gray-300 px-4 py-2">{{ $PsikologDataDetails->pendidikan }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Asal Sekolah/Universitas</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->asal_sekolah }}
+                                    <td class="border border-gray-300 px-4 py-2">{{ $PsikologDataDetails->asal_sekolah }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -189,7 +378,7 @@
                                     </td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table> --}}
                     </div>
                 </div>
             </div>
@@ -208,10 +397,10 @@
                 <h3 class="text-xl font-semibold text-gray-900 mb-2">Konfirmasi Hapus Data</h3>
                 <!-- Message -->
                 <p class="text-gray-600 mb-6">
-                    Apakah Anda yakin ingin menghapus data ini? 
+                    Apakah Anda yakin ingin menghapus data ini?
                 </p>
             </div>
-            
+
             <!-- Modal Actions -->
             <div class="flex gap-3 px-6 pb-6">
                 <button id="cancelDelete" class="flex-1 px-4 py-3 text-gray-700 bg-white border-2 border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 font-medium transition-colors">
@@ -229,46 +418,46 @@ document.addEventListener('DOMContentLoaded', function() {
     const deleteModal = document.getElementById('deleteModal');
     const cancelDelete = document.getElementById('cancelDelete');
     const confirmDelete = document.getElementById('confirmDelete');
-    
+
     if (deleteButton) {
         deleteButton.addEventListener('click', function(e) {
             e.preventDefault();
             deleteModal.classList.remove('hidden');
         });
     }
-    
+
     if (cancelDelete) {
         cancelDelete.addEventListener('click', function() {
             deleteModal.classList.add('hidden');
         });
     }
-    
+
     if (confirmDelete) {
         confirmDelete.addEventListener('click', function() {
             const id = deleteButton.getAttribute('data-id');
-            
+
             // Create and submit form
             const form = document.createElement('form');
             form.method = 'POST';
             form.action = `{{ url('dashboard/psychologists') }}/${id}`;
-            
+
             const csrfToken = document.createElement('input');
             csrfToken.type = 'hidden';
             csrfToken.name = '_token';
             csrfToken.value = '{{ csrf_token() }}';
-            
+
             const methodInput = document.createElement('input');
             methodInput.type = 'hidden';
             methodInput.name = '_method';
             methodInput.value = 'DELETE';
-            
+
             form.appendChild(csrfToken);
             form.appendChild(methodInput);
             document.body.appendChild(form);
             form.submit();
         });
     }
-    
+
     // Close modal when clicking outside
     deleteModal.addEventListener('click', function(e) {
         if (e.target === deleteModal) {
