@@ -11,7 +11,7 @@ return new class extends Migration
     public function up(): void
     {
         // Tambah enum baru ke kolom daerah
-        DB::statement("ALTER TABLE konselling_peers MODIFY COLUMN daerah ENUM('Bekasi', 'Jakarta', 'Tangerang Selatan', 'Padang', 'Wonogiri', 'Malang', 'Online', 'Surabaya', 'Jombang', 'Nganjuk')");
+        DB::statement("ALTER TABLE konselling_peers MODIFY COLUMN daerah ENUM('Bekasi', 'Jakarta', 'Tangerang Selatan', 'Padang', 'Wonogiri', 'Malang', 'Online', 'Surabaya', 'Jombang', 'Nganjuk','Makassar')");
     }
 
     /**
