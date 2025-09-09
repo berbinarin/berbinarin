@@ -148,7 +148,7 @@
                     <p class="w-3/4 text-disabled">Admin dapat mengedit data divisi dengan menyertakan input yang sesuai untuk setiap form. Data tersebut meliputi nama divisi dan subdivisi jika ada.</p>
                 </div>
             </div>
-            <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 mb-7 md:px-8 md:py-7 xl:px-10">
+            <div class="rounded-lg bg-white px-4 py-4 shadow mb-7 md:px-8 md:py-7 xl:px-10">
                 <form action="{{ route("dashboard.divisions.update", $division->id) }}" method="POST">
                     @csrf
                     @method("put")

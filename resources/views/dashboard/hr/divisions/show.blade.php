@@ -16,23 +16,23 @@
                         </a>
                         <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Detail Data Divisi</p>
                     </div>
-                    <p class="w-3/4 text-disabled">Dalam halaman ini terdapat informasi detail mengenai data divisi dalam keluarga Berbinar. Data tersebut meliputi nama divisi dan subdivisi jika ada.</p>
+                    <p class="w-full text-disabled">Dalam halaman ini terdapat informasi detail mengenai data divisi dalam keluarga Berbinar. Data tersebut meliputi nama divisi dan subdivisi jika ada.</p>
                 </div>
                 <div class="flex items-center gap-5 pb-8">
                     <a href="{{ route("dashboard.divisions.edit", $division->id) }}">
-                        <button type="button" class="mt-8 inline-flex items-start justify-start rounded-lg bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
-                            <p class="text-dark font-medium leading-none">Ubah</p>
+                        <button type="button" class="mt-8 inline-flex items-start justify-start rounded-lg border-2 border-primary bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
+                            <p class="text-dark font-medium leading-none">Ubah data</p>
                         </button>
                     </a>
                     <form action="{{ route("dashboard.divisions.destroy", $division->id) }}" method="POST">
                         @csrf
                         @method("DELETE")
-                        <button type="submit" class="mt-8 inline-flex items-start justify-start rounded-lg bg-red-400 px-6 py-3 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
-                            <p class="text-dark font-medium leading-none">Hapus</p>
+                        <button type="submit" class="mt-8 inline-flex items-start justify-start rounded-lg border-2 border-primary px-6 py-3 text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
+                            <p class="text-dark font-medium leading-none">Hapus data</p>
                         </button>
                     </form>
                 </div>
-                <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+                <div class="rounded-lg bg-white px-4 py-4 shadow md:px-8 md:py-7 xl:px-10">
                     <div class="mb-4 mt-4 overflow-x-auto">
                         <div class="flex flex-col gap-10">
                             <div>

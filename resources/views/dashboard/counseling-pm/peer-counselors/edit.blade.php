@@ -217,10 +217,9 @@
             </div>
         </div>
     </div>
+@endsection
 
-<!-- Modal Konfirmasi dan Script -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+@section('script')
 <script>
     const jadwalPeerData = @json($jadwalPeerCounselors);
 

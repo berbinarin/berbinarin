@@ -47,7 +47,7 @@
                     </a>
                 </div>
             </div>
-            <div class="rounded-md bg-white px-4 py-4 mb-7 md:px-8 md:py-7 xl:px-10">
+            <div class="rounded-lg shadow bg-white px-4 py-4 mb-7 md:px-8 md:py-7 xl:px-10">
                 <div class="mb-4 mt-4 overflow-x-auto">
                     <table id="example" class="min-w-full pt-5 leading-normal">
                         <thead>

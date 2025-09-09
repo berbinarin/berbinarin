@@ -199,7 +199,9 @@
         </div>
     </div>
 
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+@endsection
+
+@section('script'))
 <script>
     const jadwalPeerData = @json($jadwalPeerCounselors);
 

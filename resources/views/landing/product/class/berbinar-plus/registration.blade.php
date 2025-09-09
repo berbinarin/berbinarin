@@ -10,6 +10,7 @@
     .bg-white {
         background-color: white;
     }
+
 </style>
 
 <div class="row">
@@ -152,46 +153,51 @@
                                 id="bookletCheckbox" onclick="showModalBooklet()">
                             <a href="#" class="ml-2 text-sm" onclick="showModalBooklet()">Setuju</a>
                         </div>
-                        <div id="bookletModal" class="fixed z-10 inset-0 overflow-y-auto hidden">
-                            <div
-                                class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0 sm:items-top">
+                        <div id="bookletModal" class="fixed z-50 inset-0 overflow-y-auto hidden">
+                            <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0 sm:items-top">
                                 <div class="fixed inset-0 transition-opacity" aria-hidden="true">
                                     <div class="absolute inset-0 bg-gray-500 opacity-50"></div>
                                 </div>
                                 <span class="hidden sm:inline-block sm:align-middle sm:h-screen"
                                     aria-hidden="true">&#8203;</span>
-                                <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
-                                    role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-                                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4"
-                                        style="background-color: white; @media (max-width: 640px) { background-color: white; }">
-                                        <div class="sm:flex sm:items-start">
+                                <div class="inline-block align-bottom rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full lg:max-w-2xl lg:rounded-3xl"
+                                    role="dialog" aria-modal="true" aria-labelledby="modal-headline" style="background: #FFFFFF; background: linear-gradient(25deg,rgba(255, 255, 255, 1) 0%, rgba(198, 220, 229, 1) 18%, rgba(156, 195, 209, 1) 84%, rgba(96, 158, 181, 1) 100%);">
+                                    <div class="px-4 lg:p-6 lg:pb-0 lg:pt-3">
+                                        <div class="sm:flex sm:items-start lg:justify-center lg:items-center">
                                             <div class="mt-3 text-center sm:mt-0 sm:ml-2 sm:mr-2 sm:text-left w-full">
-                                                <h3 class="text-lg leading-6 font-medium text-gray-900 font-bold"
-                                                    id="modal-headline">
-                                                    Booklet
-                                                </h3>
-                                                <div class="mt-2">
-                                                    <!-- PDF Iframe -->
-                                                    <iframe 
-                                                        src="{{ asset('assets/images/products/berbinar-plus/booklet.pdf') }}" 
-                                                        width="100%" 
-                                                        height="350px" 
-                                                        frameborder="0"
-                                                        class="border border-gray-300 rounded">
-                                                        <a href="{{ asset('assets/images/products/berbinar-plus/booklet.pdf') }}" target="_blank">Download PDF</a>
-                                                        </p>
-                                                    </iframe>
+                                                <div class="w-full flex flex-row justify-center">
+                                                    <h3 class="text-lg text-center leading-6 lg:pb-2 text-[#333333] font-bold lg:text-2xl"
+                                                        id="modal-headline">
+                                                        Booklet Berbinar Class
+                                                    </h3>
+                                                    <a onclick="closeModal()" class="absolute translate-y-1 lg:translate-y-2 bg-[#E4F3F8] rounded-full right-5 lg:right-10 cursor-pointer">
+                                                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-close.svg") }}" class="scale-50" alt="close">
+                                                    </a>
+                                                </div>
+
+                                                <div class="mt-2 w-full lg:right-3">
+                                                    <!-- Swiper Carousel Booklet -->
+                                                    <div class="swiper-container-booklet">
+                                                        <div class="swiper-wrapper">
+                                                            @for ($i = 1; $i <= 23; $i++)
+                                                                <div class="swiper-slide">
+                                                                    <img src="{{ asset('assets/images/products/berbinar-plus/booklet/' . $i . '.png') }}" alt="Booklet {{ $i }}" class="w-full rounded-2xl" />
+                                                                </div>
+                                                            @endfor
+                                                        </div>
+                                                        <div class="swiper-button-prev"></div>
+                                                        <div class="swiper-button-next"></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse mb-2">
-                                        <div class="flex items-start justify-start w-full">
+                                    <div class="px-4 py-3 sm:px-6 flex flex-row justify-center">
+                                        <div class="flex flex-col items-center justify-center w-full">
                                             <input type="checkbox"
-                                                class="form-checkbox h-5 w-5 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
-                                                id="agreeCheckbox" onchange="closeModal()">
-                                            <label for="agreeCheckbox" class="ml-2 cursor-pointer">I Agree with <span
-                                                    class="text-blue-500">Booklet</span></label>
+                                                class="h-10 lg:w-1/4 form-checkbox rounded-md bg-gradient-to-r from-[#3986A3] to-[#225062] checked:bg-gradient-to-r checked:from-[#3986A3] checked:to-[#225062] px-16 py-1 lg:px-20 lg:py-1.5 font-medium text-white max-sm:text-[15px] cursor-pointer"
+                                                id="agreeCheckbox" onchange="agreeModal()">
+                                            <label for="agreeCheckbox" class="absolute -translate-x-1 ml-2 cursor-pointer text-start text-white">Saya Setuju</label>
                                         </div>
                                     </div>
                                 </div>
@@ -312,6 +318,8 @@
 
 {{-- Semua script diletakkan di bawah --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     // Dropdown Jenis Kelamin
@@ -404,8 +412,22 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     window.closeModal = function() {
         document.getElementById('bookletModal').classList.add('hidden');
+    };
+    window.agreeModal = function() {
+        document.getElementById('bookletModal').classList.add('hidden');
         document.getElementById('bookletCheckbox').checked = true;
     };
+
+    // Inisialisasi Swiper untuk booklet
+    new Swiper('.swiper-container-booklet', {
+        slidesPerView: 1,
+        spaceBetween: 40,
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
 
     // Modal Confirm
     function showModalConfirm() {
@@ -589,10 +611,12 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     window.closeModal = function() {
         document.getElementById('bookletModal').classList.add('hidden');
+    };
+    window.agreeModal = function() {
+        document.getElementById('bookletModal').classList.add('hidden');
         document.getElementById('bookletCheckbox').checked = true;
     };
 });
 </script>
 @endsection
 
- 

@@ -27,24 +27,38 @@
                         <!-- First Voucher Row -->
                         <div class="voucher-row">
                             <div class="mb-6 flex flex-row justify-between gap-2">
-                                <div class="w-1/2 text-left">
-                                    <label class="mb-1 block font-medium text-gray-600">Kategori Voucher</label>
-                                    <input type="text" name="category[]" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Pelajar" required />
+                                <div class="text-left w-1/2">
+                                    <label class="block mb-1 font-medium text-gray-600">Jenis Pendaftaran</label>
+                                    <select name="jenis_pendaftaran" id="jenisPendaftaran" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                        <option value="" disabled selected>Pilih Jenis</option>
+                                        <option value="psikolog">Psikolog</option>
+                                        <option value="peer-counselor">Peer Counselor</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-6 flex flex-row justify-between gap-2">
+                                <div class="text-left w-1/2">
+                                    <label class="block mb-1 font-medium text-gray-600">Kategori Voucher</label>
+                                    <select name="category" id="createCategory" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                        <option value="" disabled selected>Pilih Kategori</option>
+                                        <option value="umum">Umum</option>
+                                        <option value="pelajar">Pelajar</option>
+                                    </select>
                                 </div>
                                 <div class="w-1/2 text-left">
                                     <label class="mb-1 block font-medium text-gray-600">Nama Voucher</label>
-                                    <input type="text" name="name[]" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Nama Voucher" required />
+                                    <input type="text" name="nama_voucher" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Nama Voucher" required />
                                 </div>
                             </div>
                             <div class="mb-6 flex flex-row justify-between gap-2">
                                 <div class="w-1/2 text-left">
                                     <label class="mb-1 block font-medium text-gray-600">Kode Voucher</label>
-                                    <input type="text" name="code[]" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Berbinar123" required />
+                                    <input type="text" name="code" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Berbinar123" required />
                                 </div>
                                 <div class="relative w-1/2 text-left">
                                     <label class="mb-1 block font-medium text-gray-600">Diskon</label>
                                     <div class="relative">
-                                        <input type="number" name="percentage[]" class="w-full rounded-lg border border-gray-300 px-3 py-2 pr-8" min="1" max="100" placeholder="90" required />
+                                        <input type="number" name="percentage" class="w-full rounded-lg border border-gray-300 px-3 py-2 pr-8" min="1" max="100" placeholder="90" required />
                                         <span class="pointer-events-none absolute right-3 top-2 text-base text-disabled">%</span>
                                     </div>
                                 </div>
@@ -52,7 +66,7 @@
                             <div class="mb-6 flex flex-row justify-between gap-2">
                                 <div class="w-1/2 text-left">
                                     <label class="mb-1 block font-medium text-gray-600">Tipe Voucher</label>
-                                    <select name="voucher_type[]" class="voucherType w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                    <select name="tipe[]" class="voucherType w-full rounded-lg border border-gray-300 px-3 py-2" required>
                                         <option value="">Pilih Tipe</option>
                                         <option value="metode">Metode</option>
                                         <option value="hari">Hari</option>
@@ -61,7 +75,7 @@
                                 </div>
                                 <div class="w-1/2 text-left">
                                     <label class="voucherDetailLabel mb-1 block font-medium text-gray-600">Detail</label>
-                                    <select name="voucher_detail[]" class="voucherDetail w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                    <select name="detail[]" class="voucherDetail w-full rounded-lg border border-gray-300 px-3 py-2" required>
                                         <option value="">Pilih Detail</option>
                                     </select>
                                 </div>
@@ -77,7 +91,7 @@
                         </h1>
                     </div>
                     <hr class="mb-6 border-t-2 border-t-gray-400" />
-                    <input type="hidden" name="service_type" value="psikolog" />
+                    <input type="hidden" name="service_type" value="psikolog-staff" />
                     <div class="mb-2 flex w-full justify-center gap-4">
                         <button type="button" class="w-1/2 rounded-lg border border-[#3986A3] px-6 py-2 text-[#3986A3] focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2" onclick="closeCreateModal()">Batal</button>
                         <button type="submit" class="w-1/2 rounded-lg bg-[#3986A3] px-6 py-2 text-center text-white hover:bg-[#3986A3] focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2">Simpan</button>
@@ -99,31 +113,8 @@
             </div>
             <div class="mb-6 flex flex-row justify-between gap-2">
                 <div class="w-1/2 text-left">
-                    <label class="mb-1 block font-medium text-gray-600">Kategori Voucher</label>
-                    <input type="text" name="category[]" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Pelajar" required />
-                </div>
-                <div class="w-1/2 text-left">
-                    <label class="mb-1 block font-medium text-gray-600">Nama Voucher</label>
-                    <input type="text" name="name[]" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Nama Voucher" required />
-                </div>
-            </div>
-            <div class="mb-6 flex flex-row justify-between gap-2">
-                <div class="w-1/2 text-left">
-                    <label class="mb-1 block font-medium text-gray-600">Kode Voucher</label>
-                    <input type="text" name="code[]" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Berbinar123" required />
-                </div>
-                <div class="relative w-1/2 text-left">
-                    <label class="mb-1 block font-medium text-gray-600">Diskon</label>
-                    <div class="relative">
-                        <input type="number" name="percentage[]" class="w-full rounded-lg border border-gray-300 px-3 py-2 pr-8" min="1" max="100" placeholder="90" required />
-                        <span class="pointer-events-none absolute right-3 top-2 text-base text-disabled">%</span>
-                    </div>
-                </div>
-            </div>
-            <div class="mb-6 flex flex-row justify-between gap-2">
-                <div class="w-1/2 text-left">
                     <label class="mb-1 block font-medium text-gray-600">Tipe Voucher</label>
-                    <select name="voucher_type[]" class="voucherType w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                    <select name="tipe[]" class="voucherType w-full rounded-lg border border-gray-300 px-3 py-2" required>
                         <option value="">Pilih Tipe</option>
                         <option value="metode">Metode</option>
                         <option value="hari">Hari</option>
@@ -132,7 +123,7 @@
                 </div>
                 <div class="w-1/2 text-left">
                     <label class="voucherDetailLabel mb-1 block font-medium text-gray-600">Detail</label>
-                    <select name="voucher_detail[]" class="voucherDetail w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                    <select name="detail[]" class="voucherDetail w-full rounded-lg border border-gray-300 px-3 py-2" required>
                         <option value="">Pilih Detail</option>
                     </select>
                 </div>
@@ -155,6 +146,9 @@
         </div>
     </div>
 
+@endsection
+
+@section('script')
     <script>
         const voucherTypeOptions = {
             metode: [
@@ -166,9 +160,9 @@
                 { value: 'weekend', text: 'Weekend' },
             ],
             sesi: [
-                { value: '1 jam', text: '1 Jam' },
-                { value: '2 jam', text: '2 Jam' },
-                { value: '3 jam', text: '3 Jam' },
+                { value: '1', text: '1 Jam' },
+                { value: '2', text: '2 Jam' },
+                { value: '3', text: '3 Jam' },
             ],
         };
 
@@ -244,5 +238,17 @@
                 });
             }
         });
+        function closeCreateModal() {
+            // Your existing close modal function
+            document.getElementById('confirmModal').classList.remove('hidden');
+            
+            document.getElementById('confirmCancel').addEventListener('click', function() {
+                window.location.href = "{{ route('dashboard.code-voucher.index') }}";
+            });
+            
+            document.getElementById('cancelCancel').addEventListener('click', function() {
+                document.getElementById('confirmModal').classList.add('hidden');
+            });
+        }
     </script>
 @endsection

@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Create and submit form
             const form = document.createElement('form');
             form.method = 'POST';
-            form.action = `{{ url('dashboard/psychologists') }}/${id}`;
+            form.action = `{{ url('dashboard/data/psychologists') }}/${id}`;
             
             const csrfToken = document.createElement('input');
             csrfToken.type = 'hidden';

@@ -44,7 +44,9 @@ class RoleSeeder extends Seeder
             [
                 'name' => 'web-dev'
             ],
-            
+            [
+                'name' => 'manager-cpm'
+            ],            
         ];
 
         foreach ($roles as $role) {

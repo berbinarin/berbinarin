@@ -123,7 +123,7 @@
                     <p class="w-full text-disabled">Admin dapat menambahkan data divisi dengan menyertakan input yang sesuai untuk setiap form. Data tersebut meliputi nama divisi dan subdivisi jika ada.</p>
                 </div>
             </div>
-            <div class="rounded-md bg-white px-4 py-4 shadow-lg mb-7 shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+            <div class="rounded-lg bg-white px-4 py-4 shadow mb-7 md:px-8 md:py-7 xl:px-10">
                 <form action="{{ route("dashboard.divisions.store") }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="flex items-start gap-4">

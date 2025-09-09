@@ -234,7 +234,7 @@ class PsikotestController extends Controller
             ],
             [
                 'paket' => 'Paket 2',
-                'harga' => 'Rp600.000',
+                'harga' => 'Rp850.000',
                 'keterangan' => [
                     'tes_intelegensi' => true,
                     'tes_sikap_kerja' => true,

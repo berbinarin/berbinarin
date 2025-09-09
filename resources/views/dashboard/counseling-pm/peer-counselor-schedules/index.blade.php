@@ -248,7 +248,8 @@
     </div>
 
     <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="modal-id-backdrop"></div>
-
+@endsection
+@section('script')
     <script type="text/javascript">
         function toggleModal(modalID) {
             document.getElementById(modalID).classList.toggle("hidden");
