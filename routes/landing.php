@@ -16,6 +16,7 @@ use App\Http\Controllers\Landing\Product\Consulting\ConsultingController;
 use App\Http\Controllers\Landing\Product\Counseling\CounselingController;
 use App\Http\Controllers\Landing\Product\Psikotest\PsikotestController;
 use App\Http\Controllers\Landing\Product\EmoShuffle\EmoShuffleController;
+use App\Http\Controllers\Landing\Product\MoodScanTees\MoodScanTeesController;
 use App\Http\Controllers\Landing\Product\ProductController;
 use App\Http\Controllers\Dashboard\AuthUserController;
 use App\Http\Controllers\Dashboard\PTPM\Psikotest\PsikotestFree\FeedbackController;
@@ -95,6 +96,11 @@ Route::prefix('produk')->name('product.')->group(function () {
     // Produk EmoShuffle
     Route::prefix('emo-shuffle')->name('emo-shuffle.')->group(function () {
         Route::get('/', [EmoShuffleController::class, 'index'])->name('index');
+    });
+
+    // Product MoodScan Tees
+    Route::prefix('moodscan-tees')->name('moodscan-tees.')->group(function () {
+        Route::get('/', [MoodscanTeesController::class, 'index'])->name('index');
     });
 
     // Product Class

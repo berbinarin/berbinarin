@@ -454,7 +454,7 @@
                         </div>
 
                         <div class="flex justify-start">
-                            <a href="https://tokopedia.link/gwgtSs9oUOb" target="_blank">
+                            <a href="{{ route('product.moodscan-tees.index') }}">
                                 <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:w-full max-sm:text-[15px]">Lihat Selengkapnya</button>
                             </a>
                         </div>
