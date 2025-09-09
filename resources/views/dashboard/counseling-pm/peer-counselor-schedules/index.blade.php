@@ -44,7 +44,7 @@
                                         <td class="flex gap-2 text-center" style="justify-content: center">
                                             <button onclick="toggleModal('edit-modal-{{ $item->id}}')" type="button"
                                                 class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-500 focus:outline-none rounded">
-                                                <i class='bx bxs-edit-alt text-dark'></i>
+                                                <i class='bx bxs-edit-alt text-white'></i>
                                             </button>
                                             <button  onclick="toggleModal('delete-modal-{{ $item->id}}')" type="button"
                                                     class="focus:ring-2 focus:ring-offset-2  mt-4 sm:mt-0 inline-flex items-start justify-start p-3 bg-red-500 hover:bg-red-500 focus:outline-none rounded">
@@ -248,7 +248,8 @@
     </div>
 
     <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="modal-id-backdrop"></div>
-
+@endsection
+@section('script')
     <script type="text/javascript">
         function toggleModal(modalID) {
             document.getElementById(modalID).classList.toggle("hidden");

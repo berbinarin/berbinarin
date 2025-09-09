@@ -11,7 +11,7 @@
                 <a href="{{ route('dashboard.peer-counselors.index') }}">
                     <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                 </a>
-                <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Tambah Data Peer Counselor</p>
+                <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Tambah Data Konseling Peer Counselor</p>
             </div>
             <p class="w-full text-disabled">
                 Halaman yang digunakan untuk menambahkan, mengelola, dan melengkapi seluruh data pribadi, latar belakang, serta informasi penting lainnya dari peer counselor secara detail untuk keperluan administrasi dan monitoring.
@@ -199,7 +199,9 @@
         </div>
     </div>
 
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+@endsection
+
+@section('script'))
 <script>
     const jadwalPeerData = @json($jadwalPeerCounselors);
 

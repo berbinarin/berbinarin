@@ -18,9 +18,9 @@
             </p>
         </div>
         <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 mb-7 md:px-8 md:py-7 xl:px-10">
-            <form id="createForm" method="POST" action="{{ route('dashboard.code-voucher.store') }}">
+            <form id="createForm" method="POST" action="{{ route('dashboard.code-voucher.update', $voucher->id) }}">
                 @csrf
-                <input type="hidden" name="service_type" value="psikolog">
+                @method('PUT')
 
                 <!-- Voucher Container -->
                 <div id="voucherContainer">
@@ -28,73 +28,107 @@
                     <div class="voucher-row mb-8">
                         <div class="flex flex-row justify-between gap-2 mb-6">
                             <div class="text-left w-1/2">
+                                <label class="block mb-1 font-medium text-gray-600">Jenis Pendaftaran</label>
+                                <select name="jenis_pendaftaran" id="jenisPendaftaran" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                    <option value="" disabled {{ empty(old('jenis_pendaftaran', $voucher->jenis_pendaftaran)) ? 'selected' : '' }}>Pilih Kategori</option>
+                                    <option value="psikolog" {{ old('jenis_pendaftaran', $voucher->jenis_pendaftaran) == 'psikolog' ? 'selected' : '' }}>Psikolog</option>
+                                    <option value="peer-counselor" {{ old('jenis_pendaftaran', $voucher->jenis_pendaftaran) == 'peer-counselor' ? 'selected' : '' }}>Peer Counselor</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex flex-row justify-between gap-2 mb-6">
+                            <div class="text-left w-1/2">
                                 <label class="block mb-1 font-medium text-gray-600">Kategori Voucher</label>
-                                <input type="text" name="category[]" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Pelajar" required>
+                                <select name="category" id="createCategory" class="w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                    <option value="" disabled {{ empty(old('category', $voucher->category)) ? 'selected' : '' }}>Pilih Kategori</option>
+                                    <option value="umum" {{ old('category', $voucher->category) == 'umum' ? 'selected' : '' }}>Umum</option>
+                                    <option value="pelajar" {{ old('category', $voucher->category) == 'pelajar' ? 'selected' : '' }}>Pelajar</option>
+                                </select>
                             </div>
                             <div class="text-left w-1/2">
                                 <label class="block mb-1 font-medium text-gray-600">Nama Voucher</label>
-                                <input type="text" name="name[]" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Nama Voucher" required>
+                                <input type="text" name="nama_voucher" value="{{ old('nama_voucher', $voucher->nama_voucher) }}" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Nama Voucher" required>
                             </div>
                         </div>
                         <div class="flex flex-row justify-between gap-2 mb-6">
                             <div class="text-left w-1/2">
                                 <label class="block mb-1 font-medium text-gray-600">Kode Voucher</label>
-                                <input type="text" name="code[]" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Berbinar123" required>
+                                <input type="text" name="code" value="{{ old('code', $voucher->code) }}" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Berbinar123" required>
                             </div>
                             <div class="text-left w-1/2 relative">
                                 <label class="block mb-1 font-medium text-gray-600">Diskon</label>
                                 <span class="absolute right-3 top-9 text-disabled text-base pointer-events-none">%</span>
-                                <input type="number" name="percentage[]" class="w-full rounded-lg border border-gray-300 px-3 py-2" min="1" max="100" placeholder="90" required>
+                                <input type="number" name="percentage" value="{{ old('percentage', $voucher->percentage) }}" class="w-full rounded-lg border border-gray-300 px-3 py-2" min="1" max="100" placeholder="90" required>
                             </div>
                         </div>
-                        <div class="flex flex-row justify-between gap-2 mb-6">
+
+                        @php
+                            $tipeArr = is_array($voucher->tipe) ? $voucher->tipe : json_decode($voucher->tipe, true);
+                            $detailArr = is_array($voucher->detail) ? $voucher->detail : json_decode($voucher->detail, true);
+                        @endphp
+                        @foreach($tipeArr as $i => $t)
+                        <div class="flex flex-col voucher-row">
+
+
+                        <div class="flex flex-row justify-between gap-2 mb-6 ">
                             <div class="text-left w-1/2">
                                 <label class="block mb-1 font-medium text-gray-600">Tipe Voucher</label>
-                                <select name="voucher_type[]" class="voucher-type w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                <select name="tipe[]" class="voucher-type w-full rounded-lg border border-gray-300 px-3 py-2" required>
                                     <option value="">Pilih Tipe</option>
-                                    <option value="metode">Metode</option>
-                                    <option value="hari">Hari</option>
-                                    <option value="sesi">Sesi</option>
+                                    <option value="metode" {{ $t == 'metode' ? 'selected' : '' }}>Metode</option>
+                                    <option value="hari" {{ $t == 'hari' ? 'selected' : '' }}>Hari</option>
+                                    <option value="sesi" {{ $t == 'sesi' ? 'selected' : '' }}>Sesi</option>
                                 </select>
                             </div>
                             <div class="text-left w-1/2">
-                                <label class="block mb-1 font-medium text-gray-600 detail-label">Detail</label>
-                                <select name="voucher_detail[]" class="voucher-detail w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                <label class="block mb-1 font-medium text-gray-600 detail-label">
+                                    @if($t == 'metode') Metode
+                                    @elseif($t == 'hari') Hari
+                                    @elseif($t == 'sesi') Durasi
+                                    @else Detail
+                                    @endif
+                                </label>
+                                <select name="detail[]" class="voucher-detail w-full rounded-lg border border-gray-300 px-3 py-2" required>
                                     <option value="">Pilih Detail</option>
+                                    @php
+                                        $detailOptions = [];
+                                        if($t == 'metode') $detailOptions = ['offline','online'];
+                                        elseif($t == 'hari') $detailOptions = ['weekdays','weekend'];
+                                        elseif($t == 'sesi') $detailOptions = ['1','2','3'];
+                                    @endphp
+                                    @foreach($detailOptions as $opt)
+                                        <option value="{{ $opt }}" {{ ($detailArr[$i] ?? '') == $opt ? 'selected' : '' }}>
+                                            @if($t == 'sesi')
+                                                {{ $opt }} Jam
+                                            @else
+                                                {{ ucfirst($opt) }}
+                                            @endif
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
+                        <div class="flex justify-end">
+                            <button type="button"
+                                class="btn-delete-voucher flex items-center gap-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm font-semibold text-red-600 transition hover:bg-red-600 hover:text-white hover:border-red-600 shadow-sm"
+                                @if(count($tipeArr) == 1) disabled style="opacity:0.5;cursor:not-allowed;" @endif>
+                                <i class="bx bx-trash text-lg"></i>
+                                <span>Hapus</span>
+                            </button>
+                        </div>
+                        </div>
+                    @endforeach
+
                     </div>
                 </div>
 
                 <!-- Voucher Template (Hidden) -->
                 <template id="voucherTemplate">
-                    <div class="voucher-row mb-8">
-                        <div class="flex flex-row justify-between gap-2 mb-6">
-                            <div class="text-left w-1/2">
-                                <label class="block mb-1 font-medium text-gray-600">Kategori Voucher</label>
-                                <input type="text" name="category[]" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Pelajar" required>
-                            </div>
-                            <div class="text-left w-1/2">
-                                <label class="block mb-1 font-medium text-gray-600">Nama Voucher</label>
-                                <input type="text" name="name[]" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Nama Voucher" required>
-                            </div>
-                        </div>
-                        <div class="flex flex-row justify-between gap-2 mb-6">
-                            <div class="text-left w-1/2">
-                                <label class="block mb-1 font-medium text-gray-600">Kode Voucher</label>
-                                <input type="text" name="code[]" class="w-full rounded-lg border border-gray-300 px-3 py-2" placeholder="Berbinar123" required>
-                            </div>
-                            <div class="text-left w-1/2 relative">
-                                <label class="block mb-1 font-medium text-gray-600">Diskon</label>
-                                <span class="absolute right-3 top-9 text-disabled text-base pointer-events-none">%</span>
-                                <input type="number" name="percentage[]" class="w-full rounded-lg border border-gray-300 px-3 py-2" min="1" max="100" placeholder="90" required>
-                            </div>
-                        </div>
+                    <div class="voucher-row mb-6">
                         <div class="flex flex-row justify-between gap-2 mb-6">
                             <div class="text-left w-1/2">
                                 <label class="block mb-1 font-medium text-gray-600">Tipe Voucher</label>
-                                <select name="voucher_type[]" class="voucher-type w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                <select name="tipe[]" class="voucher-type w-full rounded-lg border border-gray-300 px-3 py-2" required onchange="updateDetailOptions(this)">
                                     <option value="">Pilih Tipe</option>
                                     <option value="metode">Metode</option>
                                     <option value="hari">Hari</option>
@@ -103,7 +137,7 @@
                             </div>
                             <div class="text-left w-1/2">
                                 <label class="block mb-1 font-medium text-gray-600 detail-label">Detail</label>
-                                <select name="voucher_detail[]" class="voucher-detail w-full rounded-lg border border-gray-300 px-3 py-2" required>
+                                <select name="detail[]" class="voucher-detail w-full rounded-lg border border-gray-300 px-3 py-2" required>
                                     <option value="">Pilih Detail</option>
                                 </select>
                             </div>
@@ -115,6 +149,7 @@
                             </button>
                         </div>
                     </div>
+                    {{-- <hr class="mb-6 border-t-2 border-t-gray-400" /> --}}
                 </template>
 
                 <!-- Add More Button -->
@@ -149,7 +184,9 @@
         </div>
     </div>
 </div>
+@endsection
 
+@section('script')
 <script>
     const voucherTypeOptions = {
         'metode': [
@@ -161,9 +198,9 @@
             { value: 'weekend', text: 'Weekend' }
         ],
         'sesi': [
-            { value: '1 jam', text: '1 Jam' },
-            { value: '2 jam', text: '2 Jam' },
-            { value: '3 jam', text: '3 Jam' }
+            { value: '1', text: '1 Jam' },
+            { value: '2', text: '2 Jam' },
+            { value: '3', text: '3 Jam' }
         ]
     };
 
@@ -202,37 +239,70 @@
         }
     }
 
+    function updateDeleteButtons() {
+        const rows = document.querySelectorAll('#voucherContainer .voucher-row');
+        rows.forEach((row, idx) => {
+            const btn = row.querySelector('.btn-delete-voucher');
+            if (rows.length === 1) {
+                btn.disabled = true;
+                btn.style.opacity = '0.5';
+                btn.style.cursor = 'not-allowed';
+            } else {
+                btn.disabled = false;
+                btn.style.opacity = '';
+                btn.style.cursor = '';
+            }
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
         const voucherContainer = document.getElementById('voucherContainer');
         const addButton = document.getElementById('addVoucherButton');
         const template = document.getElementById('voucherTemplate');
 
-        // Initialize existing voucher rows
-        document.querySelectorAll('.voucher-type').forEach(select => {
+        // Event change pada select tipe yang sudah ada
+        voucherContainer.querySelectorAll('.voucher-type').forEach(function(select) {
             select.addEventListener('change', function() {
                 updateDetailOptions(this);
             });
         });
 
+        // Initial update for delete buttons
+        updateDeleteButtons();
+
         // Add new voucher row
         addButton.addEventListener('click', function() {
             const clone = template.content.cloneNode(true);
-            const newRow = clone.querySelector('.voucher-row');
             voucherContainer.appendChild(clone);
 
             // Add event listener to the new select element
-            const newSelect = newRow.querySelector('.voucher-type');
+            const newSelect = voucherContainer.lastElementChild.querySelector('.voucher-type');
             newSelect.addEventListener('change', function() {
                 updateDetailOptions(this);
             });
+
+            updateDeleteButtons();
         });
 
-        // Delete voucher row
+        // Delete voucher row (lama & baru)
         voucherContainer.addEventListener('click', function(e) {
             if (e.target.closest('.btn-delete-voucher')) {
-                const row = e.target.closest('.voucher-row');
-                if (row) {
-                    row.remove();
+                const rows = voucherContainer.querySelectorAll('.voucher-row');
+                if (rows.length > 1) {
+                    const row = e.target.closest('.voucher-row');
+                    if (row) {
+                        row.remove();
+                        updateDeleteButtons();
+                    }
+                } else {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Minimal harus ada 1 baris voucher!',
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 2500
+                    });
                 }
             }
         });

@@ -14,7 +14,6 @@ class CodeVoucher extends Model
         'category',
         'code',
         'percentage',
-        'service_type',
         'jenis_pendaftaran',
         'nama_voucher',
         'tipe',

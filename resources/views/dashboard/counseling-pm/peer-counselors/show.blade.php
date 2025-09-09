@@ -14,7 +14,7 @@
                             <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                         </a>
                         <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">
-                            Data Peer Counselor
+                            Data Konseling Peer Counselor
                         </p>
                     </div>
                     <p class="w-full text-disabled">
@@ -395,6 +395,9 @@
     </div>
 </div>
 
+@endsection
+
+@section('script')
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const deleteButton = document.getElementById('deleteButton');

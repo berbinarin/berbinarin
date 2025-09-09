@@ -4,21 +4,13 @@
 
 @section('content')
     <section class="flex w-full">
-        <div class="flex flex-col">
+        <div class="flex flex-col w-full">
             <div class="w-full">
                 <div class="py-10">
+
+                    {{-- Header Dashboard --}}
                     <div class="">
-                        <!-- <p tabindex="0" class="focus:outline-none text-5xl font-bold leading-normal text-gray-800 mb-2">
-                                                                                        Dashboard</p> -->
                         @role('hr_recruitment')
-                            <!-- <p tabindex="0" class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
-                                Dashboard</p>
-                            <p class="w-2/4 text-disabled">Fitur ini digunakan untuk menampilkan jumlah data posisi hiring,
-                                job
-                                description, serta requirments
-                                yang sedang
-                                atau akan
-                                dibukan atau telah dibuka yang ditampilkan pada website careers Berbinarin.</p> -->
                             <p tabindex="0" class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
                                 Dashboard</p>
                             <p class="w-full text-disabled">Fitur ini digunakan untuk menampilkan jumlah data posisi,
@@ -42,14 +34,14 @@
                                 yang mendaftar melalui situs web Berbinar</p>
                         @endrole
 
-{{--
-                        @role ('psikolog-staff-pm')
+
+                        @role ('manager-cpm')
                             <p tabindex="0"
                                 class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
                                 Dashboard Psikolog Staff</p>
                             <p class="w-full text-disabled">Dashboard ini menampilkan ringkasan data staf psikolog dan voucher aktif, untuk membantu mengelola data psikolog staff. dan kode voucher dengan lebih mudah.</p>
                         @endrole
---}}
+
 
                         @role ('class-pm')
                             <p tabindex="0"
@@ -67,11 +59,7 @@
                             <p class="text-base text-disabled">Dashboard ini menampilkan ringkasan statistik, daftar artikel, penulis, dan kategori.</p>
                         @endrole
 
-
-
-
-
-
+                    {{--
                         @if (Auth::user()->role == 'PsikotestFree')
                             <p tabindex="0"
                                 class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
@@ -89,12 +77,13 @@
                     <p class="w-2/4 text-disabled">Dashboard </p>
                         @else
                             <p class="text-disabled"></p>
-                        @endif
+                        @endif --}}
 
                     </div>
                 </div>
             </div>
 
+            {{-- Section Dashboard --}}
 
             @role ('hr_recruitment')
                 <!-- <div class="flex flex-row w-full gap-6">
@@ -445,47 +434,12 @@
                         });
                     </script>
                 @endsection
-
-
-                                {{--
-                                <div class="text-white rounded-lg flex flex-col justify-between p-4 sm:p-6 relative" style="background-color: #ffffff; min-height: 150px;">
-                                    <div class="flex justify-between items-center">
-                                        <span class="text-sm sm:text-lg font-semibold">Staff Aktif</span>
-                                        <i class='bx bx-user text-xl sm:text-2xl'></i>
-                                    </div>
-                                    <div class="mt-4 sm:mt-8">
-                                        <p class="text-3xl sm:text-4xl md:text-5xl font-bold">{{ $staff->where('status', true)->count() }}</p>
-                                        <p class="mt-1 text-sm sm:text-base">Staff</p>
-                                    </div>
-                                </div>
-                                <div class="text-white rounded-lg flex flex-col justify-between p-4 sm:p-6 relative" style="background-color: #ffffff; min-height: 150px;">
-                                    <div class="flex justify-between items-center">
-                                        <span class="text-sm sm:text-lg font-semibold">Staff Tidak Aktif</span>
-                                        <i class='bx bxs-graduation text-xl sm:text-2xl'></i>
-                                    </div>
-                                    <div class="mt-4 sm:mt-8">
-                                        <p class="text-3xl sm:text-4xl md:text-5xl font-bold">{{ $staff->where('status', false)->count() }}</p>
-                                        <p class="mt-1 text-sm sm:text-base">Staff</p>
-                                    </div>
-                                </div>
-                                <div class="text-white rounded-lg flex flex-col justify-between p-4 sm:p-6 relative sm:col-span-2 md:col-span-1" style="background-color: #ffffff; min-height: 150px;">
-                                    <div class="flex justify-between items-center">
-                                        <span class="text-sm sm:text-lg font-semibold">Jumlah Subdivisi</span>
-                                        <i class='bx bxs-buildings text-xl sm:text-2xl'></i>
-                                    </div>
-                                    <div class="mt-4 sm:mt-8">
-                                        <p class="text-3xl sm:text-4xl md:text-5xl font-bold">{{ $subDivisions }}</p>
-                                        <p class="mt-1 text-sm sm:text-base">Subdivisi</p>
-                                    </div>
-                                </div>
-                                --}}
-
-
             @endrole
 
             @role ('counseling-pm')
+            <div class="flex flex-col w-full gap-6">
                 <div class="flex flex-row w-full gap-6">
-                    <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                    <div class="flex w-1/3 items-center p-8 bg-white shadow rounded-lg">
                         <div
                             class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
                             <i class='bx bx-calendar text-2xl'></i>
@@ -496,43 +450,151 @@
                         </div>
                     </div>
 
-                    <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                    <div class="flex w-1/3 items-center p-8 bg-white shadow rounded-lg">
                         <div
                             class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
                             <i class='bx bx-user text-2xl'></i>
                         </div>
                         <div>
-                            <span class="block text-2xl font-bold">{{ $PeerConsellorData }}</span>
-                            <span class="block text-gray-500">Data Peer Counselor</span>
+                            <span class="block text-2xl font-bold">{{ $KonselingData }}</span>
+                            <span class="block text-gray-500">Data</span>
                         </div>
                     </div>
 
-                    <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                    <div class="flex w-1/3 items-center p-8 bg-white shadow rounded-lg">
                         <div
                             class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
-                            <i class='bx bx-user text-2xl'></i>
+                            <i class='bx bx-calendar text-2xl'></i>
                         </div>
                         <div>
-                            <span class="block text-2xl font-bold">{{ $PsikologData }}</span>
-                            <span class="block text-gray-500">Data Psikolog</span>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                        <div
-                            class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
-                            <i class='bx bx-user text-2xl'></i>
-                        </div>
-                        <div>
-                            <span class="block text-2xl font-bold">{{ $BerbinarForU }}</span>
-                            <span class="block text-gray-500">Data Berbinar For U</span>
+                            <span class="block text-2xl font-bold">{{ $KodeVoucherData }}</span>
+                            <span class="block text-gray-500">Kode Voucher</span>
                         </div>
                     </div>
                 </div>
+
+
+                <!-- Charts Section -->
+                <div class="w-full grid grid-cols-1 gap-6">
+                    <div class="flex h-[330px] flex-col rounded-xl bg-white px-6 py-4 shadow">
+                        <div class="mb-4">
+                            <h1 class="text-[28px] text-[#75BADB]"><b>Data Pendaftar Konseling</b></h1>
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                                <p class="text-[14px]">Berikut ini merupakan visualisasi jumlah pendaftar layanan konseling Peer Conselor dan Psikolog.</p>
+                            </div>
+                        </div>
+                        <div class="flex w-full flex-col items-center h-full">
+                            <canvas id="marketingChart" class="mb-1" style="max-height: 180px;"></canvas>
+                            <div class="mb-4 flex gap-4 text-xs">
+                                @php
+                                    $chartLabels = ['Peer Counselor', 'Psikolog', 'Berbinar For U'];
+                                    $chartColors = ['#106681', '#E9B306', '#232ACA'];
+                                @endphp
+                                @foreach($chartLabels as $i => $label)
+                                    <div class="flex items-center gap-1">
+                                        <span class="inline-block h-3 w-3 rounded" style="background: {{ $chartColors[$i] }}"></span>
+                                        {{ $label }}
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @section('script')
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            const chartDataValues = [{{ $PeerConsellorData }}, {{ $PsikologData }}, {{ $BerbinarForU }}];
+                            const chartColors = ['rgba(16, 102, 129, 0.6)', 'rgba(233, 179, 6, 0.6)', 'rgba(35, 42, 202, 0.6)'];
+                            const solidColors = ['#106681', '#E9B306', '#232ACA'];
+                            const chartLabels = ['Peer Counselor', 'Psikolog', 'Berbinar For U'];
+
+                            const ctx = document.getElementById('marketingChart').getContext('2d');
+                            const chartData = {
+                                labels: chartLabels,
+                                datasets: [
+                                    {
+                                        label: 'Jumlah',
+                                        data: chartDataValues,
+                                        backgroundColor: chartColors,
+                                        borderRadius: 0,
+                                        barThickness: 30,
+                                    },
+                                ],
+                            };
+
+                            new Chart(ctx, {
+                                type: 'bar',
+                                data: chartData,
+                                options: {
+                                    indexAxis: 'y',
+                                    scales: {
+                                        x: {
+                                            beginAtZero: true,
+                                            grid: { color: '#eee' },
+                                            position: 'top',
+                                            ticks: {
+                                                stepSize: 50,
+                                                callback: function(value) {
+                                                    return value % 50 === 0 ? value : '';
+                                                }
+                                            },
+                                            min: 0,
+                                            max: 250, // Fixed maximum scale at 250
+                                            suggestedMax: 250 // Ensure the scale always goes up to 250
+                                        },
+                                        y: {
+                                            grid: { color: '#eee' },
+                                        },
+                                    },
+                                    plugins: {
+                                        legend: { display: false },
+                                    },
+                                    animation: false,
+                                },
+                                plugins: [
+                                    {
+                                        afterDatasetsDraw: function (chart) {
+                                            const ctx = chart.ctx;
+                                            chart.data.datasets.forEach(function (dataset, i) {
+                                                const meta = chart.getDatasetMeta(i);
+                                                meta.data.forEach(function (bar, index) {
+                                                    const value = dataset.data[index];
+                                                    ctx.save();
+                                                    ctx.font = 'bold 14px sans-serif';
+                                                    if (value >= Math.max(...chartDataValues) * 0.8) {
+                                                        ctx.fillStyle = '#fff';
+                                                        ctx.textAlign = 'right';
+                                                        ctx.textBaseline = 'middle';
+                                                        ctx.fillText(value, bar.x - 10, bar.y);
+                                                    } else {
+                                                        ctx.fillStyle = '#444';
+                                                        ctx.textAlign = 'left';
+                                                        ctx.textBaseline = 'middle';
+                                                        ctx.fillText(value, bar.x + 10, bar.y);
+                                                    }
+                                                    if (value > 0) {
+                                                        const solidColor = solidColors[index % solidColors.length];
+                                                        const barHeight = bar.height || (bar.base - bar.y) * 2;
+                                                        ctx.fillStyle = solidColor;
+                                                        ctx.fillRect(bar.x - 6, bar.y - barHeight / 2, 12, barHeight);
+                                                    }
+                                                    ctx.restore();
+                                                });
+                                            });
+                                        },
+                                    },
+                                ],
+                            });
+                        });
+                    </script>
+                @endsection
             @endrole
 
-{{--
-            @role ('psikolog-staff-pm')
+
+            @role ('manager-cpm')
                 <div class="flex flex-row w-full gap-6">
                     <div class="flex items-center p-8 bg-white shadow rounded-lg">
                         <div
@@ -540,25 +602,14 @@
                             <i class='bx bx-table text-2xl'></i>
                         </div>
                         <div>
-                            <span class="block text-2xl font-bold">1</span>
+                            <span class="block text-2xl font-bold">{{ $PsikologDataStaff }}</span>
                             <span class="block text-gray-500">Psikolog Staff</span>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                        <div
-                            class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
-                            <i class='bx bx-credit-card text-2xl'></i>
-                        </div>
-                        <div>
-                            <span class="block text-2xl font-bold">1</span>
-                            <span class="block text-gray-500">Voucher</span>
                         </div>
                     </div>
 
                 </div>
             @endrole
---}}
+
 
             @role('class-pm')
                 <div class="flex flex-row items-center mx-10 py-12 px-20 justify-between gap-12 bg-white shadow-xl rounded-3xl">

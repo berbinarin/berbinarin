@@ -19,6 +19,8 @@ use App\Http\Controllers\Landing\Product\EmoShuffle\EmoShuffleController;
 use App\Http\Controllers\Landing\Product\MoodScanTees\MoodScanTeesController;
 use App\Http\Controllers\Landing\Product\ProductController;
 use App\Http\Controllers\Dashboard\AuthUserController;
+use App\Http\Controllers\Landing\Product\Counseling\BerbinarForU\BerbinarForUController;
+use App\Http\Controllers\Landing\Product\Counseling\PeerCounselor\PeerCounselorController;
 use App\Http\Controllers\Dashboard\PTPM\Psikotest\PsikotestFree\FeedbackController;
 use App\Http\Controllers\Dashboard\PTPM\Psikotest\PsikotestFree\ResultController;
 use App\Http\Controllers\Dashboard\PTPM\PsikotestFree\PsikotestFreeController;
@@ -27,6 +29,8 @@ use App\Http\Controllers\Dashboard\PsikotestFree\PsikotestFreeController as Psik
 use App\Http\Controllers\Dashboard\PTPM\Psikotest\PsikotestFree\QuestionController;
 use App\Http\Controllers\Dashboard\PTPM\Psikotest\PsikotestFree\UserPsikotestFreeController;
 use App\Http\Controllers\Landing\Arteri\InteractionController;
+use App\Http\Controllers\Landing\Product\Counseling\PsikologStaff\PsikologStaffController;
+use App\Http\Controllers\Landing\Product\Counseling\PsikologUmum\PsikologUmumController;
 use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
 
@@ -52,26 +56,26 @@ Route::prefix('produk')->name('product.')->group(function () {
 
         // Pendaftaran Konseling (Psikolog)
         Route::prefix('psikolog')->name('psikolog.')->group(function () {
-            Route::get('/daftar-psikolog', [CounselingController::class, 'registrationPsikolog'])->name('registration');
-            Route::get('/', [CounselingController::class, 'showPsikologForm'])->name('index');
-            Route::get('/registrasi', [CounselingController::class, 'showPsikologRegistration'])->name('registrasi');
-            Route::post('/registrasi', [CounselingController::class, 'storePsikologRegistration'])->name('store');
-            Route::get('/staff', [CounselingController::class, 'showPsikologStaffForm'])->name('staff');
-            Route::post('/staff', [CounselingController::class, 'storePsikologStaffRegistration'])->name('staff.store');
-            Route::get('/cek-voucher', [CounselingController::class, 'cekVoucher']);
+            Route::get('/daftar-psikolog', [PsikologUmumController::class, 'registrationPsikolog'])->name('registration');
+            Route::get('/', [PsikologUmumController::class, 'showPsikologForm'])->name('index');
+            Route::get('/registrasi', [PsikologUmumController::class, 'showPsikologRegistration'])->name('registrasi');
+            Route::post('/registrasi', [PsikologUmumController::class, 'storePsikologRegistration'])->name('store');
+            Route::get('/staff', [PsikologStaffController::class, 'showPsikologStaffForm'])->name('staff');
+            Route::post('/staff', [PsikologStaffController::class, 'storePsikologStaffRegistration'])->name('staff.store');
+            Route::match(['get', 'post'], '/cek-voucher', [CounselingController::class, 'cekVoucher']);      
         });
 
         // Pendaftaran Konseling (Peer Counselor)
         Route::prefix('peer-counselor')->name('peer-counselor.')->group(function () {
-            Route::get('/daftar-peer', [CounselingController::class, 'registrationPeer'])->name('registration');
-            Route::get('/', [CounselingController::class, 'showPeerForm'])->name('index');
-            Route::post('/', [CounselingController::class, 'storePeerRegistration'])->name('store');
+            Route::get('/daftar-peer', [PeerCounselorController::class, 'registrationPeer'])->name('registration');
+            Route::get('/', [PeerCounselorController::class, 'showPeerForm'])->name('index');
+            Route::post('/', [PeerCounselorController::class, 'storePeerRegistration'])->name('store');
         });
 
         // BerbinarForU
         Route::prefix('berbinar-for-u')->name('berbinar-for-u.')->group(function () {
-            Route::get('/', [CounselingController::class, 'ShowBerbinarForUForm'])->name('index');
-            Route::post('/', [CounselingController::class, 'storeBerbinarForURegistration'])->name('store');
+            Route::get('/', [BerbinarForUController::class, 'ShowBerbinarForUForm'])->name('index');
+            Route::post('/', [BerbinarForUController::class, 'storeBerbinarForURegistration'])->name('store');
         });
     });
 

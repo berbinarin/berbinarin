@@ -11,7 +11,7 @@
             <div class="w-full">
                 <div class="py-4 md:pb-7 md:pt-12 w-full">
                     <div class="w-[80vw]">
-                        <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Data</p>
+                        <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Data Konseling</p>
                         <p class="text-disabled">Halaman ini menampilkan seluruh data dari psikolog, peer counselor, dan Berbinar for u</p>
                         <div class="w-full py-5 grid grid-cols-2 gap-8">
 

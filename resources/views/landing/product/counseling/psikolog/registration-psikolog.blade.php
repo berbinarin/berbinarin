@@ -200,10 +200,10 @@
 
 {{-- Form Input Pendafataran --}}
 <form id="multiStepForm" action="{{ route('product.counseling.psikolog.store') }}" method="POST" class="flex flex-col" enctype="multipart/form-data">
-            @csrf
+        @csrf
 
         {{-- STEP 1: Pilih Jadwal Konseling --}}
-
+        
         <div id="step-1" class="step-section active">
             <h1 class="max-sm:text-[29px] text-3xl font font-semibold text-center max-sm:mx-2 text-gradient my-6">Isi Jadwal Konseling</h1>
             <input type="hidden" name="kategori" value="psikolog">
@@ -478,330 +478,268 @@
         </div>
     </form>
 </div>
+@endsection
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   {{-- Eror handling Jika data gagal di simpan ke DB --}}
-    @if(session('error'))
-        <script>
+
+@section('script')
+
+    {{-- Script untuk validasi kode voucher --}}
+    @include('landing.product.counseling.script-code-voucher.voucher')
+
+    {{-- Script untuk validasi inputan step 1,2,3 --}}
+    @include('landing.product.counseling.script-validasi-inputan.validasi')
+
+{{-- Script untuk logika form --}}
+<script>
+
+    // KONSTANTA HARGA
+    const HARGA = {
+        online: { weekdays: [150000, 300000, 450000], weekend: [200000, 340000, 500000] },
+        offline: { weekdays: [175000, 350000, 525000], weekend: [225000, 340000, 500000] }
+    };
+
+    // MODAL SYARAT & KETENTUAN
+    ['openModal', 'openModal2', 'openModal3'].forEach(id => {
+        document.getElementById(id)?.addEventListener('click', function() {
+            document.getElementById('modal').classList.remove('hidden');
+        });
+    });
+    // Tutup modal S&K
+    document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('modal').classList.add('hidden');
+    });
+
+    // MODAL VOUCHER PROMO
+    document.getElementById('closeVoucher').addEventListener('click', function() {
+        document.getElementById('voucher').classList.add('hidden');
+    });
+
+    // FUNGSI TAMPILKAN HARGA
+    function tampilkanHarga(hargaAsli, hargaDiskon) {
+        document.getElementById('harga-asli').textContent = 'Rp' + hargaAsli.toLocaleString();
+        document.getElementById('harga-diskon').textContent = 'Rp' + hargaDiskon.toLocaleString();
+        document.getElementById('harga-input').value = hargaDiskon;
+    }
+
+    // FUNGSI STEP FORM
+    function nextStep(step) {
+        let errorMessage = null;
+        if (step === 2) errorMessage = validateStep1();
+        else if (step === 3) errorMessage = validateStep2();
+
+        if (errorMessage) {
             Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: '{{ session('error') }}',
                 toast: true,
                 position: "top-end",
+                icon: "error",
+                title: errorMessage,
                 showConfirmButton: false,
                 showCloseButton: true,
                 timer: 4000
             });
-        </script>
+            return;
+        }
+        showStep(step);
+    }
+
+    function validateAndNextStep(step) {
+        let errorMessage = null;
+        if (step === 2) errorMessage = validateStep1();
+        else if (step === 3) errorMessage = validateStep2();
+
+        if (errorMessage) {
+            Swal.fire({
+                toast: true,
+                position: "top-end",
+                icon: "error",
+                title: errorMessage,
+                showConfirmButton: false,
+                showCloseButton: true,
+                timer: 4000
+            });
+            return;
+        }
+        showStep(step);
+    }
+
+    function prevStep(step) {
+        showStep(step);
+    }
+
+    function showStep(step) {
+    // Sembunyikan semua step-section
+    document.querySelectorAll('.step-section').forEach(function(section) {
+        section.classList.remove('active');
+    });
+    // Tampilkan step yang dipilih
+    const currentStep = document.getElementById('step-' + step);
+    if (currentStep) {
+        currentStep.classList.add('active');
+    }
+    // Sembunyikan semua header
+    document.querySelectorAll('[id^="step-"][id$="-header"]').forEach(function(header) {
+        header.style.display = 'none';
+    });
+    // Tampilkan header step yang aktif
+    const currentHeader = document.getElementById('step-' + step + '-header');
+    if (currentHeader) {
+        currentHeader.style.display = 'flex';
+    }
+    }
+
+    // VALIDASI SUBMIT FORMULIR
+    document.getElementById('multiStepForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const errorMessage = validateStep3();
+        if (errorMessage) {
+            Swal.fire({
+                toast: true,
+                position: "top-end",
+                icon: "error",
+                title: errorMessage,
+                showConfirmButton: false,
+                showCloseButton: true,
+                timer: 4000
+            });
+            return;
+        }
+        // Set daerah ke 'Online' jika metode online
+        const metode = document.getElementById('metode-select').value;
+        const daerahSelect = document.getElementById('daerah-select');
+        if (metode === 'online') daerahSelect.value = 'Online';
+
+        // Set harga final
+        const hargaInput = document.getElementById('harga-input');
+        hargaInput.value = hargaInput.dataset.hargaFinal || hargaInput.dataset.hargaAsli;
+
+        this.submit();
+    });
+
+    // FLATPICKR (DATEPICKER)
+    document.addEventListener("DOMContentLoaded", function () {
+        // Tanggal Jadwal Konseling
+        flatpickr("#tglkonseling", {
+            dateFormat: "d/m/Y",
+            allowInput: true,
+            minDate: new Date().fp_incr(7),
+        });
+        // Waktu Jadwal Konseling
+        flatpickr("#waktukonseling", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+            time_24hr: true
+        });
+        // Tanggal Lahir Data Diri
+        flatpickr("#tanggal_lahir", {
+            dateFormat: "d/m/Y",
+            allowInput: true,
+        });
+    });
+
+    // TAMPILKAN/SEMBUNYIKAN DAERAH KONSELING
+    document.getElementById('metode-select').addEventListener('change', function() {
+        const daerahContainer = document.getElementById('daerah-container');
+        const daerahSelect = document.getElementById('daerah-select');
+        if (this.value === 'offline') {
+            daerahContainer.style.display = 'block';
+            daerahSelect.required = true;
+            daerahSelect.value = '';
+        } else {
+            daerahContainer.style.display = 'none';
+            daerahSelect.required = false;
+            daerahSelect.value = 'Online';
+        }
+        updateHarga();
+    });
+
+
+    // LOGIKA PENENTUAN HARGA
+    function updateHarga() {
+        const tanggal = document.getElementById('tglkonseling').value;
+        const metode = document.getElementById('metode-select').value;
+        const sesi = document.getElementById('sesi-select').value;
+        const hargaInput = document.getElementById('harga-input');
+        const hargaAsliSpan = document.getElementById('harga-asli');
+        const hargaDiskonSpan = document.getElementById('harga-diskon');
+
+        if (!tanggal || !metode || !sesi) {
+            hargaInput.value = '';
+            hargaInput.dataset.hargaAsli = '';
+            hargaInput.dataset.hargaFinal = '';
+            hargaAsliSpan.textContent = '';
+            hargaDiskonSpan.textContent = '';
+            return;
+        }
+        const dateParts = tanggal.split('/');
+        if (dateParts.length !== 3) {
+            hargaInput.value = '';
+            hargaInput.dataset.hargaAsli = '';
+            hargaInput.dataset.hargaFinal = '';
+            hargaAsliSpan.textContent = '';
+            hargaDiskonSpan.textContent = '';
+            return;
+        }
+        const dateObj = new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
+        const day = dateObj.getDay();
+        const isWeekend = (day === 0 || day === 6);
+        let harga = 0;
+        if (!isWeekend) {
+            if (metode === 'online') harga = {1: 150000, 2: 300000, 3: 450000}[sesi];
+            else if (metode === 'offline') harga = {1: 175000, 2: 350000, 3: 525000}[sesi];
+        } else {
+            if (metode === 'online') harga = {1: 200000, 2: 340000, 3: 500000}[sesi];
+            else if (metode === 'offline') harga = {1: 225000, 2: 340000, 3: 500000}[sesi];
+        }
+        hargaInput.value = harga;
+        hargaInput.dataset.hargaAsli = harga;
+        hargaInput.dataset.hargaFinal = harga;
+        hargaAsliSpan.textContent = harga ? 'Rp' + harga.toLocaleString() : '';
+        hargaDiskonSpan.textContent = '';
+    }
+    document.getElementById('tglkonseling').addEventListener('change', updateHarga);
+    document.getElementById('metode-select').addEventListener('change', updateHarga);
+    document.getElementById('sesi-select').addEventListener('change', updateHarga);
+
+    // FILE UPLOAD KARTU PELAJAR
+    const fileNameSpan = document.getElementById('fileName');
+    fileNameSpan.textContent = "No File";
+    document.getElementById('bukti_kartu_pelajar').addEventListener('change', function(e) {
+        if (this.files && this.files.length > 0) {
+            // Validasi ukuran file max 1MB
+            if (this.files[0].size > 1024 * 1024) {
+                Swal.fire({
+                    toast: true,
+                    position: "top-end",
+                    icon: "error",
+                    title: "Ukuran file maksimal 1 MB!",
+                    showConfirmButton: false,
+                    timer: 4000
+                });
+                this.value = "";
+                fileNameSpan.textContent = "No File";
+            } else {
+                fileNameSpan.textContent = this.files[0].name;
+            }
+        } else {
+            fileNameSpan.textContent = "No File";
+        }
+    });
+
+    // ERROR HANDLING DARI BACKEND JIKA ADA KESALAHAN DALAM SUBMIT FORM
+    @if(session('error'))
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '{{ session('error') }}',
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            showCloseButton: true,
+            timer: 4000
+        });
     @endif
 
-{{-- Script untuk logika form --}}
-<script>
-   // --- Konstanta Harga ---
-        const HARGA = {
-            online: { weekdays: [150000, 300000, 450000], weekend: [200000, 340000, 500000] },
-            offline: { weekdays: [175000, 350000, 525000], weekend: [225000, 340000, 500000] }
-        };
-
-        // --- Helper Validasi ---
-        function getFieldLabel(fieldName) {
-            const field = document.querySelector(`[name="${fieldName}"]`);
-            if (field) {
-                const container = field.closest('.flex.flex-col.space-y-1');
-                if (container) {
-                    const label = container.querySelector('p');
-                    if (label) return label.textContent.trim();
-                }
-            }
-            return fieldName.replace(/_/g, ' ');
-        }
-        function isValidEmail(email) {
-            return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
-        }
-        function isValidPhoneNumber(number) {
-            return /^(\+62|62|0)8[1-9][0-9]{6,11}$/.test(number);
-        }
-
-        // --- Validasi Step ---
-        function validateStep1() {
-            const requiredFields = ['jadwal_tanggal', 'jadwal_pukul', 'metode', 'sesi'];
-            const metode = document.getElementById('metode-select').value;
-            if (metode === 'offline') requiredFields.push('daerah');
-            const kategoriVoucher = document.getElementById('bukti-kartu-pelajar-container').style.display === 'block' ? 'pelajar' : '';
-            for (let fieldName of requiredFields) {
-                let field;
-                if (fieldName === 'metode') field = document.getElementById('metode-select');
-                else if (fieldName === 'sesi') field = document.getElementById('sesi-select');
-                else if (fieldName === 'daerah') field = document.getElementById('daerah-select');
-                else field = document.querySelector(`[name="${fieldName}"]`);
-                if (!field || field.value.trim() === '' || field.value === 'Pilih metode konseling') {
-                    return 'Data "' + getFieldLabel(fieldName) + '" belum diisi.';
-                }
-            }
-            if (kategoriVoucher === 'pelajar') {
-                const buktiKartu = document.getElementById('bukti_kartu_pelajar');
-                if (!buktiKartu.files || buktiKartu.files.length === 0) {
-                    return 'Bukti Kartu Pelajar wajib diupload untuk kategori pelajar.';
-                }
-            }
-            return null;
-        }
-        function validateStep2() {
-            const requiredFields = [
-                'nama', 'email', 'tanggal_Lahir', 'tempat_lahir', 'alamat', 'status_pernikahan',
-                'jenis_kelamin', 'no_wa', 'suku', 'agama', 'posisi_anak', 'hobi',
-                'pendidikan', 'asal_sekolah', 'riwayat_pekerjaan', 'kegiatan_sosial'
-            ];
-            for (let fieldName of requiredFields) {
-                let field = document.querySelector(`[name="${fieldName}"]`);
-                if (!field || field.value.trim() === '') {
-                    return '"' + getFieldLabel(fieldName) + '" belum diisi :(';
-                }
-                if (fieldName === 'email' && !isValidEmail(field.value)) {
-                    return 'Format ' + getFieldLabel(fieldName) + ' tidak valid :(';
-                }
-                if (fieldName === 'no_wa' && !isValidPhoneNumber(field.value)) {
-                    return 'Format ' + getFieldLabel(fieldName) + ' tidak valid :(';
-                }
-            }
-            return null;
-        }
-        function validateStep3() {
-            const cerita = document.querySelector('[name="cerita"]');
-            if (!cerita || cerita.value.trim() === '') {
-                return '" ' + getFieldLabel('cerita') + '" belum diisi :(';
-            }
-            return null;
-        }
-
-        // --- Navigasi Step ---
-        function showStep(step) {
-            document.querySelectorAll('.step-section').forEach(el => el.classList.remove('active'));
-            document.getElementById('step-' + step).classList.add('active');
-            document.getElementById('step-1-header').style.display = step === 1 ? 'flex' : 'none';
-            document.getElementById('step-2-header').style.display = step === 2 ? 'flex' : 'none';
-            document.getElementById('step-3-header').style.display = step === 3 ? 'flex' : 'none';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        function validateAndNextStep(step) {
-            let errorMessage = null;
-            if (step === 2) errorMessage = validateStep1();
-            else if (step === 3) errorMessage = validateStep2();
-            if (errorMessage) {
-                Swal.fire({ toast: true, position: "top-end", icon: "error", title: errorMessage, showConfirmButton: false, showCloseButton: true, timer: 4000 });
-                return;
-            }
-            showStep(step);
-        }
-        function prevStep(step) { showStep(step); }
-
-        // --- Harga ---
-        function getHarga(tanggal, metode, sesi) {
-            if (!tanggal || !metode || !sesi) return 0;
-            const [d, m, y] = tanggal.split('/');
-            const dateObj = new Date(y, m - 1, d);
-            const day = dateObj.getDay();
-            const isWeekend = (day === 0 || day === 6);
-            const tipeHari = isWeekend ? 'weekend' : 'weekdays';
-            return HARGA[metode][tipeHari][sesi - 1];
-        }
-        function updateHargaDisplay(harga, diskon) {
-            const hargaAsliSpan = document.getElementById('harga-asli');
-            const hargaDiskonSpan = document.getElementById('harga-diskon');
-            const hargaInput = document.getElementById('harga-input');
-            if (diskon) {
-                hargaAsliSpan.textContent = 'Rp' + harga.toLocaleString();
-                hargaAsliSpan.className = 'harga-coret';
-                hargaDiskonSpan.textContent = 'Rp' + diskon.toLocaleString();
-                hargaInput.value = diskon;
-                hargaInput.dataset.hargaFinal = diskon;
-            } else {
-                hargaAsliSpan.textContent = 'Rp' + harga.toLocaleString();
-                hargaAsliSpan.className = '';
-                hargaDiskonSpan.textContent = '';
-                hargaInput.value = harga;
-                hargaInput.dataset.hargaFinal = harga;
-            }
-        }
-        function updateHarga() {
-            const tanggal = document.getElementById('tglkonseling').value;
-            const metode = document.getElementById('metode-select').value;
-            const sesi = document.getElementById('sesi-select').value;
-            const harga = getHarga(tanggal, metode, sesi);
-            const hargaInput = document.getElementById('harga-input');
-            hargaInput.dataset.hargaAsli = harga;
-            updateHargaDisplay(harga, null);
-        }
-
-        // --- Voucher ---
-        function isVoucherEligible(voucher, tanggal, metode, sesi) {
-            if (!voucher.valid || voucher.jenis_pendaftaran !== 'psikolog') return false;
-            if (voucher.tipe === 'tanggal') {
-                const [d, m, y] = tanggal.split('/');
-                const dateObj = new Date(y, m - 1, d);
-                const day = dateObj.getDay();
-                const isWeekend = (day === 0 || day === 6);
-                if (isWeekend && voucher.detail.toLowerCase() === 'weekend') return true;
-                if (!isWeekend && voucher.detail.toLowerCase() === 'weekdays') return true;
-            } else if (voucher.tipe === 'metode') {
-                return metode.toLowerCase() === voucher.detail.toLowerCase();
-            } else if (voucher.tipe === 'sesi') {
-                return voucher.detail.replace(/\s/g, '') === ('sesi' + sesi).replace(/\s/g, '');
-            }
-            return false;
-        }
-        function redeemVoucher() {
-            const kode = document.getElementById('kode_promo').value.trim();
-            const tanggal = document.getElementById('tglkonseling').value;
-            const metode = document.getElementById('metode-select').value;
-            const sesi = document.getElementById('sesi-select').value;
-            const hargaInput = document.getElementById('harga-input');
-            const harga = getHarga(tanggal, metode, sesi);
-
-            if (!kode) {
-                Swal.fire({ toast: true, position: "top-end", icon: "error", title: "Masukkan kode promo terlebih dahulu.", showConfirmButton: false, timer: 4000 });
-                return;
-            }
-            if (!harga) {
-                Swal.fire({ toast: true, position: "top-end", icon: "error", title: "Silakan pilih jadwal, metode, dan sesi terlebih dahulu.", showConfirmButton: false, timer: 4000 });
-                return;
-            }
-
-            fetch('/produk/konseling/psikolog/cek-voucher?code=' + encodeURIComponent(kode))
-                .then(res => res.json())
-                .then(voucher => {
-                    if (isVoucherEligible(voucher, tanggal, metode, sesi)) {
-                        const diskon = harga - (harga * voucher.percentage / 100);
-                        updateHargaDisplay(harga, diskon);
-
-                        // Set hidden input voucher info
-                        document.getElementById('kategori_voucher').value = voucher.category || '';
-                        document.getElementById('code_voucher').value = voucher.code || kode;
-                        document.getElementById('presentase_diskon').value = voucher.percentage || 0;
-
-                        // Tampilkan bukti kartu pelajar jika kategori pelajar
-                        if (voucher.category && voucher.category.toLowerCase() === 'pelajar') {
-                            document.getElementById('bukti-kartu-pelajar-container').style.display = 'block';
-                            document.getElementById('bukti_kartu_pelajar').setAttribute('required', 'required');
-                            document.getElementById('bukti_kartu_pelajar').removeAttribute('disabled');
-                            document.getElementById('voucher').classList.remove('hidden');
-
-                            const syaratButtons = ['openModal', 'openModal2', 'openModal3'];
-                            syaratButtons.forEach(id => {
-                                const btn = document.getElementById(id);
-                                if (btn) {
-                                    btn.onclick = function() {
-                                        document.getElementById('voucher').classList.remove('hidden');
-                                        document.getElementById('modal').classList.add('hidden');
-                                    };
-                                }
-                            });
-                        } else {
-                            document.getElementById('bukti-kartu-pelajar-container').style.display = 'none';
-                            document.getElementById('bukti_kartu_pelajar').removeAttribute('required');
-                            document.getElementById('bukti_kartu_pelajar').removeAttribute('disabled');
-                        }
-                        Swal.fire({ toast: true, position: "top-end", icon: "success", title: "Kode voucher berhasil digunakan!", showConfirmButton: false, timer: 4000 });
-                    } else {
-                        // Kosongkan jika tidak eligible
-                        document.getElementById('kategori_voucher').value = '';
-                        document.getElementById('code_voucher').value = '';
-                        document.getElementById('presentase_diskon').value = '';
-                        updateHargaDisplay(harga, null);
-                        document.getElementById('bukti-kartu-pelajar-container').style.display = 'none';
-                        document.getElementById('bukti_kartu_pelajar').removeAttribute('required');
-                        Swal.fire({ toast: true, position: "top-end", icon: "error", title: "Kode voucher tidak berlaku!", showConfirmButton: false, timer: 4000 });
-                    }
-                })
-                .catch(() => {
-                    Swal.fire({ toast: true, position: "top-end", icon: "error", title: "Kode voucher tidak valid!", showConfirmButton: false, timer: 4000 });
-                });
-        }
-
-        // --- Event Listener ---
-        document.getElementById('tglkonseling').addEventListener('change', updateHarga);
-        document.getElementById('metode-select').addEventListener('change', updateHarga);
-        document.getElementById('sesi-select').addEventListener('change', updateHarga);
-
-        document.getElementById('multiStepForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const errorMessage = validateStep3();
-            if (errorMessage) {
-                Swal.fire({ toast: true, position: "top-end", icon: "error", title: errorMessage, showConfirmButton: false, timer: 4000 });
-                return;
-            }
-            const metode = document.getElementById('metode-select').value;
-            const daerahSelect = document.getElementById('daerah-select');
-            if (metode === 'online') daerahSelect.value = 'Online';
-            const hargaInput = document.getElementById('harga-input');
-            hargaInput.value = hargaInput.dataset.hargaFinal || hargaInput.dataset.hargaAsli;
-            this.submit();
-        });
-
-        // --- Modal S&K ---
-        ['openModal', 'openModal2', 'openModal3'].forEach(id => {
-            document.getElementById(id).addEventListener('click', () => {
-                document.getElementById('modal').classList.remove('hidden');
-            });
-        });
-        document.getElementById('closeModal').addEventListener('click', () => {
-            document.getElementById('modal').classList.add('hidden');
-        });
-
-        document.getElementById('closeVoucher').addEventListener('click', () => {
-            document.getElementById('voucher').classList.add('hidden');
-        });
-
-        // --- File Upload Bukti Pelajar ---
-        const fileNameSpan = document.getElementById('fileName');
-        fileNameSpan.textContent = "No File";
-        document.getElementById('bukti_kartu_pelajar').addEventListener('change', function(e) {
-            const file = this.files[0];
-            if (file) {
-                if (file.size > 1024 * 1024) { // 1 MB
-                    Swal.fire({
-                        toast: true,
-                        position: "top-end",
-                        icon: "error",
-                        title: "Ukuran file maksimal 1 MB!",
-                        showConfirmButton: false,
-                        timer: 4000
-                    });
-                    this.value = "";
-                    document.getElementById('fileName').textContent = "No File";
-                } else {
-                    document.getElementById('fileName').textContent = file.name;
-                }
-            } else {
-                document.getElementById('fileName').textContent = "No File";
-            }
-        });
-
-        // --- Dropdown Icon Rotation ---
-        document.querySelectorAll('.dropdown-select').forEach((select, index) => {
-            const icon = document.querySelectorAll('.dropdown-icon')[index];
-            select.addEventListener('click', () => icon.classList.toggle('rotate-180'));
-            select.addEventListener('blur', () => icon.classList.remove('rotate-180'));
-        });
-
-        // --- Flatpickr ---
-        document.addEventListener("DOMContentLoaded", function () {
-            flatpickr("#tglkonseling", { dateFormat: "d/m/Y", allowInput: true, minDate: new Date().fp_incr(7) });
-            flatpickr("#waktukonseling", { enableTime: true, noCalendar: true, dateFormat: "H:i", time_24hr: true });
-            flatpickr("#tanggal_lahir", { dateFormat: "d/m/Y", allowInput: true });
-        });
-
-        // Tampilkan input daerah jika metode offline
-        document.getElementById('metode-select').addEventListener('change', function() {
-            const daerahContainer = document.getElementById('daerah-container');
-            if (this.value === 'offline') {
-                daerahContainer.style.display = 'block';
-            } else {
-                daerahContainer.style.display = 'none';
-                document.getElementById('daerah-select').value = '';
-            }
-        });
 </script>
 @endsection
 

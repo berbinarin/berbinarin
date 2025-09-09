@@ -84,5 +84,12 @@ class AdminSeeder extends Seeder
             'email' => 'webdev@gmail.com',
             'password' => Hash::make('berbinar123'),
         ])->assignRole('web-dev');
+
+        // Psikolog Staff
+        User::create([
+            'username' => 'manager-cpm',
+            'email' => 'manager-cpm@gmail.com',
+            'password' => Hash::make('berbinar123'),
+        ])->assignRole('manager-cpm');
     }
 }

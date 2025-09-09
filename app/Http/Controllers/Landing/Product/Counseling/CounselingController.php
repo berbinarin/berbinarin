@@ -3,10 +3,6 @@
 namespace App\Http\Controllers\Landing\Product\Counseling;
 
 use App\Http\Controllers\Controller;
-use App\Models\KonsellingPsikolog;
-use App\Models\jadwalPeer;
-use App\Models\KonsellingPeer;
-use App\Models\BerbinarForU;
 use App\Models\CodeVoucher;
 use Illuminate\Http\Request;
 
@@ -313,348 +309,71 @@ class CounselingController extends Controller
             ],
         ];
 
-        return view('landing.product.counseling.registration')->with([
+        return view('landing.product.counseling.choose-counseling-session')->with([
             'konselings' => $konselings
         ]);
     }
-
-    public function registrationPsikolog()
-    {
-        $konselings = [
-            [
-                'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
-                'nama' => 'Psikolog Umum',
-                'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
-            ],
-            [
-                'image' => 'assets/images/landing/asset-konseling/vector/psikolog-staff.png',
-                'nama' => 'Psikolog Staff',
-                'deskripsi' => 'Salah satu benefit ekslusif bagi setiap staf yang bekerja di PT Berbinar Insightful Indonesia untuk melakukan konseling bersama Psikolog berizin prakter aktif (SIPP)',
-            ],
-        ];
-
-        return view('landing.product.counseling.registration-psikolog')->with([
-            'konselings' => $konselings
-        ]);
-    }
-
-    public function registrationPeer()
-    {
-        $konselings = [
-            [
-                'image' => 'assets/images/landing/asset-konseling/vector/peercounselor.png',
-                'nama' => 'Umum',
-                'deskripsi' => 'Konseling bersama Peer Counselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
-            ],
-            [
-                'image' => 'assets/images/landing/asset-konseling/vector/berbinarforu.png',
-                'nama' => 'Berbinar For U',
-                'deskripsi' => 'Berbinar For U adalah layanan konseling bersama dengan Peer Counselor yang, dengan harga gratis dan terjamin profesionalitasnya, bagi kamu yang beruntung!',
-            ],
-        ];
-
-        return view('landing.product.counseling.registration-peer')->with([
-            'konselings' => $konselings
-        ]);
-    }
-
-    public function showPsikologForm()
-    {
-        return view('landing.product.counseling.psikolog.registration-psikolog');
-    }
-
-    public function showPsikologStaffForm()
-    {
-        return view('landing.product.counseling.staff.registration-psikolog-staff');
-    }
-
-    public function showPeerForm()
-    {
-        $jadwalPeerCounselors = jadwalPeer::all();
-        return view('landing.product.counseling.peer.registration-peer', compact('jadwalPeerCounselors'));
-    }
-
-    public function ShowBerbinarForUForm()
-    {
-        return view('landing.product.counseling.berbinarForU.registration-berbinarForU');
-    }
-
-    public function schedule_psikolog()
-    {
-        return view('landing.product.counseling.psikolog.schadule');
-    }
-
-    public function showPsikologRegistration()
-    {
-        return view('landing.product.counseling.psikolog.registrasi-psikolog');
-    }
-
-
-    public function storePsikologRegistration(Request $request)
-    {
-        $rules = [
-            'jadwal_tanggal' => 'required',
-            'jadwal_pukul' => 'required',
-            'metode' => 'required',
-            'daerah' => 'nullable',
-            'sesi' => 'required',
-            'harga' => 'required',
-            'nama' => 'required',
-            'email' => 'required',
-            'tanggal_Lahir' => 'required',
-            'tempat_lahir' => 'required',
-            'alamat' => 'required',
-            'status_pernikahan' => 'required',
-            'jenis_kelamin' => 'required',
-            'no_wa' => 'required',
-            'suku' => 'required',
-            'agama' => 'required',
-            'posisi_anak' => 'required',
-            'hobi' => 'required',
-            'pendidikan' => 'required',
-            'asal_sekolah' => 'required',
-            'riwayat_pekerjaan' => 'required',
-            'kegiatan_sosial' => 'required',
-            'cerita' => 'required',
-            'kategori' => 'required',
-            'bukti_kartu_pelajar' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:1024',
-            'kategori_voucher' => 'nullable|string',
-            'code_voucher' => 'nullable|string',
-            'presentase_diskon' => 'nullable|integer',
-        ];
-        if ($request->kategori === 'pelajar') {
-            $rules['bukti_kartu_pelajar'] = 'required|file|mimes:jpg,jpeg,png,pdf|max:1024';
-        }
-
-        $validatedData = $request->validate($rules);
-
-        try {
-            // Convert date format from d/m/Y to Y-m-d
-            $tanggalLahir = \DateTime::createFromFormat('d/m/Y', $request->tanggal_Lahir);
-            $jadwalTanggal = \DateTime::createFromFormat('d/m/Y', $request->jadwal_tanggal);
-
-            $data = $validatedData;
-            $data['tanggal_Lahir'] = $tanggalLahir ? $tanggalLahir->format('Y-m-d') : null;
-            $data['jadwal_tanggal'] = $jadwalTanggal ? $jadwalTanggal->format('Y-m-d') : null;
-            $data['sesi'] = intval($data['sesi']);
-            if ($data['metode'] === 'online') {
-                $data['daerah'] = 'Online';
-            }
-
-            // LOGIKA SAMA SEPERTI BERBINARPLUS
-            if ($request->hasFile('bukti_kartu_pelajar')) {
-                $data['bukti_kartu_pelajar'] = $request->file('bukti_kartu_pelajar')->store('bukti_kartu_pelajar', 'public');
-            } else {
-                $data['bukti_kartu_pelajar'] = null;
-            }
-
-            // Voucher info sudah otomatis masuk dari form (hidden input)
-            // Jika ingin ambil dari model, bisa tambahkan logika di sini
-
-            KonsellingPsikolog::create($data);
-
-            return view('landing.product.counseling.summary-konseling');
-        } catch (\Exception $e) {
-            return redirect()->back()
-                ->with('error', 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.')
-                ->withInput();
-        }
-    }
-
-    public function storePsikologStaffRegistration(Request $request)
-    {
-        $request->validate([
-            'jadwal_tanggal' => 'required',
-            'jadwal_pukul' => 'required',
-            'metode' => 'required',
-            'daerah' => 'nullable',
-            'sesi' => 'required',
-            'harga' => 'required',
-            'nama' => 'required',
-            'email' => 'required',
-            'tanggal_Lahir' => 'required',
-            'tempat_lahir' => 'required',
-            'alamat' => 'required',
-            'status_pernikahan' => 'required',
-            'jenis_kelamin' => 'required',
-            'no_wa' => 'required',
-            'suku' => 'required',
-            'agama' => 'required',
-            'posisi_anak' => 'required',
-            'hobi' => 'required',
-            'pendidikan' => 'required',
-            'asal_sekolah' => 'required',
-            'riwayat_pekerjaan' => 'required',
-            'kegiatan_sosial' => 'required',
-            'cerita' => 'required',
-            'kategori' => 'required'
-        ]);
-
-        try {
-            // Convert date format from d/m/Y to Y-m-d
-            $tanggalLahir = \DateTime::createFromFormat('d/m/Y', $request->tanggal_Lahir);
-            $jadwalTanggal = \DateTime::createFromFormat('d/m/Y', $request->jadwal_tanggal);
-
-            $data = $request->all();
-            $data['tanggal_Lahir'] = $tanggalLahir ? $tanggalLahir->format('Y-m-d') : null;
-            $data['jadwal_tanggal'] = $jadwalTanggal ? $jadwalTanggal->format('Y-m-d') : null;
-            $data['sesi'] = intval($data['sesi']); // pastikan sesi integer
-
-            // Jika metode online, daerah ikut 'Online'
-            if ($data['metode'] === 'online') {
-                $data['daerah'] = 'Online';
-            }
-
-            // dd($data);
-            KonsellingPsikolog::create($data);
-
-            return view('landing.product.counseling.summary-konseling');
-        } catch (\Exception $e) {
-            return redirect()->back()
-                ->with('error', 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.')
-                ->withInput();
-        }
-    }
-
-    public function storePeerRegistration(Request $request)
-    {
-        $rules = [
-            'jadwal_tanggal' => 'required',
-            'jadwal_pukul' => 'required',
-            'metode' => 'required',
-            'daerah' => 'nullable',
-            'sesi' => 'required',
-            'harga' => 'required',
-            'nama' => 'required',
-            'email' => 'required|email',
-            'tanggal_Lahir' => 'required',
-            'tempat_lahir' => 'required',
-            'alamat' => 'required',
-            'status_pernikahan' => 'required',
-            'jenis_kelamin' => 'required',
-            'no_wa' => 'required',
-            'suku' => 'required',
-            'agama' => 'required',
-            'posisi_anak' => 'required',
-            'hobi' => 'required',
-            'pendidikan' => 'required',
-            'asal_sekolah' => 'required',
-            'riwayat_pekerjaan' => 'required',
-            'kegiatan_sosial' => 'required',
-            'cerita' => 'required',
-            'kategori' => 'required',
-            'kategori_voucher' => 'nullable|string',
-            'code_voucher' => 'nullable|string',
-            'presentase_diskon' => 'nullable|integer',
-            'bukti_kartu_pelajar' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:1024',
-        ];
-
-        // Jika voucher pelajar, bukti kartu pelajar wajib
-        if ($request->kategori_voucher === 'pelajar') {
-            $rules['bukti_kartu_pelajar'] = 'required|file|mimes:jpg,jpeg,png,pdf|max:1024';
-        }
-
-        $validatedData = $request->validate($rules);
-
-        try {
-            // Convert date format from d/m/Y to Y-m-d
-            $tanggalLahir = \DateTime::createFromFormat('d/m/Y', $request->tanggal_Lahir);
-            $jadwalTanggal = \DateTime::createFromFormat('d/m/Y', $request->jadwal_tanggal);
-
-            $data = $validatedData;
-            $data['tanggal_Lahir'] = $tanggalLahir ? $tanggalLahir->format('Y-m-d') : null;
-            $data['jadwal_tanggal'] = $jadwalTanggal ? $jadwalTanggal->format('Y-m-d') : null;
-            $data['sesi'] = intval($data['sesi']);
-            $data['harga'] = intval($data['harga']);
-
-            // Jika metode online, daerah ikut 'Online'
-            if ($data['metode'] === 'online') {
-                $data['daerah'] = 'Online';
-            }
-
-            // Simpan file bukti kartu pelajar jika ada
-            if ($request->hasFile('bukti_kartu_pelajar')) {
-                $data['bukti_kartu_pelajar'] = $request->file('bukti_kartu_pelajar')->store('bukti_kartu_pelajar', 'public');
-            } else {
-                $data['bukti_kartu_pelajar'] = null;
-            }
-
-            KonsellingPeer::create($data);
-
-            return view('landing.product.counseling.summary-konseling');
-        } catch (\Exception $e) {
-            return redirect()->back()
-                ->with('error', 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.')
-                ->withInput();
-        }
-    }
-
-
-    public function storeBerbinarForURegistration(Request $request)
-    {
-        $request->validate([
-            'nama' => 'required',
-            'email' => 'required|email',
-            'tanggal_lahir' => 'required',
-            'tempat_lahir' => 'required',
-            'alamat' => 'required',
-            'status_pernikahan' => 'required',
-            'jenis_kelamin' => 'required',
-            'no_wa' => 'required',
-            'suku' => 'required',
-            'agama' => 'required',
-            'posisi_anak' => 'required',
-            'hobi' => 'required',
-            'pendidikan' => 'required',
-            'asal_sekolah' => 'required',
-            'riwayat_pekerjaan' => 'required',
-            'kegiatan_sosial' => 'required',
-            'kategori' => 'required',
-            'cerita_utama' => 'required',
-            'cerita_tambahan' => 'required',
-            'alasan_konseling' => 'required',
-            'harapan_konseling' => 'required',
-        ]);
-
-        try {
-            // Convert date format from d/m/Y to Y-m-d
-            $tanggalLahir = \DateTime::createFromFormat('d/m/Y', $request->tanggal_lahir);
-
-            $data = $request->all();
-            $data['tanggal_lahir'] = $tanggalLahir ? $tanggalLahir->format('Y-m-d') : null;
-
-            BerbinarForU::create($data);
-
-            return view('landing.product.counseling.summary-konseling');
-        } catch (\Exception $e) {
-            return redirect()->back()
-                ->with('error', 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.')
-                ->withInput();
-        }
-    }
-
-    // Contoh di Controller
+    
+    // Validasi Voucher
     public function cekVoucher(Request $request)
     {
-        $code = $request->input('code');
+        $code = $request->code;
+        $jadwal_tanggal = $request->jadwal_tanggal;
+        $metode = $request->metode;
+        $sesi = $request->sesi;
+        $kategori = $request->kategori; // Mengambil data kategori dari request (psikolog/peer)
+
         $voucher = CodeVoucher::where('code', $code)->first();
 
         if (!$voucher) {
-            return response()->json(['valid' => false]);
+            return response()->json(['valid' => false, 'message' => 'Kode voucher tidak valid']);
+        }
+
+        // Validasi jenis_pendaftaran voucher dengan kategori pendaftar
+        if (
+            isset($voucher->jenis_pendaftaran) &&
+            strtolower($voucher->jenis_pendaftaran) !== strtolower($kategori)
+        ) {
+            return response()->json([
+                'valid' => false,
+                'message' => 'Kode voucher tidak valid.'
+            ]);
+        }
+
+        $tipeArr = json_decode($voucher->tipe, true);
+        $detailArr = json_decode($voucher->detail, true);
+
+        $isValid = true;
+        foreach ($tipeArr as $i => $tipe) {
+            $detail = $detailArr[$i] ?? null;
+            if ($tipe == 'hari') {
+                try {
+                    $dateObj = \Carbon\Carbon::createFromFormat('d/m/Y', $jadwal_tanggal);
+                    $day = $dateObj->dayOfWeek; // 0: Minggu, 6: Sabtu
+                    $isWeekend = ($day == 0 || $day == 6);
+                    if ($detail == 'weekdays' && $isWeekend) $isValid = false;
+                    if ($detail == 'weekend' && !$isWeekend) $isValid = false;
+                } catch (\Exception $e) {
+                    $isValid = false;
+                }
+            }
+            if ($tipe == 'metode' && strtolower($metode) != strtolower($detail)) $isValid = false;
+            if ($tipe == 'sesi' && strval($sesi) != strval($detail)) $isValid = false;
+        }
+
+        if (!$isValid) {
+            return response()->json(['valid' => false, 'message' => 'Kode voucher tidak valid']);
         }
 
         return response()->json([
             'valid' => true,
             'category' => $voucher->category,
+            'code' => $voucher->code,
             'percentage' => $voucher->percentage,
+            'nama_voucher' => $voucher->nama_voucher,
             'jenis_pendaftaran' => $voucher->jenis_pendaftaran,
-            'tipe' => $voucher->tipe,
-            'detail' => $voucher->detail,
+            'message' => 'Kode voucher valid.'
         ]);
     }
 
-    // public function summary()
-    // {
-    //     return view('landing.product.counseling.summary-konseling')->with([]);
-    // }
 }

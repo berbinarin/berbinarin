@@ -19,6 +19,7 @@ use App\Http\Controllers\Dashboard\Marketing\Arteri\CategoryController;
 use App\Http\Controllers\Dashboard\CounselingPM\CodeVoucherController;
 use App\Http\Controllers\Dashboard\ClassPM\BerbinarPlusDashboardController;
 use App\Http\Controllers\Dashboard\ClassPM\BerbinarClassController;
+use App\Http\Controllers\Dashboard\ManagerCPM\PsycologistStaffController;
 use Illuminate\Support\Facades\Route;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Code;
 
@@ -28,7 +29,7 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
     Route::get('/', [DashboardController::class, 'index'])->name('index');
 
     // Couseling PM |  Counseling Product Management
-    route::middleware('role:counseling-pm')->group(function () {
+    Route::middleware('role:counseling-pm')->group(function () {
 
         // Data
         Route::get('/data', [PsychologistController::class, 'dataIndex'])->name('data.index');
@@ -45,19 +46,21 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
         // Berbinar For U
         Route::resource('/data/berbinar-for-u', BerbinarForUController::class);
 
-        // Kode Voucher
-        Route::resource('/code-voucher', CodeVoucherController::class);
+        Route::resource('/code-voucher',CodeVoucherController::class);
 
-        // Psikolog Staff
-        Route::get('/psikolog-staff', [PeerCounselorController::class, 'staffIndex'])->name('psikolog-staff.index');
-        Route::get('/psikolog-staff/create', [PeerCounselorController::class, 'staffCreate'])->name('psikolog-staff.create');
-        Route::get('/psikolog-staff/edit', [PeerCounselorController::class, 'staffEdit'])->name('psikolog-staff.edit');
-        Route::get('/psikolog-staff/show', [PeerCounselorController::class, 'staffShow'])->name('psikolog-staff.show');
+        // // Kode Voucher
+        // Route::resource('/code-voucher', CodeVoucherController::class);
+
+    });
+
+    Route::middleware('role:manager-cpm')->group(function () {   
+             
+        Route::resource('/psychologists-staff',PsycologistStaffController::class);
 
     });
 
     // Class Product Management
-    route::middleware('role:class-pm')->group(function () {
+    Route::middleware('role:class-pm')->group(function () {
         // Berbinar Plus Class
         Route::resource('/berbinar-class', BerbinarClassController::class);
         // Berbinar Plus
@@ -116,6 +119,8 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
             Route::resource('/articles', ArticleController::class);
         });
     });
+
+
 
     // PAPI KOSTICK
 

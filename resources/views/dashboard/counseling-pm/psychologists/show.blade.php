@@ -14,7 +14,7 @@
                             <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                         </a>
                         <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">
-                            Konseling Psikolog Data
+                            Data Konseling Psikolog
                         </p>
                     </div>
                     <p class="w-3/4 text-disabled">
@@ -439,7 +439,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Create and submit form
             const form = document.createElement('form');
             form.method = 'POST';
-            form.action = `{{ url('dashboard/psychologists') }}/${id}`;
+            form.action = `{{ url('dashboard/data/psychologists') }}/${id}`;
 
             const csrfToken = document.createElement('input');
             csrfToken.type = 'hidden';
