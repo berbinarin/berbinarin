@@ -55,7 +55,10 @@
     <section class="relative w-full px-0 mb-8 lg:mb-28">
         <div class="block px-4">
             <div class="mx-auto max-w-3xl rounded-xl border lg:border-2 border-cyan-950 bg-white px-3 pb-4 pt-3 shadow-lg shadow-sky-300 lg:max-w-5xl lg:h-auto">
-                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/qr_code.png") }}" alt="https://www.canva.com/design/DAGA0qfRyew/4C5qr0nvgHLJV9DJW38GcA/edit" class="lg:w-full">
+                <video class="lg:w-full rounded-xl" controls autoplay muted loop playsinline>
+                    <source src="{{ asset('assets/images/landing/produk/moodscan-tees/fitur-moodscan-tees.mp4') }}" type="video/mp4">
+                    Browser Anda tidak mendukung video.
+                </video>
             </div>
         </div>
     </section>
@@ -152,7 +155,7 @@
                 </div>
                 <div class="flex flex-col  lg:w-1/3">
                     <img src="{{ asset("assets/images/landing/produk/moodscan-tees/T-shirt.png") }}" alt="T-shirt" class="mb-4">
-                    <a href="https://www.tokopedia.com/berbinarin/moodscan-tees-by-berbinar-in-x-esize-kaos-edukatif-unisex-m-ea46b" target="_blank" class="w-full bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-white px-2 py-1 lg:py-2 lg:text-lg text-center rounded-lg shadow">Beli Sekarang</a>
+                    <a href="https://www.tokopedia.com/berbinarin/moodscan-tees-by-berbinar-in-x-esize-kaos-edukatif-unisex-m-ea46b" target="_blank" class="w-full bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-white px-2 py-1 lg:py-2 lg:text-lg text-center rounded-lg shadow hover:scale-110 transition-all">Beli Sekarang</a>
                 </div>
             </div>
         </div>
@@ -164,7 +167,7 @@
 
     <section class="w-full flex flex-row justify-center mb-7 lg:mb-20 overflow-x-clip">
         <div class="w-[90%] flex flex-row justify-between lg:justify-center gap-4 lg:gap-20">
-            <a href="https://www.tokopedia.com/berbinarin/moodscan-tees-by-berbinar-in-x-esize-kaos-edukatif-unisex-m-ea46b" target="_blank" class="bg-white rounded-xl shadow border p-2 lg:w-1/4">
+            <a href="https://www.tokopedia.com/berbinarin/moodscan-tees-by-berbinar-in-x-esize-kaos-edukatif-unisex-m-ea46b" target="_blank" class="bg-white rounded-xl shadow border p-2 lg:w-1/4 hover:scale-110 hover:rotate-3 transition-all">
                 <div class="w-full flex flex-row justify-end">
                     <div class="absolute -translate-y-2 translate-x-1 rounded-l-lg lg:rounded-l-xl bg-white px-2 py-1">
                         <div class="bg-gray-300 rounded-full"><i class="bx bxs-heart text-red-500 text-lg lg:text-4xl px-1"></i></div>
@@ -176,7 +179,7 @@
                 </div>
             </a>
 
-            <a href="https://www.tokopedia.com/berbinarin/moodscan-tees-by-berbinar-in-x-esize-kaos-edukatif-unisex-m-ea46b" target="_blank" class="bg-white rounded-xl shadow border p-2 lg:w-1/4">
+            <a href="https://www.tokopedia.com/berbinarin/moodscan-tees-by-berbinar-in-x-esize-kaos-edukatif-unisex-m-ea46b" target="_blank" class="bg-white rounded-xl shadow border p-2 lg:w-1/4 hover:scale-110 hover:rotate-3 transition-all">
                 <div class="w-full flex flex-row justify-end">
                     <div class="absolute -translate-y-2 translate-x-1 rounded-l-lg lg:rounded-l-xl bg-white px-2 py-1">
                         <div class="bg-gray-300 rounded-full"><i class="bx bxs-heart text-red-500 text-lg lg:text-4xl px-1"></i></div>
