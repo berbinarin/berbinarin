@@ -31,6 +31,7 @@ use App\Models\CodeVoucher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -91,6 +92,18 @@ class DashboardController extends Controller
         $staff = TableStaff::all();
         $subDivisions = SubDivision::count();
 
+        // Fetch Data Keluarga Berbinar
+        $today = Carbon::today();
+        $totalStafAktif = TableRecord::where('date_start', '<=', $today)
+            ->where(function ($q) use ($today) {
+                $q->whereNull('date_end')
+                    ->orWhere('date_end', '>=', $today);
+            })
+            ->count();
+        $totalStafTidakAktif = TableRecord::whereNotNull('date_end')
+            ->where('date_end', '<', $today)
+            ->count();
+
         return view('dashboard.index', [
             "PeerConsellorSchedule" => $PeerConsellorSchedule,
             "PeerConsellorData" => $PeerConsellorData,
@@ -118,7 +131,8 @@ class DashboardController extends Controller
             'PsikologDataStaff' => $PsikologDataStaff,
             'CodeVoucherPsikolog' => $CodeVoucherPsikolog,
             'CodeVoucherPeerCounselor' => $CodeVoucherPeerCounselor,
+            'totalStafAktif' => $totalStafAktif,
+            'totalStafTidakAktif' => $totalStafTidakAktif,
         ]);
     }
-
 }

@@ -289,7 +289,7 @@
                                 <i class='bx bx-user text-3xl'></i>
                             </div>
                             <div>
-                                <span class="block text-2xl font-bold">{{ $staff->where('status', true)->count() }}</span>
+                                <span class="block text-2xl font-bold">{{ $totalStafAktif }}</span>
                                 <span class="block text-gray-500">Staf aktif</span>
                             </div>
                         </div>
@@ -300,7 +300,7 @@
                                 <i class='bx bxs-graduation text-3xl'></i>
                             </div>
                             <div>
-                                <span class="block text-2xl font-bold">{{ $staff->where('status', false)->count() }}</span>
+                                <span class="block text-2xl font-bold">{{ $totalStafTidakAktif }}</span>
                                 <span class="block text-gray-500">Staf tidak aktif</span>
                             </div>
                         </div>
@@ -349,7 +349,7 @@
                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                     <script>
                         document.addEventListener('DOMContentLoaded', () => {
-                            const chartDataValues = [{{ $staff->where('status', true)->count() }}, {{ $staff->where('status', false)->count() }}, {{ $subDivisions }}];
+                            const chartDataValues = [{{ $totalStafAktif }}, {{ $totalStafTidakAktif }}, {{ $subDivisions }}];
                             const chartColors = ['rgba(16, 102, 129, 0.6)', 'rgba(233, 179, 6, 0.6)', 'rgba(35, 42, 202, 0.6)'];
                             const solidColors = ['#106681', '#E9B306', '#232ACA'];
                             const chartLabels = ['Staf aktif', 'Staf tidak aktif', 'Subdivisi'];

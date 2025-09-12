@@ -38,9 +38,9 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120',
-            'author_id' => 'required|string|max:255',
+            'title' => 'required',
+            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:1024',
+            'author_id' => 'required',
             'category_id' => 'required|exists:categories_article,id',
             'content' => 'required|string',
         ]);
@@ -95,11 +95,11 @@ class ArticleController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
+            'title' => 'required',
+            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1024',
             'author_id' => 'required|exists:author_article,id',
             'category_id' => 'required|exists:categories_article,id',
-            'content' => 'required|string',
+            'content' => 'required',
         ]);
 
         $article = Article::findOrFail($id);
