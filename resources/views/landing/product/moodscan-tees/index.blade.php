@@ -35,7 +35,7 @@
 
                     <div class="lg:order-4">
                         <p class="text-justify text-lg text-[#70787D] max-lg:text-[17px] max-sm:text-[15px] max-sm:leading-normal">
-                            Moodscan Tees merupakan kaos yang nyaman dan mampu memperbaiki suasana hati suatu individu ataupun kelompok dengan pesan motivasi khusus yang diungkap melalui tindakan pemindaian gambar QR Code.
+                            Moodscan Tees merupakan kaos yang nyaman dan mampu memperbaiki suasana hati suatu individu ataupun kelompok dengan pesan motivasi khusus yang diungkap melalui tindakan pemindaian gambar <span class="italic">QR Code</span>.
                         </p>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
                     <h3 class="text-lg lg:text-2xl font-bold mb-1">Ukuran Baju</h3>
                     <table class="mb-1 w-full">
                         <thead class="bg-white text-xs lg:text-lg font-semibold">
-                            <th class="rounded-l-md lg:rounded-l-2xl px-1 lg:p-2">Size</th>
+                            <th class="rounded-l-md lg:rounded-l-2xl px-1 lg:p-2 italic">Size</th>
                             <th class="px-1 lg:p-2">Panjang</th>
                             <th class="rounded-r-md lg:rounded-r-2xl px-1 lg:p-2">Lebar</th>
                         </thead>
@@ -151,7 +151,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <h3 class="text-sm lg:text-lg font-bold mb-1">*Limited Stocks</h3>
+                    <h3 class="text-sm lg:text-lg font-bold mb-1 italic">*Limited Stocks</h3>
                 </div>
                 <div class="flex flex-col  lg:w-1/3">
                     <img src="{{ asset("assets/images/landing/produk/moodscan-tees/T-shirt.png") }}" alt="T-shirt" class="mb-4">
@@ -204,54 +204,55 @@
 
     <section class="relative w-full flex flex-col justify-center overflow-x-clip">
 
+        <!-- Mobile -->
         <h1 class="bg-gradient-to-r from-[rgb(57,134,163)] to-[#1C4352] bg-clip-text text-center font-[inter] text-3xl font-semibold text-transparent lg:tracking-wide mb-8">Alasan Mengapa Produk Ini Spesial</h1>
         <div class="w-full lg:hidden flex flex-col justify-center items-center gap-4">
-            <div class="w-[90%] flex flex-row justify-center items-start rounded-xl shadow">
-                <div class="w-1/5 flex flex-row justify-center pt-6 px-2">
+            <div class="w-[90%] flex flex-row justify-center items-center rounded-xl shadow">
+                <div class="w-1/5 flex flex-col h-full justify-center px-2">
                     <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-1.png") }}" alt="" class="w-auto h-auto">
                 </div>
                 <div class="w-4/5 flex flex-col justify-center py-4">
-                    <h3 class="text-lg font-bold">Inovasi QR code psikologi di kaos</h3>
-                    <p class="text-disabled">Scan QR di belakang kaos untuk akses kutipan psikologi inspiratif yang selalu berganti</p>
+                    <h3 class="text-lg font-bold">Inovasi <span class="italic">QR code &nbsp;</span>psikologi di kaos</h3>
+                    <p class="text-disabled"><span class="italic">Scan QR &nbsp;</span>di belakang kaos untuk akses kutipan psikologi inspiratif yang selalu berganti</p>
                 </div>
             </div>
 
-            <div class="w-[90%] flex flex-row justify-center items-start rounded-xl shadow">
-                <div class="w-1/5 flex flex-row justify-center pt-6 px-2">
+            <div class="w-[90%] flex flex-row justify-center items-center rounded-xl shadow">
+                <div class="w-1/5 flex flex-row justify-center px-2">
                     <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-2.png") }}" alt="" class="w-auto h-auto">
                 </div>
                 <div class="w-4/5 flex flex-col justify-center py-4">
-                    <h3 class="text-lg font-bold">Design psikologi yang simple tapi penuh makna</h3>
-                    <p class="text-disabled">Kaos ini memadukan psikologi mode dan desain minimalis untuk menghadirkan kesan reflektif yang berbicara tentang dirimu</p>
+                    <h3 class="text-lg font-bold">Design psikologi yang <span class="italic">simple &nbsp;</span>tapi penuh makna</h3>
+                    <p class="text-disabled">Kaos ini memadukan mode psikologi dan desain minimalis untuk menghadirkan kesan reflektif yang berbicara tentang dirimu</p>
                 </div>
             </div>
 
-            <div class="w-[90%] flex flex-row justify-center items-start rounded-xl shadow">
-                <div class="w-1/5 flex flex-row justify-center pt-6 px-2">
+            <div class="w-[90%] flex flex-row justify-center items-center rounded-xl shadow">
+                <div class="w-1/5 flex flex-row justify-center px-2">
                     <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-3.png") }}" alt="" class="w-auto h-auto">
                 </div>
                 <div class="w-4/5 flex flex-col justify-center py-4">
-                    <h3 class="text-lg font-bold">Bahan premium 100% cotton combed</h3>
-                    <p class="text-disabled">comfort is king (nyaman dipakai untuk berbagai aktivitas)</p>
+                    <h3 class="text-lg font-bold">Bahan premium 100% <span class="italic">cotton combed</span></h3>
+                    <p class="text-disabled"><span class="italic">comfort is king &nbsp;</span>(nyaman dipakai untuk berbagai aktivitas)</p>
                 </div>
             </div>
 
-            <div class="w-[90%] flex flex-row justify-center items-start rounded-xl shadow">
-                <div class="w-1/5 flex flex-row justify-center pt-6 px-2">
+            <div class="w-[90%] flex flex-row justify-center items-center rounded-xl shadow">
+                <div class="w-1/5 flex flex-row justify-center px-2">
                     <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-4.png") }}" alt="" class="w-auto h-auto">
                 </div>
                 <div class="w-4/5 flex flex-col justify-center py-4">
-                    <h3 class="text-lg font-bold">Unisex dan size lengkap hingga 5XL</h3>
-                    <p class="text-disabled">mampu menjangkau pasar lebih luas, termasuk pasangan serta kategori ukuran plus size</p>
+                    <h3 class="text-lg font-bold"><span class="italic">Unisex &nbsp;</span>dan <span class="italic">size &nbsp;</span>lengkap hingga 5XL</h3>
+                    <p class="text-disabled">mampu menjangkau pasar lebih luas, termasuk pasangan serta kategori ukuran <span class="italic">plus size</span></p>
                 </div>
             </div>
 
-            <div class="w-[90%] flex flex-row justify-center items-start rounded-xl shadow">
-                <div class="w-1/5 flex flex-row justify-center pt-6 px-2">
+            <div class="w-[90%] flex flex-row justify-center items-center rounded-xl shadow">
+                <div class="w-1/5 flex flex-row justify-center px-2">
                     <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-5.png") }}" alt="" class="w-auto h-auto">
                 </div>
                 <div class="w-4/5 flex flex-col justify-center py-4">
-                    <h3 class="text-lg font-bold">Limited colaboration</h3>
+                    <h3 class="text-lg font-bold"><span class="italic">Limited colaboration</span></h3>
                     <p class="text-disabled">kolaborasi antara Berbinar Insightful Indonesia dan Esize yang dapat meningkatkan nilai ekslusivitas.</p>
                 </div>
             </div>
@@ -263,50 +264,86 @@
             <div class="absolute top-0 z-0 md:-right-40" style="width: 300px; height: 300px; border-top-left-radius: 420px; border-bottom-left-radius: 420px; border-top-right-radius: 420px; background: #a2d7f0; filter: blur(60px); opacity: 0.9; top: 100px"></div>
         </div>
 
-        <div class="w-full px-20 hidden lg:flex flex-row justify-center items-start gap-4 mb-4 z-10 min-h-80 lg:h-[22rem] xl:h-80">
-            <div class="w-1/3 flex flex-row justify-center items-start rounded-xl shadow bg-white h-full">
-                <div class="w-full px-5 flex flex-col justify-center py-4 h-auto">
-                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-1.png") }}" alt="" class="w-20 h-20 mb-10">
-                    <h3 class="text-xl font-bold mb-4 h-16">Inovasi QR code psikologi di kaos</h3>
-                    <p class="text-disabled">Scan QR di belakang kaos untuk akses kutipan psikologi inspiratif yang selalu berganti</p>
+        <!-- Desktop Swiper Alasan Produk Spesial -->
+        <div class="w-full px-20 hidden lg:block z-10">
+            <div class="swiper-container-special-reason overflow-x-clip">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide flex flex-row justify-center items-start rounded-xl shadow bg-white h-full">
+                        <div class="w-full px-5 flex flex-col justify-center py-4 h-auto">
+                            <div class="flex flex-row gap-5">
+                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-1.png") }}" alt="" class="w-20 h-20 mb-10">
+                                <h3 class="text-xl font-bold mb-4 h-16">Inovasi <span class="italic">QR code &nbsp;</span>psikologi di kaos</h3>
+                            </div>
+                            <p class="text-disabled"><span class="italic">Scan QR &nbsp;</span>di belakang kaos untuk akses kutipan psikologi inspiratif yang selalu berganti</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide flex flex-row justify-center items-start rounded-xl shadow bg-white h-full">
+                        <div class="w-full px-5 flex flex-col justify-center py-4 h-auto">
+                            <div class="flex flex-row gap-5">
+                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-2.png") }}" alt="" class="w-20 h-20 mb-10">
+                                <h3 class="text-xl font-bold mb-4 h-16">Design psikologi yang <span class="italic">simple &nbsp;</span>tapi penuh makna</h3>
+                            </div>
+                            <p class="text-disabled">Kaos ini memadukan mode psikologi dan desain minimalis untuk menghadirkan kesan reflektif yang berbicara tentang dirimu</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide flex flex-row justify-center items-start rounded-xl shadow bg-white h-full">
+                        <div class="w-full px-5 flex flex-col justify-center py-4 h-auto">
+                            <div class="flex flex-row gap-5">
+                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-3.png") }}" alt="" class="w-20 h-20 mb-10">
+                                <h3 class="text-xl font-bold mb-4 h-16">Bahan premium 100% <span class="italic">cotton combed</span></h3>
+                            </div>
+                            <p class="text-disabled"><span class="italic">comfort is king &nbsp;</span>(nyaman dipakai untuk berbagai aktivitas)</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide flex flex-row justify-center items-start rounded-xl shadow bg-white h-full">
+                        <div class="w-full px-5 flex flex-col justify-center py-4 h-auto">
+                            <div class="flex flex-row gap-5">
+                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-4.png") }}" alt="" class="w-20 h-20 mb-10">
+                                <h3 class="text-xl font-bold mb-4 h-16"><span class="italic">Unisex &nbsp;</span>dan <span class="italic">size &nbsp;</span>lengkap hingga 5XL</h3>
+                            </div>
+                            <p class="text-disabled">mampu menjangkau pasar lebih luas, termasuk pasangan serta kategori ukuran <span class="italic">plus size</span></p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide flex flex-row justify-center items-start rounded-xl shadow bg-white h-full">
+                        <div class="w-full px-5 flex flex-col justify-center py-4 h-auto">
+                            <div class="flex flex-row gap-5">
+                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-5.png") }}" alt="" class="w-20 h-20 mb-10">
+                                <h3 class="text-xl font-bold mb-4 h-16"><span class="italic">Limited colaboration</span></h3>
+                            </div>
+                            <p class="text-disabled">kolaborasi antara Berbinar Insightful Indonesia dan Esize yang dapat meningkatkan nilai ekslusivitas.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="swiper-button-next pr-10"></div>
+                <div class="swiper-button-prev pl-10"></div>
 
-            <div class="w-1/3 flex flex-row justify-center items-start rounded-xl shadow bg-white h-full">
-                <div class="w-full px-5 flex flex-col justify-center py-4 h-auto">
-                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-2.png") }}" alt="" class="w-20 h-20 mb-10">
-                    <h3 class="text-xl font-bold mb-4 h-16">Design psikologi yang simple tapi penuh makna</h3>
-                    <p class="text-disabled">Kaos ini memadukan psikologi mode dan desain minimalis untuk menghadirkan kesan reflektif yang berbicara tentang dirimu</p>
-                </div>
             </div>
-
-            <div class="w-1/3 flex flex-row justify-center items-start rounded-xl shadow bg-white h-full">
-                <div class="w-full px-5 flex flex-col justify-center py-4 h-auto">
-                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-3.png") }}" alt="" class="w-20 h-20 mb-10">
-                    <h3 class="text-xl font-bold mb-4 h-16">Bahan premium 100% cotton combed</h3>
-                    <p class="text-disabled">comfort is king (nyaman dipakai untuk berbagai aktivitas)</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="w-full px-20 hidden lg:flex flex-row justify-center items-start gap-4 z-10">
-            <div class="w-1/2 flex flex-row justify-center items-start rounded-xl shadow bg-white h-full">
-                <div class="w-full px-5 flex flex-col justify-center py-4 h-auto">
-                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-4.png") }}" alt="" class="w-20 h-20 mb-10">
-                    <h3 class="text-xl font-bold mb-4 h-16">Unisex dan size lengkap hingga 5XL</h3>
-                    <p class="text-disabled">mampu menjangkau pasar lebih luas, termasuk pasangan serta kategori ukuran plus size</p>
-                </div>
-            </div>
-
-            <div class="w-1/2 flex flex-row justify-center items-start rounded-xl shadow bg-white h-full">
-                <div class="w-full px-5 flex flex-col justify-center py-4 h-auto">
-                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-5.png") }}" alt="" class="w-20 h-20 mb-10">
-                    <h3 class="text-xl font-bold mb-4 h-16">Limited colaboration</h3>
-                    <p class="text-disabled">kolaborasi antara Berbinar Insightful Indonesia dan Esize yang dapat meningkatkan nilai ekslusivitas.</p>
-                </div>
-            </div>
-
         </div>
 
     </section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('.swiper-container-special-reason', {
+        slidesPerView: 3,
+        spaceBetween: 50,
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            1024: {
+                slidesPerView: 3,
+            }
+        }
+    });
+});
+</script>
 @endsection

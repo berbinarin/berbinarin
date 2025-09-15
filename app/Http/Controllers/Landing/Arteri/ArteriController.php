@@ -135,6 +135,14 @@ class ArteriController extends Controller
             $articlesCategoryColors[$cat->id] = CategoryColorHelper::getColor($cat->id);
         }
 
+        $reactionCounts = [
+            1 => 12,
+            2 => 5,
+            3 => 8,
+            4 => 20,
+            5 => 33,
+        ];
+
         return view('landing.arteri.detail', compact(
             'article',
             'shareButtons',
@@ -145,7 +153,8 @@ class ArteriController extends Controller
             'userReaction',
             'categoryColors',
             'latestArticles',
-            'articlesCategoryColors'
+            'articlesCategoryColors',
+            'reactionCounts'
         ));
     }
 

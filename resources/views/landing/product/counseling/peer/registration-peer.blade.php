@@ -73,58 +73,122 @@
 
     {{-- Modal untuk syarat dan ketentuan --}}
 
-        <div id="modal" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
-            <div class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
-                <h1 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-center text-3xl font-bold max-sm:text-2xl">Syarat dan Ketentuan</h1>
-                <div class="mb-6">
-                    <div class="flex items-start gap-2">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Lokasi" class="h-5 w-5 mt-0.5" />
-                        <span class="font-semibold">Lokasi offline Konseling</span>
-                    </div>
-                    <ol class="list-decimal mt-1 space-y-1 pl-7">
-                        <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
-                        <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Jakarta, Makassar, dan Nganjuk</li>
-                    </ol>
+    <div id="modal" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
+        <div class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
+            <h1 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-center text-3xl font-bold max-sm:text-2xl">Syarat dan Ketentuan</h1>
+            <div class="mb-6">
+                <div class="flex items-start gap-2">
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Lokasi" class="h-5 w-5 mt-0.5" />
+                    <span class="font-semibold">Lokasi offline Konseling</span>
                 </div>
+                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                    <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
+                    <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Jakarta, Makassar, dan Nganjuk</li>
+                </ol>
+            </div>
 
-                <div class="mb-6">
-                    <div class="flex items-start gap-2">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/payment.png') }}" alt="Pembayaran" class="h-5 w-5 mt-0.5" />
-                        <span class="font-semibold">Pembayaran</span>
-                    </div>
-                    <ol class="list-decimal mt-1 space-y-1 pl-7">
-                        <li class="max-sm:text-sm">Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n. Berbinar Insightful Indonesia dengan aturan transfer 1×24 jam.</li>
-                    </ol>
+            <div class="mb-6">
+                <div class="flex items-start gap-2">
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/payment.png') }}" alt="Pembayaran" class="h-5 w-5 mt-0.5" />
+                    <span class="font-semibold">Pembayaran</span>
                 </div>
+                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                    <li class="max-sm:text-sm">Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n. Berbinar Insightful Indonesia dengan aturan transfer 1×24 jam.</li>
+                </ol>
+            </div>
 
-                <div class="mb-6">
-                    <div class="flex items-start gap-2">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.png') }}" alt="Pembalasan Pesan" class="h-5 w-5 mt-0.5" />
-                        <span class="font-semibold">Pembalasan Pesan</span>
-                    </div>
-                    <ol class="list-decimal mt-1 space-y-1 pl-7">
-                        <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, pendaftaran oleh klien secara otomatis dibatalkan.</li>
-                        <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, jadwal yang sudah ditentukan oleh klien berhak untuk diubah oleh Tim Berbinar dan kesepakatan dari klien.</li>
-                        <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 2×24 jam setelah melakukan pembayaran, pembayaran dianggap hangus.</li>
-                    </ol>
+            <div class="mb-6">
+                <div class="flex items-start gap-2">
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.png') }}" alt="Pembalasan Pesan" class="h-5 w-5 mt-0.5" />
+                    <span class="font-semibold">Pembalasan Pesan</span>
                 </div>
+                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, pendaftaran oleh klien secara otomatis dibatalkan.</li>
+                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, jadwal yang sudah ditentukan oleh klien berhak untuk diubah oleh Tim Berbinar dan kesepakatan dari klien.</li>
+                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 2×24 jam setelah melakukan pembayaran, pembayaran dianggap hangus.</li>
+                </ol>
+            </div>
 
-                <div class="mb-6">
-                    <div class="flex items-start gap-2">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/cancel.png') }}" alt="Pengajuan Pembatalan" class="h-5 w-5 mt-0.5" />
-                        <span class="font-semibold">Pengajuan Pembatalan</span>
-                    </div>
-                    <ol class="list-decimal mt-1 space-y-1 pl-7">
-                        <li class="max-sm:text-sm">Pengajuan proses pembatalan layanan konseling dapat dilakukan dalam kurun waktu 1×24 jam setelah proses administrasi dan dana yang telah dibayarkan akan dikembalikan 100%.</li>
-                    </ol>
+            <div class="mb-6">
+                <div class="flex items-start gap-2">
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/cancel.png') }}" alt="Pengajuan Pembatalan" class="h-5 w-5 mt-0.5" />
+                    <span class="font-semibold">Pengajuan Pembatalan</span>
                 </div>
+                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                    <li class="max-sm:text-sm">Pengajuan proses pembatalan layanan konseling dapat dilakukan dalam kurun waktu 1×24 jam setelah proses administrasi dan dana yang telah dibayarkan akan dikembalikan 100%.</li>
+                </ol>
+            </div>
 
 
-                <div class="mt-4 justify-center flex lg:gap-x-3">
-                    <button id="closeModal" class="w-[90%] lg:w-1/4 rounded-xl border-[1.5px] bg-gradient-to-r from-[#3986A3] to-[#15323D] border-[#225062] bg-transparent px-4 py-1.5 font-medium text-white max-sm:text-[15px]">Saya Mengerti</button>
-                </div>
+            <div class="mt-4 justify-center flex lg:gap-x-3">
+                <button id="closeModal" class="w-[90%] lg:w-1/4 rounded-xl border-[1.5px] bg-gradient-to-r from-[#3986A3] to-[#15323D] border-[#225062] bg-transparent px-4 py-1.5 font-medium text-white max-sm:text-[15px]">Saya Mengerti</button>
+            </div>
         </div>
     </div>
+
+
+    {{-- Modal untuk promo KTM --}}
+    <div id="voucher" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
+        <div class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
+            <h1 class="bg-gradient-to-r from-[#3986A3] to-[#15323D] bg-clip-text text-transparent pb-6 text-center text-3xl font-bold max-sm:text-lg">Promo KTM dan Kartu Pelajar <br class=""> Produk Konseling Bersama Psikolog</h1>
+            <div class="mb-6">
+                <div class="max-h-[440px] lg:max-h-96 overflow-y-auto">
+
+                <h2 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-2xl font-bold max-sm:text-lg">Syarat dan Ketentuan</h2>
+                <ul class="list-disc text-black marker:text-primary pl-6">
+                    <li class="mb-2">
+                        <p class="font-semibold">Promo Berlaku untuk:</p>
+                        <p class="max-sm:text-sm text-disabled pl-7">
+                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
+                                <li>Siswa aktif jenjang SMP/SMA/sederajat.</li>
+                                <li>Mahasiswa aktif jenjang D3, D4, atau S1.</li>
+                                <li>Dibuktikan dengan mengupload Kartu Tanda Mahasiswa (KTM) atau Kartu Pelajar yang masih berlaku saat melakukan pendaftaran</li>
+                            </ol>
+                        </p>
+
+                    </li>
+                    <li class="mb-2">
+                        <p class="font-semibold">Diskon/Penawaran:</p>
+                        <p class="max-sm:text-sm text-disabled pl-7">
+                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
+                                <li>Potongan harga sebesar 20% untuk setiap sesi konseling individu.</li>
+                                <li>Promo hanya berlaku untuk layanan konseling online.</li>
+                            </ol>
+                        </p>
+                    </li>
+
+                    <li class="mb-2">
+                        <p class="font-semibold">Cara Menggunakan Promo:</p>
+                        <p class="max-sm:text-sm text-disabled pl-7">
+                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
+                                <li>Daftar melalui website berbinar konseling</li>
+                                <li>Cantumkan kode promo</li>
+                                <li>Upload KTM/kartu pelajar saat pendaftaran.</li>
+                            </ol>
+                        </p>
+                    </li>
+
+                    <li class="mb-2">
+                        <p class="font-semibold">Ketentuan Tambahan:</p>
+                        <p class="max-sm:text-sm text-disabled pl-7">
+                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
+                                <li>Promo hanya berlaku untuk 1x sesi per individu, kecuali dinyatakan lain.</li>
+                                <li>Tidak dapat memilih Psikolog yang akan menangani</li>
+                                <li>Tidak dapat digabungkan dengan promo lainnya.</li>
+                                <li>Tidak berlaku untuk layanan lanjutan atau paket konseling tertentu.</li>
+                                <li>Pihak penyelenggara berhak membatalkan promo jika ditemukan penyalahgunaan (misalnya kartu tidak valid atau sudah tidak aktif).</li>
+                            </ol>
+                        </p>
+                    </li>
+                </ul>
+                </div>
+            </div>
+            <div class="mt-4 justify-center flex lg:gap-x-3">
+                <button id="closeVoucher" class="w-[90%] lg:w-1/4 rounded-xl border-[1.5px] bg-gradient-to-r from-[#3986A3] to-[#15323D] border-[#225062] bg-transparent px-4 py-1.5 font-medium text-white max-sm:text-[15px]">Saya Mengerti</button>
+            </div>
+        </div>
+    </div>
+
 
     <form id="multiStepForm" action="{{ route('product.counseling.peer-counselor.store') }}" method="POST" class="flex flex-col" enctype="multipart/form-data">
         @csrf
@@ -415,7 +479,7 @@
 
 {{-- Script untuk logika form --}}
 <script>
-    // Multi Step Navigation 
+    // Multi Step Navigation
     function showStep(step) {
         document.querySelectorAll('.step-section').forEach(el => el.classList.remove('active'));
         document.getElementById('step-' + step).classList.add('active');
@@ -440,7 +504,7 @@
         showStep(step);
     }
 
-    //  Form Submission 
+    //  Form Submission
     document.getElementById('multiStepForm').addEventListener('submit', function(event) {
         event.preventDefault();
         const errorMessage = validateStep3();
@@ -456,7 +520,7 @@
         this.submit();
     });
 
-    // SweetAlert Error Helper 
+    // SweetAlert Error Helper
     function showError(msg) {
         Swal.fire({
             toast: true,
@@ -468,7 +532,7 @@
         });
     }
 
-    // Modal S&K 
+    // Modal S&K
     ['openModal', 'openModal2', 'openModal3'].forEach(id => {
         document.getElementById(id)?.addEventListener('click', () => {
             document.getElementById('modal').classList.remove('hidden');
@@ -478,14 +542,19 @@
         document.getElementById('modal').classList.add('hidden');
     });
 
-    // Dropdown Icon Rotation 
+    // MODAL VOUCHER PROMO
+    document.getElementById('closeVoucher').addEventListener('click', function() {
+        document.getElementById('voucher').classList.add('hidden');
+    });
+
+    // Dropdown Icon Rotation
     document.querySelectorAll('.dropdown-select').forEach((select, idx) => {
         const icon = document.querySelectorAll('.dropdown-icon')[idx];
         select.addEventListener('click', () => icon.classList.toggle('rotate-180'));
         select.addEventListener('blur', () => icon.classList.remove('rotate-180'));
     });
 
-    // File Upload Preview & Size Check 
+    // File Upload Preview & Size Check
     const fileNameSpan = document.getElementById('fileName');
     fileNameSpan.textContent = "No File";
     document.getElementById('bukti_kartu_pelajar').addEventListener('change', function(e) {
@@ -503,7 +572,7 @@
         }
     });
 
-    // Peer Counselor Schedule Logic 
+    // Peer Counselor Schedule Logic
     const jadwalPeerData = @json($jadwalPeerCounselors);
 
     function getDayName(dateString) {
@@ -587,7 +656,7 @@
         updateHargaDisplayPeer(harga, null);
     }
 
-    // Event Listeners 
+    // Event Listeners
     document.addEventListener("DOMContentLoaded", function () {
         flatpickr("#tglkonseling", {
             dateFormat: "d/m/Y",

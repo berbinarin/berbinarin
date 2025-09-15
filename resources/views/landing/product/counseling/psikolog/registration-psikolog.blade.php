@@ -135,7 +135,7 @@
         </div>
     </div>
 
-    {{-- Modal untuk syarat dan ketentuan --}}
+    {{-- Modal untuk promo KTM --}}
     <div id="voucher" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
         <div class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
             <h1 class="bg-gradient-to-r from-[#3986A3] to-[#15323D] bg-clip-text text-transparent pb-6 text-center text-3xl font-bold max-sm:text-lg">Promo KTM dan Kartu Pelajar <br class=""> Produk Konseling Bersama Psikolog</h1>
@@ -169,9 +169,9 @@
                         <p class="font-semibold">Cara Menggunakan Promo:</p>
                         <p class="max-sm:text-sm text-disabled pl-7">
                             <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
-                                <li>Daftar melalui website berbinar konseling <br> <a href="https://berbinar.in/produk/konseling" class="text-blue-500">https://berbinar.in/produk/<br class="hidden max-sm:block">konseling</a></li>
+                                <li>Daftar melalui website berbinar konseling</li>
+                                <li>Cantumkan kode promo</li>
                                 <li>Upload KTM/kartu pelajar saat pendaftaran.</li>
-                                <li>Cantumkan kode promo #KONSELINGPELAJAR</li>
                             </ol>
                         </p>
                     </li>
@@ -203,7 +203,7 @@
         @csrf
 
         {{-- STEP 1: Pilih Jadwal Konseling --}}
-        
+
         <div id="step-1" class="step-section active">
             <h1 class="max-sm:text-[29px] text-3xl font font-semibold text-center max-sm:mx-2 text-gradient my-6">Isi Jadwal Konseling</h1>
             <input type="hidden" name="kategori" value="psikolog">
