@@ -301,7 +301,7 @@
                         <div class="rating_item flex flex-col items-center">
                             <input class="hidden peer" id="rating-{{ $val }}-1" type="radio" value="{{ $val }}" name="rating">
                             <label for="rating-{{ $val }}-1"
-                                class="cursor-pointer transition-all duration-300 ease-in-out
+                                class="cursor-pointer transition-all duration-300 ease-in-out hover:scale-105
                                 rounded-full group hover:bg-gradient-to-b
                                 relative w-14 h-14 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 flex items-center justify-center peer-checked:scale-110
                                 peer-checked:bg-gradient-to-b
