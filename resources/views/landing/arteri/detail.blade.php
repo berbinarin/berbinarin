@@ -323,6 +323,13 @@
                                             @elseif($val == 3) text-[#FFE500]
                                             @elseif($val == 4) text-[#4CAF50]
                                             @elseif($val == 5) text-[#75BADB]
+                                            @endif
+
+                                            @if($val == 1) shadow-[#FF004F]
+                                            @elseif($val == 2) shadow-[#FF543E]
+                                            @elseif($val == 3) shadow-[#FFE500]
+                                            @elseif($val == 4) shadow-[#4CAF50]
+                                            @elseif($val == 5) shadow-[#75BADB]
                                             @endif"
                                         id="reaction-label-{{ $val }}">
                                             {{ $reactionCounts[$val] ?? 0 }}
