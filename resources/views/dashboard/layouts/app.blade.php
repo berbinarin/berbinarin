@@ -2,14 +2,13 @@
 <html lang="en">
     <head>
         {{-- Header --}}
-        @include('dashboard.partials.header')
+        @include("dashboard.partials.header")
 
         {{-- Additional Style --}}
-        @yield('style')
+        @yield("style")
     </head>
     <body class="font-plusJakartaSans">
         <div class="flex h-screen w-full select-none">
-
             {{-- Sidebar --}}
             @include("dashboard.partials.sidebar")
 
@@ -20,9 +19,12 @@
         </div>
 
         {{-- Script --}}
-        @include('dashboard.partials.script')
+        @include("dashboard.partials.script")
 
         {{-- Additional Script --}}
-        @yield('script')
+        @yield("script")
+
+        {{-- Alert Component --}}
+        @include("components.alert")
     </body>
 </html>

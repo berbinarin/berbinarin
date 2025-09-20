@@ -170,47 +170,85 @@ class QuestionController extends Controller
             }
             $question->delete();
 
-            Alert::success('Success ', 'Data Berhasil Delete');
+             return redirect()->route("/dashboard/admin/question")->with([
+            'alert'   => true,
+            'type'    => 'success',
+            'title'   => 'Berhasil!',
+            'message' => 'Data berhasil dihapus.',
+            'icon'    => asset('assets/images/dashboard/success.png'),
+        ]);
 
 
             return redirect("/dashboard/admin/question");
         } catch (\Exception $e) {
-            Alert::error('Error', 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage());
-
-
-            return redirect("/dashboard/admin/question");
+            return redirect()->route("/dashboard/admin/question")->with([
+                'alert'   => true,
+                'type'    => 'error',
+                'title'   => 'Gagal!',
+                'message' => 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage(),
+                'icon'    => asset('assets/images/dashboard/error.png'),
+            ]);
         }
     }
 
     public function edit($id)
-    {
-        $question = Question::find($id);
-        if (!$question) {
-            return response()->json(['error' => 'Data tidak ditemukan.'], 404);
-        }
-        return response()->json($question);
+{
+    $question = Question::find($id);
+
+    if (!$question) {
+        return response()->json([
+            'alert'   => true,
+            'type'    => 'error',
+            'title'   => 'Gagal!',
+            'message' => 'Data tidak ditemukan.',
+            'icon'    => asset('assets/images/dashboard/error.png'),
+        ], 404);
     }
+
+    return response()->json($question);
+}
+
 
     // Method to update question data
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'question_text' => 'required|string',
-            'dimension_id' => 'required|integer',
-            // Add other validation rules as necessary
-        ]);
+   public function update(Request $request, $id)
+{
+    $request->validate([
+        'question_text' => 'required|string',
+        'dimension_id'  => 'required|integer',
+        // aturan validasi lain kalau ada
+    ]);
 
-        try {
-            $question = Question::find($id);
-            if (!$question) {
-                return response()->json(['error' => 'Data tidak ditemukan.'], 404);
-            }
+    try {
+        $question = Question::find($id);
 
-            $question->update($request->all());
-
-            return response()->json(['success' => 'Data berhasil diperbarui.']);
-        } catch (\Exception $e) {
-            return response()->json(['error' => 'Terjadi kesalahan saat memperbarui data: ' . $e->getMessage()], 500);
+        if (!$question) {
+            return response()->json([
+                'alert'   => true,
+                'type'    => 'error',
+                'title'   => 'Gagal!',
+                'message' => 'Data tidak ditemukan.',
+                'icon'    => asset('assets/images/dashboard/error.png'),
+            ], 404);
         }
+
+        $question->update($request->all());
+
+        return response()->json([
+            'alert'   => true,
+            'type'    => 'success',
+            'title'   => 'Berhasil!',
+            'message' => 'Data berhasil diperbarui.',
+            'icon'    => asset('assets/images/dashboard/success.png'),
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'alert'   => true,
+            'type'    => 'error',
+            'title'   => 'Gagal!',
+            'message' => 'Terjadi kesalahan saat memperbarui data: ' . $e->getMessage(),
+            'icon'    => asset('assets/images/dashboard/error.png'),
+        ], 500);
     }
+}
+
 }

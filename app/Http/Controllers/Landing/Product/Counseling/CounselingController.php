@@ -303,26 +303,6 @@ class CounselingController extends Controller
         $konselings = [
             [
                 'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
-                'nama' => 'Psikolog',
-                'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
-            ],
-            [
-                'image' => 'assets/images/landing/asset-konseling/vector/peercounselor.png',
-                'nama' => 'Peer Counselor',
-                'deskripsi' => 'Konseling bersama Peer Counselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
-            ],
-        ];
-
-        return view('landing.product.counseling.registration')->with([
-            'konselings' => $konselings
-        ]);
-    }
-
-    public function registrationPsikolog()
-    {
-        $konselings = [
-            [
-                'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
                 'nama' => 'Psikolog Umum',
                 'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
             ],
@@ -333,7 +313,47 @@ class CounselingController extends Controller
             ],
         ];
 
-        return view('landing.product.counseling.registration-psikolog')->with([
+        return view('landing.product.counseling.registration')->with([
+            'konselings' => $konselings
+        ]);
+    }
+
+    public function registrationPsikologUmum()
+    {
+        $konselings = [
+            [
+                'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
+                'nama' => 'Psikolog',
+                'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
+            ],
+            [
+                'image' => 'assets/images/landing/asset-konseling/vector/peercounselor.png',
+                'nama' => 'Peer Counselor',
+                'deskripsi' => 'Konseling bersama Peer Conselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
+            ],
+        ];
+
+        return view('landing.product.counseling.registration-psikolog-umum')->with([
+            'konselings' => $konselings
+        ]);
+
+    }
+    public function registrationPsikologStaff()
+    {
+        $konselings = [
+            [
+                'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
+                'nama' => 'Psikolog',
+                'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
+            ],
+            [
+                'image' => 'assets/images/landing/asset-konseling/vector/orangnangis.png',
+                'nama' => 'Peer Counselor',
+                'deskripsi' => 'Konseling bersama Peer Conselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling ',
+            ],
+        ];
+
+        return view('landing.product.counseling.registration-psikolog-staff')->with([
             'konselings' => $konselings
         ]);
     }
@@ -349,7 +369,7 @@ class CounselingController extends Controller
             [
                 'image' => 'assets/images/landing/asset-konseling/vector/berbinarforu.png',
                 'nama' => 'Berbinar For U',
-                'deskripsi' => 'Berbinar For U adalah layanan konseling bersama dengan Peer Counselor yang, dengan harga gratis dan terjamin profesionalitasnya, bagi kamu yang beruntung!',
+                'deskripsi' => 'Berbinar For U adalah layanan curhat online gratis, nyaman, aman, dan anonim yang dijawab langsung oleh psikolog profesional terpercaya.',
             ],
         ];
 
@@ -456,7 +476,13 @@ class CounselingController extends Controller
             return view('landing.product.counseling.summary-konseling');
         } catch (\Exception $e) {
             return redirect()->back()
-                ->with('error', 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.')
+                ->with([
+            'alert'   => true,
+            'type'    => 'error',
+            'title'   => 'Gagal!',
+            'message' => 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.',
+            'icon'    => asset('assets/images/dashboard/error.png'),
+        ])
                 ->withInput();
         }
     }
@@ -511,7 +537,13 @@ class CounselingController extends Controller
             return view('landing.product.counseling.summary-konseling');
         } catch (\Exception $e) {
             return redirect()->back()
-                ->with('error', 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.')
+                ->with([
+            'alert'   => true,
+            'type'    => 'error',
+            'title'   => 'Gagal!',
+            'message' => 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.',
+            'icon'    => asset('assets/images/dashboard/error.png'),
+        ])
                 ->withInput();
         }
     }
@@ -584,7 +616,13 @@ class CounselingController extends Controller
             return view('landing.product.counseling.summary-konseling');
         } catch (\Exception $e) {
             return redirect()->back()
-                ->with('error', 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.')
+                ->with([
+            'alert'   => true,
+            'type'    => 'error',
+            'title'   => 'Gagal!',
+            'message' => 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.',
+            'icon'    => asset('assets/images/dashboard/error.png'),
+        ])
                 ->withInput();
         }
     }
@@ -628,7 +666,13 @@ class CounselingController extends Controller
             return view('landing.product.counseling.summary-konseling');
         } catch (\Exception $e) {
             return redirect()->back()
-                ->with('error', 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.')
+                ->with([
+            'alert'   => true,
+            'type'    => 'error',
+            'title'   => 'Gagal!',
+            'message' => 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.',
+            'icon'    => asset('assets/images/dashboard/error.png'),
+        ])
                 ->withInput();
         }
     }

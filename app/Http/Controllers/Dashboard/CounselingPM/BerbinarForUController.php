@@ -63,8 +63,13 @@ class BerbinarForUController extends Controller
         $berbinarForU->fill($validatedData);
         $berbinarForU->save();
 
-        Alert::toast('Data Berbinar For U berhasil ditambahkan', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.berbinar-for-u.index');
+        return redirect()->route('dashboard.berbinar-for-u.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Data Berbinar for U berhasil ditambahkan',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     public function edit(Request $request, $id)
@@ -105,8 +110,13 @@ class BerbinarForUController extends Controller
         $BerbinarForUDataDetails = BerbinarForU::findOrFail($id);
         $BerbinarForUDataDetails->update($validatedData);
 
-        Alert::toast('Data Berbinar For U berhasil diedit', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.berbinar-for-u.show', $id);
+        return redirect()->route('dashboard.berbinar-for-u.index', $id)->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Data Berbinar for U berhasil diedit',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     public function destroy($id)
@@ -114,7 +124,12 @@ class BerbinarForUController extends Controller
         $BerbinarForUDataDetails = BerbinarForU::findOrFail($id);
         $BerbinarForUDataDetails->delete();
 
-        Alert::toast('Data Berbinar For U berhasil dihapus.', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.berbinar-for-u.index');
+        return redirect()->route('dashboard.berbinar-for-u.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Data Berbinar for U berhasil dihapus',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 }

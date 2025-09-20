@@ -67,9 +67,13 @@ class UserInternshipController extends Controller
 
             return redirect()->route('hiring');
         }catch(\Exception $e){
-            // Log::error('Error storing user internship: ' . $e->getMessage());
-            Alert::toast('Terjadi kesalahan saat menyimpan data: ' . $e->getMessage(), 'error')->autoClose(5000);
-            return redirect()->back();
+            return redirect()->back()->with([
+                'alert' => true,
+                'type' => 'error',
+                'title' => 'Gagal!',
+                'message' =>'Terdapat kesalahan : '.$e->getMessage(),
+                'icon' => asset('assets/images/dashboard/error.png'),
+            ]);
         }
     }
 
@@ -117,8 +121,13 @@ class UserInternshipController extends Controller
 
         $userInternship->update($request->all());
 
-        Alert::toast('User Internship Changed Sucessfully', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.internship');
+        return redirect()->route('dashboard.internship')->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'User Internship Berhasil diedit',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     /**
@@ -127,8 +136,13 @@ class UserInternshipController extends Controller
     public function destroy(UserInternship $userInternship)
     {
         $userInternship->delete();
-        Alert::toast('User Internship Deleted Sucessfully', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.internship');
+       return redirect()->route('dashboard.internship')->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'User Internship Berhasil dihapus',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     public function SetProcess($id)
@@ -142,11 +156,21 @@ class UserInternshipController extends Controller
             $userIntern->is_process = !($userIntern->is_process);
             $userIntern->save();
 
-            Alert::toast('User Internship Changed Sucessfully', 'success')->autoClose(5000);
-            return redirect("/dashboard/admin/internship");
+            return redirect()->route("/dashboard/admin/internship")->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'User internship berhasil diubah',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
         }catch(\Exception $e){
-            Alert::toast('Terjadi kesalahan saat mengubah data', 'error')->autoClose(5000);
-            return redirect("/dashboard/admin/internship");
+            return redirect()->route("/dashboard/admin/internship")->with([
+                'alert' => true,
+                'type' => 'error',
+                'title' => 'Gagal!',
+                'message' =>'Terjadi kesalahan'. $e->getMessage(),
+                'icon' => asset('assets/images/dashboard/error.png'),
+            ]);
         }
     }
 }

@@ -418,6 +418,12 @@ class DashboardPapiKostickController extends Controller
         $question->b = $request->input('b');
         $question->save();
 
-        return redirect()->route('papi-kostick.soal')->with('success', 'Question updated successfully');
+        return redirect()->route('papi-kostick.soal')->with([
+            'alert'   => true,
+            'type'    => 'success',
+            'title'   => 'Berhasil!',
+            'message' => 'Soal berhasil diupdate',
+            'icon'    => asset('assets/images/dashboard/success.png'),
+        ]);
     }
 }

@@ -25,11 +25,21 @@ class RegistrationUserKonseling extends Controller
                 'tanggal_mengikuti_test' => $validated['tanggal_mengikuti_test'],
             ]);
 
-            Alert::toast('Formulir Pendaftaran Berhasil', 'success')->autoClose(5000);;
-            return redirect()->back();
+            return redirect()->route('dashboard.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Pendaftaran berhasil dimasukkan.',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
         } catch (\Exception $e) {
-            Alert::toast('Terjadi kesalahan saat menyimpan data' .$e->getMessage(), 'error')->autoClose(5000);
-            return redirect()->back();
+           return redirect()->back()->with([
+                'alert'   => true,
+                'type'    => 'error',
+                'title'   => 'Gagal!',
+                'message' => 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage(),
+                'icon'    => asset('assets/images/dashboard/error.png'),
+            ]);
         }
     }
 }

@@ -20,6 +20,12 @@ class SkorBdiController extends Controller
             'skor' => $validated['skor'],
             'hasil' => $validated['hasil']
         ]);
-            return redirect()->back()->with('success', $skor, );
+            return redirect()->back()->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => $skor,
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 }

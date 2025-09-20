@@ -25,7 +25,13 @@ class ResultSsctController extends Controller
             return view('moduls.psikotes-paid.admin.tools.ssct-result', ['answers' => $answers]);
         } else {
             // Handle the case where the test_tes_esai is not found
-            return redirect()->back()->with('error', 'Test not found');
+            return redirect()->back()->with([
+            'alert'   => true,
+            'type'    => 'error',
+            'title'   => 'Gagal!',
+            'message' => 'Tes SSCT tidak ditemukan.',
+            'icon'    => asset('assets/images/dashboard/error.png'),
+        ]);
         }
     }
 }

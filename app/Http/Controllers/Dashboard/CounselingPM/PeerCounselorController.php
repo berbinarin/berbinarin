@@ -82,8 +82,13 @@ class PeerCounselorController extends Controller
         $konselling->fill($validatedData);
         $konselling->save();
 
-        Alert::toast('Data Peer Counselor berhasil ditambahkan', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.peer-counselors.index');
+        return redirect()->route('dashboard.peer-counselors.index')->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'Data Peer Counselor berhasil ditambahkan',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     public function show(Request $request, $id)
@@ -174,15 +179,25 @@ class PeerCounselorController extends Controller
         $PeerConsellorDataDetails->fill($validatedData);
         $PeerConsellorDataDetails->save();
 
-        Alert::toast('Data Peer Counselor berhasil diedit', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.peer-counselors.show', $id);
+        return redirect()->route('dashboard.peer-counselors.show', $id)->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'Data Peer Counselor berhasil diedit',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     public function destroy($id)
     {
         KonsellingPeer::where('id', $id)->delete();
-        Alert::toast('Data Peer Counselor berhasil dihapus', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.peer-counselors.index');
+       return redirect()->route('dashboard.peer-counselors.index')->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'Data Peer Counselor berhasil dihapus',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     public function staffIndex()

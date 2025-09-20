@@ -25,11 +25,21 @@ class AuthController extends Controller
             ]);
 
 
-            Alert::toast('Formulir Pendaftaran Berhasil', 'success')->autoClose(5000);;
-            return redirect()->back();
+             return redirect()->back()->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'Pendaftaran Berhasil',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
         } catch (\Exception $e) {
-            Alert::toast('Terjadi kesalahan saat menyimpan data' . $e->getMessage(), 'error')->autoClose(5000);
-            return redirect()->back();
+            return redirect()->back()->with([
+                'alert' => true,
+                'type' => 'error',
+                'title' => 'Gagal!',
+                'message' =>'Terjadi kesalahan, silahkan coba lagi',
+                'icon' => asset('assets/images/dashboard/error.png'),
+            ]);
         }
     }
 
@@ -48,22 +58,34 @@ class AuthController extends Controller
         $credentials = $request->only('username', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Authentication success
-            Alert::toast('Login Sucessfully!', 'success')->autoClose(5000);;
-            return redirect()->route('dashboard.index');
+           return redirect()->route('dashboard.index')->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Login Berhasil',
+                'message' =>'Silahkan masuk',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
 
         } else {
-            // Authentication failed
-            Alert::toast('Invalid Email-Address And Password', 'error')->autoClose(5000);;
-            return redirect()->route('auth.login');
+            return redirect()->route('auth.login')->with([
+                'alert' => true,
+                'type' => 'error',
+                'title' => 'Gagal!',
+                'message' =>'Username atau Password salah',
+                'icon' => asset('assets/images/dashboard/error.png'),
+            ]);
         }
     }
 
     public function Logout()
     {
         Auth::logout();
-        Alert::toast('Logout Sucessfully!', 'success')->autoClose(5000);;
-
-        return redirect()->route('auth.login');
+        return redirect()->route('auth.login')->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Logout Berhasil',
+                'message' =>'Sampai jumpa lagi 😘',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 }

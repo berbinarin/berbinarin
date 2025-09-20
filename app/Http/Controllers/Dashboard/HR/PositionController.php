@@ -41,11 +41,21 @@ class PositionController extends Controller
                 "divisi" => $validated["divisi"],
                 "is_active" => true,
             ]);
-            Alert::toast('Posisi berhasil dibuat!', 'success')->autoClose(5000);
-            return redirect()->route('dashboard.positions.index');
+            return redirect()->route('dashboard.positions.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Posisi Berhasil Dibuat',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
         } catch (\Exception $e) {
-            Alert::toast('Terjadi kesalahan saat menyimpan data: ' . $e->getMessage(), 'error')->autoClose(5000);
-            return redirect()->back()->withInput();
+            return redirect()->back()->withInput()->with([
+                'alert'   => true,
+                'type'    => 'error',
+                'title'   => 'Gagal!',
+                'message' => 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage(),
+                'icon'    => asset('assets/images/dashboard/error.png'),
+            ]);
         }
     }
 
@@ -73,11 +83,21 @@ class PositionController extends Controller
             $HiringPositions->location = $request->location;
             $HiringPositions->divisi = $request->divisi;
             $HiringPositions->save();
-            Alert::toast('Posisi berhasil diubah!', 'success')->autoClose(5000);
-            return redirect()->route('dashboard.positions.index');
+            return redirect()->route('dashboard.positions.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Posisi Berhasil Diubah',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
         } catch (\Exception $e) {
-            Alert::toast('Terjadi kesalahan saat mengubah data: ' . $e->getMessage(), 'error')->autoClose(5000);
-            return redirect()->back()->withInput();
+           return redirect()->back()->withInput()->with([
+                'alert'   => true,
+                'type'    => 'error',
+                'title'   => 'Gagal!',
+                'message' => 'Terjadi kesalahan saat mengubah data: ' . $e->getMessage(),
+                'icon'    => asset('assets/images/dashboard/error.png'),
+            ]);
         }
     }
 
@@ -94,11 +114,21 @@ class PositionController extends Controller
             }
 
             $HiringPositions->delete();
-            Alert::toast('Posisi berhasil dihapus!', 'success')->autoClose(5000);
-            return redirect()->route('dashboard.positions.index');
+            return redirect()->route('dashboard.positions.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Data Berhasil Dihapus',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
         } catch (\Exception $e) {
-            Alert::toast('Terjadi kesalahan saat menghapus data: ' . $e->getMessage(), 'error')->autoClose(5000);
-            return redirect("/dashboard/admin/positions");
+            return redirect()->route('/dashboard/admin/positions')->with([
+                'alert'   => true,
+                'type'    => 'error',
+                'title'   => 'Gagal!',
+                'message' => 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage(),
+                'icon'    => asset('assets/images/dashboard/error.png'),
+            ]);
         }
     }
 
@@ -114,14 +144,32 @@ class PositionController extends Controller
             $HiringPositions->save();
 
             if ($HiringPositions->is_active) {
-                Alert::toast('Posisi berhasil diaktifkan!', 'success')->autoClose(5000);
+                return redirect()->back()->with([
+                    'alert'   => true,
+                    'type'    => 'success',
+                    'title'   => 'Berhasil!',
+                    'message' => 'Posisi berhasil diaktifkan!',
+                    'icon'    => asset('assets/images/dashboard/success.png'),
+                ]);
             } else {
-                Alert::toast('Posisi berhasil dinonaktfikan!', 'success')->autoClose(5000);
+                return redirect()->back()->with([
+                    'alert'   => true,
+                    'type'    => 'success',
+                    'title'   => 'Berhasil!',
+                    'message' => 'Posisi berhasil dinonaktifkan!',
+                    'icon'    => asset('assets/images/dashboard/success.png'),
+                ]);
             }
+
             return redirect()->route('dashboard.positions.index');
         } catch (\Exception $e) {
-            Alert::toast('Terjadi kesalahan saat mengubah status: ' . $e->getMessage(), 'error')->autoClose(5000);
-            return redirect()->route('dashboard.positions.index');
+           return redirect()->route('dashboard.positions.index')->with([
+                'alert'   => true,
+                'type'    => 'error',
+                'title'   => 'Gagal!',
+                'message' => 'Terjadi kesalahan saat mengubah status aktif: ' . $e->getMessage(),
+                'icon'    => asset('assets/images/dashboard/error.png'),
+            ]);
         }
     }
 }

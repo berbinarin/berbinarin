@@ -91,8 +91,13 @@ class UserPsikotestPaidController extends Controller
         $user->delete();
 
         // Redirect back with a success message
-        Alert::toast('User Deleted!', 'success')->autoClose(5000);
-        return redirect()->route('psikotest-paid.showLanding');
+       return redirect()->route('psikotest-paid.showLanding')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'User Berhasil Dihapus',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     public function showLogin()
@@ -108,21 +113,35 @@ class UserPsikotestPaidController extends Controller
             // $user = Auth::guard('psikotestpaid')->user();
             // $token = $user->createToken('auth_token')->plainTextToken;
             // dd($token);
-            Alert::toast('Login Sucessfully!', 'success')->autoClose(5000);
-            return redirect()->route('psikotest-paid.showLanding');
+            return redirect()->route('psikotest-paid.showLanding')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Login Berhasil',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
             // return redirect()->route('psikotest-tools.index');
         } else {
-            Alert::toast('Invalid Email-Address And Password', 'error')->autoClose(5000);;
-            return redirect()->route('psikotest-paid.login');
+             return redirect()->route('psikotest-paid.login')->with([
+                'alert'   => true,
+                'type'    => 'error',
+                'title'   => 'Gagal!',
+                'message' => 'Username atau Password salah',
+                'icon'    => asset('assets/images/dashboard/error.png'),
+            ]);
         }
     }
 
     public function logout()
     {
         Auth::guard('psikotestpaid')->logout();
-        Alert::toast('Logout Sucessfully!', 'success')->autoClose(5000);
-
-        return redirect()->route('psikotest-paid.login');
+        return redirect()->route('psikotest-paid.login')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Logout Berhasil',
+                'message' => 'Sampai jumpa lagi 😘',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
 

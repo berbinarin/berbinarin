@@ -25,7 +25,13 @@ class ResultDapController extends Controller
             return view('moduls.psikotes-paid.admin.tools.dap-result', ['answers' => $answers]);
         } else {
             // Handle the case where the test_baum is not found
-            return redirect()->back()->with('error', 'Test not found');
+            return redirect()->back()->with([
+            'alert'   => true,
+            'type'    => 'error',
+            'title'   => 'Gagal!',
+            'message' => 'Tes DAP tidak ditemukan.',
+            'icon'    => asset('assets/images/dashboard/error.png'),
+        ]);
         }
     }
 }

@@ -52,7 +52,13 @@ class PositionController extends Controller
         $position = Hiring_Positions::where('id', $id)->first();
 
         if (!$position) {
-            return redirect()->back()->with('error', 'Position not found or inactive');
+            return redirect()->back()->with([
+                'alert'   => true,
+                'type'    => 'error',
+                'title'   => 'Gagal!',
+                'message' => 'Posisi tidak ditemukan.',
+                'icon'    => asset('assets/images/dashboard/error.png'),
+            ]);
         }
 
         // todo: production please fetch actual description & requirments from db
@@ -98,7 +104,7 @@ class PositionController extends Controller
         return view('landing.career.positions.daftar', ['position' => $position]);
     }
 
-    
+
 
     public function store(Request $request, $id)
     {
@@ -138,7 +144,13 @@ class PositionController extends Controller
 
             return redirect()->route('career.positions.detail', $id)->with('success', true);
             } catch (\Exception $e) {
-            return redirect()->back()->withInput()->with('error', 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with([
+                'alert'   => true,
+                'type'    => 'error',
+                'title'   => 'Gagal!',
+                'message' => 'Terjadi kesalahan saat mengirim data: ' . $e->getMessage(),
+                'icon'    => asset('assets/images/dashboard/error.png'),
+            ]);
             }
     }
 }

@@ -37,6 +37,12 @@ class RegistrationController extends Controller
         // Simpan data atau proses lebih lanjut
         // ...
 
-        return back()->with('success', 'Registration successful!');
+         return redirect()->back()->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Registrasi Berhasil',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 }

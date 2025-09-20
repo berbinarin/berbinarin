@@ -44,9 +44,13 @@ class DivisionController extends Controller
                     ->first();
 
                 if ($existingSubDivision) {
-                    return redirect()->back()->withErrors([
-                        'subdivisi' => "Sub divisi '{$subdivisi}' sudah ada di divisi '{$division->nama_divisi}'.",
-                    ])->withInput();
+                    return redirect()->back()->with([
+                        'alert' => true,
+                        'type' => 'error',
+                        'title' => 'Gagal!',
+                        'message' => "Sub divisi '{$subdivisi}' sudah ada di divisi '{$division->nama_divisi}'.",
+                        'icon' => asset('assets/images/dashboard/error.png'),
+                    ]);
                 }
 
                 SubDivision::create([
@@ -56,7 +60,13 @@ class DivisionController extends Controller
             }
         }
 
-        return redirect()->route('dashboard.divisions.index')->with('success', 'Divisi dan sub divisi berhasil ditambahkan.');
+        return redirect()->route('dashboard.divisions.index')->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'Divisi dan Sub Divisi berhasil ditambahkan',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
     }
     public function show($id)
     {
@@ -114,7 +124,13 @@ class DivisionController extends Controller
             }
         }
 
-        return redirect()->route('dashboard.divisions.index', $division->id)->with('success', 'Divisi berhasil diperbarui.');
+        return redirect()->route('dashboard.divisions.index', $division->id)->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'Data berhasil diupdate',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     public function destroy($id)
@@ -126,14 +142,26 @@ class DivisionController extends Controller
             ->exists();
 
         if ($isUsedInRecords) {
-            return redirect()->route('dashboard.divisions.index')->with('error', 'Divisi atau sub divisi ini sedang digunakan dan tidak dapat dihapus.');
+            return redirect()->route('dashboard.divisions.index')->with([
+                'alert' => true,
+                'type' => 'error',
+                'title' => 'Gagal!',
+                'message' =>'Data dan sub divisi ini sudah digunakan dan tidak dapat dihapus',
+                'icon' => asset('assets/images/dashboard/error.png'),
+            ]);
         }
 
         $division->subDivisions()->delete();
 
         $division->delete();
 
-        return redirect()->route('dashboard.divisions.index')->with('success', 'Divisi berhasil dihapus.');
+        return redirect()->route('dashboard.divisions.index')->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'Data berhasil dihapus',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     public function deleteSubDivision($id)

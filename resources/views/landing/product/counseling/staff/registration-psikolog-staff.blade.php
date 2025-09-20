@@ -5,482 +5,603 @@
 ])
 
 @section('content')
-<style>
-    .step-section { display: none; }
-    .step-section.active { display: block; }
+    <style>
+        .step-section {
+            display: none;
+        }
 
-    .text-gradient {
-        background: linear-gradient(to right, #F7B23B, #916823);
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-    }
+        .step-section.active {
+            display: block;
+        }
 
-    select {
-        background-image: none !important;
-    }
+        .text-gradient {
+            background: linear-gradient(to right, #F7B23B, #916823);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
 
-    .harga-coret {
-        text-decoration: line-through;
-        color: #b3b3b3;
-        font-size: 15px;
-        margin-right: 8px;
-    }
-    .harga-diskon {
-        color: #3986A3;
-        font-weight: bold;
-        font-size: 17px;
-    }
-    #harga-tampil, #harga-input {
-        min-height: 48px;
-        font-size: 17px;
-        display: flex;
-        align-items: center;
-    }
+        select {
+            background-image: none !important;
+        }
 
-</style>
+        .harga-coret {
+            text-decoration: line-through;
+            color: #b3b3b3;
+            font-size: 15px;
+            margin-right: 8px;
+        }
 
-<div class="sm:mt-36 mt-24 sm:mb-20 mb-8 sm:mx-24 mx-4 md:bg-white bg-none justify-center flex flex-col md:shadow-lg shadow-none rounded-2xl px-12 max-md:px-1 py-6">
-    {{-- Navigation Header --}}
-    <div class="flex flex-row justify-between" id="step-1-header">
-        <a href="{{ route('product.counseling.psikolog.registration') }}">
-            <div class="flex items-center space-x-2 cursor-pointer">
-                <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow" class="h-3 w-auto">
-                <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span class="sm:block hidden ml-0.5">pilih konseling</span></p>
-            </div>
-        </a>
+        .harga-diskon {
+            color: #3986A3;
+            font-weight: bold;
+            font-size: 17px;
+        }
 
-        <div class="flex items-center space-x-1 cursor-pointer" id="openModal">
-            <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}" alt="Syarat & Ketentuan" class="h-3 w-auto">
-            <p class="text-[15px] font-semibold text-[#3986A3]"><span class="sm:block hidden">Syarat & Ketentuan</span><span class="sm:hidden block">S&K</span></p>
-        </div>
-    </div>
+        #harga-tampil,
+        #harga-input {
+            min-height: 48px;
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+        }
+    </style>
 
-    <div class="flex flex-row justify-between" id="step-2-header" style="display: none;">
-        <div class="flex items-center space-x-2 cursor-pointer" onclick="prevStep(1)">
-            <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow" class="h-3 w-auto">
-            <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span class="sm:block hidden ml-0.5">isi jadwal</span></p>
-        </div>
-
-        <div class="flex items-center space-x-1 cursor-pointer" id="openModal2">
-            <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}" alt="Syarat & Ketentuan" class="h-3 w-auto">
-            <p class="text-[15px] font-semibold text-[#3986A3]"><span class="sm:block hidden">Syarat & Ketentuan</span><span class="sm:hidden block">S&K</span></p>
-        </div>
-    </div>
-
-    <div class="flex flex-row justify-between" id="step-3-header" style="display: none;">
-        <div class="flex items-center space-x-2 cursor-pointer" onclick="prevStep(2)">
-            <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow" class="h-3 w-auto">
-            <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span class="sm:block hidden ml-0.5">isi data diri</span></p>
-        </div>
-
-        <div class="flex items-center space-x-1 cursor-pointer" id="openModal3">
-            <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}" alt="Syarat & Ketentuan" class="h-3 w-auto">
-            <p class="text-[15px] font-semibold text-[#3986A3]"><span class="sm:block hidden">Syarat & Ketentuan</span><span class="sm:hidden block">S&K</span></p>
-        </div>
-    </div>
-
-    {{-- Modal untuk syarat dan ketentuan --}}
-
-    <div id="modal" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
-        <div class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
-            <h1 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-center text-3xl font-bold max-sm:text-2xl">Syarat dan Ketentuan</h1>
-            <div class="mb-6">
-                <div class="flex items-start gap-2">
-                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Lokasi" class="h-5 w-5 mt-0.5" />
-                    <span class="font-semibold">Lokasi offline Konseling</span>
+    <div
+        class="sm:mt-36 mt-24 sm:mb-20 mb-8 sm:mx-24 mx-4 md:bg-white bg-none justify-center flex flex-col md:shadow-lg shadow-none rounded-2xl px-12 max-md:px-1 py-6">
+        {{-- Navigation Header --}}
+        <div class="flex flex-row justify-between" id="step-1-header">
+            <a href="{{ route('product.counseling.psikolog.registration-staff') }}">
+                <div class="flex items-center space-x-2 cursor-pointer">
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow"
+                        class="h-3 w-auto">
+                    <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span
+                            class="sm:block hidden ml-0.5">pilih konseling</span></p>
                 </div>
-                <ol class="list-decimal mt-1 space-y-1 pl-7">
-                    <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
-                    <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Surabaya, Jombang, dan Nganjuk</li>
-                </ol>
-            </div>
+            </a>
 
-            <div class="mb-6">
-                <div class="flex items-start gap-2">
-                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/payment.png') }}" alt="Pembayaran" class="h-5 w-5 mt-0.5" />
-                    <span class="font-semibold">Pembayaran</span>
-                </div>
-                <ol class="list-decimal mt-1 space-y-1 pl-7">
-                    <li class="max-sm:text-sm">Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n. Berbinar Insightful Indonesia dengan aturan transfer 1×24 jam.</li>
-                </ol>
-            </div>
-
-            <div class="mb-6">
-                <div class="flex items-start gap-2">
-                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.png') }}" alt="Pembalasan Pesan" class="h-5 w-5 mt-0.5" />
-                    <span class="font-semibold">Pembalasan Pesan</span>
-                </div>
-                <ol class="list-decimal mt-1 space-y-1 pl-7">
-                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, pendaftaran oleh klien secara otomatis dibatalkan.</li>
-                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, jadwal yang sudah ditentukan oleh klien berhak untuk diubah oleh Tim Berbinar dan kesepakatan dari klien.</li>
-                    <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 2×24 jam setelah melakukan pembayaran, pembayaran dianggap hangus.</li>
-                </ol>
-            </div>
-
-            <div class="mb-6">
-                <div class="flex items-start gap-2">
-                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/cancel.png') }}" alt="Pengajuan Pembatalan" class="h-5 w-5 mt-0.5" />
-                    <span class="font-semibold">Pengajuan Pembatalan</span>
-                </div>
-                <ol class="list-decimal mt-1 space-y-1 pl-7">
-                    <li class="max-sm:text-sm">Pengajuan proses pembatalan layanan konseling dapat dilakukan dalam kurun waktu 1×24 jam setelah proses administrasi dan dana yang telah dibayarkan akan dikembalikan 100%.</li>
-                </ol>
-            </div>
-
-
-            <div class="mt-4 justify-center flex lg:gap-x-3">
-                <button id="closeModal" class="w-[90%] lg:w-1/4 rounded-xl border-[1.5px] bg-gradient-to-r from-[#3986A3] to-[#15323D] border-[#225062] bg-transparent px-4 py-1.5 font-medium text-white max-sm:text-[15px]">Saya Mengerti</button>
+            <div class="flex items-center space-x-1 cursor-pointer" id="openModal">
+                <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}"
+                    alt="Syarat & Ketentuan" class="h-3 w-auto">
+                <p class="text-[15px] font-semibold text-[#3986A3]"><span class="sm:block hidden">Syarat &
+                        Ketentuan</span><span class="sm:hidden block">S&K</span></p>
             </div>
         </div>
-    </div>
 
-    {{-- Modal untuk syarat dan ketentuan --}}
-    <div id="voucher" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
-        <div class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
-            <h1 class="bg-gradient-to-r from-[#3986A3] to-[#15323D] bg-clip-text text-transparent pb-6 text-center text-3xl font-bold max-sm:text-lg">Promo KTM dan Kartu Pelajar <br class=""> Produk Konseling Bersama Psikolog</h1>
-            <div class="mb-6">
-                <div class="max-h-[440px] lg:max-h-96 overflow-y-auto">
+        <div class="flex flex-row justify-between" id="step-2-header" style="display: none;">
+            <div class="flex items-center space-x-2 cursor-pointer" onclick="prevStep(1)">
+                <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow"
+                    class="h-3 w-auto">
+                <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span class="sm:block hidden ml-0.5">isi
+                        jadwal</span></p>
+            </div>
 
-                <h2 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-2xl font-bold max-sm:text-lg">Syarat dan Ketentuan</h2>
-                <ul class="list-disc text-black marker:text-primary pl-6">
-                    <li class="mb-2">
-                        <p class="font-semibold">Promo Berlaku untuk:</p>
-                        <p class="max-sm:text-sm text-disabled pl-7">
-                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
-                                <li>Siswa aktif jenjang SMP/SMA/sederajat.</li>
-                                <li>Mahasiswa aktif jenjang D3, D4, atau S1.</li>
-                                <li>Dibuktikan dengan mengupload Kartu Tanda Mahasiswa (KTM) atau Kartu Pelajar yang masih berlaku saat melakukan pendaftaran</li>
-                            </ol>
-                        </p>
+            <div class="flex items-center space-x-1 cursor-pointer" id="openModal2">
+                <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}"
+                    alt="Syarat & Ketentuan" class="h-3 w-auto">
+                <p class="text-[15px] font-semibold text-[#3986A3]"><span class="sm:block hidden">Syarat &
+                        Ketentuan</span><span class="sm:hidden block">S&K</span></p>
+            </div>
+        </div>
 
-                    </li>
-                    <li class="mb-2">
-                        <p class="font-semibold">Diskon/Penawaran:</p>
-                        <p class="max-sm:text-sm text-disabled pl-7">
-                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
-                                <li>Potongan harga sebesar 20% untuk setiap sesi konseling individu.</li>
-                                <li>Promo hanya berlaku untuk layanan konseling online.</li>
-                            </ol>
-                        </p>
-                    </li>
+        <div class="flex flex-row justify-between" id="step-3-header" style="display: none;">
+            <div class="flex items-center space-x-2 cursor-pointer" onclick="prevStep(2)">
+                <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow"
+                    class="h-3 w-auto">
+                <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span class="sm:block hidden ml-0.5">isi
+                        data diri</span></p>
+            </div>
 
-                    <li class="mb-2">
-                        <p class="font-semibold">Cara Menggunakan Promo:</p>
-                        <p class="max-sm:text-sm text-disabled pl-7">
-                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
-                                <li>Daftar melalui website berbinar konseling <br> <a href="https://berbinar.in/produk/konseling" class="text-blue-500">https://berbinar.in/produk/<br class="hidden max-sm:block">konseling</a></li>
-                                <li>Upload KTM/kartu pelajar saat pendaftaran.</li>
-                                <li>Cantumkan kode promo #KONSELINGPELAJAR</li>
-                            </ol>
-                        </p>
-                    </li>
+            <div class="flex items-center space-x-1 cursor-pointer" id="openModal3">
+                <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}"
+                    alt="Syarat & Ketentuan" class="h-3 w-auto">
+                <p class="text-[15px] font-semibold text-[#3986A3]"><span class="sm:block hidden">Syarat &
+                        Ketentuan</span><span class="sm:hidden block">S&K</span></p>
+            </div>
+        </div>
 
-                    <li class="mb-2">
-                        <p class="font-semibold">Ketentuan Tambahan:</p>
-                        <p class="max-sm:text-sm text-disabled pl-7">
-                            <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
-                                <li>Promo hanya berlaku untuk 1x sesi per individu, kecuali dinyatakan lain.</li>
-                                <li>Tidak dapat memilih Psikolog yang akan menangani</li>
-                                <li>Tidak dapat digabungkan dengan promo lainnya.</li>
-                                <li>Tidak berlaku untuk layanan lanjutan atau paket konseling tertentu.</li>
-                                <li>Pihak penyelenggara berhak membatalkan promo jika ditemukan penyalahgunaan (misalnya kartu tidak valid atau sudah tidak aktif).</li>
-                            </ol>
-                        </p>
-                    </li>
-                </ul>
+        {{-- Modal untuk syarat dan ketentuan --}}
+
+        <div id="modal"
+            class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
+            <div
+                class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
+                <h1
+                    class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-center text-3xl font-bold max-sm:text-2xl">
+                    Syarat dan Ketentuan</h1>
+                <div class="mb-6">
+                    <div class="flex items-start gap-2">
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Lokasi"
+                            class="h-5 w-5 mt-0.5" />
+                        <span class="font-semibold">Lokasi offline Konseling</span>
+                    </div>
+                    <ol class="list-decimal mt-1 space-y-1 pl-7">
+                        <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
+                        <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Surabaya, Jombang, dan Nganjuk</li>
+                    </ol>
+                </div>
+
+                <div class="mb-6">
+                    <div class="flex items-start gap-2">
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/payment.png') }}" alt="Pembayaran"
+                            class="h-5 w-5 mt-0.5" />
+                        <span class="font-semibold">Pembayaran</span>
+                    </div>
+                    <ol class="list-decimal mt-1 space-y-1 pl-7">
+                        <li class="max-sm:text-sm">Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711
+                            a.n. Berbinar Insightful Indonesia dengan aturan transfer 1×24 jam.</li>
+                    </ol>
+                </div>
+
+                <div class="mb-6">
+                    <div class="flex items-start gap-2">
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.png') }}"
+                            alt="Pembalasan Pesan" class="h-5 w-5 mt-0.5" />
+                        <span class="font-semibold">Pembalasan Pesan</span>
+                    </div>
+                    <ol class="list-decimal mt-1 space-y-1 pl-7">
+                        <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, pendaftaran oleh klien secara
+                            otomatis dibatalkan.</li>
+                        <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, jadwal yang sudah ditentukan
+                            oleh klien berhak untuk diubah oleh Tim Berbinar dan kesepakatan dari klien.</li>
+                        <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 2×24 jam setelah melakukan pembayaran,
+                            pembayaran dianggap hangus.</li>
+                    </ol>
+                </div>
+
+                <div class="mb-6">
+                    <div class="flex items-start gap-2">
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/cancel.png') }}"
+                            alt="Pengajuan Pembatalan" class="h-5 w-5 mt-0.5" />
+                        <span class="font-semibold">Pengajuan Pembatalan</span>
+                    </div>
+                    <ol class="list-decimal mt-1 space-y-1 pl-7">
+                        <li class="max-sm:text-sm">Pengajuan proses pembatalan layanan konseling dapat dilakukan dalam kurun
+                            waktu 1×24 jam setelah proses administrasi dan dana yang telah dibayarkan akan dikembalikan
+                            100%.</li>
+                    </ol>
+                </div>
+
+
+                <div class="mt-4 justify-center flex lg:gap-x-3">
+                    <button id="closeModal"
+                        class="w-[90%] lg:w-1/4 rounded-xl border-[1.5px] bg-gradient-to-r from-[#3986A3] to-[#15323D] border-[#225062] bg-transparent px-4 py-1.5 font-medium text-white max-sm:text-[15px]">Saya
+                        Mengerti</button>
                 </div>
             </div>
-            <div class="mt-4 justify-center flex lg:gap-x-3">
-                <button id="closeVoucher" class="w-[90%] lg:w-1/4 rounded-xl border-[1.5px] bg-gradient-to-r from-[#3986A3] to-[#15323D] border-[#225062] bg-transparent px-4 py-1.5 font-medium text-white max-sm:text-[15px]">Saya Mengerti</button>
+        </div>
+
+        {{-- Modal untuk syarat dan ketentuan --}}
+        <div id="voucher"
+            class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
+            <div
+                class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
+                <h1
+                    class="bg-gradient-to-r from-[#3986A3] to-[#15323D] bg-clip-text text-transparent pb-6 text-center text-3xl font-bold max-sm:text-lg">
+                    Promo KTM dan Kartu Pelajar <br class=""> Produk Konseling Bersama Psikolog</h1>
+                <div class="mb-6">
+                    <div class="max-h-[440px] lg:max-h-96 overflow-y-auto">
+
+                        <h2
+                            class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-2xl font-bold max-sm:text-lg">
+                            Syarat dan Ketentuan</h2>
+                        <ul class="list-disc text-black marker:text-primary pl-6">
+                            <li class="mb-2">
+                                <p class="font-semibold">Promo Berlaku untuk:</p>
+                                <p class="max-sm:text-sm text-disabled pl-7">
+                                <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
+                                    <li>Siswa aktif jenjang SMP/SMA/sederajat.</li>
+                                    <li>Mahasiswa aktif jenjang D3, D4, atau S1.</li>
+                                    <li>Dibuktikan dengan mengupload Kartu Tanda Mahasiswa (KTM) atau Kartu Pelajar yang
+                                        masih berlaku saat melakukan pendaftaran</li>
+                                </ol>
+                                </p>
+
+                            </li>
+                            <li class="mb-2">
+                                <p class="font-semibold">Diskon/Penawaran:</p>
+                                <p class="max-sm:text-sm text-disabled pl-7">
+                                <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
+                                    <li>Potongan harga sebesar 20% untuk setiap sesi konseling individu.</li>
+                                    <li>Promo hanya berlaku untuk layanan konseling online.</li>
+                                </ol>
+                                </p>
+                            </li>
+
+                            <li class="mb-2">
+                                <p class="font-semibold">Cara Menggunakan Promo:</p>
+                                <p class="max-sm:text-sm text-disabled pl-7">
+                                <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
+                                    <li>Daftar melalui website berbinar konseling <br> <a
+                                            href="https://berbinar.in/produk/konseling"
+                                            class="text-blue-500">https://berbinar.in/produk/<br
+                                                class="hidden max-sm:block">konseling</a></li>
+                                    <li>Upload KTM/kartu pelajar saat pendaftaran.</li>
+                                    <li>Cantumkan kode promo #KONSELINGPELAJAR</li>
+                                </ol>
+                                </p>
+                            </li>
+
+                            <li class="mb-2">
+                                <p class="font-semibold">Ketentuan Tambahan:</p>
+                                <p class="max-sm:text-sm text-disabled pl-7">
+                                <ol class="list-decimal text-gray-600 marker:text-disabled pl-5">
+                                    <li>Promo hanya berlaku untuk 1x sesi per individu, kecuali dinyatakan lain.</li>
+                                    <li>Tidak dapat memilih Psikolog yang akan menangani</li>
+                                    <li>Tidak dapat digabungkan dengan promo lainnya.</li>
+                                    <li>Tidak berlaku untuk layanan lanjutan atau paket konseling tertentu.</li>
+                                    <li>Pihak penyelenggara berhak membatalkan promo jika ditemukan penyalahgunaan (misalnya
+                                        kartu tidak valid atau sudah tidak aktif).</li>
+                                </ol>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-4 justify-center flex lg:gap-x-3">
+                    <button id="closeVoucher"
+                        class="w-[90%] lg:w-1/4 rounded-xl border-[1.5px] bg-gradient-to-r from-[#3986A3] to-[#15323D] border-[#225062] bg-transparent px-4 py-1.5 font-medium text-white max-sm:text-[15px]">Saya
+                        Mengerti</button>
+                </div>
             </div>
         </div>
-    </div>
 
 
-{{-- Form Input Pendafataran --}}
-<form id="multiStepForm" action="{{ route('product.counseling.psikolog.store') }}" method="POST" class="flex flex-col" enctype="multipart/form-data">
+        {{-- Form Input Pendafataran --}}
+        <form id="multiStepForm" action="{{ route('product.counseling.psikolog.store') }}" method="POST"
+            class="flex flex-col" enctype="multipart/form-data">
             @csrf
 
-        {{-- STEP 1: Pilih Jadwal Konseling --}}
+            {{-- STEP 1: Pilih Jadwal Konseling --}}
 
-        <div id="step-1" class="step-section active">
-            <h1 class="max-sm:text-[29px] text-3xl font font-semibold text-center max-sm:mx-2 text-gradient my-6">Isi Jadwal Konseling</h1>
-            <input type="hidden" name="kategori" value="psikolog">
-            <div class="space-y-3 flex flex-col">
-                {{-- Tanggal Konseling --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-[#333333] sm:text-[17px] text-sm">Tanggal Konseling</p>
-                    <div class="relative">
-                        <input type="text" required name="jadwal_tanggal" id="tglkonseling" class="bg-[#F1F3F6] border-none md:shadow-none shadow-md rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="dd/mm/yy" autocomplete="off" readonly>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/date.png') }}" class="h-4 w-auto object-contain absolute max-sm:hidden right-5 top-1/2 -translate-y-1/2" onclick="document.getElementById('tglkonseling').focus()">
-                    </div>
-                </div>
-                {{-- Waktu Konseling --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-[#333333] sm:text-[17px] text-sm">Waktu Konseling</p>
-                    <div class="relative">
-                        <input type="text" id="waktukonseling" name="jadwal_pukul" required class="bg-[#F1F3F6] border-none md:shadow-none shadow-md rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="--:--" autocomplete="off" readonly>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/clock.png') }}" class="h-4 w-auto object-contain absolute max-sm:hidden right-5 top-1/2 -translate-y-1/2" onclick="document.getElementById('waktukonseling').focus()">
-                    </div>
-                </div>
-                {{-- Metode Konseling --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-[#333333] sm:text-[17px] text-sm">Metode Konseling</p>
-                    <div class="relative">
-                        <select name="metode" class="dropdown-select bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3] appearance-none" id="metode-select">
-                            <option selected disabled>Pilih metode konseling</option>
-                            <option value="offline">Offline</option>
-                            <option value="online">Online</option>
-                        </select>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon h-2 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300">
-                    </div>
-                </div>
-                {{-- Daerah Konseling --}}
-                <div class="flex flex-col space-y-1" id="daerah-container" style="display: none;">
-                    <p class="text-[#333333] sm:text-[17px] text-sm">Daerah Konseling</p>
-                    <div class="relative">
-                        <select name="daerah" id="daerah-select" class="dropdown-select bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3] appearance-none">
-                            <option value="">Pilih Daerah Konseling</option>
-                            <option value="Surabaya">Surabaya</option>
-                            <option value="Kediri">Kediri</option>
-                            <option value="Sidoarjo">Sidoarjo</option>
-                            <option value="Jakarta">Jakarta</option>
-                        </select>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon h-2 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300">
-                    </div>
-                </div>
-                {{-- Sesi --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-[#333333] sm:text-[17px] text-sm">Sesi</p>
-                    <div class="relative">
-                        <select name="sesi" class="dropdown-select bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3] appearance-none" id="sesi-select">
-                            <option value="1">1 Jam</option>
-                            <option value="2">2 Jam</option>
-                            <option value="3">3 Jam</option>
-                        </select>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon h-2 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300">
-                    </div>
-                </div>
-                {{-- Harga --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-[#333333] sm:text-[17px] text-sm">Harga</p>
-                    <div class="relative">
-                        <div id="harga-tampil" class="bg-[#F1F3F6] md:shadow-none shadow-md sm:text-[17px] border-none rounded-lg w-full px-3 py-3">
-                            <span id="harga-asli" class="" style="">Rp.0,00</span>
-                            <span id="harga-diskon" class="harga-diskon"></span>
-                        </div>
-                        <input type="hidden" name="harga" id="harga-input">
-                    </div>
-                </div>
-                {{-- Kode Promo --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-[#333333] sm:text-[17px] text-sm">Kode Promo</p>
-                    <div class="relative">
-                        <input type="text" id="kode_promo" name="kode_promo" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="Berbinar">
-                        <button type="button" onclick="redeemVoucher()" class="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer flex bg-[#106681] text-white justify-between gap-2 py-[4px] px-2  rounded-md items-center">Redeem Code</button>
-                    </div>
-                </div>
-                <input type="hidden" name="kategori_voucher" id="kategori_voucher">
-                <input type="hidden" name="code_voucher" id="code_voucher">
-                <input type="hidden" name="presentase_diskon" id="presentase_diskon">
-                {{-- Bukti Kartu Pelajar --}}
-                <div class="mb-4 rounded-lg" id="bukti-kartu-pelajar-container" style="background-color: white;display:none;">
-                    <label for="bukti_kartu_pelajar">Bukti Kartu Pelajar</label>
-                    <div class="relative w-full flex items-center">
-                        <input type="file" id="bukti_kartu_pelajar" name="bukti_kartu_pelajar" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
-                        <div class="mt-1 block w-full h-12 pl-2 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary pointer-events-none cursor-pointer content-center flex items-center">
-                            <button type="button" class="pointer-events-none border flex justify-between gap-2 py-[4px] px-2 border-[#B3B3B3] rounded-md cursor-pointer items-center">
-                                <img src="{{ asset('assets/images/landing/produk/emo/upload-line-icon.png') }}" alt="" class="w-4 h-4">
-                                Upload
-                            </button>
-                            <span id="fileName" class="ml-3 text-base text-gray-600 truncate"></span>
+            <div id="step-1" class="step-section active">
+                <h1 class="max-sm:text-[29px] text-3xl font font-semibold text-center max-sm:mx-2 text-gradient my-6">Isi
+                    Jadwal Konseling</h1>
+                <input type="hidden" name="kategori" value="psikolog">
+                <div class="space-y-3 flex flex-col">
+                    {{-- Tanggal Konseling --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-[#333333] sm:text-[17px] text-sm">Tanggal Konseling</p>
+                        <div class="relative">
+                            <input type="text" required name="jadwal_tanggal" id="tglkonseling"
+                                class="bg-[#F1F3F6] border-none md:shadow-none shadow-md rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]"
+                                placeholder="dd/mm/yy" autocomplete="off" readonly>
+                            <img src="{{ asset('assets/images/landing/asset-konseling/vector/date.png') }}"
+                                class="h-4 w-auto object-contain absolute max-sm:hidden right-5 top-1/2 -translate-y-1/2"
+                                onclick="document.getElementById('tglkonseling').focus()">
                         </div>
                     </div>
-                    <p class="mt-2 text-xs text-gray-500">Max: 1MB (jpg, jpeg, png)</p>
+                    {{-- Waktu Konseling --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-[#333333] sm:text-[17px] text-sm">Waktu Konseling</p>
+                        <div class="relative">
+                            <input type="text" id="waktukonseling" name="jadwal_pukul" required
+                                class="bg-[#F1F3F6] border-none md:shadow-none shadow-md rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]"
+                                placeholder="--:--" autocomplete="off" readonly>
+                            <img src="{{ asset('assets/images/landing/asset-konseling/vector/clock.png') }}"
+                                class="h-4 w-auto object-contain absolute max-sm:hidden right-5 top-1/2 -translate-y-1/2"
+                                onclick="document.getElementById('waktukonseling').focus()">
+                        </div>
+                    </div>
+                    {{-- Metode Konseling --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-[#333333] sm:text-[17px] text-sm">Metode Konseling</p>
+                        <div class="relative">
+                            <select name="metode"
+                                class="dropdown-select bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3] appearance-none"
+                                id="metode-select">
+                                <option selected disabled>Pilih metode konseling</option>
+                                <option value="offline">Offline</option>
+                                <option value="online">Online</option>
+                            </select>
+                            <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}"
+                                class="dropdown-icon h-2 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300">
+                        </div>
+                    </div>
+                    {{-- Daerah Konseling --}}
+                    <div class="flex flex-col space-y-1" id="daerah-container" style="display: none;">
+                        <p class="text-[#333333] sm:text-[17px] text-sm">Daerah Konseling</p>
+                        <div class="relative">
+                            <select name="daerah" id="daerah-select"
+                                class="dropdown-select bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3] appearance-none">
+                                <option value="">Pilih Daerah Konseling</option>
+                                <option value="Surabaya">Surabaya</option>
+                                <option value="Kediri">Kediri</option>
+                                <option value="Sidoarjo">Sidoarjo</option>
+                                <option value="Jakarta">Jakarta</option>
+                            </select>
+                            <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}"
+                                class="dropdown-icon h-2 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300">
+                        </div>
+                    </div>
+                    {{-- Sesi --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-[#333333] sm:text-[17px] text-sm">Sesi</p>
+                        <div class="relative">
+                            <select name="sesi"
+                                class="dropdown-select bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3] appearance-none"
+                                id="sesi-select">
+                                <option value="1">1 Jam</option>
+                                <option value="2">2 Jam</option>
+                                <option value="3">3 Jam</option>
+                            </select>
+                            <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}"
+                                class="dropdown-icon h-2 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300">
+                        </div>
+                    </div>
+                    {{-- Harga --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-[#333333] sm:text-[17px] text-sm">Harga</p>
+                        <div class="relative">
+                            <div id="harga-tampil"
+                                class="bg-[#F1F3F6] md:shadow-none shadow-md sm:text-[17px] border-none rounded-lg w-full px-3 py-3">
+                                <span id="harga-asli" class="" style="">Rp.0,00</span>
+                                <span id="harga-diskon" class="harga-diskon"></span>
+                            </div>
+                            <input type="hidden" name="harga" id="harga-input">
+                        </div>
+                    </div>
+                    {{-- Kode Promo --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-[#333333] sm:text-[17px] text-sm">Kode Promo</p>
+                        <div class="relative">
+                            <input type="text" id="kode_promo" name="kode_promo"
+                                class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]"
+                                placeholder="Berbinar">
+                            <button type="button" onclick="redeemVoucher()"
+                                class="absolute right-2 top-1/2 -translate-y-1/2 cursor-pointer flex bg-[#106681] text-white justify-between gap-2 py-[4px] px-2  rounded-md items-center">Redeem
+                                Code</button>
+                        </div>
+                    </div>
+                    <input type="hidden" name="kategori_voucher" id="kategori_voucher">
+                    <input type="hidden" name="code_voucher" id="code_voucher">
+                    <input type="hidden" name="presentase_diskon" id="presentase_diskon">
+                    {{-- Bukti Kartu Pelajar --}}
+                    <div class="mb-4 rounded-lg" id="bukti-kartu-pelajar-container"
+                        style="background-color: white;display:none;">
+                        <label for="bukti_kartu_pelajar">Bukti Kartu Pelajar</label>
+                        <div class="relative w-full flex items-center">
+                            <input type="file" id="bukti_kartu_pelajar" name="bukti_kartu_pelajar"
+                                class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
+                            <div
+                                class="mt-1 block w-full h-12 pl-2 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary pointer-events-none cursor-pointer content-center flex items-center">
+                                <button type="button"
+                                    class="pointer-events-none border flex justify-between gap-2 py-[4px] px-2 border-[#B3B3B3] rounded-md cursor-pointer items-center">
+                                    <img src="{{ asset('assets/images/landing/produk/emo/upload-line-icon.png') }}"
+                                        alt="" class="w-4 h-4">
+                                    Upload
+                                </button>
+                                <span id="fileName" class="ml-3 text-base text-gray-600 truncate"></span>
+                            </div>
+                        </div>
+                        <p class="mt-2 text-xs text-gray-500">Max: 1MB (jpg, jpeg, png)</p>
+                    </div>
+                    <div class="flex justify-center items-center pt-10">
+                        <button type="button"
+                            class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-24 sm:w-auto w-full rounded-xl"
+                            onclick="validateAndNextStep(2)">Selanjutnya</button>
+                    </div>
+                </div>
+            </div>
+
+            {{-- STEP 2: Isi Data Diri --}}
+
+            <div id="step-2" class="step-section">
+                <h1 class="font text-gradient my-6 text-center text-3xl font-semibold max-sm:mx-2 max-sm:text-[29px]">Data
+                    Diri</h1>
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    {{-- Nama Lengkap --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-sm text-[#333333] sm:text-[17px]">Nama Lengkap</p>
+                        <div class="relative">
+                            <input name="nama" required type="text"
+                                class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none"
+                                placeholder="Budi Berbinar" />
+                        </div>
+                    </div>
+                    {{-- Email Aktif --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-sm text-[#333333] sm:text-[17px]">Email Aktif</p>
+                        <div class="relative">
+                            <input name="email" required type="email"
+                                class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none"
+                                placeholder="email.anda@gmail.com" />
+                        </div>
+                    </div>
+                    {{-- Tanggal Lahir --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-sm text-[#333333] sm:text-[17px]">Tanggal Lahir</p>
+                        <div class="relative">
+                            <input name="tanggal_Lahir" autocomplete="off" required type="text" id="tanggal_lahir"
+                                class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none"
+                                placeholder="dd/mm/yy" readonly />
+                            <img src="{{ asset('assets/images/landing/asset-konseling/vector/date.png') }}"
+                                class="absolute top-1/3 h-4 w-auto object-contain max-sm:hidden lg:right-5"
+                                onclick="document.getElementById('tanggal_lahir').focus()" />
+                        </div>
+                    </div>
+                    {{-- Kota Domisili --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-sm text-[#333333] sm:text-[17px]">Tempat Lahir</p>
+                        <div class="relative">
+                            <input name="tempat_lahir" type="text"
+                                class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none"
+                                placeholder="Surabaya" />
+                        </div>
+                    </div>
+                    {{-- Alamat Domisili --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-sm text-[#333333] sm:text-[17px]">Alamat Domisili</p>
+                        <div class="relative">
+                            <input type="text" name="alamat"
+                                class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none"
+                                placeholder="Jalan berbinar blok x" />
+                        </div>
+                    </div>
+                    {{-- Status Pernikahan --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-sm text-[#333333] sm:text-[17px]">Status Pernikahan</p>
+                        <div class="relative">
+                            <select name="status_pernikahan"
+                                class="dropdown-select w-full cursor-pointer appearance-none rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none">
+                                <option value="" disabled selected>Pilih Status</option>
+                                <option value="Belum Menikah">Belum Menikah</option>
+                                <option value="Sudah Menikah">Sudah Menikah</option>
+                            </select>
+                            <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}"
+                                class="dropdown-icon pointer-events-none absolute right-5 top-1/2 h-2 w-auto -translate-y-1/2 object-contain transition-transform duration-300" />
+                        </div>
+                    </div>
+                    {{-- Jenis Kelamin --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-sm text-[#333333] sm:text-[17px]">Jenis Kelamin</p>
+                        <div class="relative">
+                            <select name="jenis_kelamin"
+                                class="dropdown-select w-full cursor-pointer appearance-none rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none">
+                                <option value="" disabled selected>Pilih Jenis Kelamin</option>
+                                <option value="Laki-laki">Laki-laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                            <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}"
+                                class="dropdown-icon pointer-events-none absolute right-5 top-1/2 h-2 w-auto -translate-y-1/2 object-contain transition-transform duration-300" />
+                        </div>
+                    </div>
+                    {{-- Nomor WhatsApp --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-sm text-[#333333] sm:text-[17px]">Nomor WhatsApp</p>
+                        <div class="relative">
+                            <input name="no_wa" required type="number"
+                                class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none"
+                                placeholder="08112345XXXX" />
+                        </div>
+                    </div>
+                    {{-- Suku --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-sm text-[#333333] sm:text-[17px]">Suku</p>
+                        <div class="relative">
+                            <input type="text" name="suku" required
+                                class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none"
+                                placeholder="Jawa" />
+                        </div>
+                    </div>
+                    {{-- Agama --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-sm text-[#333333] sm:text-[17px]">Agama</p>
+                        <div class="relative">
+                            <select name="agama"
+                                class="dropdown-select w-full cursor-pointer appearance-none rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none">
+                                <option value="" disabled selected>Pilih Agama</option>
+                                <option value="Islam">Islam</option>
+                                <option value="Kristen">Kristen</option>
+                                <option value="Katolik">Katolik</option>
+                                <option value="Hindu">Hindu</option>
+                                <option value="Budha">Budha</option>
+                                <option value="Khonghucu">Khonghucu</option>
+                            </select>
+                            <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}"
+                                class="dropdown-icon pointer-events-none absolute right-5 top-1/2 h-2 w-auto -translate-y-1/2 object-contain transition-transform duration-300" />
+                        </div>
+                    </div>
+                    {{-- Anak ke-dari Berapa Bersaudara --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-sm text-[#333333] sm:text-[17px]">Anak ke-dari Berapa Bersaudara</p>
+                        <div class="relative">
+                            <input type="text" name="posisi_anak" required
+                                class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none"
+                                placeholder="Anak ke 2 dari 3 bersaudara" />
+                        </div>
+                    </div>
+                    {{-- Hobi --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-sm text-[#333333] sm:text-[17px]">Hobi</p>
+                        <div class="relative">
+                            <input type="text" name="hobi" required
+                                class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none"
+                                placeholder="Membaca Buku" />
+                        </div>
+                    </div>
+                </div>
+                <h1 class="font text-gradient my-10 text-center text-3xl font-semibold max-sm:mx-2 max-sm:text-[29px]">
+                    Riwayat Pendidikan</h1>
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    {{-- Pendidikan Terakhir --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-sm text-[#333333] sm:text-[17px]">Pendidikan Terakhir</p>
+                        <div class="relative">
+                            <select name="pendidikan" required
+                                class="dropdown-select w-full cursor-pointer appearance-none rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none">
+                                <option value="" disabled selected>Pilih Pendidikan Terakhir</option>
+                                <option value="S1/D4 - Sarjana">S1/D4 - Sarjana</option>
+                                <option value="D3 - Diploma">D3 - Diploma</option>
+                                <option value="SMA/SMK">SMA/SMK</option>
+                                <option value="SMP">SMP</option>
+                                <option value="SD">SD</option>
+                            </select>
+                            <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}"
+                                class="dropdown-icon pointer-events-none absolute right-5 top-1/2 h-2 w-auto -translate-y-1/2 object-contain transition-transform duration-300" />
+                        </div>
+                    </div>
+                    {{-- Asal Sekolah/Universitas --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-sm text-[#333333] sm:text-[17px]">Asal Sekolah/Universitas</p>
+                        <div class="relative">
+                            <input type="text" name="asal_sekolah" required
+                                class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none"
+                                placeholder="Universitas Berbinar" />
+                        </div>
+                    </div>
+                    {{-- Pekerjaan Saat Ini --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-sm text-[#333333] sm:text-[17px]">Pekerjaan Saat Ini</p>
+                        <div class="relative">
+                            <input type="text" name="riwayat_pekerjaan" required
+                                class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none"
+                                placeholder="Karyawan Swasta" />
+                        </div>
+                    </div>
+                    {{-- Kegiatan Sosial --}}
+                    <div class="flex flex-col space-y-1">
+                        <p class="text-sm text-[#333333] sm:text-[17px]">Kegiatan Sosial yang Pernah/Sedang diikuti</p>
+                        <div class="relative">
+                            <input type="text" name="kegiatan_sosial" required
+                                class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none"
+                                placeholder="Pengabdian Pemuda Masyarakat" />
+                        </div>
+                    </div>
                 </div>
                 <div class="flex justify-center items-center pt-10">
-                    <button type="button" class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-24 sm:w-auto w-full rounded-xl" onclick="validateAndNextStep(2)">Selanjutnya</button>
+                    <button type="button"
+                        class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-24 sm:w-auto w-full rounded-xl"
+                        onclick="validateAndNextStep(3)">Selanjutnya</button>
                 </div>
             </div>
-        </div>
 
-        {{-- STEP 2: Isi Data Diri --}}
+            {{-- STEP 3: Cerita Konseling --}}
 
-        <div id="step-2" class="step-section">
-            <h1 class="font text-gradient my-6 text-center text-3xl font-semibold max-sm:mx-2 max-sm:text-[29px]">Data Diri</h1>
-            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {{-- Nama Lengkap --}}
+            <div id="step-3" class="step-section">
+                <h1 class="max-sm:text-[29px] text-3xl font font-semibold text-center max-sm:mx-2 text-gradient my-6">Mari
+                    Cerita</h1>
                 <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Nama Lengkap</p>
+                    <p class="text-[#333333] sm:text-[17px] text-sm">Tuliskan Apa yang Ingin Anda Ceritakan</p>
                     <div class="relative">
-                        <input name="nama" required type="text" class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none" placeholder="Budi Berbinar" />
+                        <textarea name="cerita"
+                            class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 pt-3 h-96 cursor-pointer focus:ring-[#3986A3] text-start resize-none"
+                            placeholder="Tidak ada minimum/batas jumlah kata"></textarea>
                     </div>
                 </div>
-                {{-- Email Aktif --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Email Aktif</p>
-                    <div class="relative">
-                        <input name="email" required type="email" class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none" placeholder="email.anda@gmail.com" />
-                    </div>
-                </div>
-                {{-- Tanggal Lahir --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Tanggal Lahir</p>
-                    <div class="relative">
-                        <input name="tanggal_Lahir" autocomplete="off" required type="text" id="tanggal_lahir" class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none" placeholder="dd/mm/yy" readonly />
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/date.png') }}" class="absolute top-1/3 h-4 w-auto object-contain max-sm:hidden lg:right-5" onclick="document.getElementById('tanggal_lahir').focus()" />
-                    </div>
-                </div>
-                {{-- Kota Domisili --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Tempat Lahir</p>
-                    <div class="relative">
-                        <input name="tempat_lahir" type="text" class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none" placeholder="Surabaya" />
-                    </div>
-                </div>
-                {{-- Alamat Domisili --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Alamat Domisili</p>
-                    <div class="relative">
-                        <input type="text" name="alamat" class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none" placeholder="Jalan berbinar blok x" />
-                    </div>
-                </div>
-                {{-- Status Pernikahan --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Status Pernikahan</p>
-                    <div class="relative">
-                        <select name="status_pernikahan" class="dropdown-select w-full cursor-pointer appearance-none rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none">
-                            <option value="" disabled selected>Pilih Status</option>
-                            <option value="Belum Menikah">Belum Menikah</option>
-                            <option value="Sudah Menikah">Sudah Menikah</option>
-                        </select>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon pointer-events-none absolute right-5 top-1/2 h-2 w-auto -translate-y-1/2 object-contain transition-transform duration-300" />
-                    </div>
-                </div>
-                {{-- Jenis Kelamin --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Jenis Kelamin</p>
-                    <div class="relative">
-                        <select name="jenis_kelamin" class="dropdown-select w-full cursor-pointer appearance-none rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none">
-                            <option value="" disabled selected>Pilih Jenis Kelamin</option>
-                            <option value="Laki-laki">Laki-laki</option>
-                            <option value="Perempuan">Perempuan</option>
-                        </select>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon pointer-events-none absolute right-5 top-1/2 h-2 w-auto -translate-y-1/2 object-contain transition-transform duration-300" />
-                    </div>
-                </div>
-                {{-- Nomor WhatsApp --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Nomor WhatsApp</p>
-                    <div class="relative">
-                        <input name="no_wa" required type="number" class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none" placeholder="08112345XXXX" />
-                    </div>
-                </div>
-                {{-- Suku --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Suku</p>
-                    <div class="relative">
-                        <input type="text" name="suku" required class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none" placeholder="Jawa" />
-                    </div>
-                </div>
-                {{-- Agama --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Agama</p>
-                    <div class="relative">
-                        <select name="agama" class="dropdown-select w-full cursor-pointer appearance-none rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none">
-                            <option value="" disabled selected>Pilih Agama</option>
-                            <option value="Islam">Islam</option>
-                            <option value="Kristen">Kristen</option>
-                            <option value="Katolik">Katolik</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Budha">Budha</option>
-                            <option value="Khonghucu">Khonghucu</option>
-                        </select>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon pointer-events-none absolute right-5 top-1/2 h-2 w-auto -translate-y-1/2 object-contain transition-transform duration-300" />
-                    </div>
-                </div>
-                {{-- Anak ke-dari Berapa Bersaudara --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Anak ke-dari Berapa Bersaudara</p>
-                    <div class="relative">
-                        <input type="text" name="posisi_anak" required class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none" placeholder="Anak ke 2 dari 3 bersaudara" />
-                    </div>
-                </div>
-                {{-- Hobi --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Hobi</p>
-                    <div class="relative">
-                        <input type="text" name="hobi" required class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none" placeholder="Membaca Buku" />
+                <div class="flex justify-center items-center pt-10">
+                    <div class="w-full flex justify-center">
+                        <button type="submit"
+                            class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-24 sm:w-auto w-full rounded-xl">Kirim</button>
                     </div>
                 </div>
             </div>
-            <h1 class="font text-gradient my-10 text-center text-3xl font-semibold max-sm:mx-2 max-sm:text-[29px]">Riwayat Pendidikan</h1>
-            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {{-- Pendidikan Terakhir --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Pendidikan Terakhir</p>
-                    <div class="relative">
-                        <select name="pendidikan" required class="dropdown-select w-full cursor-pointer appearance-none rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none">
-                            <option value="" disabled selected>Pilih Pendidikan Terakhir</option>
-                            <option value="S1/D4 - Sarjana">S1/D4 - Sarjana</option>
-                            <option value="D3 - Diploma">D3 - Diploma</option>
-                            <option value="SMA/SMK">SMA/SMK</option>
-                            <option value="SMP">SMP</option>
-                            <option value="SD">SD</option>
-                        </select>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon pointer-events-none absolute right-5 top-1/2 h-2 w-auto -translate-y-1/2 object-contain transition-transform duration-300" />
-                    </div>
-                </div>
-                {{-- Asal Sekolah/Universitas --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Asal Sekolah/Universitas</p>
-                    <div class="relative">
-                        <input type="text" name="asal_sekolah" required class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none" placeholder="Universitas Berbinar" />
-                    </div>
-                </div>
-                {{-- Pekerjaan Saat Ini --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Pekerjaan Saat Ini</p>
-                    <div class="relative">
-                        <input type="text" name="riwayat_pekerjaan" required class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none" placeholder="Karyawan Swasta" />
-                    </div>
-                </div>
-                {{-- Kegiatan Sosial --}}
-                <div class="flex flex-col space-y-1">
-                    <p class="text-sm text-[#333333] sm:text-[17px]">Kegiatan Sosial yang Pernah/Sedang diikuti</p>
-                    <div class="relative">
-                        <input type="text" name="kegiatan_sosial" required class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none" placeholder="Pengabdian Pemuda Masyarakat" />
-                    </div>
-                </div>
-            </div>
-            <div class="flex justify-center items-center pt-10">
-                <button type="button" class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-24 sm:w-auto w-full rounded-xl" onclick="validateAndNextStep(3)">Selanjutnya</button>
-            </div>
-        </div>
+        </form>
+    </div>
 
-        {{-- STEP 3: Cerita Konseling --}}
-
-        <div id="step-3" class="step-section">
-            <h1 class="max-sm:text-[29px] text-3xl font font-semibold text-center max-sm:mx-2 text-gradient my-6">Mari Cerita</h1>
-            <div class="flex flex-col space-y-1">
-                <p class="text-[#333333] sm:text-[17px] text-sm">Tuliskan Apa yang Ingin Anda Ceritakan</p>
-                <div class="relative">
-                    <textarea name="cerita" class="bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 pt-3 h-96 cursor-pointer focus:ring-[#3986A3] text-start resize-none" placeholder="Tidak ada minimum/batas jumlah kata"></textarea>
-                </div>
-            </div>
-            <div class="flex justify-center items-center pt-10">
-                <div class="w-full flex justify-center">
-                    <button type="submit" class="text-white bg-gradient-to-r max-sm:text-[15px] text-md from-[#3986A3] to-[#225062] py-2 px-24 sm:w-auto w-full rounded-xl">Kirim</button>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   {{-- Eror handling Jika data gagal di simpan ke DB --}}
-    @if(session('error'))
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {{-- Eror handling Jika data gagal di simpan ke DB --}}
+    @if (session('error'))
         <script>
             Swal.fire({
                 icon: 'error',
@@ -495,12 +616,18 @@
         </script>
     @endif
 
-{{-- Script untuk logika form --}}
-<script>
-   // --- Konstanta Harga ---
+    {{-- Script untuk logika form --}}
+    <script>
+        // --- Konstanta Harga ---
         const HARGA = {
-            online: { weekdays: [150000, 300000, 450000], weekend: [200000, 340000, 500000] },
-            offline: { weekdays: [175000, 350000, 525000], weekend: [225000, 340000, 500000] }
+            online: {
+                weekdays: [150000, 300000, 450000],
+                weekend: [200000, 340000, 500000]
+            },
+            offline: {
+                weekdays: [175000, 350000, 525000],
+                weekend: [225000, 340000, 500000]
+            }
         };
 
         // --- Helper Validasi ---
@@ -515,9 +642,11 @@
             }
             return fieldName.replace(/_/g, ' ');
         }
+
         function isValidEmail(email) {
             return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
         }
+
         function isValidPhoneNumber(number) {
             return /^(\+62|62|0)8[1-9][0-9]{6,11}$/.test(number);
         }
@@ -527,7 +656,8 @@
             const requiredFields = ['jadwal_tanggal', 'jadwal_pukul', 'metode', 'sesi'];
             const metode = document.getElementById('metode-select').value;
             if (metode === 'offline') requiredFields.push('daerah');
-            const kategoriVoucher = document.getElementById('bukti-kartu-pelajar-container').style.display === 'block' ? 'pelajar' : '';
+            const kategoriVoucher = document.getElementById('bukti-kartu-pelajar-container').style.display === 'block' ?
+                'pelajar' : '';
             for (let fieldName of requiredFields) {
                 let field;
                 if (fieldName === 'metode') field = document.getElementById('metode-select');
@@ -546,6 +676,7 @@
             }
             return null;
         }
+
         function validateStep2() {
             const requiredFields = [
                 'nama', 'email', 'tanggal_Lahir', 'tempat_lahir', 'alamat', 'status_pernikahan',
@@ -566,6 +697,7 @@
             }
             return null;
         }
+
         function validateStep3() {
             const cerita = document.querySelector('[name="cerita"]');
             if (!cerita || cerita.value.trim() === '') {
@@ -581,19 +713,34 @@
             document.getElementById('step-1-header').style.display = step === 1 ? 'flex' : 'none';
             document.getElementById('step-2-header').style.display = step === 2 ? 'flex' : 'none';
             document.getElementById('step-3-header').style.display = step === 3 ? 'flex' : 'none';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         }
+
         function validateAndNextStep(step) {
             let errorMessage = null;
             if (step === 2) errorMessage = validateStep1();
             else if (step === 3) errorMessage = validateStep2();
             if (errorMessage) {
-                Swal.fire({ toast: true, position: "top-end", icon: "error", title: errorMessage, showConfirmButton: false, showCloseButton: true, timer: 4000 });
+                Swal.fire({
+                    toast: true,
+                    position: "top-end",
+                    icon: "error",
+                    title: errorMessage,
+                    showConfirmButton: false,
+                    showCloseButton: true,
+                    timer: 4000
+                });
                 return;
             }
             showStep(step);
         }
-        function prevStep(step) { showStep(step); }
+
+        function prevStep(step) {
+            showStep(step);
+        }
 
         // --- Harga ---
         function getHarga(tanggal, metode, sesi) {
@@ -605,6 +752,7 @@
             const tipeHari = isWeekend ? 'weekend' : 'weekdays';
             return HARGA[metode][tipeHari][sesi - 1];
         }
+
         function updateHargaDisplay(harga, diskon) {
             const hargaAsliSpan = document.getElementById('harga-asli');
             const hargaDiskonSpan = document.getElementById('harga-diskon');
@@ -623,6 +771,7 @@
                 hargaInput.dataset.hargaFinal = harga;
             }
         }
+
         function updateHarga() {
             const tanggal = document.getElementById('tglkonseling').value;
             const metode = document.getElementById('metode-select').value;
@@ -650,6 +799,7 @@
             }
             return false;
         }
+
         function redeemVoucher() {
             const kode = document.getElementById('kode_promo').value.trim();
             const tanggal = document.getElementById('tglkonseling').value;
@@ -659,11 +809,25 @@
             const harga = getHarga(tanggal, metode, sesi);
 
             if (!kode) {
-                Swal.fire({ toast: true, position: "top-end", icon: "error", title: "Masukkan kode promo terlebih dahulu.", showConfirmButton: false, timer: 4000 });
+                Swal.fire({
+                    toast: true,
+                    position: "top-end",
+                    icon: "error",
+                    title: "Masukkan kode promo terlebih dahulu.",
+                    showConfirmButton: false,
+                    timer: 4000
+                });
                 return;
             }
             if (!harga) {
-                Swal.fire({ toast: true, position: "top-end", icon: "error", title: "Silakan pilih jadwal, metode, dan sesi terlebih dahulu.", showConfirmButton: false, timer: 4000 });
+                Swal.fire({
+                    toast: true,
+                    position: "top-end",
+                    icon: "error",
+                    title: "Silakan pilih jadwal, metode, dan sesi terlebih dahulu.",
+                    showConfirmButton: false,
+                    timer: 4000
+                });
                 return;
             }
 
@@ -701,7 +865,14 @@
                             document.getElementById('bukti_kartu_pelajar').removeAttribute('required');
                             document.getElementById('bukti_kartu_pelajar').removeAttribute('disabled');
                         }
-                        Swal.fire({ toast: true, position: "top-end", icon: "success", title: "Kode voucher berhasil digunakan!", showConfirmButton: false, timer: 4000 });
+                        Swal.fire({
+                            toast: true,
+                            position: "top-end",
+                            icon: "success",
+                            title: "Kode voucher berhasil digunakan!",
+                            showConfirmButton: false,
+                            timer: 4000
+                        });
                     } else {
                         // Kosongkan jika tidak eligible
                         document.getElementById('kategori_voucher').value = '';
@@ -710,11 +881,25 @@
                         updateHargaDisplay(harga, null);
                         document.getElementById('bukti-kartu-pelajar-container').style.display = 'none';
                         document.getElementById('bukti_kartu_pelajar').removeAttribute('required');
-                        Swal.fire({ toast: true, position: "top-end", icon: "error", title: "Kode voucher tidak berlaku!", showConfirmButton: false, timer: 4000 });
+                        Swal.fire({
+                            toast: true,
+                            position: "top-end",
+                            icon: "error",
+                            title: "Kode voucher tidak berlaku!",
+                            showConfirmButton: false,
+                            timer: 4000
+                        });
                     }
                 })
                 .catch(() => {
-                    Swal.fire({ toast: true, position: "top-end", icon: "error", title: "Kode voucher tidak valid!", showConfirmButton: false, timer: 4000 });
+                    Swal.fire({
+                        toast: true,
+                        position: "top-end",
+                        icon: "error",
+                        title: "Kode voucher tidak valid!",
+                        showConfirmButton: false,
+                        timer: 4000
+                    });
                 });
         }
 
@@ -727,7 +912,14 @@
             event.preventDefault();
             const errorMessage = validateStep3();
             if (errorMessage) {
-                Swal.fire({ toast: true, position: "top-end", icon: "error", title: errorMessage, showConfirmButton: false, timer: 4000 });
+                Swal.fire({
+                    toast: true,
+                    position: "top-end",
+                    icon: "error",
+                    title: errorMessage,
+                    showConfirmButton: false,
+                    timer: 4000
+                });
                 return;
             }
             const metode = document.getElementById('metode-select').value;
@@ -785,10 +977,22 @@
         });
 
         // --- Flatpickr ---
-        document.addEventListener("DOMContentLoaded", function () {
-            flatpickr("#tglkonseling", { dateFormat: "d/m/Y", allowInput: true, minDate: new Date().fp_incr(7) });
-            flatpickr("#waktukonseling", { enableTime: true, noCalendar: true, dateFormat: "H:i", time_24hr: true });
-            flatpickr("#tanggal_lahir", { dateFormat: "d/m/Y", allowInput: true });
+        document.addEventListener("DOMContentLoaded", function() {
+            flatpickr("#tglkonseling", {
+                dateFormat: "d/m/Y",
+                allowInput: true,
+                minDate: new Date().fp_incr(7)
+            });
+            flatpickr("#waktukonseling", {
+                enableTime: true,
+                noCalendar: true,
+                dateFormat: "H:i",
+                time_24hr: true
+            });
+            flatpickr("#tanggal_lahir", {
+                dateFormat: "d/m/Y",
+                allowInput: true
+            });
         });
 
         // Tampilkan input daerah jika metode offline
@@ -801,6 +1005,5 @@
                 document.getElementById('daerah-select').value = '';
             }
         });
-</script>
+    </script>
 @endsection
-

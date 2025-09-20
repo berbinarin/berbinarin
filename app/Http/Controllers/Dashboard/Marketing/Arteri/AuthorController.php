@@ -51,7 +51,13 @@ class AuthorController extends Controller
             'name_author' => $request->input('name_author'),
             'profil_image' => $fotoProfil,
         ]);
-        return redirect()->route('dashboard.arteri.authors.index')->with('success', 'Penulis berhasil ditambahkan!');
+        return redirect()->route('dashboard.arteri.authors.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Penulis berhasil ditambahkan',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     /**
@@ -102,7 +108,13 @@ class AuthorController extends Controller
             'profil_image' => $author->profil_image,
         ]);
 
-        return redirect()->route('dashboard.arteri.authors.index')->with('success', 'Penulis berhasil diperbarui!');
+         return redirect()->route('dashboard.arteri.authors.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Penulis berhasil diperbarui',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     /**
@@ -125,6 +137,12 @@ class AuthorController extends Controller
 
         // Hapus penulis
         $author->delete();
-        return redirect()->route('dashboard.arteri.authors.index')->with('success', 'Penulis berhasil dihapus!');
+        return redirect()->route('dashboard.arteri.authors.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Penulis berhasil dihapus',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 }

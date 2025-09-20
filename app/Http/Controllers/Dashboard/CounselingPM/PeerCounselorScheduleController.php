@@ -28,8 +28,13 @@ class PeerCounselorScheduleController extends Controller
         $konselling->fill($validatedData);
         $konselling->save();
 
-        Alert::toast('Jadwal Peer Counselor berhasil ditambahkan', 'success')->autoClose(5000);;
-        return redirect()->route('dashboard.peer-counselor-schedules.index');
+         return redirect()->route('dashboard.peer-counselor-schedules.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Data Berhasil Dimasukkan',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
 
@@ -54,15 +59,25 @@ class PeerCounselorScheduleController extends Controller
         $jadwalPeer->penanggung_jawab = $validatedData['penanggung_jawab'];
         $jadwalPeer->save();
 
-        Alert::toast('Jadwal Peer Counselor berhasil diedit', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.peer-counselor-schedules.index');
+         return redirect()->route('dashboard.peer-counselor-schedules.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Data Berhasil Diedit',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
 
     public function destroy($id)
     {
         jadwalPeer::where('id', $id)->delete();
-        Alert::toast('Jadwal Peer Coonsellor berhasil dihapus', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.peer-counselor-schedules.index');
+        return redirect()->route('dashboard.peer-counselor-schedules.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Data Berhasil Dihapus',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 }

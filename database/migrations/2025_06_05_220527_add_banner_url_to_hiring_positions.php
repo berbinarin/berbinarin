@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('hiring_positions', function (Blueprint $table) {
-            $table->string('banner_path')->after('is_active');
+            $table->string('banner_path')->after('is_active')->nullable();
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('hiring_positions', function (Blueprint $table) {
-            $table->dropColumn('banner_path');
+            $table->dropColumn('banner_path')->nullable();
         });
     }
 };

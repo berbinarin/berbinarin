@@ -141,7 +141,13 @@ class DashboardUserController extends Controller
             'psikotest_type_id',
         ])));
 
-        return redirect()->back()->with('success', 'Data berhasil diupdate.');
+        return redirect()->back()->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Data berhasil diupdate',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
 
@@ -150,7 +156,13 @@ class DashboardUserController extends Controller
         $user = UserPsikotestPaid::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('dashboard.psikotespaid.data')->with('success', 'Data user berhasil dihapus.');
+        return redirect()->route('dashboard.psikotespaid.data')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Data user berhasil dihapus',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     // public function deletePriceList($id)
@@ -174,7 +186,13 @@ class DashboardUserController extends Controller
         $tool->token = Str::random(8);
         $tool->save();
 
-        return redirect()->back()->with('success', 'Token generated successfully!');
+        return redirect()->back()->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Token berhasil digenerate',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     public function deleteToken($id)
@@ -183,7 +201,13 @@ class DashboardUserController extends Controller
         $tool->token = null;
         $tool->save();
 
-        return redirect()->back()->with('success', 'Token deleted successfully!');
+        return redirect()->back()->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Token berhasil dihapus',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     public function priceList()
@@ -209,7 +233,13 @@ class DashboardUserController extends Controller
             'category_psikotest_type_id' => $request->category_psikotest_type_id,
         ]);
 
-        return redirect()->back()->with('success', 'Pricelist berhasil ditambahkan.');
+        return redirect()->back()->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Pricelist berhasil ditambahkan.',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     public function editPriceList(Request $request, $id)
@@ -227,7 +257,13 @@ class DashboardUserController extends Controller
             'price' => str_replace('.', '', $request->price),
         ]);
 
-        return redirect()->back()->with('success', 'Pricelist berhasil diupdate.');
+        return redirect()->back()->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Pricelist berhasil diupdate',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     public function deletePriceList($id)
@@ -235,7 +271,13 @@ class DashboardUserController extends Controller
         $priceList = PsikotestType::findOrFail($id);
         $priceList->delete();
 
-        return redirect()->back()->with('success', 'Pricelist berhasil dihapus.');
+        return redirect()->back()->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Pricelist berhasil dihapus',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
 

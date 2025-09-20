@@ -70,10 +70,13 @@ class UserPsikotestFreeController extends Controller
 
             return redirect("/dashboard/admin/data");
         } catch (\Exception $e) {
-            Alert::error('Error', 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage());
-
-
-            return redirect("/dashboard/admin/data");
+            return redirect()->route("/dashboard/admin/data")->with([
+                'alert'   => true,
+                'type'    => 'error',
+                'title'   => 'Gagal!',
+                'message' => 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage(),
+                'icon'    => asset('assets/images/dashboard/error.png'),
+            ]);
         }
     }
 
@@ -101,14 +104,32 @@ class UserPsikotestFreeController extends Controller
         try {
             $userPsikotes = UserPsikotest::find($id);
             if (!$userPsikotes) {
-                return response()->json(['error' => 'Data tidak ditemukan.'], 404);
+                return response()->json([
+                'alert'   => true,
+                'type'    => 'error',
+                'title'   => 'Gagal!',
+                'message' => 'Data tidak ditemukan.',
+                'icon'    => asset('assets/images/dashboard/error.png'),
+            ], 404);
             }
 
             $userPsikotes->update($request->all());
 
-            return response()->json(['success' => 'Data berhasil diperbarui.']);
+            return response()->json([
+            'alert'   => true,
+            'type'    => 'success',
+            'title'   => 'Berhasil!',
+            'message' => 'Data berhasil diperbarui.',
+            'icon'    => asset('assets/images/dashboard/success.png'),
+        ]);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Terjadi kesalahan saat memperbarui data: ' . $e->getMessage()], 500);
+            return response()->json([
+            'alert'   => true,
+            'type'    => 'error',
+            'title'   => 'Gagal!',
+            'message' => 'Terjadi kesalahan saat memperbarui data: ' . $e->getMessage(),
+            'icon'    => asset('assets/images/dashboard/error.png'),
+        ], 500);
         }
     }
 }

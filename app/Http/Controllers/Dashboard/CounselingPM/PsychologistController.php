@@ -92,8 +92,13 @@ class PsychologistController extends Controller
         $konselling->fill($validatedData);
         $konselling->save();
 
-        Alert::toast('Data Psikolog Berhasil di Tambahkan', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.psychologists.index');
+        return redirect()->route('dashboard.psychologists.index')->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'Data Psikolog berhasil ditambahkan',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
 
@@ -173,14 +178,24 @@ class PsychologistController extends Controller
         $PsikologDataDetails->fill($validatedData);
         $PsikologDataDetails->save();
 
-        Alert::toast('Data Psikolog Berhasil di Edit', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.psychologists.show', $id);
+        return redirect()->route('dashboard.psychologists.show', $id)->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'Data Psikolog berhasil diedit',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
     }
     public function destroy($id)
     {
         KonsellingPsikolog::where('id', $id)->delete();
-        Alert::toast('Data Psikolog Berhasil di Hapus', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.psychologists.index');
+        return redirect()->route('dashboard.psychologists.index')->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'Data Psikolog berhasil dihapus',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     public function dataIndex()
