@@ -22,13 +22,16 @@ use App\Models\KonsellingPeer;
 use App\Models\KonsellingPsikolog;
 use App\Models\PsikotestPaid\UserPsikotestPaid;
 use App\Models\Question;
+use App\Models\CounsellingPM\KonsellingPsikologStaff;
 use App\Models\Test;
 use App\Models\UserInternship;
 use App\Models\UserPsikotest;
 use App\Models\BerbinarForU;
+use App\Models\CodeVoucher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -42,7 +45,12 @@ class DashboardController extends Controller
         $PeerConsellorSchedule = jadwalPeer::count("id");
         $PeerConsellorData = KonsellingPeer::where('kategori', 'peer-counselor')->count();
         $PsikologData = KonsellingPsikolog::where('kategori', 'psikolog')->count();
+        $PsikologDataStaff = KonsellingPsikologStaff::count();
+        $CodeVoucherPsikolog = CodeVoucher::where('jenis_pendaftaran', 'psikolog')->count();
+        $CodeVoucherPeerCounselor = CodeVoucher::where('jenis_pendaftaran', 'peer-counselor')->count();
         $BerbinarForU = BerbinarForU::where('kategori', 'berbinar-for-u')->count();
+        $KonselingData = KonsellingPeer::where('kategori', 'peer-counselor')->count() + KonsellingPsikolog::where('kategori', 'psikolog')->count() + BerbinarForU::where('kategori', 'berbinar-for-u')->count();
+        $KodeVoucherData = CodeVoucher::count('id');
 
 
         $totalUserPsikotest = UserPsikotest::count('id');
@@ -84,11 +92,25 @@ class DashboardController extends Controller
         $staff = TableStaff::all();
         $subDivisions = SubDivision::count();
 
+        // Fetch Data Keluarga Berbinar
+        $today = Carbon::today();
+        $totalStafAktif = TableRecord::where('date_start', '<=', $today)
+            ->where(function ($q) use ($today) {
+                $q->whereNull('date_end')
+                    ->orWhere('date_end', '>=', $today);
+            })
+            ->count();
+        $totalStafTidakAktif = TableRecord::whereNotNull('date_end')
+            ->where('date_end', '<', $today)
+            ->count();
+
         return view('dashboard.index', [
             "PeerConsellorSchedule" => $PeerConsellorSchedule,
             "PeerConsellorData" => $PeerConsellorData,
             'PsikologData' => $PsikologData,
             'BerbinarForU' => $BerbinarForU,
+            'KonselingData' => $KonselingData,
+            'KodeVoucherData' => $KodeVoucherData,
             "HiringPosisitonsJobDescriptionment" => $HiringPosisitonsJobDescriptionment,
             'HiringPosisitons' => $HiringPosisitons,
             'HiringPosisitonsRequirement' => $HiringPosisitonsRequirement,
@@ -106,8 +128,11 @@ class DashboardController extends Controller
             'subDivisions' => $subDivisions,
             "totalBerbinarPlusUser" => $totalBerbinarPlusUser,
             "totalBerbinarPlusClass" => $totalBerbinarPlusClass,
-
+            'PsikologDataStaff' => $PsikologDataStaff,
+            'CodeVoucherPsikolog' => $CodeVoucherPsikolog,
+            'CodeVoucherPeerCounselor' => $CodeVoucherPeerCounselor,
+            'totalStafAktif' => $totalStafAktif,
+            'totalStafTidakAktif' => $totalStafTidakAktif,
         ]);
     }
-   
 }

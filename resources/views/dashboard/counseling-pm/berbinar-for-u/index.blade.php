@@ -15,7 +15,7 @@
                             <a href="{{ route("dashboard.data.index") }}">
                                 <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
                             </a>
-                            <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Berbinar For U Data</p>
+                            <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Data Berbinar For U</p>
                         </div>
                         <p class="text-disabled">Halaman ini menampilkan seluruh data pengajuan curhat dari pengguna Berbinar For U. Admin dapat memantau, memfilter, dan mengelola data secara efisien di sini.</p>
                         <a href="{{ route("dashboard.berbinar-for-u.create") }}" class="mt-8 inline-flex items-start justify-start rounded bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
@@ -23,7 +23,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="rounded-md bg-white px-4 py-4 md:px-8 md:py-7 xl:px-10">
+                <div class="rounded-md bg-white px-4 py-4 md:px-8 md:py-7 xl:px-10 mb-7">
                     <div class="mt-4 overflow-x-auto">
                         <table id="example" class="display" style="overflow-x: scroll">
                             <thead>
@@ -34,7 +34,7 @@
                                     <th style="text-align: center">Nomor WhatsApp</th>
                                     <th style="text-align: center">Jenis Kelamin</th>
                                     <th style="text-align: center">Tanggal Daftar</th>
-                                    <th style="text-align: center">Action</th>
+                                    <th style="text-align: center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>

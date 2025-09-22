@@ -149,8 +149,8 @@
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             cursor: pointer;
             transform: scale(1);
-            height: 72px;
-            width: 72px;
+            height: 60px;
+            width: 60px;
         }
 
         .reaction-img:hover,
@@ -189,97 +189,184 @@
         </div>
 
         <!-- Main Content Container -->
-        <div class="relative z-10 mx-auto w-full max-w-7xl">
-            <!-- Article Container -->
-            <div class="w-full rounded-xl bg-white p-6 shadow-sm md:p-8 lg:p-10">
-                <!-- Category Tag -->
-                <div class="mb-4 flex w-full flex-wrap items-center justify-center gap-4">
-                    <span class="rounded-xl px-3 py-1 text-sm text-white lg:text-lg" style="background-color: {{ $categoryColors[$article->category->id] ?? "#FD9399D9" }}">
-                        {{ $article->category->name_category }}
-                    </span>
-                </div>
+        <div class="z-10 relative mx-auto w-full max-w-[88rem]">
+            <div class="flex flex-col w-full">
 
-                <!-- Article Title -->
-                <h1 class="mb-4 text-center text-xl font-bold text-slate-900 md:text-2xl lg:text-4xl">
-                    {{ $article->title }}
-                </h1>
-
-                <!-- Desktop Author & Date -->
-                <div class="mb-8 hidden w-full items-center justify-center gap-2 lg:flex">
-                    <img src="{{ asset("/image/" . $article->author->profil_image) }}" alt="profile dummy" class="size-6 rounded-full object-cover" />
-                    <span class="text-slate-700">{{ $article->author->name_author }}</span>
-                    <span class="text-slate-700">&bull;</span>
-                    <span class="text-slate-700">{{ $article->created_at->format("d F Y") }}</span>
-                </div>
-
-                <!-- Article Cover Image -->
-                <img src="{{ asset("/image/" . $article->cover_image) }}" alt="cover" class="z-10 mb-4 aspect-video w-full max-w-full rounded-xl object-cover" />
-
-                <!-- Mobile Author & Date -->
-                <div class="mb-6 flex w-full items-center justify-between lg:hidden">
-                    <span class="flex items-center justify-start gap-2">
-                        <img src="{{ asset("/image/" . $article->author->profil_image) }}" alt="writer profile" class="size-5 rounded-full object-cover" />
-                        <span class="text-sm text-slate-700">{{ $article->author->name_author }}</span>
-                    </span>
-                    <span class="text-sm text-slate-700">{{ $article->created_at->format("d F Y") }}</span>
-                </div>
-
-                <!-- Article Content - Fixed Section -->
-                <div class="z-10 mb-4 flex w-full flex-col items-center justify-center">
-                    <article class="prose prose-sm z-10 w-full max-w-full md:prose-base lg:prose-lg">
-                        <div class="z-10 w-full max-w-full overflow-x-auto">
-                            {!! $article->content !!}
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <!-- Reaction Section -->
-            <div class="mt-10 flex flex-col rounded-xl bg-white py-3">
-                <!-- Container untuk judul, gambar, dan button -->
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-                    <div class="flex-1">
-                        <div class="mb-4 flex items-center pl-4">
-                            <div class="mr-2 h-6 w-1 rounded-full bg-blue-600"></div>
-                            <h2 class="text-lg font-semibold">Reaction</h2>
+                <div class="w-full flex flex-col lg:flex-row lg:gap-5">
+                    <!-- Article Container -->
+                    <div class="w-full lg:w-2/3 rounded-xl bg-white mb-4 p-6 shadow-sm md:p-8 lg:p-10">
+                        <!-- Category Tag -->
+                        <div class="mb-4 flex w-full flex-wrap items-center justify-center gap-4">
+                            <span class="rounded-xl px-3 py-1 text-sm text-white lg:text-lg" style="background-color: {{ $categoryColors[$article->category->id] ?? "#FD9399D9" }}">
+                                {{ $article->category->name_category }}
+                            </span>
                         </div>
 
-                        <div class="flex flex-wrap justify-center md:justify-start md:pl-6">
-                            @php
-                                $reactions = [
-                                    ["label" => "sangat senang", "img" => "1-wahoo.png", "hover" => "1-wahoo2.png"],
-                                    ["label" => "senang", "img" => "2-happy.png", "hover" => "2-happy2.png"],
-                                    ["label" => "biasa saja", "img" => "3-neutral.png", "hover" => "3-neutral2.png"],
-                                    ["label" => "bosan", "img" => "4-bummed.png", "hover" => "4-bummed2.png"],
-                                    ["label" => "tidak suka", "img" => "5-pissed.png", "hover" => "5-pissed2.png"],
-                                ];
-                            @endphp
+                        <!-- Article Title -->
+                        <h1 class="mb-4 text-center text-xl font-bold text-slate-900 md:text-2xl lg:text-4xl">
+                            {{ $article->title }}
+                        </h1>
 
-                            {{-- Debugg --}}
-                            {{--
-                                <pre>
-                                userReaction: {{ $userReaction ? $userReaction->reaction_type : 'null' }}
-                                </pre>
-                            --}}
-                            @foreach ($reactions as $idx => $reaction)
-                                <form action="{{ url("/arteri/" . $article->id . "/reaction") }}" method="POST" style="display: inline">
-                                    @csrf
-                                    <input type="hidden" name="reaction_type" value="{{ $reaction["label"] }}" />
-                                    <button type="submit" style="background: none; border: none; padding: 0; margin: 0" class="reaction-btn">
-                                        <img id="reaction-img-{{ $idx }}" src="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["img"]) }}" data-hover="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["hover"]) }}" data-normal="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["img"]) }}" class="reaction-img {{ isset($userReaction) && $userReaction->reaction_type === $reaction["label"] ? "active" : "" }}" alt="{{ $reaction["label"] }}" />
-                                    </button>
-                                </form>
-                            @endforeach
+                        <!-- Desktop Author & Date -->
+                        <div class="mb-8 hidden w-full items-center justify-center gap-2 lg:flex">
+                            <img src="{{ asset("/image/" . $article->author->profil_image) }}" alt="profile dummy" class="size-6 rounded-full object-cover" />
+                            <span class="text-slate-700">{{ $article->author->name_author }}</span>
+                            <span class="text-slate-700">&bull;</span>
+                            <span class="text-slate-700">{{ $article->created_at->format("d F Y") }}</span>
+                        </div>
+
+                        <!-- Article Cover Image -->
+                        <img src="{{ asset("/image/" . $article->cover_image) }}" alt="cover" class="z-10 mb-4 aspect-video w-full max-w-full rounded-xl object-cover" />
+
+                        <!-- Mobile Author & Date -->
+                        <div class="mb-6 flex w-full items-center justify-between lg:hidden">
+                            <span class="flex items-center justify-start gap-2">
+                                <img src="{{ asset("/image/" . $article->author->profil_image) }}" alt="writer profile" class="size-5 rounded-full object-cover" />
+                                <span class="text-sm text-slate-700">{{ $article->author->name_author }}</span>
+                            </span>
+                            <span class="text-sm text-slate-700">{{ $article->created_at->format("d F Y") }}</span>
+                        </div>
+
+                        <!-- Article Content - Fixed Section -->
+                        <div class="z-10 mb-4 flex w-full flex-col items-center justify-center">
+                            <article class="prose prose-sm z-10 w-full max-w-full md:prose-base lg:prose-lg">
+                                <div class="z-10 w-full max-w-full overflow-x-auto">
+                                    {!! $article->content !!}
+                                </div>
+                            </article>
                         </div>
                     </div>
 
-                    <div class="flex justify-center px-4 md:justify-end md:px-0 md:pr-6">
-                        <a href="javascript:void(0)" onclick="toggleShareModal(true)" class="mt-6 flex w-[90%] items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#3886A3] to-[#225062] px-6 py-2 font-medium text-white md:w-auto">
-                            <span>Bagikan</span>
-                            <img src="{{ asset("assets/images/landing/arteri/upload.svg") }}" class="h-5 w-5" />
-                        </a>
+                    <!-- Latest Articles Section -->
+                    <div class="bg-white lg:w-1/3 rounded-xl max-h-fit p-4 shadow-sm lg:p-6 lg:pb-1">
+                        <div class="mb-4 flex items-center">
+                            <div class="mr-2 h-6 w-1 rounded-full bg-primary"></div>
+                            <h2 class="lg:text-xl font-semibold">Artikel Terbaru</h2>
+                        </div>
+
+                        {{-- Artikel Terbaru --}}
+                        @foreach ($latestArticles->filter(fn($latest) => $latest->id !== $article->id)->take(4) as $latest)
+                            <a href="{{ route('arteri.detail', ['slug' => Str::slug($latest->title)]) }}" class="block mb-6 rounded-lg bg-white hover:bg-gray-50 shadow transition">
+                                <div class="flex min-h-28">
+                                    <img src="{{ asset('/image/' . $latest->cover_image) }}" alt="cover" class="h-auto w-1/2 rounded object-cover" />
+                                    <div class="w-1/2 flex flex-col min-h-max items-start justify-between p-2">
+                                        <h3 class="text-base font-medium text-slate-900 line-clamp-3">{{ $latest->title }}</h3>
+                                        <div
+                                            class="mt-1 inline-block rounded-[0.6rem] px-2 py-1 text-xs font-semibold text-white"
+                                            style="background-color: {{ $articlesCategoryColors[$latest->category->id] ?? '#3986A3' }}">
+                                            {{ $latest->category->name_category }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        @endforeach
+
                     </div>
+
+
+
                 </div>
+
+                <div class="lg:flex lg:flex-row gap-5">
+
+                    <!-- Reaction Section -->
+                    <div class="mt-4 flex flex-col rounded-xl bg-white shadow-sm py-3 lg:w-2/3">
+                        <!-- Container untuk judul, gambar, dan button -->
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                            <div class="flex-1">
+                                <div class="mb-4 flex items-center pl-4">
+                                    <div class="mr-2 h-6 w-1 rounded-full bg-primary"></div>
+                                    <h2 class="text-lg font-semibold">Tanggapan dan Komentar</h2>
+                                </div>
+
+                                <div class="flex flex-wrap justify-center md:justify-start md:pl-6">
+                                    @php
+                                        $reactions = [
+                                            ["label" => "tidak suka", "img" => "5-pissed.png", "hover" => "5-pissed2.png"],
+                                            ["label" => "bosan", "img" => "4-bummed.png", "hover" => "4-bummed2.png"],
+                                            ["label" => "biasa saja", "img" => "3-neutral.png", "hover" => "3-neutral2.png"],
+                                            ["label" => "senang", "img" => "2-happy.png", "hover" => "2-happy2.png"],
+                                            ["label" => "sangat senang", "img" => "1-wahoo.png", "hover" => "1-wahoo2.png"],
+                                        ];
+                                    @endphp
+
+                                    {{-- Debugg --}}
+                                    {{--
+                                        <pre>
+                                        userReaction: {{ $userReaction ? $userReaction->reaction_type : 'null' }}
+                                        </pre>
+                                    --}}
+                                    @foreach ($reactions as $idx => $reaction)
+                                        <form action="{{ url("/arteri/" . $article->id . "/reaction") }}" method="POST" style="display: inline">
+                                            @csrf
+                                            <input type="hidden" name="reaction_type" value="{{ $reaction["label"] }}" />
+                                            <button type="submit" style="background: none; border: none; padding: 0; margin: 0" class="reaction-btn">
+                                                <img id="reaction-img-{{ $idx }}" src="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["img"]) }}" data-hover="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["hover"]) }}" data-normal="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["img"]) }}" class="reaction-img {{ isset($userReaction) && $userReaction->reaction_type === $reaction["label"] ? "active" : "" }}" alt="{{ $reaction["label"] }}" />
+                                            </button>
+                                        </form>
+                                    @endforeach
+                                </div>
+                            </div>
+
+                            <div class="flex justify-end px-4 md:px-0 md:pr-4">
+                                <a href="javascript:void(0)" onclick="toggleShareModal(true)" class="mt-6 flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#3886A3] to-[#225062] px-2 lg:px-6 py-2 font-medium text-white md:w-auto">
+                                    <span>Bagikan</span>
+                                    <img src="{{ asset("assets/images/landing/arteri/upload.svg") }}" class="h-5 w-5" />
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="px-4 mt-4">
+                            <div class="mb-4 flex flex-col items-start">
+                                <label for="nama" class="font-medium">Nama</label>
+                                <input type="text" id="nama" name="nama" class="form-input mt-1 block w-full p-1 pl-2 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" placeholder="Masukkan nama Anda...">
+                            </div>
+
+                            <div class="mb-4 flex flex-col items-start">
+                                <label for="komentar" class="font-medium">Komentar</label>
+                                <textarea name="komentar" id="komentar" class="form-input mt-1 block w-full p-1 pl-2 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-disabled">Tambah komentar...</textarea>
+                            </div>
+
+                            <div class="mb-4 flex justify-end">
+                                <a href="" class="mt-6 flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#3886A3] to-[#225062] px-4 lg:px-6 py-2 font-medium text-white md:w-auto">
+                                    <span>Kirim</span>
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <!-- Komentar -->
+
+                        <div class="px-4 mt-4">
+
+                            <h3 class="mb-4 text-lg font-semibold lg:pb-4">Komentar (1{{--{{ count($comments) }}--}})</h3>
+
+                            {{-- Komentar --}}
+
+                            <div class="w-full mb-4 flex flex-row items-start">
+                                <span class="w-1/6 lg:w-[10%] items-center justify-start gap-2">
+                                    <img src="{{ asset("/image/" . $article->author->profil_image) }}" alt="writer profile" class="size-5 rounded-full object-cover" />
+                                </span>
+                                <div class="w-5/6 lg:w-[90%]">
+                                    <div class="flex flex-row gap-1 lg:gap-2 pb-2">
+                                        <span class="text-sm lg:text-base font-semibold">{{ $article->author->name_author }}</span>
+                                        <div class="flex justify-center items-center">
+                                            <div class="rounded-full bg-slate-700 w-2 h-2"></div>
+                                        </div>
+                                        <span class="text-sm lg:text-base text-slate-700">{{ $article->created_at->diffForHumans() }}</span>
+                                    </div>
+                                    <p class="text-sm lg:text-base">Ini untuk caption komentarnya. Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nobis voluptates magni nam vel illum.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="w-1/3"></div>
+
+                </div>
+
             </div>
         </div>
     </section>
@@ -287,19 +374,25 @@
     <!-- Modal Share -->
     <div id="shareModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50">
         <div class="relative w-[300px] rounded-xl bg-white p-5">
-            <button onclick="toggleShareModal(false)" class="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded border border-gray-400 text-lg font-bold text-gray-500 hover:border-gray-600 hover:text-gray-800">X</button>
+            <div class="flex flex-row justify-between">
 
-            <h2 class="text-bold mb-1 text-lg font-bold">Share</h2>
+                <h2 class="text-bold mb-1 text-xl font-bold">Bagikan Artikel</h2>
+
+                <button onclick="toggleShareModal(false)" class="flex flex-col h-6 w-6 items-center justify-center text-center rounded border border-gray-400 hover:border-gray-600">
+                    <i class="bx bx-x text-xl text-gray-400 text-center hover:text-gray-600"></i>
+                </button>
+
+            </div>
             <hr />
 
-            <p class="my-3 text-sm text-gray-600">Share this link via</p>
+            <p class="my-3 mb-6 text-sm">Bagikan tautan ini melalui</p>
 
-            <div class="mb-4 flex justify-between">
+            <div class="mb-8 flex justify-between">
                 <a href="{{ $shareButtons["twitter"] ?? "#" }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
                     <img src="{{ asset("assets/images/landing/logo/sosmed-icon/x.png") }}" class="h-5 w-5" />
                 </a>
-                <a href="{{ $shareButtons["linkedin"] ?? "#" }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
-                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/linkedin.png") }}" class="h-5 w-5" />
+                <a href="{{ $shareButtons["instagram"] ?? "#" }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
+                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/instagram.png") }}" class="h-5 w-5" />
                 </a>
                 <a href="{{ $shareButtons["whatsapp"] ?? "#" }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
                     <img src="{{ asset("assets/images/landing/logo/sosmed-icon/whatsapp.png") }}" class="h-5 w-5" />
@@ -312,10 +405,10 @@
                 </a>
             </div>
 
-            <p class="mb-2 text-sm text-gray-600">Or copy link</p>
+            <p class="mb-2 text-sm">Atau salin tautan</p>
             <div class="flex">
-                <input type="text" id="shareLink" value="{{ $currentUrl }}" class="flex-1 rounded-l border px-2 py-1 text-sm" readonly />
-                <button onclick="copyShareLink(); trackShare()" class="w-20 rounded-r bg-[#225062] text-white">Copy</button>
+                <input id="shareLink" type="text" class="w-full hidden rounded-md border border-gray-300 p-2" value="{{ url("/arteri/" . $article->id . "/detail") }}" readonly>
+                <button onclick="copyShareLink(); trackShare()" class="w-full rounded-md p-1.5 bg-gradient-to-r from-[#3886A3] to-[#225062] text-white"><i class="bx bx-link text-white text-base align-bottom"></i> Salin Tautan</button>
             </div>
         </div>
     </div>

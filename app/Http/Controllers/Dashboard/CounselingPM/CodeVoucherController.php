@@ -33,7 +33,10 @@ class CodeVoucherController extends Controller
             'category' => 'required',
             'code' => 'required',
             'percentage' => 'required',
-            'service_type' => 'required',
+            'jenis_pendaftaran' => 'required',
+            'nama_voucher' => 'required',
+            'tipe' => 'required|array',
+            'detail' => 'required|array',
         ]);
         if (CodeVoucher::where('code', $request->code)->exists()) {
             return redirect()->back()->withInput()->with([
@@ -45,6 +48,7 @@ class CodeVoucherController extends Controller
             ]);
         }
 
+<<<<<<< HEAD
         CodeVoucher::create($request->all());
         return redirect()->route('dashboard.code-voucher.index')->with([
                 'alert' => true,
@@ -53,6 +57,14 @@ class CodeVoucherController extends Controller
                 'message' =>'Code voucher berhasil ditambahkan',
                 'icon' => asset('assets/images/dashboard/success.png'),
             ]);
+=======
+        $data = $request->all();
+        $data['tipe'] = json_encode($request->tipe);
+        $data['detail'] = json_encode($request->detail);
+
+        CodeVoucher::create($data);
+        return redirect()->route('dashboard.code-voucher.index')->with('success', 'Kode voucher berhasil ditambahkan!');
+>>>>>>> 15609a1c2513c1485a24986d233493a9ebe4fdef
     }
 
     /**
@@ -68,7 +80,8 @@ class CodeVoucherController extends Controller
      */
     public function edit(string $id)
     {
-        return view('dashboard.counseling-pm.kode-voucher.edit', compact('id'));
+        $voucher = CodeVoucher::findOrFail($id);
+        return view('dashboard.counseling-pm.kode-voucher.edit', compact('voucher'));
     }
 
     /**
@@ -80,16 +93,23 @@ class CodeVoucherController extends Controller
             'category' => 'required',
             'code' => 'required',
             'percentage' => 'required',
-            'service_type' => 'required',
+            'jenis_pendaftaran' => 'required',
+            'nama_voucher' => 'required',
+            'tipe' => 'required|array',
+            'detail' => 'required|array',
         ]);
 
-        // Cek duplikat kode voucher selain yang sedang diedit
-        if (CodeVoucher::where('code', $request->code)->where('id', '!=', $id)->exists()) {
+        if (CodeVoucher::where('code', $request->code)->where('id', '!=', (int)$id)->exists()) {
             return redirect()->back()->withInput()->withErrors(['code' => 'Kode voucher sudah digunakan!']);
         }
 
         $voucher = CodeVoucher::findOrFail($id);
-        $voucher->update($request->all());
+
+        $data = $request->all();
+        $data['tipe'] = json_encode($request->tipe);
+        $data['detail'] = json_encode($request->detail);
+
+        $voucher->update($data);
 
         return redirect()->route('dashboard.code-voucher.index')->with([
                 'alert' => true,

@@ -14,7 +14,7 @@
                     <div class="">
                         <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Kode Voucher</p>
                         <p class="text-disabled">Halaman yang menampilkan dan mengelola Kode Voucher.</p>
-                        <a href="javascript:void(0);" onclick="openCreateModal()" class="mt-8 inline-flex items-start justify-start rounded bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
+                        <a href="{{ route("dashboard.code-voucher.create") }}" class="mt-8 inline-flex items-start justify-start rounded bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
                             <p class="text-dark font-medium leading-none">Tambah Data</p>
                         </a>
                     </div>
@@ -32,10 +32,11 @@
                                     <th style="text-align: center">Persentase Diskon</th>
                                     <th style="text-align: center">Tipe Voucher</th>
                                     <th style="text-align: center">Detail Voucher</th>
-                                    <th style="text-align: center">Action</th>
+                                    <th style="text-align: center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
+<<<<<<< HEAD
                                 @foreach ($vouchers as $i => $voucher)
                                     <tr>
                                         <td class="text-center">{{ $i + 1 }}</td>
@@ -55,10 +56,42 @@
                                             </button>
                                         </td>
                                     </tr>
+=======
+                                @foreach($vouchers as $i => $voucher)
+                                <tr>
+                                    <td class="text-center">{{ $i+1 }}</td>
+                                    <td class="text-center">{{ $voucher->jenis_pendaftaran }}</td>
+                                    <td class="text-center">{{ $voucher->category }}</td>
+                                    <td class="text-center">{{ $voucher->nama_voucher }}</td>
+                                    <td class="text-center">{{ $voucher->code }}</td>
+                                    <td class="text-center">{{ $voucher->percentage }}%</td>
+                                    <td class="text-center">
+                                        @php
+                                            $tipe = json_decode($voucher->tipe, true);
+                                        @endphp
+                                        {{ $tipe ? implode(', ', $tipe) : '-' }}
+                                    </td>
+                                    <td class="text-center">
+                                        @php
+                                            $detail = json_decode($voucher->detail, true);
+                                        @endphp
+                                        {{ $detail ? implode(', ', $detail) : '-' }}
+                                    </td>
+                                    <td class="text-center flex flex-row justify-center gap-2">
+                                        <a href="{{ route('dashboard.code-voucher.edit', $voucher->id) }}" class="inline-flex items-start justify-start p-3 bg-yellow-500 hover:bg-yellow-600 rounded">
+                                            <i class='bx bx-edit text-white'></i>
+                                        </a>
+                                        <button type="button" onclick="openDeleteModal({{ $voucher->id }})" class="inline-flex items-start justify-start p-3 bg-red-500 hover:bg-red-600 rounded">
+                                            <i class="bx bx-trash-alt text-white"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+>>>>>>> 15609a1c2513c1485a24986d233493a9ebe4fdef
                                 @endforeach
                             </tbody>
                         </table>
 
+<<<<<<< HEAD
                         <!-- Modal Tambah Data -->
                         <div id="createModal" class="fixed inset-0 z-10 flex hidden items-center justify-center bg-black bg-opacity-50">
                             <div class="relative w-full max-w-lg rounded-xl bg-white p-6 text-center">
@@ -188,6 +221,8 @@
                                 </form>
                             </div>
                         </div>
+=======
+>>>>>>> 15609a1c2513c1485a24986d233493a9ebe4fdef
 
                         <!-- Modal Konfirmasi Hapus -->
                         <div id="deleteModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40">
@@ -228,6 +263,7 @@
     </section>
 
     <script>
+<<<<<<< HEAD
         function openCreateModal() {
             document.getElementById('createModal').classList.remove('hidden');
         }
@@ -266,6 +302,8 @@
     </script>
 
     <script>
+=======
+>>>>>>> 15609a1c2513c1485a24986d233493a9ebe4fdef
         let deleteModal = document.getElementById('deleteModal');
         let deleteForm = document.getElementById('deleteForm');
 
@@ -279,6 +317,7 @@
         }
     </script>
 
+<<<<<<< HEAD
     <script>
         function updateDetailOptions() {
             const tipe = document.getElementById('tipeVoucher').value;
@@ -361,4 +400,6 @@
             updateDetailOptionsEdit();
         }
     </script>
+=======
+>>>>>>> 15609a1c2513c1485a24986d233493a9ebe4fdef
 @endsection

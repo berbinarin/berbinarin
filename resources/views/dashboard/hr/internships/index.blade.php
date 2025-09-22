@@ -28,24 +28,24 @@
     <section class="flex w-full">
         <div class="flex w-full flex-col">
             <div class="py-4 md:pb-7 md:pt-12">
-                <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Internship Berbinar</p>
-                <p class="w-full text-gray-600 md:w-2/4">Fitur ini digunakan untuk melakukan manajemen pendaftar yang telah melakukan pendaftaran internship di laman web Berbinar Career.</p>
+                <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Magang Berbinar</p>
+                <p class="w-full text-gray-600 md:w-full">Fitur ini digunakan untuk melakukan manajemen pendaftar yang telah melakukan pendaftaran magang di situs Berbinar Karir.</p>
             </div>
-            <div class="rounded-md bg-white px-4 py-4 md:px-8 md:py-7 xl:px-10">
+            <div class="rounded-md bg-white mb-7 px-4 py-4 md:px-8 md:py-7 xl:px-10">
                 <div class="mb-4 mt-4 overflow-x-auto">
                     <table id="example" class="min-w-full leading-normal">
                         <thead>
                             <tr class="mt-4">
                                 <th class="sticky-col sticky-col-1 bg-white px-6 py-3 text-left text-sm font-bold leading-4 tracking-wider text-black">No</th>
                                 <th class="sticky-col sticky-col-2 bg-white px-6 py-3 text-left text-sm font-bold leading-4 tracking-wider text-black">Nama Lengkap</th>
-                                <th class="bg-white px-6 py-3 text-left text-sm font-bold leading-4 tracking-wider text-black">Link WA</th>
+                                <th class="bg-white px-6 py-3 text-left text-sm font-bold leading-4 tracking-wider text-black">Tautan WA</th>
                                 <th class="bg-white px-6 py-3 text-left text-sm font-bold leading-4 tracking-wider text-black">Tanggal Pendaftaran</th>
                                 <th class="bg-white px-6 py-3 text-left text-sm font-bold leading-4 tracking-wider text-black">Nama Posisi</th>
                                 <th class="w-80 bg-white px-6 py-3 text-left text-sm font-bold leading-4 tracking-wider text-black">Tidak Dapat Diproses</th>
                                 <th class="w-80 bg-white px-6 py-3 text-left text-sm font-bold leading-4 tracking-wider text-black">Catatan</th>
-                                <th class="w-80 bg-white px-6 py-3 text-left text-sm font-bold leading-4 tracking-wider text-black">Progress</th>
+                                <th class="w-80 bg-white px-6 py-3 text-left text-sm font-bold leading-4 tracking-wider text-black">Progres</th>
                                 <th class="bg-white px-6 py-3 text-left text-sm font-bold leading-4 tracking-wider text-black">Keterangan</th>
-                                <th class="bg-white px-6 py-3 text-left text-sm font-bold leading-4 tracking-wider text-black">Action</th>
+                                <th class="bg-white px-6 py-3 text-left text-sm font-bold leading-4 tracking-wider text-black">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>

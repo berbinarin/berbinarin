@@ -47,18 +47,45 @@
         }
     </style>
 
-    <div
-        class="sm:mt-36 mt-24 sm:mb-20 mb-8 sm:mx-24 mx-4 md:bg-white bg-none justify-center flex flex-col md:shadow-lg shadow-none rounded-2xl px-12 max-md:px-1 py-6">
-        {{-- Navigation Header --}}
-        <div class="flex flex-row justify-between" id="step-1-header">
-            <a href="{{ route('product.counseling.psikolog.registration-staff.index') }}">
-                <div class="flex items-center space-x-2 cursor-pointer">
-                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow"
-                        class="h-3 w-auto">
-                    <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span
-                            class="sm:block hidden ml-0.5">pilih konseling</span></p>
+    <div class="flex flex-row justify-between" id="step-2-header" style="display: none;">
+        <div class="flex items-center space-x-2 cursor-pointer" onclick="prevStep(1)">
+            <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow" class="h-3 w-auto">
+            <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span class="sm:block hidden ml-0.5">isi jadwal</span></p>
+        </div>
+
+        <div class="flex items-center space-x-1 cursor-pointer" id="openModal2">
+            <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}" alt="Syarat & Ketentuan" class="h-3 w-auto">
+            <p class="text-[15px] font-semibold text-[#3986A3]"><span class="sm:block hidden">Syarat & Ketentuan</span><span class="sm:hidden block">S&K</span></p>
+        </div>
+    </div>
+
+    <div class="flex flex-row justify-between" id="step-3-header" style="display: none;">
+        <div class="flex items-center space-x-2 cursor-pointer" onclick="prevStep(2)">
+            <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow" class="h-3 w-auto">
+            <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span class="sm:block hidden ml-0.5">isi data diri</span></p>
+        </div>
+
+        <div class="flex items-center space-x-1 cursor-pointer" id="openModal3">
+            <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}" alt="Syarat & Ketentuan" class="h-3 w-auto">
+            <p class="text-[15px] font-semibold text-[#3986A3]"><span class="sm:block hidden">Syarat & Ketentuan</span><span class="sm:hidden block">S&K</span></p>
+        </div>
+    </div>
+
+    {{-- Modal untuk syarat dan ketentuan --}}
+
+        <div id="modal" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
+        <div class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
+            <h1 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-center text-3xl font-bold max-sm:text-2xl">Syarat dan Ketentuan</h1>
+            <div class="mb-6">
+                <div class="flex items-start gap-2">
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Lokasi" class="h-5 w-5 mt-0.5" />
+                    <span class="font-semibold">Lokasi offline Konseling</span>
                 </div>
-            </a>
+                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                    <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
+                    <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Jakarta, Makassar, dan Nganjuk</li>
+                </ol>
+            </div>
 
             <div class="flex items-center space-x-1 cursor-pointer" id="openModal">
                 <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}"
@@ -527,11 +554,70 @@
             }
         };
 
-        // --- Helper Validasi ---
-        function getFieldLabel(fieldName) {
-            const field = document.querySelector(`[name="${fieldName}"]`);
-            if (field) {
-                const container = field.closest('.flex.flex-col.space-y-1');
+
+    // MODAL SYARAT & KETENTUAN
+    ['openModal', 'openModal2', 'openModal3'].forEach(id => {
+        document.getElementById(id)?.addEventListener('click', function() {
+            document.getElementById('modal').classList.remove('hidden');
+        });
+    });
+    // Tutup modal S&K
+    document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('modal').classList.add('hidden');
+    });
+
+    // Falidasi Step 2
+    function validateStep2() {
+        const requiredFields = [
+                'jadwal_tanggal', 'jadwal_pukul',
+                'nama', 'email', 'tanggal_Lahir', 'tempat_lahir', 'alamat', 'umur', 'agama','status_pernikahan',
+                'no_wa', 'suku', 'posisi_anak', 'hobi',
+                'pendidikan', 'riwayat_pekerjaan', 'kegiatan_sosial','divisi','posisi',
+            ];
+
+            for (let fieldName of requiredFields) {
+                let field = document.querySelector(`[name="${fieldName}"]`);
+                if (!field || field.value.trim() === '') {
+                    return 'Anda belum mengisi "' + getFieldLabel(fieldName) + '" ';
+                }
+
+                // Validasi format tambahan untuk email dan nomor telepon
+                if (fieldName === 'email' && !isValidEmail(field.value)) {
+                    return 'Format ' + getFieldLabel(fieldName) + ' tidak valid :(';
+                }
+
+                if (fieldName === 'no_wa' && !isValidPhoneNumber(field.value)) {
+                    return 'Format ' + getFieldLabel(fieldName) + ' tidak valid :(';
+                }
+            }
+            return null;
+    }
+
+    // Validasi Step 3
+    function validateStep3() {
+        const requiredFields = ['topik_pengajuan', 'cerita'];
+        for (let fieldName of requiredFields) {
+            let field = document.querySelector(`[name="${fieldName}"]`);
+            if (!field || field.value.trim() === '') {
+                return 'Anda belum mengisi "' + getFieldLabel(fieldName) + '"';
+            }
+        }
+        return null;
+    }
+
+    // Validasi email
+    function isValidEmail(email) {
+        return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+    }
+    function isValidPhoneNumber(number) {
+        return /^(\+62|62|0)8[1-9][0-9]{6,11}$/.test(number);
+    }
+
+    // Helper Validasi
+    function getFieldLabel(fieldName) {
+        const field = document.querySelector(`[name="${fieldName}"]`);
+        if (field) {
+                const container = field.closest('.flex.flex-col.space-y-1') ;
                 if (container) {
                     const label = container.querySelector('p');
                     if (label) return label.textContent.trim();
@@ -832,46 +918,34 @@
             document.getElementById(id).addEventListener('click', () => {
                 document.getElementById('modal').classList.remove('hidden');
             });
-        });
-        document.getElementById('closeModal').addEventListener('click', () => {
-            document.getElementById('modal').classList.add('hidden');
-        });
+            return;
+        }
+        showStep(step);
+    }
 
-        document.getElementById('closeVoucher').addEventListener('click', () => {
-            document.getElementById('voucher').classList.add('hidden');
-        });
+    function validateAndNextStep(step) {
+        let errorMessage = null;
+        if (step === 2) errorMessage = validateStep1();
+        else if (step === 3) errorMessage = validateStep2();
 
-        // --- File Upload Bukti Pelajar ---
-        const fileNameSpan = document.getElementById('fileName');
-        fileNameSpan.textContent = "No File";
-        document.getElementById('bukti_kartu_pelajar').addEventListener('change', function(e) {
-            const file = this.files[0];
-            if (file) {
-                if (file.size > 1024 * 1024) { // 1 MB
-                    Swal.fire({
-                        toast: true,
-                        position: "top-end",
-                        icon: "error",
-                        title: "Ukuran file maksimal 1 MB!",
-                        showConfirmButton: false,
-                        timer: 4000
-                    });
-                    this.value = "";
-                    document.getElementById('fileName').textContent = "No File";
-                } else {
-                    document.getElementById('fileName').textContent = file.name;
-                }
-            } else {
-                document.getElementById('fileName').textContent = "No File";
-            }
-        });
+        if (errorMessage) {
+            Swal.fire({
+                toast: true,
+                position: "top-end",
+                icon: "error",
+                title: errorMessage,
+                showConfirmButton: false,
+                showCloseButton: true,
+                timer: 4000
+            });
+            return;
+        }
+        showStep(step);
+    }
 
-        // --- Dropdown Icon Rotation ---
-        document.querySelectorAll('.dropdown-select').forEach((select, index) => {
-            const icon = document.querySelectorAll('.dropdown-icon')[index];
-            select.addEventListener('click', () => icon.classList.toggle('rotate-180'));
-            select.addEventListener('blur', () => icon.classList.remove('rotate-180'));
-        });
+    function prevStep(step) {
+        showStep(step);
+    }
 
         // --- Flatpickr ---
         document.addEventListener("DOMContentLoaded", function() {
@@ -892,15 +966,62 @@
             });
         });
 
-        // Tampilkan input daerah jika metode offline
-        document.getElementById('metode-select').addEventListener('change', function() {
-            const daerahContainer = document.getElementById('daerah-container');
-            if (this.value === 'offline') {
-                daerahContainer.style.display = 'block';
-            } else {
-                daerahContainer.style.display = 'none';
-                document.getElementById('daerah-select').value = '';
-            }
+    // VALIDASI SUBMIT FORMULIR
+    document.getElementById('multiStepForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const errorMessage = validateStep3();
+        if (errorMessage) {
+            Swal.fire({
+                toast: true,
+                position: "top-end",
+                icon: "error",
+                title: errorMessage,
+                showConfirmButton: false,
+                showCloseButton: true,
+                timer: 4000
+            });
+            return;
+        }
+
+        this.submit();
+    });
+
+    // FLATPICKR (DATEPICKER)
+    document.addEventListener("DOMContentLoaded", function () {
+        // Tanggal Jadwal Konseling
+        flatpickr("#tglkonseling", {
+            dateFormat: "d/m/Y",
+            allowInput: true,
+            minDate: new Date().fp_incr(7),
         });
-    </script>
+        // Waktu Jadwal Konseling
+        flatpickr("#waktukonseling", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+            time_24hr: true
+        });
+        // Tanggal Lahir Data Diri
+        flatpickr("#tanggal_lahir", {
+            dateFormat: "d/m/Y",
+            allowInput: true,
+        });
+    });
+
+
+    // ERROR HANDLING DARI BACKEND JIKA ADA KESALAHAN DALAM SUBMIT FORM
+    @if(session('error'))
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '{{ session('error') }}',
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            showCloseButton: true,
+            timer: 4000
+        });
+    @endif
+
+</script>
 @endsection

@@ -40,14 +40,14 @@ class AdminSeeder extends Seeder
         User::create([
             'username' => 'hr-dataanalyst',
             'email' => 'hr-dataanalyst@gmail.com',
-            'password' => Hash::make('berbinaradabuatkamu'),
+            'password' => Hash::make('Hrnyaberbinar'),
         ])->assignRole('hr_data-analyst');
 
         // Human Resource - Data Analyst
         User::create([
             'username' => 'hr-recruitment',
             'email' => 'hr-recruitment@gmail.com',
-            'password' => Hash::make('berbinaradabuatkamu'),
+            'password' => Hash::make('Hrnyaberbinar'),
         ])->assignRole('hr_recruitment');
 
         // Social Media Creator
@@ -84,5 +84,12 @@ class AdminSeeder extends Seeder
             'email' => 'webdev@gmail.com',
             'password' => Hash::make('berbinar123'),
         ])->assignRole('web-dev');
+
+        // Psikolog Staff
+        User::create([
+            'username' => 'manager-cpm',
+            'email' => 'manager-cpm@gmail.com',
+            'password' => Hash::make('berbinar123'),
+        ])->assignRole('manager-cpm');
     }
 }

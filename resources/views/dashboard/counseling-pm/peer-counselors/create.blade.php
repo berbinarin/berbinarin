@@ -4,6 +4,7 @@
 ])
 
 @section('content')
+<<<<<<< HEAD
     <section class="flex w-full">
         <div class="flex w-full flex-col">
             <div class="py-4 md:pb-7 md:pt-12">
@@ -22,6 +23,25 @@
                 <form action="{{ route('dashboard.peer-counselors.store') }}" method="POST">
                     @csrf
                     <input type="hidden" name="kategori" value="peer-counselor" />
+=======
+<section class="flex w-full">
+    <div class="flex w-full flex-col">
+        <div class="py-4 md:pb-7 md:pt-12">
+            <div class="mb-2 flex items-center gap-2">
+                <a href="{{ route('dashboard.peer-counselors.index') }}">
+                    <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
+                </a>
+                <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Tambah Data Konseling Peer Counselor</p>
+            </div>
+            <p class="w-full text-disabled">
+                Halaman yang digunakan untuk menambahkan, mengelola, dan melengkapi seluruh data pribadi, latar belakang, serta informasi penting lainnya dari peer counselor secara detail untuk keperluan administrasi dan monitoring.
+            </p>
+        </div>
+        <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 mb-7 md:px-8 md:py-7 xl:px-10">
+            <form action="{{ route('dashboard.peer-counselors.store') }}" method="POST">
+                @csrf
+                <input type="hidden" name="kategori" value="peer-counselor">
+>>>>>>> 15609a1c2513c1485a24986d233493a9ebe4fdef
 
                     <!-- Data Konseling -->
                     <h1 class="mb-6 text-center text-2xl font-bold">Data Konseling</h1>
@@ -258,9 +278,17 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         const jadwalPeerData = @json($jadwalPeerCounselors);
+=======
+@endsection
+
+@section('script'))
+<script>
+    const jadwalPeerData = @json($jadwalPeerCounselors);
+>>>>>>> 15609a1c2513c1485a24986d233493a9ebe4fdef
 
         function getDayName(dateString) {
             const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];

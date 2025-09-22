@@ -35,7 +35,7 @@ class ArteriController extends Controller
         }
 
         $categories = Category::all();
-        
+
         $categoryColors = [];
         foreach ($categories as $cat) {
             $categoryColors[$cat->id] = CategoryColorHelper::getColor($cat->id);
@@ -81,11 +81,11 @@ class ArteriController extends Controller
         }
 
         return view('landing.arteri.index', compact(
-            'articles', 
-            'categories', 
-            'category', 
-            'sort', 
-            'heroArticles', 
+            'articles',
+            'categories',
+            'category',
+            'sort',
+            'heroArticles',
             'categoryColors'
         ));
     }
@@ -122,8 +122,18 @@ class ArteriController extends Controller
             'twitter' => "https://twitter.com/intent/tweet?text=" . urlencode($article->title) . "&url=" . urlencode($currentUrl) . "&hashtags=BerbinarInsightful",
             'linkedin' => "https://www.linkedin.com/sharing/share-offsite/?url=" . urlencode($currentUrl) . "&title=" . urlencode($article->title) . "&summary=" . urlencode($description),
             'whatsapp' => "https://wa.me/?text=" . urlencode($article->title . "\n\n" . $description . "\n\nBaca selengkapnya: " . $currentUrl),
-            'telegram' => "https://t.me/share/url?url=" . urlencode($currentUrl) . "&text=" . urlencode($article->title . "\n\n" . $description)
+            'telegram' => "https://t.me/share/url?url=" . urlencode($currentUrl) . "&text=" . urlencode($article->title . "\n\n" . $description),
+            'instagram' => "https://www.instagram.com/stories/create/?url=" . urlencode($currentUrl)
         ];
+
+        $latestArticles = Article::latest()->limit(4)->get();
+
+        $categories = Category::all();
+
+        $articlesCategoryColors = [];
+        foreach ($categories as $cat) {
+            $articlesCategoryColors[$cat->id] = CategoryColorHelper::getColor($cat->id);
+        }
 
         return view('landing.arteri.detail', compact(
             'article',
@@ -133,7 +143,9 @@ class ArteriController extends Controller
             'description',
             'slug',
             'userReaction',
-            'categoryColors'
+            'categoryColors',
+            'latestArticles',
+            'articlesCategoryColors'
         ));
     }
 

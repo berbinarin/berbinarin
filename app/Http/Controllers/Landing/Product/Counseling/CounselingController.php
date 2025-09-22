@@ -3,10 +3,6 @@
 namespace App\Http\Controllers\Landing\Product\Counseling;
 
 use App\Http\Controllers\Controller;
-use App\Models\KonsellingPsikolog;
-use App\Models\jadwalPeer;
-use App\Models\KonsellingPeer;
-use App\Models\BerbinarForU;
 use App\Models\CodeVoucher;
 use Illuminate\Http\Request;
 
@@ -176,7 +172,7 @@ class CounselingController extends Controller
             [
                 'name' => "Adinda Fasya Az-zahra D.",
                 'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/adinda.png',
-                'region' => 'Surabaya'
+                'region' => 'Jakarta'
             ],
             [
                 'name' => "Rizka Arista Sabilla ",
@@ -184,9 +180,9 @@ class CounselingController extends Controller
                 'region' => 'Nganjuk'
             ],
             [
-                'name' => 'Melisa Nur Amelia',
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/melisa.png',
-                'region' => 'Jombang'
+                'name' => 'Nurfadila Aulia Muslimin',
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/nurfadila.png',
+                'region' => 'Makassar'
             ]
         ];
 
@@ -313,10 +309,11 @@ class CounselingController extends Controller
             ],
         ];
 
-        return view('landing.product.counseling.registration')->with([
+        return view('landing.product.counseling.choose-counseling-session')->with([
             'konselings' => $konselings
         ]);
     }
+<<<<<<< HEAD
 
     public function registrationPsikologUmum()
     {
@@ -678,25 +675,72 @@ class CounselingController extends Controller
     }
 
     // Contoh di Controller
+=======
+    
+    // Validasi Voucher
+>>>>>>> 15609a1c2513c1485a24986d233493a9ebe4fdef
     public function cekVoucher(Request $request)
     {
-        $code = $request->input('code');
+        $code = $request->code;
+        $jadwal_tanggal = $request->jadwal_tanggal;
+        $metode = $request->metode;
+        $sesi = $request->sesi;
+        $kategori = $request->kategori; // Mengambil data kategori dari request (psikolog/peer)
+
         $voucher = CodeVoucher::where('code', $code)->first();
 
         if (!$voucher) {
-            return response()->json(['valid' => false]);
+            return response()->json(['valid' => false, 'message' => 'Kode voucher tidak valid']);
+        }
+
+        // Validasi jenis_pendaftaran voucher dengan kategori pendaftar
+        if (
+            isset($voucher->jenis_pendaftaran) &&
+            strtolower($voucher->jenis_pendaftaran) !== strtolower($kategori)
+        ) {
+            return response()->json([
+                'valid' => false,
+                'message' => 'Kode voucher tidak valid.'
+            ]);
+        }
+
+        $tipeArr = json_decode($voucher->tipe, true);
+        $detailArr = json_decode($voucher->detail, true);
+
+        $isValid = true;
+        foreach ($tipeArr as $i => $tipe) {
+            $detail = $detailArr[$i] ?? null;
+            if ($tipe == 'hari') {
+                try {
+                    $dateObj = \Carbon\Carbon::createFromFormat('d/m/Y', $jadwal_tanggal);
+                    $day = $dateObj->dayOfWeek; // 0: Minggu, 6: Sabtu
+                    $isWeekend = ($day == 0 || $day == 6);
+                    if ($detail == 'weekdays' && $isWeekend) $isValid = false;
+                    if ($detail == 'weekend' && !$isWeekend) $isValid = false;
+                } catch (\Exception $e) {
+                    $isValid = false;
+                }
+            }
+            if ($tipe == 'metode' && strtolower($metode) != strtolower($detail)) $isValid = false;
+            if ($tipe == 'sesi' && strval($sesi) != strval($detail)) $isValid = false;
+        }
+
+        if (!$isValid) {
+            return response()->json(['valid' => false, 'message' => 'Kode voucher tidak valid']);
         }
 
         return response()->json([
             'valid' => true,
             'category' => $voucher->category,
+            'code' => $voucher->code,
             'percentage' => $voucher->percentage,
+            'nama_voucher' => $voucher->nama_voucher,
             'jenis_pendaftaran' => $voucher->jenis_pendaftaran,
-            'tipe' => $voucher->tipe,
-            'detail' => $voucher->detail,
+            'message' => 'Kode voucher valid.'
         ]);
     }
 
+<<<<<<< HEAD
     public function summary()
     {
         return view('landing.product.counseling.summary-konseling');
@@ -705,4 +749,6 @@ class CounselingController extends Controller
     {
         return view('landing.product.counseling.summary-konseling-staff');
     }
+=======
+>>>>>>> 15609a1c2513c1485a24986d233493a9ebe4fdef
 }

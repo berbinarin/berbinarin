@@ -89,12 +89,12 @@
                         <a href="{{ route("dashboard.positions.index") }}">
                             <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
                         </a>
-                        <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Add Data Positions</p>
+                        <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Tambah Data Posisi</p>
                     </div>
-                    <p class="w-3/4 text-disabled">Admin dapat menambahkan data posisi hiring yang akan ditampilkan pada website careers Berbinarin.</p>
+                    <p class="w-full text-disabled">Admin dapat menambahkan data posisi yang akan ditampilkan pada situs karir Berbinarin.</p>
                 </div>
             </div>
-            <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+            <div class="rounded-md bg-white px-4 py-4 shadow-lg mb-7 shadow-gray-400 md:px-8 md:py-7 xl:px-10">
                 <form action="{{ route("dashboard.positions.store") }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="flex items-start gap-4">
@@ -173,7 +173,7 @@
                             <button type="button" id="uploadBannerButton" class="mt-20 flex w-full cursor-pointer items-center justify-center rounded-lg border border-dashed border-blue-500 py-2 text-blue-500">
                                 <h1 class="flex items-center gap-2 text-base font-medium">
                                     <i class="bx bx-plus-circle text-xl"></i>
-                                    Upload Banner Posisi
+                                    Unggah Banner Posisi
                                 </h1>
                             </button>
 

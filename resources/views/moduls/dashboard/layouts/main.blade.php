@@ -80,6 +80,19 @@
             new DataTable('#example');
         </script>
     </body>
+    @include('sweetalert::alert')
+
+    <script src="{{ asset('assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
+    <script>
+        new DataTable('#example');
+    </script>
+
+
+</body>
+
+<!-- resources/views/layouts/app.blade.php atau file lainnya -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- resources/views/layouts/app.blade.php atau file lainnya -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
