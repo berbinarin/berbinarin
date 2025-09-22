@@ -8,6 +8,45 @@
 @section("content")
     {{-- HERO SECTION --}}
 
+    <style>
+        /* Custom bullet style */
+        .swiper-pagination-bullet {
+            background: #3986A3;
+            opacity: 1;
+            width: 12px;
+            height: 12px;
+            margin: 0 6px !important;
+            border-radius: 50%;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .swiper-pagination-bullet-active {
+            background: #3986A3 !important;
+            transform: scale(1.3);
+            box-shadow: 0 0 0 2px #3986A3;
+        }
+        /* Custom position */
+        .swiper-pagination {
+            bottom: -40px !important;
+            text-align: center;
+        }
+
+        /* Custom Splide pagination bullet color */
+        .splide__pagination__page {
+            opacity: 0.3;
+            width: 12px;
+            height: 12px;
+            margin: 0 6px;
+            border-radius: 50%;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .splide__pagination__page.is-active {
+            opacity: 1;
+            transform: scale(1.3);
+            background: #3986A3 !important;
+        }
+
+    </style>
+
     <section class="lg:mt-32 mb-12 lg:mb-36 w-full overflow-x-hidden">
         <div class="absolute left-0 top-0 h-fit w-1/2 pt-32 md:block md:w-1/3 md:pt-0 lg:w-1/4">
             <img src="{{ asset("assets/images/landing/produk/emo/blop-1.png") }}" alt="top-left-texture" class="object-cover" />
@@ -100,62 +139,13 @@
     <section class="relative flex flex-row justify-center mb-10 lg:mb-20 overflow-x-clip">
         <div class="w-[90%] rounded-xl shadow-2xl p-3 lg:px-32 lg:py-10 z-10" style="background: linear-gradient(90deg,rgba(223, 245, 253, 1) 0%, rgba(66, 102, 115, 1) 100%);">
             <div class="flex flex-row justify-between w-full gap-5 lg:gap-10">
-                <div class="flex flex-col  lg:w-1/3">
-                    <h3 class="text-lg lg:text-2xl font-bold mb-1">Ukuran Baju</h3>
-                    <table class="mb-1 w-full">
-                        <thead class="bg-white text-xs lg:text-lg font-semibold">
-                            <th class="rounded-l-md lg:rounded-l-2xl px-1 lg:p-2 italic">Size</th>
-                            <th class="px-1 lg:p-2">Panjang</th>
-                            <th class="rounded-r-md lg:rounded-r-2xl px-1 lg:p-2">Lebar</th>
-                        </thead>
-                        <tbody class="text-xs lg:text-base font-semibold">
-                            <tr class="bg-primary/50">
-                                <td class="text-center rounded-l-md lg:rounded-l-2xl lg:p-2">S</td>
-                                <td class="text-center lg:p-2">66</td>
-                                <td class="text-center rounded-r-md lg:rounded-r-2xl lg:p-2">48</td>
-                            </tr>
-                            <tr class="bg-white">
-                                <td class="text-center rounded-l-md lg:rounded-l-2xl lg:p-2">M</td>
-                                <td class="text-center lg:p-2">68</td>
-                                <td class="text-center rounded-r-md lg:rounded-r-2xl lg:p-2">50</td>
-                            </tr>
-                            <tr class="bg-primary/50">
-                                <td class="text-center rounded-l-md lg:rounded-l-2xl lg:p-2">L</td>
-                                <td class="text-center lg:p-2">70</td>
-                                <td class="text-center rounded-r-md lg:rounded-r-2xl lg:p-2">52</td>
-                            </tr>
-                            <tr class="bg-white">
-                                <td class="text-center rounded-l-md lg:rounded-l-2xl lg:p-2">XL</td>
-                                <td class="text-center lg:p-2">73</td>
-                                <td class="text-center rounded-r-md lg:rounded-r-2xl lg:p-2">54</td>
-                            </tr>
-                            <tr class="bg-primary/50">
-                                <td class="text-center rounded-l-md lg:rounded-l-2xl lg:p-2">2XL</td>
-                                <td class="text-center lg:p-2">75</td>
-                                <td class="text-center rounded-r-md lg:rounded-r-2xl lg:p-2">56</td>
-                            </tr>
-                            <tr class="bg-white">
-                                <td class="text-center rounded-l-md lg:rounded-l-2xl lg:p-2">3XL</td>
-                                <td class="text-center lg:p-2">77</td>
-                                <td class="text-center rounded-r-md lg:rounded-r-2xl lg:p-2">58</td>
-                            </tr>
-                            <tr class="bg-primary/50">
-                                <td class="text-center rounded-l-md lg:rounded-l-2xl lg:p-2">4XL</td>
-                                <td class="text-center lg:p-2">79</td>
-                                <td class="text-center rounded-r-md lg:rounded-r-2xl lg:p-2">60</td>
-                            </tr>
-                            <tr class="bg-white">
-                                <td class="text-center rounded-l-md lg:rounded-l-2xl lg:p-2">5XL</td>
-                                <td class="text-center lg:p-2">81</td>
-                                <td class="text-center rounded-r-md lg:rounded-r-2xl lg:p-2">62</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <h3 class="text-sm lg:text-lg font-bold mb-1 italic">*Limited Stocks</h3>
+                <div class="flex flex-col w-1/2 lg:w-2/5">
+                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/T-shirt-size-table.png") }}" alt="Size, width, and height; S, 66, 48; M, 68, 50; L, 70, 52; XL, 73, 54; 2XL, 75, 56; 3XL, 77, 58; 4XL, 79, 60; 5XL, 81, 62" class="mb-4">
+
                 </div>
-                <div class="flex flex-col  lg:w-1/3">
-                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/T-shirt.png") }}" alt="T-shirt" class="mb-4">
-                    <a href="https://www.tokopedia.com/berbinarin/moodscan-tees-by-berbinar-in-x-esize-kaos-edukatif-unisex-m-ea46b" target="_blank" class="w-full bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-white px-2 py-1 lg:py-2 lg:text-lg text-center rounded-lg shadow hover:scale-110 transition-all">Beli Sekarang</a>
+                <div class="flex flex-col w-1/2 lg:w-2/5">
+                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/T-shirt.png") }}" alt="T-shirt" class="mb-4 lg:scale-110">
+                    <a href="https://www.tokopedia.com/berbinarin/moodscan-tees-by-berbinar-in-x-esize-kaos-edukatif-unisex-m-ea46b" target="_blank" class="w-full bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-white px-2 py-1 lg:py-2 lg:text-3xl lg:font-semibold text-center rounded-lg shadow hover:scale-110 transition-all">Beli Sekarang</a>
                 </div>
             </div>
         </div>
@@ -167,7 +157,17 @@
 
     <section class="w-full flex flex-row justify-center mb-7 lg:mb-20 overflow-x-clip">
         <div class="w-[90%] flex flex-row justify-between lg:justify-center gap-4 lg:gap-20">
-            <a href="https://www.tokopedia.com/berbinarin/moodscan-tees-by-berbinar-in-x-esize-kaos-edukatif-unisex-m-ea46b" target="_blank" class="bg-white rounded-xl shadow border p-2 lg:w-1/4 hover:scale-110 hover:rotate-3 transition-all">
+
+            <a href="https://www.tokopedia.com/berbinarin/moodscan-tees-by-berbinar-in-x-esize-kaos-edukatif-unisex-m-ea46b" target="_blank" class="lg:w-1/4 hover:scale-110 hover:rotate-3 transition-all">
+
+                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/MoodScan-Tees-Front.png") }}" alt="T-shirt front" class="lg:w-full ">
+
+            </a>
+
+            {{-- <a href="https://www.tokopedia.com/berbinarin/moodscan-tees-by-berbinar-in-x-esize-kaos-edukatif-unisex-m-ea46b" target="_blank" class="bg-white rounded-xl shadow border p-2 lg:w-1/4 hover:scale-110 hover:rotate-3 transition-all">
+
+                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/MoodScan-Tees-Front.png") }}" alt="T-shirt front" class="rounded-xl lg:w-full">
+
                 <div class="w-full flex flex-row justify-end">
                     <div class="absolute -translate-y-2 translate-x-1 rounded-l-lg lg:rounded-l-xl bg-white px-2 py-1">
                         <div class="bg-gray-300 rounded-full"><i class="bx bxs-heart text-red-500 text-lg lg:text-4xl px-1"></i></div>
@@ -177,19 +177,25 @@
                 <div class="absolute -translate-y-7 lg:-translate-y-11 rounded-r-lg lg:rounded-r-xl bg-white px-2 py-1">
                     <div class="bg-black rounded-2xl px-4 py-1 text-white text-sm lg:text-3xl lg:px-6">Beli</div>
                 </div>
+            </a> --}}
+
+            <a href="https://www.tokopedia.com/berbinarin/moodscan-tees-by-berbinar-in-x-esize-kaos-edukatif-unisex-m-ea46b" target="_blank" class="lg:w-1/4 hover:scale-110 hover:rotate-3 transition-all">
+
+                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/MoodScan-Tees-Back.png") }}" alt="T-shirt back" class="lg:w-full">
+
             </a>
 
-            <a href="https://www.tokopedia.com/berbinarin/moodscan-tees-by-berbinar-in-x-esize-kaos-edukatif-unisex-m-ea46b" target="_blank" class="bg-white rounded-xl shadow border p-2 lg:w-1/4 hover:scale-110 hover:rotate-3 transition-all">
+            {{-- <a href="https://www.tokopedia.com/berbinarin/moodscan-tees-by-berbinar-in-x-esize-kaos-edukatif-unisex-m-ea46b" target="_blank" class="bg-white rounded-xl shadow border p-2 lg:w-1/4 hover:scale-110 hover:rotate-3 transition-all">
                 <div class="w-full flex flex-row justify-end">
                     <div class="absolute -translate-y-2 translate-x-1 rounded-l-lg lg:rounded-l-xl bg-white px-2 py-1">
                         <div class="bg-gray-300 rounded-full"><i class="bx bxs-heart text-red-500 text-lg lg:text-4xl px-1"></i></div>
                     </div>
                 </div>
-                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/T-shirt-back.png") }}" alt="T-shirt front" class="rounded-xl lg:w-full">
+                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/T-shirt-back.png") }}" alt="T-shirt back" class="rounded-xl lg:w-full">
                 <div class="absolute -translate-y-7 lg:-translate-y-11 rounded-r-lg lg:rounded-r-xl bg-white px-2 py-1">
                     <div class="bg-black rounded-2xl px-4 py-1 text-white text-sm lg:text-3xl lg:px-6">Beli</div>
                 </div>
-            </a>
+            </a> --}}
         </div>
 
         <div class="absolute w-full flex flex-row">
@@ -205,55 +211,52 @@
     <section class="relative w-full flex flex-col justify-center overflow-x-clip">
 
         <!-- Mobile -->
-        <h1 class="bg-gradient-to-r from-[rgb(57,134,163)] to-[#1C4352] bg-clip-text text-center font-[inter] text-3xl font-semibold text-transparent lg:tracking-wide mb-8">Alasan Mengapa Produk Ini Spesial</h1>
-        <div class="w-full lg:hidden flex flex-col justify-center items-center gap-4">
-            <div class="w-[90%] flex flex-row justify-center items-center rounded-xl shadow">
-                <div class="w-1/5 flex flex-col h-full justify-center px-2">
-                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-1.png") }}" alt="" class="w-auto h-auto">
-                </div>
-                <div class="w-4/5 flex flex-col justify-center py-4">
-                    <h3 class="text-lg font-bold">Inovasi <span class="italic">QR code &nbsp;</span>psikologi di kaos</h3>
-                    <p class="text-disabled"><span class="italic">Scan QR &nbsp;</span>di belakang kaos untuk akses kutipan psikologi inspiratif yang selalu berganti</p>
-                </div>
-            </div>
-
-            <div class="w-[90%] flex flex-row justify-center items-center rounded-xl shadow">
-                <div class="w-1/5 flex flex-row justify-center px-2">
-                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-2.png") }}" alt="" class="w-auto h-auto">
-                </div>
-                <div class="w-4/5 flex flex-col justify-center py-4">
-                    <h3 class="text-lg font-bold">Design psikologi yang <span class="italic">simple &nbsp;</span>tapi penuh makna</h3>
-                    <p class="text-disabled">Kaos ini memadukan mode psikologi dan desain minimalis untuk menghadirkan kesan reflektif yang berbicara tentang dirimu</p>
-                </div>
-            </div>
-
-            <div class="w-[90%] flex flex-row justify-center items-center rounded-xl shadow">
-                <div class="w-1/5 flex flex-row justify-center px-2">
-                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-3.png") }}" alt="" class="w-auto h-auto">
-                </div>
-                <div class="w-4/5 flex flex-col justify-center py-4">
-                    <h3 class="text-lg font-bold">Bahan premium 100% <span class="italic">cotton combed</span></h3>
-                    <p class="text-disabled"><span class="italic">comfort is king &nbsp;</span>(nyaman dipakai untuk berbagai aktivitas)</p>
-                </div>
-            </div>
-
-            <div class="w-[90%] flex flex-row justify-center items-center rounded-xl shadow">
-                <div class="w-1/5 flex flex-row justify-center px-2">
-                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-4.png") }}" alt="" class="w-auto h-auto">
-                </div>
-                <div class="w-4/5 flex flex-col justify-center py-4">
-                    <h3 class="text-lg font-bold"><span class="italic">Unisex &nbsp;</span>dan <span class="italic">size &nbsp;</span>lengkap hingga 5XL</h3>
-                    <p class="text-disabled">mampu menjangkau pasar lebih luas, termasuk pasangan serta kategori ukuran <span class="italic">plus size</span></p>
-                </div>
-            </div>
-
-            <div class="w-[90%] flex flex-row justify-center items-center rounded-xl shadow">
-                <div class="w-1/5 flex flex-row justify-center px-2">
-                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-5.png") }}" alt="" class="w-auto h-auto">
-                </div>
-                <div class="w-4/5 flex flex-col justify-center py-4">
-                    <h3 class="text-lg font-bold"><span class="italic">Limited colaboration</span></h3>
-                    <p class="text-disabled">kolaborasi antara Berbinar Insightful Indonesia dan Esize yang dapat meningkatkan nilai ekslusivitas.</p>
+        <h1 class="bg-gradient-to-r from-[rgb(57,134,163)] to-[#1C4352] bg-clip-text text-center font-[inter] text-3xl lg:text-5xl lg:pb-2 font-semibold text-transparent lg:tracking-wide mb-8">Alasan Mengapa Produk Ini Spesial</h1>
+        <div class="w-full flex flex-row justify-center lg:hidden">
+            <div id="splide-special-reason-mobile" class="splide max-w-sm mb-10" style="max-width: 370px;">
+                <div class="splide__track mb-10">
+                    <ul class="splide__list mb-10">
+                        <li class="splide__slide">
+                            <!-- Card 1 -->
+                            <div class="flex flex-col items-center rounded-2xl shadow bg-white h-full px-5 py-4">
+                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-1.png") }}" alt="" class="w-20 h-20 mb-4">
+                                <h3 class="text-2xl text-center font-bold mb-4 h-16">Inovasi <span class="italic">QR code &nbsp;</span>psikologi di kaos</h3>
+                                <p class="text-disabled text-xl text-center"><span class="italic">Scan QR &nbsp;</span>di belakang kaos untuk akses kutipan psikologi inspiratif yang selalu berganti.</p>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <!-- Card 2 -->
+                            <div class="flex flex-col items-center rounded-2xl shadow bg-white h-full px-5 py-4">
+                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-2.png") }}" alt="" class="w-20 h-20 mb-4">
+                                <h3 class="text-2xl text-center font-bold mb-4 h-16">Design psikologi yang <span class="italic">simple &nbsp;</span>tapi penuh makna</h3>
+                                <p class="text-disabled text-xl text-center">Kaos ini memadukan mode psikologi dan desain minimalis untuk menghadirkan kesan reflektif yang berbicara tentang dirimu.</p>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <!-- Card 3 -->
+                            <div class="flex flex-col items-center rounded-2xl shadow bg-white h-full px-5 py-4">
+                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-3.png") }}" alt="" class="w-20 h-20 mb-4">
+                                <h3 class="text-2xl text-center font-bold mb-4 h-16">Bahan premium 100% <span class="italic">cotton combed</span></h3>
+                                <p class="text-disabled text-xl text-center"><span class="italic">Comfort is king <br> &nbsp;</span>(nyaman dipakai untuk berbagai aktivitas).</p>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <!-- Card 4 -->
+                            <div class="flex flex-col items-center rounded-2xl shadow bg-white h-full px-5 py-4">
+                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-4.png") }}" alt="" class="w-20 h-20 mb-4">
+                                <h3 class="text-2xl text-center font-bold mb-4 h-16"><span class="italic">Unisex &nbsp;</span>dan <span class="italic">size &nbsp;</span>lengkap hingga 5XL</h3>
+                                <p class="text-disabled text-xl text-center">Mampu menjangkau pasar lebih luas, termasuk pasangan serta kategori ukuran <span class="italic">plus size</span>.</p>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <!-- Card 5 -->
+                            <div class="flex flex-col items-center rounded-2xl shadow bg-white h-full px-5 py-4">
+                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-5.png") }}" alt="" class="w-20 h-20 mb-4">
+                                <h3 class="text-2xl text-center font-bold mb-4 h-16"><span class="italic">Limited <br>colaboration</span></h3>
+                                <p class="text-disabled text-xl text-center">Kolaborasi antara Berbinar Insightful Indonesia dan Esize yang dapat meningkatkan nilai ekslusivitas.</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -265,57 +268,67 @@
         </div>
 
         <!-- Desktop Swiper Alasan Produk Spesial -->
-        <div class="w-full px-20 hidden lg:block z-10">
-            <div class="swiper-container-special-reason overflow-x-clip">
+        <div class="w-full px-32 hidden lg:block z-10">
+            <div class="swiper-container-special-reason-desktop">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide flex flex-row justify-center items-start rounded-xl shadow bg-white h-full">
+                    <div class="swiper-slide flex flex-row justify-center items-start rounded-2xl shadow bg-white h-full">
                         <div class="w-full px-5 flex flex-col justify-center py-4 h-auto">
-                            <div class="flex flex-row gap-5">
-                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-1.png") }}" alt="" class="w-20 h-20 mb-10">
-                                <h3 class="text-xl font-bold mb-4 h-16">Inovasi <span class="italic">QR code &nbsp;</span>psikologi di kaos</h3>
+                            <div class="flex h-52 flex-col w-full justify-center items-center gap-5">
+                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-1.png") }}" alt="" class="w-20 h-20 mb-4">
+                                <h3 class="text-2xl text-center font-bold mb-4 h-16">Inovasi <span class="italic">QR code &nbsp;</span>psikologi di kaos</h3>
                             </div>
-                            <p class="text-disabled"><span class="italic">Scan QR &nbsp;</span>di belakang kaos untuk akses kutipan psikologi inspiratif yang selalu berganti</p>
+                            <div class="h-32 flex flex-col justify-center items-center">
+                                <p class="text-disabled text-xl text-center"><span class="italic">Scan QR &nbsp;</span>di belakang kaos untuk akses kutipan psikologi inspiratif yang selalu berganti.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="swiper-slide flex flex-row justify-center items-start rounded-xl shadow bg-white h-full">
+                    <div class="swiper-slide flex flex-row justify-center items-start rounded-2xl shadow bg-white h-full">
                         <div class="w-full px-5 flex flex-col justify-center py-4 h-auto">
-                            <div class="flex flex-row gap-5">
-                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-2.png") }}" alt="" class="w-20 h-20 mb-10">
-                                <h3 class="text-xl font-bold mb-4 h-16">Design psikologi yang <span class="italic">simple &nbsp;</span>tapi penuh makna</h3>
+                            <div class="flex h-52 flex-col w-full justify-center items-center gap-5">
+                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-2.png") }}" alt="" class="w-20 h-20 mb-4">
+                                <h3 class="text-2xl text-center font-bold mb-4 h-16">Design psikologi yang <span class="italic">simple &nbsp;</span>tapi penuh makna</h3>
                             </div>
-                            <p class="text-disabled">Kaos ini memadukan mode psikologi dan desain minimalis untuk menghadirkan kesan reflektif yang berbicara tentang dirimu</p>
+                            <div class="h-32 flex flex-col justify-center items-center">
+                                <p class="text-disabled text-xl text-center">Kaos ini memadukan mode psikologi dan desain minimalis untuk menghadirkan kesan reflektif yang berbicara tentang dirimu.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="swiper-slide flex flex-row justify-center items-start rounded-xl shadow bg-white h-full">
+                    <div class="swiper-slide flex flex-row justify-center items-start rounded-2xl shadow bg-white h-full">
                         <div class="w-full px-5 flex flex-col justify-center py-4 h-auto">
-                            <div class="flex flex-row gap-5">
-                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-3.png") }}" alt="" class="w-20 h-20 mb-10">
-                                <h3 class="text-xl font-bold mb-4 h-16">Bahan premium 100% <span class="italic">cotton combed</span></h3>
+                            <div class="flex h-52 flex-col w-full justify-center items-center gap-5">
+                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-3.png") }}" alt="" class="w-20 h-20 mb-4">
+                                <h3 class="text-2xl text-center font-bold mb-4 h-16">Bahan premium 100% <span class="italic">cotton combed</span></h3>
                             </div>
-                            <p class="text-disabled"><span class="italic">comfort is king &nbsp;</span>(nyaman dipakai untuk berbagai aktivitas)</p>
+                            <div class="h-32 flex flex-col justify-center items-center">
+                                <p class="text-disabled text-xl text-center"><span class="italic">Comfort is king <br> &nbsp;</span>(nyaman dipakai untuk berbagai aktivitas).</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="swiper-slide flex flex-row justify-center items-start rounded-xl shadow bg-white h-full">
+                    <div class="swiper-slide flex flex-row justify-center items-start rounded-2xl shadow bg-white h-full">
                         <div class="w-full px-5 flex flex-col justify-center py-4 h-auto">
-                            <div class="flex flex-row gap-5">
-                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-4.png") }}" alt="" class="w-20 h-20 mb-10">
-                                <h3 class="text-xl font-bold mb-4 h-16"><span class="italic">Unisex &nbsp;</span>dan <span class="italic">size &nbsp;</span>lengkap hingga 5XL</h3>
+                            <div class="flex h-52 flex-col w-full justify-center items-center gap-5">
+                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-4.png") }}" alt="" class="w-20 h-20 mb-4">
+                                <h3 class="text-2xl text-center font-bold mb-4 h-16"><span class="italic">Unisex &nbsp;</span>dan <span class="italic">size &nbsp;</span>lengkap hingga 5XL</h3>
                             </div>
-                            <p class="text-disabled">mampu menjangkau pasar lebih luas, termasuk pasangan serta kategori ukuran <span class="italic">plus size</span></p>
+                            <div class="h-32 flex flex-col justify-center items-center">
+                                <p class="text-disabled text-xl text-center">Mampu menjangkau pasar lebih luas, termasuk pasangan serta kategori ukuran <span class="italic">plus size</span>.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="swiper-slide flex flex-row justify-center items-start rounded-xl shadow bg-white h-full">
+                    <div class="swiper-slide flex flex-row justify-center items-start rounded-2xl shadow bg-white h-full">
                         <div class="w-full px-5 flex flex-col justify-center py-4 h-auto">
-                            <div class="flex flex-row gap-5">
-                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-5.png") }}" alt="" class="w-20 h-20 mb-10">
-                                <h3 class="text-xl font-bold mb-4 h-16"><span class="italic">Limited colaboration</span></h3>
+                            <div class="flex h-52 flex-col w-full justify-center items-center gap-5">
+                                <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-5.png") }}" alt="" class="w-20 h-20 mb-4">
+                                <h3 class="text-2xl text-center font-bold mb-4 h-16"><span class="italic">Limited <br>colaboration</span></h3>
                             </div>
-                            <p class="text-disabled">kolaborasi antara Berbinar Insightful Indonesia dan Esize yang dapat meningkatkan nilai ekslusivitas.</p>
+                            <div class="h-32 flex flex-col justify-center items-center">
+                                <p class="text-disabled text-xl text-center">Kolaborasi antara Berbinar Insightful Indonesia dan Esize yang dapat meningkatkan nilai ekslusivitas.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-button-next pr-10"></div>
-                <div class="swiper-button-prev pl-10"></div>
+                <div class="swiper-pagination" style="bottom: -40px"></div>
+
 
             </div>
         </div>
@@ -326,24 +339,51 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    new Swiper('.swiper-container-special-reason', {
-        slidesPerView: 3,
-        spaceBetween: 50,
-        loop: true,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        breakpoints: {
-            1024: {
-                slidesPerView: 3,
-            }
-        }
-    });
+    // Mobile Swiper
+    if (window.innerWidth < 1024) {
+        new Swiper('.swiper-container-special-reason-mobile', {
+            slidesPerView: 1,
+            centeredSlides: true,
+            spaceBetween: 0,
+            loop: false,
+            pagination: {
+                el: '.swiper-container-special-reason-mobile .swiper-pagination',
+                clickable: true,
+            },
+        });
+    }
+
+    // Desktop Swiper
+    if (window.innerWidth >= 1024) {
+        new Swiper('.swiper-container-special-reason-desktop', {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: false,
+            pagination: {
+                el: '.swiper-container-special-reason-desktop .swiper-pagination',
+                clickable: true,
+            },
+        });
+    }
+});
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    if (window.innerWidth < 1024) {
+        new Splide('#splide-special-reason-mobile', {
+            type: 'slide',
+            perPage: 1,
+            gap: '20px',
+            pagination: true,
+            arrows: false,
+            focus: 'center',
+            autoWidth: false,
+        }).mount();
+    }
 });
 </script>
 @endsection
