@@ -19,7 +19,7 @@
     </style>
 
     <div
-        class="mx-4 mb-8 mt-24 flex flex-col justify-center rounded-2xl bg-none px-12 py-6 shadow-none max-md:px-1 sm:mx-24 sm:mb-20 sm:mt-36 md:bg-white md:shadow-lg">
+        class="mx-4 mb-8 mt-20 flex flex-col justify-center rounded-2xl bg-none px-16 py-8 shadow-none max-md:px-1 sm:mx-24 sm:mb-20 sm:mt-36 md:bg-white md:shadow-lg">
         <div class="flex justify-end">
             <div class="flex cursor-pointer items-center space-x-1" id="openModal">
                 <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}" alt="Syarat & Ketentuan"
@@ -93,18 +93,18 @@
             <img src="{{ asset('assets/images/landing/logo/logo-berbinar.png') }}" alt="Berbinar"
                 class="h-[120px] w-auto object-contain" />
             <p class="text-gradient text-center text-base font-medium md:text-2xl drop-shadow-lg">
-                Setelah melakukan pendaftaran, SobatBinar akan dihubungi oleh staff konseling Berbinar maksimal 1x24jam
-                terkait pembayaran dan informasi lebih lanjut mengenai pelaksanaan psikotes.
-                <br />
-                <br />
-                Jika ada hal yang ingin disampaikan, silahkan hubungi narahubung di bawah ini: 087876662013 (Dindu)
+                Setelah mengisi form, para staff diharapkan untuk melakukan konfirmasi apabila telah submit form pengajuan
+                konseling bersama psikolog melalui Counseling Product Management Manager
+                <br>
+                <br>
+                <span class="font-bold text-gradient">087876662013 (Dindu)</span>
             </p>
         </div>
 
         <div class="flex items-center justify-center pt-10">
             <a href="{{ route('product.counseling.index') }}" class="flex w-full justify-center">
                 <button
-                    class="text-md w-full rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-24 py-2 text-white max-sm:text-[15px] sm:w-auto">Beranda</button>
+                    class="text-2xl w-full rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-24 py-2 text-white max-sm:text-xl sm:w-auto">Beranda</button>
             </a>
         </div>
     </div>

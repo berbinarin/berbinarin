@@ -303,12 +303,12 @@ class CounselingController extends Controller
         $konselings = [
             [
                 'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
-                'nama' => 'Psikolog Umum',
+                'nama' => 'Umum',
                 'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
             ],
             [
                 'image' => 'assets/images/landing/asset-konseling/vector/psikolog-staff.png',
-                'nama' => 'Psikolog Staff',
+                'nama' => 'Staff',
                 'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
             ],
         ];
@@ -697,8 +697,12 @@ class CounselingController extends Controller
         ]);
     }
 
-    // public function summary()
-    // {
-    //     return view('landing.product.counseling.summary-konseling')->with([]);
-    // }
+    public function summary()
+    {
+        return view('landing.product.counseling.summary-konseling');
+    }
+    public function summarystaff()
+    {
+        return view('landing.product.counseling.summary-konseling-staff');
+    }
 }

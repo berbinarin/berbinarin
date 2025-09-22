@@ -51,14 +51,23 @@ Route::prefix('produk')->name('product.')->group(function () {
 
         // Pendaftaran Konseling (Psikolog)
         Route::prefix('psikolog')->name('psikolog.')->group(function () {
-            Route::get('/daftar-psikolog-umum', [CounselingController::class, 'registrationPsikologUmum'])->name('registration-umum');
-            Route::get('/daftar-psikolog-staff', [CounselingController::class, 'registrationPsikologStaff'])->name('registration-staff');
+            Route::get('/daftar-umum', [CounselingController::class, 'registrationPsikologUmum'])->name('registration-umum');
+            Route::prefix('daftar-staff')->name('registration-staff.')->group(function () {
+                Route::get('/', [CounselingController::class, 'registrationPsikologStaff'])
+                    ->name('index');
+                Route::get('/Staff-psikolog', [CounselingController::class, 'showPsikologStaffForm'])
+                    ->name('staff-psikolog');
+                Route::get('/Staff-peer-counselor', [CounselingController::class, 'showPsikologStaffForm'])
+                    ->name('staff-peer-counselor');
+
+            });
             Route::get('/', [CounselingController::class, 'showPsikologForm'])->name('index');
             Route::get('/registrasi', [CounselingController::class, 'showPsikologRegistration'])->name('registrasi');
             Route::post('/registrasi', [CounselingController::class, 'storePsikologRegistration'])->name('store');
             Route::get('/staff', [CounselingController::class, 'showPsikologStaffForm'])->name('staff');
             Route::post('/staff', [CounselingController::class, 'storePsikologStaffRegistration'])->name('staff.store');
             Route::get('/cek-voucher', [CounselingController::class, 'cekVoucher']);
+            Route::get('/summary-staff', [CounselingController::class, 'summarystaff'])->name('summary-staff');
         });
 
         // Pendaftaran Konseling (Peer Counselor)
