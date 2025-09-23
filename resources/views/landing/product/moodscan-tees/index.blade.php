@@ -73,7 +73,7 @@
                     </div>
 
                     <div class="lg:order-4">
-                        <p class="text-justify text-lg text-[#70787D] max-lg:text-[17px] max-sm:text-[15px] max-sm:leading-normal">
+                        <p class="text-justify text-lg text-[#70787D] max-lg:text-[17px] max-sm:text-lg max-sm:leading-normal">
                             Moodscan Tees merupakan kaos yang nyaman dan mampu memperbaiki suasana hati suatu individu ataupun kelompok dengan pesan motivasi khusus yang diungkap melalui tindakan pemindaian gambar <span class="italic">QR Code</span>.
                         </p>
                     </div>
@@ -91,10 +91,10 @@
     </div>
     {{-- QR Code --}}
 
-    <section class="relative w-full px-0 mb-8 lg:mb-28">
+    <section class="relative w-full px-0 mb-10 lg:mb-28">
         <div class="block px-4">
             <div class="mx-auto max-w-3xl rounded-xl border lg:border-2 border-cyan-950 bg-white px-3 pb-4 pt-3 shadow-lg shadow-sky-300 lg:max-w-5xl lg:h-auto">
-                <video class="lg:w-full rounded-xl" controls autoplay muted loop playsinline>
+                <video class="lg:w-full rounded-xl" controls autoplay muted loop playsinline preload="metadata">
                     <source src="{{ asset('assets/images/landing/produk/moodscan-tees/fitur-moodscan-tees.mp4') }}" type="video/mp4">
                     Browser Anda tidak mendukung video.
                 </video>
@@ -102,12 +102,12 @@
         </div>
     </section>
 
-    <section class="relative w-full px-4 mb-6 lg:mb-72 overflow-x-clip">
-        <img src="{{ asset("assets/images/landing/produk/moodscan-tees/Squiggly-line.png") }}" alt="" class="absolute left-0 top-10 lg:top-6 z-0 w-full lg:w-[80%] object-fill scale-90 lg:scale-75">
-        <div class="relative flex flex-col w-full lg:px-16 lg:gap-60">
-            <div class="flex flex-row mb-6 w-full justify-start z-10">
-                <div class="w-[85%] lg:w-[60%] h-20 mb-6">
-                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/Mood-Card.png") }}" alt="Mood">
+    <section class="relative w-full px-4 mb-6 lg:mb-[22rem] overflow-x-clip">
+        <img src="{{ asset("assets/images/landing/produk/moodscan-tees/Squiggly-line.png") }}" alt="" class="absolute left-0 top-10 lg:top-6 z-10 w-full lg:w-[100%] object-fill scale-90 lg:scale-75">
+        <div class="relative flex flex-col w-full lg:px-16 gap-4 lg:gap-80">
+            <div class="flex flex-row mb-6 w-full justify-start z-20">
+                <div class="w-[85%] lg:w-[75%] h-20 mb-6">
+                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/Mood-Card.png") }}" alt="Mood" class="lg:w-full">
                 </div>
             </div>
 
@@ -116,9 +116,9 @@
                 <div class="absolute top-0 z-0 md:-right-40" style="width: 300px; height: 300px; border-top-left-radius: 420px; border-bottom-left-radius: 420px; border-top-right-radius: 420px; background: #a2d7f0; filter: blur(60px); opacity: 0.9; top: 100px"></div>
             </div>
 
-            <div class="flex flex-row mb-6 w-full justify-end z-10">
-                <div class="w-[85%] lg:w-[60%] h-20 mb-6">
-                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/Scan-Card.png") }}" alt="Scan">
+            <div class="flex flex-row mb-6 w-full justify-end z-20">
+                <div class="w-[85%] lg:w-[75%] h-20 mb-6">
+                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/Scan-Card.png") }}" alt="Scan" class="lg:w-full">
                 </div>
             </div>
 
@@ -127,25 +127,25 @@
                 <div class="absolute translate-y-96 -left-32 z-0 md:-left-40" style="width: 300px; height: 300px; border-top-left-radius: 420px; border-bottom-left-radius: 420px; border-top-right-radius: 420px; background: #c7f8ff; filter: blur(60px); opacity: 0.9; top: -100px"></div>
             </div>
 
-            <div class="flex flex-row mb-6 w-full justify-start z-10">
-                <div class="w-[85%] lg:w-[60%] h-20 mb-6">
-                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/Tees-Card.png") }}" alt="Tees">
+            <div class="flex flex-row mb-6 w-full justify-start z-20">
+                <div class="w-[85%] lg:w-[75%] h-20 mb-6 ml-4 lg:ml-0">
+                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/Tees-Card.png") }}" alt="Tees" class="lg:w-full">
                 </div>
             </div>
 
         </div>
     </section>
 
-    <section class="relative flex flex-row justify-center mb-10 lg:mb-20 overflow-x-clip">
-        <div class="w-[90%] rounded-xl shadow-2xl p-3 lg:px-32 lg:py-10 z-10" style="background: linear-gradient(90deg,rgba(223, 245, 253, 1) 0%, rgba(66, 102, 115, 1) 100%);">
-            <div class="flex flex-row justify-between w-full gap-5 lg:gap-10">
+    <section class="relative flex flex-row justify-center mb-10 lg:mb-28 overflow-x-clip">
+        <div class="w-[90%] rounded-xl lg:rounded-3xl shadow-lg lg:shadow-2xl p-3 px-6 lg:px-32 lg:py-10 z-10" style="background: linear-gradient(90deg,rgba(223, 245, 253, 1) 0%, rgba(66, 102, 115, 1) 100%);">
+            <div class="flex flex-row justify-between w-full gap-10 lg:gap-10">
                 <div class="flex flex-col w-1/2 lg:w-2/5">
                     <img src="{{ asset("assets/images/landing/produk/moodscan-tees/T-shirt-size-table.png") }}" alt="Size, width, and height; S, 66, 48; M, 68, 50; L, 70, 52; XL, 73, 54; 2XL, 75, 56; 3XL, 77, 58; 4XL, 79, 60; 5XL, 81, 62" class="mb-4">
 
                 </div>
                 <div class="flex flex-col w-1/2 lg:w-2/5">
-                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/T-shirt.png") }}" alt="T-shirt" class="mb-4 lg:scale-110">
-                    <a href="https://www.tokopedia.com/berbinarin/moodscan-tees-by-berbinar-in-x-esize-kaos-edukatif-unisex-m-ea46b" target="_blank" class="w-full bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-white px-2 py-1 lg:py-2 lg:text-3xl lg:font-semibold text-center rounded-lg shadow hover:scale-110 transition-all">Beli Sekarang</a>
+                    <img src="{{ asset("assets/images/landing/produk/moodscan-tees/T-shirt.png") }}" alt="T-shirt" class="lg:mb-4 scale-125">
+                    <a href="https://www.tokopedia.com/berbinarin/moodscan-tees-by-berbinar-in-x-esize-kaos-edukatif-unisex-m-ea46b" target="_blank" class="w-full bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] text-white px-2 py-1 lg:py-2 text-sm lg:text-5xl lg:font-semibold text-center rounded-lg lg:rounded-xl shadow hover:scale-110 transition-all">Beli Sekarang!!</a>
                 </div>
             </div>
         </div>
@@ -208,52 +208,62 @@
 
     </section>
 
-    <section class="relative w-full flex flex-col justify-center overflow-x-clip">
+    <section class="relative w-full flex flex-col justify-center overflow-x-clip lg:mb-24">
+        <h1 class="bg-gradient-to-r from-[rgb(57,134,163)] to-[#1C4352] bg-clip-text text-center font-[inter] text-3xl lg:text-5xl lg:pb-2 font-semibold text-transparent lg:tracking-wide mb-8 lg:mb-12">Alasan Mengapa Produk Ini Spesial</h1>
 
         <!-- Mobile -->
-        <h1 class="bg-gradient-to-r from-[rgb(57,134,163)] to-[#1C4352] bg-clip-text text-center font-[inter] text-3xl lg:text-5xl lg:pb-2 font-semibold text-transparent lg:tracking-wide mb-8">Alasan Mengapa Produk Ini Spesial</h1>
         <div class="w-full flex flex-row justify-center lg:hidden">
-            <div id="splide-special-reason-mobile" class="splide max-w-sm mb-10" style="max-width: 370px;">
+            <div id="splide-special-reason-mobile" class="splide max-w-sm mb-10 w-[95%]">
                 <div class="splide__track mb-10">
-                    <ul class="splide__list mb-10">
-                        <li class="splide__slide">
+                    <ul class="splide__list mb-12">
+                        <li class="splide__slide mb-2">
                             <!-- Card 1 -->
-                            <div class="flex flex-col items-center rounded-2xl shadow bg-white h-full px-5 py-4">
+                            <div class="flex flex-col mb-2 items-center rounded-2xl shadow bg-white h-full px-5 py-4">
                                 <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-1.png") }}" alt="" class="w-20 h-20 mb-4">
-                                <h3 class="text-2xl text-center font-bold mb-4 h-16">Inovasi <span class="italic">QR code &nbsp;</span>psikologi di kaos</h3>
-                                <p class="text-disabled text-xl text-center"><span class="italic">Scan QR &nbsp;</span>di belakang kaos untuk akses kutipan psikologi inspiratif yang selalu berganti.</p>
+                                <h3 class="text-2xl text-center font-bold mb-6 h-16">Inovasi <span class="italic">QR code &nbsp;</span>psikologi di kaos</h3>
+                                <div class="h-32 flex flex-col justify-center items-center mb-2">
+                                    <p class="text-disabled text-xl text-center"><span class="italic">Scan QR &nbsp;</span>di belakang kaos untuk akses kutipan psikologi inspiratif yang selalu berganti.</p>
+                                </div>
                             </div>
                         </li>
-                        <li class="splide__slide">
+                        <li class="splide__slide mb-2">
                             <!-- Card 2 -->
-                            <div class="flex flex-col items-center rounded-2xl shadow bg-white h-full px-5 py-4">
+                            <div class="flex flex-col mb-2 items-center rounded-2xl shadow bg-white h-full px-5 py-4">
                                 <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-2.png") }}" alt="" class="w-20 h-20 mb-4">
-                                <h3 class="text-2xl text-center font-bold mb-4 h-16">Design psikologi yang <span class="italic">simple &nbsp;</span>tapi penuh makna</h3>
-                                <p class="text-disabled text-xl text-center">Kaos ini memadukan mode psikologi dan desain minimalis untuk menghadirkan kesan reflektif yang berbicara tentang dirimu.</p>
+                                <h3 class="text-2xl text-center font-bold mb-6 h-16">Design psikologi yang <span class="italic">simple &nbsp;</span>tapi penuh makna</h3>
+                                <div class="h-32 flex flex-col justify-center items-center mb-2">
+                                    <p class="text-disabled text-xl text-center">Kaos ini memadukan mode psikologi dan desain minimalis untuk menghadirkan kesan reflektif yang berbicara tentang dirimu.</p>
+                                </div>
                             </div>
                         </li>
-                        <li class="splide__slide">
+                        <li class="splide__slide mb-2">
                             <!-- Card 3 -->
-                            <div class="flex flex-col items-center rounded-2xl shadow bg-white h-full px-5 py-4">
+                            <div class="flex flex-col mb-2 items-center rounded-2xl shadow bg-white h-full px-5 py-4">
                                 <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-3.png") }}" alt="" class="w-20 h-20 mb-4">
-                                <h3 class="text-2xl text-center font-bold mb-4 h-16">Bahan premium 100% <span class="italic">cotton combed</span></h3>
-                                <p class="text-disabled text-xl text-center"><span class="italic">Comfort is king <br> &nbsp;</span>(nyaman dipakai untuk berbagai aktivitas).</p>
+                                <h3 class="text-2xl text-center font-bold mb-6 h-16">Bahan premium 100% <span class="italic">cotton combed</span></h3>
+                                <div class="h-32 flex flex-col justify-center items-center mb-2">
+                                    <p class="text-disabled text-xl text-center"><span class="italic">Comfort is king <br> &nbsp;</span>(nyaman dipakai untuk berbagai aktivitas).</p>
+                                </div>
                             </div>
                         </li>
-                        <li class="splide__slide">
+                        <li class="splide__slide mb-2">
                             <!-- Card 4 -->
-                            <div class="flex flex-col items-center rounded-2xl shadow bg-white h-full px-5 py-4">
+                            <div class="flex flex-col mb-2 items-center rounded-2xl shadow bg-white h-full px-5 py-4">
                                 <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-4.png") }}" alt="" class="w-20 h-20 mb-4">
-                                <h3 class="text-2xl text-center font-bold mb-4 h-16"><span class="italic">Unisex &nbsp;</span>dan <span class="italic">size &nbsp;</span>lengkap hingga 5XL</h3>
-                                <p class="text-disabled text-xl text-center">Mampu menjangkau pasar lebih luas, termasuk pasangan serta kategori ukuran <span class="italic">plus size</span>.</p>
+                                <h3 class="text-2xl text-center font-bold mb-6 h-16"><span class="italic">Unisex &nbsp;</span>dan <span class="italic">size &nbsp;</span>lengkap hingga 5XL</h3>
+                                <div class="h-32 flex flex-col justify-center items-center mb-2">
+                                    <p class="text-disabled text-xl text-center">Mampu menjangkau pasar lebih luas, termasuk pasangan serta kategori ukuran <span class="italic">plus size</span>.</p>
+                                </div>
                             </div>
                         </li>
-                        <li class="splide__slide">
+                        <li class="splide__slide mb-2">
                             <!-- Card 5 -->
-                            <div class="flex flex-col items-center rounded-2xl shadow bg-white h-full px-5 py-4">
+                            <div class="flex flex-col mb-2 items-center rounded-2xl shadow bg-white h-full px-5 py-4">
                                 <img src="{{ asset("assets/images/landing/produk/moodscan-tees/reason-5.png") }}" alt="" class="w-20 h-20 mb-4">
-                                <h3 class="text-2xl text-center font-bold mb-4 h-16"><span class="italic">Limited <br>colaboration</span></h3>
-                                <p class="text-disabled text-xl text-center">Kolaborasi antara Berbinar Insightful Indonesia dan Esize yang dapat meningkatkan nilai ekslusivitas.</p>
+                                <h3 class="text-2xl text-center font-bold mb-6 h-16"><span class="italic">Limited <br>colaboration</span></h3>
+                                <div class="h-32 flex flex-col justify-center items-center mb-2">
+                                    <p class="text-disabled text-xl text-center">Kolaborasi antara Berbinar Insightful Indonesia dan Esize yang dapat meningkatkan nilai ekslusivitas.</p>
+                                </div>
                             </div>
                         </li>
                     </ul>
