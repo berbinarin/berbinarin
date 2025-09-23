@@ -259,7 +259,7 @@
                         </div>
 
                         {{-- Artikel Terbaru --}}
-                        @foreach ($latestArticles->filter(fn($latest) => $latest->id !== $article->id)->take(4) as $latest)
+                        @foreach ($latestArticles->filter(fn($latest) => $latest->id !== $article->id)->take(3) as $latest)
                             <a href="{{ route('arteri.detail', ['slug' => Str::slug($latest->title)]) }}" class="block mb-6 rounded-lg bg-white hover:bg-gray-50 shadow transition">
                                 <div class="flex min-h-28">
                                     <img src="{{ asset('/image/' . $latest->cover_image) }}" alt="cover" class="h-auto w-1/2 rounded object-cover" />
