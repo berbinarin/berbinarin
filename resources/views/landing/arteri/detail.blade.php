@@ -259,7 +259,7 @@
                         </div>
 
                         {{-- Artikel Terbaru --}}
-                        @foreach ($latestArticles->filter(fn($latest) => $latest->id !== $article->id)->take(4) as $latest)
+                        @foreach ($latestArticles->filter(fn($latest) => $latest->id !== $article->id)->take(3) as $latest)
                             <a href="{{ route('arteri.detail', ['slug' => Str::slug($latest->title)]) }}" class="block mb-6 rounded-lg bg-white hover:bg-gray-50 shadow transition">
                                 <div class="flex min-h-28">
                                     <img src="{{ asset('/image/' . $latest->cover_image) }}" alt="cover" class="h-auto w-1/2 rounded object-cover" />
@@ -323,6 +323,13 @@
                                             @elseif($val == 3) text-[#FFE500]
                                             @elseif($val == 4) text-[#4CAF50]
                                             @elseif($val == 5) text-[#75BADB]
+                                            @endif
+
+                                            @if($val == 1) shadow-[#FF004F]
+                                            @elseif($val == 2) shadow-[#FF543E]
+                                            @elseif($val == 3) shadow-[#FFE500]
+                                            @elseif($val == 4) shadow-[#4CAF50]
+                                            @elseif($val == 5) shadow-[#75BADB]
                                             @endif"
                                         id="reaction-label-{{ $val }}">
                                             {{ $reactionCounts[$val] ?? 0 }}
