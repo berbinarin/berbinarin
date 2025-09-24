@@ -1,17 +1,20 @@
-@extends('dashboard.layouts.app', [
-    'title' => 'Konselling Psikolog Data',
-    'active' => 'Dashboard',
-    'modul' => 'Psikolog Data',
-])
+@extends(
+    "dashboard.layouts.app",
+    [
+        "title" => "Konselling Psikolog Data",
+        "active" => "Dashboard",
+        "modul" => "Psikolog Data",
+    ]
+)
 
 @section('content')
     <section class="flex w-full bg-gray-100">
         <div class="flex flex-col w-full">
             <div class="w-full">
-                <div class="py-4 md:pt-12 md:pb-7">
+                <div class="py-4 md:pb-7 md:pt-12">
                     <div class="mb-2 flex items-center gap-2">
-                        <a href="{{ route('dashboard.psychologists.index') }}">
-                            <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
+                        <a href="{{ route("dashboard.psychologists.index") }}">
+                            <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
                         </a>
                         <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">
                             Data Konseling Psikolog
@@ -238,56 +241,50 @@
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Tanggal Counseling</td>
                                     <td class="border border-gray-300 px-4 py-2">
-                                        {{ \Carbon\Carbon::parse($PsikologDataDetails->jadwal_tanggal)->format('d-m-Y') }}
+                                        {{ \Carbon\Carbon::parse($PsikologDataDetails->jadwal_tanggal)->format("d-m-Y") }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Jadwal Pukul</td>
-                                    <td class="border border-gray-300 px-4 py-2">{{ $PsikologDataDetails->jadwal_pukul }}
-                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2">{{ $PsikologDataDetails->jadwal_pukul }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Tanggal Pendaftaran</td>
                                     <td class="border border-gray-300 px-4 py-2">
-                                        {{ \Carbon\Carbon::parse($PsikologDataDetails->created_at)->format('d-m-Y') }}
+                                        {{ \Carbon\Carbon::parse($PsikologDataDetails->created_at)->format("d-m-Y") }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Metode</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">
-                                        {{ $PsikologDataDetails->metode }}</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->metode }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Sesi</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">
-                                        {{ $PsikologDataDetails->sesi }} Jam</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->sesi }} Jam</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Daerah</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">
-                                        {{ $PsikologDataDetails->daerah }}</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->daerah }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Harga</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">Rp.
-                                        {{ $PsikologDataDetails->harga }}</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">Rp. {{ $PsikologDataDetails->harga }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Nomor WhatsApp</td>
                                     <td class="border border-gray-300 px-4 py-2">
-                                        <a href="https://wa.me/62{{ ltrim($PsikologDataDetails->no_wa, '0') }}" target="_blank" class="text-blue-500 hover:text-blue-700 underline">{{ $PsikologDataDetails->no_wa }}</a>
+                                        <a href="https://wa.me/62{{ ltrim($PsikologDataDetails->no_wa, "0") }}" target="_blank" class="text-blue-500 underline hover:text-blue-700">{{ $PsikologDataDetails->no_wa }}</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Email</td>
                                     <td class="border border-gray-300 px-4 py-2">
-                                        <a href="mailto:{{ $PsikologDataDetails->email }}" class="text-blue-500 hover:text-blue-700 underline">{{ $PsikologDataDetails->email }}</a>
+                                        <a href="mailto:{{ $PsikologDataDetails->email }}" class="text-blue-500 underline hover:text-blue-700">{{ $PsikologDataDetails->email }}</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Jenis Kelamin</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">
-                                        {{ $PsikologDataDetails->jenis_kelamin }}</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->jenis_kelamin }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Agama</td>
@@ -295,13 +292,13 @@
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Tempat Lahir</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">
-                                        {{ $PsikologDataDetails->tempat_lahir }}</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->tempat_lahir }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Tanggal Lahir</td>
                                     <td class="border border-gray-300 px-4 py-2">
-                                        {{ \Carbon\Carbon::parse($PsikologDataDetails->tanggal_Lahir)->format('d-m-Y') }}
+                                        {{ \Carbon\Carbon::parse($PsikologDataDetails->tanggal_Lahir)->format("d-m-Y") }}
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Suku</td>
@@ -309,8 +306,7 @@
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Status Pernikahan</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">
-                                        {{ $PsikologDataDetails->status_pernikahan }}</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->status_pernikahan }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Alamat Domisili</td>
@@ -318,8 +314,7 @@
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Posisi Anak</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->posisi_anak }}
-                                    </td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->posisi_anak }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Pendidikan</td>
@@ -333,8 +328,7 @@
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Riwayat Pekerjaan</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">
-                                        {{ $PsikologDataDetails->riwayat_pekerjaan }}</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->riwayat_pekerjaan }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Hobi</td>
@@ -342,8 +336,7 @@
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Kegiatan Sosial</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">
-                                        {{ $PsikologDataDetails->kegiatan_sosial }}</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->kegiatan_sosial }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Hal yang Ingin Diceritakan</td>
@@ -351,26 +344,24 @@
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Kategori Voucher</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->kategori_voucher ?? '-' }}</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->kategori_voucher ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Kode Voucher</td>
-                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->code_voucher ?? '-' }}</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->code_voucher ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Presentase Diskon</td>
                                     <td class="border border-gray-300 px-4 py-2 capitalize">
-                                        {{ $PsikologDataDetails->presentase_diskon ? $PsikologDataDetails->presentase_diskon . '%' : '-' }}
+                                        {{ $PsikologDataDetails->presentase_diskon ? $PsikologDataDetails->presentase_diskon . "%" : "-" }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Bukti Kartu Pelajar</td>
                                     <td class="border border-gray-300 px-4 py-2">
-                                        @if($PsikologDataDetails->bukti_kartu_pelajar)
-                                            <a href="{{ asset('storage/' . $PsikologDataDetails->bukti_kartu_pelajar) }}" target="_blank">
-                                                <img src="{{ asset('storage/' . $PsikologDataDetails->bukti_kartu_pelajar) }}"
-                                                     alt="Bukti Kartu Pelajar"
-                                                     style="max-width:120px;max-height:120px;border-radius:8px;border:1px solid #ccc;">
+                                        @if ($PsikologDataDetails->bukti_kartu_pelajar)
+                                            <a href="{{ asset("storage/" . $PsikologDataDetails->bukti_kartu_pelajar) }}" target="_blank">
+                                                <img src="{{ asset("storage/" . $PsikologDataDetails->bukti_kartu_pelajar) }}" alt="Bukti Kartu Pelajar" style="max-width: 120px; max-height: 120px; border-radius: 8px; border: 1px solid #ccc" />
                                             </a>
                                         @else
                                             <span>-</span>

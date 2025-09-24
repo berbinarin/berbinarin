@@ -277,16 +277,23 @@
     </section>
 
 <!-- Delete Confirmation Modal -->
-<div id="deleteModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black bg-opacity-50">
-    <div class="bg-white rounded-2xl shadow-xl max-w-md w-full mx-4">
-        <!-- Modal Header -->
-        <div class="text-center p-6">
+<div id="deleteModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/40">
+        <div
+            class="relative w-[560px] rounded-[20px] bg-white p-6 font-plusJakartaSans shadow-lg"
+            style="
+                background:
+                    linear-gradient(to right, #74aabf, #3986a3) top/100% 6px no-repeat,
+                    white;
+                border-radius: 20px;
+                background-clip: padding-box, border-box;
+            "
+        >
             <!-- Warning Icon -->
-            <div class="flex justify-center mb-4">
-                <img src="{{ asset('assets/images/dashboard/svg-icon/warning.svg') }}" alt="Warning Icon" class="h-12 w-12">
-            </div>
+            <img src="{{ asset("assets/images/dashboard/warning.png") }}" alt="Warning Icon" class="mx-auto h-[83px] w-[83px]" />
+
             <!-- Title -->
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Konfirmasi Hapus Data</h3>
+            <h2 class="mt-4 text-center font-plusJakartaSans text-2xl font-bold text-stone-900">Konfirmasi Hapus Data</h2>
+
             <!-- Message -->
             <p class="text-gray-600 mb-6">
                 Apakah Anda yakin ingin menghapus data Berbinar For U ini?
@@ -303,7 +310,6 @@
             </button>
         </div>
     </div>
-</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {

@@ -323,13 +323,6 @@
                                             @elseif($val == 3) text-[#FFE500]
                                             @elseif($val == 4) text-[#4CAF50]
                                             @elseif($val == 5) text-[#75BADB]
-                                            @endif
-
-                                            @if($val == 1) shadow-[#FF004F]
-                                            @elseif($val == 2) shadow-[#FF543E]
-                                            @elseif($val == 3) shadow-[#FFE500]
-                                            @elseif($val == 4) shadow-[#4CAF50]
-                                            @elseif($val == 5) shadow-[#75BADB]
                                             @endif"
                                         id="reaction-label-{{ $val }}">
                                             {{ $reactionCounts[$val] ?? 0 }}
@@ -343,51 +336,63 @@
 
                     </div>
 
-                        <div class="px-4 mt-10 lg:mt-4">
-                            <div class="mb-4 flex flex-col items-start">
-                                <label for="nama" class="font-medium">Nama</label>
-                                <input type="text" id="nama" name="nama" class="form-input mt-1 block w-full p-1 pl-2 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" placeholder="Masukkan nama Anda...">
-                            </div>
+                        <form id="commentForm">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="article_id" value="{{ $article->id }}">
+                        
+                            <div class="px-4 mt-10 lg:mt-4">
+                                <div class="mb-4 flex flex-col items-start">
+                                    <label for="nama" class="font-medium">Nama</label>
+                                    <input type="text" id="name" name="name" class="form-input mt-1 block w-full p-1 pl-2 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary" placeholder="Masukkan nama Anda...">
+                                </div>
 
-                            <div class="mb-4 flex flex-col items-start">
-                                <label for="komentar" class="font-medium">Komentar</label>
-                                <textarea name="komentar" id="komentar" class="form-input mt-1 block w-full p-1 pl-2 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-disabled">Tambah komentar...</textarea>
-                            </div>
+                                <div class="mb-4 flex flex-col items-start">
+                                    <label for="komentar" class="font-medium">Komentar</label>
+                                    <textarea name="comment" id="komentar" class="form-input mt-1 block w-full p-1 pl-2 border-2 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary text-disabled" placeholder="Tambah komentar..."></textarea>
+                                </div>
 
-                            <div class="mb-4 flex justify-end">
-                                <a href="" class="mt-6 flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#3886A3] to-[#225062] px-4 lg:px-6 py-2 font-medium text-white md:w-auto">
-                                    <span>Kirim</span>
-                                </a>
-                            </div>
+                                <div class="mb-4 flex justify-end">
+                                    <button type="submit" class="mt-6 flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#3886A3] to-[#225062] px-4 lg:px-6 py-2 font-medium text-white md:w-auto">
+                                        Kirim
+                                    </button>
+                                </div>
 
-                        </div>
+                            </div>
+                        </form>
 
                         <!-- Komentar -->
 
                         <div class="px-4 mt-4">
+                            <h3 class="mb-4 text-lg font-semibold lg:pb-4">
+                                Komentar (<span id="comment-count">{{ count($comments) }}</span>)
+                            </h3>
 
-                            <h3 class="mb-4 text-lg font-semibold lg:pb-4">Komentar (1{{--{{ count($comments) }}--}})</h3>
-
-                            {{-- Komentar --}}
-
-                            <div class="w-full mb-4 flex flex-row items-start">
-                                <span class="w-1/6 lg:w-[10%] items-center justify-start gap-2">
-                                    <img src="{{ asset("/image/" . $article->author->profil_image) }}" alt="writer profile" class="size-5 rounded-full object-cover" />
-                                </span>
-                                <div class="w-5/6 lg:w-[90%]">
-                                    <div class="flex flex-row gap-1 lg:gap-2 pb-2">
-                                        <span class="text-sm lg:text-base font-semibold">{{ $article->author->name_author }}</span>
-                                        <div class="flex justify-center items-center">
-                                        <span class="text-slate-700">&bull;</span>
+                            <div id="comment-list">
+                                {{-- Komentar --}}
+                                @forelse($comments as $i => $comment)
+                                    <div class="w-full mb-4 flex flex-row items-start comment-item" style="{{ $i > 4 ? 'display:none;' : '' }}">
+                                        <div class="w-5/6 lg:w-[90%]">
+                                            <div class="flex flex-row gap-1 lg:gap-2 pb-2">
+                                                <span class="text-sm lg:text-base font-semibold">{{ $comment->name }}</span>
+                                                <div class="flex justify-center items-center">
+                                                    <span class="text-slate-700">&bull;</span>
+                                                </div>
+                                                <span class="text-sm lg:text-base text-slate-700">{{ $comment->created_at->diffForHumans() }}</span>
+                                            </div>
+                                            <p class="text-sm lg:text-base">{{ $comment->comment }}</p>
                                         </div>
-                                        <span class="text-sm lg:text-base text-slate-700">{{ $article->created_at->diffForHumans() }}</span>
                                     </div>
-                                    <p class="text-sm lg:text-base">Ini untuk caption komentarnya. Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus nobis voluptates magni nam vel illum.</p>
-                                </div>
+                                @empty
+                                    <p class="text-gray-500">Belum ada komentar.</p>
+                                @endforelse
                             </div>
 
+                            @if(count($comments) > 5)
+                                <div class="flex justify-center mt-2">
+                                    <button id="loadMoreComments" class="text-slate-700 hover:underline font-semibold">Lihat Selengkapnya</button>
+                                </div>
+                            @endif
                         </div>
-
                     </div>
 
                     <div class="w-1/3"></div>
@@ -596,9 +601,7 @@
                     // console.error(error);
                 });
         }
-    </script>
-
-    <script>
+    
         document.addEventListener('DOMContentLoaded', function () {
             // Data jumlah orang per reaction
             const reactionCounts = @json($reactionCounts);
@@ -626,5 +629,105 @@
                 });
             });
         });
+
+        // Script Comment
+        // Ambil token dari meta tag, aman jika meta tidak ada
+        function getCsrfToken() {
+            var meta = document.querySelector('meta[name="csrf-token"]');
+            return meta ? meta.getAttribute('content') : '';
+        }
+
+
+        document.getElementById('commentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let formData = new FormData(this);
+
+            fetch("{{ route('arteri.comment') }}", {
+                method: "POST",
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Accept': 'application/json'
+                },
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Gagal mengirim komentar');
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    let commentList = document.getElementById('comment-list');
+                    let commentCount = document.getElementById('comment-count');
+                    // Hapus pesan "Belum ada komentar." jika ada
+                    let emptyMsg = commentList.querySelector('p.text-gray-500');
+                    if (emptyMsg) emptyMsg.remove();
+
+                    // Tambahkan komentar baru di atas
+                    let newComment = `
+                        <div class="w-full mb-4 flex flex-row items-start">
+                            <div class="w-5/6 lg:w-[90%]">
+                                <div class="flex flex-row gap-1 lg:gap-2 pb-2">
+                                    <span class="text-sm lg:text-base font-semibold">${data.comment.name}</span>
+                                    <div class="flex justify-center items-center">
+                                        <span class="text-slate-700">&bull;</span>
+                                    </div>
+                                    <span class="text-sm lg:text-base text-slate-700">${data.comment.created_at}</span>
+                                </div>
+                                <p class="text-sm lg:text-base">${data.comment.comment}</p>
+                            </div>
+                        </div>
+                    `;
+                    commentList.insertAdjacentHTML('afterbegin', newComment);
+
+                    // Sembunyikan komentar ke-6 dst jika lebih dari 5
+                    const commentItems = commentList.querySelectorAll('.comment-item');
+                    commentItems.forEach((item, idx) => {
+                        item.style.display = idx < 5 ? '' : 'none';
+                    });
+
+                    // Tampilkan tombol load more jika perlu
+                    const loadMoreBtn = document.getElementById('loadMoreComments');
+                    if (commentItems.length > 5 && loadMoreBtn) {
+                        loadMoreBtn.style.display = '';
+                    }
+
+                    // Update jumlah komentar
+                    commentCount.textContent = parseInt(commentCount.textContent) + 1;
+
+                    // Reset form
+                    document.getElementById('commentForm').reset();
+                }
+            })
+            .catch(err => {
+                alert('Gagal mengirim komentar');
+                console.error(err);
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            let showCount = 5;
+            const commentItems = document.querySelectorAll('.comment-item');
+            const loadMoreBtn = document.getElementById('loadMoreComments');
+
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', function() {
+                    let hidden = 0;
+                    commentItems.forEach((item, idx) => {
+                        if (idx < showCount + 5) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                            hidden++;
+                        }
+                    });
+                    showCount += 5;
+                    // Sembunyikan tombol jika semua sudah tampil
+                    if (showCount >= commentItems.length) {
+                        loadMoreBtn.style.display = 'none';
+                    }
+                });
+            }
+        });
+
     </script>
 @endsection

@@ -40,13 +40,21 @@ class PositionRequirementController extends Controller
                 'requirement' => $validated["requirement"]
             ]);
 
-            Alert::toast('Data Berhasil Masuk', 'success')->autoClose(5000);
-
-            return redirect()->route('dashboard.position-requirements.index');
+            return redirect()->route('dashboard.position-requirements.index')->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'Data berhasil masuk',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
         } catch (\Exception $e) {
-            Alert::toast('Terjadi kesalahan saat menyimpan data: ' . $e->getMessage(), 'error')->autoClose(5000);
-
-            return redirect()->back()->withInput();
+            return redirect()->back()->withInput()->with([
+                'alert' => true,
+                'type' => 'error',
+                'title' => 'Gagal!',
+                'message' =>'Terjadi kesalahan : '. $e->getMessage(),
+                'icon' => asset('assets/images/dashboard/error.png'),
+            ]);
         }
     }
 
@@ -69,12 +77,21 @@ class PositionRequirementController extends Controller
             $hiring_position_requirements->requirement = $request->requirement;
             $hiring_position_requirements->save();
 
-            Alert::toast('Data Berhasil Update', 'success')->autoClose(5000);
-            return redirect()->route('dashboard.position-requirements.index');
+            return redirect()->route('dashboard.position-requirements.index')->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'Data berhasil diupdate',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
         } catch (\Exception $e) {
-            Alert::toast('Terjadi kesalahan saat Update data: ' . $e->getMessage(), 'error')->autoClose(5000);
-
-            return redirect()->back()->withInput();
+            return redirect()->back()->withInput()->with([
+                'alert' => true,
+                'type' => 'error',
+                'title' => 'Gagal!',
+                'message' =>'Terjadi kesalahan saat update : '. $e->getMessage(),
+                'icon' => asset('assets/images/dashboard/error.png'),
+            ]);
         }
     }
 
@@ -87,12 +104,22 @@ class PositionRequirementController extends Controller
                 throw new \Exception('Data tidak ditemukan.');
             }
             $hiring_position_requirements->delete();
-            Alert::toast('Data Berhasil Delete', 'success')->autoClose(5000);
-            return redirect()->route('dashboard.position-requirements.index');
+            return redirect()->route('dashboard.position-requirements.index')->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'Data berhasil dihapus',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
 
         } catch (\Exception $e) {
-            Alert::toast('Terjadi kesalahan saat menghapus data: ' . $e->getMessage(), 'error')->autoClose(5000);
-            return redirect()->route('dashboard.position-requirements.index');
+            return redirect()->route('dashboard.position-requirements.index')->with([
+                'alert' => true,
+                'type' => 'error',
+                'title' => 'Gagal!',
+                'message' =>'Terjadi kesalahan saat menghapus data: '. $e->getMessage(),
+                'icon' => asset('assets/images/dashboard/error.png'),
+            ]);
         }
     }
 }

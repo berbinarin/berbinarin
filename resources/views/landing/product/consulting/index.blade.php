@@ -304,6 +304,10 @@
         </ul>
     </section>
     {{-- FAQS END --}}
+
+@endsection
+
+@section('script')
     {{-- SCRIPT ACCORDION FAQS --}}
     <script>
         document.addEventListener('alpine:init', () => {

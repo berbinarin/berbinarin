@@ -53,36 +53,36 @@ class DashboardController extends Controller
         $KodeVoucherData = CodeVoucher::count('id');
 
 
-        $totalUserPsikotest = UserPsikotest::count('id');
+        // $totalUserPsikotest = UserPsikotest::count('id');
         $totalQuestion = Question::count('id');
 
         $totalBerbinarPlusUser = Berbinarp_user::count('id');
         $totalBerbinarPlusClass = Berbinarp_class::count('id');
 
-        $totalUserPsikotestPaid = UserPsikotestPaid::count('id');
+        // $totalUserPsikotestPaid = UserPsikotestPaid::count('id');
 
         $categoryIndividu = DB::table('psikotest_types')
             ->where('category_psikotest_type_id', 2)
             ->pluck('id');
-        $individu = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryIndividu)->count();
+        // $individu = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryIndividu)->count();
 
         $categoryeducationalInstitution = DB::table('psikotest_types')
             ->where('category_psikotest_type_id', 3)
             ->pluck('id');
 
-        $educationalInstitution = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeducationalInstitution)->count();
+        // $educationalInstitution = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeducationalInstitution)->count();
 
         $categoryeCorporate = DB::table('psikotest_types')
             ->where('category_psikotest_type_id', 4)
             ->pluck('id');
 
-        $corporate = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeCorporate)->count();
+        // $corporate = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeCorporate)->count();
 
         $categoryeCommunity = DB::table('psikotest_types')
             ->where('category_psikotest_type_id', 1)
             ->pluck('id');
 
-        $community = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeCommunity)->count();
+        // $community = UserPsikotestPaid::whereIn('psikotest_type_id', $categoryeCommunity)->count();
 
         $articleCount = Article::count();
 
@@ -114,13 +114,13 @@ class DashboardController extends Controller
             "HiringPosisitonsJobDescriptionment" => $HiringPosisitonsJobDescriptionment,
             'HiringPosisitons' => $HiringPosisitons,
             'HiringPosisitonsRequirement' => $HiringPosisitonsRequirement,
-            'totalUserPsikotest' => $totalUserPsikotest,
+            // 'totalUserPsikotest' => $totalUserPsikotest,
             'totalQuestion' => $totalQuestion,
-            'totalUserPsikotestPaid' => $totalUserPsikotestPaid,
-            'individu' => $individu,
-            'educationalInstitution' => $educationalInstitution,
-            'corporate' => $corporate,
-            'community' => $community,
+            // 'totalUserPsikotestPaid' => $totalUserPsikotestPaid,
+            // 'individu' => $individu,
+            // 'educationalInstitution' => $educationalInstitution,
+            // 'corporate' => $corporate,
+            // 'community' => $community,
             'articleCount' => $articleCount,
             'authorCount' => $authorCount,
             'categoryCount' => $categoryCount,

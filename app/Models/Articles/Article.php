@@ -35,4 +35,9 @@ class Article extends Model
     {
         return $this->hasMany(Interaction::class, 'article_id');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

@@ -156,6 +156,10 @@
     </section>
     {{-- BANNER KELUARGA BERBINAR END --}}
 
+    @endsection
+
+    @section('script')
+    {{-- SCRIPT FETCH DATA POSISI --}}
     <script>
         const positionsObj = @json($position);
         console.log(positionsObj);

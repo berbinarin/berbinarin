@@ -21,7 +21,13 @@ class NomorBdiController extends Controller
                 'nomor_bdi' => $request->nomor_bdi
             ]);
             // Redirect kembali dengan pesan sukses (bisa juga mengembalikan view)
-            return redirect()->back()->with('success', 'Nomor BDI berhasil ditambahkan!');
+            return redirect()->back()->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Nomor BDI Berhasil diperbarui',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
         }
         $nomorBdis = NomorBdi::with('SoalBdi')->get();
 

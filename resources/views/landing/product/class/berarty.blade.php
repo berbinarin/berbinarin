@@ -5,6 +5,104 @@
     ]
 )
 
+@section('style')
+    {{-- SWIPER STYLE --}}
+    <style>
+        .swiper {
+            width: 100%;
+            height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            overflow: hidden;
+            list-style: none;
+            padding: 0;
+            z-index: 1;
+        }
+
+        .swiper-wrapper {
+            position: relative;
+            width: 100%;
+            height: 85%;
+            z-index: 1;
+            display: flex;
+            transition-property: transform;
+            box-sizing: content-box;
+        }
+
+        .swiper-slide {
+            flex-shrink: 0;
+            width: 100%;
+            position: relative;
+            transition-property: transform, opacity;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.6;
+            transform: scale(0.85);
+            transition: all 0.3s ease;
+        }
+
+        .swiper-slide-active {
+            opacity: 1 !important;
+            transform: scale(1) !important;
+        }
+
+        .swiper-pagination {
+            position: relative;
+            text-align: center;
+            transition: 300ms opacity;
+            transform: translate3d(0, 0, 0);
+            z-index: 10;
+            height: 8px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .swiper-pagination-progressbar {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            position: relative;
+            height: 8px !important;
+        }
+
+        .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+            background: #f7b23b;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(0);
+            transform-origin: left top;
+            border-radius: 10px;
+        }
+
+        .topic-content-swiper .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+            background: #9dd4ee;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(0);
+            transform-origin: left top;
+            border-radius: 10px;
+        }
+
+        .border-active {
+            border: 2px solid #3986a3 !important;
+            box-shadow: 0 0 0 2px #3986a333;
+        }
+
+        @media (min-width: 768px) {
+            #customSection {
+                padding-top: 10rem; /* setara dengan md:pt-20 di Tailwind */
+            }
+        }
+    </style>
+@endsection
+
 @section("content")
     {{-- HERO SECTION --}}
 
@@ -705,102 +803,10 @@
             </div>
         </div>
     </section>
+@endsection
 
-    {{-- SWIPER STYLE --}}
-    <style>
-        .swiper {
-            width: 100%;
-            height: 400px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-            overflow: hidden;
-            list-style: none;
-            padding: 0;
-            z-index: 1;
-        }
-
-        .swiper-wrapper {
-            position: relative;
-            width: 100%;
-            height: 85%;
-            z-index: 1;
-            display: flex;
-            transition-property: transform;
-            box-sizing: content-box;
-        }
-
-        .swiper-slide {
-            flex-shrink: 0;
-            width: 100%;
-            position: relative;
-            transition-property: transform, opacity;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0.6;
-            transform: scale(0.85);
-            transition: all 0.3s ease;
-        }
-
-        .swiper-slide-active {
-            opacity: 1 !important;
-            transform: scale(1) !important;
-        }
-
-        .swiper-pagination {
-            position: relative;
-            text-align: center;
-            transition: 300ms opacity;
-            transform: translate3d(0, 0, 0);
-            z-index: 10;
-            height: 8px;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .swiper-pagination-progressbar {
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            position: relative;
-            height: 8px !important;
-        }
-
-        .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-            background: #f7b23b;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            transform: scale(0);
-            transform-origin: left top;
-            border-radius: 10px;
-        }
-
-        .topic-content-swiper .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-            background: #9dd4ee;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            transform: scale(0);
-            transform-origin: left top;
-            border-radius: 10px;
-        }
-
-        .border-active {
-            border: 2px solid #3986a3 !important;
-            box-shadow: 0 0 0 2px #3986a333;
-        }
-
-        @media (min-width: 768px) {
-            #customSection {
-                padding-top: 10rem; /* setara dengan md:pt-20 di Tailwind */
-            }
-        }
-    </style>
+@section('script')
+    {{-- SCRIPT SWIPER JS --}}
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const contentBerartySwiper = new Swiper('.content-berarty-swiper', {

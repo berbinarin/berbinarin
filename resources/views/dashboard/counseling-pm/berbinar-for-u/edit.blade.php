@@ -10,8 +10,8 @@
         <div class="flex w-full flex-col">
             <div class="py-4 md:pb-7 md:pt-12">
                 <div class="mb-2 flex items-center gap-2">
-                    <a href="{{ route('dashboard.berbinar-for-u.index') }}">
-                        <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
+                    <a href="{{ route("dashboard.berbinar-for-u.index") }}">
+                        <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
                     </a>
                     <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Ubah Data Berbinar For U</p>
                 </div>
@@ -20,7 +20,7 @@
             <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 mb-7 md:px-8 md:py-7 xl:px-10">
                 <form action="{{ route('dashboard.berbinar-for-u.update', $BerbinarForUDataDetails->id) }}" method="POST">
                     @csrf
-                    @method('PUT')
+                    @method("PUT")
                     <input type="hidden" name="kategori" value="berbinar-for-u" />
 
                     <!-- Data Diri -->
@@ -36,9 +36,7 @@
                         </div>
                         <div>
                             <label class="font-semibold">Tanggal Lahir</label>
-                            <input required type="text" id="tanggal_lahir" name="tanggal_lahir"
-                                value="{{ \Carbon\Carbon::parse($BerbinarForUDataDetails->tanggal_lahir)->format('d/m/Y') }}"
-                                class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" readonly />
+                            <input required type="text" id="tanggal_lahir" name="tanggal_lahir" value="{{ \Carbon\Carbon::parse($BerbinarForUDataDetails->tanggal_lahir)->format("d/m/Y") }}" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" placeholder="dd/mm/yy" readonly />
                         </div>
                         <div>
                             <label class="font-semibold">Tempat Lahir</label>
@@ -52,16 +50,16 @@
                             <label class="font-semibold">Status Pernikahan</label>
                             <select required name="status_pernikahan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
                                 <option value="" disabled>Pilih Status Pernikahan</option>
-                                <option value="Belum Menikah" {{ $BerbinarForUDataDetails->status_pernikahan == 'Belum Menikah' ? 'selected' : '' }}>Belum Menikah</option>
-                                <option value="Sudah Menikah" {{ $BerbinarForUDataDetails->status_pernikahan == 'Sudah Menikah' ? 'selected' : '' }}>Sudah Menikah</option>
+                                <option value="Belum Menikah" {{ $BerbinarForUDataDetails->status_pernikahan == "Belum Menikah" ? "selected" : "" }}>Belum Menikah</option>
+                                <option value="Sudah Menikah" {{ $BerbinarForUDataDetails->status_pernikahan == "Sudah Menikah" ? "selected" : "" }}>Sudah Menikah</option>
                             </select>
                         </div>
                         <div>
                             <label class="font-semibold">Jenis Kelamin</label>
                             <select required name="jenis_kelamin" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
                                 <option value="" disabled>Pilih Jenis Kelamin</option>
-                                <option value="laki-laki" {{ $BerbinarForUDataDetails->jenis_kelamin == 'laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-                                <option value="perempuan" {{ $BerbinarForUDataDetails->jenis_kelamin == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
+                                <option value="laki-laki" {{ $BerbinarForUDataDetails->jenis_kelamin == "laki-laki" ? "selected" : "" }}>Laki-laki</option>
+                                <option value="perempuan" {{ $BerbinarForUDataDetails->jenis_kelamin == "perempuan" ? "selected" : "" }}>Perempuan</option>
                             </select>
                         </div>
                         <div>
@@ -76,12 +74,12 @@
                             <label class="font-semibold">Agama</label>
                             <select required name="agama" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
                                 <option value="" disabled>Pilih Agama</option>
-                                <option value="Islam" {{ $BerbinarForUDataDetails->agama == 'Islam' ? 'selected' : '' }}>Islam</option>
-                                <option value="Kristen" {{ $BerbinarForUDataDetails->agama == 'Kristen' ? 'selected' : '' }}>Kristen</option>
-                                <option value="Katolik" {{ $BerbinarForUDataDetails->agama == 'Katolik' ? 'selected' : '' }}>Katolik</option>
-                                <option value="Hindu" {{ $BerbinarForUDataDetails->agama == 'Hindu' ? 'selected' : '' }}>Hindu</option>
-                                <option value="Budha" {{ $BerbinarForUDataDetails->agama == 'Budha' ? 'selected' : '' }}>Budha</option>
-                                <option value="Khonghucu" {{ $BerbinarForUDataDetails->agama == 'Khonghucu' ? 'selected' : '' }}>Khonghucu</option>
+                                <option value="Islam" {{ $BerbinarForUDataDetails->agama == "Islam" ? "selected" : "" }}>Islam</option>
+                                <option value="Kristen" {{ $BerbinarForUDataDetails->agama == "Kristen" ? "selected" : "" }}>Kristen</option>
+                                <option value="Katolik" {{ $BerbinarForUDataDetails->agama == "Katolik" ? "selected" : "" }}>Katolik</option>
+                                <option value="Hindu" {{ $BerbinarForUDataDetails->agama == "Hindu" ? "selected" : "" }}>Hindu</option>
+                                <option value="Budha" {{ $BerbinarForUDataDetails->agama == "Budha" ? "selected" : "" }}>Budha</option>
+                                <option value="Khonghucu" {{ $BerbinarForUDataDetails->agama == "Khonghucu" ? "selected" : "" }}>Khonghucu</option>
                             </select>
                         </div>
                         <div>
@@ -101,11 +99,11 @@
                             <label class="font-semibold">Pendidikan Terakhir</label>
                             <select required name="pendidikan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm">
                                 <option value="" disabled>Pilih Pendidikan Terakhir</option>
-                                <option value="S1/D4 - Sarjana" {{ $BerbinarForUDataDetails->pendidikan == 'S1/D4 - Sarjana' ? 'selected' : '' }}>S1/D4 - Sarjana</option>
-                                <option value="D3 - Diploma" {{ $BerbinarForUDataDetails->pendidikan == 'D3 - Diploma' ? 'selected' : '' }}>D3 - Diploma</option>
-                                <option value="SMA/SMK" {{ $BerbinarForUDataDetails->pendidikan == 'SMA/SMK' ? 'selected' : '' }}>SMA/SMK</option>
-                                <option value="SMP" {{ $BerbinarForUDataDetails->pendidikan == 'SMP' ? 'selected' : '' }}>SMP</option>
-                                <option value="SD" {{ $BerbinarForUDataDetails->pendidikan == 'SD' ? 'selected' : '' }}>SD</option>
+                                <option value="S1/D4 - Sarjana" {{ $BerbinarForUDataDetails->pendidikan == "S1/D4 - Sarjana" ? "selected" : "" }}>S1/D4 - Sarjana</option>
+                                <option value="D3 - Diploma" {{ $BerbinarForUDataDetails->pendidikan == "D3 - Diploma" ? "selected" : "" }}>D3 - Diploma</option>
+                                <option value="SMA/SMK" {{ $BerbinarForUDataDetails->pendidikan == "SMA/SMK" ? "selected" : "" }}>SMA/SMK</option>
+                                <option value="SMP" {{ $BerbinarForUDataDetails->pendidikan == "SMP" ? "selected" : "" }}>SMP</option>
+                                <option value="SD" {{ $BerbinarForUDataDetails->pendidikan == "SD" ? "selected" : "" }}>SD</option>
                             </select>
                         </div>
                         <div>
@@ -152,16 +150,31 @@
         </div>
     </section>
 
-        <!-- Modal Konfirmasi -->
-    <div id="confirmModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black bg-opacity-50">
-        <div class="w-full max-w-md rounded-lg bg-white p-6 text-center">
-            <div class="mb-4 flex justify-center">
-                <img src="{{ asset("assets/images/dashboard/svg-icon/warning.svg") }}" alt="Warning Icon" class="h-12 w-12" />
-            </div>
-            <p class="mb-6 text-lg">Apakah Anda yakin ingin membatalkan edit data ini?</p>
-            <div class="flex justify-center gap-4">
-                <button id="confirmCancel" class="w-1/3 rounded-lg bg-[#3986A3] px-6 py-2 text-white">OK</button>
-                <button id="cancelCancel" class="w-1/3 rounded-lg border border-[#3986A3] px-6 py-2 text-[#3986A3]">Cancel</button>
+    <!-- Modal Konfirmasi -->
+    <div id="confirmModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/40">
+        <div
+            class="relative w-[560px] rounded-[20px] bg-white p-6 text-center font-plusJakartaSans shadow-lg"
+            style="
+                background:
+                    linear-gradient(to right, #74aabf, #3986a3) top/100% 6px no-repeat,
+                    white;
+                border-radius: 20px;
+                background-clip: padding-box, border-box;
+            "
+        >
+            <!-- Warning Icon -->
+            <img src="{{ asset("assets/images/dashboard/warning.png") }}" alt="Warning Icon" class="mx-auto h-[83px] w-[83px]" />
+
+            <!-- Title -->
+            <h2 class="mt-4 text-2xl font-bold text-stone-900">Konfirmasi Batal</h2>
+
+            <!-- Message -->
+            <p class="mt-2 text-base font-medium text-black">Apakah Anda yakin ingin membatalkan perubahan data ini?</p>
+
+            <!-- Actions -->
+            <div class="mt-6 flex justify-center gap-3">
+                <button id="cancelCancel" class="rounded-lg border border-stone-300 px-6 py-2 text-stone-700">Tidak</button>
+                <button id="confirmCancel" class="rounded-[5px] bg-gradient-to-r from-[#74AABF] to-[#3986A3] px-6 py-2 font-medium text-white">Ya</button>
             </div>
         </div>
     </div>
@@ -170,9 +183,9 @@
 @section("script")
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            flatpickr("#tanggal_lahir", {
-                dateFormat: "d/m/Y",
+        document.addEventListener('DOMContentLoaded', function () {
+            flatpickr('#tanggal_lahir', {
+                dateFormat: 'd/m/Y',
                 allowInput: true,
             });
 
@@ -181,16 +194,16 @@
             const confirmCancel = document.getElementById('confirmCancel');
             const cancelCancel = document.getElementById('cancelCancel');
 
-            cancelButton.addEventListener('click', function(e) {
+            cancelButton.addEventListener('click', function (e) {
                 e.preventDefault();
                 confirmModal.classList.remove('hidden');
             });
 
-            confirmCancel.addEventListener('click', function() {
-                window.location.href = "{{ route('dashboard.berbinar-for-u.show', $BerbinarForUDataDetails->id) }}";
+            confirmCancel.addEventListener('click', function () {
+                window.location.href = '{{ route("dashboard.berbinar-for-u.show", $BerbinarForUDataDetails->id) }}';
             });
 
-            cancelCancel.addEventListener('click', function() {
+            cancelCancel.addEventListener('click', function () {
                 confirmModal.classList.add('hidden');
             });
         });

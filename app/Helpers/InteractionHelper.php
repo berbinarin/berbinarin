@@ -14,7 +14,7 @@ class InteractionHelper
         $userToken = Cookie::get('user_token');
         if (!$userToken) {
             $userToken = Str::random(32);
-            Cookie::queue('user_token', $userToken, 60 * 24 * 365); // Sementara dibuat 1 tahun bisa diganti 
+            Cookie::queue('user_token', $userToken, 60 * 24 * 365); 
         }
 
         $ipAddress = request()->ip();
@@ -27,7 +27,7 @@ class InteractionHelper
             })
             ->first();
 
-        // Kalau belum ada → buat
+        // Kalau belum ada buat baru
         if (!$interaction) {
             $interaction = Interaction::create([
                 'article_id' => $articleId,
@@ -48,11 +48,6 @@ class InteractionHelper
 
         $interaction->views += 1;
         $interaction->save();
-
-        // if (!$interaction->updated_at->isToday()) {
-        //     $interaction->views += 1;
-        //     $interaction->save();
-        // }
     }
 
     // Tracking reaction

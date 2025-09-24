@@ -8,9 +8,9 @@
     <section class="flex w-full bg-gray-100">
         <div class="flex flex-col w-full">
             <div class="w-full">
-                <div class="py-4 md:pt-12 md:pb-7">
+                <div class="py-4 md:pb-7 md:pt-12">
                     <div class="mb-2 flex items-center gap-2">
-                        <a href="{{ route('dashboard.peer-counselors.index') }}" >
+                        <a href="{{ route('dashboard.peer-counselors.index') }}">
                             <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                         </a>
                         <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">
@@ -366,34 +366,35 @@
         </div>
     </section>
 
-<!-- Delete Confirmation Modal -->
-<div id="deleteModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black bg-opacity-50">
-    <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4">
-        <!-- Modal Header -->
-        <div class="text-center p-6">
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/40">
+        <div class="relative w-[560px] rounded-[20px] bg-white p-6 font-plusJakartaSans shadow-lg"
+            style="
+                background:
+                    linear-gradient(to right, #74aabf, #3986a3) top/100% 6px no-repeat,
+                    white;
+                border-radius: 20px;
+                background-clip: padding-box, border-box;
+            ">
             <!-- Warning Icon -->
-            <div class="flex justify-center mb-4">
-                <img src="{{ asset('assets/images/dashboard/svg-icon/warning.svg') }}" alt="Warning Icon" class="h-12 w-12">
-            </div>
-            <!-- Title -->
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">Konfirmasi Hapus Data</h3>
-            <!-- Message -->
-            <p class="text-gray-600 mb-6">
-                Apakah Anda yakin ingin menghapus data ini?
-            </p>
-        </div>
+            <img src="{{ asset('assets/images/dashboard/warning.png') }}" alt="Warning Icon"
+                class="mx-auto h-[83px] w-[83px]" />
 
-        <!-- Modal Actions -->
-        <div class="flex gap-3 px-6 pb-6">
-            <button id="cancelDelete" class="flex-1 px-4 py-3 text-gray-700 bg-white border-2 border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 font-medium transition-colors">
-                Batal
-            </button>
-            <button id="confirmDelete" class="flex-1 px-4 py-3 text-white rounded-lg font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors" style="background-color: #3986A3;" onmouseover="this.style.backgroundColor='#2d6b7a'" onmouseout="this.style.backgroundColor='#3986A3'">
-                Ya, Hapus!
-            </button>
+            <!-- Title -->
+            <h2 class="mt-4 text-center font-plusJakartaSans text-2xl font-bold text-stone-900">Konfirmasi Hapus Data</h2>
+
+            <!-- Message -->
+            <p class="mt-2 text-center text-base font-medium text-black">Apakah Anda yakin ingin menghapus data ini?</p>
+
+            <!-- Actions -->
+            <div class="mt-6 flex justify-center gap-3">
+                <button id="cancelDelete"
+                    class="rounded-lg border border-stone-300 px-[62px] py-[6px] text-stone-700">Tidak</button>
+                <button id="confirmDelete"
+                    class="rounded-[5px] bg-gradient-to-r from-[#74AABF] to-[#3986A3] px-[62px] py-[6px] font-medium text-white">Ya</button>
+            </div>
         </div>
     </div>
-</div>
 
 @endsection
 
@@ -405,50 +406,50 @@ document.addEventListener('DOMContentLoaded', function() {
     const cancelDelete = document.getElementById('cancelDelete');
     const confirmDelete = document.getElementById('confirmDelete');
 
-    if (deleteButton) {
-        deleteButton.addEventListener('click', function() {
-            deleteModal.classList.remove('hidden');
+            if (deleteButton) {
+                deleteButton.addEventListener('click', function() {
+                    deleteModal.classList.remove('hidden');
+                });
+            }
+
+            if (cancelDelete) {
+                cancelDelete.addEventListener('click', function() {
+                    deleteModal.classList.add('hidden');
+                });
+            }
+
+            if (confirmDelete) {
+                confirmDelete.addEventListener('click', function() {
+                    const id = deleteButton.getAttribute('data-id');
+
+                    // Create and submit form
+                    const form = document.createElement('form');
+                    form.method = 'POST';
+                    form.action = `{{ route('dashboard.peer-counselors.destroy', '') }}/${id}`;
+
+                    const csrfToken = document.createElement('input');
+                    csrfToken.type = 'hidden';
+                    csrfToken.name = '_token';
+                    csrfToken.value = '{{ csrf_token() }}';
+
+                    const methodInput = document.createElement('input');
+                    methodInput.type = 'hidden';
+                    methodInput.name = '_method';
+                    methodInput.value = 'DELETE';
+
+                    form.appendChild(csrfToken);
+                    form.appendChild(methodInput);
+                    document.body.appendChild(form);
+                    form.submit();
+                });
+            }
+
+            // Close modal when clicking outside
+            deleteModal.addEventListener('click', function(e) {
+                if (e.target === deleteModal) {
+                    deleteModal.classList.add('hidden');
+                }
+            });
         });
-    }
-
-    if (cancelDelete) {
-        cancelDelete.addEventListener('click', function() {
-            deleteModal.classList.add('hidden');
-        });
-    }
-
-    if (confirmDelete) {
-        confirmDelete.addEventListener('click', function() {
-            const id = deleteButton.getAttribute('data-id');
-
-            // Create and submit form
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = `{{ route('dashboard.peer-counselors.destroy', '') }}/${id}`;
-
-            const csrfToken = document.createElement('input');
-            csrfToken.type = 'hidden';
-            csrfToken.name = '_token';
-            csrfToken.value = '{{ csrf_token() }}';
-
-            const methodInput = document.createElement('input');
-            methodInput.type = 'hidden';
-            methodInput.name = '_method';
-            methodInput.value = 'DELETE';
-
-            form.appendChild(csrfToken);
-            form.appendChild(methodInput);
-            document.body.appendChild(form);
-            form.submit();
-        });
-    }
-
-    // Close modal when clicking outside
-    deleteModal.addEventListener('click', function(e) {
-        if (e.target === deleteModal) {
-            deleteModal.classList.add('hidden');
-        }
-    });
-});
-</script>
+    </script>
 @endsection

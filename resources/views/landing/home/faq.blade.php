@@ -2,14 +2,15 @@
     'title' => 'Berbinar Insightful Indonesia',
 ])
 
+@section('style')
+    <style>
+        .border-active {
+            border: 1.5px solid #3986A3
+        }
+    </style>
+@endsection
+
 @section('content')
-<style>
-    .border-active {
-        border: 1.5px solid #3986A3
-    }
-</style>
-
-
 <h1 class="max-sm:text-[29px] max-md:mx-10 text-4xl font font-semibold text-black text-center mt-28 sm:mt-36 max-sm:mx-2"><span class="italic">Frequently Asked Questions </span><span class="bg-primary text-white px-1 py-1">(FAQ)</span></h1>
 {{-- FAQS --}}
 <section class="z-10 mx-4 my-10 max-sm:my-5 sm:mx-20">
@@ -102,8 +103,10 @@
         </li>
     </ul>
 </section>
+@endsection
 
 
+@section('script')
 {{-- SCRIPT ACCORDION FAQS --}}
 <script>
     document.addEventListener('alpine:init', () => {

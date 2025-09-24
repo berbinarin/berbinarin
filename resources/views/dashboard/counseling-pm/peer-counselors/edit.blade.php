@@ -205,15 +205,30 @@
 </section>
 
     <!-- Modal Konfirmasi -->
-    <div id="confirmModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black bg-opacity-50">
-        <div class="w-full max-w-md rounded-lg bg-white p-6 text-center">
-            <div class="mb-4 flex justify-center">
-                <img src="{{ asset("assets/images/dashboard/svg-icon/warning.svg") }}" alt="Warning Icon" class="h-12 w-12" />
-            </div>
-            <p class="mb-6 text-lg">Apakah Anda yakin ingin membatalkan perubahan data ini?</p>
-            <div class="flex justify-center gap-4">
-                <button id="confirmCancel" class="w-1/3 rounded-lg bg-[#3986A3] px-6 py-2 text-white">OK</button>
-                <button id="cancelCancel" class="w-1/3 rounded-lg border border-[#3986A3] px-6 py-2 text-[#3986A3]">Cancel</button>
+    <div id="confirmModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/40">
+        <div
+            class="relative w-[560px] rounded-[20px] bg-white p-6 text-center font-plusJakartaSans shadow-lg"
+            style="
+                background:
+                    linear-gradient(to right, #74aabf, #3986a3) top/100% 6px no-repeat,
+                    white;
+                border-radius: 20px;
+                background-clip: padding-box, border-box;
+            "
+        >
+            <!-- Warning Icon -->
+            <img src="{{ asset("assets/images/dashboard/warning.png") }}" alt="Warning Icon" class="mx-auto h-[83px] w-[83px]" />
+
+            <!-- Title -->
+            <h2 class="mt-4 text-2xl font-bold text-stone-900">Konfirmasi Batal</h2>
+
+            <!-- Message -->
+            <p class="mt-2 text-base font-medium text-black">Apakah Anda yakin ingin membatalkan perubahan data ini?</p>
+
+            <!-- Actions -->
+            <div class="mt-6 flex justify-center gap-3">
+                <button id="cancelCancel" class="rounded-lg border border-stone-300 px-6 py-2 text-stone-700">Tidak</button>
+                <button id="confirmCancel" class="rounded-[5px] bg-gradient-to-r from-[#74AABF] to-[#3986A3] px-6 py-2 font-medium text-white">Ya</button>
             </div>
         </div>
     </div>
@@ -223,148 +238,146 @@
 <script>
     const jadwalPeerData = @json($jadwalPeerCounselors);
 
-    // Simple WhatsApp validation function
-    function validateWhatsApp(number) {
-        const cleanNumber = number.replace(/\D/g, '');
-        return cleanNumber.length >= 10 && cleanNumber.length <= 13 && cleanNumber.startsWith('08');
-    }
-
-    // Form submission validation
-    function validateForm() {
-        const whatsappInput = document.getElementById('no_wa');
-        const number = whatsappInput.value;
-
-        if (number && !validateWhatsApp(number)) {
-            Swal.fire({
-                title: 'Nomor WhatsApp Tidak Valid',
-                text: 'Format nomor WhatsApp harus diawali dengan 08 dan memiliki 10-13 digit.',
-                icon: 'error',
-                confirmButtonColor: '#3986A3',
-                confirmButtonText: 'OK'
-            });
-            whatsappInput.focus();
-            return false;
+        // Simple WhatsApp validation function
+        function validateWhatsApp(number) {
+            const cleanNumber = number.replace(/\D/g, '');
+            return cleanNumber.length >= 10 && cleanNumber.length <= 13 && cleanNumber.startsWith('08');
         }
 
-        return true;
-    }
+        // Form submission validation
+        function validateForm() {
+            const whatsappInput = document.getElementById('no_wa');
+            const number = whatsappInput.value;
 
-    document.addEventListener("DOMContentLoaded", function () {
+            if (number && !validateWhatsApp(number)) {
+                Swal.fire({
+                    title: 'Nomor WhatsApp Tidak Valid',
+                    text: 'Format nomor WhatsApp harus diawali dengan 08 dan memiliki 10-13 digit.',
+                    icon: 'error',
+                    confirmButtonColor: '#3986A3',
+                    confirmButtonText: 'OK',
+                });
+                whatsappInput.focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
             const cancelButton = document.getElementById('cancelButton');
             const confirmModal = document.getElementById('confirmModal');
             const confirmCancel = document.getElementById('confirmCancel');
             const cancelCancel = document.getElementById('cancelCancel');
 
-            cancelButton.addEventListener('click', function(e) {
+            cancelButton.addEventListener('click', function (e) {
                 e.preventDefault();
                 confirmModal.classList.remove('hidden');
             });
 
-            confirmCancel.addEventListener('click', function() {
-                window.location.href = "{{ route('dashboard.peer-counselors.show', $PeerConsellorDataDetails->id) }}";            });
+            confirmCancel.addEventListener('click', function () {
+                window.location.href = '{{ route("dashboard.peer-counselors.show", $PeerConsellorDataDetails->id) }}';
+            });
 
-            cancelCancel.addEventListener('click', function() {
+            cancelCancel.addEventListener('click', function () {
                 confirmModal.classList.add('hidden');
             });
-        // Form submission validation
-        document.getElementById('editForm').addEventListener('submit', function(e) {
-            if (!validateForm()) {
-                e.preventDefault();
-                return false;
-            }
-        });
-
-        flatpickr("#tanggal_lahir", {
-            dateFormat: "d/m/Y",
-            allowInput: true,
-        });
-
-        flatpickr("#tglkonseling", {
-            dateFormat: "d/m/Y",
-            allowInput: true,
-            minDate: new Date().fp_incr(7),
-            onChange: function(selectedDates, dateStr, instance) {
-                updateAvailableTimes(dateStr);
-            }
-        });
-
-        // Initialize times for current date
-        const currentDate = document.getElementById('tglkonseling').value;
-        if (currentDate) {
-            updateAvailableTimes(currentDate);
-        }
-
-        // Show/hide daerah
-        document.getElementById('metode-select').addEventListener('change', function() {
-            const daerahContainer = document.getElementById('daerah-container');
-            if (this.value === 'offline') {
-                daerahContainer.style.display = 'block';
-                document.getElementById('daerah-select').required = true;
-            } else {
-                daerahContainer.style.display = 'none';
-                document.getElementById('daerah-select').required = false;
-                document.getElementById('daerah-select').value = '';
-            }
-            updateHarga();
-        });
-
-        // Initialize daerah visibility
-        if (document.getElementById('metode-select').value === 'offline') {
-            document.getElementById('daerah-container').style.display = 'block';
-        }
-
-        document.getElementById('sesi-select').addEventListener('change', updateHarga);
-
-
-        // Update hari when date changes
-        document.getElementById('tglkonseling').addEventListener('change', function() {
-            const tanggal = this.value;
-            const hariInput = document.getElementById('hari_konseling');
-            if (!tanggal) {
-                hariInput.value = '';
-                return;
-            }
-            const parts = tanggal.split('/');
-            if (parts.length !== 3) {
-                hariInput.value = '';
-                return;
-            }
-            const dateObj = new Date(parts[2], parts[1] - 1, parts[0]);
-            const hariMap = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-            hariInput.value = hariMap[dateObj.getDay()];
-        });
-
-        function updateAvailableTimes(dateStr) {
-            const waktuSelect = document.getElementById('waktu-konseling');
-            waktuSelect.innerHTML = '<option value="" disabled selected>Pilih Waktu Konseling</option>';
-
-            if (!dateStr) return;
-
-            // Ambil hari dari tanggal
-            const parts = dateStr.split('/');
-            if (parts.length !== 3) return;
-            const dateObj = new Date(parts[2], parts[1] - 1, parts[0]);
-            const hariMap = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-            const hari = hariMap[dateObj.getDay()];
-
-            // Filter jadwal sesuai hari
-            const jadwalHariIni = jadwalPeerData.filter(j => j.hari === hari);
-
-            // Isi pilihan jadwal
-            jadwalHariIni.forEach(jadwal => {
-                const waktu = jadwal.pukul_mulai.substring(0,5) + ' - ' + jadwal.pukul_selesai.substring(0,5);
-                const option = document.createElement('option');
-                option.value = waktu;
-                option.textContent = waktu;
-                // Pilih value jika sama dengan data user
-                if (waktu === "{{ $PeerConsellorDataDetails->jadwal_pukul }}") {
-                    option.selected = true;
+            // Form submission validation
+            document.getElementById('editForm').addEventListener('submit', function (e) {
+                if (!validateForm()) {
+                    e.preventDefault();
+                    return false;
                 }
-                waktuSelect.appendChild(option);
             });
-        }
 
+            flatpickr('#tanggal_lahir', {
+                dateFormat: 'd/m/Y',
+                allowInput: true,
+            });
 
-    });
-</script>
+            flatpickr('#tglkonseling', {
+                dateFormat: 'd/m/Y',
+                allowInput: true,
+                minDate: new Date().fp_incr(7),
+                onChange: function (selectedDates, dateStr, instance) {
+                    updateAvailableTimes(dateStr);
+                },
+            });
+
+            // Initialize times for current date
+            const currentDate = document.getElementById('tglkonseling').value;
+            if (currentDate) {
+                updateAvailableTimes(currentDate);
+            }
+
+            // Show/hide daerah
+            document.getElementById('metode-select').addEventListener('change', function () {
+                const daerahContainer = document.getElementById('daerah-container');
+                if (this.value === 'offline') {
+                    daerahContainer.style.display = 'block';
+                    document.getElementById('daerah-select').required = true;
+                } else {
+                    daerahContainer.style.display = 'none';
+                    document.getElementById('daerah-select').required = false;
+                    document.getElementById('daerah-select').value = '';
+                }
+                updateHarga();
+            });
+
+            // Initialize daerah visibility
+            if (document.getElementById('metode-select').value === 'offline') {
+                document.getElementById('daerah-container').style.display = 'block';
+            }
+
+            document.getElementById('sesi-select').addEventListener('change', updateHarga);
+
+            // Update hari when date changes
+            document.getElementById('tglkonseling').addEventListener('change', function () {
+                const tanggal = this.value;
+                const hariInput = document.getElementById('hari_konseling');
+                if (!tanggal) {
+                    hariInput.value = '';
+                    return;
+                }
+                const parts = tanggal.split('/');
+                if (parts.length !== 3) {
+                    hariInput.value = '';
+                    return;
+                }
+                const dateObj = new Date(parts[2], parts[1] - 1, parts[0]);
+                const hariMap = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+                hariInput.value = hariMap[dateObj.getDay()];
+            });
+
+            function updateAvailableTimes(dateStr) {
+                const waktuSelect = document.getElementById('waktu-konseling');
+                waktuSelect.innerHTML = '<option value="" disabled selected>Pilih Waktu Konseling</option>';
+
+                if (!dateStr) return;
+
+                // Ambil hari dari tanggal
+                const parts = dateStr.split('/');
+                if (parts.length !== 3) return;
+                const dateObj = new Date(parts[2], parts[1] - 1, parts[0]);
+                const hariMap = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+                const hari = hariMap[dateObj.getDay()];
+
+                // Filter jadwal sesuai hari
+                const jadwalHariIni = jadwalPeerData.filter((j) => j.hari === hari);
+
+                // Isi pilihan jadwal
+                jadwalHariIni.forEach((jadwal) => {
+                    const waktu = jadwal.pukul_mulai.substring(0, 5) + ' - ' + jadwal.pukul_selesai.substring(0, 5);
+                    const option = document.createElement('option');
+                    option.value = waktu;
+                    option.textContent = waktu;
+                    // Pilih value jika sama dengan data user
+                    if (waktu === '{{ $PeerConsellorDataDetails->jadwal_pukul }}') {
+                        option.selected = true;
+                    }
+                    waktuSelect.appendChild(option);
+                });
+            }
+        });
+    </script>
 @endsection

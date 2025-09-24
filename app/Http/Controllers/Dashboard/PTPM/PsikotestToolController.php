@@ -34,7 +34,13 @@ class PsikotestToolController extends Controller
       $tool->token = Str::random(8);
       $tool->save();
 
-      return redirect()->back()->with('success', 'Token generated successfully!');
+      return redirect()->back()->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Token berhasil digenerate',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
   }
 
   public function deleteToken($id)
@@ -43,7 +49,13 @@ class PsikotestToolController extends Controller
       $tool->token = null;
       $tool->save();
 
-      return redirect()->back()->with('success', 'Token deleted successfully!');
+      return redirect()->back()->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Token berhasil dihapus',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
   }
 
   public function verifyToken(Request $request)
@@ -55,10 +67,20 @@ class PsikotestToolController extends Controller
 
       if ($tool->token === $token) {
           $path = 'psikotest-paid.tool.' . $tool->name . '.showLanding';
-          Alert::toast('Valid Token!', 'success')->autoClose(5000);
-          return redirect()->route($path);
+          return redirect()->route($path)->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'Token Valid!',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
       }
-      Alert::toast('Invalid Token!', 'error')->autoClose(5000);
-      return back();
+      return redirect()->back()->with([
+                'alert' => true,
+                'type' => 'error',
+                'title' => 'Gagal!',
+                'message' =>'Token Salah!',
+                'icon' => asset('assets/images/dashboard/error.png'),
+            ]);
   }
 }

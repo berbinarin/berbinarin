@@ -41,7 +41,7 @@ class ArteriController extends Controller
             $categoryColors[$cat->id] = CategoryColorHelper::getColor($cat->id);
         }
 
-    return view('landing.arteri.index', [
+        return view('landing.arteri.index', [
             'articles' => $articles,
             'categories' => $categories,
             'sort' => $sort,
@@ -130,6 +130,8 @@ class ArteriController extends Controller
 
         $categories = Category::all();
 
+        $comments = $article->comments()->latest()->get();
+
         $articlesCategoryColors = [];
         foreach ($categories as $cat) {
             $articlesCategoryColors[$cat->id] = CategoryColorHelper::getColor($cat->id);
@@ -154,7 +156,8 @@ class ArteriController extends Controller
             'categoryColors',
             'latestArticles',
             'articlesCategoryColors',
-            'reactionCounts'
+            'reactionCounts',
+            'comments'
         ));
     }
 

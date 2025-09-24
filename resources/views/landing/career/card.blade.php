@@ -367,9 +367,10 @@
             </div>
         </div>
     </section>
+@endsection
 
-
-
+@section('script')
+    {{-- SCRIPT DROPDOWN DIVISI & SUBDIVISI --}}
     <script>
         const listDivisi = @json($divisi);
         const divisionDropdown = document.querySelector('#division-dropdown');

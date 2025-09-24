@@ -21,7 +21,7 @@ use App\Http\Controllers\Dashboard\ClassPM\BerbinarPlusDashboardController;
 use App\Http\Controllers\Dashboard\ClassPM\BerbinarClassController;
 use App\Http\Controllers\Dashboard\ManagerCPM\PsycologistStaffController;
 use Illuminate\Support\Facades\Route;
-use League\CommonMark\Extension\CommonMark\Node\Inline\Code;
+
 
 Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(function () {
 
@@ -65,15 +65,6 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
         Route::resource('/berbinar-class', BerbinarClassController::class);
         // Berbinar Plus
         Route::resource('/berbinar-plus', BerbinarPlusController::class);
-
-
-        // Route::get('/berbinar-plus-class-create', [BerbinarPlusDashboardController::class, 'create'])->name('berbinar-plus-class.create');
-        // Route::post('/berbinar-plus-class-store', [BerbinarPlusDashboardController::class, 'store'])->name('berbinar-plus-class.store');
-        // Route::get('/berbinar-plus-class-show', [BerbinarPlusDashboardController::class, 'show'])->name('berbinar-plus-class.show');
-        // Route::get('/berbinar-plus-user-index', [BerbinarPlusController::class, 'users'])->name('berbinar-plus-users');
-        // Route::get('/berbinar-plus-user-create', [BerbinarPlusDashboardController::class, 'createUser'])->name('berbinar-plus-users.create');
-        // Route::post('/berbinar-plus-user-store', [BerbinarPlusDashboardController::class, 'storeUser'])->name('berbinar-plus-users.store');
-        // Route::get('/berbinar-plus-user-show', [BerbinarPlusDashboardController::class, 'showUser'])->name('berbinar-plus-users.show');
     });
 
 
@@ -120,41 +111,5 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
         });
     });
 
-
-
-    // PAPI KOSTICK
-
-
-
-
-    // // Psychological Test Product Management
-    // route::middleware('role:ptpm')->group(function () {
-    //     //DASHBOARD ADMIN E-LEARNING PSIKOTEST
-    //     Route::get('/psikotestData', [DashboardController::class, 'psikotestData'])->name('psikotes.dashboard.psikotestData');
-    //     Route::get('/psikotestData/papikostick', [DashboardController::class, 'papikostick'])->name('psikotes.dashboard.papikostick');
-    //     Route::get('/psikotestSoal', [DashboardController::class, 'psikotestSoal'])->name('psikotes.dashboard.psikotestSoal');
-    // });
 });
 
-// // DASHBOARD PAPI KOSTICK
-// Route::get('/respondents', [DashboardPapiKostickController::class, 'allResponden'])->name('psikotest-paid.papi-kostick.data');
-// Route::get('/respondents/{id}', [DashboardPapiKostickController::class, 'detailResponden'])->name('psikotest-paid.papi-kostick.detail');
-// Route::get('/papi-kostick/soal', [DashboardPapiKostickController::class, 'allSoal'])->name('papi-kostick.soal');
-// Route::get('/papi-kostick/soal/{id}/edit', [DashboardPapiKostickController::class, 'editSoal'])->name('papi-kostick.edit-soal');
-// Route::put('/papi-kostick/soal/{id}', [DashboardPapiKostickController::class, 'updateSoal'])->name('papi-kostick.update-soal');
-
-
-// // DASHBOARD VAK
-// Route::get('/vak/data', [DashboardVakController::class, 'countUserTest'])->name('dashboard.psikotespaid.vak.data-count');
-// Route::get('/vak/responden', [DashboardVakController::class, 'allResponden'])->name('dashboard.psikotespaid.vak.all-responden');
-// Route::get('/vak/detail/{id}', [DashboardVakController::class, 'detailAnswer'])->name('dashboard.psikotespaid.vak.detail-answer');
-
-// //DASHBOARD ADMIN E-LEARNING PSIKOTEST
-// Route::get('/psikotestData', [DashboardController::class, 'psikotestData'])->name('psikotes.dashboard.psikotestData');
-// Route::get('/psikotestData/papikostick', [DashboardController::class, 'papikostick'])->name('psikotes.dashboard.papikostick');
-// Route::get('/psikotestSoal', [DashboardController::class, 'psikotestSoal'])->name('psikotes.dashboard.psikotestSoal');
-
-// Route::group(['middleware' => ['auth']], function () {
-//     Route::get('/dashboard/admin', [DashboardController::class, 'index'])->name('dashboard');
-//     Route::get('/dashboard/admin/faqs', [DashboardController::class, 'faqs'])->name('dashboard.faqs');
-// });

@@ -64,7 +64,13 @@ class PsikotestFreeController extends Controller
 
         $user->test()->update(['test_date' => $request->input('test_date')]);
 
-        return redirect()->route('dashboard.psikotestfree.data')->with('success', 'User updated successfully');
+        return redirect()->route('dashboard.psikotestfree.data')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'User berhasil diupdate',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     // Menghapus data user
@@ -73,7 +79,13 @@ class PsikotestFreeController extends Controller
         $user = UserPsikotest::findOrFail($test_id);
         $user->delete();
 
-        return redirect()->route('dashboard.psikotestfree.data')->with('success', 'User deleted successfully');
+        return redirect()->route('dashboard.psikotestfree.data')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'User berhasil dihapus',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     public function adminEditSoalPsikotesFree()
@@ -104,7 +116,13 @@ class PsikotestFreeController extends Controller
             'nr' => $request->input('nr'),
         ]);
 
-        return redirect()->route('dashboard.psikotestfree.question.index')->with('success', 'Question created successfully');
+        return redirect()->route('dashboard.psikotestfree.question.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Pertanyaan berhasil ditambahkan',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     // Menampilkan form edit soal
@@ -131,7 +149,13 @@ class PsikotestFreeController extends Controller
             // 'nr' => $request->input('nr'),
         ]);
 
-        return redirect()->route('dashboard.psikotestfree.question.index')->with('success', 'Question updated successfully');
+        return redirect()->route('dashboard.psikotestfree.question.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Pertanyaan berhasil diupdate',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     // Menghapus soal
@@ -140,6 +164,12 @@ class PsikotestFreeController extends Controller
         $question = Question::findOrFail($id);
         $question->delete();
 
-        return redirect()->route('dashboard.psikotestfree.question.index')->with('success', 'Question deleted successfully');
+        return redirect()->route('dashboard.psikotestfree.question.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Pertanyaan berhasil dihapus',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 }

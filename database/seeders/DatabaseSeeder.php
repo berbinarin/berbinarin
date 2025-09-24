@@ -41,46 +41,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
         $this->call([
             RoleSeeder::class,
             AdminSeeder::class,
-            DimensionSeeder::class,
-            QuestionSeeder::class,
             CategoryPsikotestTypeSeeder::class,
-            PsikotestTypeSeeder::class,
-            PsikotestToolSeeder::class,
             UserPsikotestPaidSeeder::class,
-            QuestionPapiKostickSeeder::class,
-            QuestionBaumSeeder::class,
-            QuestionDapSeeder::class,
-            QuestionTesEsaiSeeder::class,
-            DimensionOceanSeeder::class,
-            QuestionOceanSeeder::class,
-            QuestionSsctSeeder::class,
-            CategoryQuestionVakSeeder::class,
-            QuestionVakSeeder::class,
-            LevelEducationSeeder::class,
-            FamilyStatusSeeder::class,
-            QuestionCategorySeeder::class,
-            QuestionEsssaySeeder::class,
-            QuestionHtpSeeder::class,
-            EpiQuestionSeeder::class,
-
+            
             // Articles Seeder
             AuthorSeeder::class,
             CategorySeeder::class,
             ArticleSeeder::class,
 
             // Data test
-            UserInternshipSeeder::class,
-            NomorBdiSeeder::class,
-            SoalBdiSeeder::class,
 
 
             // hiring seeder

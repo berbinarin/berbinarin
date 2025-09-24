@@ -5,7 +5,7 @@
         @include("landing.partials.header")
 
         {{-- Meta --}}
-        @yield('meta')
+        @yield("meta")
 
         {{-- Additional Style --}}
         @yield("style")
@@ -27,5 +27,8 @@
 
         {{-- Additional Script --}}
         @yield("script")
+
+        {{-- Alert Component --}}
+        @include("components.alert")
     </body>
 </html>

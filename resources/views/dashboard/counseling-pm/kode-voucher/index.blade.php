@@ -1,7 +1,10 @@
-@extends('dashboard.layouts.app', [
-    'title' => 'Kode Voucher',
-    'active' => 'Dashboard',
-])
+@extends(
+    "dashboard.layouts.app",
+    [
+        "title" => "Kode Voucher",
+        "active" => "Dashboard",
+    ]
+)
 
 @section("content")
     <section class="flex w-full">
@@ -16,7 +19,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="rounded-md w-[80vw] bg-white mb-7 px-4 py-4 md:px-8 md:py-7 xl:px-10">
+                <div class="mb-7 w-[80vw] rounded-md bg-white px-4 py-4 md:px-8 md:py-7 xl:px-10">
                     <div class="mt-4 overflow-x-auto">
                         <table id="example" class="display" style="overflow-x: scroll">
                             <thead>
@@ -68,25 +71,37 @@
 
 
                         <!-- Modal Konfirmasi Hapus -->
-                        <div id="deleteModal" class="fixed inset-0 z-10 hidden items-center justify-center bg-black bg-opacity-50 flex">
-                            <div class="w-full max-w-md rounded-lg bg-white p-6 text-center">
-                                <div class="mb-4 flex justify-center">
-                                    <img src="{{ asset('assets/images/dashboard/svg-icon/warning.svg') }}" alt="Warning Icon" class="h-12 w-12" />
-                                </div>
-                                <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900" id="modal-title">Konfirmasi Hapus</h3>
-                                <p class="mb-6 text-base text-gray-500">Apakah Anda yakin ingin menghapus kelas ini? Semua data terkait juga akan dihapus.</p>
-                                <div class="flex w-full justify-center gap-4">
+                        <div id="deleteModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40">
+                            <div
+                                class="relative w-[560px] rounded-[20px] bg-white p-6 text-center font-plusJakartaSans shadow-lg"
+                                style="
+                                    background:
+                                        linear-gradient(to right, #74aabf, #3986a3) top/100% 6px no-repeat,
+                                        white;
+                                    border-radius: 20px;
+                                    background-clip: padding-box, border-box;
+                                "
+                            >
+                                <!-- Warning Icon -->
+                                <img src="{{ asset("assets/images/dashboard/warning.png") }}" alt="Warning Icon" class="mx-auto h-[83px] w-[83px]" />
+
+                                <!-- Title -->
+                                <h2 class="mt-4 text-2xl font-bold text-stone-900">Konfirmasi Hapus</h2>
+
+                                <!-- Message -->
+                                <p class="mt-2 text-base font-medium text-black">Apakah Anda yakin ingin menghapus kelas ini? Semua data terkait juga akan dihapus.</p>
+
+                                <!-- Actions -->
+                                <div class="mt-6 flex justify-center gap-3">
                                     <form id="deleteForm" method="POST" class="w-1/2">
                                         @csrf
                                         @method("DELETE")
-                                        <button type="submit" class="rounded-lg bg-[#3986A3] w-full px-6 py-2 text-white text-center hover:bg-[#3986A3] focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2">Hapus</button>
+                                        <button type="submit" class="w-full rounded-[5px] bg-gradient-to-r from-[#74AABF] to-[#3986A3] px-6 py-2 font-medium text-white">Hapus</button>
                                     </form>
-                                    <button type="button" class="rounded-lg border border-[#3986A3] w-1/2 px-6 py-2 text-[#3986A3] focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2" onclick="closeDeleteModal()">Batal</button>
+                                    <button type="button" class="w-1/2 rounded-lg border border-stone-300 px-6 py-2 text-stone-700" onclick="closeDeleteModal()">Batal</button>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>

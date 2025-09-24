@@ -31,6 +31,7 @@ use App\Http\Controllers\Dashboard\PTPM\Psikotest\PsikotestFree\UserPsikotestFre
 use App\Http\Controllers\Landing\Arteri\InteractionController;
 use App\Http\Controllers\Landing\Product\Counseling\PsikologStaff\PsikologStaffController;
 use App\Http\Controllers\Landing\Product\Counseling\PsikologUmum\PsikologUmumController;
+use App\Http\Controllers\Landing\Arteri\CommentController;
 use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,13 +57,22 @@ Route::prefix('produk')->name('product.')->group(function () {
 
         // Pendaftaran Konseling (Psikolog)
         Route::prefix('psikolog')->name('psikolog.')->group(function () {
-            Route::get('/daftar-psikolog', [PsikologUmumController::class, 'registrationPsikolog'])->name('registration');
-            Route::get('/', [PsikologUmumController::class, 'showPsikologForm'])->name('index');
-            Route::get('/registrasi', [PsikologUmumController::class, 'showPsikologRegistration'])->name('registrasi');
-            Route::post('/registrasi', [PsikologUmumController::class, 'storePsikologRegistration'])->name('store');
-            Route::get('/staff', [PsikologStaffController::class, 'showPsikologStaffForm'])->name('staff');
-            Route::post('/staff', [PsikologStaffController::class, 'storePsikologStaffRegistration'])->name('staff.store');
-            Route::match(['get', 'post'], '/cek-voucher', [CounselingController::class, 'cekVoucher']);      
+            Route::get('/daftar-umum', [CounselingController::class, 'registrationPsikologUmum'])->name('registration-umum');
+            Route::prefix('daftar-staff')->name('registration-staff.')->group(function () {
+                Route::get('/', [CounselingController::class, 'registrationPsikologStaff'])
+                    ->name('index');
+                Route::get('/Staff-psikolog', [CounselingController::class, 'showPsikologStaffForm'])
+                    ->name('staff-psikolog');
+                Route::get('/Staff-peer-counselor', [CounselingController::class, 'showPsikologStaffForm'])
+                    ->name('staff-peer-counselor');
+            });
+            Route::get('/', [CounselingController::class, 'showPsikologForm'])->name('index');
+            Route::get('/registrasi', [CounselingController::class, 'showPsikologRegistration'])->name('registrasi');
+            Route::post('/registrasi', [CounselingController::class, 'storePsikologRegistration'])->name('store');
+            Route::get('/staff', [CounselingController::class, 'showPsikologStaffForm'])->name('staff');
+            Route::post('/staff', [CounselingController::class, 'storePsikologStaffRegistration'])->name('staff.store');
+            Route::get('/cek-voucher', [CounselingController::class, 'cekVoucher']);
+            Route::get('/summary-staff', [CounselingController::class, 'summarystaff'])->name('summary-staff');
         });
 
         // Pendaftaran Konseling (Peer Counselor)
@@ -90,7 +100,6 @@ Route::prefix('produk')->name('product.')->group(function () {
         Route::get('/summary', [PsikotestController::class, 'summary'])->name('summary');
         Route::get('/feedback', [FeedbackController::class, 'show'])->name('feedback');
         Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
-
     });
 
     Route::prefix('consulting')->name('consulting.')->group(function () {
@@ -166,6 +175,7 @@ Route::prefix('arteri')->name('arteri.')->group(function () {
     Route::post('/{articleId}/reaction', [ArteriController::class, 'reaction']);
     Route::post('/{articleId}/share', [ArteriController::class, 'share'])->name('share');
     Route::post('/{articleId}/view', [ArteriController::class, 'view'])->name('view');
+    Route::post('/comment', [CommentController::class, 'store'])->name('comment');
 });
 
 // Psikotest Free

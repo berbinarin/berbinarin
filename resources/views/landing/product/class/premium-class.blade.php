@@ -1041,7 +1041,9 @@
             </li>
         </ul>
     </section>
+@endsection
 
+@section('script')
     <!-- Style -->
     <style>
         @media (min-width: 768px) {

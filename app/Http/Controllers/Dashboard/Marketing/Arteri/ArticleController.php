@@ -55,7 +55,13 @@ class ArticleController extends Controller
             'content' => $request->input('content'),
         ]);
 
-        return redirect()->route('dashboard.arteri.articles.index')->with('success', 'Artikel berhasil ditambahkan!');
+        return redirect()->route('dashboard.arteri.articles.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Artikel berhasil ditambahkan',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     public function show(string $id)

@@ -1,5 +1,5 @@
 @extends(
-    "moduls.dashboard.layouts.main",
+    "auth.layout.main",
     [
         "title" => "Login Dashboard",
         "active" => "Login",

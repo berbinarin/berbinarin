@@ -46,7 +46,13 @@ class CategoryController extends Controller
             'slug' => Str::slug($request->input('name_category')),
         ]);
 
-        return redirect()->route('dashboard.arteri.categories.index')->with('success', 'Kategori berhasil ditambahkan!');
+        return redirect()->route('dashboard.arteri.categories.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Kategori berhasil ditambahkan',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     /**
@@ -86,7 +92,13 @@ class CategoryController extends Controller
             'name_category' => $request->input('name_category'),
         ]);
 
-        return redirect()->route('dashboard.arteri.categories.index')->with('success', 'Kategori berhasil diperbarui!');
+        return redirect()->route('dashboard.arteri.categories.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Kategori berhasil diperbarui',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     /**
@@ -106,6 +118,12 @@ class CategoryController extends Controller
         // Hapus kategori jika tidak digunakan
         $category->delete();
 
-        return redirect()->route('dashboard.arteri.categories.index')->with('success', 'Kategori berhasil dihapus!');
+        return redirect()->route('dashboard.arteri.categories.index')->with([
+                'alert'   => true,
+                'type'    => 'success',
+                'title'   => 'Berhasil!',
+                'message' => 'Kategori berhasil dihapus',
+                'icon'    => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 }

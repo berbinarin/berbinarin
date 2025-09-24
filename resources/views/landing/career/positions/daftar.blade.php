@@ -415,10 +415,9 @@
     </div>
   </div>
 </div>
+@endsection
 
-<!-- SweetAlert2 -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+@section('script')
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   // Inisialisasi Flatpickr untuk tanggal lahir

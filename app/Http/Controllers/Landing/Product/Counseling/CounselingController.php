@@ -299,13 +299,13 @@ class CounselingController extends Controller
         $konselings = [
             [
                 'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
-                'nama' => 'Psikolog',
+                'nama' => 'Umum',
                 'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
             ],
             [
-                'image' => 'assets/images/landing/asset-konseling/vector/peercounselor.png',
-                'nama' => 'Peer Counselor',
-                'deskripsi' => 'Konseling bersama Peer Counselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
+                'image' => 'assets/images/landing/asset-konseling/vector/psikolog-staff.png',
+                'nama' => 'Staff',
+                'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
             ],
         ];
 

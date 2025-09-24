@@ -124,19 +124,19 @@
                     <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                         <div>
                             <label class="font-semibold">Tuliskan Apa yang Ingin Anda Ceritakan</label>
-                            <textarea required name="cerita_utama" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="3" placeholder="Tuliskan hal utama yang ingin Anda konsultasikan">{{ old('cerita_utama') }}</textarea>
+                            <textarea required name="cerita_utama" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="3" placeholder="Tuliskan hal utama yang ingin Anda konsultasikan">{{ old("cerita_utama") }}</textarea>
                         </div>
                         <div>
                             <label class="font-semibold">Tuliskan Informasi Tambahan</label>
-                            <textarea required name="cerita_tambahan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="3" placeholder="Informasi tambahan yang dapat membantu Peer Counselor">{{ old('cerita_tambahan') }}</textarea>
+                            <textarea required name="cerita_tambahan" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="3" placeholder="Informasi tambahan yang dapat membantu Peer Counselor">{{ old("cerita_tambahan") }}</textarea>
                         </div>
                         <div>
                             <label class="font-semibold">Apa yang Mendorong Anda untuk Konseling?</label>
-                            <textarea required name="alasan_konseling" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="3" placeholder="Alasan mencari dukungan Peer Counselor">{{ old('alasan_konseling') }}</textarea>
+                            <textarea required name="alasan_konseling" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="3" placeholder="Alasan mencari dukungan Peer Counselor">{{ old("alasan_konseling") }}</textarea>
                         </div>
                         <div>
                             <label class="font-semibold">Harapan Setelah Konseling</label>
-                            <textarea required name="harapan_konseling" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="3" placeholder="Harapan setelah mengikuti konseling">{{ old('harapan_konseling') }}</textarea>
+                            <textarea required name="harapan_konseling" class="w-full rounded-lg border-gray-300 px-3 py-2 shadow-sm" rows="3" placeholder="Harapan setelah mengikuti konseling">{{ old("harapan_konseling") }}</textarea>
                         </div>
                     </div>
 
@@ -150,15 +150,30 @@
     </section>
 
     <!-- Modal Konfirmasi -->
-    <div id="confirmModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black bg-opacity-50">
-        <div class="w-full max-w-md rounded-lg bg-white p-6 text-center">
-            <div class="mb-4 flex justify-center">
-                <img src="{{ asset("assets/images/dashboard/svg-icon/warning.svg") }}" alt="Warning Icon" class="h-12 w-12" />
-            </div>
-            <p class="mb-6 text-lg">Apakah Anda yakin ingin membatalkan penambahan data ini?</p>
-            <div class="flex justify-center gap-4">
-                <button id="confirmCancel" class="w-1/3 rounded-lg bg-[#3986A3] px-6 py-2 text-white">OK</button>
-                <button id="cancelCancel" class="w-1/3 rounded-lg border border-[#3986A3] px-6 py-2 text-[#3986A3]">Cancel</button>
+    <div id="confirmModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/40">
+        <div
+            class="relative w-[560px] rounded-[20px] bg-white p-6 text-center font-plusJakartaSans shadow-lg"
+            style="
+                background:
+                    linear-gradient(to right, #74aabf, #3986a3) top/100% 6px no-repeat,
+                    white;
+                border-radius: 20px;
+                background-clip: padding-box, border-box;
+            "
+        >
+            <!-- Warning Icon -->
+            <img src="{{ asset("assets/images/dashboard/warning.png") }}" alt="Warning Icon" class="mx-auto h-[83px] w-[83px]" />
+
+            <!-- Title -->
+            <h2 class="mt-4 text-2xl font-bold text-stone-900">Konfirmasi Batal</h2>
+
+            <!-- Message -->
+            <p class="mt-2 text-base font-medium text-black">Apakah Anda yakin ingin membatalkan penambahan data ini?</p>
+
+            <!-- Actions -->
+            <div class="mt-6 flex justify-center gap-3">
+                <button id="cancelCancel" class="rounded-lg border border-stone-300 px-6 py-2 text-stone-700">Tidak</button>
+                <button id="confirmCancel" class="rounded-[5px] bg-gradient-to-r from-[#74AABF] to-[#3986A3] px-6 py-2 font-medium text-white">Ya</button>
             </div>
         </div>
     </div>
@@ -167,9 +182,9 @@
 @section("script")
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            flatpickr("#tanggal_lahir", {
-                dateFormat: "d/m/Y",
+        document.addEventListener('DOMContentLoaded', function () {
+            flatpickr('#tanggal_lahir', {
+                dateFormat: 'd/m/Y',
                 allowInput: true,
             });
 
@@ -178,16 +193,16 @@
             const confirmCancel = document.getElementById('confirmCancel');
             const cancelCancel = document.getElementById('cancelCancel');
 
-            cancelButton.addEventListener('click', function(e) {
+            cancelButton.addEventListener('click', function (e) {
                 e.preventDefault();
                 confirmModal.classList.remove('hidden');
             });
 
-            confirmCancel.addEventListener('click', function() {
-                window.location.href = "{{ route('dashboard.berbinar-for-u.index') }}";
+            confirmCancel.addEventListener('click', function () {
+                window.location.href = '{{ route("dashboard.berbinar-for-u.index") }}';
             });
 
-            cancelCancel.addEventListener('click', function() {
+            cancelCancel.addEventListener('click', function () {
                 confirmModal.classList.add('hidden');
             });
         });

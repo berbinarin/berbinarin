@@ -46,11 +46,23 @@ class SoalBdiController extends Controller
     {
         $nomorBdi = NomorBdi::where('nomor_bdi', $nomor)->first();
         if (!$nomorBdi) {
-            return redirect()->back()->with('error', 'Nomor Tes BDI tidak Ditemukan');
+            return redirect()->back()->with([
+                'alert' => true,
+                'type' => 'error',
+                'title' => 'Gagal!',
+                'message' =>'Nomor Tes BDI tidak ditemukan.',
+                'icon' => asset('assets/images/dashboard/error.png'),
+            ]);
         }
         $soalBdi = SoalBdi::where('nomor_bdi_id', $nomorBdi->id)->get();
         if ($soalBdi->isEmpty()) {
-            return redirect()->back()->with('error', 'Soal Tes BDI tidak ditemukan');
+            return redirect()->back()->with([
+                'alert' => true,
+                'type' => 'error',
+                'title' => 'Gagal!',
+                'message' =>'Soal untuk Nomor Tes BDI ' . $nomor . ' tidak ditemukan.',
+                'icon' => asset('assets/images/dashboard/error.png'),
+            ]);
         }
         // Kirim data nomor tes dan soal ke view yang sama
         return view('psikotest-paid.tool.BDI.testbdi', [
@@ -83,6 +95,12 @@ class SoalBdiController extends Controller
             $nomorBdis = NomorBdi::with('SoalBdi')->get();
             return view('psikotest-paid.tool.BDI.testbdi', compact('nomorBdis', 'totalSkor', 'hasil'));
         }
-        return redirect()->back()->with('error', 'Hasil tidak ditemukan untuk skor ini.');
+        return redirect()->back()->with([
+                'alert' => true,
+                'type' => 'error',
+                'title' => 'Gagal!',
+                'message' =>'Hasil tes tidak ditemukan untuk skor: ' . $totalSkor,
+                'icon' => asset('assets/images/dashboard/error.png'),
+            ]);
     }
 }

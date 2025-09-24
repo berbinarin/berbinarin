@@ -104,7 +104,9 @@
             </div>
         </div>
     </section>
+@endsection
 
+@section('script')
     <script>
         //list divisi
         const availableDivision = @json($availableDivision);

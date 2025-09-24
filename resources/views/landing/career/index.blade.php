@@ -328,7 +328,9 @@
         </a>
     </section>
     {{-- BANNER KELUARGA BERBINAR END --}}
+@endsection
 
+@section('script')
     {{-- SCRIPT ACCORDION FAQS --}}
     <script>
         document.addEventListener('alpine:init', () => {

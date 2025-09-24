@@ -32,7 +32,7 @@ class InternshipController extends Controller
     {
         $Internship = UserInternship::findOrFail($id);
         $position = Hiring_Positions::find($Internship->position_id);
-        $positions = Hiring_Positions::all(); 
+        $positions = Hiring_Positions::all();
         return view('dashboard.hr.internships.edit', [
             'Internship' => $Internship,
             'position' => $position,
@@ -66,14 +66,24 @@ class InternshipController extends Controller
 
         $internship->update($request->all());
 
-        Alert::toast('User Internship Changed Sucessfully', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.internships.index');
+        return redirect()->route('dashboard.internships.index')->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'Data staff intern berhasil diedit',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 
     public function destroy(UserInternship $internship)
     {
         $internship->delete();
-        Alert::toast('User Internship Deleted Sucessfully', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.internships.index');
+        return redirect()->route('dashboard.internships.index')->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'Data staff intern berhasil dihapus',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
     }
 }

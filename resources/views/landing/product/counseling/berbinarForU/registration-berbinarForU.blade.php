@@ -7,7 +7,7 @@
     ]
 )
 
-@section("content")
+@section('style')
     <style>
         .step-section {
             display: none;
@@ -27,7 +27,9 @@
             background-image: none !important;
         }
     </style>
+@endsection
 
+@section("content")
     <div class="mx-4 mb-8 mt-24 flex flex-col justify-center rounded-2xl bg-none px-12 py-6 shadow-none max-md:px-1 sm:mx-24 sm:mb-20 sm:mt-36 md:bg-white md:shadow-lg">
         <div class="flex flex-row justify-between" id="step-1-header">
             <a href="{{ route("product.counseling.peer-counselor.registration") }}">
