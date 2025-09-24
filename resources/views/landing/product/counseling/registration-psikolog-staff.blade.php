@@ -43,7 +43,7 @@
 
 @section('content')
     <div class="mt-28 sm:mt-32 leading-snug">
-        <a href="{{ route('product.counseling.psikolog.registration-staff.index') }}">
+        <a href="{{ route('product.counseling.registration') }}">
             <div class="flex items-center justify-end space-x-2 cursor-pointer w-1/5 max-sm:w-1/4">
                 <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow"
                     class="h-3 w-auto">
@@ -74,13 +74,13 @@
                     <div
                         class="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-20 justify-center transition-all duration-300 group-hover:-translate-y-0.5 group-hover:scale-y-[0.83] group-hover:mb-1.5">
                         @if ($konseling['nama'] === 'Psikolog')
-                            <a href="{{ route('product.counseling.psikolog.registration-staff.staff-psikolog') }}">
+                            <a href="{{ route('product.counseling.psikolog.staff') }}">
                                 <button
                                     class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar
                                     {!! italic_en($konseling['nama']) !!}</button>
                             </a>
                         @else
-                            <a href="{{ route('product.counseling.psikolog.registration-staff.staff-peer-counselor') }}">
+                            <a href="{{ route('product.counseling.psikolog.staff') }}">
                                 <button
                                     class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar
                                     {!! italic_en($konseling['nama']) !!}</button>
@@ -107,13 +107,13 @@
                         class="h-36 w-auto object-contain" />
                     <div class="flex justify-center">
                         @if ($konseling['nama'] === 'Psikolog')
-                            <a href="{{ route('product.counseling.psikolog.registration-staff.staff-psikolog') }}">
+                            <a href="{{ route('product.counseling.psikolog.staff') }}">
                                 <button
                                     class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:px-6 max-sm:text-[15px]">Daftar
                                     {!! italic_en($konseling['nama']) !!}</button>
                             </a>
                         @else
-                            <a href="{{ route('product.counseling.psikolog.registration-staff.staff-peer-counselor') }}">
+                            <a href="{{ route('product.counseling.psikolog.staff') }}">
                                 <button
                                     class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:px-6 max-sm:text-[15px]">Daftar
                                     {!! italic_en($konseling['nama']) !!}</button>

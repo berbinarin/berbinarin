@@ -313,7 +313,50 @@ class CounselingController extends Controller
             'konselings' => $konselings
         ]);
     }
+
+    public function registrationPsikologStaff()
+    {
+        $konselings = [
+            [
+                'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
+                'nama' => 'Psikolog',
+                'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
+            ],
+            [
+                'image' => 'assets/images/landing/asset-konseling/vector/orangnangis.png',
+                'nama' => 'Peer Counselor',
+                'deskripsi' => 'Konseling bersama Peer Conselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling ',
+            ],
+        ];
+
+        return view('landing.product.counseling.registration-psikolog-staff')->with([
+            'konselings' => $konselings
+        ]);
+    }
+
+     public function registrationPsikologUmum()
+    {
+        $konselings = [
+            [
+                'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
+                'nama' => 'Psikolog',
+                'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
+            ],
+            [
+                'image' => 'assets/images/landing/asset-konseling/vector/peercounselor.png',
+                'nama' => 'Peer Counselor',
+                'deskripsi' => 'Konseling bersama Peer Conselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
+            ],
+        ];
+
+        return view('landing.product.counseling.registration-psikolog-umum')->with([
+            'konselings' => $konselings
+        ]);
+
+    }
     
+
+
     // Validasi Voucher
     public function cekVoucher(Request $request)
     {
@@ -375,5 +418,4 @@ class CounselingController extends Controller
             'message' => 'Kode voucher valid.'
         ]);
     }
-
 }

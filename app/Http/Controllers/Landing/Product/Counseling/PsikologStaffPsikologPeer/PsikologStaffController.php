@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Landing\Product\Counseling\PsikologStaff;
+namespace App\Http\Controllers\Landing\Product\Counseling\PsikologStaffPsikologPeer;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
