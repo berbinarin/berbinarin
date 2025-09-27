@@ -80,7 +80,7 @@
                                     {!! italic_en($konseling['nama']) !!}</button>
                             </a>
                         @else
-                            <a href="{{ route('product.counseling.psikolog.staff') }}">
+                            <a href="{{ route('product.counseling.peer-counselor.staff') }}">
                                 <button
                                     class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar
                                     {!! italic_en($konseling['nama']) !!}</button>
@@ -113,7 +113,7 @@
                                     {!! italic_en($konseling['nama']) !!}</button>
                             </a>
                         @else
-                            <a href="{{ route('product.counseling.psikolog.staff') }}">
+                            <a href="{{ route('product.counseling.peer-counselor.staff') }}">
                                 <button
                                     class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:px-6 max-sm:text-[15px]">Daftar
                                     {!! italic_en($konseling['nama']) !!}</button>

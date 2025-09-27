@@ -22,6 +22,13 @@
         <span class="ml-4 text-base font-bold leading-5">Data Psikolog Staff</span>
     </a>
 </li>
+<li class="my-5 rounded-lg p-2 {{ isRouteNameStartWith('dashboard.peer-staff', 'bg') }}">
+    <a href="{{ route('dashboard.peer-staff.index') }}"
+       class="flex flex-row items-center duration-700 {{ isRouteNameStartWith('dashboard.peer-staff') }}">
+        <i class="bx bx-calendar mr-2 text-lg {{ isRouteNameStartWith('dashboard.peer-staff') }}"></i>
+        <span class="ml-4 text-base font-bold leading-5">Data Peer Staff</span>
+    </a>
+</li>
 
 
 

@@ -25,6 +25,7 @@ use App\Models\Question;
 use App\Models\CounsellingPM\KonsellingPsikologStaff;
 use App\Models\Test;
 use App\Models\UserInternship;
+use App\Models\CounsellingPM\KonsellingPeerStaff;
 use App\Models\UserPsikotest;
 use App\Models\BerbinarForU;
 use App\Models\CodeVoucher;
@@ -46,6 +47,7 @@ class DashboardController extends Controller
         $PeerConsellorData = KonsellingPeer::where('kategori', 'peer-counselor')->count();
         $PsikologData = KonsellingPsikolog::where('kategori', 'psikolog')->count();
         $PsikologDataStaff = KonsellingPsikologStaff::count();
+        $PeerDataStaff = KonsellingPeerStaff::count();
         $CodeVoucherPsikolog = CodeVoucher::where('jenis_pendaftaran', 'psikolog')->count();
         $CodeVoucherPeerCounselor = CodeVoucher::where('jenis_pendaftaran', 'peer-counselor')->count();
         $BerbinarForU = BerbinarForU::where('kategori', 'berbinar-for-u')->count();
@@ -129,6 +131,7 @@ class DashboardController extends Controller
             "totalBerbinarPlusUser" => $totalBerbinarPlusUser,
             "totalBerbinarPlusClass" => $totalBerbinarPlusClass,
             'PsikologDataStaff' => $PsikologDataStaff,
+            'PeerDataStaff' => $PeerDataStaff,
             'CodeVoucherPsikolog' => $CodeVoucherPsikolog,
             'CodeVoucherPeerCounselor' => $CodeVoucherPeerCounselor,
             'totalStafAktif' => $totalStafAktif,

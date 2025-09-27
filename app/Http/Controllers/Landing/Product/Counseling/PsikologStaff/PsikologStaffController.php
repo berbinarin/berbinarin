@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Landing\Product\Counseling\PsikologStaffPsikologPeer;
+namespace App\Http\Controllers\Landing\Product\Counseling\PsikologStaff;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -11,7 +11,7 @@ class PsikologStaffController extends Controller
 {
     public function showPsikologStaffForm()
     {
-        return view('landing.product.counseling.staff.registration-psikolog-staff');
+        return view('landing.product.counseling.staff-psikolog.registration-psikolog-staff');
     }
 
     public function cekVoucher(Request $request)
@@ -99,7 +99,7 @@ class PsikologStaffController extends Controller
 
             KonsellingPsikologStaff::create($data);
 
-            return view('landing.product.counseling.summary-konseling');
+            return view('landing.product.counseling.summary-konseling-staff');
         } catch (\Exception $e) {
             return redirect()->back()
                 ->with('error', 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.')

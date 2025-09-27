@@ -24,7 +24,7 @@
 
 <div class="sm:mt-36 mt-24 sm:mb-20 mb-8 sm:mx-24 mx-4 md:bg-white bg-none justify-center flex flex-col md:shadow-lg shadow-none rounded-2xl px-12 max-md:px-1 py-6">
 <div class="flex flex-row justify-between" id="step-1-header">
-        <a href="{{ route('product.counseling.psikolog.registration') }}">
+        <a href="{{ route('product.counseling.registration-staff') }}">
             <div class="flex items-center space-x-2 cursor-pointer">
                 <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow" class="h-3 w-auto">
                 <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span class="sm:block hidden ml-0.5">pilih konseling</span></p>

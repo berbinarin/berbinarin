@@ -20,6 +20,7 @@ use App\Http\Controllers\Dashboard\CounselingPM\CodeVoucherController;
 use App\Http\Controllers\Dashboard\ClassPM\BerbinarPlusDashboardController;
 use App\Http\Controllers\Dashboard\ClassPM\BerbinarClassController;
 use App\Http\Controllers\Dashboard\ManagerCPM\PsycologistStaffController;
+use App\Http\Controllers\Dashboard\ManagerCPM\PeerStaffController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -56,6 +57,8 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
     Route::middleware('role:manager-cpm')->group(function () {   
              
         Route::resource('/psychologists-staff',PsycologistStaffController::class);
+
+        Route::resource('/peer-staff',PeerStaffController::class);
 
     });
 

@@ -38,15 +38,7 @@ class CodeVoucherController extends Controller
             'tipe' => 'required|array',
             'detail' => 'required|array',
         ]);
-        if (CodeVoucher::where('code', $request->code)->exists()) {
-            return redirect()->back()->withInput()->with([
-                'alert'   => true,
-                'type'    => 'error',
-                'title'   => 'Gagal!',
-                'message' => 'Kode voucher sudah digunakan!',
-                'icon'    => asset('assets/images/dashboard/error.png'),
-            ]);
-        }
+
         $data = $request->all();
         $data['tipe'] = json_encode($request->tipe);
         $data['detail'] = json_encode($request->detail);
@@ -94,10 +86,6 @@ class CodeVoucherController extends Controller
             'tipe' => 'required|array',
             'detail' => 'required|array',
         ]);
-
-        if (CodeVoucher::where('code', $request->code)->where('id', '!=', (int)$id)->exists()) {
-            return redirect()->back()->withInput()->withErrors(['code' => 'Kode voucher sudah digunakan!']);
-        }
 
         $voucher = CodeVoucher::findOrFail($id);
 

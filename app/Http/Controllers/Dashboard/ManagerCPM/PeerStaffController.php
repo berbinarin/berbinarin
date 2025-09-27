@@ -3,24 +3,24 @@
 namespace App\Http\Controllers\Dashboard\ManagerCPM;
 
 use App\Http\Controllers\Controller;
-use App\Models\CounsellingPM\KonsellingPsikologStaff;
+use App\Models\CounsellingPM\KonsellingPeerStaff;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Carbon\Carbon;
 
-class PsycologistStaffController extends Controller
+class PeerStaffController extends Controller
 {
     public function index(Request $request)
     {
-        $PsikologData = KonsellingPsikologStaff::orderBy('created_at', 'desc')->get();
-        return view('dashboard.manager-cpm.psikolog-staff.index', ['PsikologData' => $PsikologData],);
+        $PsikologData = KonsellingPeerStaff::orderBy('created_at', 'desc')->get();
+        return view('dashboard.manager-cpm.peer-staff.index', ['PsikologData' => $PsikologData]);
     }
 
 
     public function create(Request $request)
     {
         $konselling = $request->session()->get('konselling');
-        return view('dashboard.manager-cpm.psikolog-staff.create', compact('konselling'));
+        return view('dashboard.manager-cpm.peer-staff.create', compact('konselling'));
     }
 
     public function store(Request $request)
@@ -56,28 +56,28 @@ class PsycologistStaffController extends Controller
         unset($validatedData['tanggal_lahir']);
 
 
-        $konselling = new KonsellingPsikologStaff();
+        $konselling = new KonsellingPeerStaff();
         $konselling->fill($validatedData);
         $konselling->save();
 
         Alert::toast('Data Psikolog Berhasil di Tambahkan', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.psychologists-staff.index');
+        return redirect()->route('dashboard.peer-staff.index');
     }
 
 
 
     public function show(Request $request, $id)
     {
-        $PsikologDataDetails = KonsellingPsikologStaff::find($id);
+        $PsikologDataDetails = KonsellingPeerStaff::find($id);
         $konselling = $request->session()->get('konselling');
-        return view('dashboard.manager-cpm.psikolog-staff.show', ['PsikologDataDetails' => $PsikologDataDetails], compact('konselling'));
+        return view('dashboard.manager-cpm.peer-staff.show', ['PsikologDataDetails' => $PsikologDataDetails], compact('konselling'));
     }
 
     public function edit(Request $request, $id)
     {
-        $PsikologDataDetails = KonsellingPsikologStaff::find($id);
+        $PsikologDataDetails = KonsellingPeerStaff::find($id);
         $konselling = $request->session()->get('konselling');
-        return view('dashboard.manager-cpm.psikolog-staff.edit', ['PsikologDataDetails' => $PsikologDataDetails], compact('konselling'));
+        return view('dashboard.manager-cpm.peer-staff.edit', ['PsikologDataDetails' => $PsikologDataDetails], compact('konselling'));
     }
 
 
@@ -112,17 +112,17 @@ class PsycologistStaffController extends Controller
         $validatedData['tanggal_Lahir'] = Carbon::createFromFormat('d/m/Y', $validatedData['tanggal_Lahir'])->format('Y-m-d');
 
 
-        $PsikologDataDetails = KonsellingPsikologStaff::find($id);
+        $PsikologDataDetails = KonsellingPeerStaff::find($id);
         $PsikologDataDetails->fill($validatedData);
         $PsikologDataDetails->save();
 
         Alert::toast('Data Psikolog Berhasil di Edit', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.psychologists-staff.index');
+        return redirect()->route('dashboard.peer-staff.index');
     }
     public function destroy($id)
     {
-        KonsellingPsikologStaff::where('id', $id)->delete();
+        KonsellingPeerStaff::where('id', $id)->delete();
         Alert::toast('Data Psikolog Berhasil di Hapus', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.psychologists-staff.index');
+        return redirect()->route('dashboard.peer-staff.index');
     }
 }

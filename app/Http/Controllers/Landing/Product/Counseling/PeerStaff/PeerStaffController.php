@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Landing\Product\Counseling\PsikologStaffPsikolog;
+namespace App\Http\Controllers\Landing\Product\Counseling\PeerStaff;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\CounsellingPM\KonsellingPsikologStaff;
+use App\Models\CounsellingPM\KonsellingPeerStaff;
 use App\Models\CodeVoucher;
 
-class PsikologStaffController extends Controller
+class PeerStaffController extends Controller
 {
     public function showPsikologStaffForm()
     {
-        return view('landing.product.counseling.staff.registration-psikolog-staff');
+        return view('landing.product.counseling.staff-peer.registration-peer-staff');
     }
 
     public function cekVoucher(Request $request)
@@ -60,7 +60,7 @@ class PsikologStaffController extends Controller
         ]);
     }
 
-    public function storePsikologStaffRegistration(Request $request)
+    public function storePeerStaffRegistration(Request $request)
     {
         $rules = [
             'jadwal_tanggal'    => 'required',
@@ -97,9 +97,9 @@ class PsikologStaffController extends Controller
             $data['tanggal_Lahir'] = $tanggalLahir ? $tanggalLahir->format('Y-m-d') : null;
             $data['jadwal_tanggal'] = $jadwalTanggal ? $jadwalTanggal->format('Y-m-d') : null;
 
-            KonsellingPsikologStaff::create($data);
+            KonsellingPeerStaff::create($data);
 
-            return view('landing.product.counseling.summary-konseling');
+            return view('landing.product.counseling.summary-konseling-staff');
         } catch (\Exception $e) {
             return redirect()->back()
                 ->with('error', 'Terjadi kesalahan saat menyimpan data. Silakan coba lagi.')
