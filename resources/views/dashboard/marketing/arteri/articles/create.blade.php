@@ -18,7 +18,7 @@
                             </a>
                             <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Tambah Artikel</p>
                         </div>
-                        <p class="w-3/4 text-disabled">Fitur ini digunakan untuk tambah data Artikel seperti Judul, Penulis, Kategori, Tautan, dan Sampul Artikel.</p>
+                        <p class="w-3/4 text-disabled">Fitur ini digunakan untuk tambah data artikel seperti judul, penulis, kategori, tautan, dan sampul artikel.</p>
                     </div>
                 </div>
 

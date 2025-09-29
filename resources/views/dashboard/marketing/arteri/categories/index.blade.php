@@ -78,8 +78,8 @@
                             <input class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none" id="nama_kategori" type="text" name="name_category" placeholder="Masukkan nama kategori" required />
                         </div>
                         <div class="flex items-center justify-end rounded-b border-t border-solid border-gray-300 pt-6">
-                            <button class="background-transparent mb-1 mr-2 rounded border border-black px-6 py-2 text-base font-bold outline-none focus:outline-none" type="button" onclick="tutupModalTambah()">Batal</button>
-                            <button type="submit" name="submit" class="inline-flex rounded bg-primary px-6 py-3 hover:bg-primary focus:outline-none">
+                            <button class="background-transparen mr-2 rounded border border-black px-6 py-2 text-base font-bold outline-none focus:outline-none" type="button" onclick="tutupModalTambah()">Batal</button>
+                            <button type="submit" name="submit" class="inline-flex rounded border border-primary bg-primary px-6 py-3 hover:bg-primary focus:outline-none">
                                 <p class="text-base font-semibold leading-none text-white">Simpan</p>
                             </button>
                         </div>
@@ -112,8 +112,8 @@
                             <input class="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none" id="edit_nama_kategori" type="text" name="name_category" placeholder="Masukkan nama kategori" required />
                         </div>
                         <div class="flex items-center justify-end rounded-b border-t border-solid border-gray-300 pt-6">
-                            <button class="background-transparent mb-1 mr-2 rounded border border-black px-6 py-2 text-base font-bold outline-none focus:outline-none" type="button" onclick="tutupModalEdit()">Batal</button>
-                            <button type="submit" name="submit" class="inline-flex rounded bg-primary px-6 py-3 hover:bg-primary focus:outline-none">
+                            <button class="background-transparent mr-2 rounded border border-black px-6 py-2 text-base font-bold outline-none focus:outline-none" type="button" onclick="tutupModalEdit()">Batal</button>
+                            <button type="submit" name="submit" class="inline-flex rounded border border-primary bg-primary px-6 py-3 hover:bg-primary focus:outline-none">
                                 <p class="text-base font-semibold leading-none text-white">Simpan</p>
                             </button>
                         </div>

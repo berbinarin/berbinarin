@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.app', [
-    'title' => 'Dashboard Arteri', 
+    'title' => 'Dashboard Arteri',
 ])
 
 @section('content')
@@ -11,7 +11,7 @@
                         <p tabindex="0"
                             class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal text-gray-800 mb-2">
                             Artikel</p>
-                        <p class="w-2/4 text-disabled">Halaman yang menampilkan kumpulan artikel yang sudah di publikasikan
+                        <p class="w-full text-disabled">Halaman yang menampilkan kumpulan artikel yang sudah di publikasikan
                             dalam website Berbinar</p>
                         <a href="{{ route('dashboard.arteri.articles.create') }}">
                             <button type="button"

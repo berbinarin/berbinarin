@@ -56,7 +56,7 @@
                             <p tabindex="0"
                                 class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
                                 Dashboard ArteRi</p>
-                            <p class="text-base text-disabled">Dashboard ini menampilkan ringkasan statistik, daftar artikel, penulis, dan kategori.</p>
+                            <p class="text-base text-disabled -mb-4">Dashboard ini menampilkan ringkasan statistik daftar artikel, penulis, kategori, reaksi, hingga analisis pembaca yang akan membantu dalam mengelola artikel.</p>
                         @endrole
 
                     {{--
@@ -639,7 +639,7 @@
             @endrole
 
             @role('marketing')
-            <div class="relative flex-grow overflow-hidden w-[1150px] max-h-[70vh]">
+            <div class="relative flex-grow overflow-hidden w-full">
                 <!-- Card Section -->
                 <div class="mb-5 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     <div class="flex h-[150px] flex-col justify-between rounded-xl bg-white p-4 shadow">
@@ -679,11 +679,11 @@
                             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                                 <p class="text-[14px]">Berikut ini merupakan visualisasi diagram Analisis Pembaca ArteRi</p>
                                 <div class="relative w-full sm:w-auto">
-                                    <select class="block w-full px-3 py-2 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#75BADB] focus:border-[#75BADB]">
+                                    <select class="block w-32 px-3 py-2 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#75BADB] focus:border-[#75BADB]">
                                         <option selected>All</option>
                                         <option>Pembaca</option>
                                         <option>Reaksi</option>
-                                        <option>Di bagikan</option>
+                                        <option>Dibagikan</option>
                                     </select>
                                 </div>
                             </div>

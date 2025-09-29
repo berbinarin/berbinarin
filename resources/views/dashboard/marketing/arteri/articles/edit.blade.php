@@ -17,9 +17,9 @@
                             <a href="{{ route("dashboard.arteri.articles.index") }}">
                                 <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
                             </a>
-                            <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Edit Artikel</p>
+                            <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Ubah Artikel</p>
                         </div>
-                        <p class="w-3/4 text-disabled">Fitur ini digunakan untuk edit data Artikel seperti Judul, Penulis, Kategori, Tautan, dan Sampul Artikel.</p>
+                        <p class="w-3/4 text-disabled">Fitur ini digunakan untuk mengubah data artikel seperti judul, penulis, kategori, tautan, dan sampul artikel.</p>
                     </div>
                 </div>
                 <div class="max-h-[74vh] overflow-y-auto rounded-lg border bg-white p-6 shadow-sm">
@@ -80,7 +80,7 @@
                     </div>
                     <div class="bottom-0 mt-6 flex justify-end bg-white pb-2 pt-4">
                         <button type="submit" name="submit" class="inline-flex rounded bg-primary px-6 py-3 hover:bg-primary focus:outline-none">
-                            <p class="text-base font-semibold leading-none text-white">Update</p>
+                            <p class="text-base font-semibold leading-none text-white">Perbarui</p>
                         </button>
                     </div>
                 </div>

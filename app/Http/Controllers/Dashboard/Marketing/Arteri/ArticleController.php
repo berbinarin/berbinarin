@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Articles\Interaction;
 use Illuminate\Support\Str;
 use App\Helpers\CategoryColorHelper;
+use App\Http\Controllers\Landing\Marketing\Arteri\CommentController;
+use App\Models\Articles\Comment;
 
 class ArticleController extends Controller
 {
@@ -87,7 +89,10 @@ class ArticleController extends Controller
             }
         }
 
-        return view('dashboard.marketing.arteri.articles.show', compact('article', 'categoryColors', 'viewers', 'totalShare', 'reactionCounts', 'currentUrl'));
+        $commentCount = Comment::where('article_id', $article->id)->count();
+        $comments = Comment::where('article_id', $article->id)->latest()->get();
+
+        return view('dashboard.marketing.arteri.articles.show', compact('article', 'categoryColors', 'viewers', 'totalShare', 'reactionCounts', 'currentUrl', 'commentCount', 'comments'));
     }
 
     public function edit(string $id)

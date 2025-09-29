@@ -12,7 +12,7 @@
                 <div class="py-4 md:pb-7 md:pt-12">
                     <div>
                         <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Data Penulis</p>
-                        <p text-disabled">Menampilkan daftar penulis, memungkinkan admin untuk mengelola kontributor dan kontennya.</p>
+                        <p class="w-full text-disabled">Menampilkan daftar penulis, memungkinkan admin untuk mengelola kontributor dan kontennya.</p>
                         <button onclick="bukaModalTambahPenulis()" type="button" class="mt-8 inline-flex items-start justify-start rounded-lg bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
                             <p class="text-dark font-medium leading-none">Tambah Penulis</p>
                         </button>
@@ -94,8 +94,8 @@
                         </div>
 
                         <div class="flex items-center justify-between gap-3">
+                            <button type="button" onclick="tutupModalTambahPenulis()" class="w-1/2 rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-800 hover:bg-gray-100 focus:outline-none">Batal</button>
                             <button type="submit" name="submit" class="hover:bg-primary-dark w-1/2 rounded-lg bg-primary px-4 py-3 font-medium text-white focus:outline-none">Simpan</button>
-                            <button type="button" onclick="tutupModalTambahPenulis()" class="w-1/2 rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-800 hover:bg-gray-100 focus:outline-none">Tidak</button>
                         </div>
                     </form>
                 </div>
@@ -113,7 +113,7 @@
                 <div class="flex flex-col items-center justify-center p-5">
                     <div class="mb-4 flex items-center justify-center">
                         <img src="{{ asset("assets/images/dashboard/svg-icon/penulis-icon.png") }}" class="mr-2 h-8 w-8" />
-                        <span class="text-lg font-semibold">Edit Penulis</span>
+                        <span class="text-lg font-semibold">Ubah Penulis</span>
                     </div>
                 </div>
                 <!--body-->
@@ -139,8 +139,8 @@
                         </div>
 
                         <div class="flex items-center justify-between gap-3">
+                            <button type="button" onclick="tutupModalEditPenulis()" class="w-1/2 rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-800 hover:bg-gray-100 focus:outline-none">Batal</button>
                             <button type="submit" name="submit" class="hover:bg-primary-dark w-1/2 rounded-lg bg-primary px-4 py-3 font-medium text-white focus:outline-none">Simpan</button>
-                            <button type="button" onclick="tutupModalEditPenulis()" class="w-1/2 rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-800 hover:bg-gray-100 focus:outline-none">Tidak</button>
                         </div>
                     </form>
                 </div>
