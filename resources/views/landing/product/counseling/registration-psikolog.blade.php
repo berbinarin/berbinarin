@@ -43,14 +43,6 @@
 
 @section('content')
     <div class="mt-28 sm:mt-32 leading-snug">
-        <a href="{{ route('product.counseling.registration') }}">
-            <div class="flex items-center justify-end space-x-2 cursor-pointer w-1/5 max-sm:w-1/4">
-                <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow"
-                    class="h-3 w-auto">
-                <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span class="sm:block hidden ml-0.5">pilih
-                        konseling</span></p>
-            </div>
-        </a>
         <h1
             class="font text-gradient text-center text-4xl font-semibold text-black pb-1 max-md:mx-10 max-sm:mx-2 max-sm:text-[29px]">
             Tentukan Jenis Sesi Konselingmu</h1>
@@ -89,6 +81,7 @@
                     </div>
                 </div>
             </div>
+
 
             @if ($loop->iteration == 1)
                 <img src="{{ asset('assets/images/landing/logo/logo-berbinar.png') }}" alt="Berbinar"
@@ -129,5 +122,14 @@
                     class="h-14 w-auto object-contain" />
             @endif
         @endforeach
+    </div>
+
+
+    <!-- Taruh span di luar flex -->
+    <div class="text-center mt-4">
+        <span class="font-semibold text-base">
+            Kamu staf aktif Berbinar? Klaim Konseling gratismu
+            <a href="{{ route('product.counseling.registration-staff') }}" class="text-[#3986A3] underline">disini</a>
+        </span>
     </div>
 @endsection

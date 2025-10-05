@@ -130,4 +130,12 @@
             @endif
         @endforeach
     </div>
+
+    <!-- Taruh span di luar flex -->
+    <div class="text-center mt-4">
+        <span class="font-semibold text-base">
+            Kamu staf aktif Berbinar? Klaim Konseling gratismu
+            <a href="{{ route('product.counseling.registration-staff') }}" class="text-[#3986A3] underline">disini</a>
+        </span>
+    </div>
 @endsection

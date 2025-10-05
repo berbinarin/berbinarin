@@ -88,11 +88,11 @@
             </div>
         </div>
 
-        <div class="flex flex-col space-y-4">
+        <div class="flex flex-col space-y-4 mt-5">
             <h1 class="text-gradient text-center text-3xl font-bold md:text-4xl drop-shadow-lg">Terima Kasih</h1>
             <img src="{{ asset('assets/images/landing/logo/logo-berbinar.png') }}" alt="Berbinar"
-                class="h-[120px] w-auto object-contain" />
-            <p class="text-gradient text-center text-base font-medium md:text-2xl drop-shadow-lg">
+                class="h-[120px] w-auto object-contain mt-6" />
+            <p class="text-gradient text-center text-base font-medium md:text-2xl drop-shadow-lg mt-6">
                 Setelah mengisi form, para staff diharapkan untuk melakukan konfirmasi apabila telah submit form pengajuan
                 konseling bersama psikolog melalui Counseling Product Management Manager
                 <br>

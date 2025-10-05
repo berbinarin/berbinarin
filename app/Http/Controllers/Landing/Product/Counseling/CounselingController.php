@@ -299,17 +299,17 @@ class CounselingController extends Controller
         $konselings = [
             [
                 'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
-                'nama' => 'Umum',
+                'nama' => 'Psikolog',
                 'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
             ],
             [
                 'image' => 'assets/images/landing/asset-konseling/vector/psikolog-staff.png',
-                'nama' => 'Staff',
+                'nama' => 'Peer Counselor',
                 'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
             ],
         ];
 
-        return view('landing.product.counseling.choose-counseling-session')->with([
+        return view('landing.product.counseling.registration-psikolog')->with([
             'konselings' => $konselings
         ]);
     }
@@ -354,7 +354,12 @@ class CounselingController extends Controller
         ]);
 
     }
-    
+
+    public function summary()
+    {
+        return view('landing.product.counseling.summary-konseling-staff');
+    }
+
 
 
     // Validasi Voucher
