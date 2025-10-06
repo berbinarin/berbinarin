@@ -318,6 +318,13 @@
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Pendidikan</td>
+<<<<<<< HEAD
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->pendidikan }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="border border-gray-300 px-4 py-2">Asal Sekolah/Universitas</td>
+                                    <td class="border border-gray-300 px-4 py-2 capitalize">{{ $PsikologDataDetails->asal_sekolah }}</td>
+=======
                                     <td class="border border-gray-300 px-4 py-2">{{ $PsikologDataDetails->pendidikan }}
                                     </td>
                                 </tr>
@@ -325,6 +332,7 @@
                                     <td class="border border-gray-300 px-4 py-2">Asal Sekolah/Universitas</td>
                                     <td class="border border-gray-300 px-4 py-2">{{ $PsikologDataDetails->asal_sekolah }}
                                     </td>
+>>>>>>> 15609a1c2513c1485a24986d233493a9ebe4fdef
                                 </tr>
                                 <tr>
                                     <td class="border border-gray-300 px-4 py-2">Riwayat Pekerjaan</td>

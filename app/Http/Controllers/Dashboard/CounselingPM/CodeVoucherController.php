@@ -38,12 +38,35 @@ class CodeVoucherController extends Controller
             'tipe' => 'required|array',
             'detail' => 'required|array',
         ]);
+<<<<<<< HEAD
+=======
+        if (CodeVoucher::where('code', $request->code)->exists()) {
+            return redirect()->back()->withInput()->with([
+                'alert'   => true,
+                'type'    => 'error',
+                'title'   => 'Gagal!',
+                'message' => 'Kode voucher sudah digunakan!',
+                'icon'    => asset('assets/images/dashboard/error.png'),
+            ]);
+        }
+>>>>>>> 934c268fa7d1fda78b70a745afc972eaa1ed3e62
 
+<<<<<<< HEAD
+        CodeVoucher::create($request->all());
+        return redirect()->route('dashboard.code-voucher.index')->with([
+                'alert' => true,
+                'type' => 'success',
+                'title' => 'Berhasil!',
+                'message' =>'Code voucher berhasil ditambahkan',
+                'icon' => asset('assets/images/dashboard/success.png'),
+            ]);
+=======
         $data = $request->all();
         $data['tipe'] = json_encode($request->tipe);
         $data['detail'] = json_encode($request->detail);
 
         CodeVoucher::create($data);
+<<<<<<< HEAD
 
         // CodeVoucher::create($request->all());
         return redirect()->route('dashboard.code-voucher.index')->with([
@@ -53,6 +76,10 @@ class CodeVoucherController extends Controller
                 'message' =>'Code voucher berhasil ditambahkan',
                 'icon' => asset('assets/images/dashboard/success.png'),
             ]);
+=======
+        return redirect()->route('dashboard.code-voucher.index')->with('success', 'Kode voucher berhasil ditambahkan!');
+>>>>>>> 15609a1c2513c1485a24986d233493a9ebe4fdef
+>>>>>>> 934c268fa7d1fda78b70a745afc972eaa1ed3e62
     }
 
     /**
