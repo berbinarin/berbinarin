@@ -175,11 +175,6 @@ class CounselingController extends Controller
                 'region' => 'Jakarta'
             ],
             [
-                'name' => "Rizka Arista Sabilla ",
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/rizka.png',
-                'region' => 'Nganjuk'
-            ],
-            [
                 'name' => 'Nurfadila Aulia Muslimin',
                 'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/nurfadila.png',
                 'region' => 'Makassar'
@@ -354,7 +349,7 @@ class CounselingController extends Controller
         ]);
 
     }
-    
+
 
 
     // Validasi Voucher

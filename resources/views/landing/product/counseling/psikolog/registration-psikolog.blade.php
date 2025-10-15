@@ -92,7 +92,7 @@
                 </div>
                 <ol class="list-decimal mt-1 space-y-1 pl-7">
                     <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
-                    <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Jakarta, Makassar, dan Nganjuk</li>
+                    <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Jakarta dan Makassar</li>
                 </ol>
             </div>
 
@@ -203,7 +203,7 @@
         @csrf
 
         {{-- STEP 1: Pilih Jadwal Konseling --}}
-        
+
         <div id="step-1" class="step-section active">
             <h1 class="max-sm:text-[29px] text-3xl font font-semibold text-center max-sm:mx-2 text-gradient my-6">Isi Jadwal Konseling</h1>
             <input type="hidden" name="kategori" value="psikolog">

@@ -73,7 +73,7 @@
                 </div>
                 <ol class="list-decimal mt-1 space-y-1 pl-7">
                     <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
-                    <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Jakarta, Makassar, dan Nganjuk</li>
+                    <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Jakarta dan Makassar</li>
                 </ol>
             </div>
 
@@ -342,7 +342,7 @@
     });
 
     // Falidasi Step 2
-    function validateStep2() { 
+    function validateStep2() {
         const requiredFields = [
                 'jadwal_tanggal', 'jadwal_pukul',
                 'nama', 'email', 'tanggal_Lahir', 'tempat_lahir', 'alamat', 'umur', 'agama','status_pernikahan',
@@ -367,7 +367,7 @@
             }
             return null;
     }
-    
+
     // Validasi Step 3
     function validateStep3() {
         const requiredFields = ['topik_pengajuan', 'cerita'];
@@ -484,7 +484,7 @@
             });
             return;
         }
-        
+
         this.submit();
     });
 
@@ -510,7 +510,7 @@
         });
     });
 
-  
+
     // ERROR HANDLING DARI BACKEND JIKA ADA KESALAHAN DALAM SUBMIT FORM
     @if(session('error'))
         Swal.fire({

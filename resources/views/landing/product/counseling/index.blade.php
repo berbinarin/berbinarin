@@ -114,7 +114,7 @@
             }
 
             #swiperPeer {
-                width: 550px;
+                width: 500px;
                 margin: 10px auto;
             }
 
@@ -246,7 +246,7 @@
                                     <li class="max-sm:text-sm">
                                         b.
                                         <i>Peer Counselor</i>
-                                        : Jakarta, Makassar, dan Nganjuk
+                                        : Jakarta dan Makassar
                                     </li>
                                 </ol>
                             </div>
@@ -826,7 +826,7 @@
 
         // Swiper Peer Counselor Berbinar
         var swiper = new Swiper('#swiperPeer', {
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 10,
             speed: 300,
             loop: true,
