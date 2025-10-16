@@ -94,8 +94,9 @@
     </div>
   </div>
 </section>
+@endforeach
 
-
+@section('script')
     <script>
         let deleteModal = document.getElementById('deleteModal');
         let deleteForm = document.getElementById('deleteForm');

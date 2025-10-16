@@ -182,7 +182,7 @@
                         <table class="w-full" id="comments-table">
                             <thead class="text-[#C1C1C1]">
                                 <th class="w-1/4 pb-4">Waktu</th>
-                                <th class="w-1/4 pb-4">Pembaca</th>
+                                <th class="w-1/4 pb-4">Nama</th>
                                 <th class="pb-4">Komentar</th>
                             </thead>
                             <tbody>
@@ -551,6 +551,7 @@
     </script>
 
     <script>
+        // Script pagination komentar
         document.addEventListener('DOMContentLoaded', function () {
             const rowsPerPage = 5;
             const table = document.getElementById('comments-table');
@@ -568,88 +569,15 @@
                 renderPagination();
             }
 
-            let inputActive = false;
-            let inputIndex = null;
-
             function renderPagination() {
                 pagination.innerHTML = '';
-
-                // Tombol Sebelumnya
-                const prevBtn = document.createElement('button');
-                prevBtn.textContent = '<';
-                prevBtn.className = 'px-3 pb-[6px] rounded border mr-1 text-2xl ' + (currentPage === 1 ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'bg-white text-primary');
-                prevBtn.disabled = currentPage === 1;
-                prevBtn.onclick = () => showPage(currentPage - 1);
-                pagination.appendChild(prevBtn);
-
-                // Logic untuk membatasi pagination maksimal 5 angka (hanya sekitar page aktif)
-                let pageList = [];
-                if (totalPages <= 5) {
-                    for (let i = 1; i <= totalPages; i++) pageList.push(i);
-                } else {
-                    if (currentPage <= 3) {
-                        pageList = [1, 2, 3, '...', totalPages];
-                    } else if (currentPage >= totalPages - 2) {
-                        pageList = [1, '...', totalPages - 2, totalPages - 1, totalPages];
-                    } else {
-                        pageList = [1, '...', currentPage, '...', totalPages];
-                    }
+                for (let i = 1; i <= totalPages; i++) {
+                    const btn = document.createElement('button');
+                    btn.textContent = i;
+                    btn.className = 'px-3 py-1 rounded border ' + (i === currentPage ? 'bg-primary text-white' : 'bg-white text-primary');
+                    btn.onclick = () => showPage(i);
+                    pagination.appendChild(btn);
                 }
-
-                pageList.forEach((p, idx) => {
-                    if (p === '...' && inputActive && inputIndex === idx) {
-                        // Tampilkan input di tempat ...
-                        const input = document.createElement('input');
-                        input.type = 'number';
-                        input.min = 1;
-                        input.max = totalPages;
-                        input.value = currentPage;
-                        input.className = 'w-14 px-2 py-1 border rounded text-center focus:outline-primary';
-                        input.onkeydown = function(e) {
-                            if (e.key === 'Enter') {
-                                let pageNum = parseInt(input.value);
-                                if (!isNaN(pageNum) && pageNum >= 1 && pageNum <= totalPages) {
-                                    inputActive = false;
-                                    showPage(pageNum);
-                                }
-                            } else if (e.key === 'Escape') {
-                                inputActive = false;
-                                renderPagination();
-                            }
-                        };
-                        input.onblur = function() {
-                            inputActive = false;
-                            renderPagination();
-                        };
-                        pagination.appendChild(input);
-                        setTimeout(() => input.focus(), 10);
-                    } else if (p === '...') {
-                        const dots = document.createElement('button');
-                        dots.textContent = '...';
-                        dots.className = 'px-2 text-gray-400 cursor-pointer bg-white border rounded';
-                        dots.onclick = function() {
-                            inputActive = true;
-                            inputIndex = idx;
-                            renderPagination();
-                        };
-                        pagination.appendChild(dots);
-                    } else {
-                        const btn = document.createElement('button');
-                        btn.textContent = p;
-                        btn.className = 'px-3 py-1 rounded border mx-0.5 ' + (p === currentPage ? 'bg-primary text-white' : 'bg-white text-primary');
-                        btn.disabled = p === currentPage;
-                        btn.onclick = () => showPage(p);
-                        pagination.appendChild(btn);
-                    }
-                });
-
-                // Tombol Selanjutnya
-                const nextBtn = document.createElement('button');
-                nextBtn.textContent = '>';
-                nextBtn.className = 'px-3 pb-[6px] rounded border ml-1 text-2xl ' + (currentPage === totalPages ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'bg-white text-primary');
-                nextBtn.disabled = currentPage === totalPages;
-                nextBtn.onclick = () => showPage(currentPage + 1);
-                pagination.appendChild(nextBtn);
             }
 
             if (rows.length > 0) showPage(1);
