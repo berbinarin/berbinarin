@@ -66,7 +66,7 @@
         <div id="modal" class="fixed bg-gray-900 bg-opacity-50 backdrop-blur-md hidden inset-0 flex items-center justify-center z-30">
         <div class="h-auto max-sm:max-h-[90%] max-h-screen w-[70%] overflow-y-auto rounded-2xl bg-white p-6 max-sm:px-2 shadow-md max-lg:h-[90%] max-sm:w-[86%]">
             <h1 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-center text-3xl font-bold max-sm:text-2xl">Syarat dan Ketentuan</h1>
-            <div class="mb-6">
+            <!-- <div class="mb-6">
                 <div class="flex items-start gap-2">
                     <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Lokasi" class="h-5 w-5 mt-0.5" />
                     <span class="font-semibold">Lokasi offline Konseling</span>
@@ -75,9 +75,9 @@
                     <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
                     <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Jakarta dan Makassar</li>
                 </ol>
-            </div>
+            </div> -->
 
-            <div class="mb-6">
+            <!-- <div class="mb-6">
                 <div class="flex items-start gap-2">
                     <img src="{{ asset('assets/images/landing/asset-konseling/vector/payment.png') }}" alt="Pembayaran" class="h-5 w-5 mt-0.5" />
                     <span class="font-semibold">Pembayaran</span>
@@ -85,9 +85,9 @@
                 <ol class="list-decimal mt-1 space-y-1 pl-7">
                     <li class="max-sm:text-sm">Melakukan pembayaran ke Bank Mandiri dengan no rekening 1400020763711 a.n. Berbinar Insightful Indonesia dengan aturan transfer 1×24 jam.</li>
                 </ol>
-            </div>
+            </div> -->
 
-            <div class="mb-6">
+            <!-- <div class="mb-6">
                 <div class="flex items-start gap-2">
                     <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.png') }}" alt="Pembalasan Pesan" class="h-5 w-5 mt-0.5" />
                     <span class="font-semibold">Pembalasan Pesan</span>
@@ -97,9 +97,31 @@
                     <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 1×24 jam, jadwal yang sudah ditentukan oleh klien berhak untuk diubah oleh Tim Berbinar dan kesepakatan dari klien.</li>
                     <li class="max-sm:text-sm">Tidak membalas pesan admin dalam 2×24 jam setelah melakukan pembayaran, pembayaran dianggap hangus.</li>
                 </ol>
+            </div> -->
+
+            <div class="mb-6">
+                <div class="flex items-start gap-2">
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}" alt="Pembalasan Pesan" class="h-5 w-5 mt-0.5" />
+                    <span class="font-semibold">Ketentuan</span>
+                </div>
+                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                    <ul class="max-sm:text-sm">Sesuai dengan ketentuan yang ada di kontrak kerja terkait pemberian benefit kepada staff yang bekerja di PT. Berbinar Insightful Indonesia, bagi para staff yang ingin mengambil benefit konseling 1 kali/bulan bersama psikolog (Pak Danny) dan Peer, kalian dapat mengikuti alur dibawah ini</ul>
+                </ol>
             </div>
 
             <div class="mb-6">
+                <div class="flex items-start gap-2">
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.png') }}" alt="Pembalasan Pesan" class="h-5 w-5 mt-0.5" />
+                    <span class="font-semibold">Alur Pendaftaran</span>
+                </div>
+                <ol class="list-decimal mt-1 space-y-1 pl-7">
+                    <li class="max-sm:text-sm">Para staff mengisi terlebih dahulu form pada halaman berikut</li>
+                    <li class="max-sm:text-sm"> Setelah mengisi form tersebut, para staff diharapkan untuk melakukan konfirmasi apabila telah submit form pengajuan konseling bersama psikolog melalui Counseling Product Management Manager (087876662013 - Dindu)</li>
+                    <li class="max-sm:text-sm">Penjadwalan pasti sesi konseling akan diumumkan ketika mendapat konfirmasi dari Pak Danny sebagai Psikolog atau Peer Counselor melalui Counseling Product Management Manager</li>
+                </ol>
+            </div>
+
+            <!-- <div class="mb-6">
                 <div class="flex items-start gap-2">
                     <img src="{{ asset('assets/images/landing/asset-konseling/vector/cancel.png') }}" alt="Pengajuan Pembatalan" class="h-5 w-5 mt-0.5" />
                     <span class="font-semibold">Pengajuan Pembatalan</span>
@@ -107,7 +129,7 @@
                 <ol class="list-decimal mt-1 space-y-1 pl-7">
                     <li class="max-sm:text-sm">Pengajuan proses pembatalan layanan konseling dapat dilakukan dalam kurun waktu 1×24 jam setelah proses administrasi dan dana yang telah dibayarkan akan dikembalikan 100%.</li>
                 </ol>
-            </div>
+            </div> -->
 
 
             <div class="mt-4 justify-center flex lg:gap-x-3">
