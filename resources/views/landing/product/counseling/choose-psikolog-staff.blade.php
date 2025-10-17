@@ -43,7 +43,7 @@
 
 @section('content')
     <div class="mt-28 sm:mt-32 leading-snug">
-        <a href="{{ route('product.counseling.index') }}">
+        <a href="{{ route('product.counseling.registration') }}">
             <div class="flex items-center justify-end space-x-2 cursor-pointer w-1/5 max-sm:w-1/4">
                 <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow"
                     class="h-3 w-auto">
@@ -53,7 +53,7 @@
         </a>
         <h1
             class="font text-gradient text-center text-4xl font-semibold text-black pb-1 max-md:mx-10 max-sm:mx-2 max-sm:text-[29px]">
-            Tentukan Jenis Sesi Konselingmu</h1>
+            Tentukan Jenis Konseling yang Sesuai</h1>
     </div>
 
     <div class="mx-20 my-12 hidden items-center justify-center space-x-5 md:flex">
@@ -67,20 +67,20 @@
                             class="font text-gradient-blue text-3xl font-semibold leading-relaxed text-black transition-all duration-300 group-hover:text-4xl group-hover:leading-normal max-sm:text-[29px]">
                             {!! italic_en($konseling['nama']) !!}</h1>
                         <img src="{{ asset($konseling['image']) }}" alt="{{ $konseling['nama'] }}"
-                            class="h-[140px] w-auto object-contain transition-all duration-300 group-hover:-my-1 group-hover:h-52" />
+                            class="h-[158px] w-auto object-contain transition-all duration-300 group-hover:-my-1 group-hover:h-52" />
                         <p class="text-base font-semibold leading-tight text-black">{!! italic_en($konseling['deskripsi']) !!}</p>
                     </div>
 
                     <div
                         class="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-20 justify-center transition-all duration-300 group-hover:-translate-y-0.5 group-hover:scale-y-[0.83] group-hover:mb-1.5">
-                        @if ($konseling['nama'] === 'Umum')
-                            <a href="{{ route('product.counseling.registration-umum') }}">
+                        @if ($konseling['nama'] === 'Psikolog')
+                            <a href="{{ route('product.counseling.psikolog.staff') }}">
                                 <button
                                     class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar
                                     {!! italic_en($konseling['nama']) !!}</button>
                             </a>
                         @else
-                            <a href="{{ route('product.counseling.registration-staff') }}">
+                            <a href="{{ route('product.counseling.peer-counselor.staff') }}">
                                 <button
                                     class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:rounded-md max-sm:px-6 max-sm:text-[15px]">Daftar
                                     {!! italic_en($konseling['nama']) !!}</button>
@@ -106,14 +106,14 @@
                     <img src="{{ asset($konseling['image']) }}" alt="{{ $konseling['nama'] }}"
                         class="h-36 w-auto object-contain" />
                     <div class="flex justify-center">
-                        @if ($konseling['nama'] === 'Peer Counselor')
-                            <a href="{{ route('product.counseling.registration-umum') }}">
+                        @if ($konseling['nama'] === 'Psikolog')
+                            <a href="{{ route('product.counseling.psikolog.staff') }}">
                                 <button
                                     class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:px-6 max-sm:text-[15px]">Daftar
                                     {!! italic_en($konseling['nama']) !!}</button>
                             </a>
                         @else
-                            <a href="{{ route('product.counseling.registration-staff') }}">
+                            <a href="{{ route('product.counseling.peer-counselor.staff') }}">
                                 <button
                                     class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-white max-sm:px-6 max-sm:text-[15px]">Daftar
                                     {!! italic_en($konseling['nama']) !!}</button>

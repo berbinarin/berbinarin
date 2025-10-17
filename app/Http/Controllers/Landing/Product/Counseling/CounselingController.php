@@ -294,17 +294,17 @@ class CounselingController extends Controller
         $konselings = [
             [
                 'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
-                'nama' => 'Umum',
+                'nama' => 'Psikolog',
                 'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
             ],
             [
                 'image' => 'assets/images/landing/asset-konseling/vector/psikolog-staff.png',
-                'nama' => 'Staff',
-                'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
+                'nama' => 'Peer Counselor',
+                'deskripsi' => 'Konseling bersama Peer Counselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
             ],
         ];
 
-        return view('landing.product.counseling.choose-counseling-session')->with([
+        return view('landing.product.counseling.choose-psikolog-umum')->with([
             'konselings' => $konselings
         ]);
     }
@@ -324,30 +324,9 @@ class CounselingController extends Controller
             ],
         ];
 
-        return view('landing.product.counseling.registration-psikolog-staff')->with([
+        return view('landing.product.counseling.choose-psikolog-staff')->with([
             'konselings' => $konselings
         ]);
-    }
-
-     public function registrationPsikologUmum()
-    {
-        $konselings = [
-            [
-                'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
-                'nama' => 'Psikolog',
-                'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
-            ],
-            [
-                'image' => 'assets/images/landing/asset-konseling/vector/peercounselor.png',
-                'nama' => 'Peer Counselor',
-                'deskripsi' => 'Konseling bersama Peer Conselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
-            ],
-        ];
-
-        return view('landing.product.counseling.registration-psikolog-umum')->with([
-            'konselings' => $konselings
-        ]);
-
     }
 
 

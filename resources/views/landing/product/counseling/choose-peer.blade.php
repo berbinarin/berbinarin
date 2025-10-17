@@ -53,7 +53,7 @@
         </a>
         <h1
             class="font text-gradient text-center text-4xl font-semibold text-black pb-1 max-md:mx-10 max-sm:mx-2 max-sm:text-[29px]">
-            Tentukan Jenis Sesi Konselingmu</h1>
+            Tentukan Jenis Layanan Peer Counselormu</h1>
     </div>
 
     <div class="mx-20 my-12 hidden items-center justify-center space-x-5 md:flex">
@@ -95,6 +95,13 @@
                     class="h-20 w-auto object-contain" />
             @endif
         @endforeach
+    </div>
+    <div class="hidden md:block text-center font-semibold text-black text-base">
+        <span>
+            Kamu staf aktif Berbinar? Klaim konseling gratismu
+            <a href="{{ route('product.counseling.registration-staff') }}"
+                class="text-[#3986A3] hover:underline">disini!</a>
+        </span>
     </div>
 
     <div class="mx-4 my-12 flex flex-col items-center justify-center space-y-4 md:hidden">
