@@ -271,8 +271,8 @@
         </div>
 
         <!-- Page Five: Terima Kasih -->
-        <h2 id="pageTitleFive" class="tittleFive text-2xl xl:text-3xl bg-gradient-to-r from-[#F7B23B] to-[#916823] bg-clip-text text-transparent font-bold text-bold text-center md:-mb-3 mt-4 lg:-mt-7 hidden">Terima kasih</h2>
-        <div id="pageFive" class="pageFive flex flex-col justify-center items-center mx-auto md:flex-row mt-2 mx-2 hidden">
+        <h2 id="pageTitleFive" class="tittleFive text-2xl xl:text-3xl bg-gradient-to-r from-[#F7B23B] to-[#916823] bg-clip-text text-transparent font-bold text-bold text-center md:-mb-3 mt-4 lg:-mt-7 hidden">Terima Kasih</h2>
+        <div id="pageFive" class="pageFive flex flex-col justify-center items-center mx-auto md:flex-row mt-10 mx-2 hidden">
           <div class="w-full mx-auto md:w-full md:py-2 md:px-6">
             <div class="px-4">
               <div class="mb-3 px-8 -mt-2 text-center">
@@ -281,11 +281,11 @@
                 </div>
 
                 <p class="text-sm xl:text-base">Terima kasih sudah mendaftar. Pastikan bahwa seluruh data telah benar, link dapat diakses, dan jangan lupa tekan tombol kirim di bawah ini 😆</p>
-                <p class="text-sm mt-4 mb-4">Jika ada pertanyaan lebih lanjut, bisa hubungi WA di bawah ini:<br>
-                  Bianca (<a href="https://wa.me/6289508781453" class="text-blue-500">089508781453</a>)<br>
-                  Nanda  (<a href="https://wa.me/628111990797" class="text-blue-500">08111990797</a>)<br>
-                  Ismalia (<a href="https://wa.me/6285174386120" class="text-blue-500">085174386120</a>)<br>
-
+                <p class="text-sm mt-4 mb-4">
+                    Jika ada pertanyaan lebih lanjut, bisa hubungi WA di bawah ini:
+                    <div class="mt-1">Nanda (<a href="https://wa.me/628111990797" class="text-blue-500">08111990797</a>)</div>
+                    <div class="mt-1">Dinda (<a href="https://wa.me/6281585376200" class="text-blue-500">081585376200</a>)</div>
+                    <div class="mt-1">Aurellia (<a href="https://wa.me/6285325352099" class="text-blue-500">085325352099</a>)</div>
                 </p>
               </div>
 
@@ -342,7 +342,7 @@
 <div class="w-full h-1/12 relative flex flex-col items-end justify-end -ml-2">
   <div class="mr-14 flex md:flex justify-end">
     <div class="flex justify-end mt-8 md:hidden">
-      <button id="previousMobile" type="button" class="previousMobile cursor-pointer bg-[#C7F8FF] text-gray-700 py-2 px-8 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 mr-24 mb-8 hidden">Previous</button>
+      <button id="previousMobile" type="button" class="previousMobile cursor-pointer bg-[#C7F8FF] text-gray-700 py-2 px-8 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 mr-14 mb-8 hidden">Previous</button>
       <button id="nextMobile" type="button" class="nextMobile cursor-pointer bg-gradient-to-r from-[#3986A3] to-[#15323D] text-white py-2 px-8 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mb-8">Next</button>
     </div>
   </div>
@@ -350,7 +350,7 @@
 <div class="h-1/12 relative flex flex-col items-end justify-end ml-12">
   <div class="mr-14 flex md:flex justify-end">
     <div class="flex justify-end md:hidden">
-      <button id="previousMobileTwo" type="button" class="previousMobileTwo cursor-pointer bg-[#C7F8FF] text-gray-700 py-2 px-8 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 mr-24 mb-8 hidden">Previous</button>
+      <button id="previousMobileTwo" type="button" class="previousMobileTwo cursor-pointer bg-[#C7F8FF] text-gray-700 py-2 px-8 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 mr-14 mb-8 hidden">Previous</button>
       <button id="nextMobileTwo" type="button" class="nextMobileTwo cursor-pointer bg-gradient-to-r from-[#3986A3] to-[#15323D] text-white py-2 px-8 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mb-8 hidden">Next</button>
     </div>
   </div>
@@ -358,7 +358,7 @@
 <div class="h-1/12 relative flex flex-col items-end justify-end ml-12">
   <div class="mr-14 flex md:flex justify-end">
     <div class="flex justify-end md:hidden">
-      <button id="previousMobileThree" type="button" class="previousMobileThree cursor-pointer bg-[#C7F8FF] text-gray-700 py-2 px-8 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 mr-24 mb-8 hidden">Previous</button>
+      <button id="previousMobileThree" type="button" class="previousMobileThree cursor-pointer bg-[#C7F8FF] text-gray-700 py-2 px-8 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 mr-14 mb-8 hidden">Previous</button>
       <button id="nextMobileThree" type="button" class="nextMobileThree cursor-pointer bg-gradient-to-r from-[#3986A3] to-[#15323D] text-white py-2 px-8 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mb-8 hidden">Next</button>
     </div>
   </div>
@@ -366,7 +366,7 @@
 <div class="h-1/12 relative flex flex-col items-end justify-end ml-12">
   <div class="mr-14 flex md:flex justify-end">
     <div class="flex justify-end md:hidden">
-      <button id="previousMobileFour" type="button" class="previousMobileFour cursor-pointer bg-[#C7F8FF] text-gray-700 py-2 px-8 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 mr-24 mb-8 hidden">Previous</button>
+      <button id="previousMobileFour" type="button" class="previousMobileFour cursor-pointer bg-[#C7F8FF] text-gray-700 py-2 px-8 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 mr-14 mb-8 hidden">Previous</button>
       <button id="nextMobileFour" type="button" class="nextMobileFour cursor-pointer bg-gradient-to-r from-[#3986A3] to-[#15323D] text-white py-2 px-8 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mb-8 hidden">Next</button>
     </div>
   </div>
@@ -374,7 +374,7 @@
 <div class="h-1/12 relative flex flex-col items-end justify-end ml-12">
   <div class="mr-14 flex md:flex justify-end">
     <div class="flex justify-end md:hidden">
-      <button id="previousMobileFive" type="button" class="previousMobileFive cursor-pointer bg-[#C7F8FF] text-gray-700 py-2 px-8 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 mr-24 mb-8 hidden">Previous</button>
+      <button id="previousMobileFive" type="button" class="previousMobileFive cursor-pointer bg-[#C7F8FF] text-gray-700 py-2 px-8 rounded-full hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 mr-14 mb-8 hidden">Previous</button>
       <button id="nextMobileFive" type="button" class="nextMobileFive cursor-pointer bg-gradient-to-r from-[#3986A3] to-[#15323D] text-white py-2 px-8 rounded-full hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary mb-8 hidden">Sent</button>
     </div>
   </div>
@@ -399,12 +399,14 @@
           <p>1. Instagram Creator</p>
           <p>2. TikTok Creator</p>
           <p>3. Video Creator</p>
-          <p>4. 2D Animator</p>
-          <p>5. Comic Illustrator</p>
-          <p>6. Graphic Designer</p>
-          <p>7. Front-end Developer</p>
-          <p>8. Back-end Developer</p>
-          <p>9. Full-stack Developer</p>
+          <p>4. LinkedIn Creator</p>
+          <p>5. Graphic Designer & Video Editor</p>
+          <p>6. 2D Animator</p>
+          <p>7. Comic Illustrator</p>
+          <p>8. Graphic Designer</p>
+          <p>9. Front-end Developer</p>
+          <p>10. Back-end Developer</p>
+          <p>11. Full-stack Developer</p>
           <p class="font-bold"> Wajib mencantumkan Portofolio.</p>
         </ul>
         <p class="mt-4 flex-justify">Unggah Berkas CV, Bukti Follow Media Sosial Berbinar, dan Portofolio ke Google Drive kamu. Kemudian ubah pengaturan Google Drive kamu menjadi <span class="font-bold"> "Anyone on the internet with the link can view"</span> agar berkas dapat diakses oleh kami.</p>
