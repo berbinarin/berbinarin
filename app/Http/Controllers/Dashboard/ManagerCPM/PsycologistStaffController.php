@@ -125,4 +125,17 @@ class PsycologistStaffController extends Controller
         Alert::toast('Data Psikolog Berhasil di Hapus', 'success')->autoClose(5000);
         return redirect()->route('dashboard.psychologists-staff.index');
     }
+
+    public function createpsikolog()
+    {
+        return view('dashboard.manager-cpm.psikolog-staff.create');
+    }
+    public function editpsikolog()
+    {
+        return view('dashboard.manager-cpm.psikolog-staff.edit');
+    }
+    public function showpsikolog()
+    {
+        return view('dashboard.manager-cpm.psikolog-staff.show');
+    }
 }
