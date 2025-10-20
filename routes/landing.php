@@ -56,7 +56,6 @@ Route::prefix('produk')->name('product.')->group(function () {
         Route::get('/', [CounselingController::class, 'index'])->name('index');
         Route::get('/daftar-konseling', [CounselingController::class, 'registrationKonseling'])->name('registration');
         Route::get('/daftar-konseling-staff', [CounselingController::class, 'registrationPsikologStaff'])->name('registration-staff');
-        Route::get('/daftar-konseling-umum', [CounselingController::class, 'registrationPsikologUmum'])->name('registration-umum');
 
 
 

@@ -125,4 +125,13 @@ class PeerStaffController extends Controller
         Alert::toast('Data Psikolog Berhasil di Hapus', 'success')->autoClose(5000);
         return redirect()->route('dashboard.peer-staff.index');
     }
+
+     public function createpeer()
+    {
+        return view('dashboard.manager-cpm.peer-staff.create');
+    }
+    public function showpeer()
+    {
+        return view('dashboard.manager-cpm.peer-staff.show');
+    }
 }

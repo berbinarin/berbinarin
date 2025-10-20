@@ -3,86 +3,168 @@
     'active' => 'Dashboard',
 ])
 
-@section("content")
-    <section class="flex w-full">
-        <div class="flex flex-col">
-            <div class="w-full">
-                <div class="py-4 md:pt-12 md:pb-7">
-                    <div class="">
-                        <div class="flex flex-row gap-2">
-                            <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Konseling Psikolog Data</p>
-                        </div>
-                        <p class="w-full text-disabled">Fitur ini digunakan untuk menampilkan data pendaftar konseling yang
-                            mendaftar melalui situs web Berbinar.</p>
-                        <a href="{{ route('dashboard.psychologists-staff.create') }}" type="button"
-                            class="focus:ring-2 focus:ring-offset-2  mt-8 sm:mt-3 inline-flex items-start justify-start px-6 py-3 text-white bg-primary hover:bg-primary focus:outline-none rounded">
-                            <p class=" font-medium leading-none text-dark">Tambah Data</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-md">
-                    <div class="mt-4 overflow-x-auto">
-                        <table id="example" class="display" style="overflow-x: scroll;">
-                            <thead>
-                                <tr>
-                                    <th style="text-align: center">No</th>
-                                    <th style="text-align: center">Nama Lengkap</th>
-                                    <th style="text-align: center">Tanggal Konseling</th>
-                                    <th style="text-align: center">Pukul</th>
-                                    <th style="text-align: center">Tanggal Pendaftaran</th>
-                                    <th style="text-align: center">Nomor WhatsApp</th>
-                                    <th style="text-align: center">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse ($PsikologData as $key=>$item)
-                                    <tr class="data-consume">
-                                        <td class="text-center"style="height: 40px">{{ $key + 1 }}</td>
-                                        <td>{{ $item->nama }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($item->jadwal_tanggal)->format('d-m-Y') }}</td>
-                                        <td class="text-center">{{ $item->jadwal_pukul }}</td>
-                                        <td class="text-center">{{ \Carbon\Carbon::parse($item->created_at)->format("d-m-Y") }}</td>
-                                        <td class="text-center">
-                                            <a href="https://wa.me/62{{ ltrim($item->no_wa, '0') }}" target="_blank" class="text-blue-500 hover:text-blue-700 underline">{{ $item->no_wa }}</a>
-                                        </td>
-                                        <td class="flex flex-row justify-center gap-2">
-                                            <a href="{{ route('dashboard.psychologists-staff.show', $item->id) }}"
-                                                class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-3 bg-gray-500 hover:bg-gray-600 focus:outline-none rounded">
-                                                <i class='bx bx-show text-white'></i>
-                                            </a>
-                                            <a href="{{ route("dashboard.psychologists-staff.edit", $item->id) }}" class="inline-flex items-start justify-start rounded bg-yellow-500 p-3 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2">
-                                                <i class="bx bx-edit text-white"></i>
-                                            </a>
-                                            <button type="button" onclick="openDeleteModal({{ $item->id }})" class="focus:ring-2 focus:ring-offset-2 inline-flex items-start justify-start p-3 bg-red-500 hover:bg-red-600 focus:outline-none rounded">
-                                                <i class="bx bx-trash-alt text-white"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                @empty
-                                @endforelse
-                            </tbody>
-                        </table>
 
-                        <!-- Modal Konfirmasi Hapus -->
-                        <div id="deleteModal" class="fixed inset-0 z-10 hidden items-center justify-center bg-black bg-opacity-50 flex">
-                            <div class="w-full max-w-md rounded-lg bg-white p-6 text-center">
-                                <div class="mb-4 flex justify-center">
-                                    <img src="{{ asset('assets/images/dashboard/svg-icon/warning.svg') }}" alt="Warning Icon" class="h-12 w-12" />
-                                </div>
-                                <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900" id="modal-title">Konfirmasi Hapus</h3>
-                                <p class="mb-6 text-base text-gray-500">Apakah Anda yakin ingin menghapus kelas ini? Semua data terkait juga akan dihapus.</p>
-                                <div class="flex w-full justify-center gap-4">
-                                    <form id="deleteForm" method="POST" class="w-1/2">
-                                        @csrf
-                                        @method("DELETE")
-                                        <button type="submit" class="rounded-lg bg-[#3986A3] w-full px-6 py-2 text-white text-center hover:bg-[#3986A3] focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2">Hapus</button>
-                                    </form>
-                                    <button type="button" class="rounded-lg border border-[#3986A3] w-1/2 px-6 py-2 text-[#3986A3] focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2" onclick="closeDeleteModal()">Batal</button>
-                                </div>
-                            </div>
+@section('content')
+    <section class="flex w-full">
+        <div class="flex flex-col w-full">
+            <!-- Header -->
+            <div class="py-4 md:pt-12 md:pb-7">
+                <div>
+                    <div class="flex flex-row gap-2">
+                        <p tabindex="0"
+                            class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-3xl lg:text-4xl">
+                            Psikolog
+                        </p>
+                    </div>
+                    <p class="w-full text-gray-500 text-base">
+                        Halaman yang menampilkan dan mengelola data pendaftar konseling Psikolog.
+                    </p>
+                    <button type="button"
+                        class="focus:ring-2 focus:ring-offset-2 mt-8 sm:mt-3 inline-flex items-center justify-center px-4 py-2 text-white bg-primary hover:bg-primary focus:outline-none rounded-lg text-sm font-medium">
+                        Tambah Data
+                    </button>
+                </div>
+            </div>
+
+            <!-- Table Container -->
+            <div class="bg-white rounded-xl w-full max-w-full overflow-x-auto py-5 shadow-lg">
+                <!-- Header: Show Entries -->
+                <div class="flex items-center justify-between mb-5 ">
+                    <!-- Kiri: Show Entries -->
+                    <div class="flex items-center gap-2 ml-12 ">
+                        <label for="entries" class="text-[#333333] text-sm font-medium">Show</label>
+
+                        <div class="relative inline-flex items-center">
+                            <select id="entries"
+                                class="appearance-none border-none bg-[#edf2f8] rounded-lg px-3 py-2 pr-8 text-sm font-medium text-[#333333] focus:outline-none">
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                                <option value="1000">1000</option>
+                            </select>
                         </div>
+
+                        <span class="text-[#333333] text-sm font-medium">entries</span>
+                    </div>
+
+
+                    <!-- Kanan: (opsional, bisa untuk search bar nanti) -->
+                    <div class="mr-12">
+                        <label for="search" class="text-sm font-medium "> Search:</label>
+                        <input type="text"
+                            class="border-none rounded-[4px] px-3 py-1 text-sm focus:outline-none bg-[#edf2f8]"
+                            id="search" name="search" />
                     </div>
                 </div>
+
+                <table class="w-full border-collapse">
+                    <thead class="text-center border-b-[1px] border-[#111111] px-5">
+                        <tr>
+                            @foreach (['No.', 'Nama Lengkap', 'Jenis Kelamin', 'Nomor WhatsApp', 'Email', 'Tanggal Konseling', 'Jam Konseling', 'Action'] as $col)
+                                <th class="text-[12.44px] font-extrabold py-3 px-3 text-center whitespace-nowrap">
+                                    <div class="flex items-center justify-center gap-1">
+                                        <span>{{ $col }}</span>
+                                        @if ($col !== 'No.' && $col !== 'Action')
+                                            <div
+                                                class="flex flex-col leading-[8px] text-gray-400 text-[12px] cursor-pointer sort-icon">
+                                                <i class='bx bx-chevron-up'></i>
+                                                <i class='bx bx-chevron-down -mt-[3px]'></i>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </th>
+                            @endforeach
+                        </tr>
+                    </thead>
+
+
+                    <tbody class="font-semibold text-black text-xs">
+                        <tr class="odd:bg-[#f9f9f9] even:bg-white hover:bg-[#f1f5f9] transition-colors duration-200">
+                            <td class="py-3 px-3 text-center">1.</td>
+                            <td class="py-3 px-3 text-start">Rusdi Ambasing</td>
+                            <td class="py-3 px-3 text-start">Laki-laki</td>
+                            <td class="py-3 px-3 text-start">0822342323233</td>
+                            <td class="py-3 px-3 text-start">HIDUPJOKOWI@gmail.com</td>
+                            <td class="py-3 px-3 text-start">25-07-2025</td>
+                            <td class="py-3 px-3 text-start">08.00</td>
+                            <td class="py-3 px-3">
+                                <div class="flex justify-center gap-2">
+                                    <button
+                                        class="p-[7px] bg-[#3b82f6] rounded hover:bg-opacity-80 transition duration-150 shadow-sm hover:shadow">
+                                        <i class="bx bx-show text-white text-lg"></i>
+                                    </button>
+                                    <button
+                                        class="p-[7px] bg-yellow-500 rounded hover:bg-opacity-80 transition duration-150 shadow-sm hover:shadow">
+                                        <i class="bx bx-edit text-white text-lg"></i>
+                                    </button>
+                                    <button
+                                        class="p-[7px] bg-red-500 rounded hover:bg-opacity-80 transition duration-150 shadow-sm hover:shadow">
+                                        <i class="bx bx-trash-alt text-white text-lg"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="odd:bg-[#f9f9f9] even:bg-white hover:bg-[#f1f5f9] transition-colors duration-200">
+                            <td class="py-3 px-3 text-center">2.</td>
+                            <td class="py-3 px-3 text-start">Putri Aisyah</td>
+                            <td class="py-3 px-3 text-start">Perempuan</td>
+                            <td class="py-3 px-3 text-start">081234567890</td>
+                            <td class="py-3 px-3 text-start">putriaisyah@gmail.com</td>
+                            <td class="py-3 px-3 text-start">26-07-2025</td>
+                            <td class="py-3 px-3 text-start">10.00</td>
+                            <td class="py-3 px-3">
+                                <div class="flex justify-center gap-2">
+                                    <button
+                                        class="p-[7px] bg-[#3b82f6] rounded hover:bg-opacity-80 transition duration-150 shadow-sm hover:shadow">
+                                        <i class="bx bx-show text-white text-lg"></i>
+                                    </button>
+                                    <button
+                                        class="p-[7px] bg-yellow-500 rounded hover:bg-opacity-80 transition duration-150 shadow-sm hover:shadow">
+                                        <i class="bx bx-edit text-white text-lg"></i>
+                                    </button>
+                                    <button
+                                        class="p-[7px] bg-red-500 rounded hover:bg-opacity-80 transition duration-150 shadow-sm hover:shadow">
+                                        <i class="bx bx-trash-alt text-white text-lg"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+                <!-- Pagination -->
+                <div class="flex justify-end items-center mt-8 mr-5">
+                    <nav class="flex items-center space-x-1 text-sm font-medium">
+                        <!-- Tombol Previous -->
+                        <button
+                            class="px-2 py-1 border-none text-[#404B52] rounded-[4px] hover:bg-gray-100 bg-[#f5f5f5] transition">
+                            <i class='bx bx-chevron-left'></i>
+                        </button>
+
+                        <!-- Nomor halaman -->
+                        <button
+                            class="px-3 py-1 bg-primary text-white rounded-[4px] hover:bg-opacity-80 transition">1</button>
+                        <button
+                            class="px-3 py-1 border-none text-[#404B52] rounded-[4px] hover:bg-gray-100 bg-[#f5f5f5] transition">2</button>
+                        <button
+                            class="px-3 py-1 border-none text-[#404B52] rounded-[4px] hover:bg-gray-100 bg-[#f5f5f5] transition">3</button>
+                        <button
+                            class="px-3 py-1 border-none text-[#404B52] rounded-[4px] hover:bg-gray-100 bg-[#f5f5f5] transition">4</button>
+                        <span class="px-2 text-gray-500">...</span>
+                        <button
+                            class="px-3 py-1 border-none text-[#404B52] rounded-[4px] hover:bg-gray-100 bg-[#f5f5f5] transition">10</button>
+
+                        <!-- Tombol Next -->
+                        <button
+                            class="px-2 py-1 border-none text-[#404B52] rounded-[4px] hover:bg-gray-100 bg-[#f5f5f5] transition">
+                            <i class='bx bx-chevron-right'></i>
+                        </button>
+                    </nav>
+                </div>
+
             </div>
         </div>
     </section>
@@ -101,6 +183,23 @@
         function closeDeleteModal() {
             deleteModal.classList.add('hidden');
         }
+
+        // === Script tambahan untuk tanda panah sort ===
+        document.querySelectorAll('.sort-icon').forEach(icon => {
+            icon.addEventListener('click', function() {
+                const up = this.querySelector('.bx-chevron-up');
+                const down = this.querySelector('.bx-chevron-down');
+
+                // Toggle warna aktif
+                if (up.classList.contains('text-blue-500')) {
+                    up.classList.remove('text-blue-500');
+                    down.classList.add('text-blue-500');
+                } else if (down.classList.contains('text-blue-500')) {
+                    down.classList.remove('text-blue-500');
+                } else {
+                    up.classList.add('text-blue-500');
+                }
+            });
+        });
     </script>
 @endsection
-
