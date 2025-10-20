@@ -57,7 +57,7 @@
 
     <div class="mx-20 my-12 hidden items-center justify-center space-x-5 md:flex">
         @foreach ($konselings as $konseling)
-            <div class="flex items-stretch" style="height: 290px">
+            <div class="flex items-stretch" style="height: 300px">
                 <div
                     class="group relative h-auto w-[394px] origin-center transform items-center overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 before:absolute before:inset-0 before:scale-0 before:rounded-full before:bg-[#FFEACE] before:transition-transform before:duration-300 hover:before:scale-150">
                     <div

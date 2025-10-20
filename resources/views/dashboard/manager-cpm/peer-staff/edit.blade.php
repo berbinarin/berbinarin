@@ -3,7 +3,7 @@
 ])
 
 @section('content')
-    <section class="flex w-full">
+    <section class="flex w-full h-full overflow-hidden">
         <div class="flex w-full flex-col">
             <div class="py-4 md:pb-7 md:pt-12">
                 <div class="mb-2 flex items-center gap-2">
@@ -18,7 +18,8 @@
                     serta informasi penting lainnya dari psikolog secara detail untuk keperluan administrasi dan monitoring.
                 </p>
             </div>
-            <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+            <div
+                class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10 flex-1 overflow-y-auto">
                 <form action="{{ route('dashboard.peer-staff.update', $PsikologDataDetails->id) }}" method="POST">
                     @csrf
                     @method('PUT')
