@@ -4,23 +4,30 @@
 ])
 
 @section('content')
-    <section class="flex w-full">
+    <section class="flex w-full h-full overflow-hidden"> <!-- full height + no scroll halaman -->
         <div class="flex w-full flex-col">
-            <div class="py-4 md:pb-7 md:pt-12">
+
+            <!-- Header -->
+            <div class="py-4 md:pb-7 md:pt-12 flex-shrink-0">
                 <div class="mb-2 flex items-center gap-2">
                     <a href="{{ route('dashboard.psychologists-staff.index') }}">
                         <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                     </a>
-                    <p class="text-3xl font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Add Data
-                        Psikolog Staff</p>
+                    <p class="text-3xl font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">
+                        Add Data Psikolog Staff
+                    </p>
                 </div>
                 <p class="w-full text-disabled text-sm font-normal">
                     Halaman yang digunakan untuk menambahkan, mengelola, dan melengkapi seluruh data pribadi, latar
-                    belakang, serta informasi penting lainnya dari Psikolog Staff secara detail untuk keperluan administrasi
-                    dan monitoring.
+                    belakang,
+                    serta informasi penting lainnya dari Psikolog Staff secara detail untuk keperluan administrasi dan
+                    monitoring.
                 </p>
             </div>
-            <div class="rounded-[18px] bg-white px-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+
+            <!-- Form Section -->
+            <div
+                class="rounded-[18px] bg-white px-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10 flex-1 overflow-y-auto">
                 <form action="{{ route('dashboard.psychologists-staff.store') }}" method="POST">
                     @csrf
 
@@ -71,7 +78,7 @@
                         </div>
                         <div>
                             <label class="font-normal text-sm">Pendidikan Saat Ini</label>
-                            <input required type="text" name="posisi_anak"
+                            <input required type="text" name="pendidikan"
                                 class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-xs text-slate-500"
                                 placeholder="SMA" />
                         </div>
@@ -135,9 +142,7 @@
                     <div class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
                         <div>
                             <label class="font-normal text-sm">Tanggal Pengajuan Konseling <span
-                                    class="font-semibold text-sm">(minimal 5 hari setelah
-                                    pengisian
-                                    form)</span></label>
+                                    class="font-semibold text-sm">(minimal 5 hari setelah pengisian form)</span></label>
                             <input required type="date" name="jadwal_tanggal" id="tglkonseling"
                                 class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-xs text-slate-500"
                                 placeholder="dd/mm/yy" readonly />
@@ -208,7 +213,7 @@
                 allowInput: true
             });
 
-            //  FLATPICKR JAM KONSELING
+            // FLATPICKR JAM KONSELING
             flatpickr("#waktukonseling", {
                 enableTime: true,
                 noCalendar: true,
@@ -216,7 +221,7 @@
                 time_24hr: true
             });
 
-            // FLATPICKR TANGGAL KONSELING (minimal 7 hari dari sekarang)
+            // FLATPICKR TANGGAL KONSELING (minimal 5 hari dari sekarang)
             const today = new Date();
             const minDate = new Date();
             minDate.setDate(today.getDate() + 5);
@@ -243,9 +248,8 @@
                 }
             });
 
-            //  HARI KONSELING OTOMATIS
+            // HARI KONSELING OTOMATIS
             function getDayName(dateStr) {
-                // Format input: d-m-Y
                 const parts = dateStr.split('-');
                 if (parts.length !== 3) return '';
                 const dateObj = new Date(parts[2], parts[1] - 1, parts[0]);

@@ -95,7 +95,7 @@
             @endif
         @endforeach
     </div>
-    <div class="hidden md:block text-center font-semibold text-black text-base">
+    <div class="hidden md:block text-center font-semibold text-black text-base sm:text-base mt-[10px]">
         <span>
             Kamu staf aktif Berbinar? Klaim konseling gratismu
             <a href="{{ route('product.counseling.registration-staff') }}"
