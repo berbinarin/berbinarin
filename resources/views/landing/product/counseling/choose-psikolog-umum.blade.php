@@ -32,7 +32,7 @@
         .group:hover {
             transform: scaleY(1.2);
             border: 5px solid #3986A3;
-            height: 300px;
+            height: 305px;
         }
 
         .group:hover .transform {
@@ -64,15 +64,15 @@
                     <div
                         class="flex transform flex-col justify-center space-y-5 p-4 text-center transition-transform duration-300 group-hover:-mt-10 group-hover:scale-y-[0.83]">
                         <h1
-                            class="font text-gradient-blue text-xl font-semibold leading-relaxed text-black transition-all duration-300 group-hover:text-[26px] group-hover:leading-normal max-sm:text-[29px]">
+                            class="font text-gradient-blue text-[22px] font-semibold leading-relaxed text-black transition-all duration-300 group-hover:text-[26px] group-hover:leading-normal max-sm:text-[29px]">
                             {!! italic_en($konseling['nama']) !!}</h1>
                         <img src="{{ asset($konseling['image']) }}" alt="{{ $konseling['nama'] }}"
                             class="h-[120px] w-auto object-contain transition-all duration-300 group-hover:mt-3 group-hover:h-[160px]" />
-                        <p class="text-xs font-semibold leading-tight text-black">{!! italic_en($konseling['deskripsi']) !!}</p>
+                        <p class="text-sm font-semibold leading-tight text-black">{!! italic_en($konseling['deskripsi']) !!}</p>
                     </div>
 
                     <div
-                        class="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-10 justify-center transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-y-[0.83] group-hover:mb-1.5">
+                        class="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-10 justify-center transition-all duration-300 group-hover:translate-y-1 group-hover:scale-y-[0.83] group-hover:mb-1.5">
                         @if ($konseling['nama'] === 'Peer Counselor')
                             <a href="{{ route('product.counseling.peer-counselor.registration') }}">
                                 <button
