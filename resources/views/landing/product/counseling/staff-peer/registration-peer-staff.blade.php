@@ -69,7 +69,7 @@
                     </div>
                     <ol class="mt-1 list-decimal space-y-1 pl-7">
                         <li class="max-sm:text-sm">Para staff mengisi terlebih dahulu form pada halaman berikut</li>
-                        <li class="max-sm:text-sm">Setelah mengisi form tersebut, para staff diharapkan untuk melakukan konfirmasi apabila telah submit form pengajuan konseling bersama psikolog melalui Counseling Product Management Manager (087876662013 - Dindu)</li>
+                        <li class="max-sm:text-sm">Setelah mengisi form tersebut, para staff diharapkan untuk melakukan konfirmasi apabila telah submit form pengajuan konseling bersama psikolog melalui Counseling Product Management Manager <a href="https://wa.me/6287876662013">(087876662013 - Dindu)</a></li>
                         <li class="max-sm:text-sm">Penjadwalan pasti sesi konseling akan diumumkan ketika mendapat konfirmasi dari Pak Danny sebagai Psikolog atau Peer Counselor melalui Counseling Product Management Manager</li>
                     </ol>
                 </div>

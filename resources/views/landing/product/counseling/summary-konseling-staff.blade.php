@@ -97,7 +97,7 @@
                 konseling bersama psikolog melalui Counseling Product Management Manager
                 <br>
                 <br>
-                <span class="font-bold text-gradient">087876662013 (Dindu)</span>
+                <a href="https://wa.me/6287876662013"><span class="font-bold text-gradient">087876662013 (Dindu)</span></a>
             </p>
         </div>
 
