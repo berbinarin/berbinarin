@@ -67,7 +67,7 @@
                             {!! italic_en($konseling['nama']) !!}</h1>
                         <img src="{{ asset($konseling['image']) }}" alt="{{ $konseling['nama'] }}"
                             class="h-[120px] w-auto object-contain transition-all duration-300 group-hover:mt-3 group-hover:h-[160px]" />
-                        <p class="text-xs font-semibold leading-tight text-black">{!! italic_en($konseling['deskripsi']) !!}</p>
+                        <p class="text-sm font-semibold leading-tight text-black">{!! italic_en($konseling['deskripsi']) !!}</p>
                     </div>
 
                     <div
@@ -95,7 +95,7 @@
             @endif
         @endforeach
     </div>
-    <div class="hidden md:block text-center font-semibold text-black text-base sm:text-base mt-[10px]">
+    <div class="hidden md:block text-center font-semibold text-black text-base sm:text-base mt-3">
         <span>
             Kamu staf aktif Berbinar? Klaim konseling gratismu
             <a href="{{ route('product.counseling.registration-staff') }}"

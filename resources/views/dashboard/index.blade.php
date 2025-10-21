@@ -87,39 +87,39 @@
 
             @role('hr_recruitment')
                 <!-- <div class="flex flex-row w-full gap-6">
-                                                                                                                                                                                                                                                                                                                                                                            <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                                                                                                                                                                                                                                                                                                                                                                                <div
-                                                                                                                                                                                                                                                                                                                                                                                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
-                                                                                                                                                                                                                                                                                                                                                                                    <i class='bx bx-briefcase-alt-2  text-2xl'></i>
-                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                <div>
-                                                                                                                                                                                                                                                                                                                                                                                    <span class="block text-2xl font-bold">{{ $HiringPosisitons }}</span>
-                                                                                                                                                                                                                                                                                                                                                                                    <span class="block text-gray-500">Positions</span>
-                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class='bx bx-briefcase-alt-2  text-2xl'></i>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <span class="block text-2xl font-bold">{{ $HiringPosisitons }}</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <span class="block text-gray-500">Positions</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
 
-                                                                                                                                                                                                                                                                                                                                                                            <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                                                                                                                                                                                                                                                                                                                                                                                <div
-                                                                                                                                                                                                                                                                                                                                                                                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
-                                                                                                                                                                                                                                                                                                                                                                                    <i class='bx bxl-upwork  text-2xl'></i>
-                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                <div>
-                                                                                                                                                                                                                                                                                                                                                                                    <span class="block text-2xl font-bold">{{ $HiringPosisitonsJobDescriptionment }}</span>
-                                                                                                                                                                                                                                                                                                                                                                                    <span class="block text-gray-500">Job Descriptions</span>
-                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class='bx bxl-upwork  text-2xl'></i>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <span class="block text-2xl font-bold">{{ $HiringPosisitonsJobDescriptionment }}</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <span class="block text-gray-500">Job Descriptions</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
 
-                                                                                                                                                                                                                                                                                                                                                                            <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                                                                                                                                                                                                                                                                                                                                                                                <div
-                                                                                                                                                                                                                                                                                                                                                                                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
-                                                                                                                                                                                                                                                                                                                                                                                    <i class='bx bx-file text-2xl'></i>
-                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                <div>
-                                                                                                                                                                                                                                                                                                                                                                                    <span class="block text-2xl font-bold">{{ $HiringPosisitonsRequirement }}</span>
-                                                                                                                                                                                                                                                                                                                                                                                    <span class="block text-gray-500">Requirements</span>
-                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                                                                        </div> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="flex items-center p-8 bg-white shadow rounded-lg">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class='bx bx-file text-2xl'></i>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <span class="block text-2xl font-bold">{{ $HiringPosisitonsRequirement }}</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <span class="block text-gray-500">Requirements</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div> -->
                 <div class="flex flex-col xl:w-[80vw] gap-6">
                     <div class="flex flex-row w-full gap-6">
                         <div class="flex w-1/3 items-center p-8 bg-white shadow rounded-lg">
@@ -653,205 +653,129 @@
                     </div>
 
                     {{-- ===================== CHART SECTION ===================== --}}
-                    <div class="rounded-2xl bg-white p-6 shadow">
-                        <div class="flex justify-between items-center mb-4">
-                            <h2 class="text-lg font-semibold text-gray-700 text-center w-full">Laporan Jumlah Psikolog Staff
-                            </h2>
-                            <div class="relative">
-                                <select id="yearSelector"
-                                    class="appearance-none rounded-lg border px-3 py-1 pr-8 text-sm text-gray-700 focus:outline-none focus:ring focus:ring-blue-300 bg-white">
-                                    <option value="2024">2024</option>
-                                    <option value="2025" selected>2025</option>
-                                </select>
+                    <div class="w-full grid grid-cols-1 gap-6">
+                        <div class="flex h-[340px] w-full flex-col rounded-xl bg-white px-6 py-6 shadow">
+                            <div class="mb-4">
+                                <h1 class="text-[28px] text-[#75BADB] font-bold">Data Pendaftar Konseling</h1>
+                                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                                    <p class="text-sm text-black font-medium">
+                                        Berikut ini merupakan visualisasi jumlah pendaftar layanan konseling
+                                        Peer Counselor dan Psikolog.
+                                    </p>
+                                </div>
                             </div>
 
-                        </div>
+                            <div class="flex w-full flex-col h-full">
+                                <!-- Chart -->
+                                <canvas id="marketingChart" class="mb-1 w-full" style="max-height: 155px;"></canvas>
 
-                        <div class="h-[240px]">
-                            <canvas id="myChart"></canvas>
+                                <!-- Legend -->
+                                <div class="mb-4 flex gap-4 text-xs justify-center">
+                                    <div class="flex items-center gap-1">
+                                        <span class="inline-block h-3 w-3 rounded" style="background: #106681"></span>
+                                        Psikolog
+                                    </div>
+                                    <div class="flex items-center gap-1">
+                                        <span class="inline-block h-3 w-3 rounded" style="background: #E9B306"></span>
+                                        Peer Counselor
+                                    </div>
+                                </div>
+
+                                <!-- Total (Kiri) -->
+                                <div class="flex items-start justify-start">
+                                    <span class="font-normal text-sm">
+                                        Total pendaftar layanan konseling saat ini adalah
+                                        <span class="font-bold text-sm">50 pendaftar.</span>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                     {{-- ========================================================= --}}
                 </div>
 
                 @section('script')
                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                     <script>
-                        const chartData = {
-                            2024: {
-                                Januari: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                Februari: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                Maret: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                April: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                Mei: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                Juni: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                Juli: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                Agustus: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                September: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                Oktober: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                November: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                Desember: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                            },
-                            2025: {
-                                Januari: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                Februari: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                Maret: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                April: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                Mei: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                Juni: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                Juli: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                Agustus: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                September: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                Oktober: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                November: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                                Desember: {
-                                    psikolog: 37,
-                                    peer: 15
-                                },
-                            },
-                        };
+                        document.addEventListener('DOMContentLoaded', () => {
+                            const chartDataValues = [30, 20]; // Dummy data
+                            const chartColors = ['rgba(16, 102, 129, 0.6)', 'rgba(233, 179, 6, 0.6)'];
+                            const solidColors = ['#106681', '#E9B306'];
+                            const chartLabels = ['Psikolog', 'Peer Counselor'];
 
-                        const labels = [
-                            'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
-                            'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
-                        ];
+                            const ctx = document.getElementById('marketingChart').getContext('2d');
+                            const chartData = {
+                                labels: chartLabels,
+                                datasets: [{
+                                    label: 'Jumlah',
+                                    data: chartDataValues,
+                                    backgroundColor: chartColors,
+                                    borderRadius: 0,
+                                    barThickness: 25,
+                                }],
+                            };
 
-                        function createDatasets(year) {
-                            const dataForYear = chartData[year] || {};
-
-                            return [{
-                                    label: 'Psikolog',
-                                    data: labels.map(month => dataForYear[month]?.psikolog ?? 0),
-                                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                                    borderRadius: 5,
-                                },
-                                {
-                                    label: 'Peer Counselor',
-                                    data: labels.map(month => dataForYear[month]?.peer ?? 0),
-                                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
-                                    borderRadius: 5,
-                                },
-                            ];
-                        }
-
-                        const ctx = document.getElementById('myChart').getContext('2d');
-                        const yearSelector = document.getElementById('yearSelector');
-                        const initialYear = yearSelector.value;
-
-                        const myChart = new Chart(ctx, {
-                            type: 'bar',
-                            data: {
-                                labels: labels,
-                                datasets: createDatasets(initialYear), // ✅ ganti ke createDatasets
-                            },
-                            options: {
-                                responsive: true,
-                                maintainAspectRatio: false,
-                                plugins: {
-                                    tooltip: {
-                                        mode: 'index',
-                                        intersect: false
-                                    },
-                                    legend: {
-                                        position: 'top'
-                                    },
-                                },
-                                scales: {
-                                    y: {
-                                        beginAtZero: true,
-                                        max: 50,
-                                        ticks: {
-                                            stepSize: 10
+                            new Chart(ctx, {
+                                type: 'bar',
+                                data: chartData,
+                                options: {
+                                    indexAxis: 'y',
+                                    scales: {
+                                        x: {
+                                            beginAtZero: true,
+                                            grid: {
+                                                color: '#eee'
+                                            },
+                                            position: 'top',
+                                            ticks: {
+                                                stepSize: 20,
+                                                callback: (value) => (value % 20 === 0 ? value : ''),
+                                            },
+                                            min: 0,
+                                            max: 100,
+                                            suggestedMax: 100,
                                         },
-                                        title: {
-                                            display: true,
-                                            text: 'Jumlah Staff'
+                                        y: {
+                                            grid: {
+                                                color: '#eee'
+                                            },
+                                            ticks: {
+                                                align: 'start', // ⬅️ ini yang penting
+                                                crossAlign: 'near', // ⬅️ bantu supaya nempel di kiri
+                                                padding: 5, // bisa ubah sesuai jarak yang diinginkan
+                                            }
                                         },
                                     },
-                                    x: {
-                                        title: {
-                                            display: true,
-                                            text: 'Bulan'
-                                        },
+                                    plugins: {
+                                        legend: {
+                                            display: false
+                                        }
                                     },
+                                    animation: false,
+                                    maintainAspectRatio: false,
                                 },
-                            },
-                        });
 
-                        // 🔄 Dropdown event listener
-                        yearSelector.addEventListener('change', function() {
-                            const selectedYear = this.value;
-                            myChart.data.datasets = createDatasets(selectedYear); // ✅ ganti ke createDatasets
-                            myChart.update();
+                                plugins: [{
+                                    afterDatasetsDraw: (chart) => {
+                                        const ctx = chart.ctx;
+                                        chart.data.datasets.forEach((dataset, i) => {
+                                            const meta = chart.getDatasetMeta(i);
+                                            meta.data.forEach((bar, index) => {
+                                                const value = dataset.data[index];
+                                                ctx.save();
+                                                ctx.font = 'normal 12px sans-serif';
+                                                ctx.fillStyle = '#444';
+                                                ctx.textAlign = 'left';
+                                                ctx.textBaseline = 'middle';
+                                                ctx.fillText(value, bar.x + 30, bar.y);
+                                                ctx.restore();
+                                            });
+                                        });
+                                    }
+
+                                }],
+                            });
                         });
                     </script>
                 @endsection

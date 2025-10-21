@@ -32,7 +32,7 @@
         .group:hover {
             transform: scaleY(1.2);
             border: 5px solid #3986A3;
-            height: 300px;
+            height: 315px;
         }
 
         .group:hover .transform {
@@ -67,7 +67,7 @@
                             {!! italic_en($konseling['nama']) !!}</h1>
                         <img src="{{ asset($konseling['image']) }}" alt="{{ $konseling['nama'] }}"
                             class="h-[120px] w-auto object-contain transition-all duration-300 group-hover:mt-3 group-hover:h-[160px]" />
-                        <p class="text-xs font-semibold leading-tight text-black">{!! italic_en($konseling['deskripsi']) !!}</p>
+                        <p class="text-sm font-semibold leading-tight text-black">{!! italic_en($konseling['deskripsi']) !!}</p>
                     </div>
 
                     <div

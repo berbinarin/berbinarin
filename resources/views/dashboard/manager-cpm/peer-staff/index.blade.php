@@ -58,7 +58,7 @@
                 </div>
 
                 <table class="w-full border-collapse">
-                    <thead class="text-center border-b-[1px] border-[#111111]">
+                    <thead class="text-center border-b-[1px] border-[#111111] px-5">
                         <tr>
                             @foreach (['No.', 'Nama Lengkap', 'Jenis Kelamin', 'Nomor WhatsApp', 'Email', 'Tanggal Konseling', 'Jam Konseling', 'Action'] as $col)
                                 <th class="text-[12.44px] font-extrabold py-4 px-3 text-center whitespace-nowrap">
