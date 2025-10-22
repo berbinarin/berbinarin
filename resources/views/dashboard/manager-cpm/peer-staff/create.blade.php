@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.app', [
-    'title' => 'Tambah Data Psikolog',
-    'modul' => 'Psikolog Data',
+    'title' => 'Tambah Data Peer Counselor Staff',
+    'modul' => 'Peer Counselor Data',
 ])
 
 @section('content')
@@ -8,15 +8,15 @@
         <div class="flex w-full flex-col">
             <div class="py-4 md:pb-7 md:pt-5 flex-shrink-0">
                 <div class="mb-2 flex items-center gap-2">
-                    <a href="{{ route('dashboard.psychologists-staff.index') }}">
+                    <a href="{{ route('dashboard.peer-staff.index') }}">
                         <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                     </a>
-                    <p class="xl:text-3xl lg:text-xl md:text-lg sm:text-base font-bold leading-normal text-gray-800">Add Data
+                    <p class="xl:text-3xl lg:text-xl md:text-lg sm:text-base font-bold leading-normal text-gray-800">Tambah Data
                         Peer Counselor Staff</p>
                 </div>
                 <p class="w-full text-disabled text-sm xl:text-base font-normal">
                     Halaman yang digunakan untuk menambahkan, mengelola, dan melengkapi seluruh data pribadi, latar
-                    belakang, serta informasi penting lainnya dari Psikolog Staff secara detail untuk keperluan administrasi
+                    belakang, serta informasi penting lainnya dari Peer Counselor Staff secara detail untuk keperluan administrasi
                     dan monitoring.
                 </p>
             </div>
@@ -72,7 +72,7 @@
                         <div>
                             <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Pendidikan Saat
                                 Ini</label>
-                            <input required type="text" name="posisi_anak"
+                            <input required type="text" name="pendidikan"
                                 class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="SMA" />
                         </div>
@@ -117,27 +117,34 @@
                                 Pekerjaan</label>
                             <input required type="text" name="riwayat_pekerjaan"
                                 class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
-                                placeholder="PT Berbinar Insighfull Indonesia" />
+                                placeholder="PT Berbinar Insighful Indonesia" />
                         </div>
                         <div>
-                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Divisi dan
-                                Posisi</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">
+                                Divisi</label>
                             <input required type="text" name="divisi"
                                 class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
-                                placeholder="Counseling PM (Staff)" />
+                                placeholder="Counseling PM" />
+                        </div>
+                        <div>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">
+                                Posisi</label>
+                            <input required type="text" name="posisi"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
+                                placeholder="Staff" />
                         </div>
                         <div>
                             <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Kegiatan Sosial yang
                                 diikuti</label>
-                            <input required type="text" name="hobi"
+                            <input required type="text" name="kegiatan_sosial"
                                 class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
-                                placeholder="Masukkan Hobi atau Kegiatan Sosial yang diikuti" />
+                                placeholder="Masukkan Kegiatan Sosial yang diikuti" />
                         </div>
                         <div>
                             <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Hobi</label>
                             <input required type="text" name="hobi"
                                 class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
-                                placeholder="Masukkan Hobi atau Kegiatan Sosial yang diikuti" />
+                                placeholder="Masukkan Hobi" />
                         </div>
                     </div>
 
@@ -165,7 +172,7 @@
                         <div>
                             <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Topik
                                 Pengajuan</label>
-                            <input type="text" name="hari" id="hari_konseling"
+                            <input type="text" name="topik_pengajuan"
                                 class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="Kecemasan" />
                         </div>
@@ -177,7 +184,7 @@
                     <div class="mb-6">
                         <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Cerita Permasalahan yang
                             ingin dikonsultasikan</label>
-                        <textarea required name="topik_pengajuan"
+                        <textarea required name="cerita"
                             class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                             rows="1" placeholder="Review CV / Overthinking / Insecurities / Kecemasan / DLL"></textarea>
                     </div>

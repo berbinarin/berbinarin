@@ -1,5 +1,5 @@
 @extends('dashboard.layouts.app', [
-    'title' => 'Psikolog Staff',
+    'title' => 'Peer Counselor Staff',
     'active' => 'Dashboard',
 ])
 
@@ -11,14 +11,14 @@
                     <div class="flex flex-row gap-2">
                         <p tabindex="0"
                             class="mb-2 font-bold leading-normal text-black focus:outline-none text-base md:text-lg lg:text-xl xl:text-3xl">
-                            Konseling Psikolog Data
+                            Konseling Peer Counselor Data
                         </p>
                     </div>
                     <p class="w-full text-disabled text-xs sm:text-xs md:text-sm lg:text-md xl:text-base">
-                        Halaman yang menampilkan dan mengelola data pendaftar konseling Psikolog.
+                        Halaman yang menampilkan dan mengelola data pendaftar konseling Peer Counselor.
                     </p>
 
-                    <a href="#" type="button"
+                    <a href="{{ route('dashboard.peer-staff.create') }}" type="button"
                         class="focus:ring-2 focus:ring-offset-2 mt-8 sm:mt-3 inline-flex items-start justify-start px-4 py-2 text-white bg-primary hover:bg-primary focus:outline-none rounded-md">
                         <p class="font-medium leading-none text-dark text-xs xl:text-sm">Tambah Data</p>
                     </a>
@@ -40,25 +40,33 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 text-gray-700">
-                            {{-- DATA DUMMY UNTUK TEST FRONTEND --}}
-                            <tr class="hover:bg-gray-50 transition text-md lg:text-base">
-                                <td class="py-3 text-center">1</td>
-                                <td class="text-start">Rusdi Ambasing</td>
-                                <td class="text-center"><a href="https://wa.me/6281234567890" target="_blank"
-                                        class="text-blue-500 hover:text-blue-700 underline">0812 3456 7890</a></td>
-                                <td>HIDUPJOKOWI@gmail.com</td>
-                                <td class="text-center">22-10-2025</td>
-                                <td class="text-center">10:00</td>
-                                <td class="flex justify-center gap-2">
-                                    <a href="#" class="p-2 bg-blue-500 hover:bg-blue-600 rounded"><i
-                                            class="bx bx-show text-white"></i></a>
-                                    <a href="#" class="p-2 bg-yellow-500 hover:bg-yellow-600 rounded"><i
-                                            class="bx bx-edit text-white"></i></a>
-                                    <button type="button"
-                                        class="p-2 bg-red-500 hover:bg-red-600 rounded focus:outline-none"><i
-                                            class="bx bx-trash-alt text-white"></i></button>
-                                </td>
-                            </tr>
+                            @forelse ($PeerData as $key => $item)
+                                <tr class="hover:bg-gray-50 transition text-md lg:text-base">
+                                    <td class="py-3 text-center">{{ $key + 1 }}.</td>
+                                    <td class="text-start">{{ $item->nama }}</td>
+                                    <td class="text-center">
+                                        <a href="https://wa.me/62{{ ltrim($item->no_wa, '0') }}" target="_blank" class="text-blue-500 hover:text-blue-700 underline">{{ $item->no_wa }}</a>
+                                    </td>
+                                    <td class="text-center">{{ $item->email }}</td>
+                                    <td class="text-center">{{ \Carbon\Carbon::parse($item->jadwal_tanggal)->format("d-m-Y") }}</td>
+                                    <td class="text-center">{{ $item->jadwal_pukul }}</td>
+                                    <td class="flex justify-center gap-2">
+                                        <a href="{{ route('dashboard.peer-staff.show', $item->id) }}" class="p-2 bg-blue-500 hover:bg-blue-600 rounded"><i
+                                                class="bx bx-show text-white"></i></a>
+                                        <a href="{{ route('dashboard.peer-staff.edit', $item->id) }}" class="p-2 bg-yellow-500 hover:bg-yellow-600 rounded"><i
+                                                class="bx bx-edit text-white"></i></a>
+                                        <form id="deleteForm-{{ $item->id }}" action="{{ route('dashboard.peer-staff.destroy', $item->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="p-2 bg-red-500 hover:bg-red-600 rounded focus:outline-none"><i
+                                                                                            class="bx bx-trash-alt text-white"></i></button>
+                                        </form>
+
+                                    </td>
+                                </tr>
+                            @empty
+
+                            @endforelse
                         </tbody>
                     </table>
 

@@ -56,15 +56,11 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
 
     Route::middleware('role:manager-cpm')->group(function () {
 
+        // Psychologis Staff
         Route::resource('/psychologists-staff',PsycologistStaffController::class);
-        Route::get('/psychologists-staff/create', [PsycologistStaffController::class, 'createpsikolog'])->name('createpsikolog');
-        Route::get('/psychologists-staff/edit', [PsycologistStaffController::class, 'editpsikolog'])->name('editpsikolog');
-        Route::get('/psychologists-staff/show', [PsycologistStaffController::class, 'showpsikolog'])->name('showpsikolog');
 
+        // Peer Counselor Staff
         Route::resource('/peer-staff',PeerStaffController::class);
-        Route::get('/peer-staff/create', [PeerStaffController::class, 'createpeer'])->name('createpeer');
-        Route::get('/peer-staff/show', [PeerStaffController::class, 'showpeer'])->name('showpeer');
-
     });
 
     // Class Product Management

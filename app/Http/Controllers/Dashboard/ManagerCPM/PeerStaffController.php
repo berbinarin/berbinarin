@@ -12,8 +12,8 @@ class PeerStaffController extends Controller
 {
     public function index(Request $request)
     {
-        $PsikologData = KonsellingPeerStaff::orderBy('created_at', 'desc')->get();
-        return view('dashboard.manager-cpm.peer-staff.index', ['PsikologData' => $PsikologData]);
+        $PeerData = KonsellingPeerStaff::orderBy('created_at', 'desc')->get();
+        return view('dashboard.manager-cpm.peer-staff.index', ['PeerData' => $PeerData]);
     }
 
 

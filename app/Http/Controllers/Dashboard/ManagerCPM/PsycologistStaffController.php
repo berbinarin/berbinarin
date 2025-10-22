@@ -13,7 +13,7 @@ class PsycologistStaffController extends Controller
     public function index(Request $request)
     {
         $PsikologData = KonsellingPsikologStaff::orderBy('created_at', 'desc')->get();
-        return view('dashboard.manager-cpm.psikolog-staff.index', ['PsikologData' => $PsikologData],);
+        return view('dashboard.manager-cpm.psikolog-staff.index', ['PsikologData' => $PsikologData]);
     }
 
 
@@ -124,18 +124,5 @@ class PsycologistStaffController extends Controller
         KonsellingPsikologStaff::where('id', $id)->delete();
         Alert::toast('Data Psikolog Berhasil di Hapus', 'success')->autoClose(5000);
         return redirect()->route('dashboard.psychologists-staff.index');
-    }
-
-    public function createpsikolog()
-    {
-        return view('dashboard.manager-cpm.psikolog-staff.create');
-    }
-    public function editpsikolog()
-    {
-        return view('dashboard.manager-cpm.psikolog-staff.edit');
-    }
-    public function showpsikolog()
-    {
-        return view('dashboard.manager-cpm.psikolog-staff.show');
     }
 }

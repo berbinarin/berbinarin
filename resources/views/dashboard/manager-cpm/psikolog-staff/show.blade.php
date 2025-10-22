@@ -20,10 +20,9 @@
             <p class="w-full text-disabled text-sm xl:text-base font-normal">
                 Halaman dashboard ini menampilkan jawaban yang telah dikumpulkan dari pengguna.
             </p>
-            <button type="button"
-                class="focus:ring-2 focus:ring-offset-2 mt-2 sm:mt-3 inline-flex items-center justify-center px-4 py-2 text-white bg-primary hover:bg-primary focus:outline-none rounded-lg text-xs xl:text-sm font-medium">
-                Edit Data
-            </button>
+            <a href="{{ route('dashboard.psychologists-staff.edit', $PsikologDataDetails->id) }}" type="button" class="focus:ring-2 focus:ring-offset-2 mt-2 sm:mt-3 inline-flex items-center justify-center px-4 py-2 text-white bg-primary hover:bg-primary focus:outline-none rounded-lg">
+                <p class="text-xs xl:text-sm font-medium">Edit Data</p>
+            </a>
         </div>
         <!-- Wrapper bg-white + rounded-3xl -->
         <div class="flex flex-col w-full bg-white rounded-[18px] drop-shadow-lg h-screen overflow-hidden">
@@ -52,75 +51,75 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-6 text-left">
                         <div class="col-span-1 col-start-1">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Nama Lengkap</p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">Mas Amba </p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ $PsikologDataDetails->nama }}</p>
                         </div>
                         <div class="col-span-1 col-start-2">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Nomor WhatsApp
                             </p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">081234567890</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ $PsikologDataDetails->no_wa }}</p>
                         </div>
                         <div class="col-span-1 col-start-1">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Email</p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">berbinar@gmail.com</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ $PsikologDataDetails->email }}</p>
                         </div>
                         <div class="col-span-1 col-start-2">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Tempat Lahir</p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">Jombang</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ $PsikologDataDetails->tempat_lahir }}</p>
                         </div>
                         <div class="col-span-1 col-start-1">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Tanggal Lahir
                             </p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">01/01/2000</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ \Carbon\Carbon::parse($PsikologDataDetails->tanggal_lahir)->format("d-m-Y") }}</p>
                         </div>
                         <div class="col-span-1 col-start-2">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Umur</p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">18 Tahun</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ $PsikologDataDetails->umur }} Tahun</p>
                         </div>
                         <div class="col-span-1 col-start-1">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Anak ke-</p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">6</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ $PsikologDataDetails->posisi_anak }}</p>
                         </div>
                         <div class="col-span-1 col-start-2">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Pendidikan Saat
                                 Ini</p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">SMK</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ $PsikologDataDetails->pendidikan }}</p>
                         </div>
                         <div class="col-span-1 col-start-1">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Agama</p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">Islam</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ $PsikologDataDetails->agama }}</p>
                         </div>
                         <div class="col-span-1 col-start-2">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Alamat Domisili
                             </p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">Jl. Tata Surya No. 123
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ $PsikologDataDetails->alamat }}
                             </p>
                         </div>
                         <div class="col-span-1 col-start-1">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Status
                                 Pernikahan</p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">Menikah</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ $PsikologDataDetails->status_pernikahan }}</p>
                         </div>
                         <div class="col-span-1 col-start-2">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Suku Bangsa</p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">Jawa</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ $PsikologDataDetails->suku }}</p>
                         </div>
 
                         <!-- Tambahan: baris terakhir 2 kolom -->
                         <div class="col-span-1 col-start-1">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Riwayat
                                 Pekerjaan</p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">PT Berbinar</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ $PsikologDataDetails->riwayat_pekerjaan }}</p>
                         </div>
                         <div class="col-span-1 col-start-2">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Divisi dan
                                 Posisi</p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">WebDev (Staff)</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ $PsikologDataDetails->divisi }} ({{ $PsikologDataDetails->posisi }})</p>
                         </div>
                         <div class="col-span-1 col-start-3">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Hobi atau
                                 Kegiatan Sosial yang diikuti
                             </p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">Gaming</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ $PsikologDataDetails->hobi }} atau {{ $PsikologDataDetails->kegiatan_sosial }}</p>
                         </div>
                     </div>
                 </div>
@@ -132,17 +131,17 @@
                         <div class="col-span-1 col-start-1">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Tanggal
                                 Konseling</p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">20-20-20</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ \Carbon\Carbon::parse($PsikologDataDetails->jadwal_tanggal)->format("d-m-Y") }}</p>
                         </div>
                         <div class="col-span-1 col-start-2">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Jam Konseling
                             </p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">12:00</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ $PsikologDataDetails->jadwal_pukul }}</p>
                         </div>
                         <div class="col-span-1 col-start-1">
                             <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Topik Pengajuan
                             </p>
-                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">kecemasan</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">{{ $PsikologDataDetails->topik_pengajuan }}</p>
                         </div>
                     </div>
                 </div>
@@ -154,20 +153,7 @@
                         Cerita Tentang Hal yang Ingin Dikonsultasikan
                     </h2>
                     <p class="font-semibold sm:text-xs md:text-sm lg:text-base mb-1">
-                        Lorem ipsum dolor sit amet consectetur. Facilisis lobortis neque augue pellentesque sem id
-                        scelerisque tristique. Aenean massa augue euismod ante blandit viverra lectus nisi facilisis.
-                        Egestas fermentum tincidunt integer eget amet nam ut maecenas. Neque vulputate parturient
-                        adipiscing ultrices vehicula. Lorem ipsum dolor sit amet consectetur. Facilisis lobortis neque
-                        augue pellentesque sem id scelerisque tristique. Aenean massa augue euismod ante blandit viverra
-                        lectus nisi facilisis. Egestas fermentum tincidunt integer eget amet nam ut maecenas. Neque
-                        vulputate parturient adipiscing ultrices vehicula. Lorem ipsum dolor sit amet consectetur.
-                        Facilisis lobortis neque augue pellentesque sem id scelerisque tristique. Aenean massa augue
-                        euismod ante blandit viverra lectus nisi facilisis. Egestas fermentum tincidunt integer eget
-                        amet nam ut maecenas. Neque vulputate parturient adipiscing ultrices vehicula. Lorem ipsum dolor
-                        sit amet consectetur. Facilisis lobortis neque augue pellentesque sem id scelerisque tristique.
-                        Aenean massa augue euismod ante blandit viverra lectus nisi facilisis. Egestas fermentum
-                        tincidunt integer eget amet nam ut maecenas. Neque vulputate parturient adipiscing ultrices
-                        vehicula.
+                        {{ $PsikologDataDetails->cerita }}
                     </p>
                 </div>
             </div>
