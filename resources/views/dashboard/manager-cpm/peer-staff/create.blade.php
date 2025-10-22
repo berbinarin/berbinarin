@@ -11,10 +11,10 @@
                     <a href="{{ route('dashboard.psychologists-staff.index') }}">
                         <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                     </a>
-                    <p class="text-3xl font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Add Data
+                    <p class="xl:text-3xl lg:text-xl md:text-lg sm:text-base font-bold leading-normal text-gray-800">Add Data
                         Peer Counselor Staff</p>
                 </div>
-                <p class="w-full text-disabled text-sm font-normal">
+                <p class="w-full text-disabled text-sm xl:text-base font-normal">
                     Halaman yang digunakan untuk menambahkan, mengelola, dan melengkapi seluruh data pribadi, latar
                     belakang, serta informasi penting lainnya dari Psikolog Staff secara detail untuk keperluan administrasi
                     dan monitoring.
@@ -25,67 +25,68 @@
                     @csrf
 
                     <!-- Data Diri -->
-                    <h1 class="mb-6 text-center text-2xl font-bold">Data Diri</h1>
+                    <h1 class="mb-6 text-center sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold">Data Diri</h1>
                     <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
                         <div>
-                            <label class="font-normal text-md">Nama Lengkap</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Nama Lengkap</label>
                             <input required type="text" name="nama"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="Masukkan Nama Lengkap" />
                         </div>
                         <div>
-                            <label class="font-normal text-md">Nomor WhatsApp</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Nomor WhatsApp</label>
                             <input required type="number" name="no_wa"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="Masukkan Nomor WhatsApp" />
                         </div>
                         <div>
-                            <label class="font-normal text-md">Email</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Email</label>
                             <input required type="email" name="email"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="Masukkan Email" />
                         </div>
                         <div>
-                            <label class="font-normal text-md">Umur</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Umur</label>
                             <input required type="number" name="umur"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="Masukkan Umur" />
                         </div>
                         <div>
-                            <label class="font-normal text-md">Tempat Lahir</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Tempat Lahir</label>
                             <input required type="text" name="tempat_lahir"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="Masukkan Tempat Lahir" />
                         </div>
                         <div>
-                            <label class="font-normal text-md">Tanggal Lahir</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Tanggal Lahir</label>
                             <input required type="date" id="tgllahir" name="tanggal_Lahir"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="dd/mm/yy" readonly />
                         </div>
                         <div>
-                            <label class="font-normal text-md">Anak ke-</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Anak ke-</label>
                             <input required type="text" name="posisi_anak"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="Anak ke-x dari x bersaudara" />
                         </div>
                         <div>
-                            <label class="font-normal text-md">Pendidikan Saat Ini</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Pendidikan Saat
+                                Ini</label>
                             <input required type="text" name="posisi_anak"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="SMA" />
                         </div>
 
                         <div>
-                            <label class="font-normal text-md">Alamat Domisili</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Alamat Domisili</label>
                             <input required type="text" name="alamat"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="Masukkan Alamat Domisili Anda" />
                         </div>
                         <div>
-                            <label class="font-normal text-md">Agama</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Agama</label>
                             <select required name="agama"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500">
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500">
                                 <option value="" disabled selected>Pilih Agama</option>
                                 <option value="Islam">Islam</option>
                                 <option value="Kristen">Kristen</option>
@@ -96,89 +97,99 @@
                             </select>
                         </div>
                         <div>
-                            <label class="font-normal text-md">Suku</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Suku</label>
                             <input required type="text" name="suku"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="Contoh: Jawa" />
                         </div>
                         <div>
-                            <label class="font-normal text-mdd">Status Pernikahan</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lgd">Status
+                                Pernikahan</label>
                             <select required name="status_pernikahan"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500">
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500">
                                 <option value="" disabled selected>Pilih Status Pernikahan</option>
                                 <option value="Belum Menikah">Belum Menikah</option>
                                 <option value="Sudah Menikah">Sudah Menikah</option>
                             </select>
                         </div>
                         <div>
-                            <label class="font-normal text-md">Riwayat Pekerjaan</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Riwayat
+                                Pekerjaan</label>
                             <input required type="text" name="riwayat_pekerjaan"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="PT Berbinar Insighfull Indonesia" />
                         </div>
                         <div>
-                            <label class="font-normal text-md">Divisi dan Posisi</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Divisi dan
+                                Posisi</label>
                             <input required type="text" name="divisi"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="Counseling PM (Staff)" />
                         </div>
                         <div>
-                            <label class="font-normal text-md">Kegiatan Sosial yang diikuti</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Kegiatan Sosial yang
+                                diikuti</label>
                             <input required type="text" name="hobi"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="Masukkan Hobi atau Kegiatan Sosial yang diikuti" />
                         </div>
                         <div>
-                            <label class="font-normal text-md">Hobi</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Hobi</label>
                             <input required type="text" name="hobi"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="Masukkan Hobi atau Kegiatan Sosial yang diikuti" />
                         </div>
                     </div>
 
                     <!-- Data Konseling -->
-                    <h1 class="mb-6 text-center text-2xl font-bold mt-6">Data Konseling</h1>
+                    <h1 class="mb-6 text-center sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold mt-6">Data
+                        Konseling
+                    </h1>
                     <div class="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
                         <div>
-                            <label class="font-normal text-sm">Tanggal Pengajuan Konseling <span
-                                    class="font-semibold text-sm">(minimal 5 hari setelah
+                            <label class="font-normal sm:text-xs md:text-sm  xl:text-md">Tanggal Pengajuan Konseling <span
+                                    class="font-semibold sm:text-xs md:text-sm  xl:text-md">(minimal 5 hari setelah
                                     pengisian
                                     form)</span></label>
                             <input required type="date" name="jadwal_tanggal" id="tglkonseling"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="dd/mm/yy" readonly />
                         </div>
                         <div>
-                            <label class="font-normal text-md">Waktu Pengajuan Konseling</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Waktu Pengajuan
+                                Konseling</label>
                             <input required type="time" id="waktukonseling" name="jadwal_pukul"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="12:00" />
                         </div>
                         <div>
-                            <label class="font-normal text-md">Topik Pengajuan</label>
+                            <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Topik
+                                Pengajuan</label>
                             <input type="text" name="hari" id="hari_konseling"
-                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500"
+                                class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="Kecemasan" />
                         </div>
                     </div>
 
                     <!-- Topik Konseling -->
-                    <h1 class="my-8 text-center text-2xl font-bold">Topik Konseling</h1>
+                    <h1 class="my-8 text-center sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold">Topik Konseling
+                    </h1>
                     <div class="mb-6">
-                        <label class="font-normal text-md">Cerita Permasalahan yang ingin dikonsultasikan</label>
+                        <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Cerita Permasalahan yang
+                            ingin dikonsultasikan</label>
                         <textarea required name="topik_pengajuan"
-                            class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm text-slate-500" rows="1"
-                            placeholder="Review CV / Overthinking / Insecurities / Kecemasan / DLL"></textarea>
+                            class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
+                            rows="1" placeholder="Review CV / Overthinking / Insecurities / Kecemasan / DLL"></textarea>
                     </div>
 
                     <div class="mt-8 flex gap-4 border-none pt-5">
                         <button type="button" id="cancelButton"
-                            class="w-1/3 rounded-xl flex-1 flex items-center justify-center h-12 text-lg"
+                            class="w-1/3 rounded-xl flex-1 flex items-center justify-center h-12 xl:text-xl lg:text-lg md:text-base sm:text-base font-medium"
                             style="width: 50%; border: 2px solid #3986A3; color: #3986A3;">
                             Batal
                         </button>
                         <button type="submit"
-                            class="w-1/3 rounded-xl flex-1 flex items-center justify-center h-12 text-lg"
+                            class="w-1/3 rounded-xl flex-1 flex items-center justify-center h-12 xl:text-xl lg:text-lg md:text-base sm:text-base font-medium"
                             style="width: 50%; background: #3986A3; color: #fff;">
                             Simpan
                         </button>
