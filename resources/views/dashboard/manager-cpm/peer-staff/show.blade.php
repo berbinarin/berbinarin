@@ -24,13 +24,10 @@
                 Edit Data
             </button>
         </div>
-
         <!-- Wrapper bg-white + rounded-3xl -->
         <div class="flex flex-col w-full bg-white rounded-3xl shadow-lg h-[90vh] overflow-hidden">
-
-            <!-- Tabs (sticky) -->
             <div class="flex-shrink-0 px-4 md:px-9 xl:px-10 pt-3 pb-5 bg-white sticky top-0 z-10">
-                <div class="flex space-x-10 border-b border-gray-200 mt-6 text-base font-bold">
+                <div class="flex space-x-10 border-b border-gray-200 mt-6 sm:text-md md:text-base lg:text-lg font-bold">
                     <a href="#data-diri"
                         class="tab-link text-[#75BADB] font-semibold border-b border-[#75BADB] pb-2 transition-all duration-300">
                         Data Diri
@@ -51,103 +48,113 @@
 
                 <!-- Data Diri -->
                 <div id="data-diri" class="scroll-mt-24 mb-10">
-                    <h1 class="mb-8 text-[25px] text-primary-alt font-bold">Data Diri</h1>
+                    <h1 class="mb-8 md:text-2xl sm:text-xl lg:text-3xl text-primary-alt font-bold">Data Diri</h1>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-6 text-left">
                         <div class="col-span-1 col-start-1">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Nama Lengkap</p>
-                            <p class="font-semibold text-sm text-black">Morgan Vero</p>
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Nama Lengkap</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">Morgan Vero</p>
                         </div>
                         <div class="col-span-1 col-start-2">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Nomor WhatsApp</p>
-                            <p class="font-semibold text-sm text-black">081234567890</p>
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Nomor WhatsApp
+                            </p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">081234567890</p>
                         </div>
                         <div class="col-span-1 col-start-1">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Email</p>
-                            <p class="font-semibold text-sm text-black">berbinar@gmail.com</p>
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Email</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">berbinar@gmail.com</p>
                         </div>
                         <div class="col-span-1 col-start-2">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Tempat Lahir</p>
-                            <p class="font-semibold text-sm text-black">Jombang</p>
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Tempat Lahir</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">Jombang</p>
                         </div>
                         <div class="col-span-1 col-start-1">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Tanggal Lahir</p>
-                            <p class="font-semibold text-sm text-black">01/01/2000</p>
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Tanggal Lahir
+                            </p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">01/01/2000</p>
                         </div>
                         <div class="col-span-1 col-start-2">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Umur</p>
-                            <p class="font-semibold text-sm text-black">18 Tahun</p>
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Umur</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">18 Tahun</p>
                         </div>
                         <div class="col-span-1 col-start-1">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Anak ke-</p>
-                            <p class="font-semibold text-sm text-black">6</p>
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Anak ke-</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">6</p>
                         </div>
                         <div class="col-span-1 col-start-2">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Pendidikan Saat Ini</p>
-                            <p class="font-semibold text-sm text-black">SMK</p>
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Pendidikan Saat
+                                Ini</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">SMK</p>
                         </div>
                         <div class="col-span-1 col-start-1">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Agama</p>
-                            <p class="font-semibold text-sm text-black">Islam</p>
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Agama</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">Islam</p>
                         </div>
                         <div class="col-span-1 col-start-2">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Alamat Domisili</p>
-                            <p class="font-semibold text-sm text-black">Jl. Tata Surya No. 123</p>
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Alamat Domisili
+                            </p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">Jl. Tata Surya No. 123
+                            </p>
                         </div>
                         <div class="col-span-1 col-start-1">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Status Pernikahan</p>
-                            <p class="font-semibold text-sm text-black">Menikah</p>
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Status
+                                Pernikahan</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">Menikah</p>
                         </div>
                         <div class="col-span-1 col-start-2">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Suku Bangsa</p>
-                            <p class="font-semibold text-sm text-black">Jawa</p>
-                        </div>
-
-                        <!-- Tambahan: baris terakhir 2 kolom -->
-                        <div class="col-span-1 col-start-1">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Riwayat Pekerjaan</p>
-                            <p class="font-semibold text-sm text-black">PT Berbinar</p>
-                        </div>
-                        <div class="col-span-1 col-start-2">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Divisi dan Posisi</p>
-                            <p class="font-semibold text-sm text-black">WebDev (Staff)</p>
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Suku Bangsa</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">Jawa</p>
                         </div>
                         <div class="col-span-1 col-start-1">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Hobi</p>
-                            <p class="font-semibold text-sm text-black">Gaming</p>
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Riwayat
+                                Pekerjaan</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">PT Berbinar</p>
                         </div>
                         <div class="col-span-1 col-start-2">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Kegiatan Sosial yang diikuti</p>
-                            <p class="font-semibold text-sm text-black">Kerja kelompok</p>
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Divisi dan
+                                Posisi</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">WebDev (Staff)</p>
+                        </div>
+                        <div class="col-span-1 col-start-1">
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Hobi</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">Gaming</p>
+                        </div>
+                        <div class="col-span-1 col-start-2">
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Kegiatan Sosial
+                                yang diikuti</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">Kerja kelompok</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Data Konseling -->
                 <div id="data-konseling" class="scroll-mt-24 mb-10">
-                    <h1 class="mb-8 text-[25px] text-primary-alt font-bold">Data Konseling</h1>
+                    <h1 class="mb-8 md:text-2xl sm:text-xl lg:text-3xl text-primary-alt font-bold">Data Konseling</h1>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-6 text-left">
                         <div class="col-span-1 col-start-1">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Tanggal Konseling</p>
-                            <p class="font-semibold text-sm text-black">20-20-20</p>
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Tanggal
+                                Konseling</p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">20-20-20</p>
                         </div>
                         <div class="col-span-1 col-start-2">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Jam Konseling</p>
-                            <p class="font-semibold text-sm text-black">12:00</p>
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Jam Konseling
+                            </p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">12:00</p>
                         </div>
                         <div class="col-span-1 col-start-1">
-                            <p class="text-[#9e9e9e] text-sm mb-1 font-semibold">Topik Pengajuan</p>
-                            <p class="font-semibold text-sm text-black">kecemasan</p>
+                            <p class="text-[#9e9e9e] sm:text-xs md:text-sm lg:text-base mb-1 font-semibold">Topik Pengajuan
+                            </p>
+                            <p class="font-semibold sm:text-xs md:text-sm lg:text-base text-black">kecemasan</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Topik Konseling -->
                 <div id="topik-konseling" class="scroll-mt-24 mb-10">
-                    <h1 class="text-[25px] text-primary-alt font-bold mb-2">Topik Konseling</h1>
-                    <h2 class="mb-3 text-xs text-disabled font-semibold">
+                    <h1 class="md:text-2xl sm:text-xl lg:text-3xl text-primary-alt font-bold mb-2">Topik Konseling</h1>
+                    <h2 class="mb-3 text-sm lg:text-base  text-disabled font-normal">
                         Cerita Tentang Hal yang Ingin Dikonsultasikan
                     </h2>
-                    <p class="font-semibold text-sm mb-1">
+                    <p class="font-semibold sm:text-xs md:text-sm lg:text-base mb-1">
                         Lorem ipsum dolor sit amet consectetur. Facilisis lobortis neque augue pellentesque sem id
                         scelerisque tristique. Aenean massa augue euismod ante blandit viverra lectus nisi facilisis.
                         Egestas fermentum tincidunt integer eget amet nam ut maecenas. Neque vulputate parturient

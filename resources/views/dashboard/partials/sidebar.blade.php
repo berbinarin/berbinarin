@@ -32,10 +32,9 @@
             <form action="/logout" method="POST">
                 @csrf
                 <button type="submit"
-                    class="fixed bottom-5 left-5 flex items-center justify-start gap-2 rounded-full bg-none px-4 py-2 text-[#C14B45] hover:opacity-80 focus:outline-none transition">
-                    <img src="{{ asset('assets/images/dashboard/Logout.png') }}" alt="Logout Icon"
-                        class="h-7 w-7 object-contain p-1 rounded-md" />
-                    <span class="text-sm font-normal">Logout</span>
+                    class="fixed bottom-5 left-14 items-center gap-2 rounded-full bg-blue-500 px-6 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                    <i class="bx bx-log-out text-lg"></i>
+                    <span class="text-center text-base">Logout</span>
                 </button>
             </form>
         </li>

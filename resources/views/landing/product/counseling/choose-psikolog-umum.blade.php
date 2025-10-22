@@ -43,13 +43,12 @@
 
 @section('content')
     <div class="mt-28 sm:mt-32 leading-snug">
-        <a href="{{ route('product.counseling.registration') }}">
-            <div class="hidden sm:hidden items-center justify-center space-x-2 cursor-pointer w-1/5">
+        <a href="{{ route('product.counseling.index') }}">
+            <div class="flex items-center justify-center space-x-2 cursor-pointer w-1/5 max-sm:w-1/3 max-sm:mb-5">
                 <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow"
                     class="h-3 w-auto">
                 <p class="text-base flex font-medium text-[#3986A3]">Kembali</p>
             </div>
-
         </a>
         <h1
             class="font text-gradient text-center text-[28px] font-bold text-black pb-1 max-md:mx-10 max-sm:mx-2 max-sm:text-[29px]">
