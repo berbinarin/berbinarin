@@ -172,7 +172,7 @@
                         <div>
                             <label class="font-normal sm:text-sm md:text-md lg:text-base xl:text-lg">Topik
                                 Pengajuan</label>
-                            <input type="text" name="topik_pengajuan"
+                            <input required type="text" name="topik_pengajuan"
                                 class="w-full rounded-lg border-[#e5e5e5] px-3 py-[13.5px] mt-2 shadow-sm text-sm md:text-sm lg:text-md xl:text-base text-slate-500"
                                 placeholder="Kecemasan" />
                         </div>
