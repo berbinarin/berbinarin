@@ -7,10 +7,10 @@
 )
 
 @section("content")
-    <section class="flex w-full">
+    <section class="flex w-full flex-col gap-2">
         <div class="flex w-full flex-col">
             <div class="py-4 md:pb-7 md:pt-12">
-                <div class="mb-2 flex items-center gap-2">
+                <div class="mb-4 flex items-center gap-2">
                     <a href="{{ route("dashboard.psychologists.index") }}">
                         <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
                     </a>
@@ -18,9 +18,9 @@
                 </div>
                 <p class="w-3/4 text-disabled">Halaman yang digunakan untuk menambahkan, mengelola, dan melengkapi seluruh data pribadi, latar belakang, serta informasi penting lainnya dari psikolog secara detail untuk keperluan administrasi dan monitoring.</p>
             </div>
-            <p class="w-full text-disabled">
+            {{-- <p class="w-full text-disabled">
                 Halaman yang digunakan untuk menambahkan, mengelola, dan melengkapi seluruh data pribadi, latar belakang, serta informasi penting lainnya dari psikolog secara detail untuk keperluan administrasi dan monitoring.
-            </p>
+            </p> --}}
         </div>
         <div class="rounded-md bg-white px-4 py-4 shadow-lg shadow-gray-400 mb-7 md:px-8 md:py-7 xl:px-10">
             <form action="{{ route('dashboard.psychologists.store') }}" method="POST">
