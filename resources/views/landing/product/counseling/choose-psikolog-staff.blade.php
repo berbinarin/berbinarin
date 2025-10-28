@@ -52,7 +52,7 @@
         </a>
         <h1
             class="font text-gradient text-center text-[28px] font-bold text-black pb-1 max-md:mx-10 max-sm:mx-2 max-sm:text-[29px]">
-            Tentukan Jenis Konseling yang Sesuai</h1>
+            Tentukan Jenis Konseling staff yang Sesuai</h1>
     </div>
 
     <div class="mx-20 my-12 hidden items-center justify-center space-x-5 md:flex">
