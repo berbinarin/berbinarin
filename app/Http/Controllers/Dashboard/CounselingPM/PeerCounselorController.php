@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Dashboard\CounselingPM;
 
 use App\Http\Controllers\Controller;
 use App\Models\KonsellingPeer;
-use App\Models\JadwalPeer;
+use App\Models\jadwalPeer;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Carbon\Carbon;
@@ -20,7 +20,7 @@ class PeerCounselorController extends Controller
 
     public function create(Request $request)
     {
-        $jadwalPeerCounselors = JadwalPeer::all();
+        $jadwalPeerCounselors = jadwalPeer::all();
         $konselling = $request->session()->get('konselling');
         return view('dashboard.counseling-pm.peer-counselors.create', compact('jadwalPeerCounselors', 'konselling'));
     }
@@ -104,10 +104,10 @@ class PeerCounselorController extends Controller
 
         // Ambil hari konseling dari tanggal konseling untuk di ubah menjadi hari
         $hariKonseling = date('l', strtotime($PeerConsellorDataDetails->jadwal_tanggal));
-        $jadwalPeerCounselors = JadwalPeer::all();
+        $jadwalPeerCounselors = jadwalPeer::all();
 
         // Ambil jadwal sesuai hari konseling dan format jam tanpa detik
-        $jadwalHariIni = JadwalPeer::where('hari', $hariKonseling)
+        $jadwalHariIni = jadwalPeer::where('hari', $hariKonseling)
             ->get()
             ->map(function ($jadwal) {
                 return [
@@ -207,19 +207,19 @@ class PeerCounselorController extends Controller
 
     public function staffCreate()
     {
-        $jadwalPeerCounselors = JadwalPeer::all();
+        $jadwalPeerCounselors = jadwalPeer::all();
         return view('dashboard.counseling-pm.psikolog-staff.create', compact('jadwalPeerCounselors'));
     }
 
     public function staffEdit()
     {
-        $jadwalPeerCounselors = JadwalPeer::all();
+        $jadwalPeerCounselors = jadwalPeer::all();
         return view('dashboard.counseling-pm.psikolog-staff.edit', compact('jadwalPeerCounselors'));
     }
 
     public function staffShow()
     {
-        $jadwalPeerCounselors = JadwalPeer::all();
+        $jadwalPeerCounselors = jadwalPeer::all();
         return view('dashboard.counseling-pm.psikolog-staff.show', compact('jadwalPeerCounselors'));
     }
 }
