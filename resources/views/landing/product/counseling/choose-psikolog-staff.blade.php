@@ -61,12 +61,12 @@
                 <div
                     class="group relative h-auto w-[394px] origin-center transform items-center overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 before:absolute before:inset-0 before:scale-0 before:rounded-full before:bg-[#FFEACE] before:transition-transform before:duration-300 hover:before:scale-150">
                     <div
-                        class="flex transform flex-col justify-center space-y-5 p-4 text-center transition-transform duration-300 group-hover:-mt-10 group-hover:scale-y-[0.83]">
+                        class="flex transform flex-col justify-center space-y-2 p-4 text-center transition-transform duration-300 group-hover:-mt-10 group-hover:scale-y-[0.83]">
                         <h1
                             class="font text-gradient-blue text-xl font-semibold leading-relaxed text-black transition-all duration-300 group-hover:text-[26px] group-hover:leading-normal max-sm:text-[29px]">
                             {!! italic_en($konseling['nama']) !!}</h1>
                         <img src="{{ asset($konseling['image']) }}" alt="{{ $konseling['nama'] }}"
-                            class="h-[120px] w-auto object-contain transition-all duration-300 group-hover:mt-3 group-hover:h-[160px]" />
+                            class="h-36 w-auto object-contain transition-all duration-300 group-hover:mt-3 group-hover:h-[160px]" />
                         <p class="text-sm font-semibold leading-tight text-black">{!! italic_en($konseling['deskripsi']) !!}</p>
                     </div>
 
