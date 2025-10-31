@@ -16,7 +16,7 @@
 <li class="dark-hover:text-blue-300 my-5 rounded-lg p-2 {{ isRouteNameStartWith('dashboard.berbinar-class', 'bg') }}">
     <a href="{{ route('dashboard.berbinar-class.index') }}" class="flex flex-row items-center duration-700 {{ isRouteNameStartWith('dashboard.berbinar-class') }}">
         <i class="bx bx-tab mr-2 text-lg {{ Str::startsWith(Route::currentRouteName(), 'dashboard.berbinar-class') ? 'text-white' : 'text-gray-700' }}"></i>
-        <span class="ml-4 text-base font-bold leading-5">Daftar <span class="italic">Class</span></span>
+        <span class="ml-4 text-base font-bold leading-5">Daftar Kelas</span>
     </a>
 </li>
 

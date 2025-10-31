@@ -13,7 +13,7 @@
           <p tabindex="0" class="focus:outline-none text-base sm:text-lg md:text-2xl lg:text-4xl font-bold leading-normal mb-2 text-gray-800">
             Data Pendaftar
           </p>
-          <p class="w-full text-[#333333] lg:text-lg">
+          <p class="w-full text-disabled">
             Halaman ini menampilkan data lengkap peserta yang telah mendaftar ke program Berbinar+, termasuk informasi pribadi, kelas yang diikuti, dan paket layanan yang dipilih.
         </p>
         <a href="{{ route("dashboard.berbinar-plus.create") }}" class="mt-8 inline-flex items-start justify-start rounded-lg bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
@@ -23,7 +23,7 @@
       </div>
       <div class="flex w-full space-x-4">
         <!-- Left Card -->
-        <div class="rounded-2xl bg-white w-full shadow-lg px-4 py-4 md:px-8 md:py-7 xl:px-10">
+        <div class="rounded-lg bg-white w-full shadow-md px-4 py-4 md:px-8 md:py-7 xl:px-10 mb-7">
                 <div class="mb-4 mt-4 overflow-x-auto">
                     <table id="example" class="min-w-full pt-5 leading-normal">
                         <thead>

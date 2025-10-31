@@ -31,10 +31,132 @@
                         </button>
                     </div>
                 </div>
-                <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 mb-7 rounded-md shadow-lg">
+                <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 mb-7 rounded-xl shadow-lg">
                     <div class="overflow-x-auto flex flex-col gap-6">
 
-                        <div class="border border-gray-500 rounded-3xl overflow-hidden">
+                        <div class="flex flex-row gap-4">
+                            <button type="button" class="section-nav-button font-semibold text-lg text-primary-alt border-b-2 border-primary-alt mb-1" data-target="data-konseling">Data Konseling</button>
+                            <button type="button" class="section-nav-button font-semibold text-lg text-disabled mb-1" data-target="data-diri">Data Diri</button>
+                            <button type="button" class="section-nav-button font-semibold text-lg text-disabled mb-1" data-target="topik-konseling">Topik Konseling</button>
+                        </div>
+
+                        {{-- Data Konseling --}}
+                        <div id="data-konseling" class="mb-10" tabindex="-1">
+                            <h1 class="mb-6 text-3xl text-primary-alt font-bold">Data Konseling</h1>
+                            <div class="grid grid-cols-3 gap-6">
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Tanggal Konseling</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ \Carbon\Carbon::parse($BerbinarForUDataDetails->jadwal_tanggal)->format('d-m-Y') }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Tanggal Pendaftaran</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ \Carbon\Carbon::parse($BerbinarForUDataDetails->created_at)->format('d-m-Y') }}</p>
+                                </div>
+                                <div></div>
+                            </div>
+                        </div>
+
+                        {{-- Data Diri --}}
+                        <div id="data-diri" class="mb-10" tabindex="-1">
+                            <h1 class="mb-6 text-3xl text-primary-alt font-bold">Data Diri</h1>
+                            <div class="grid grid-cols-3 gap-6">
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Nama Lengkap</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $BerbinarForUDataDetails->nama }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Jenis Kelamin</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $BerbinarForUDataDetails->jenis_kelamin }}</p>
+                                </div>
+                                <div></div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Nomor Whatsapp</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize"><a href="https://wa.me/62{{ ltrim($BerbinarForUDataDetails->no_wa, '0') }}" target="_blank" class="text-blue-500 hover:text-blue-700 underline">{{ $BerbinarForUDataDetails->no_wa }}</a></p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Email</p>
+                                    <p class="font-semibold text-lg mb-6"><a href="mailto:{{ $BerbinarForUDataDetails->email }}" class="text-blue-500 hover:text-blue-700 underline">{{ $BerbinarForUDataDetails->email }}</a></p>
+                                </div>
+                                <div></div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Tempat Lahir</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $BerbinarForUDataDetails->tempat_lahir }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Tanggal Lahir</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $BerbinarForUDataDetails->tanggal_lahir }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Posisi Anak</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $BerbinarForUDataDetails->posisi_anak }}</p>
+                                </div>
+                                <!-- <div></div> -->
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Alamat Domisili</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $BerbinarForUDataDetails->alamat }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Pendidikan</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $BerbinarForUDataDetails->pendidikan }}</p>
+                                </div>
+                                <div></div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Asal Sekolah/Universitas</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $BerbinarForUDataDetails->asal_sekolah }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Agama</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $BerbinarForUDataDetails->agama }}</p>
+                                </div>
+                                <div></div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Suku Bangsa</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $BerbinarForUDataDetails->suku }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Status Pernikahan</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $BerbinarForUDataDetails->status_pernikahan }}</p>
+                                </div>
+                                <div></div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Pekerjaan</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $BerbinarForUDataDetails->riwayat_pekerjaan }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Hobi</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $BerbinarForUDataDetails->hobi }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Kegiatan Sosial yang Diikuti</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $BerbinarForUDataDetails->kegiatan_sosial }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Topik Konseling --}}
+                        <div id="topik-konseling" tabindex="-1">
+                            <h1 class="mb-6 text-3xl text-primary-alt font-bold">Topik Konseling</h1>
+                            <div class="grid grid-cols-1 gap-6">
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Hal yang ingin diceritakan</p>
+                                    <p class="font-semibold text-lg mb-6">{{ $BerbinarForUDataDetails->cerita_utama }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Informasi tambahan</p>
+                                    <p class="font-semibold text-lg mb-6">{{ $BerbinarForUDataDetails->cerita_tambahan }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Alasan konseling</p>
+                                    <p class="font-semibold text-lg mb-6">{{ $BerbinarForUDataDetails->alasan_konseling }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Harapan setelah konseling</p>
+                                    <p class="font-semibold text-lg mb-6">{{ $BerbinarForUDataDetails->harapan_konseling }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- <div class="border border-gray-500 rounded-3xl overflow-hidden">
                             <div class="bg-[#3986A380] py-3 px-6">Informasi Konseling</div>
                             <div class="w-full flex flex-row">
                                 <div class="w-2/3 flex flex-col gap-4 py-4">
@@ -174,7 +296,7 @@
 
                             </div>
 
-                        </div>
+                        </div> --}}
 
 
                         {{-- <table class="w-full table-auto border-collapse border border-gray-300">
@@ -363,5 +485,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+</script>
+
+<script>
+    // Enable nav buttons to scroll/focus corresponding sections and toggle active style
+    document.addEventListener('DOMContentLoaded', function () {
+        const navButtons = document.querySelectorAll('.section-nav-button');
+        navButtons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                // update active classes on buttons
+                navButtons.forEach(b => {
+                    b.classList.remove('text-primary-alt', 'border-b-2', 'border-primary-alt');
+                    b.classList.add('text-disabled');
+                });
+                this.classList.remove('text-disabled');
+                this.classList.add('text-primary-alt', 'border-b-2', 'border-primary-alt');
+
+                const targetId = this.dataset.target;
+                const target = document.getElementById(targetId);
+                if (target) {
+                    // smooth scroll and set focus for accessibility
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // ensure focusable then focus
+                    target.setAttribute('tabindex', '-1');
+                    target.focus({ preventScroll: true });
+                }
+            });
+        });
+    });
 </script>
 @endsection

@@ -31,10 +31,167 @@
                         </button>
                     </div>
                 </div>
-                <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 mb-7 rounded-md shadow-lg">
+                <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 mb-7 rounded-xl shadow-lg">
                     <div class="overflow-x-auto flex flex-col gap-6">
 
-                        <div class="border border-gray-500 rounded-3xl overflow-hidden">
+                        <div class="flex flex-row gap-4">
+                            <button type="button" class="section-nav-button font-semibold text-lg text-primary-alt border-b-2 border-primary-alt mb-1" data-target="data-konseling">Data Konseling</button>
+                            <button type="button" class="section-nav-button font-semibold text-lg text-disabled mb-1" data-target="data-diri">Data Diri</button>
+                            <button type="button" class="section-nav-button font-semibold text-lg text-disabled mb-1" data-target="topik-konseling">Topik Konseling</button>
+                            <button type="button" class="section-nav-button font-semibold text-lg text-disabled mb-1" data-target="informasi-konseling">Informasi Konseling</button>
+                        </div>
+
+                        {{-- Data Konseling --}}
+                        <div id="data-konseling" class="mb-10" tabindex="-1">
+                            <h1 class="mb-6 text-3xl text-primary-alt font-bold">Data Konseling</h1>
+                            <div class="grid grid-cols-3 gap-6">
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Tanggal Konseling</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ \Carbon\Carbon::parse($PeerConsellorDataDetails->jadwal_tanggal)->format('d-m-Y') }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Tanggal Pendaftaran</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ \Carbon\Carbon::parse($PeerConsellorDataDetails->created_at)->format('d-m-Y') }}</p>
+                                </div>
+                                <div></div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Waktu</p>
+                                    <p class="font-semibold text-lg mb-6">{{ $PeerConsellorDataDetails->jadwal_pukul }} &nbsp;WIB</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Metode</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $PeerConsellorDataDetails->metode }}</p>
+                                </div>
+                                <div></div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Sesi</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $PeerConsellorDataDetails->sesi }} &nbsp;Jam</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Daerah</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $PeerConsellorDataDetails->daerah }}</p>
+                                </div>
+                                <div></div>
+                            </div>
+                        </div>
+
+                        {{-- Data Diri --}}
+                        <div id="data-diri" class="mb-10" tabindex="-1">
+                            <h1 class="mb-6 text-3xl text-primary-alt font-bold">Data Diri</h1>
+                            <div class="grid grid-cols-3 gap-6">
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Nama Lengkap</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $PeerConsellorDataDetails->nama }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Jenis Kelamin</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $PeerConsellorDataDetails->jenis_kelamin }}</p>
+                                </div>
+                                <div></div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Nomor Whatsapp</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize"><a href="https://wa.me/62{{ ltrim($PeerConsellorDataDetails->no_wa, '0') }}" target="_blank" class="text-blue-500 hover:text-blue-700 underline">{{ $PeerConsellorDataDetails->no_wa }}</a></p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Email</p>
+                                    <p class="font-semibold text-lg mb-6"><a href="mailto:{{ $PeerConsellorDataDetails->email }}" class="text-blue-500 hover:text-blue-700 underline">{{ $PeerConsellorDataDetails->email }}</a></p>
+                                </div>
+                                <div></div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Tempat Lahir</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $PeerConsellorDataDetails->tempat_lahir }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Posisi Anak</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $PeerConsellorDataDetails->posisi_anak }}</p>
+                                </div>
+                                <div></div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Alamat Domisili</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $PeerConsellorDataDetails->alamat }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Pendidikan</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $PeerConsellorDataDetails->pendidikan }}</p>
+                                </div>
+                                <div></div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Asal Sekolah/Universitas</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $PeerConsellorDataDetails->asal_sekolah }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Agama</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $PeerConsellorDataDetails->agama }}</p>
+                                </div>
+                                <div></div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Suku Bangsa</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $PeerConsellorDataDetails->suku }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Status Pernikahan</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $PeerConsellorDataDetails->status_pernikahan }}</p>
+                                </div>
+                                <div></div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Pekerjaan</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $PeerConsellorDataDetails->riwayat_pekerjaan }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Hobi</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $PeerConsellorDataDetails->hobi }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Kegiatan Sosial yang Diikuti</p>
+                                    <p class="font-semibold text-lg mb-6 capitalize">{{ $PeerConsellorDataDetails->kegiatan_sosial }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- Topik Konseling --}}
+                        <div id="topik-konseling" class="mb-10" tabindex="-1">
+                            <h1 class="mb-6 text-3xl text-primary-alt font-bold">Topik Konseling</h1>
+                            <h2 class="mb-3 text-xl text-disabled font-semibold">Cerita Tentang Hal yang Ingin Dikonsultasikan</h2>
+                            <p class="font-semibold text-lg mb-1">
+                                {{ $PeerConsellorDataDetails->cerita }}
+                            </p>
+                        </div>
+
+                        {{-- Informasi Konseling --}}
+                        <div id="informasi-konseling" tabindex="-1">
+                            <h1 class="mb-6 text-3xl text-primary-alt font-bold">Informasi Konseling</h1>
+                            <div class="grid grid-cols-3 gap-6">
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Kategori Voucher</p>
+                                    <p class="font-semibold text-lg mb-6">{{ $PeerConsellorDataDetails->kategori_voucher ?? '-' }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Kode Voucher</p>
+                                    <p class="font-semibold text-lg mb-6">{{ $PeerConsellorDataDetails->code_voucher ?? '-' }}</p>
+                                </div>
+                                <div></div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Persentasi Diskon</p>
+                                    <p class="font-semibold text-lg mb-6">{{ $PeerConsellorDataDetails->presentase_diskon ? $PeerConsellorDataDetails->presentase_diskon . '%' : '-' }}</p>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-lg text-disabled mb-1">Bukti Kartu Pelajar</p>
+                                    <p class="font-semibold text-lg mb-6">
+                                        @if($PeerConsellorDataDetails->bukti_kartu_pelajar)
+                                            <a href="{{ asset('storage/' . $PeerConsellorDataDetails->bukti_kartu_pelajar) }}" target="_blank">
+                                                <img src="{{ asset('storage/' . $PeerConsellorDataDetails->bukti_kartu_pelajar) }}"
+                                                    alt="Bukti Kartu Pelajar"
+                                                    style="max-width:120px;max-height:120px;border-radius:8px;border:1px solid #ccc;">
+                                            </a>
+                                        @else
+                                            <span>-</span>
+                                        @endif
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- <div class="border border-gray-500 rounded-3xl overflow-hidden">
                             <div class="bg-[#3986A380] py-3 px-6">Informasi Konseling</div>
                             <div class="w-full flex flex-row">
                                 <div class="w-2/3 flex flex-col gap-4 py-4">
@@ -220,7 +377,7 @@
 
                             </div>
 
-                        </div>
+                        </div> --}}
 
                         {{-- <table class="w-full table-auto border-collapse border border-gray-300">
                             <thead class="bg-gray-200">
@@ -449,6 +606,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (e.target === deleteModal) {
                     deleteModal.classList.add('hidden');
                 }
+            });
+        });
+    </script>
+
+    <script>
+        // Enable nav buttons to scroll/focus corresponding sections and toggle active style
+        document.addEventListener('DOMContentLoaded', function () {
+            const navButtons = document.querySelectorAll('.section-nav-button');
+            navButtons.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    // update active classes on buttons
+                    navButtons.forEach(b => {
+                        b.classList.remove('text-primary-alt', 'border-b-2', 'border-primary-alt');
+                        b.classList.add('text-disabled');
+                    });
+                    this.classList.remove('text-disabled');
+                    this.classList.add('text-primary-alt', 'border-b-2', 'border-primary-alt');
+
+                    const targetId = this.dataset.target;
+                    const target = document.getElementById(targetId);
+                    if (target) {
+                        // smooth scroll and set focus for accessibility
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        // ensure focusable then focus
+                        target.setAttribute('tabindex', '-1');
+                        target.focus({ preventScroll: true });
+                    }
+                });
             });
         });
     </script>
