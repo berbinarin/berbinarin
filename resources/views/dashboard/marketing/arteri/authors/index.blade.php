@@ -18,7 +18,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="rounded-md bg-white px-4 py-4 md:px-8 md:py-7 xl:px-10">
+                <div class="rounded-lg shadow-md bg-white px-4 py-4 md:px-8 md:py-7 xl:px-10 mb-7">
                     <div class="mt-4 overflow-x-auto">
                         <table id="example" class="display w-full" style="overflow-x: scroll">
                             <thead>
@@ -43,10 +43,10 @@
                                             <div class="flex items-center justify-center gap-2">
                                                 <!-- Tombol Edit -->
                                                 <button onclick="bukaModalEditPenulis({{ $author->id }}, '{{ $author->name_author }}', '{{ asset("storage/" . $author->profil_image) }}')" type="button" class="inline-flex items-center justify-center rounded p-2 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #e9b306">
-                                                    <i class="bx bx-edit-alt text-white"></i>
+                                                    <i class="bx bxs-edit-alt text-white"></i>
                                                 </button>
                                                 <button onclick="bukaModalHapus({{ $author->id }})" type="button" class="inline-flex items-center justify-center rounded p-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #ef4444">
-                                                    <i class="bx bx-trash-alt text-white"></i>
+                                                    <i class="bx bxs-trash-alt text-white"></i>
                                                 </button>
                                             </div>
                                         </td>

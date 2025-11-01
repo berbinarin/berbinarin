@@ -21,7 +21,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-md">
+                <div class="bg-white shadow-md py-4 md:py-7 px-4 md:px-8 xl:px-10 rounded-lg mb-7">
                     <div class="mt-4 overflow-x-auto">
                         <table id="example" class="display w-full" style="overflow-x: scroll;">
                             <thead>
@@ -56,17 +56,17 @@
                                                 <a href="{{ route('dashboard.arteri.articles.show', $article->id) }}"
                                                     class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-2 focus:outline-none rounded hover:bg-yellow-700"
                                                     style="background-color: #3B82F6;">
-                                                    <i class='bx bx-show-alt text-white'></i>
+                                                    <i class='bx bxs-show text-white'></i>
                                                 </a>
                                                 <a href="{{ route('dashboard.arteri.articles.edit', $article->id) }}"
                                                     class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-2 focus:outline-none rounded hover:bg-yellow-700"
                                                     style="background-color: #E9B306;">
-                                                    <i class='bx bx-edit-alt text-white'></i>
+                                                    <i class='bx bxs-edit-alt text-white'></i>
                                                 </a>
                                                 <button onclick="setDeleteAction('{{ route('dashboard.arteri.articles.destroy', $article->id) }}')" type="button"
                                                     class="focus:ring-2 focus:ring-offset-2 inline-flex items-center justify-center p-2 focus:outline-none rounded hover:bg-red-700"
                                                     style="background-color: #EF4444;">
-                                                    <i class='bx bx-trash-alt text-white'></i>
+                                                    <i class='bx bxs-trash-alt text-white'></i>
                                                 </button>
                                             </div>
                                         </td>

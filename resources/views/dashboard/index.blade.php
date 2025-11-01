@@ -936,10 +936,10 @@
             @endrole
 
             @role('marketing')
-                <div class="relative flex-grow overflow-hidden w-[1150px] max-h-[70vh]">
+                <div class="relative flex-grow w-full">
                     <!-- Card Section -->
                     <div class="mb-5 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                        <div class="flex h-[150px] flex-col justify-between rounded-xl bg-white p-4 shadow">
+                        <div class="flex flex-col justify-between rounded-lg bg-white p-4 shadow">
                             <span class="text-left text-[20px] font-semibold text-gray-800">Artikel</span>
                             <div class="flex items-center justify-between mt-auto">
                                 <span class="text-[36px] font-bold text-gray-900">{{ $articleCount }}</span>
@@ -948,7 +948,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex h-[150px] flex-col justify-between rounded-xl bg-white p-4 shadow">
+                        <div class="flex flex-col justify-between rounded-lg bg-white p-4 shadow">
                             <span class="text-left text-[20px] font-semibold text-gray-800">Penulis Artikel</span>
                             <div class="flex items-center justify-between mt-auto">
                                 <span class="text-[36px] font-bold text-gray-900">{{ $authorCount }}</span>
@@ -958,7 +958,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex h-[150px] flex-col justify-between rounded-xl bg-white p-4 shadow">
+                        <div class="flex flex-col justify-between rounded-lg bg-white p-4 shadow">
                             <span class="text-left text-[20px] font-semibold text-gray-800">Kategori Artikel</span>
                             <div class="flex items-center justify-between mt-auto">
                                 <span class="text-[36px] font-bold text-gray-900">{{ $categoryCount }}</span>
@@ -969,80 +969,46 @@
                             </div>
                         </div>
                     </div>
-                    <div class="relative flex-grow overflow-hidden w-full">
-                        <!-- Card Section -->
-                        <div class="mb-5 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                            <div class="flex h-[150px] flex-col justify-between rounded-xl bg-white p-4 shadow">
-                                <span class="text-left text-[20px] font-semibold text-gray-800">Artikel</span>
-                                <div class="flex items-center justify-between mt-auto">
-                                    <span class="text-[36px] font-bold text-gray-900">{{ $articleCount }}</span>
-                                    <div class="flex h-[64px] w-[64px] items-center justify-center rounded-xl">
-                                        <img src="{{ asset('assets/images/dashboard/arteri/artikel.svg') }}"
-                                            alt="arrow down">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex h-[150px] flex-col justify-between rounded-xl bg-white p-4 shadow">
-                                <span class="text-left text-[20px] font-semibold text-gray-800">Penulis Artikel</span>
-                                <div class="flex items-center justify-between mt-auto">
-                                    <span class="text-[36px] font-bold text-gray-900">{{ $authorCount }}</span>
-                                    <div class="flex h-[64px] w-[64px] items-center justify-center rounded-xl">
-                                        <img src="{{ asset('assets/images/dashboard/arteri/penulis-artikel.svg') }}"
-                                            alt="arrow down">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex h-[150px] flex-col justify-between rounded-xl bg-white p-4 shadow">
-                                <span class="text-left text-[20px] font-semibold text-gray-800">Kategori Artikel</span>
-                                <div class="flex items-center justify-between mt-auto">
-                                    <span class="text-[36px] font-bold text-gray-900">{{ $categoryCount }}</span>
-                                    <div class="flex h-[64px] w-[64px] items-center justify-center rounded-xl">
-                                        <img src="{{ asset('assets/images/dashboard/arteri/kategori-artikel.png') }}"
-                                            alt="arrow down">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Charts Section -->
-                        <div class="grid grid-cols-1 gap-6">
-                            <div class="flex h-[340px] flex-col rounded-xl bg-white p-6 shadow">
-                                <div class="mb-4">
-                                    <h1 class="text-[28px] text-[#75BADB]"><b>Analisis Pembaca</b></h1>
-                                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                                        <p class="text-[14px]">Berikut ini merupakan visualisasi diagram Analisis Pembaca
-                                            ArteRi
-                                        </p>
-                                        <div class="relative w-full sm:w-auto">
-                                            <select
-                                                class="block w-full px-3 py-2 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#75BADB] focus:border-[#75BADB]">
-                                                <option selected>All</option>
-                                                <option>Pembaca</option>
-                                                <option>Reaksi</option>
-                                                <option>Di bagikan</option>
-                                            </select>
-                                        </div>
+                    <!-- Charts Section -->
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="flex h-[330px] flex-col rounded-xl bg-white p-6 shadow">
+                            <div class="mb-4">
+                                <h1 class="text-[28px] text-[#75BADB]"><b>Analisis Pembaca</b></h1>
+                                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                                    <p class="text-[14px]">Berikut ini merupakan visualisasi diagram Analisis Pembaca
+                                        ArteRi
+                                    </p>
+                                    <div class="relative w-full sm:w-auto">
+                                        <select
+                                            class="block w-full px-3 py-2 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#75BADB] focus:border-[#75BADB]">
+                                            <option selected>All</option>
+                                            <option>Pembaca</option>
+                                            <option>Reaksi</option>
+                                            <option>Di bagikan</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="flex w-full flex-col items-center h-full">
-                                    <canvas id="marketingChart" class="mb-1" style="max-height: 180px;"></canvas>
-                                    <div class="mb-4 flex gap-4 text-xs">
-                                        @php
-                                            $chartLabels = ['Artikel', 'Draft', 'Kategori'];
-                                            $chartColors = ['#106681', '#E9B306', '#232ACA'];
-                                        @endphp
-                                        @foreach ($chartLabels as $i => $label)
-                                            <div class="flex items-center gap-1">
-                                                <span class="inline-block h-3 w-3 rounded"
-                                                    style="background: {{ $chartColors[$i] }}"></span>
-                                                {{ $label }}
-                                            </div>
-                                        @endforeach
-                                    </div>
+                            </div>
+                            <div class="flex w-full flex-col items-center h-full">
+                                <canvas id="marketingChart" class="mb-1" style="max-height: 180px;"></canvas>
+                                <div class="mb-4 flex gap-4 text-xs">
+                                    @php
+                                        $chartLabels = ['Artikel', 'Draft', 'Kategori'];
+                                        $chartColors = ['#106681', '#E9B306', '#232ACA'];
+                                    @endphp
+                                    @foreach ($chartLabels as $i => $label)
+                                        <div class="flex items-center gap-1">
+                                            <span class="inline-block h-3 w-3 rounded"
+                                                style="background: {{ $chartColors[$i] }}"></span>
+                                            {{ $label }}
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
                     @section('script')
                         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                         <script>

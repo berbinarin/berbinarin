@@ -17,7 +17,7 @@
                 class="{{ Request::is('dashboard') ? 'text-white' : 'text-gray-700 hover:text-primary' }} flex flex-row items-center duration-700">
                 <img src="{{ asset('assets/images/dashboard/Category.png') }}" alt="Dashboard Icon"
                     class="mr-2 h-[21px] w-[21px] object-contain transition duration-300 {{ Request::is('dashboard') ? 'brightness-0 invert' : 'brightness-100' }}" />
-                <span class="ml-4 text-xs lg:text-base font-normal leading-5">Dashboard</span>
+                <span class="ml-4 text-xs lg:text-base font-bold leading-5">Dashboard</span>
             </a>
         </li>
 
