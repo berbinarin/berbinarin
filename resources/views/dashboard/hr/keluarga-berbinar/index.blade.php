@@ -36,10 +36,7 @@
             <div class="py-4 md:pb-7 md:pt-12">
                 <div class="">
                     <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Pengelolaan Data Staf</p>
-                    <p class="w-full text-disabled">
-                        Pada halaman ini, admin dapat melakukan tambah, ubah, ataupun hapus terhadap data seluruh staf di Berbinar.
-                        Data tersebut yang menjadi bahan untuk ditampilkan pada situs resmi Berbinar pada bagian keluarga Berbinar
-                    </p>
+                    <p class="w-full text-disabled">Pada halaman ini, admin dapat melakukan tambah, ubah, ataupun hapus terhadap data seluruh staf di Berbinar. Data tersebut yang menjadi bahan untuk ditampilkan pada situs resmi Berbinar pada bagian keluarga Berbinar</p>
                     <a href="{{ route("dashboard.keluarga-berbinar.create") }}">
                         <button type="button" class="mt-8 inline-flex items-start justify-start rounded-lg bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
                             <p class="text-dark font-medium leading-none">Tambah Data</p>
@@ -47,7 +44,7 @@
                     </a>
                 </div>
             </div>
-            <div class="rounded-lg shadow bg-white px-4 py-4 mb-7 md:px-8 md:py-7 xl:px-10">
+            <div class="mb-7 rounded-lg bg-white px-4 py-4 shadow md:px-8 md:py-7 xl:px-10">
                 <div class="mb-4 mt-4 overflow-x-auto">
                     <table id="example" class="min-w-full pt-5 leading-normal">
                         <thead>
@@ -62,7 +59,7 @@
                         </thead>
                         <tbody>
                             @foreach ($staffs as $index => $staff)
-                                <tr class="border-b border-gray-200 hover:bg-gray-200 odd:bg-gray-100 even:bg-white">
+                                <tr class="border-b border-gray-200 odd:bg-gray-100 even:bg-white hover:bg-gray-200">
                                     <td class="whitespace-no-wrap sticky-col sticky-col-1 px-6 py-4">
                                         {{ $index + 1 }}
                                     </td>
@@ -90,13 +87,12 @@
                                         <a href="{{ route("dashboard.keluarga-berbinar.edit", $staff->id) }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #e9b306">
                                             <i class="bx bxs-edit-alt text-white"></i>
                                         </a>
-                                        <form action="{{ route("dashboard.keluarga-berbinar.destroy", $staff->id) }}" method="POST">
-                                            @csrf
-                                            @method("DELETE")
-                                            <button type="submit" class="inline-flex items-start justify-start rounded p-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #ef4444">
-                                                <i class="bx bxs-trash-alt text-white"></i>
-                                            </button>
-                                        </form>
+                                        <button type="button"
+                                            class="inline-flex items-start justify-start rounded p-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                                            style="background-color: #ef4444"
+                                            onclick="openDeleteModal({{ $staff->id }})">
+                                            <i class="bx bxs-trash-alt text-white"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -107,10 +103,38 @@
         </div>
     </section>
 
-    <script>
-        function toggleModal(modalID) {
-            document.getElementById(modalID).classList.toggle('hidden');
-            document.getElementById(modalID + '-backdrop').classList.toggle('hidden');
-        }
-    </script>
+    <!-- Modal Konfirmasi Hapus -->
+    <div id="deleteModal" class="fixed inset-0 z-10 flex hidden items-center justify-center bg-black bg-opacity-50">
+        <div class="w-full max-w-md rounded-lg bg-white p-6 text-center">
+            <div class="mb-4 flex justify-center">
+                <img src="{{ asset("assets/images/dashboard/svg-icon/warning.svg") }}" alt="Warning Icon" class="h-12 w-12" />
+            </div>
+            <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900" id="modal-title">Konfirmasi Hapus</h3>
+            <p class="mb-6 text-base text-gray-500">Apakah Anda yakin ingin menghapus kelas ini? Semua data terkait juga akan dihapus.</p>
+            <div class="flex w-full justify-center gap-4">
+                <form id="deleteForm" method="POST" class="w-1/2">
+                    @csrf
+                    @method("DELETE")
+                    <button type="submit" class="w-full rounded-lg bg-[#3986A3] px-6 py-2 text-center text-white hover:bg-[#3986A3] focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2">Hapus</button>
+                </form>
+                <button type="button" class="w-1/2 rounded-lg border border-[#3986A3] px-6 py-2 text-[#3986A3] focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2" onclick="closeDeleteModal()">Batal</button>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@section("script")
+<script>
+    let deleteModal = document.getElementById('deleteModal');
+    let deleteForm = document.getElementById('deleteForm');
+
+    function openDeleteModal(staffId) {
+        deleteForm.action = `/dashboard/keluarga-berbinar/${staffId}`;
+        deleteModal.classList.remove('hidden');
+    }
+
+    function closeDeleteModal() {
+        deleteModal.classList.add('hidden');
+    }
+</script>
 @endsection

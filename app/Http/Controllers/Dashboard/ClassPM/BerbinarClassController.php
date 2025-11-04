@@ -44,7 +44,13 @@ class BerbinarClassController extends Controller
             'thumbnail' => 'default.png',
         ]);
 
-        return redirect()->route('dashboard.berbinar-class.index')->with('success', 'Kelas berhasil ditambahkan');
+        return redirect()->route('dashboard.berbinar-class.index')->with([
+            'alert' => true,
+            'icon' => asset('assets/images/dashboard/success.png'),
+            'title' => 'Berhasil!',
+            'message' => 'Kelas berhasil ditambahkan.',
+            'type' => 'success',
+        ]);
     }
 
     /**
@@ -83,7 +89,13 @@ class BerbinarClassController extends Controller
             'thumbnail' => 'default.png',
         ]);
 
-        return redirect()->route('dashboard.berbinar-class.index')->with('success', 'Class berhasil diedit');
+        return redirect()->route('dashboard.berbinar-class.index')->with([
+            'alert' => true,
+            'icon' => asset('assets/images/dashboard/success.png'),
+            'title' => 'Berhasil!',
+            'message' => 'Kelas berhasil diedit.',
+            'type' => 'success',
+        ]);
     }
 
     /**
@@ -93,6 +105,12 @@ class BerbinarClassController extends Controller
     {
         $class = Berbinarp_class::findOrFail($id);
         $class->delete();
-        return redirect()->route('dashboard.berbinar-class.index')->with('success', 'Kelas berhasil dihapus');
+        return redirect()->route('dashboard.berbinar-class.index')->with([
+            'alert' => true,
+            'icon' => asset('assets/images/dashboard/success.png'),
+            'title' => 'Berhasil!',
+            'message' => 'Kelas berhasil dihapus.',
+            'type' => 'success',
+        ]);
     }
 }
