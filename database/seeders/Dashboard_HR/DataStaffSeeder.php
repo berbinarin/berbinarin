@@ -16,12 +16,11 @@ class DataStaffSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        // Misalnya, kita membuat 5 data staff
         for ($i = 1; $i <= 5; $i++) {
             DB::table('data_staff')->insert([
                 'nama_lengkap' => $faker->name,
                 'linkedin'     => $faker->url,
-                'foto'         => 'default.jpg', // atau $faker->imageUrl() jika diperlukan
+                'foto'         => 'default.jpg', 
                 'motm'         => 'no',
             ]);
         }
