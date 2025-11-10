@@ -10,61 +10,76 @@
         <div class="flex w-full flex-col">
             <div class="py-4 md:pb-7 md:pt-12">
                 <div class="mb-2 flex items-center gap-2">
-                    <a href="{{ route("dashboard.berbinar-plus.index") }}">
+                    <a href="{{ route("dashboard.berbinar-class.index") }}">
                         <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
                     </a>
-                    <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Edit Daftar Class</p>
+                    <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Ubah Daftar Kelas</p>
                 </div>
                 <p class="w-full text-disabled">Formulir untuk menambahkan kelas baru ke dalam program Berbinar+ secara rinci, beserta detail nama kelas, jadwal pelaksanaan, fasilitator, dan kapasitas maksimal peserta.</p>
             </div>
-            <div class="rounded-3xl bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+            <div class="rounded-lg bg-white px-4 py-4 shadow-md md:px-8 md:py-7 xl:px-10 mb-7">
                 <form action="{{ route('dashboard.berbinar-class.update', $class->id) }}" method="POST">
                     @csrf
 
                     @method('PUT')
 
-                    <h1 class="mb-6 text-center text-3xl font-bold">Berbinar+ <span class="italic">Class</span></h1>
-                    <div class="flex flex-col">
+                    <h1 class="mb-6 text-center text-3xl font-bold">Berbinar+ Kelas</h1>
+                    <div class="flex flex-col gap-0.5">
                         <div>
-                            <label class="text-lg">Nama <span class="italic">Class</span></label>
+                            <label class="text-lg">Nama Kelas</label>
                                 <div class="relative w-full">
                                     <input type="text" id="title" name="title" placeholder=" " class="peer w-full rounded-lg border-gray-300 px-4 py-4 shadow-sm" value="{{ $class->title}}"/>
 
                                     <label id="label-nama" for="title" class="absolute left-4 top-4 text-gray-500 transition-all pointer-events-none">
-                                    Nama <span class="italic">Class</span> Berbinar+
+                                    Nama Kelas Berbinar+
                                     </label>
                                 </div>
                         </div>
 
                         <div>
-                            <label class="text-lg">Deskripsi <span class="italic">Class</span></label>
+                            <label class="text-lg">Deskripsi Kelas</label>
                                 <div class="relative w-full">
                                     <textarea id="description" name="description" placeholder=" " rows="4" class="peer w-full rounded-lg border-gray-300 px-4 py-4 shadow-sm resize-none" >{{ $class->description }}</textarea>
 
                                     <label id="label-deskripsi" for="description" class="absolute left-4 top-4 text-gray-500 transition-all pointer-events-none">
-                                    Deskripsi <span class="italic">Class</span> Berbinar+
+                                    Deskripsi Kelas Berbinar+
                                     </label>
                                 </div>
                         </div>
 
                         <div class="mt-8 flex gap-4 pt-5">
-                            <button type="submit" id="submitButton" class="flex h-12 flex-1 items-center justify-center rounded-xl text-lg" style="width: 50%; background: #3986a3; color: #fff">Simpan</button>
                             <button type="button" id="cancelButton" class="flex h-12 flex-1 items-center justify-center rounded-xl text-lg" style="width: 50%; border: 2px solid #3986a3; color: #3986a3">Batal</button>
+                            <button type="submit" id="submitButton" class="flex h-12 flex-1 items-center justify-center rounded-xl text-lg" style="width: 50%; background: #3986a3; color: #fff">Simpan</button>
                         </div>
 
-                            <!-- Modal Konfirmasi -->
-                            <div id="confirmModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black bg-opacity-50">
-                                <div class="w-full max-w-md rounded-lg bg-white p-6 text-center">
-                                    <div class="mb-4 flex justify-center">
-                                        <img src="{{ asset('assets/images/dashboard/svg-icon/warning.svg') }}" alt="Warning Icon" class="h-12 w-12" />
-                                    </div>
-                                    <p class="mb-6 text-lg">Apakah Anda yakin ingin membatalkan perubahan?</p>
-                                    <div class="flex w-full justify-center gap-4">
-                                        <a href="{{ route("dashboard.berbinar-class.index") }}" id="confirmCancel" class="rounded-lg bg-[#3986A3] w-1/2 px-6 py-2 text-white text-center focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2">OK</a>
-                                        <button type="button" id="cancelSubmit" class="rounded-lg border border-[#3986A3] w-1/2 px-6 py-2 text-[#3986A3] focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2">Cancel</button>
-                                    </div>
+                            <!-- Modal Konfirmasi Batal -->
+                        <div id="confirmModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/40">
+                            <div
+                                class="relative w-[560px] rounded-[20px] bg-white p-6 text-center font-plusJakartaSans shadow-lg"
+                                style="
+                                    background:
+                                        linear-gradient(to right, #74aabf, #3986a3) top/100% 6px no-repeat,
+                                        white;
+                                    border-radius: 20px;
+                                    background-clip: padding-box, border-box;
+                                "
+                            >
+                                <!-- Warning Icon -->
+                                <img src="{{ asset("assets/images/dashboard/warning.png") }}" alt="Warning Icon" class="mx-auto h-[83px] w-[83px]" />
+
+                                <!-- Title -->
+                                <h2 class="mt-4 text-2xl font-bold text-stone-900">Konfirmasi Batal</h2>
+
+                                <!-- Message -->
+                                <p class="mt-2 text-base font-medium text-black">Apakah Anda yakin ingin membatalkan pengisian data?</p>
+
+                                <!-- Actions -->
+                                <div class="mt-6 flex justify-center gap-3">
+                                    <button type="button" id="cancelSubmit" class="rounded-lg border border-stone-300 px-6 py-2 text-stone-700">Tidak</button>
+                                    <a href="{{ route("dashboard.berbinar-class.index") }}" class="rounded-[5px] bg-gradient-to-r from-[#74AABF] to-[#3986A3] px-6 py-2 font-medium text-white">Ya</a>
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </form>
             </div>

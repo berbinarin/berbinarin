@@ -13,14 +13,14 @@
                     <a href="{{ route("dashboard.berbinar-class.index") }}">
                         <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
                     </a>
-                    <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Detail Daftar Class</p>
+                    <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Detail Daftar Kelas</p>
                 </div>
-                <p class="w-full text-disabled">Halaman ini menampilkan informasi detail mengenai data Class yang terdapat pada BERBINAR+. Admin dapat melihat Informasi lengkap seputar nama dan deskripsi Class.</p>
+                <p class="w-full text-disabled">Halaman ini menampilkan informasi detail mengenai data Kelas yang terdapat pada Berbinar+. Admin dapat melihat Informasi lengkap seputar nama dan deskripsi Kelas.</p>
             </div>
-            <div class="rounded-3xl bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+            <div class="rounded-lg bg-white px-4 py-4 shadow-md md:px-8 md:py-7 xl:px-10 mb-7">
 
                 <div class="mb-6">
-                    <h1 class="mb-6 text-2xl text-primary-alt font-bold">Nama <span class="italic">Class</span></h1>
+                    <h1 class="mb-6 text-2xl text-primary-alt font-bold">Nama Kelas</h1>
                     <p class="font-semibold text-lg">{{ $class->title }}</p>
                 </div>
 

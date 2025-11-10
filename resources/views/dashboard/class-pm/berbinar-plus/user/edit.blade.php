@@ -13,19 +13,18 @@
                     <a href="{{ route("dashboard.berbinar-plus.index") }}">
                         <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
                     </a>
-                    <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Edit Data Pendaftar</p>
+                    <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Ubah Data Pendaftar</p>
                 </div>
-                <p class="w-full text-disabled">Formulir untuk mengedit peserta program Berbinar+ secara manual, lengkap dengan informasi pribadi, pilihan kelas, dan paket layanan yang dipilih.</p>
+                <p class="w-full text-disabled">Formulir untuk mengubah peserta program Berbinar+ secara manual, lengkap dengan informasi pribadi, pilihan kelas, dan paket layanan yang dipilih.</p>
             </div>
-            <div class="rounded-3xl bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+            <div class="rounded-lg bg-white px-4 py-4 shadow-md md:px-8 md:py-7 xl:px-10 mb-7">
                 <form id="berbinarForm" action="{{ route("dashboard.berbinar-plus.update", $user->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method("PATCH")
                     <input type="hidden" name="kategori" value="berbinar-for-u" />
 
                     <h1 class="mb-6 text-center text-3xl font-bold">
-                        Berbinar+
-                        <span class="italic">Class</span>
+                        Kelas Berbinar+
                     </h1>
                     <div class="flex flex-col">
                         <div class="mb-10 grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -129,7 +128,7 @@
                                 <div class="relative flex w-full items-center">
                                     <input type="file" id="bukti_transfer" name="bukti_transfer" class="absolute inset-0 h-full w-full cursor-pointer opacity-0" accept="image/*,application/pdf" />
                                     <div class="pointer-events-none mt-1 block flex h-10 w-full items-center rounded-md border border-gray-100 bg-gray-100 pl-2 shadow-sm">
-                                        <button type="button" class="pointer-events-none flex cursor-pointer items-center justify-between gap-2 rounded-md border border-[#B3B3B3] px-2 py-[2px]">
+                                        <button type="button" class="pointer-events-none min-w-32 flex cursor-pointer items-center justify-between gap-2 rounded-md border border-[#B3B3B3] px-2 py-[2px]">
                                             <img src="{{ asset("assets/images/landing/produk/emo/upload-line-icon.png") }}" alt="" class="h-4 w-4" />
                                             Upload File
                                         </button>
@@ -174,8 +173,8 @@
                         </div>
 
                         <div class="mt-8 flex gap-4 pt-5">
-                            <button type="button" id="submitButton" class="flex h-12 flex-1 items-center justify-center rounded-xl text-lg" style="width: 50%; background: #3986a3; color: #fff">Simpan</button>
                             <a href="#" id="cancelButton" class="flex h-12 flex-1 items-center justify-center rounded-xl text-lg" style="width: 50%; border: 2px solid #3986a3; color: #3986a3">Batal</a>
+                            <button type="button" id="submitButton" class="flex h-12 flex-1 items-center justify-center rounded-xl text-lg" style="width: 50%; background: #3986a3; color: #fff">Simpan</button>
                         </div>
 
                         <!-- Modal Konfirmasi Batal -->

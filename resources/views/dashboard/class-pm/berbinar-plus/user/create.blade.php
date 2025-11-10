@@ -17,14 +17,13 @@
                 </div>
                 <p class="w-full text-disabled">Formulir untuk menambahkan peserta baru ke program Berbinar+ secara manual, lengkap dengan informasi pribadi, pilihan kelas, dan paket layanan yang dipilih.</p>
             </div>
-            <div class="rounded-3xl bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+            <div class="rounded-lg bg-white px-4 py-4 shadow-md md:px-8 md:py-7 xl:px-10 mb-7">
                 <form id="berbinarForm" action="{{ route("dashboard.berbinar-plus.store") }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="kategori" value="berbinar-for-u" />
 
                     <h1 class="mb-6 text-center text-3xl font-bold">
-                        Berbinar+
-                        <span class="italic">Class</span>
+                        Kelas Berbinar+
                     </h1>
                     <div class="flex flex-col">
                         <div class="mb-10 grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -150,8 +149,8 @@
                         </div>
 
                         <div class="mt-8 flex gap-4 pt-5">
-                            <button type="button" id="submitButton" class="flex h-12 flex-1 items-center justify-center rounded-xl text-lg" style="width: 50%; background: #3986a3; color: #fff">Simpan</button>
                             <a href="#" id="cancelButton" class="flex h-12 flex-1 items-center justify-center rounded-xl text-lg" style="width: 50%; border: 2px solid #3986a3; color: #3986a3">Batal</a>
+                            <button type="button" id="submitButton" class="flex h-12 flex-1 items-center justify-center rounded-xl text-lg" style="width: 50%; background: #3986a3; color: #fff">Simpan</button>
                         </div>
 
                         <!-- Modal Konfirmasi Batal -->

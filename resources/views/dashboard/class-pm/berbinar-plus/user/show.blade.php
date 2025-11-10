@@ -15,9 +15,9 @@
                     </a>
                     <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Detail Data Pendaftar</p>
                 </div>
-                <p class="w-full text-disabled">Halaman ini menampilkan informasi detail mengenai data peserta yang berhasil mendaftar BERBINAR+. Admin dapat melihat Informasi lengkap seputar Data diri dan Pilihan Kelas pengguna.</p>
+                <p class="w-full text-disabled">Halaman ini menampilkan informasi detail mengenai data peserta yang berhasil mendaftar Berbinar+. Admin dapat melihat Informasi lengkap seputar Data diri dan Pilihan Kelas pengguna.</p>
             </div>
-            <div class="rounded-3xl bg-white px-4 py-4 shadow-lg shadow-gray-400 md:px-8 md:py-7 xl:px-10">
+            <div class="rounded-lg bg-white px-4 py-4 shadow-md md:px-8 md:py-7 xl:px-10 mb-7">
                 <h1 class="mb-6 text-3xl font-bold text-primary-alt">Data Diri</h1>
                 <div class="mb-10 grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div class="mb-2 flex flex-col">
