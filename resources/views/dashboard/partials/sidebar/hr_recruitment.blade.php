@@ -40,6 +40,6 @@
     <a href="{{ route('dashboard.internships.index') }}"
        class="flex flex-row items-center duration-700 {{ Str::startsWith(Route::currentRouteName(), 'dashboard.internships') ? 'text-white' : 'text-gray-700 hover:text-primary' }}">
         <i class="bx bx-book mr-2 text-lg {{ Str::startsWith(Route::currentRouteName(), 'dashboard.internships') ? 'text-white' : 'text-gray-700' }}"></i>
-        <span class="ml-4 text-base font-bold leading-5">Magang</span>
+        <span class="ml-4 text-base font-bold leading-5">Pendaftar</span>
     </a>
 </li>

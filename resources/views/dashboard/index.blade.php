@@ -12,7 +12,7 @@
                     <div class="">
                         @role('hr_recruitment')
                             <p tabindex="0" class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
-                                Dashboard</p>
+                                Dashboard Rekrutmen</p>
                             <p class="w-full text-disabled">Fitur ini digunakan untuk menampilkan jumlah data posisi,
                                 deskripsi pekerjaan, serta kebutuhan
                                 yang sedang
@@ -85,212 +85,158 @@
             {{-- Section Dashboard --}}
 
             @role('hr_recruitment')
-                <!-- <div class="flex flex-row w-full gap-6">
-                        <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                            <div
-                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
-                                <i class='bx bx-briefcase-alt-2  text-2xl'></i>
-                            </div>
-                            <div>
-                                <span class="block text-2xl font-bold">{{ $HiringPosisitons }}</span>
-                                <span class="block text-gray-500">Positions</span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                            <div
-                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
-                                <i class='bx bxl-upwork  text-2xl'></i>
-                            </div>
-                            <div>
-                                <span class="block text-2xl font-bold">{{ $HiringPosisitonsJobDescriptionment }}</span>
-                                <span class="block text-gray-500">Job Descriptions</span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center p-8 bg-white shadow rounded-lg">
-                            <div
-                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
-                                <i class='bx bx-file text-2xl'></i>
-                            </div>
-                            <div>
-                                <span class="block text-2xl font-bold">{{ $HiringPosisitonsRequirement }}</span>
-                                <span class="block text-gray-500">Requirements</span>
-                            </div>
-                        </div>
-                    </div> -->
                 <div class="flex flex-col xl:w-[80vw] gap-6">
-                    <div class="flex flex-row w-full gap-6">
-                        <div class="flex w-1/3 items-center p-8 bg-white shadow rounded-lg">
+                    <div class="flex flex-row w-full gap-6 mt-[-20px]">
+                        <div class="flex w-1/3 items-center p-8 bg-white h-[100px] shadow rounded-lg">
                             <div
-                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-md mr-6">
                                 <i class='bx bx-briefcase-alt-2 text-3xl'></i>
                             </div>
                             <div>
                                 <span class="block text-2xl font-bold" id="positions-count">{{ $HiringPosisitons }}</span>
-                                <span class="block text-gray-500">Posisi</span>
+                                <span class="block text-gray-500">Posisi Terbuka</span>
                             </div>
                         </div>
 
-                        <div class="flex w-1/3 items-center p-8 bg-white shadow rounded-lg">
+                        <div class="flex w-1/3 items-center p-8 bg-white h-[100px] shadow rounded-lg">
                             <div
-                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-md mr-6">
                                 <i class='bx bxl-upwork text-3xl'></i>
                             </div>
                             <div>
                                 <span class="block text-2xl font-bold"
-                                    id="job-descriptions-count">{{ $HiringPosisitonsJobDescriptionment }}</span>
-                                <span class="block text-gray-500">Deskripsi Pekerjaan</span>
+                                    id="job-descriptions-count">{{ $UserInternship }}</span>
+                                <span class="block text-gray-500">Total Pendaftar</span>
                             </div>
                         </div>
 
-                        <div class="flex w-1/3 items-center p-8 bg-white shadow rounded-lg">
+                        <div class="flex w-1/3 items-center p-8 bg-white h-[100px] shadow rounded-lg">
                             <div
-                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-md mr-6">
                                 <i class='bx bx-file text-3xl'></i>
                             </div>
                             <div>
                                 <span class="block text-2xl font-bold"
                                     id="requirements-count">{{ $HiringPosisitonsRequirement }}</span>
-                                <span class="block text-gray-500">Persyaratan</span>
+                                <span class="block text-gray-500">Total Pendaftar Diterima</span>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Charts Section -->
+                    
+                    <!-- chart section -->
                     <div class="grid grid-cols-1 gap-6">
-                        <div class="flex h-[330px] flex-col rounded-xl bg-white px-6 py-4 shadow">
-                            <div class="mb-4">
-                                <h1 class="text-[28px] text-[#75BADB]"><b>Analisis posisi, deskripsi pekerjaan, persyaratan</b>
-                                </h1>
-                                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                                    <p class="text-[14px]">Berikut ini merupakan visualisasi diagram Posisi, deskripsi
-                                        pekerjaan, persyaratan</p>
-                                </div>
+                        <div class="flex h-[360px] flex-col rounded-xl bg-white  px-6 py-4 shadow">
+
+                            <div class="flex justify-end mb-3 w-full">
+                                <select id="yearFilter" class="border border-gray-300 rounded-lg text-sm focus:ring focus:ring-blue-200">
+                                    <option value="2025" selected>2025</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                </select>
                             </div>
+
                             <div class="flex w-full flex-col items-center h-full">
-                                <canvas id="marketingChart" class="mb-1" style="max-height: 180px;"></canvas>
-                                <div class="mb-4 flex gap-4 text-xs">
-                                    @php
-                                        $chartLabels = ['Posisi', 'Deskripsi Pekerjaan', 'Persyaratan'];
-                                        $chartColors = ['#106681', '#E9B306', '#232ACA'];
-                                    @endphp
-                                    @foreach ($chartLabels as $i => $label)
-                                        <div class="flex items-center gap-1">
-                                            <span class="inline-block h-3 w-3 rounded"
-                                                style="background: {{ $chartColors[$i] }}"></span>
-                                            {{ $label }}
-                                        </div>
-                                    @endforeach
-                                </div>
+                                <canvas id="hrRecruitmentChart" class="mb-1 w-full h-[250px]"></canvas>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 @section('script')
+                    <!-- MASIH STATIS!! BELUM DINAMIS SOALNYA GA NGOTAK-ATIK CONTROLLERNYA -->
                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                     <script>
                         document.addEventListener('DOMContentLoaded', () => {
-                            const positionsCount = parseInt(document.getElementById('positions-count').textContent);
-                            const jobDescriptionsCount = parseInt(document.getElementById('job-descriptions-count').textContent);
-                            const requirementsCount = parseInt(document.getElementById('requirements-count').textContent);
 
-                            const chartDataValues = [positionsCount, jobDescriptionsCount, requirementsCount];
-                            const chartColors = ['rgba(16, 102, 129, 0.6)', 'rgba(233, 179, 6, 0.6)', 'rgba(35, 42, 202, 0.6)'];
-                            const solidColors = ['#106681', '#E9B306', '#232ACA'];
-                            const chartLabels = ['Posisi', 'Deskripsi Pekerjaan', 'Persyaratan'];
+                            const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
 
-                            const maxValue = Math.max(...chartDataValues);
-                            const maxScale = maxValue <= 100 ? 100 : Math.ceil(maxValue / 20) * 20;
+                            const positionsData = {!! $monthlyPositions ?? '[10, 12, 5, 8, 15, 10, 7, 14, 9, 11, 13, 6]' !!};
+                            const applicantsData = {!! $monthlyApplicants ?? '[50, 65, 40, 75, 90, 80, 60, 100, 70, 85, 95, 55]' !!};
+                            const requirementsData = {!! $monthlyRequirements ?? '[20, 22, 15, 25, 30, 28, 18, 35, 22, 27, 32, 20]' !!};
 
-                            const ctx = document.getElementById('marketingChart').getContext('2d');
-                            const chartData = {
-                                labels: chartLabels,
-                                datasets: [{
-                                    label: 'Jumlah',
-                                    data: chartDataValues,
-                                    backgroundColor: chartColors,
-                                    borderRadius: 0,
-                                    barThickness: 30,
-                                }, ],
-                            };
+                            const datasets = [
+                                {
+                                    label: 'Posisi Terbuka',
+                                    data: positionsData,
+                                    backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                                    borderColor: 'rgba(54, 162, 235, 1)',
+                                    borderWidth: 1,
+                                },
+                                {
+                                    label: 'Total Pendaftar',
+                                    data: applicantsData,
+                                    backgroundColor: 'rgba(255, 99, 132, 0.8)',
+                                    borderColor: 'rgba(255, 99, 132, 1)',
+                                    borderWidth: 1,
+                                },
+                                {
+                                    label: 'Total Pendaftar Diterima',
+                                    data: requirementsData,
+                                    backgroundColor: 'rgba(255, 206, 86, 0.8)',
+                                    borderColor: 'rgba(255, 206, 86, 1)',
+                                    borderWidth: 1,
+                                }
+                            ];
 
-                            new Chart(ctx, {
+                            const ctx = document.getElementById('hrRecruitmentChart').getContext('2d');
+                            const chart = new Chart(ctx, {
                                 type: 'bar',
-                                data: chartData,
+                                data: {
+                                    labels: labels,
+                                    datasets: datasets
+                                },
                                 options: {
-                                    indexAxis: 'y',
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    plugins: {
+                                        title: {
+                                            display: true,
+                                            text: 'Distribusi Data Rekrutmen Bulanan',
+                                            font: { size: 16 }
+                                        },
+                                        legend: {
+                                            display: true,
+                                            position: 'top',
+                                            onClick: null 
+                                        },
+                                        tooltip: {
+                                            mode: 'index',
+                                            intersect: false,
+                                        }
+                                    },
                                     scales: {
                                         x: {
-                                            beginAtZero: true,
-                                            grid: {
-                                                color: '#eee'
-                                            },
-                                            position: 'top',
-                                            ticks: {
-                                                stepSize: Math.floor(maxScale / 5),
-                                                callback: function(value) {
-                                                    return value % Math.floor(maxScale / 5) === 0 ? value : '';
-                                                }
-                                            },
-                                            min: 0,
-                                            max: maxScale,
-                                            suggestedMax: maxScale
+                                            stacked: false, 
+                                            title: {
+                                                display: true,
+                                                text: 'Bulan',
+                                                font: { size: 14 }
+                                            }
                                         },
                                         y: {
-                                            grid: {
-                                                color: '#eee'
-                                            },
-                                        },
-                                    },
-                                    plugins: {
-                                        legend: {
-                                            display: false
-                                        },
-                                    },
-                                    animation: false,
-                                },
-                                plugins: [{
-                                    afterDatasetsDraw: function(chart) {
-                                        const ctx = chart.ctx;
-                                        chart.data.datasets.forEach(function(dataset, i) {
-                                            const meta = chart.getDatasetMeta(i);
-                                            meta.data.forEach(function(bar, index) {
-                                                const value = dataset.data[index];
-                                                ctx.save();
-                                                ctx.font = 'bold 14px sans-serif';
-                                                if (value >= Math.max(...chartDataValues) *
-                                                    0.8) {
-                                                    ctx.fillStyle = '#fff';
-                                                    ctx.textAlign = 'right';
-                                                    ctx.textBaseline = 'middle';
-                                                    ctx.fillText(value, bar.x - 10, bar.y);
-                                                } else {
-                                                    ctx.fillStyle = '#444';
-                                                    ctx.textAlign = 'left';
-                                                    ctx.textBaseline = 'middle';
-                                                    ctx.fillText(value, bar.x + 10, bar.y);
-                                                }
-                                                if (value > 0) {
-                                                    const solidColor = solidColors[index %
-                                                        solidColors.length];
-                                                    const barHeight = bar.height || (bar.base -
-                                                        bar.y) * 2;
-                                                    ctx.fillStyle = solidColor;
-                                                    ctx.fillRect(bar.x - 6, bar.y - barHeight /
-                                                        2, 12, barHeight);
-                                                }
-                                                ctx.restore();
-                                            });
-                                        });
-                                    },
-                                }, ],
+                                            beginAtZero: true,
+                                            stacked: false,
+                                            title: {
+                                                display: true,
+                                                text: 'Jumlah',
+                                                font: { size: 14 }
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+
+                            const yearFilter = document.getElementById('yearFilter');
+                            yearFilter.addEventListener('change', (e) => {
+                                const selectedYear = e.target.value;
+                                console.log('Filter tahun:', selectedYear);
+
                             });
                         });
                     </script>
                 @endsection
             @endrole
+
 
             @role('hr_data-analyst')
                 <div class="flex flex-col xl:w-[80vw] gap-6">
@@ -298,7 +244,7 @@
 
                         <div class="flex w-1/3 items-center p-8 bg-white shadow rounded-lg">
                             <div
-                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-md mr-6">
                                 <i class='bx bx-user text-3xl'></i>
                             </div>
                             <div>
@@ -309,7 +255,7 @@
 
                         <div class="flex w-1/3 items-center p-8 bg-white shadow rounded-lg">
                             <div
-                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-md mr-6">
                                 <i class='bx bxs-graduation text-3xl'></i>
                             </div>
                             <div>
@@ -320,7 +266,7 @@
 
                         <div class="flex w-1/3 items-center p-8 bg-white shadow rounded-lg">
                             <div
-                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-full mr-6">
+                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-md mr-6">
                                 <i class='bx bxs-buildings text-3xl'></i>
                             </div>
                             <div>
@@ -333,7 +279,7 @@
 
                     <!-- Charts Section -->
                     <div class="w-full grid grid-cols-1 gap-6">
-                        <div class="flex h-[330px] flex-col rounded-xl bg-white px-6 py-4 shadow">
+                        <div class="flex h-[340px] flex-col rounded-xl bg-white px-6 py-4 shadow">
                             <div class="mb-4">
                                 <h1 class="text-[28px] text-[#75BADB]"><b>Analisis keluarga Berbinar</b></h1>
                                 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
@@ -356,6 +302,8 @@
                                     @endforeach
                                 </div>
                             </div>
+                            <p class="text-sm">Total Staff: 1000</p> 
+                            <!-- angka dinamis karena aku ndk tahu apa yang harus tampilin (cuma ikutin desain aja) -->
                         </div>
                     </div>
                 </div>

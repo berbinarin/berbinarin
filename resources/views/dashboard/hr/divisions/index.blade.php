@@ -85,7 +85,7 @@
                                         </a>
 
                                         <!-- Tombol Hapus -->
-                                        <button type="button" onclick="openDeleteModal({{ $division->id }})" class="inline-flex items-start justify-start rounded p-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #ef4444">
+                                        <button type="button" onclick="openDeleteModal({{ $division->id }}, '{{ e($division->nama_divisi) }}')" class="inline-flex items-start justify-start rounded p-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #ef4444">
                                             <i class="bx bxs-trash-alt text-white"></i>
                                         </button>
                                     </td>
@@ -99,33 +99,40 @@
     </section>
 
     <!-- Modal Konfirmasi Hapus -->
-    <div id="deleteModal" class="fixed inset-0 z-10 hidden overflow-y-auto">
-        <div class="flex min-h-screen items-center justify-center px-4 text-center">
-            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-            <div class="transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:w-full sm:max-w-lg">
-                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                    <div class="sm:flex sm:items-start">
-                        <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                            <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
-                            </svg>
-                        </div>
-                        <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                            <h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title">Konfirmasi Hapus</h3>
-                            <div class="mt-2">
-                                <p class="text-sm text-gray-500">Apakah Anda yakin ingin menghapus divisi ini? Semua subdivisi terkait juga akan dihapus.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                    <form id="deleteForm" method="POST">
-                        @csrf
-                        @method("DELETE")
-                        <button type="submit" class="inline-flex w-full justify-center rounded-md border border-transparent bg-[#d33] px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">Hapus</button>
-                    </form>
-                    <button type="button" class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-gray-200 px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:w-auto sm:text-sm" onclick="closeDeleteModal()">Batal</button>
-                </div>
+    <div id="deleteModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/40">
+        <div
+            class="relative w-[560px] rounded-[20px] bg-white p-6 text-center font-plusJakartaSans shadow-lg"
+            style="
+                background:
+                    linear-gradient(to right, #74aabf, #3986a3) top/100% 6px no-repeat,
+                    white;
+                border-radius: 20px;
+                background-clip: padding-box, border-box;
+            "
+        >
+            <!-- Warning Icon -->
+            <img src="{{ asset("assets/images/dashboard/warning.png") }}" alt="Warning Icon" class="mx-auto h-[83px] w-[83px]" />
+
+            <!-- Title -->
+            <h2 class="mt-4 text-2xl font-bold text-stone-900">Konfirmasi Hapus</h2>
+
+            <!-- Message -->
+            <p class="mt-2 text-base font-medium text-black">
+                Apakah Anda yakin ingin menghapus
+                <span id="deleteItemName"></span>
+                ?
+                <br />
+                Semua data terkait juga akan dihapus.
+            </p>
+
+            <!-- Actions -->
+            <div class="mt-6 flex justify-center gap-3">
+                <form id="deleteForm" method="POST" class="w-1/2">
+                    @csrf
+                    @method("DELETE")
+                    <button type="submit" class="w-full rounded-[5px] bg-gradient-to-r from-[#74AABF] to-[#3986A3] px-6 py-2 font-medium text-white">Hapus</button>
+                </form>
+                <button type="button" class="w-1/2 rounded-lg border border-stone-300 px-6 py-2 text-stone-700" onclick="closeDeleteModal()">Batal</button>
             </div>
         </div>
     </div>
@@ -134,8 +141,9 @@
         let deleteModal = document.getElementById('deleteModal');
         let deleteForm = document.getElementById('deleteForm');
 
-        function openDeleteModal(divisionId) {
+        function openDeleteModal(divisionId, divisionName) {
             deleteForm.action = `/dashboard/divisions/${divisionId}`;
+            document.getElementById('deleteItemName').textContent = divisionName;
             deleteModal.classList.remove('hidden');
         }
 

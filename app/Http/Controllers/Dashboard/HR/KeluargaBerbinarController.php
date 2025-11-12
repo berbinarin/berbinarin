@@ -61,8 +61,13 @@ class KeluargaBerbinarController extends Controller
                 'date_end' => $validatedData['date_end'][$index],
             ]);
         }
-
-        return redirect()->route('dashboard.keluarga-berbinar.index')->with('success', 'Data staf berhasil ditambahkan.');
+        return redirect()->route('dashboard.keluarga-berbinar.index')->with([
+            'alert' => true,
+            'icon' => asset('assets/images/dashboard/success.png'),
+            'title' => 'Berhasil!',
+            'message' => 'Darta staff berhasil ditambahkan.',
+            'type' => 'success',
+        ]);
     }
 
     public function show($id)
@@ -121,7 +126,13 @@ class KeluargaBerbinarController extends Controller
             ]);
         }
 
-        return redirect()->route('dashboard.keluarga-berbinar.index')->with('success', 'Data staf berhasil diperbarui.');
+        return redirect()->route('dashboard.keluarga-berbinar.index')->with([
+            'alert' => true,
+            'icon' => asset('assets/images/dashboard/success.png'),
+            'title' => 'Berhasil!',
+            'message' => 'Darta staff berhasil diperbarui.',
+            'type' => 'success',
+        ]);
     }
 
     public function destroy($id)
@@ -130,6 +141,12 @@ class KeluargaBerbinarController extends Controller
         $staff->records()->delete();
         $staff->delete();
 
-        return redirect()->route('dashboard.keluarga-berbinar.index')->with('success', 'Data staf berhasil dihapus.');
+        return redirect()->route('dashboard.keluarga-berbinar.index')->with([
+            'alert' => true,
+            'icon' => asset('assets/images/dashboard/success.png'),
+            'title' => 'Berhasil!',
+            'message' => 'Darta staff berhasil dihapus.',
+            'type' => 'success',
+        ]);
     }
 }

@@ -28,7 +28,7 @@
     <section class="flex w-full">
         <div class="flex w-full flex-col">
             <div class="py-4 md:pb-7 md:pt-12">
-                <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Magang Berbinar</p>
+                <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Pendaftar Magang Berbinar</p>
                 <p class="w-full text-gray-600 md:w-full">Fitur ini digunakan untuk melakukan manajemen pendaftar yang telah melakukan pendaftaran magang di situs Berbinar Karir.</p>
             </div>
             <div class="rounded-md bg-white mb-7 px-4 py-4 md:px-8 md:py-7 xl:px-10">
