@@ -87,10 +87,7 @@
                                         <a href="{{ route("dashboard.keluarga-berbinar.edit", $staff->id) }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #e9b306">
                                             <i class="bx bxs-edit-alt text-white"></i>
                                         </a>
-                                        <button type="button"
-                                            class="inline-flex items-start justify-start rounded p-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2"
-                                            style="background-color: #ef4444"
-                                            onclick="openDeleteModal({{ $staff->id }})">
+                                        <button type="button" class="inline-flex items-start justify-start rounded p-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #ef4444" onclick="openDeleteModal({{ $staff->id }}, '{{ e($staff->name) }}')">
                                             <i class="bx bxs-trash-alt text-white"></i>
                                         </button>
                                     </td>
@@ -104,37 +101,58 @@
     </section>
 
     <!-- Modal Konfirmasi Hapus -->
-    <div id="deleteModal" class="fixed inset-0 z-10 flex hidden items-center justify-center bg-black bg-opacity-50">
-        <div class="w-full max-w-md rounded-lg bg-white p-6 text-center">
-            <div class="mb-4 flex justify-center">
-                <img src="{{ asset("assets/images/dashboard/svg-icon/warning.svg") }}" alt="Warning Icon" class="h-12 w-12" />
-            </div>
-            <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900" id="modal-title">Konfirmasi Hapus</h3>
-            <p class="mb-6 text-base text-gray-500">Apakah Anda yakin ingin menghapus kelas ini? Semua data terkait juga akan dihapus.</p>
-            <div class="flex w-full justify-center gap-4">
+    <div id="deleteModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/40">
+        <div
+            class="relative w-[560px] rounded-[20px] bg-white p-6 text-center font-plusJakartaSans shadow-lg"
+            style="
+                background:
+                    linear-gradient(to right, #74aabf, #3986a3) top/100% 6px no-repeat,
+                    white;
+                border-radius: 20px;
+                background-clip: padding-box, border-box;
+            "
+        >
+            <!-- Warning Icon -->
+            <img src="{{ asset("assets/images/dashboard/warning.png") }}" alt="Warning Icon" class="mx-auto h-[83px] w-[83px]" />
+
+            <!-- Title -->
+            <h2 class="mt-4 text-2xl font-bold text-stone-900">Konfirmasi Hapus</h2>
+
+            <!-- Message -->
+            <p class="mt-2 text-base font-medium text-black">
+                Apakah Anda yakin ingin menghapus
+                <span id="deleteItemName"></span>
+                ?
+                <br />
+                Semua data terkait juga akan dihapus.
+            </p>
+
+            <!-- Actions -->
+            <div class="mt-6 flex justify-center gap-3">
                 <form id="deleteForm" method="POST" class="w-1/2">
                     @csrf
                     @method("DELETE")
-                    <button type="submit" class="w-full rounded-lg bg-[#3986A3] px-6 py-2 text-center text-white hover:bg-[#3986A3] focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2">Hapus</button>
+                    <button type="submit" class="w-full rounded-[5px] bg-gradient-to-r from-[#74AABF] to-[#3986A3] px-6 py-2 font-medium text-white">Hapus</button>
                 </form>
-                <button type="button" class="w-1/2 rounded-lg border border-[#3986A3] px-6 py-2 text-[#3986A3] focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2" onclick="closeDeleteModal()">Batal</button>
+                <button type="button" class="w-1/2 rounded-lg border border-stone-300 px-6 py-2 text-stone-700" onclick="closeDeleteModal()">Batal</button>
             </div>
         </div>
     </div>
 @endsection
 
 @section("script")
-<script>
-    let deleteModal = document.getElementById('deleteModal');
-    let deleteForm = document.getElementById('deleteForm');
+    <script>
+        let deleteModal = document.getElementById('deleteModal');
+        let deleteForm = document.getElementById('deleteForm');
 
-    function openDeleteModal(staffId) {
-        deleteForm.action = `/dashboard/keluarga-berbinar/${staffId}`;
-        deleteModal.classList.remove('hidden');
-    }
+        function openDeleteModal(staffId, staffName) {
+            deleteForm.action = `/dashboard/keluarga-berbinar/${staffId}`;
+            document.getElementById('deleteItemName').textContent = staffName;
+            deleteModal.classList.remove('hidden');
+        }
 
-    function closeDeleteModal() {
-        deleteModal.classList.add('hidden');
-    }
-</script>
+        function closeDeleteModal() {
+            deleteModal.classList.add('hidden');
+        }
+    </script>
 @endsection

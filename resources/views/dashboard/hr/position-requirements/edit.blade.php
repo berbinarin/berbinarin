@@ -14,7 +14,7 @@
                     <a href="{{ route('dashboard.position-requirements.index') }}">
                         <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
                     </a>
-                    <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Edit Data Persyaratan Posisi</p>
+                    <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Edit Persyaratan Posisi</p>
                 </div>
                 <p class="w-full text-disabled">
                     Admin dapat mengubah persyaratan posisi yang akan ditampilkan pada situs karir Berbinarin.

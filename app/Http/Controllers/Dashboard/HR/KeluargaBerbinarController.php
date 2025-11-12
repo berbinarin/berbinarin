@@ -14,7 +14,7 @@ class KeluargaBerbinarController extends Controller
 
     public function index()
     {
-        $staffs = TableStaff::withxcc(['records.division', 'records.subDivision'])->get();
+        $staffs = TableStaff::with(['records.division', 'records.subDivision'])->get();
         return view('dashboard.hr.keluarga-berbinar.index', compact('staffs'));
     }
 

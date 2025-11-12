@@ -9,14 +9,22 @@
     <section class="flex w-full">
         <div class="flex w-full flex-col">
             <div class="py-4 md:pb-7 md:pt-12">
-                <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Edit Data Internship</p>
+                <div class="">
+                    <div class="mb-2 flex items-center gap-2">
+                        <a href="{{ route("dashboard.internships.index") }}">
+                            <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
+                        </a>
+                        <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Edit Data Pendaftar Magang</p>
+                    </div>
+                    <p class="w-3/4 text-disabled">Admin dapat mengubah data pendaftar magang</p>
+                </div>
             </div>
 
             <form action="{{ route("dashboard.internships.update", $Internship->id) }}" method="POST">
                 @csrf
                 @method("PUT")
 
-                <div class="flex flex-row gap-4 mb-7">
+                <div class="mb-7 flex flex-row gap-4">
                     <!-- Left Table -->
                     <div class="w-full md:w-1/2">
                         <div class="overflow-hidden rounded-lg bg-white p-4 shadow-sm">
@@ -30,7 +38,7 @@
                             </div>
 
                             <!-- Left Table Content -->
-                            <div class="mb-2 flex flex-col">
+                            <div class="mb-2 flex flex-col" style="height: 400px; overflow-y: auto; overflow-x: hidden">
                                 <table class="w-full">
                                     <tr class="w-2/5 border-b border-gray-200">
                                         <td class="w-2/5 border-r px-4 py-1">
@@ -54,8 +62,8 @@
                                         </td>
                                         <td class="border-l px-4 py-2">
                                             <select id="position_id" name="position_id" class="w-full rounded-lg border border-gray-300 px-2 py-1">
-                                                @foreach($positions as $pos)
-                                                    <option value="{{ $pos->id }}" {{ $Internship->position_id == $pos->id ? 'selected' : '' }}>
+                                                @foreach ($positions as $pos)
+                                                    <option value="{{ $pos->id }}" {{ $Internship->position_id == $pos->id ? "selected" : "" }}>
                                                         {{ $pos->name }}
                                                     </option>
                                                 @endforeach
@@ -144,7 +152,7 @@
                             </div>
 
                             <!-- Right Table Content -->
-                            <div class="mb-2 flex flex-col">
+                            <div class="mb-2 flex flex-col" style="height: 340px; overflow-y: auto; overflow-x: hidden">
                                 <table class="w-full">
                                     <tr class="w-2/5 border-b border-gray-200">
                                         <td class="w-2/5 border-r px-4 py-1">

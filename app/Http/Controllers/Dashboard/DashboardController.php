@@ -42,6 +42,7 @@ class DashboardController extends Controller
         $HiringPosisitons = Hiring_Positions::count("id");
         $HiringPosisitonsJobDescriptionment = Hiring_Positions_Job_Descriptions::count("id");
         $HiringPosisitonsRequirement = Hiring_Positions_Requirements::count("id");
+        $UserInternship = UserInternship::count("id");
 
         $PeerConsellorSchedule = jadwalPeer::count("id");
         $PeerConsellorData = KonsellingPeer::where('kategori', 'peer-counselor')->count();
@@ -136,6 +137,7 @@ class DashboardController extends Controller
             'CodeVoucherPeerCounselor' => $CodeVoucherPeerCounselor,
             'totalStafAktif' => $totalStafAktif,
             'totalStafTidakAktif' => $totalStafTidakAktif,
+            'UserInternship' => $UserInternship
         ]);
     }
 }
