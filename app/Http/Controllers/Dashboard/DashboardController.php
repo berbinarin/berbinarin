@@ -96,16 +96,20 @@ class DashboardController extends Controller
         $subDivisions = SubDivision::count();
 
         // Fetch Data Keluarga Berbinar
-        $today = Carbon::today();
-        $totalStafAktif = TableRecord::where('date_start', '<=', $today)
-            ->where(function ($q) use ($today) {
-                $q->whereNull('date_end')
-                    ->orWhere('date_end', '>=', $today);
-            })
-            ->count();
-        $totalStafTidakAktif = TableRecord::whereNotNull('date_end')
-            ->where('date_end', '<', $today)
-            ->count();
+        // Ambil hanya record dengan status 'active' dan 'inactive'
+        // Staff aktif: staff_id unik yang punya record status 'active'
+        $totalStafAktif = TableRecord::where('status', 'active')
+            ->distinct('staff_id')
+            ->count('staff_id');
+
+        // Staff tidak aktif: staff_id unik yang hanya punya record status 'inactive' (tidak punya record active)
+        $staffAktifIds = TableRecord::where('status', 'active')->pluck('staff_id')->unique();
+
+        $totalStafTidakAktif = TableRecord::where('status', 'inactive')
+            ->whereNotIn('staff_id', $staffAktifIds)
+            ->distinct('staff_id')
+            ->count('staff_id');
+
 
         return view('dashboard.index', [
             "PeerConsellorSchedule" => $PeerConsellorSchedule,

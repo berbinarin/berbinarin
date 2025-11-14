@@ -140,7 +140,7 @@
         const subdivisionDropdown = document.querySelector(`#subdivision-dropdown`);
 
         // desktop
-        let previousSelectedKeyYears = 5; // 2024
+        let previousSelectedKeyYears = 6; // 2024
         let previousSelectedKeyDivisionDesktop = 10; // webdev
         let previousSelectedKeySubdivisionDekstop = 1; // subdivisi pertama
 
@@ -212,10 +212,22 @@
                 const dateEnd = filteredRecord ? filteredRecord.date_end : staff.date_end;
 
                 const currentDate = new Date();
-                const isAlumni = filteredRecord ? new Date(dateEnd) < currentDate : !staff.status;
 
-                const statusText = isAlumni ? 'Alumni' : 'Aktif';
-                const bgColorStatus = isAlumni ? 'bg-[#F7B23B]' : 'bg-[#04CA00]';
+                // Cek jika ADA record status 'inactive'
+                const hasInactive = staff.records.some(rec => rec.status === 'inactive');
+
+                // Cek jika tanggal akhir sudah lewat (alumni karena waktu)
+                const alumniByDate = filteredRecord ? new Date(dateEnd) < currentDate : !staff.status;
+
+                // Alumni jika ADA record inactive ATAU tanggal sudah lewat
+                const isAlumni = hasInactive || alumniByDate;
+
+                // Cek jika ADA record status 'active'
+                const hasActive = staff.records.some(rec => rec.status === 'active');
+                const statusText = filteredRecord
+                    ? (filteredRecord.status === 'active' ? 'Aktif' : (filteredRecord.status === 'alumni' ? 'Alumni' : ''))
+                    : '';
+                const bgColorStatus = statusText === 'Aktif' ? 'bg-[#04CA00]' : (statusText === 'Alumni' ? 'bg-[#F7B23B]' : 'bg-gray-300');
 
                 // cardContainer
                 const cardContainer = document.createElement('div');

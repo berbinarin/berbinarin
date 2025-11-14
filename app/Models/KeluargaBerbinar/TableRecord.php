@@ -12,6 +12,7 @@ class TableRecord extends Model
         'subdivision_id',
         'date_start',
         'date_end',
+        'status',
     ];
 
     public function division()

@@ -389,4 +389,40 @@
             confirmModal.classList.add('hidden');
         });
     </script>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    function updateActiveOptions() {
+        const statusSelects = document.querySelectorAll('select[name="status[]"]');
+        let activeSelectedIndex = -1;
+
+        // Cari index select yang memilih "active"
+        statusSelects.forEach((select, idx) => {
+            if (select.value === 'active') {
+                activeSelectedIndex = idx;
+            }
+        });
+
+        statusSelects.forEach((select, idx) => {
+            const activeOption = Array.from(select.options).find(opt => opt.value === 'active');
+            if (activeOption) {
+                // Hanya select yang memilih "active" yang boleh enable option active
+                activeOption.disabled = (activeSelectedIndex !== -1 && activeSelectedIndex !== idx);
+                // Untuk browser yang tidak support disabled pada option, bisa juga:
+                // activeOption.hidden = (activeSelectedIndex !== -1 && activeSelectedIndex !== idx);
+            }
+        });
+    }
+
+    // Inisialisasi saat load
+    updateActiveOptions();
+
+    // Update setiap kali ada perubahan pada select status[]
+    document.addEventListener('change', function (e) {
+        if (e.target && e.target.name === 'status[]') {
+            updateActiveOptions();
+        }
+    });
+});
+</script>
 @endsection

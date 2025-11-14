@@ -54,6 +54,7 @@
                                 <th class="bg-white px-6 py-3 text-center text-base font-bold leading-4 tracking-wider text-black">Divisi</th>
                                 <th class="bg-white px-6 py-3 text-center text-base font-bold leading-4 tracking-wider text-black">Waktu Menjabat</th>
                                 <th class="bg-white px-6 py-3 text-center text-base font-bold leading-4 tracking-wider text-black">Prestasi</th>
+                                <th class="bg-white px-6 py-3 text-center text-base font-bold leading-4 tracking-wider text-black">Status</th>
                                 <th class="bg-white px-6 py-3 text-center text-base font-bold leading-4 tracking-wider text-black">Aksi</th>
                             </tr>
                         </thead>
@@ -79,6 +80,17 @@
                                     </td>
                                     <td class="whitespace-no-wrap px-6 py-4 text-center">
                                         {{ $staff->motm == "yes" ? "Pernah" : "Tidak pernah" }}
+                                    </td>
+                                    <td class="whitespace-no-wrap px-6 py-4 text-center">
+                                        @php
+                                            // Cek apakah ada record dengan status 'active'
+                                            $isActive = $staff->records->contains(fn($rec) => $rec->status === 'active');
+                                            $status = $isActive ? 'active' : 'inactive';
+                                            $badgeClass = $status === 'active' ? 'bg-green-400' : 'bg-red-400';
+                                        @endphp
+                                        <span class="px-2 py-1 rounded text-white {{ $badgeClass }}">
+                                            {{ ucfirst($status) }}
+                                        </span>
                                     </td>
                                     <td class="whitespace-no-wrap flex items-center justify-center gap-2 px-6 py-4">
                                         <a href="{{ route("dashboard.keluarga-berbinar.show", $staff->id) }}" class="inline-flex items-start justify-start rounded p-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #3b82f6">
