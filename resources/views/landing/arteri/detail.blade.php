@@ -251,8 +251,7 @@
                     </div>
 
                     <!-- Latest Articles Section -->
-                    <div class="bg-white lg:w-1/3 rounded-xl max-h-fit p-4 shadow-sm lg:p-6 lg:pb-1"
-                        style="position: sticky; top: 8rem; z-index: 20;">
+                    <div class="bg-white lg:w-1/3 rounded-xl max-h-fit p-4 shadow-sm lg:p-6 lg:pb-1">
                         <div class="mb-4 flex items-center">
                             <div class="mr-2 h-6 w-1 rounded-full bg-primary"></div>
                             <h2 class="lg:text-xl font-semibold">Artikel Terbaru</h2>
@@ -289,47 +288,41 @@
                             <h2 class="lg:text-xl font-semibold">Tanggapan & Komentar</h2>
                         </div>
 
-                        <div class="rating_list z-0 relative flex lg:w-[90%] flex-row mb-1 lg:mb-12 justify-self-center justify-between md:gap-4">
+                                <div class="flex flex-wrap justify-center md:justify-start md:pl-6">
+                                    @php
+                                        $reactions = [
+                                            ["label" => "tidak suka", "img" => "5-pissed.png", "hover" => "5-pissed2.png"],
+                                            ["label" => "bosan", "img" => "4-bummed.png", "hover" => "4-bummed2.png"],
+                                            ["label" => "biasa saja", "img" => "3-neutral.png", "hover" => "3-neutral2.png"],
+                                            ["label" => "senang", "img" => "2-happy.png", "hover" => "2-happy2.png"],
+                                            ["label" => "sangat senang", "img" => "1-wahoo.png", "hover" => "1-wahoo2.png"],
+                                        ];
+                                    @endphp
 
-                        @foreach([
-                            1 => 'pissed',
-                            2 => 'bummed',
-                            3 => 'neutral',
-                            4 => 'happy',
-                            5 => 'wahoo'
-                        ] as $val => $label)
-                        <div class="rating_item flex flex-col items-center">
-                            <input class="hidden peer" id="rating-{{ $val }}-1" type="radio" value="{{ $val }}" name="rating">
-                            <label for="rating-{{ $val }}-1"
-                                class="cursor-pointer transition-all duration-300 ease-in-out hover:scale-105
-                                rounded-full group hover:bg-gradient-to-b
-                                relative w-14 h-14 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 flex items-center justify-center peer-checked:scale-110
-                                peer-checked:bg-gradient-to-b
-                                @if($val == 1) from-[#FF004F] to-[#F7B23B]
-                                @elseif($val == 2) from-[#FF543E] to-[#F7B23B]
-                                @elseif($val == 3) from-[#FFE500] to-[#F7B23B]
-                                @elseif($val == 4) from-[#4CAF50] to-[#F7B23B]
-                                @elseif($val == 5) from-[#75BADB] to-[#F7B23B]
-                                @endif
-                                ">
-                                <span class="block w-full h-full relative">
-                                    <img src="{{ asset('assets/images/landing/arteri/feedback/' . (6-$val) . '-' . $label . '.png') }}"
-                                        alt="{{ $label }}"
-                                        class="absolute inset-0 z-0 w-full h-full text-xs object-contain transition duration-200 scale-150" />
-                                    <div class="text flex inset-8 w-full h-full justify-center items-end z-20 mt-6 lg:mt-2">
-                                        <p class="bg-white px-2 text-[0.5rem] text-center md:text-[10px] xl:text-[15px] rounded-3xl py-1 shadow-md font-bold
-                                            @if($val == 1) text-[#FF004F]
-                                            @elseif($val == 2) text-[#FF543E]
-                                            @elseif($val == 3) text-[#FFE500]
-                                            @elseif($val == 4) text-[#4CAF50]
-                                            @elseif($val == 5) text-[#75BADB]
-                                            @endif"
-                                        id="reaction-label-{{ $val }}">
-                                            {{ $reactionCounts[$val] ?? 0 }}
-                                        </p>
-                                    </div>
-                                </span>
-                            </label>
+                                    {{-- Debugg --}}
+                                    {{--
+                                        <pre>
+                                        userReaction: {{ $userReaction ? $userReaction->reaction_type : 'null' }}
+                                        </pre>
+                                    --}}
+                                    @foreach ($reactions as $idx => $reaction)
+                                        <form action="{{ url("/arteri/" . $article->id . "/reaction") }}" method="POST" style="display: inline">
+                                            @csrf
+                                            <input type="hidden" name="reaction_type" value="{{ $reaction["label"] }}" />
+                                            <button type="submit" style="background: none; border: none; padding: 0; margin: 0" class="reaction-btn">
+                                                <img id="reaction-img-{{ $idx }}" src="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["img"]) }}" data-hover="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["hover"]) }}" data-normal="{{ asset("assets/images/landing/arteri/feedback/" . $reaction["img"]) }}" class="reaction-img {{ isset($userReaction) && $userReaction->reaction_type === $reaction["label"] ? "active" : "" }}" alt="{{ $reaction["label"] }}" />
+                                            </button>
+                                        </form>
+                                    @endforeach
+                                </div>
+                            </div>
+
+                            <div class="flex justify-end px-4 md:px-0 md:pr-4">
+                                <a href="javascript:void(0)" onclick="toggleShareModal(true)" class="mt-6 flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#3886A3] to-[#225062] px-2 lg:px-6 py-2 font-medium text-white md:w-auto">
+                                    <span>Bagikan</span>
+                                    <img src="{{ asset("assets/images/landing/arteri/upload.svg") }}" class="h-5 w-5" />
+                                </a>
+                            </div>
                         </div>
                         @endforeach
 
@@ -339,7 +332,7 @@
                         <form id="commentForm">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" name="article_id" value="{{ $article->id }}">
-                        
+
                             <div class="px-4 mt-10 lg:mt-4">
                                 <div class="mb-4 flex flex-col items-start">
                                     <label for="nama" class="font-medium">Nama</label>
@@ -367,19 +360,19 @@
                                 Komentar (<span id="comment-count">{{ count($comments) }}</span>)
                             </h3>
 
-                            <div id="comment-list">
-                                {{-- Komentar --}}
-                                @forelse($comments as $i => $comment)
-                                    <div class="w-full mb-4 flex flex-row items-start comment-item" style="{{ $i > 4 ? 'display:none;' : '' }}">
-                                        <div class="w-5/6 lg:w-[90%]">
-                                            <div class="flex flex-row gap-1 lg:gap-2 pb-2">
-                                                <span class="text-sm lg:text-base font-semibold">{{ $comment->name }}</span>
-                                                <div class="flex justify-center items-center">
-                                                    <span class="text-slate-700">&bull;</span>
-                                                </div>
-                                                <span class="text-sm lg:text-base text-slate-700">{{ $comment->created_at->diffForHumans() }}</span>
-                                            </div>
-                                            <p class="text-sm lg:text-base">{{ $comment->comment }}</p>
+                            <h3 class="mb-4 text-lg font-semibold lg:pb-4">Komentar (1{{--{{ count($comments) }}--}})</h3>
+
+                            {{-- Komentar --}}
+
+                            <div class="w-full mb-4 flex flex-row items-start">
+                                <span class="w-1/6 lg:w-[10%] items-center justify-start gap-2">
+                                    <img src="{{ asset("/image/" . $article->author->profil_image) }}" alt="writer profile" class="size-5 rounded-full object-cover" />
+                                </span>
+                                <div class="w-5/6 lg:w-[90%]">
+                                    <div class="flex flex-row gap-1 lg:gap-2 pb-2">
+                                        <span class="text-sm lg:text-base font-semibold">{{ $article->author->name_author }}</span>
+                                        <div class="flex justify-center items-center">
+                                            <div class="rounded-full bg-slate-700 w-2 h-2"></div>
                                         </div>
                                     </div>
                                 @empty
@@ -601,7 +594,7 @@
                     // console.error(error);
                 });
         }
-    
+
         document.addEventListener('DOMContentLoaded', function () {
             // Data jumlah orang per reaction
             const reactionCounts = @json($reactionCounts);

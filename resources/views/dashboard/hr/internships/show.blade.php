@@ -21,13 +21,13 @@
 
                     <div class="mt-3 flex gap-4">
                         <form action="{{ route("dashboard.internships.edit", $Internship->id) }}" method="GET">
-                            <button type="submit" class="inline-flex items-center justify-center rounded bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2">
-                                <p class="text-dark font-medium leading-none">Edit</p>
+                            <button type="submit" class="inline-flex items-start justify-start rounded-lg border-2 border-primary bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
+                                <p class="text-dark font-medium leading-none">Ubah Data</p>
                             </button>
                         </form>
 
-                        <button onclick="openDeleteModal({{ $Internship->id }})" type="button" class="inline-flex items-center justify-center rounded bg-red-500 px-6 py-3 text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2">
-                            <p class="text-dark font-medium leading-none">Hapus</p>
+                        <button onclick="openDeleteModal({{ $Internship->id }})" type="button" class="inline-flex items-start justify-start rounded-lg border-2 border-primary px-6 py-3 text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
+                            <p class="text-dark font-medium leading-none">Hapus Data</p>
                         </button>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                                         <label class="font-semibold text-gray-600">Link. WA:</label>
                                     </td>
                                     <td class="py-1 pl-4 pr-8">
-                                        <a href="https://wa.me/{{ $Internship->no_whatsapp }}" target="_blank" rel="noopener noreferrer">https://wa.me/{{ $Internship->no_whatsapp }}</a>
+                                        <a href="https://wa.me/{{ $Internship->no_whatsapp }}" target="_blank" rel="noopener noreferrer" class="text-blue-500">https://wa.me/{{ $Internship->no_whatsapp }}</a>
                                     </td>
                                 </tr>
 
@@ -190,7 +190,7 @@
                                         <label class="font-semibold text-gray-600">Tautan IG:</label>
                                     </td>
                                     <td class="py-1 pl-4 pr-8">
-                                        <a href="{{ $Internship->akun_instagram }}" target="_blank" rel="noopener noreferrer">{{ $Internship->akun_instagram }}</a>
+                                        <a href="{{ $Internship->akun_instagram }}" target="_blank" rel="noopener noreferrer" class="text-blue-500">{{ $Internship->akun_instagram }}</a>
                                     </td>
                                 </tr>
 
@@ -199,7 +199,7 @@
                                         <label class="font-semibold text-gray-600">Tautan TikTok:</label>
                                     </td>
                                     <td class="py-1 pl-4 pr-8">
-                                        <a href="{{ $Internship->akun_tiktok }}" target="_blank" rel="noopener noreferrer">{{ $Internship->akun_tiktok }}</a>
+                                        <a href="{{ $Internship->akun_tiktok }}" target="_blank" rel="noopener noreferrer" class="text-blue-500">{{ $Internship->akun_tiktok }}</a>
                                     </td>
                                 </tr>
 
@@ -208,7 +208,7 @@
                                         <label class="font-semibold text-gray-600">Tautan LinkedIn:</label>
                                     </td>
                                     <td class="py-1 pl-4 pr-8">
-                                        <a href="{{ $Internship->akun_linkdin }}" target="_blank" rel="noopener noreferrer">{{ $Internship->akun_linkdin }}</a>
+                                        <a href="{{ $Internship->akun_linkdin }}" target="_blank" rel="noopener noreferrer" class="text-blue-500">{{ $Internship->akun_linkdin }}</a>
                                     </td>
                                 </tr>
 
@@ -224,7 +224,7 @@
                                         <label class="font-semibold text-gray-600">Tautan CV:</label>
                                     </td>
                                     <td class="py-1 pl-4 pr-8">
-                                        <a href="{{ $Internship->tautan_cv }}" target="_blank" rel="noopener noreferrer">{{ $Internship->tautan_cv }}</a>
+                                        <a href="{{ $Internship->tautan_cv }}" target="_blank" rel="noopener noreferrer" class="text-blue-500">{{ $Internship->tautan_cv }}</a>
                                     </td>
                                 </tr>
 
@@ -233,7 +233,7 @@
                                         <label class="font-semibold text-gray-600">Tautan Portfolio:</label>
                                     </td>
                                     <td class="py-1 pl-4 pr-8">
-                                        <a href="{{ $Internship->tautan_portofolio }}" target="_blank" rel="noopener noreferrer">{{ $Internship->tautan_portofolio }}</a>
+                                        <a href="{{ $Internship->tautan_portofolio }}" target="_blank" rel="noopener noreferrer" class="text-blue-500">{{ $Internship->tautan_portofolio }}</a>
                                     </td>
                                 </tr>
 
@@ -242,7 +242,7 @@
                                         <label class="font-semibold text-gray-600">Tautan Bukti Follow:</label>
                                     </td>
                                     <td class="py-1 pl-4 pr-8">
-                                        <a href="{{ $Internship->tautan_berkas_ss }}" target="_blank" rel="noopener noreferrer">{{ $Internship->tautan_berkas_ss }}</a>
+                                        <a href="{{ $Internship->tautan_berkas_ss }}" target="_blank" rel="noopener noreferrer" class="text-blue-500">{{ $Internship->tautan_berkas_ss }}</a>
                                     </td>
                                 </tr>
 

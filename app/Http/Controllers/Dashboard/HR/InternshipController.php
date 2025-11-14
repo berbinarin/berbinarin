@@ -70,7 +70,7 @@ class InternshipController extends Controller
                 'alert' => true,
                 'type' => 'success',
                 'title' => 'Berhasil!',
-                'message' =>'Data pendaftar magang berhasil diedit',
+                'message' =>'Data pendaftar magang berhasil diubah',
                 'icon' => asset('assets/images/dashboard/success.png'),
             ]);
     }

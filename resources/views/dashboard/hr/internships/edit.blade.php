@@ -215,7 +215,7 @@
                                             <label for="motivasi" class="font-semibold text-gray-600">Motivasi:</label>
                                         </td>
                                         <td class="border-l px-4 py-2">
-                                            <textarea id="motivasi" name="motivasi" class="w-full rounded-lg border border-gray-300 px-2 py-1">{{ $Internship->motivasi }}</textarea>
+                                            <textarea id="motivasi" name="motivasi" class="w-full h-20 rounded-lg border border-gray-300 px-2 py-1">{{ $Internship->motivasi }}</textarea>
                                         </td>
                                     </tr>
                                     <tr class="border-b border-gray-200">

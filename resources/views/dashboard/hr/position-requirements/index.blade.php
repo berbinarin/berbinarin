@@ -11,7 +11,7 @@
             <div class="w-full">
                 <div class="py-4 md:pb-7 md:pt-12">
                     <div class="">
-                        <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Manajemen Persyaratan Posisi</p>
+                        <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Persyaratan Posisi</p>
                         <p class="w-full text-disabled">Fitur ini digunakan untuk mengatur dan memanajemen data deskripsi posisi yang sedang atau akan dibuka atau telah dibuka yang ditampilkan pada situs karir Berbinarin.</p>
                         <a href="{{ route("dashboard.position-requirements.create") }}" class="mt-8 inline-flex items-start justify-start rounded-lg bg-primary px-6 py-3 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
                             <p class="text-dark font-medium leading-none">Tambah Data</p>
