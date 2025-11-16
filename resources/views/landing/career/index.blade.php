@@ -395,9 +395,7 @@
         });
     </script>
     {{-- SCRIPT ACCORDION FAQS --}}
-@endsection
 
-@section("script")
     <script>
         var swiper = new Swiper('#swiperTestimoniKarir', {
             slidesPerView: 3,
