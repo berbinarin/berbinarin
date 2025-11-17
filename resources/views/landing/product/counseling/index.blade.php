@@ -242,11 +242,11 @@
                                     <span class="font-semibold">Lokasi offline Konseling</span>
                                 </div>
                                 <ol class="list-decimal mt-1 space-y-1 pl-7">
-                                    <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
+                                    <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, dan Sidoarjo</li>
                                     <li class="max-sm:text-sm">
                                         b.
                                         <i>Peer Counselor</i>
-                                        : Jakarta dan Makassar
+                                        : Jakarta
                                     </li>
                                 </ol>
                             </div>
