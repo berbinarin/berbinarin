@@ -141,8 +141,8 @@
 
         // desktop
         let previousSelectedKeyYears = 6; // 2026
-        let previousSelectedKeyDivisionDesktop = 11; // webdev
-        let previousSelectedKeySubdivisionDekstop = 1; // subdivisi pertama
+        let previousSelectedKeyDivisionDesktop = 9; // webdev
+        let previousSelectedKeySubdivisionDekstop = 3; // subdivisi pertama
 
         // value to apply filter
         let year_value = '';
