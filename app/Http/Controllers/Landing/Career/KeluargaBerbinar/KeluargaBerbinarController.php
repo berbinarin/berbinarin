@@ -78,9 +78,13 @@ class KeluargaBerbinarController extends Controller
                 'division' => $latestRecord && $latestRecord->division ? $latestRecord->division->nama_divisi : '-',
                 'subdivision' => $latestRecord && $latestRecord->subDivision ? $latestRecord->subDivision->nama_subdivisi : '-',
                 'records' => $staff->records->map(function ($record) use ($staff) {
-                    // Cek status untuk tahun record ini
                     $isActive = $record->status === 'active';
                     $isInactive = $record->status === 'inactive';
+
+                    // Jika status kosong/null, set alumni
+                    $status = $record->status ?: 'alumni';
+                    if ($isActive) $status = 'active';
+                    elseif ($isInactive) $status = 'alumni';
 
                     return [
                         'division' => $record->division->nama_divisi ?? '-',
@@ -89,7 +93,7 @@ class KeluargaBerbinarController extends Controller
                         'date_end' => $record->date_end ? Carbon::parse($record->date_end)->format('M Y') : 'Sekarang',
                         'year_start' => Carbon::parse($record->date_start)->year,
                         'year_end' => $record->date_end ? Carbon::parse($record->date_end)->year : null,
-                        'status' => $isActive ? 'active' : ($isInactive ? 'alumni' : null),
+                        'status' => $status,
                     ];
                 })->toArray(),
                 'years' => $staff->records->flatMap(function ($record) {
