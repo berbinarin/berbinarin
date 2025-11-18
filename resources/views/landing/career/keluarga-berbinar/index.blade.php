@@ -140,8 +140,8 @@
         const subdivisionDropdown = document.querySelector(`#subdivision-dropdown`);
 
         // desktop
-        let previousSelectedKeyYears = 6; // 2024
-        let previousSelectedKeyDivisionDesktop = 10; // webdev
+        let previousSelectedKeyYears = 6; // 2026
+        let previousSelectedKeyDivisionDesktop = 11; // webdev
         let previousSelectedKeySubdivisionDekstop = 1; // subdivisi pertama
 
         // value to apply filter
