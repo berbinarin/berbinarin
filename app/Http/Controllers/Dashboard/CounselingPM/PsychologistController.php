@@ -182,7 +182,7 @@ class PsychologistController extends Controller
                 'alert' => true,
                 'type' => 'success',
                 'title' => 'Berhasil!',
-                'message' =>'Data Psikolog berhasil diedit',
+                'message' =>'Data Psikolog berhasil diubah',
                 'icon' => asset('assets/images/dashboard/success.png'),
             ]);
     }

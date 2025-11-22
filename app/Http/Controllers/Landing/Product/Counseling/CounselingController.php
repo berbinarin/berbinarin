@@ -174,11 +174,6 @@ class CounselingController extends Controller
                 'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/adinda.png',
                 'region' => 'Jakarta'
             ],
-            [
-                'name' => 'Nurfadila Aulia Muslimin',
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/nurfadila.png',
-                'region' => 'Makassar'
-            ]
         ];
 
         $peerOnlines = [

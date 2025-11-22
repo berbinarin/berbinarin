@@ -21,6 +21,7 @@
                 </p>
             </div>
         </div>
+        
         <div class="rounded-md bg-white px-4 py-4 shadow-lg mb-7 shadow-gray-400 md:px-8 md:py-7 xl:px-10">
             <form action="{{ route('dashboard.position-requirements.store') }}" method="POST">
                 @csrf

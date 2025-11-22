@@ -14,7 +14,7 @@ class KeluargaBerbinarController extends Controller
 
     public function index()
     {
-        $staffs = TableStaff::withxcc(['records.division', 'records.subDivision'])->get();
+        $staffs = TableStaff::with(['records.division', 'records.subDivision'])->get();
         return view('dashboard.hr.keluarga-berbinar.index', compact('staffs'));
     }
 
@@ -36,6 +36,7 @@ class KeluargaBerbinarController extends Controller
             'sub_division' => 'nullable|array',
             'date_start' => 'required|array',
             'date_end' => 'required|array',
+            'status' => 'required|array',
         ]);
 
         $staffData = [
@@ -52,6 +53,7 @@ class KeluargaBerbinarController extends Controller
 
         foreach ($validatedData['division'] as $index => $divisionId) {
             $subDivisionId = $validatedData['sub_division'][$index] ?? null;
+            $statusValue = $validatedData['status'][$index] ?? 'active'; // hanya ambil status sesuai index
 
             TableRecord::create([
                 'staff_id' => $staff->id,
@@ -59,6 +61,7 @@ class KeluargaBerbinarController extends Controller
                 'subdivision_id' => $subDivisionId,
                 'date_start' => $validatedData['date_start'][$index],
                 'date_end' => $validatedData['date_end'][$index],
+                'status' => $statusValue, // simpan status sesuai index
             ]);
         }
         return redirect()->route('dashboard.keluarga-berbinar.index')->with([
@@ -97,6 +100,7 @@ class KeluargaBerbinarController extends Controller
             'sub_division' => 'nullable|array',
             'date_start' => 'required|array',
             'date_end' => 'required|array',
+            'status' => 'required|array',
         ]);
 
         $staff = TableStaff::findOrFail($id);
@@ -116,6 +120,7 @@ class KeluargaBerbinarController extends Controller
 
         foreach ($validatedData['division'] as $index => $divisionId) {
             $subDivisionId = $validatedData['sub_division'][$index] ?? null;
+            $statusValue = $validatedData['status'][$index] ?? 'active'; // hanya ambil status sesuai index
 
             TableRecord::create([
                 'staff_id' => $staff->id,
@@ -123,6 +128,7 @@ class KeluargaBerbinarController extends Controller
                 'subdivision_id' => $subDivisionId,
                 'date_start' => $validatedData['date_start'][$index],
                 'date_end' => $validatedData['date_end'][$index],
+                'status' => $statusValue, // simpan status sesuai index
             ]);
         }
 

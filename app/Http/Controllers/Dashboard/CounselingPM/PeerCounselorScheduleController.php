@@ -63,7 +63,7 @@ class PeerCounselorScheduleController extends Controller
                 'alert'   => true,
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
-                'message' => 'Data Berhasil Diedit',
+                'message' => 'Data berhasil diubah',
                 'icon'    => asset('assets/images/dashboard/success.png'),
             ]);
     }

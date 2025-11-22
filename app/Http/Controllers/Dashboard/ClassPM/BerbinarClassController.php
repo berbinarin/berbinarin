@@ -93,7 +93,7 @@ class BerbinarClassController extends Controller
             'alert' => true,
             'icon' => asset('assets/images/dashboard/success.png'),
             'title' => 'Berhasil!',
-            'message' => 'Kelas berhasil diedit.',
+            'message' => 'Kelas berhasil diubah.',
             'type' => 'success',
         ]);
     }

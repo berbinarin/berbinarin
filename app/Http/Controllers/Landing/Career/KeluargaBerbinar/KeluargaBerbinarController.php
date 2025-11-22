@@ -57,24 +57,35 @@ class KeluargaBerbinarController extends Controller
     public function index()
     {
         $data = TableStaff::with(['records.division', 'records.subDivision'])->get()->map(function ($staff) {
-            // Tetap cari record terbaru buat tampilan utama
             $latestRecord = $staff->records->sortByDesc('date_start')->first();
 
+            // Cek status: jika ADA record status 'inactive', maka alumni, jika tidak dan ada 'active', maka aktif
+            $hasInactive = $staff->records->contains(function ($record) {
+                return $record->status === 'inactive';
+            });
             $isActive = $staff->records->contains(function ($record) {
-                return $record->date_end === null || Carbon::parse($record->date_end)->greaterThanOrEqualTo(now());
+                return $record->status === 'active';
             });
 
             return [
                 'id' => $staff->id,
                 'name' => $staff->name,
                 'date_start' => $latestRecord ? Carbon::parse($latestRecord->date_start)->format('M Y') : null,
-                'status' => $isActive,
+                'status' => $hasInactive ? 'alumni' : ($isActive ? 'active' : 'alumni'),
                 'linkedin' => $staff->linkedin,
                 'photo' => $staff->photo ? '/image/' . $staff->photo : '/assets/images/landing/keluarga-berbinar/dummy.png',
                 'motm' => $staff->motm,
                 'division' => $latestRecord && $latestRecord->division ? $latestRecord->division->nama_divisi : '-',
                 'subdivision' => $latestRecord && $latestRecord->subDivision ? $latestRecord->subDivision->nama_subdivisi : '-',
-                'records' => $staff->records->map(function ($record) {
+                'records' => $staff->records->map(function ($record) use ($staff) {
+                    $isActive = $record->status === 'active';
+                    $isInactive = $record->status === 'inactive';
+
+                    // Jika status kosong/null, set alumni
+                    $status = $record->status ?: 'alumni';
+                    if ($isActive) $status = 'active';
+                    elseif ($isInactive) $status = 'alumni';
+
                     return [
                         'division' => $record->division->nama_divisi ?? '-',
                         'subdivision' => $record->subDivision->nama_subdivisi ?? '-',
@@ -82,6 +93,7 @@ class KeluargaBerbinarController extends Controller
                         'date_end' => $record->date_end ? Carbon::parse($record->date_end)->format('M Y') : 'Sekarang',
                         'year_start' => Carbon::parse($record->date_start)->year,
                         'year_end' => $record->date_end ? Carbon::parse($record->date_end)->year : null,
+                        'status' => $status,
                     ];
                 })->toArray(),
                 'years' => $staff->records->flatMap(function ($record) {

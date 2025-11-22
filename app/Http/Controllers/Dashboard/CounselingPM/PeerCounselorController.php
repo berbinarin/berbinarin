@@ -183,7 +183,7 @@ class PeerCounselorController extends Controller
                 'alert' => true,
                 'type' => 'success',
                 'title' => 'Berhasil!',
-                'message' =>'Data Peer Counselor berhasil diedit',
+                'message' =>'Data Peer Counselor berhasil diediubahdit',
                 'icon' => asset('assets/images/dashboard/success.png'),
             ]);
     }

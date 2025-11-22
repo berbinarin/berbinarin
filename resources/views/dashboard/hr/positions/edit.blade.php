@@ -266,11 +266,12 @@
                         </div>
 
                         <div class="w-full">
-                            <button type="button" id="uploadBannerButton" class="mt-20 flex w-full cursor-pointer items-center justify-center rounded-lg border border-dashed border-blue-500 py-2 text-blue-500">
+                            <button type="button" id="uploadBannerButton" class="mt-20 flex flex-col w-full cursor-pointer items-center justify-center rounded-lg border border-dashed border-blue-500 py-2 text-blue-500">
                                 <h1 class="flex items-center gap-2 text-base font-medium">
                                     <i class="bx bx-plus-circle text-xl"></i>
                                     Unggah Banner Posisi
                                 </h1>
+                                Ukuran : 260px × 120px
                             </button>
 
                             <div id="bannerPreviewContainer" class="mt-4">
@@ -285,7 +286,7 @@
                             <input type="file" id="bannerInput" name="banner_path" accept=".jpeg, .jpg, .png, .webp" class="hidden" />
                         </div>
                     </div>
-                    
+
                     <input type="hidden" id="deletedSubDivisions" name="deleted_subdivisions" value="" />
 
                     <div class="mt-8 flex justify-end border-t-2 border-t-gray-400 pt-5">

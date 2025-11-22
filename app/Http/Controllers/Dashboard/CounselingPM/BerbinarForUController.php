@@ -114,7 +114,7 @@ class BerbinarForUController extends Controller
                 'alert'   => true,
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
-                'message' => 'Data Berbinar for U berhasil diedit',
+                'message' => 'Data Berbinar for U berhasil diubah',
                 'icon'    => asset('assets/images/dashboard/success.png'),
             ]);
     }

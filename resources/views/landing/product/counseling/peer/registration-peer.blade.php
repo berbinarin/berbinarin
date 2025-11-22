@@ -82,8 +82,8 @@
                     <span class="font-semibold">Lokasi offline Konseling</span>
                 </div>
                 <ol class="list-decimal mt-1 space-y-1 pl-7">
-                    <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, Sidoarjo, dan Jakarta</li>
-                    <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Jakarta dan Makassar</li>
+                    <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, dan Sidoarjo</li>
+                    <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Jakarta</li>
                 </ol>
             </div>
 
@@ -236,7 +236,6 @@
                         <select name="daerah" id="daerah-select" class="dropdown-select bg-[#F1F3F6] md:shadow-none shadow-md border-none rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3] appearance-none">
                             <option value="">Pilih Daerah Konseling</option>
                             <option value="Jakarta">Jakarta</option>
-                            <option value="Makassar">Makassar</option>
                         </select>
                         <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon h-2 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300">
                     </div>

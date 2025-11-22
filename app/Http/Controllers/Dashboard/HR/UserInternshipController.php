@@ -125,7 +125,7 @@ class UserInternshipController extends Controller
                 'alert' => true,
                 'type' => 'success',
                 'title' => 'Berhasil!',
-                'message' =>'User Internship Berhasil diedit',
+                'message' =>'User Internship berhasil diubah',
                 'icon' => asset('assets/images/dashboard/success.png'),
             ]);
     }
