@@ -46,7 +46,7 @@ class PositionController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Posisi Berhasil Dibuat',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
         } catch (\Exception $e) {
             return redirect()->back()->withInput()->with([
@@ -54,7 +54,7 @@ class PositionController extends Controller
                 'type'    => 'error',
                 'title'   => 'Gagal!',
                 'message' => 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage(),
-                'icon'    => asset('assets/images/dashboard/error.png'),
+                'icon'    => asset('assets/images/dashboard/error.webp'),
             ]);
         }
     }
@@ -88,7 +88,7 @@ class PositionController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Posisi Berhasil Diubah',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
         } catch (\Exception $e) {
            return redirect()->back()->withInput()->with([
@@ -96,7 +96,7 @@ class PositionController extends Controller
                 'type'    => 'error',
                 'title'   => 'Gagal!',
                 'message' => 'Terjadi kesalahan saat mengubah data: ' . $e->getMessage(),
-                'icon'    => asset('assets/images/dashboard/error.png'),
+                'icon'    => asset('assets/images/dashboard/error.webp'),
             ]);
         }
     }
@@ -119,7 +119,7 @@ class PositionController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Data Berhasil Dihapus',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
         } catch (\Exception $e) {
             return redirect()->route('/dashboard/admin/positions')->with([
@@ -127,7 +127,7 @@ class PositionController extends Controller
                 'type'    => 'error',
                 'title'   => 'Gagal!',
                 'message' => 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage(),
-                'icon'    => asset('assets/images/dashboard/error.png'),
+                'icon'    => asset('assets/images/dashboard/error.webp'),
             ]);
         }
     }
@@ -149,7 +149,7 @@ class PositionController extends Controller
                     'type'    => 'success',
                     'title'   => 'Berhasil!',
                     'message' => 'Posisi berhasil diaktifkan!',
-                    'icon'    => asset('assets/images/dashboard/success.png'),
+                    'icon'    => asset('assets/images/dashboard/success.webp'),
                 ]);
             } else {
                 return redirect()->back()->with([
@@ -157,7 +157,7 @@ class PositionController extends Controller
                     'type'    => 'success',
                     'title'   => 'Berhasil!',
                     'message' => 'Posisi berhasil dinonaktifkan!',
-                    'icon'    => asset('assets/images/dashboard/success.png'),
+                    'icon'    => asset('assets/images/dashboard/success.webp'),
                 ]);
             }
 
@@ -168,7 +168,7 @@ class PositionController extends Controller
                 'type'    => 'error',
                 'title'   => 'Gagal!',
                 'message' => 'Terjadi kesalahan saat mengubah status aktif: ' . $e->getMessage(),
-                'icon'    => asset('assets/images/dashboard/error.png'),
+                'icon'    => asset('assets/images/dashboard/error.webp'),
             ]);
         }
     }

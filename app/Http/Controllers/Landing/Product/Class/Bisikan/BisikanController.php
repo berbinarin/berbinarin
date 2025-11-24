@@ -12,60 +12,60 @@ class BisikanController extends Controller
             [
                 'name' => 'Early Bird',
                 'price' => 'Rp15.000',
-                'icon' => 'assets/images/landing/asset-kelas/class-journey/early-bird.png'
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/early-bird.webp'
             ],
             [
                 'name' => 'Triple Bundle',
                 'price' => 'Rp55.000',
-                'icon' => 'assets/images/landing/asset-kelas/class-journey/bundle-bertiga.png'
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/bundle-bertiga.webp'
             ],
             [
                 'name' => 'Normal Price',
                 'price' => 'Rp20.000',
-                'icon' => 'assets/images/landing/asset-kelas/class-journey/normal-price.png'
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/normal-price.webp'
             ],
         ];
 
         $benefit_class_journey = [
             [
                 'name' => 'E-Certificate',
-                'image' => 'certificate.png'
+                'image' => 'certificate.webp'
             ],
             [
                 'name' => 'Hands-On Experience',
-                'image' => 'hands-on.png'
+                'image' => 'hands-on.webp'
             ],
             [
                 'name' => 'Upgrade Skill',
-                'image' => 'upgrade.png'
+                'image' => 'upgrade.webp'
             ],
             [
                 'name' => 'Tips and Trick dari Ahli',
-                'image' => 'tips-n-trick.png'
+                'image' => 'tips-n-trick.webp'
             ],
             [
                 'name' => 'Networking',
-                'image' => 'networking.png'
+                'image' => 'networking.webp'
             ],
         ];
         $episodes = [
             [
                 'title' => 'Episode 19',
-                'image' => 'assets/images/landing/produk/bisikan/bisikan-episode19.png',
+                'image' => 'assets/images/landing/produk/bisikan/bisikan-episode19.webp',
                 'alt' => '',
                 'bersama' => 'Satria Kamal Agassi, S. Psi., M.Psi., Psikolog',
                 'link' => 'https://youtu.be/0gE5pq2FPJc?si=LhGl9KJ2xTwO_nDY'
             ],
             [
                 'title' => 'Episode 20',
-                'image' => 'assets/images/landing/produk/bisikan/bisikan-episode20.png',
+                'image' => 'assets/images/landing/produk/bisikan/bisikan-episode20.webp',
                 'alt' => '',
                 'bersama' => 'Muhammad Luthfi Fernanda, M.Psi., Psikolog',
                 'link' => 'https://youtu.be/u99HBc7i9EA?si=eiNAJ5vNdUGcV2Lh'
             ],
             [
                 'title' => 'Episode 21',
-                'image' => 'assets/images/landing/produk/bisikan/bisikan-episode21.png',
+                'image' => 'assets/images/landing/produk/bisikan/bisikan-episode21.webp',
                 'alt' => '',
                 'bersama' => 'Adismara Putri Pradiri, M.Psi., Psikolog',
                 'link' => 'https://youtu.be/fpjr6pazye4?si=0I4xyEcoMVEU_Bv3'
@@ -74,27 +74,27 @@ class BisikanController extends Controller
 
         $topics = [
             [
-                'image' => 'assets/images/landing/produk/bisikan/konten-kesehatan-mental.png',
+                'image' => 'assets/images/landing/produk/bisikan/konten-kesehatan-mental.webp',
                 'title' => 'Kesehatan Mental',
             ],
             [
-                'image' => 'assets/images/landing/produk/bisikan/konten-regulasi-emosi.png',
+                'image' => 'assets/images/landing/produk/bisikan/konten-regulasi-emosi.webp',
                 'title' => 'Regulasi Emosi',
             ],
             [
-                'image' => 'assets/images/landing/produk/bisikan/konten-hubungan-interpersonal.png',
+                'image' => 'assets/images/landing/produk/bisikan/konten-hubungan-interpersonal.webp',
                 'title' => 'Hubungan Interpersonal',
             ],
             [
-                'image' => 'assets/images/landing/produk/bisikan/konten-self-growth.png',
+                'image' => 'assets/images/landing/produk/bisikan/konten-self-growth.webp',
                 'title' => 'Self Growth',
             ],
             [
-                'image' => 'assets/images/landing/produk/bisikan/konten-mengenal-diri.png',
+                'image' => 'assets/images/landing/produk/bisikan/konten-mengenal-diri.webp',
                 'title' => 'Mengenal diri lewat psikologi',
             ],
             [
-                'image' => 'assets/images/landing/produk/bisikan/konten-cerita-nyata.png',
+                'image' => 'assets/images/landing/produk/bisikan/konten-cerita-nyata.webp',
                 'title' => 'Cerita nyata dan tips dari narasumber terpercaya',
             ],
 
@@ -103,22 +103,22 @@ class BisikanController extends Controller
 
         $manfaat_bisikan = [
             [
-                'icon' => 'assets/images/landing/produk/bisikan/envelop.svg',
+                'icon' => 'assets/images/landing/produk/bisikan/envelop.webp',
                 'title' => 'Wawasan',
                 'manfaat' => 'Menambah wawasan tentang kesehatan mental'
             ],
             [
-                'icon' => 'assets/images/landing/produk/bisikan/icon-inspirasi.svg',
+                'icon' => 'assets/images/landing/produk/bisikan/icon-inspirasi.webp',
                 'title' => 'Pengetahuan',
                 'manfaat' => 'Mendapat pengetahuan dari praktisi dan ahli terpercaya'
             ],
             [
-                'icon' => 'assets/images/landing/produk/bisikan/icon-support.svg',
+                'icon' => 'assets/images/landing/produk/bisikan/icon-support.webp',
                 'title' => 'Mindful Living',
                 'manfaat' => 'Mendukung gaya hidup yang lebih mindful dan seimbang'
             ],
             [
-                'icon' => 'assets/images/landing/produk/bisikan/icon-akses.svg',
+                'icon' => 'assets/images/landing/produk/bisikan/icon-akses.webp',
                 'title' => 'Self-healing',
                 'manfaat' => 'Memberi ruang refleksi dan self-healing'
             ],
@@ -126,17 +126,17 @@ class BisikanController extends Controller
 
         $sosmed = [
             [
-                'icon' => '/assets/images/landing/produk/bisikan/spotify.svg',
+                'icon' => '/assets/images/landing/produk/bisikan/spotify.webp',
                 'platform' => 'Spotify',
                 'link' => 'https://open.spotify.com/user/31c274wo5o5x4tujcjrimf4kujhu?si=7110e65c3c01489a'
             ],
             [
-                'icon' => '/assets/images/landing/produk/bisikan/instagram.svg',
+                'icon' => '/assets/images/landing/produk/bisikan/instagram.webp',
                 'platform' => 'Instagram',
                 'link' => 'https://www.instagram.com/berbinar.in/'
             ],
             [
-                'icon' => '/assets/images/landing/produk/bisikan/youtube.svg',
+                'icon' => '/assets/images/landing/produk/bisikan/youtube.webp',
                 'platform' => 'YouTube',
                 'link' => 'https://www.youtube.com/@berbinar'
             ],
@@ -165,7 +165,7 @@ class BisikanController extends Controller
             ],
         ];
 
-        $poster = 'public/assets/images/landing/asset-kelas/class-journey/poster-maret.png';
+        $poster = 'public/assets/images/landing/asset-kelas/class-journey/poster-maret.webp';
 
         $link_pendaftaran = 'https://bit.ly/Pendaftaran_101ClassJourney';
         return view('landing.product.class.bisikan', compact('layanan_class_journey', 'sosmed', 'episodes', 'topics', 'benefit_class_journey', 'faqs', 'poster', 'link_pendaftaran'));

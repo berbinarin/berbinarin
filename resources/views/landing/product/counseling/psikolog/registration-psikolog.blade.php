@@ -45,37 +45,37 @@
     <div class="flex flex-row justify-between" id="step-1-header">
         <a href="{{ route('product.counseling.registration') }}">
             <div class="flex items-center space-x-2 cursor-pointer">
-                <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow" class="h-3 w-auto">
+                <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.webp') }}" alt="Left Arrow" class="h-3 w-auto">
                 <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span class="sm:block hidden ml-0.5">pilih konseling</span></p>
             </div>
         </a>
 
         <div class="flex items-center space-x-1 cursor-pointer" id="openModal">
-            <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}" alt="Syarat & Ketentuan" class="h-3 w-auto">
+            <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.webp') }}" alt="Syarat & Ketentuan" class="h-3 w-auto">
             <p class="text-[15px] font-semibold text-[#3986A3]"><span class="sm:block hidden">Syarat & Ketentuan</span><span class="sm:hidden block">S&K</span></p>
         </div>
     </div>
 
     <div class="flex flex-row justify-between" id="step-2-header" style="display: none;">
         <div class="flex items-center space-x-2 cursor-pointer" onclick="prevStep(1)">
-            <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow" class="h-3 w-auto">
+            <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.webp') }}" alt="Left Arrow" class="h-3 w-auto">
             <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span class="sm:block hidden ml-0.5">isi jadwal</span></p>
         </div>
 
         <div class="flex items-center space-x-1 cursor-pointer" id="openModal2">
-            <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}" alt="Syarat & Ketentuan" class="h-3 w-auto">
+            <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.webp') }}" alt="Syarat & Ketentuan" class="h-3 w-auto">
             <p class="text-[15px] font-semibold text-[#3986A3]"><span class="sm:block hidden">Syarat & Ketentuan</span><span class="sm:hidden block">S&K</span></p>
         </div>
     </div>
 
     <div class="flex flex-row justify-between" id="step-3-header" style="display: none;">
         <div class="flex items-center space-x-2 cursor-pointer" onclick="prevStep(2)">
-            <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow" class="h-3 w-auto">
+            <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.webp') }}" alt="Left Arrow" class="h-3 w-auto">
             <p class="text-[15px] flex font-semibold text-[#3986A3]">Kembali <span class="sm:block hidden ml-0.5">isi data diri</span></p>
         </div>
 
         <div class="flex items-center space-x-1 cursor-pointer" id="openModal3">
-            <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}" alt="Syarat & Ketentuan" class="h-3 w-auto">
+            <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.webp') }}" alt="Syarat & Ketentuan" class="h-3 w-auto">
             <p class="text-[15px] font-semibold text-[#3986A3]"><span class="sm:block hidden">Syarat & Ketentuan</span><span class="sm:hidden block">S&K</span></p>
         </div>
     </div>
@@ -87,7 +87,7 @@
             <h1 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-center text-3xl font-bold max-sm:text-2xl">Syarat dan Ketentuan</h1>
             <div class="mb-6">
                 <div class="flex items-start gap-2">
-                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Lokasi" class="h-5 w-5 mt-0.5" />
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.webp') }}" alt="Lokasi" class="h-5 w-5 mt-0.5" />
                     <span class="font-semibold">Lokasi offline Konseling</span>
                 </div>
                 <ol class="list-decimal mt-1 space-y-1 pl-7">
@@ -98,7 +98,7 @@
 
             <div class="mb-6">
                 <div class="flex items-start gap-2">
-                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/payment.png') }}" alt="Pembayaran" class="h-5 w-5 mt-0.5" />
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/payment.webp') }}" alt="Pembayaran" class="h-5 w-5 mt-0.5" />
                     <span class="font-semibold">Pembayaran</span>
                 </div>
                 <ol class="list-decimal mt-1 space-y-1 pl-7">
@@ -108,7 +108,7 @@
 
             <div class="mb-6">
                 <div class="flex items-start gap-2">
-                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.png') }}" alt="Pembalasan Pesan" class="h-5 w-5 mt-0.5" />
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.webp') }}" alt="Pembalasan Pesan" class="h-5 w-5 mt-0.5" />
                     <span class="font-semibold">Pembalasan Pesan</span>
                 </div>
                 <ol class="list-decimal mt-1 space-y-1 pl-7">
@@ -120,7 +120,7 @@
 
             <div class="mb-6">
                 <div class="flex items-start gap-2">
-                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/cancel.png') }}" alt="Pengajuan Pembatalan" class="h-5 w-5 mt-0.5" />
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/cancel.webp') }}" alt="Pengajuan Pembatalan" class="h-5 w-5 mt-0.5" />
                     <span class="font-semibold">Pengajuan Pembatalan</span>
                 </div>
                 <ol class="list-decimal mt-1 space-y-1 pl-7">
@@ -213,7 +213,7 @@
                     <p class="text-[#333333] sm:text-[17px] text-sm">Tanggal Konseling</p>
                     <div class="relative">
                         <input type="text" required name="jadwal_tanggal" id="tglkonseling" class="bg-[#F1F3F6] border-none md:shadow-none shadow-md rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="dd/mm/yy" autocomplete="off" readonly>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/date.png') }}" class="h-4 w-auto object-contain absolute max-sm:hidden right-5 top-1/2 -translate-y-1/2" onclick="document.getElementById('tglkonseling').focus()">
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/date.webp') }}" class="h-4 w-auto object-contain absolute max-sm:hidden right-5 top-1/2 -translate-y-1/2" onclick="document.getElementById('tglkonseling').focus()">
                     </div>
                 </div>
                 {{-- Waktu Konseling --}}
@@ -222,7 +222,7 @@
                     <div class="relative">
                         <input type="text" id="waktukonseling" name="jadwal_pukul" required class="bg-[#F1F3F6] border-none md:shadow-none shadow-md rounded-lg w-full px-3 py-3 cursor-pointer focus:ring-[#3986A3]" placeholder="--:--" autocomplete="off" readonly>
                         <span class="absolute left-[64px] top-1/2 -translate-y-1/2 text-[#333] text-base pointer-events-none">WIB</span>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/clock.png') }}" class="h-4 w-auto object-contain absolute max-sm:hidden right-5 top-1/2 -translate-y-1/2" onclick="document.getElementById('waktukonseling').focus()">
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/clock.webp') }}" class="h-4 w-auto object-contain absolute max-sm:hidden right-5 top-1/2 -translate-y-1/2" onclick="document.getElementById('waktukonseling').focus()">
                     </div>
                 </div>
                 {{-- Metode Konseling --}}
@@ -234,7 +234,7 @@
                             <option value="offline">Offline</option>
                             <option value="online">Online</option>
                         </select>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon h-2 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300">
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.webp') }}" class="dropdown-icon h-2 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300">
                     </div>
                 </div>
                 {{-- Daerah Konseling --}}
@@ -247,7 +247,7 @@
                             <option value="Kediri">Kediri</option>
                             <option value="Sidoarjo">Sidoarjo</option>
                         </select>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon h-2 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300">
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.webp') }}" class="dropdown-icon h-2 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300">
                     </div>
                 </div>
                 {{-- Sesi --}}
@@ -259,7 +259,7 @@
                             <option value="2">2 Jam</option>
                             <option value="3">3 Jam</option>
                         </select>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon h-2 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300">
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.webp') }}" class="dropdown-icon h-2 w-auto object-contain absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none transition-transform duration-300">
                     </div>
                 </div>
                 {{-- Harga --}}
@@ -291,7 +291,7 @@
                         <input type="file" id="bukti_kartu_pelajar" name="bukti_kartu_pelajar" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
                         <div class="mt-1 block w-full h-12 pl-2 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary pointer-events-none cursor-pointer content-center flex items-center">
                             <button type="button" class="pointer-events-none border flex justify-between gap-2 py-[4px] px-2 border-[#B3B3B3] rounded-md cursor-pointer items-center">
-                                <img src="{{ asset('assets/images/landing/produk/emo/upload-line-icon.png') }}" alt="" class="w-4 h-4">
+                                <img src="{{ asset('assets/images/landing/produk/emo/upload-line-icon.webp') }}" alt="" class="w-4 h-4">
                                 Upload
                             </button>
                             <span id="fileName" class="ml-3 text-base text-gray-600 truncate"></span>
@@ -329,7 +329,7 @@
                     <p class="text-sm text-[#333333] sm:text-[17px]">Tanggal Lahir</p>
                     <div class="relative">
                         <input name="tanggal_Lahir" autocomplete="off" required type="text" id="tanggal_lahir" class="w-full cursor-pointer rounded-lg border-none bg-[#F1F3F6] px-3 py-3 shadow-md focus:ring-[#3986A3] md:shadow-none" placeholder="dd/mm/yy" readonly />
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/date.png') }}" class="absolute top-1/3 h-4 w-auto object-contain max-sm:hidden lg:right-5" onclick="document.getElementById('tanggal_lahir').focus()" />
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/date.webp') }}" class="absolute top-1/3 h-4 w-auto object-contain max-sm:hidden lg:right-5" onclick="document.getElementById('tanggal_lahir').focus()" />
                     </div>
                 </div>
                 {{-- Kota Domisili --}}
@@ -355,7 +355,7 @@
                             <option value="Belum Menikah">Belum Menikah</option>
                             <option value="Sudah Menikah">Sudah Menikah</option>
                         </select>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon pointer-events-none absolute right-5 top-1/2 h-2 w-auto -translate-y-1/2 object-contain transition-transform duration-300" />
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.webp') }}" class="dropdown-icon pointer-events-none absolute right-5 top-1/2 h-2 w-auto -translate-y-1/2 object-contain transition-transform duration-300" />
                     </div>
                 </div>
                 {{-- Jenis Kelamin --}}
@@ -367,7 +367,7 @@
                             <option value="Laki-laki">Laki-laki</option>
                             <option value="Perempuan">Perempuan</option>
                         </select>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon pointer-events-none absolute right-5 top-1/2 h-2 w-auto -translate-y-1/2 object-contain transition-transform duration-300" />
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.webp') }}" class="dropdown-icon pointer-events-none absolute right-5 top-1/2 h-2 w-auto -translate-y-1/2 object-contain transition-transform duration-300" />
                     </div>
                 </div>
                 {{-- Nomor WhatsApp --}}
@@ -397,7 +397,7 @@
                             <option value="Budha">Budha</option>
                             <option value="Khonghucu">Khonghucu</option>
                         </select>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon pointer-events-none absolute right-5 top-1/2 h-2 w-auto -translate-y-1/2 object-contain transition-transform duration-300" />
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.webp') }}" class="dropdown-icon pointer-events-none absolute right-5 top-1/2 h-2 w-auto -translate-y-1/2 object-contain transition-transform duration-300" />
                     </div>
                 </div>
                 {{-- Anak ke-dari Berapa Bersaudara --}}
@@ -429,7 +429,7 @@
                             <option value="SMP">SMP</option>
                             <option value="SD">SD</option>
                         </select>
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.png') }}" class="dropdown-icon pointer-events-none absolute right-5 top-1/2 h-2 w-auto -translate-y-1/2 object-contain transition-transform duration-300" />
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/dropdown.webp') }}" class="dropdown-icon pointer-events-none absolute right-5 top-1/2 h-2 w-auto -translate-y-1/2 object-contain transition-transform duration-300" />
                     </div>
                 </div>
                 {{-- Asal Sekolah/Universitas --}}

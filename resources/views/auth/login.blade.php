@@ -7,10 +7,10 @@
 )
 
 @section("content")
-    <section class="fixed inset-0 flex h-full w-full flex-col bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset("assets/images/dashboard/loginbg.png") }}')">
+    <section class="fixed inset-0 flex h-full w-full flex-col bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset("assets/images/dashboard/loginbg.webp") }}')">
         <!-- icon -->
         <div class="ml-[36px] mt-[35px] flex flex-row items-center justify-start gap-4">
-            <img src="{{ asset("assets/images/dashboard/logo-berbinar.png") }}" alt="Logo Berbinar" class="h-[67px] w-[67px]" />
+            <img src="{{ asset("assets/images/dashboard/logo-berbinar.webp") }}" alt="Logo Berbinar" class="h-[67px] w-[67px]" />
             <h1 class="font-plusJakartaSans text-[13px] font-bold text-[#3986A3]">PT Berbinar Insightful Indonesia</h1>
         </div>
 
@@ -41,7 +41,7 @@
                         <div class="flex w-full flex-col items-start justify-start gap-2">
                             <label>Username</label>
                             <div class="flex h-[47px] w-full items-center justify-start gap-3 rounded-lg bg-white outline outline-[0.67px] outline-offset-[-0.67px] outline-stone-300/80">
-                                <img src="{{ asset("assets/images/dashboard/Circled Envelope.png") }}" alt="Username" class="mx-3 size-8" />
+                                <img src="{{ asset("assets/images/dashboard/Circled Envelope.webp") }}" alt="Username" class="mx-3 size-8" />
                                 <input type="text" name="username" placeholder="Username" class="flex-1 border-none bg-transparent text-[13px] text-[#A9A7A7] outline-none placeholder:translate-y-[1px] placeholder:text-[13px] focus:border-none focus:outline-none focus:ring-0" />
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                         <div class="flex w-full flex-col items-start justify-start gap-2">
                             <label>Password</label>
                             <div class="flex h-[47px] w-full items-center justify-start gap-3 rounded-lg bg-white outline outline-[0.67px] outline-offset-[-0.67px] outline-stone-300/80">
-                                <img src="{{ asset("assets/images/dashboard/Secure.png") }}" alt="Username" class="mx-3 size-8" />
+                                <img src="{{ asset("assets/images/dashboard/Secure.webp") }}" alt="Username" class="mx-3 size-8" />
                                 <input type="password" name="password" placeholder="Password" class="flex-1 border-none bg-transparent text-[13px] text-[#A9A7A7] outline-none placeholder:translate-y-[1px] placeholder:text-[13px] focus:border-none focus:outline-none focus:ring-0" />
                             </div>
                         </div>

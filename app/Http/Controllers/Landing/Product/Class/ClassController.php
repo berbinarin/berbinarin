@@ -11,31 +11,31 @@ class ClassController extends Controller
     {
         $products = [
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-class-journey.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-class-journey.webp',
                 'produk' => '101 Class Journey',
                 'deskripsi' => 'Memperluas wawasan keilmuan dan keterampilan yang berasal dari ahli',
                 'route' => 'product.class.101-class-journey.index' // name of the sub routes
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.webp',
                 'produk' => 'BISIKAN',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
                 'route' => 'product.class.bisikan.index'
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-berbinar.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-berbinar.webp',
                 'produk' => 'Berbinar+',
                 'deskripsi' => 'Bundling package dimana customer bisa menggunakan produk kelas, konseling, dan psikotes.',
                 'route' => 'product.class.berbinar-plus.index'
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-berarty.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-berarty.webp',
                 'produk' => 'BERARTY',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
                 'route' => 'product.class.berarty.index'
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-premium-class.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-premium-class.webp',
                 'produk' => 'Premium Class',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
                 'route' => 'product.class.premium-class.index'

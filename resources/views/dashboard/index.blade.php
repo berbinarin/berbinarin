@@ -634,7 +634,7 @@
                         <div class="flex items-center justify-between mt-auto">
                             <span class="text-[36px] font-bold text-gray-900">{{ $articleCount }}</span>
                             <div class="flex h-[64px] w-[64px] items-center justify-center rounded-xl">
-                                <img src="{{ asset("assets/images/dashboard/arteri/artikel.svg") }}" alt="arrow down">
+                                <img src="{{ asset("assets/images/dashboard/arteri/artikel.webp") }}" alt="arrow down">
                             </div>
                         </div>
                     </div>
@@ -643,7 +643,7 @@
                         <div class="flex items-center justify-between mt-auto">
                             <span class="text-[36px] font-bold text-gray-900">{{ $authorCount }}</span>
                             <div class="flex h-[64px] w-[64px] items-center justify-center rounded-xl">
-                                <img src="{{ asset("assets/images/dashboard/arteri/penulis-artikel.svg") }}" alt="arrow down">
+                                <img src="{{ asset("assets/images/dashboard/arteri/penulis-artikel.webp") }}" alt="arrow down">
                             </div>
                         </div>
                     </div>
@@ -652,7 +652,7 @@
                         <div class="flex items-center justify-between mt-auto">
                             <span class="text-[36px] font-bold text-gray-900">{{ $categoryCount }}</span>
                             <div class="flex h-[64px] w-[64px] items-center justify-center rounded-xl">
-                                <img src="{{ asset("assets/images/dashboard/arteri/kategori-artikel.png") }}" alt="arrow down">
+                                <img src="{{ asset("assets/images/dashboard/arteri/kategori-artikel.webp") }}" alt="arrow down">
                             </div>
                         </div>
                     </div>
@@ -794,7 +794,7 @@
                         <div class="flex items-center p-[18px] bg-white shadow rounded-xl w-[293px] h-[94px]">
                             <div
                                 class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-xl mr-6">
-                                <img src={{ asset('assets/images/dashboard/psikolog.png') }} alt=""
+                                <img src={{ asset('assets/images/dashboard/psikolog.webp') }} alt=""
                                     class="h-8 w-5" />
                             </div>
                             <div>
@@ -805,7 +805,7 @@
                         <div class="flex items-center p-[18px] bg-white shadow rounded-xl w-[293px] h-[94px]">
                             <div
                                 class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-xl mr-6">
-                                <img src={{ asset('assets/images/dashboard/people.png') }} alt=""
+                                <img src={{ asset('assets/images/dashboard/people.webp') }} alt=""
                                     class="h-10 w-10" />
                             </div>
                             <div>

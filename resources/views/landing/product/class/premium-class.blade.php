@@ -11,43 +11,43 @@
     @php
         $alurPendaftaran = [
             [
-                "icon" => "search-icon.png",
+                "icon" => "search-icon.webp",
                 "teks" => "Calon peserta dapat memilih kelas yang telah disediakan oleh Berbinar Insightful Indonesia melalui <i>link</i> pendaftaran yang telah disediakan.",
             ],
             [
-                "icon" => "openbook-icon.png",
+                "icon" => "openbook-icon.webp",
                 "teks" => "Calon peserta wajib membaca booklet <i>PREMIUM CLASS</i> dengan cermat guna kejelasan teknis dari layanan yang akan diambil.",
             ],
             [
-                "icon" => "pen-icon.png",
+                "icon" => "pen-icon.webp",
                 "teks" => "Calon peserta wajib mengisi data <i>form</i> pendaftaran dengan jelas dan benar guna keperluan dokumen peserta kedepannya.",
             ],
             [
-                "icon" => "checkmark-icon.png",
+                "icon" => "checkmark-icon.webp",
                 "teks" => "Calon peserta wajib memilih jenis kelas yang telah disediakan.",
             ],
             [
-                "icon" => "creditcard-icon.png",
+                "icon" => "creditcard-icon.webp",
                 "teks" => "Calon peserta wajib membayar harga kelas lalu dilampirkan pada <i>form</i> pendaftaran.",
             ],
             [
-                "icon" => "inbox.png",
+                "icon" => "inbox.webp",
                 "teks" => "Calon peserta akan menjadi peserta apabila telah menerima <i>email</i> konfirmasi pendaftaran.",
             ],
             [
-                "icon" => "link.png",
+                "icon" => "link.webp",
                 "teks" => "Peserta wajib membaca <i>email</i> konfirmasi pendaftaran dengan cermat karena memuat <i>link pre-test</i> dari kelas yang akan diambil.",
             ],
             [
-                "icon" => "incoming-call.png",
+                "icon" => "incoming-call.webp",
                 "teks" => "Peserta diharap menghubungi narahubung <i>Premium Class</i> apabila selama 3 (tiga) hari kerja tidak menerima <i>email</i> konfirmasi pendaftaran.",
             ],
             [
-                "icon" => "brain.png",
+                "icon" => "brain.webp",
                 "teks" => "Peserta wajib mengisi <i>pre-test</i> dari kelas yang akan diambil sebelum memulai layanan <i>Premium Class</i>.",
             ],
             [
-                "icon" => "calendar.png",
+                "icon" => "calendar.webp",
                 "teks" => "Peserta akan dihubungi <i>via whatsapp</i> dan <i>email</i> untuk kelanjutan jadwal <i>premium class</i> yang diambil.",
             ],
         ];
@@ -56,23 +56,23 @@
     <!-- Judul-Start -->
     <section id="customSection" class="mb-12 w-full overflow-x-hidden">
         <div class="absolute left-0 top-0 h-fit w-1/2 pt-32 md:block md:w-1/3 md:pt-0 lg:w-1/4">
-            <img src="{{ asset("assets/images/landing/produk/emo/blop-1.png") }}" alt="top-left-texture" class="object-cover" />
+            <img src="{{ asset("assets/images/landing/produk/emo/blop-1.webp") }}" alt="top-left-texture" class="object-cover" />
         </div>
         <div class="absolute right-0 top-0 h-fit w-1/2 pt-32 md:block md:w-1/3 md:pt-0 lg:w-1/4">
-            <img src="{{ asset("assets/images/landing/produk/emo/blop-2.png") }}" alt="top-right-texture" class="object-cover" />
+            <img src="{{ asset("assets/images/landing/produk/emo/blop-2.webp") }}" alt="top-right-texture" class="object-cover" />
         </div>
         <div class="relative">
             <div class="z-10 mx-20 flex flex-row items-center justify-between gap-x-10 max-sm:mx-4 max-sm:mt-32">
                 <div class="max-lg:min-w-auto flex max-w-xl flex-1 flex-col space-y-6 max-sm:space-y-2">
                     <a href="{{ route("product.index") }}">
                         <div class="flex cursor-pointer items-center space-x-2 lg:order-1">
-                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.svg") }}" alt="Left Arrow" class="h-3 w-auto" />
+                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.webp") }}" alt="Left Arrow" class="h-3 w-auto" />
                             <p class="text-base font-semibold text-[#3986A3]">Produk Berbinar</p>
                         </div>
                     </a>
 
                     <div class="hidden w-full items-center justify-center max-lg:flex-none max-md:flex lg:order-2 lg:w-auto">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/banner.png") }}" alt="Konseling" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
+                        <img src="{{ asset("assets/images/landing/produk/premium-class/banner.webp") }}" alt="Konseling" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
                     </div>
 
                     <div class="lg:order-3">
@@ -110,7 +110,7 @@
                 </div>
 
                 <div class="flex w-full flex-initial items-center justify-center max-lg:flex-1 max-md:hidden lg:w-auto">
-                    <img src="{{ asset("assets/images/landing/produk/premium-class/banner.png") }}" alt="Konseling" class="h-[340px] w-auto max-lg:h-[320px]" />
+                    <img src="{{ asset("assets/images/landing/produk/premium-class/banner.webp") }}" alt="Konseling" class="h-[340px] w-auto max-lg:h-[320px]" />
                 </div>
             </div>
         </div>
@@ -120,7 +120,7 @@
     <!-- Mentor Premium Class-Start -->
     <section id="customSection" class="relative mb-10 w-full md:mb-16">
         <div class="absolute w-full pt-4">
-            <img src="{{ asset("assets/images/landing/produk/emo/path.png") }}" alt="top-texture" class="h-full w-full object-cover" />
+            <img src="{{ asset("assets/images/landing/produk/emo/path.webp") }}" alt="top-texture" class="h-full w-full object-cover" />
         </div>
         <div class="md:px-18 relative font-[inter] md:py-16">
             <h1 class="text-center text-2xl font-semibold text-black md:my-10 md:text-5xl">
@@ -128,14 +128,14 @@
                 <span class="bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-2 text-white">Premium Class</span>
             </h1>
             <div class="flex flex-col justify-center gap-4 px-4 py-10 md:ml-12 md:flex-row md:items-center md:justify-center">
-                <img src="{{ asset("assets/images/landing/produk/premium-class/banner-2.png") }}" class="hidden object-cover md:block" />
+                <img src="{{ asset("assets/images/landing/produk/premium-class/banner-2.webp") }}" class="hidden object-cover md:block" />
 
-                <img src="{{ asset("assets/images/landing/produk/premium-class/banner-2-2.png") }}" class="block object-cover md:hidden" />
+                <img src="{{ asset("assets/images/landing/produk/premium-class/banner-2-2.webp") }}" class="block object-cover md:hidden" />
                 <div class="py-4">
                     <h1 class="text-center text-2xl font-semibold text-black md:text-start md:text-4xl">Sherina Anugerah Putri, S.Mat</h1>
                     <div class="px-2 pt-8 md:px-10">
                         <div class="flex items-center gap-4">
-                            <img class="object-cover" src="{{ asset("assets/images/landing/produk/premium-class/kelas-icon.png") }}" />
+                            <img class="object-cover" src="{{ asset("assets/images/landing/produk/premium-class/kelas-icon.webp") }}" />
                             <div class="">
                                 <p class="text-xl text-[#F7B23B] md:text-2xl">Kelas</p>
                                 <p class="text-sm text-black md:text-lg">
@@ -145,7 +145,7 @@
                             </div>
                         </div>
                         <div class="flex items-center gap-4 pt-6">
-                            <img class="object-cover" src="{{ asset("assets/images/landing/produk/premium-class/topik-icon.png") }}" />
+                            <img class="object-cover" src="{{ asset("assets/images/landing/produk/premium-class/topik-icon.webp") }}" />
                             <div class="">
                                 <p class="text-xl text-[#F7B23B] md:text-2xl">Topik</p>
                                 <p class="text-sm text-black md:text-lg">
@@ -181,7 +181,7 @@
     <section class="hidden w-full pt-10 md:block" style="padding-left: 70px; padding-right: 70px">
         <!-- BAGIAN BACKGROUND HEADER -->
         <div class="relative left-1/2 w-[90%] -translate-x-1/2 overflow-hidden rounded-3xl" style="height: 350px; background-color: #205467">
-            <img src="{{ asset("assets/images/landing/produk/premium-class/banner-3.png") }}" class="absolute h-full w-full object-cover" style="z-index: -20" />
+            <img src="{{ asset("assets/images/landing/produk/premium-class/banner-3.webp") }}" class="absolute h-full w-full object-cover" style="z-index: -20" />
             <div class="absolute inset-0" style="opacity: 0.7; z-index: -19; background-color: #205467"></div>
 
             <div class="relative z-10 mt-10 flex h-full items-start justify-center">
@@ -251,7 +251,7 @@
                                 </div>
 
                                 <div class="flex h-[335px] w-56 flex-col items-center self-stretch rounded-xl bg-white px-7 pb-8 pt-6 drop-shadow-lg">
-                                    <img src="{{ asset("assets/images/landing/produk/premium-class/search-icon.png") }}" class="justify-self-center object-cover" />
+                                    <img src="{{ asset("assets/images/landing/produk/premium-class/search-icon.webp") }}" class="justify-self-center object-cover" />
 
                                     <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
 
@@ -272,7 +272,7 @@
                                 </div>
 
                                 <div class="flex h-[335px] w-56 flex-col items-center rounded-xl bg-white px-7 pb-8 pt-6 drop-shadow-lg">
-                                    <img src="{{ asset("assets/images/landing/produk/premium-class/openbook-icon.png") }}" class="justify-self-center object-cover" />
+                                    <img src="{{ asset("assets/images/landing/produk/premium-class/openbook-icon.webp") }}" class="justify-self-center object-cover" />
 
                                     <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
 
@@ -293,7 +293,7 @@
                                 </div>
 
                                 <div class="flex h-[335px] w-56 flex-col items-center rounded-xl bg-white px-7 pb-8 pt-6 drop-shadow-lg">
-                                    <img src="{{ asset("assets/images/landing/produk/premium-class/pen-icon.png") }}" class="justify-self-center object-cover" />
+                                    <img src="{{ asset("assets/images/landing/produk/premium-class/pen-icon.webp") }}" class="justify-self-center object-cover" />
 
                                     <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
 
@@ -314,7 +314,7 @@
                                 </div>
 
                                 <div class="flex h-[335px] w-56 flex-col items-center rounded-xl bg-white px-7 pb-8 pt-6 drop-shadow-lg">
-                                    <img src="{{ asset("assets/images/landing/produk/premium-class/checkmark-icon.png") }}" class="justify-self-center object-cover" />
+                                    <img src="{{ asset("assets/images/landing/produk/premium-class/checkmark-icon.webp") }}" class="justify-self-center object-cover" />
 
                                     <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
 
@@ -331,7 +331,7 @@
                                 </div>
 
                                 <div class="flex h-[335px] w-56 flex-col items-center rounded-xl bg-white px-7 pb-8 pt-6 drop-shadow-lg">
-                                    <img src="{{ asset("assets/images/landing/produk/premium-class/creditcard-icon.png") }}" class="justify-self-center object-cover" />
+                                    <img src="{{ asset("assets/images/landing/produk/premium-class/creditcard-icon.webp") }}" class="justify-self-center object-cover" />
 
                                     <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
 
@@ -352,7 +352,7 @@
                                 </div>
 
                                 <div class="flex h-[335px] w-56 flex-col items-center rounded-xl bg-white px-7 pb-8 pt-6 drop-shadow-lg">
-                                    <img src="{{ asset("assets/images/landing/produk/premium-class/inbox.png") }}" class="justify-self-center object-cover" />
+                                    <img src="{{ asset("assets/images/landing/produk/premium-class/inbox.webp") }}" class="justify-self-center object-cover" />
 
                                     <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
 
@@ -373,7 +373,7 @@
                                 </div>
 
                                 <div class="flex h-[335px] w-56 flex-col items-center rounded-xl bg-white px-7 pb-8 pt-6 drop-shadow-lg">
-                                    <img src="{{ asset("assets/images/landing/produk/premium-class/link.png") }}" class="justify-self-center object-cover" />
+                                    <img src="{{ asset("assets/images/landing/produk/premium-class/link.webp") }}" class="justify-self-center object-cover" />
 
                                     <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
 
@@ -394,7 +394,7 @@
                                 </div>
 
                                 <div class="flex h-[335px] w-56 flex-col items-center rounded-xl bg-white px-7 pb-8 pt-6 drop-shadow-lg">
-                                    <img src="{{ asset("assets/images/landing/produk/premium-class/incoming-call.png") }}" class="justify-self-center object-cover" />
+                                    <img src="{{ asset("assets/images/landing/produk/premium-class/incoming-call.webp") }}" class="justify-self-center object-cover" />
 
                                     <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
 
@@ -417,7 +417,7 @@
                                 </div>
 
                                 <div class="flex h-[335px] w-56 flex-col items-center rounded-xl bg-white px-7 pb-8 pt-6 drop-shadow-lg">
-                                    <img src="{{ asset("assets/images/landing/produk/premium-class/brain.png") }}" class="justify-self-center object-cover" />
+                                    <img src="{{ asset("assets/images/landing/produk/premium-class/brain.webp") }}" class="justify-self-center object-cover" />
 
                                     <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
 
@@ -439,7 +439,7 @@
                                 </div>
 
                                 <div class="flex h-[335px] w-56 flex-col items-center rounded-xl bg-white px-7 pb-8 pt-6 drop-shadow-lg">
-                                    <img src="{{ asset("assets/images/landing/produk/premium-class/calendar.png") }}" class="justify-self-center object-cover" />
+                                    <img src="{{ asset("assets/images/landing/produk/premium-class/calendar.webp") }}" class="justify-self-center object-cover" />
 
                                     <div class="mt-5 w-full bg-gray-200" style="height: 2px"></div>
 
@@ -466,7 +466,7 @@
     <!-- Jenis Layanan-Start (Mobile) -->
     <section class="block w-full p-6 md:hidden">
         <div class="relative left-1/2" style="min-height: 400px; width: 90%; transform: translateX(-50%)">
-            <img src="{{ asset("assets/images/landing/produk/emo/pricebg-mobile.png") }}" class="absolute h-full w-full rounded-3xl object-cover" style="z-index: -20" />
+            <img src="{{ asset("assets/images/landing/produk/emo/pricebg-mobile.webp") }}" class="absolute h-full w-full rounded-3xl object-cover" style="z-index: -20" />
             <div class="flex flex-col items-center gap-4 px-8 py-5 pb-10 text-white">
                 <h1 class="text-center font-[inter] text-lg font-semibold text-white">Jenis Layanan Premium Class</h1>
 
@@ -542,7 +542,7 @@
     <section class="mb-10 hidden w-full md:block" style="padding-top: 64px; overflow: visible">
         <!-- BAGIAN BACKGROUND HEADER -->
         <div class="relative left-1/2 w-[85%] -translate-x-1/2 overflow-hidden rounded-3xl" style="height: 350px; background-color: #205467">
-            <img src="{{ asset("assets/images/landing/produk/premium-class/banner-4.png") }}" class="absolute h-full w-full rounded-3xl object-cover" style="z-index: -20" />
+            <img src="{{ asset("assets/images/landing/produk/premium-class/banner-4.webp") }}" class="absolute h-full w-full rounded-3xl object-cover" style="z-index: -20" />
             <div class="absolute inset-0 rounded-3xl" style="opacity: 0.7; z-index: -19; background-color: #205467"></div>
 
             <!-- JUDUL -->
@@ -563,7 +563,7 @@
                 <div class="mx-auto my-6 w-32 bg-gray-200" style="height: 1px"></div>
                 <div class="flex w-full flex-col items-start gap-3 pt-5">
                     <div class="flex items-start gap-2">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/check.png") }}" alt="Checkmark" class="object-contain" style="height: 22px; width: 18px" />
+                        <img src="{{ asset("assets/images/landing/produk/premium-class/check.webp") }}" alt="Checkmark" class="object-contain" style="height: 22px; width: 18px" />
                         <p class="text-base font-medium leading-normal text-[#70787D]">
                             Pembelajaran dasar-dasar
                             <br />
@@ -583,7 +583,7 @@
                 <div class="mx-auto my-6 w-32 bg-gray-200" style="height: 1px"></div>
                 <div class="flex w-full flex-col items-start gap-3 pt-5">
                     <div class="flex items-start gap-2">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/check.png") }}" alt="Checkmark" class="object-contain" style="height: 22px; width: 18px" />
+                        <img src="{{ asset("assets/images/landing/produk/premium-class/check.webp") }}" alt="Checkmark" class="object-contain" style="height: 22px; width: 18px" />
                         <p class="text-base font-medium leading-normal text-[#70787D]">
                             Pembelajaran
                             <i>data analyst</i>
@@ -605,7 +605,7 @@
                 <div class="mx-auto my-6 w-32 bg-gray-200" style="height: 1px"></div>
                 <div class="flex w-full flex-col items-start gap-3 pt-5">
                     <div class="flex items-start gap-2">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/check.png") }}" alt="Checkmark" class="object-contain" style="height: 22px; width: 18px" />
+                        <img src="{{ asset("assets/images/landing/produk/premium-class/check.webp") }}" alt="Checkmark" class="object-contain" style="height: 22px; width: 18px" />
                         <p class="text-base font-medium leading-normal text-[#70787D]">
                             Pembelajaran kelas FUNDAMENTAL dan
                             <br />
@@ -626,7 +626,7 @@
     <section class="block w-full p-6 md:hidden">
         <div class="relative left-1/2 w-full max-w-[400px]" style="min-height: 600px; transform: translateX(-50%)">
             <!-- Background image sebagai lapisan paling bawah -->
-            <img src="{{ asset("assets/images/landing/produk/emo/pricebg-mobile.png") }}" class="absolute h-full w-full rounded-3xl object-cover" style="z-index: -20" />
+            <img src="{{ asset("assets/images/landing/produk/emo/pricebg-mobile.webp") }}" class="absolute h-full w-full rounded-3xl object-cover" style="z-index: -20" />
 
             <!-- Konten -->
             <div class="relative z-10 flex flex-col items-center gap-4 px-6 py-6 text-white">
@@ -646,7 +646,7 @@
                         <!-- Benefit list -->
                         <div class="mt-9 flex flex-col items-start gap-3 text-sm text-[#70787D]">
                             <div class="flex items-start gap-2">
-                                <img src="{{ asset("assets/images/landing/produk/premium-class/check.png") }}" alt="Checkmark" class="h-5 w-5 object-contain" />
+                                <img src="{{ asset("assets/images/landing/produk/premium-class/check.webp") }}" alt="Checkmark" class="h-5 w-5 object-contain" />
                                 <p>
                                     Pembelajaran dasar-dasar
                                     <br />
@@ -668,7 +668,7 @@
 
                         <div class="mt-9 flex flex-col items-start gap-3 text-sm text-[#70787D]">
                             <div class="flex items-start gap-2">
-                                <img src="{{ asset("assets/images/landing/produk/premium-class/check.png") }}" alt="Checkmark" class="h-5 w-5 object-contain" />
+                                <img src="{{ asset("assets/images/landing/produk/premium-class/check.webp") }}" alt="Checkmark" class="h-5 w-5 object-contain" />
                                 <p>
                                     Pembelajaran
                                     <i>data analyst</i>
@@ -691,7 +691,7 @@
 
                         <div class="mt-9 flex flex-col items-start gap-3 text-sm text-[#70787D]">
                             <div class="flex items-start gap-2">
-                                <img src="{{ asset("assets/images/landing/produk/premium-class/check.png") }}" alt="Checkmark" class="h-5 w-5 object-contain" />
+                                <img src="{{ asset("assets/images/landing/produk/premium-class/check.webp") }}" alt="Checkmark" class="h-5 w-5 object-contain" />
                                 <p>
                                     Pembelajaran kelas
                                     <i>FUNDAMENTAL</i>
@@ -725,11 +725,11 @@
                 <div class="flex h-auto min-h-[120px] w-full items-center gap-4 rounded-xl bg-white p-5 shadow-md md:flex-col md:items-center md:px-9 md:py-9 md:text-justify">
                     <!-- Mobile Icon -->
                     <div class="flex flex-shrink-0 items-center justify-center overflow-hidden md:hidden" style="height: 44px; width: 45px">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/intensif-icon.png") }}" class="h-full w-full object-contain" alt="Intensif Icon" />
+                        <img src="{{ asset("assets/images/landing/produk/premium-class/intensif-icon.webp") }}" class="h-full w-full object-contain" alt="Intensif Icon" />
                     </div>
                     <!-- Desktop Icon -->
                     <div class="hidden items-center justify-center overflow-hidden md:block md:pt-5" style="height: 100px; width: 102px">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/intensif-icon.png") }}" class="h-full w-full object-contain" alt="Intensif Icon" />
+                        <img src="{{ asset("assets/images/landing/produk/premium-class/intensif-icon.webp") }}" class="h-full w-full object-contain" alt="Intensif Icon" />
                     </div>
                     <div class="hidden w-3/4 items-center bg-gray-200 md:block" style="height: 1px"></div>
                     <p class="flex-grow text-justify text-sm font-medium text-black md:mx-auto md:mt-4 md:max-w-[230px] md:pb-7 md:text-lg">
@@ -745,11 +745,11 @@
                 <div class="flex h-auto min-h-[120px] w-full items-center gap-4 rounded-xl bg-white p-5 shadow-md md:flex-col md:items-center md:px-9 md:py-9 md:text-justify">
                     <!-- Mobile Icon -->
                     <div class="flex flex-shrink-0 items-center justify-center overflow-hidden md:hidden" style="height: 44px; width: 45px">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/konsultasi-icon.png") }}" class="h-full w-full object-contain" alt="Intensif Icon" />
+                        <img src="{{ asset("assets/images/landing/produk/premium-class/konsultasi-icon.webp") }}" class="h-full w-full object-contain" alt="Intensif Icon" />
                     </div>
                     <!-- Desktop Icon -->
                     <div class="hidden items-center justify-center overflow-hidden md:block md:pt-5" style="height: 100px; width: 102px">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/konsultasi-icon.png") }}" class="h-full w-full object-contain" alt="Intensif Icon" />
+                        <img src="{{ asset("assets/images/landing/produk/premium-class/konsultasi-icon.webp") }}" class="h-full w-full object-contain" alt="Intensif Icon" />
                     </div>
                     <div class="hidden w-3/4 items-center bg-gray-200 md:block" style="height: 1px"></div>
                     <p class="flex-grow text-justify text-sm leading-relaxed text-black md:hidden">Kesempatan bertanya langsung dan berdiskusi seputar topik yang kalian butuhkan</p>
@@ -761,11 +761,11 @@
                 <div class="flex h-auto min-h-[120px] w-full items-center gap-4 rounded-xl bg-white p-5 shadow-md md:flex-col md:items-center md:px-9 md:py-9 md:text-justify">
                     <!-- Mobile Icon -->
                     <div class="flex flex-shrink-0 items-center justify-center overflow-hidden md:hidden" style="height: 44px; width: 45px">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/pdf-icon.png") }}" class="h-full w-full object-contain" alt="Intensif Icon" />
+                        <img src="{{ asset("assets/images/landing/produk/premium-class/pdf-icon.webp") }}" class="h-full w-full object-contain" alt="Intensif Icon" />
                     </div>
                     <!-- Desktop Icon -->
                     <div class="hidden items-center justify-center overflow-hidden md:block md:pt-5" style="height: 100px; width: 102px">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/pdf-icon.png") }}" class="h-full w-full object-contain" alt="Intensif Icon" />
+                        <img src="{{ asset("assets/images/landing/produk/premium-class/pdf-icon.webp") }}" class="h-full w-full object-contain" alt="Intensif Icon" />
                     </div>
                     <div class="hidden w-3/4 items-center bg-gray-200 md:block" style="height: 1px"></div>
                     <p class="flex-grow text-justify text-sm font-medium text-black md:mx-auto md:mt-4 md:max-w-[230px] md:pb-7 md:text-lg">Jadwal fleksibel sesuai keinginan kalian</p>
@@ -775,11 +775,11 @@
                 <div class="flex h-auto min-h-[120px] w-full items-center gap-4 rounded-xl bg-white p-5 shadow-md md:flex-col md:items-center md:px-9 md:py-9 md:text-justify">
                     <!-- Mobile Icon -->
                     <div class="flex flex-shrink-0 items-center justify-center overflow-hidden md:hidden" style="height: 44px; width: 45px">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/Portofolio.png") }}" class="h-full w-full object-contain" alt="Intensif Icon" />
+                        <img src="{{ asset("assets/images/landing/produk/premium-class/Portofolio.webp") }}" class="h-full w-full object-contain" alt="Intensif Icon" />
                     </div>
                     <!-- Desktop Icon -->
                     <div class="hidden items-center justify-center overflow-hidden md:block md:pt-5" style="height: 100px; width: 102px">
-                        <img src="{{ asset("assets/images/landing/produk/premium-class/Portofolio.png") }}" class="h-full w-full object-contain" alt="Intensif Icon" />
+                        <img src="{{ asset("assets/images/landing/produk/premium-class/Portofolio.webp") }}" class="h-full w-full object-contain" alt="Intensif Icon" />
                     </div>
                     <div class="hidden w-3/4 items-center bg-gray-200 md:block" style="height: 1px"></div>
                     <p class="flex-grow text-justify text-sm font-medium text-black md:hidden">Studi kasus nyata untuk mengasah kemampuan analisis data</p>

@@ -16,7 +16,7 @@ class ArticleSeeder extends Seeder
             'title' => 'Teknologi Masa Depan',
             'category_id' => 1,
             'author_id' => 1,
-            'cover_image' => 'uploads/articles/pendidikan_era_digital.jpg',
+            'cover_image' => 'uploads/articles/pendidikan_era_digital.webp',
             'content' => '
             <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
             <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
@@ -32,7 +32,7 @@ class ArticleSeeder extends Seeder
             'title' => 'Tips Hidup Sehat',
             'category_id' => 2,
             'author_id' => 2,
-            'cover_image' => 'uploads/articles/pendidikan_era_digital.jpg',
+            'cover_image' => 'uploads/articles/pendidikan_era_digital.webp',
             'content' => '
             <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
             <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
@@ -48,7 +48,7 @@ class ArticleSeeder extends Seeder
             'title' => 'Pendidikan di Era Digital',
             'category_id' => 3,
             'author_id' => 3,
-            'cover_image' => 'uploads/articles/pendidikan_era_digital.jpg',
+            'cover_image' => 'uploads/articles/pendidikan_era_digital.webp',
             'content' => '
             <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>
             <p>Lorem ipsum dolor sit amet consectetur. Justo lacus diam integer elit interdum maecenas tincidunt. Habitant eget luctus tristique cras nunc mauris ultrices sagittis libero. Odio mauris posuere blandit iaculis nec gravida phasellus risus suspendisse. Tellus fusce amet vehicula aliquet faucibus amet vivamus hac. Ultrices aliquam pellentesque amet odio velit. Viverra tristique amet mauris enim sed diam purus in. In tristique tristique adipiscing vel nisl a purus tincidunt. Ultrices orci posuere nec quisque. Faucibus metus at non vestibulum. Non auctor magna parturient massa. Porta amet phasellus nibh amet amet nisl.</p>

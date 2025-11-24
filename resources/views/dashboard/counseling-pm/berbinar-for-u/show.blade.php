@@ -11,7 +11,7 @@
                 <div class="py-4 md:pt-12 md:pb-7">
                     <div class="mb-2 flex items-center gap-2">
                         <a href="{{ route('dashboard.berbinar-for-u.index') }}">
-                            <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
+                            <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.webp') }}" alt="Back Btn" />
                         </a>
                         <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">
                             Data Berbinar For U
@@ -411,7 +411,7 @@
             "
         >
             <!-- Warning Icon -->
-            <img src="{{ asset("assets/images/dashboard/warning.png") }}" alt="Warning Icon" class="mx-auto h-[83px] w-[83px]" />
+            <img src="{{ asset("assets/images/dashboard/warning.webp") }}" alt="Warning Icon" class="mx-auto h-[83px] w-[83px]" />
 
             <!-- Title -->
             <h2 class="mt-4 text-center font-plusJakartaSans text-2xl font-bold text-stone-900">Konfirmasi Hapus Data</h2>

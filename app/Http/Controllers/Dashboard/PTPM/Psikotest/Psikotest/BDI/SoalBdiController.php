@@ -51,7 +51,7 @@ class SoalBdiController extends Controller
                 'type' => 'error',
                 'title' => 'Gagal!',
                 'message' =>'Nomor Tes BDI tidak ditemukan.',
-                'icon' => asset('assets/images/dashboard/error.png'),
+                'icon' => asset('assets/images/dashboard/error.webp'),
             ]);
         }
         $soalBdi = SoalBdi::where('nomor_bdi_id', $nomorBdi->id)->get();
@@ -61,7 +61,7 @@ class SoalBdiController extends Controller
                 'type' => 'error',
                 'title' => 'Gagal!',
                 'message' =>'Soal untuk Nomor Tes BDI ' . $nomor . ' tidak ditemukan.',
-                'icon' => asset('assets/images/dashboard/error.png'),
+                'icon' => asset('assets/images/dashboard/error.webp'),
             ]);
         }
         // Kirim data nomor tes dan soal ke view yang sama
@@ -100,7 +100,7 @@ class SoalBdiController extends Controller
                 'type' => 'error',
                 'title' => 'Gagal!',
                 'message' =>'Hasil tes tidak ditemukan untuk skor: ' . $totalSkor,
-                'icon' => asset('assets/images/dashboard/error.png'),
+                'icon' => asset('assets/images/dashboard/error.webp'),
             ]);
     }
 }

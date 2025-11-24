@@ -97,11 +97,11 @@
     {{-- HERO SECTION --}}
     <section class="relative mb-20 max-md:overflow-hidden">
         <div class="absolute left-0 top-5 z-0 max-sm:top-32">
-            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero1.svg") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
+            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero1.webp") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
         </div>
 
         <div class="absolute right-0 top-8 z-0 max-md:-right-28 max-sm:-right-20 max-sm:top-40">
-            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero2.svg") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
+            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero2.webp") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
         </div>
 
         <div class="relative">
@@ -109,13 +109,13 @@
                 <div class="max-lg:min-w-auto flex max-w-xl flex-1 flex-col space-y-6 max-sm:space-y-2">
                     <a href="{{ route("product.index") }}">
                         <div class="flex cursor-pointer items-center space-x-2 lg:order-1">
-                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.svg") }}" alt="Left Arrow" class="h-3 w-auto" />
+                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.webp") }}" alt="Left Arrow" class="h-3 w-auto" />
                             <p class="text-[15px] font-semibold text-[#3986A3]">Produk Berbinar</p>
                         </div>
                     </a>
 
                     <div class="hidden w-full items-center justify-center max-lg:flex-none max-md:flex lg:order-2 lg:w-auto">
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/banner-1.png") }}" alt="Class" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/banner-1.webp") }}" alt="Class" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
                     </div>
 
                     <div class="lg:order-3">
@@ -132,7 +132,7 @@
                 </div>
 
                 <div class="flex w-full flex-initial items-center justify-center max-lg:flex-1 max-md:hidden lg:w-auto">
-                    <img src="{{ asset("assets/images/landing/produk/bisikan/banner-1.png") }}" alt="Bisikan Hero" class="h-[340px] w-auto object-contain max-lg:h-[320px]" />
+                    <img src="{{ asset("assets/images/landing/produk/bisikan/banner-1.webp") }}" alt="Bisikan Hero" class="h-[340px] w-auto object-contain max-lg:h-[320px]" />
                 </div>
             </div>
         </div>
@@ -142,7 +142,7 @@
     <section class="relative w-full px-0">
         <!-- LINE PATH DI BACKGROUND -->
         <div class="absolute bottom-10 left-0 z-0 max-sm:top-40">
-            <img src="/assets/images/landing/asset-konseling/vector/vector-line.svg" alt="Vector Image" class="" />
+            <img src="/assets/images/landing/asset-konseling/vector/vector-line.webp" alt="Vector Image" class="" />
         </div>
 
         <h1 class="relative z-10 mb-4 text-center text-2xl font-semibold">
@@ -178,7 +178,7 @@
 
                 <!-- Kanan: Gambar -->
                 <div class="flex w-full flex-1 items-center justify-center md:justify-end">
-                    <img src="{{ asset("assets/images/landing/produk/bisikan/bisikan-episode22.png") }}" alt="BISIKAN Episode 22" class="mt-6 h-auto w-full max-w-xs rounded-xl border object-contain md:mr-8 lg:max-w-md" />
+                    <img src="{{ asset("assets/images/landing/produk/bisikan/bisikan-episode22.webp") }}" alt="BISIKAN Episode 22" class="mt-6 h-auto w-full max-w-xs rounded-xl border object-contain md:mr-8 lg:max-w-md" />
                 </div>
             </div>
         </div>
@@ -293,7 +293,7 @@
             <div class="grid grid-cols-2 gap-x-4 gap-y-8 lg:grid-cols-5 lg:gap-x-8 lg:gap-y-12">
                 <div class="relative rounded-lg border-2 border-[#d7e6ed] bg-white px-2 pb-3 pt-8 shadow-md md:px-6 md:py-8">
                     <div class="absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/lamp.svg") }}" alt="Wawasan Icon" class="h-8 w-8" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/lamp.webp") }}" alt="Wawasan Icon" class="h-8 w-8" />
                     </div>
                     <div class="flex h-full flex-col justify-center gap-1 text-center">
                         <h3 class="font-semibold text-primary">Wawasan</h3>
@@ -303,7 +303,7 @@
 
                 <div class="relative rounded-lg border-2 border-[#d7e6ed] bg-white px-2 pb-3 pt-8 shadow-md md:px-6 md:py-8 lg:col-start-3">
                     <div class="absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/bag.svg") }}" alt="Self-healing Icon" class="h-8 w-8" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/bag.webp") }}" alt="Self-healing Icon" class="h-8 w-8" />
                     </div>
                     <div class="flex h-full flex-col justify-center gap-1 text-center">
                         <h3 class="font-semibold text-primary"><i>Self-healing</i></h3>
@@ -316,7 +316,7 @@
 
                 <div class="relative rounded-lg border-2 border-[#d7e6ed] bg-white px-2 pb-3 pt-8 shadow-md md:px-6 md:py-8 lg:col-start-5">
                     <div class="absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/meditation.svg") }}" alt="Pengetahuan Icon" class="h-8 w-8" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/meditation.webp") }}" alt="Pengetahuan Icon" class="h-8 w-8" />
                     </div>
                     <div class="flex h-full flex-col justify-center gap-1 text-center">
                         <h3 class="font-semibold text-primary">Pengetahuan</h3>
@@ -326,7 +326,7 @@
 
                 <div class="relative rounded-lg border-2 border-[#d7e6ed] bg-white px-2 pb-3 pt-8 shadow-md md:px-6 md:py-8 lg:col-start-2">
                     <div class="absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/bush.svg") }}" alt="Teman Perjalanan Icon" class="h-8 w-8" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/bush.webp") }}" alt="Teman Perjalanan Icon" class="h-8 w-8" />
                     </div>
                     <div class="flex h-full flex-col justify-center gap-1 text-center">
                         <h3 class="font-semibold text-primary">Teman Perjalanan</h3>
@@ -336,7 +336,7 @@
 
                 <div class="relative rounded-lg border-2 border-[#d7e6ed] bg-white px-2 pb-3 pt-8 shadow-md md:px-6 md:py-8 lg:col-start-4">
                     <div class="absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/book.svg") }}" alt="Mindful Living Icon" class="h-8 w-8" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/book.webp") }}" alt="Mindful Living Icon" class="h-8 w-8" />
                     </div>
                     <div class="flex h-full flex-col justify-center gap-1 text-center">
                         <h3 class="font-semibold text-primary"><i>Mindful Living</i></h3>
@@ -360,7 +360,7 @@
             <div class="flex w-full items-end gap-4 rounded-3xl bg-white px-2 shadow-lg md:gap-6 md:px-4 lg:gap-10 lg:px-6">
                 {{-- Bagian KIRI: Gambar --}}
                 <div class="mt-6 flex h-full w-[40%] items-end md:mt-10 md:w-[45%] lg:w-[50%]">
-                    <img src="{{ asset("assets/images/landing/produk/bisikan/Clip-path.png") }}" alt="Gambar BISIKAN" class="h-auto max-h-[180px] w-full object-contain md:max-h-[250px] lg:max-h-[350px]" />
+                    <img src="{{ asset("assets/images/landing/produk/bisikan/Clip-path.webp") }}" alt="Gambar BISIKAN" class="h-auto max-h-[180px] w-full object-contain md:max-h-[250px] lg:max-h-[350px]" />
                 </div>
 
                 {{-- Bagian KANAN --}}
@@ -386,7 +386,7 @@
 
                     {{-- Kalender & Jadwal --}}
                     <div class="mb-1 mt-1 flex items-center gap-2 text-[#1C4352]">
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/calendar.svg") }}" alt="Kalender" class="h-8 w-8" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/calendar.webp") }}" alt="Kalender" class="h-8 w-8" />
                         <span class="text-lg font-medium text-[#AD7D29]">Jadwal BISIKAN</span>
                     </div>
 
@@ -396,11 +396,11 @@
                         <div class="flex flex-1 flex-col items-center justify-center">
                             <div class="relative flex h-[180px] w-full flex-col items-center justify-center overflow-hidden rounded-3xl bg-white p-3 text-center shadow-[0_4px_24px_0_#3986A373]">
                                 {{-- eclipse bg --}}
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_1.png") }}" alt="" class="absolute bottom-0 right-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_2.png") }}" alt="" class="absolute bottom-0 right-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_3.png") }}" alt="" class="absolute left-0 top-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_4.png") }}" alt="" class="absolute bottom-0 left-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_5.png") }}" alt="" class="absolute left-0 top-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_1.webp") }}" alt="" class="absolute bottom-0 right-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_2.webp") }}" alt="" class="absolute bottom-0 right-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_3.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_4.webp") }}" alt="" class="absolute bottom-0 left-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_5.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
 
                                 <div class="z-10 flex w-full flex-col justify-center" style="height: calc(100% - 1rem)">
                                     <span class="mb-1 block text-center text-xs font-semibold leading-tight text-cyan-950 sm:text-sm md:text-base lg:text-lg xl:text-xl">BISIKAN Spotify Update</span>
@@ -414,11 +414,11 @@
                         <div class="flex flex-1 flex-col items-center justify-center">
                             <div class="relative flex h-[180px] w-full flex-col items-center justify-center overflow-hidden rounded-3xl bg-white p-3 text-center shadow-[0_4px_24px_0_#3986A373]">
                                 {{-- eclipse bg --}}
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_1.png") }}" alt="" class="absolute bottom-0 right-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_2.png") }}" alt="" class="absolute bottom-0 right-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_3.png") }}" alt="" class="absolute left-0 top-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_4.png") }}" alt="" class="absolute bottom-0 left-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_5.png") }}" alt="" class="absolute left-0 top-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_1.webp") }}" alt="" class="absolute bottom-0 right-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_2.webp") }}" alt="" class="absolute bottom-0 right-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_3.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_4.webp") }}" alt="" class="absolute bottom-0 left-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_5.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
 
                                 <div class="z-10 flex w-full flex-col justify-center" style="height: calc(100% - 1rem)">
                                     <span class="mb-1 block text-center text-xs font-semibold leading-tight text-cyan-950 sm:text-sm md:text-base lg:text-lg xl:text-xl">Youtube</span>
@@ -432,11 +432,11 @@
                         <div class="flex flex-1 flex-col items-center justify-center">
                             <div class="relative flex h-[180px] w-full flex-col items-center justify-center overflow-hidden rounded-3xl bg-white p-3 text-center shadow-[0_4px_24px_0_#3986A373]">
                                 {{-- eclipse bg --}}
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_1.png") }}" alt="" class="absolute bottom-0 right-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_2.png") }}" alt="" class="absolute bottom-0 right-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_3.png") }}" alt="" class="absolute left-0 top-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_4.png") }}" alt="" class="absolute bottom-0 left-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_5.png") }}" alt="" class="absolute left-0 top-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_1.webp") }}" alt="" class="absolute bottom-0 right-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_2.webp") }}" alt="" class="absolute bottom-0 right-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_3.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_4.webp") }}" alt="" class="absolute bottom-0 left-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_5.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
 
                                 <div class="z-10 flex w-full flex-col justify-center" style="height: calc(100% - 1rem)">
                                     <span class="mb-1 block text-center text-xs font-semibold leading-tight text-cyan-950 sm:text-sm md:text-base lg:text-lg xl:text-xl">Instagram Live BISIKAN</span>
@@ -485,11 +485,11 @@
                     {{-- Card 1: Spotify --}}
                     <div class="relative flex flex-col items-center overflow-hidden rounded-xl bg-white p-4 shadow-[0_4px_24px_0_#3986A373]">
                         {{-- eclipse bg --}}
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_6.png") }}" alt="" class="absolute bottom-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_7.png") }}" alt="" class="absolute bottom-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_3.png") }}" alt="" class="absolute left-0 top-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_4.png") }}" alt="" class="absolute bottom-0 left-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_5.png") }}" alt="" class="absolute left-0 top-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_6.webp") }}" alt="" class="absolute bottom-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_7.webp") }}" alt="" class="absolute bottom-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_3.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_4.webp") }}" alt="" class="absolute bottom-0 left-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_5.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
 
                         <div class="z-10 flex flex-col justify-center text-center">
                             <span class="text-lg font-semibold text-cyan-950">BISIKAN Spotify Update</span>
@@ -501,11 +501,11 @@
                     {{-- Card 2: Youtube --}}
                     <div class="relative flex flex-col items-center overflow-hidden rounded-xl bg-white p-4 shadow-[0_4px_24px_0_#3986A373]">
                         {{-- eclipse bg --}}
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_6.png") }}" alt="" class="absolute bottom-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_7.png") }}" alt="" class="absolute bottom-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_3.png") }}" alt="" class="absolute left-0 top-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_4.png") }}" alt="" class="absolute bottom-0 left-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_5.png") }}" alt="" class="absolute left-0 top-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_6.webp") }}" alt="" class="absolute bottom-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_7.webp") }}" alt="" class="absolute bottom-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_3.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_4.webp") }}" alt="" class="absolute bottom-0 left-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_5.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
 
                         <div class="z-10 flex flex-col justify-center text-center">
                             <span class="text-lg font-semibold text-cyan-950">Youtube</span>
@@ -517,11 +517,11 @@
                     {{-- Card 3: Instagram (Baru ditambahkan) --}}
                     <div class="relative flex flex-col items-center overflow-hidden rounded-xl bg-white p-4 shadow-[0_4px_24px_0_#3986A373]">
                         {{-- eclipse bg --}}
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_6.png") }}" alt="" class="absolute bottom-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_7.png") }}" alt="" class="absolute bottom-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_3.png") }}" alt="" class="absolute left-0 top-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_4.png") }}" alt="" class="absolute bottom-0 left-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_5.png") }}" alt="" class="absolute left-0 top-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_6.webp") }}" alt="" class="absolute bottom-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_7.webp") }}" alt="" class="absolute bottom-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_3.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_4.webp") }}" alt="" class="absolute bottom-0 left-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/bisikan/eclipse/Ellipse_5.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
 
                         <div class="z-10 flex flex-col justify-center text-center">
                             <span class="text-lg font-semibold text-cyan-950">Instagram Live BISIKAN</span>

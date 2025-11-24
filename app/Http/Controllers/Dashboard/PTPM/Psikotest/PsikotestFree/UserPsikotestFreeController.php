@@ -75,7 +75,7 @@ class UserPsikotestFreeController extends Controller
                 'type'    => 'error',
                 'title'   => 'Gagal!',
                 'message' => 'Terjadi kesalahan saat menghapus data: ' . $e->getMessage(),
-                'icon'    => asset('assets/images/dashboard/error.png'),
+                'icon'    => asset('assets/images/dashboard/error.webp'),
             ]);
         }
     }
@@ -109,7 +109,7 @@ class UserPsikotestFreeController extends Controller
                 'type'    => 'error',
                 'title'   => 'Gagal!',
                 'message' => 'Data tidak ditemukan.',
-                'icon'    => asset('assets/images/dashboard/error.png'),
+                'icon'    => asset('assets/images/dashboard/error.webp'),
             ], 404);
             }
 
@@ -120,7 +120,7 @@ class UserPsikotestFreeController extends Controller
             'type'    => 'success',
             'title'   => 'Berhasil!',
             'message' => 'Data berhasil diperbarui.',
-            'icon'    => asset('assets/images/dashboard/success.png'),
+            'icon'    => asset('assets/images/dashboard/success.webp'),
         ]);
         } catch (\Exception $e) {
             return response()->json([
@@ -128,7 +128,7 @@ class UserPsikotestFreeController extends Controller
             'type'    => 'error',
             'title'   => 'Gagal!',
             'message' => 'Terjadi kesalahan saat memperbarui data: ' . $e->getMessage(),
-            'icon'    => asset('assets/images/dashboard/error.png'),
+            'icon'    => asset('assets/images/dashboard/error.webp'),
         ], 500);
         }
     }

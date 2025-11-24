@@ -14,7 +14,7 @@
             width: 100vw;
             max-width: 100%;
             height: 100vh;
-            background-image: url('/assets/images/landing/asset-produk/vector-curling-mobile.png');
+            background-image: url('/assets/images/landing/asset-produk/vector-curling-mobile.webp');
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -23,17 +23,17 @@
         }
 
         .bg-layanan-desktop {
-            background-image: url('/assets/images/landing/asset-kelas/berbinar-plus/berbinar-plus-harga-bg.png');
+            background-image: url('/assets/images/landing/asset-kelas/berbinar-plus/berbinar-plus-harga-bg.webp');
         }
 
         .bg-cta {
-            background-image: url('/assets/images/landing/asset-kelas/berbinar-plus/banner-cta.png');
+            background-image: url('/assets/images/landing/asset-kelas/berbinar-plus/banner-cta.webp');
         }
 
         .header-produk {
             position: relative;
             z-index: 2;
-            background-image: linear-gradient(to right, #e1e9ec, #9cc3d1), url('/assets/images/landing/asset-produk/bg-curl.png');
+            background-image: linear-gradient(to right, #e1e9ec, #9cc3d1), url('/assets/images/landing/asset-produk/bg-curl.webp');
             background-blend-mode: multiply;
             background-size: cover;
             background-position: center;
@@ -240,11 +240,11 @@
     {{-- HERO SECTION --}}
     <section class="relative mb-12 max-md:overflow-hidden">
         <div class="absolute left-0 top-5 z-0 max-sm:top-32">
-            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero1.svg") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
+            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero1.webp") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
         </div>
 
         <div class="absolute right-0 top-8 z-0 max-md:-right-28 max-sm:-right-20 max-sm:top-40">
-            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero2.svg") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
+            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero2.webp") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
         </div>
 
         <div class="relative">
@@ -252,13 +252,13 @@
                 <div class="max-lg:min-w-auto flex max-w-xl flex-1 flex-col space-y-6 max-sm:space-y-2">
                     <a href="{{ route("product.index") }}">
                         <div class="flex cursor-pointer items-center space-x-2 lg:order-1">
-                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.svg") }}" alt="Left Arrow" class="h-3 w-auto" />
+                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.webp") }}" alt="Left Arrow" class="h-3 w-auto" />
                             <p class="text-[15px] font-semibold text-[#3986A3]">Produk Berbinar</p>
                         </div>
                     </a>
 
                     <div class="hidden w-full items-center justify-center max-lg:flex-none max-md:flex lg:order-2 lg:w-auto">
-                        <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/hero.png") }}" alt="Class" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
+                        <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/hero.webp") }}" alt="Class" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
                     </div>
 
                     <div class="lg:order-3">
@@ -271,7 +271,7 @@
                 </div>
 
                 <div class="flex w-full flex-initial items-center justify-center max-lg:flex-1 max-md:hidden lg:w-auto">
-                    <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/hero.png") }}" alt="Class" class="h-[340px] w-auto object-contain max-lg:h-[320px]" />
+                    <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/hero.webp") }}" alt="Class" class="h-[340px] w-auto object-contain max-lg:h-[320px]" />
                 </div>
             </div>
         </div>
@@ -280,7 +280,7 @@
     {{-- PRODUK BERBINAR PLUS --}}
     <section class="relative mb-12">
         <div class="absolute left-0 top-4 z-0 max-sm:top-40">
-            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-line.svg") }}" alt="Vector Image" class="" />
+            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-line.webp") }}" alt="Vector Image" class="" />
         </div>
 
         <h2 class="font relative z-10 mx-20 mb-12 mt-14 text-center text-4xl font-semibold text-black max-sm:mx-2 max-sm:text-[29px]">
@@ -306,13 +306,13 @@
                         <div class="relative">
                             {{-- IMAGE --}}
                             <div class="max-md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/ss.png") }}" alt="Konseling" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
+                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/ss.webp") }}" alt="Konseling" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
                             </div>
 
                             <!-- DESCRIPTION -->
                             <h1 class="text-gradient mb-2 text-3xl font-bold max-sm:mb-0 max-sm:text-2xl">Social Media Specialist</h1>
                             <div class="my-2 flex justify-center md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/ss.png") }}" alt="Psikotes" class="h-auto w-[280px] object-contain" />
+                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/ss.webp") }}" alt="Psikotes" class="h-auto w-[280px] object-contain" />
                             </div>
                             <p class="mb-4 text-justify text-[#70787D] max-sm:text-[15px]">Kelas yang ditawarkan untuk membantu dalam merencanakan, membuat, dan mengelola konten yang sesuai di platform media sosial.</p>
                             <ul class="list-disc space-y-3 pl-5 text-justify text-[#3F3F3F] marker:text-[#3986A3] max-sm:space-y-1 max-sm:text-[15px]">
@@ -339,13 +339,13 @@
                         <div class="relative">
                             {{-- IMAGE --}}
                             <div class="max-md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/pm.png") }}" alt="Psikotes" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
+                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/pm.webp") }}" alt="Psikotes" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
                             </div>
 
                             <!-- DESCRIPTION -->
                             <h1 class="text-gradient mb-2 text-3xl font-bold max-sm:mb-0 max-sm:text-2xl">Product Management</h1>
                             <div class="my-2 flex justify-center md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/pm.png") }}" alt="Psikotes" class="h-auto w-[280px] object-contain" />
+                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/pm.webp") }}" alt="Psikotes" class="h-auto w-[280px] object-contain" />
                             </div>
                             <p class="mb-4 text-justify text-[#70787D] max-sm:text-[15px]">Kelas yang ditawarkan untuk membantu dalam menentukan strategi perusahaan yang berhubungan dengan pengembangan & peluncuran suatu produk bisnis.</p>
                             <ul class="list-disc space-y-3 pl-5 text-justify text-[#3F3F3F] marker:text-[#3986A3] max-sm:space-y-1 max-sm:text-[15px]">
@@ -368,13 +368,13 @@
                         <div class="relative">
                             {{-- IMAGE --}}
                             <div class="max-md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/hr.png") }}" alt="Class" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
+                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/hr.webp") }}" alt="Class" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
                             </div>
 
                             <!-- DESCRIPTION -->
                             <h1 class="text-gradient mb-2 text-3xl font-bold max-sm:mb-0 max-sm:text-2xl">Human Resource</h1>
                             <div class="my-2 flex justify-center md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/hr.png") }}" alt="Class" class="h-auto w-[280px] object-contain" />
+                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/hr.webp") }}" alt="Class" class="h-auto w-[280px] object-contain" />
                             </div>
                             <p class="mb-4 text-justify text-[#70787D] max-sm:text-[15px]">Kelas yang ditawarkan untuk membantu individu atau tim dalam mempelajari dan meningkatkan keterampilan mengelola produk dan layanan.</p>
                             <ul class="list-disc space-y-3 pl-5 text-justify text-[#3F3F3F] marker:text-[#3986A3] max-sm:space-y-1 max-sm:text-[15px]">
@@ -401,13 +401,13 @@
                         <div class="relative">
                             {{-- IMAGE --}}
                             <div class="max-md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/gd.png") }}" alt="Consulting" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
+                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/gd.webp") }}" alt="Consulting" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
                             </div>
 
                             <!-- DESCRIPTION -->
                             <h1 class="text-gradient mb-2 text-3xl font-bold max-sm:mb-0 max-sm:text-2xl">Design Graphic</h1>
                             <div class="my-2 flex justify-center md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/gd.png") }}" alt="Consulting" class="h-auto w-[280px] object-contain" />
+                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/gd.webp") }}" alt="Consulting" class="h-auto w-[280px] object-contain" />
                             </div>
                             <p class="text-justify text-[#70787D] max-sm:text-[15px]">Kelas yang ditawarkan untuk membantu dalam mempelajari dasar-dasar desain grafis dan teknik desain grafis yang lebih kompleks.</p>
                             <ul class="list-disc space-y-3 pl-5 text-justify text-[#3F3F3F] marker:text-[#3986A3] max-sm:space-y-1 max-sm:text-[15px]">
@@ -434,13 +434,13 @@
                         <div class="relative">
                             {{-- IMAGE --}}
                             <div class="max-md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/dm.png") }}" alt="MoodScan Tees" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
+                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/dm.webp") }}" alt="MoodScan Tees" class="float-right ml-6 h-auto w-[320px] object-contain max-lg:w-[280px]" />
                             </div>
 
                             <!-- DESCRIPTION -->
                             <h1 class="text-gradient mb-2 text-3xl font-bold max-sm:mb-0 max-sm:text-2xl">Digital Marketing</h1>
                             <div class="my-2 flex justify-center md:hidden">
-                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/dm.png") }}" alt="MoodScan Tees" class="h-auto w-[280px] object-contain" />
+                                <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/dm.webp") }}" alt="MoodScan Tees" class="h-auto w-[280px] object-contain" />
                             </div>
                             <ul class="list-disc space-y-3 pl-5 text-justify text-[#3F3F3F] marker:text-[#3986A3] max-sm:space-y-1 max-sm:text-[15px]">
                                 <li>
@@ -465,7 +465,7 @@
 
     {{-- LAYANAN BERBINAR PLUS --}}
     <section class="bg-layanan-desktop relative mx-20 mb-12 h-[280px] rounded-3xl bg-cover p-10 max-md:my-5 max-md:h-[600px] max-md:overflow-hidden max-sm:mx-4 max-sm:h-[500px]">
-        <img src="{{ asset("assets/images/landing/asset-produk/vector-curling-mobile.png") }}" alt="Background" class="absolute -top-[150px] left-0 hidden w-[1000px] rounded-t-3xl object-cover max-md:-top-[220px] max-md:flex max-md:h-[700px] max-sm:-top-[200px] max-sm:h-[600px] max-sm:w-[1500px]" />
+        <img src="{{ asset("assets/images/landing/asset-produk/vector-curling-mobile.webp") }}" alt="Background" class="absolute -top-[150px] left-0 hidden w-[1000px] rounded-t-3xl object-cover max-md:-top-[220px] max-md:flex max-md:h-[700px] max-sm:-top-[200px] max-sm:h-[600px] max-sm:w-[1500px]" />
         <div class="absolute inset-0 flex rounded-3xl bg-[#2D6B8280] max-md:hidden"></div>
 
         <div class="relative flex flex-col items-center justify-center space-y-4 text-center">
@@ -476,12 +476,12 @@
             <div class="flex h-96 w-full flex-col items-center gap-4 overflow-y-scroll scrollbar-hide lg:max-w-screen-lg lg:flex-row lg:justify-center lg:overflow-visible">
                 <div class="h-96 w-full rounded-xl bg-white p-10 shadow-lg lg:w-1/3 lg:overflow-scroll lg:scrollbar-hide">
                     <h3 class="mb-4 text-lg font-semibold leading-tight text-black">Kelas Daring 👩‍💻</h3>
-                    <img src="{{ asset("assets/images/landing/asset-consulting/line.png") }}" alt="line" class="mb-4 hidden scale-y-150 lg:block" />
+                    <img src="{{ asset("assets/images/landing/asset-consulting/line.webp") }}" alt="line" class="mb-4 hidden scale-y-150 lg:block" />
                     <p class="font-base text-justify text-[#70787D]">Pemberian akses video materi yang disampaikan oleh narasumber sekaligus mentor kompeten sesuai dengan topik kelas yang tersedia. Kelas yang kami sediakan cukup bervariatif misal kelas Jobseekers yang dapat membantu dirimu untuk menemukan pekerjaan.</p>
                 </div>
                 <div class="h-96 w-full rounded-xl bg-white p-10 shadow-lg lg:w-1/3 lg:overflow-scroll lg:scrollbar-hide">
                     <h3 class="mb-4 text-lg font-semibold leading-tight text-black">Konseling 💬</h3>
-                    <img src="{{ asset("assets/images/landing/asset-consulting/line.png") }}" alt="line" class="mb-4 hidden scale-y-150 lg:block" />
+                    <img src="{{ asset("assets/images/landing/asset-consulting/line.webp") }}" alt="line" class="mb-4 hidden scale-y-150 lg:block" />
                     <ul class="space-y-4 text-base text-gray-600">
                         <li class="flex items-start gap-2">
                             <svg class="mt-1 h-5 w-5 shrink-0 text-[#2D6B82]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -503,7 +503,7 @@
                 </div>
                 <div class="h-96 w-full rounded-xl bg-white p-10 shadow-lg lg:w-1/3 lg:overflow-scroll lg:scrollbar-hide">
                     <h3 class="mb-4 text-lg font-semibold leading-tight text-black">Psikotes 🧠️</h3>
-                    <img src="{{ asset("assets/images/landing/asset-consulting/line.png") }}" alt="line" class="mb-4 hidden scale-y-150 lg:block" />
+                    <img src="{{ asset("assets/images/landing/asset-consulting/line.webp") }}" alt="line" class="mb-4 hidden scale-y-150 lg:block" />
                     <p class="font-base text-justify text-[#70787D]">Paket upgrade ketiga yang ditawarkan oleh Berbinar Insightful Indonesia ini tersedia apabila peserta masih ingin mencari informasi tambahan yang mendalam terkait materi yang telah diterima setelah melewati dua tahap sebelumnya.</p>
                 </div>
             </div>
@@ -543,10 +543,10 @@
 
                 <div class="flex max-lg:hidden">
                     <div class="swiper-button-prev">
-                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-navigation.svg") }}" alt="prev-button" class="h-auto w-3" />
+                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-navigation.webp") }}" alt="prev-button" class="h-auto w-3" />
                     </div>
                     <div class="swiper-button-next">
-                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/right-navigation.svg") }}" alt="next-button" class="h-auto w-3" />
+                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/right-navigation.webp") }}" alt="next-button" class="h-auto w-3" />
                     </div>
                 </div>
 
@@ -559,7 +559,7 @@
 
     {{-- HARGA LAYANAN BERBINAR PLUS --}}
     <section class="bg-layanan-desktop relative mx-20 mb-12 h-96 rounded-3xl bg-cover p-10 max-md:my-5 max-md:h-[600px] max-md:overflow-hidden max-sm:mx-4 max-sm:h-[500px]">
-        <img src="{{ asset("assets/images/landing/asset-produk/vector-curling-mobile.png") }}" alt="Background" class="absolute -top-[150px] left-0 hidden w-[1000px] rounded-t-3xl object-cover max-md:-top-[220px] max-md:flex max-md:h-[700px] max-sm:-top-[200px] max-sm:h-[600px] max-sm:w-[1500px]" />
+        <img src="{{ asset("assets/images/landing/asset-produk/vector-curling-mobile.webp") }}" alt="Background" class="absolute -top-[150px] left-0 hidden w-[1000px] rounded-t-3xl object-cover max-md:-top-[220px] max-md:flex max-md:h-[700px] max-sm:-top-[200px] max-sm:h-[600px] max-sm:w-[1500px]" />
         <div class="absolute inset-0 flex rounded-3xl bg-[#2D6B8280] max-md:hidden"></div>
 
         <div class="relative mb-4 flex flex-col items-center justify-center space-y-4 text-center">
@@ -572,7 +572,7 @@
                     <div class="md:h-24 flex flex-col justify-center items-center">
                         <span class="mx-auto flex text-center text-3xl font-semibold text-primary">{{ $layanan_berbinar_plus["insight"]["price"] }}</span>
                     </div>
-                    <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/line-plus.png") }}" alt="line-plus" class="mx-auto mt-3 mb-8" />
+                    <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/line-plus.webp") }}" alt="line-plus" class="mx-auto mt-3 mb-8" />
 
                     <ul class="h-20 w-full space-y-4 overflow-y-scroll text-base text-gray-600 scrollbar-hide">
                         @foreach ($layanan_berbinar_plus["insight"]["services"] as $item)
@@ -618,7 +618,7 @@
                                         <span class="mx-auto mb-8 block text-center text-2xl font-semibold text-primary">{{ $layanan_berbinar_plus["A+"]["price"]["online"]["weekday"] }}</span>
                                     </div>
                                     <div class="hidden h-20 overflow-hidden mt-6 lg:block">
-                                        <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/line-plus-vec.png") }}" alt="line-plus" class="mx-auto" />
+                                        <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/line-plus-vec.webp") }}" alt="line-plus" class="mx-auto" />
                                     </div>
                                     <div class="mx-auto w-full lg:w-2/5">
                                         <h4 class="mx-auto mb-4 text-center text-lg font-semibold">
@@ -664,7 +664,7 @@
                                         <span class="mx-auto mb-8 block text-center text-2xl font-semibold text-primary">{{ $layanan_berbinar_plus["A+"]["price"]["offline"]["weekday"] }}</span>
                                     </div>
                                     <div class="hidden h-20 overflow-hidden mt-6 lg:block">
-                                        <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/line-plus-vec.png") }}" alt="line-plus" class="mx-auto mb-8" />
+                                        <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/line-plus-vec.webp") }}" alt="line-plus" class="mx-auto mb-8" />
                                     </div>
                                     <div class="mx-auto w-full lg:w-2/5">
                                         <h4 class="mx-auto mb-4 text-center text-lg font-semibold">
@@ -704,7 +704,7 @@
                     <div class="md:h-24 flex flex-col justify-center items-center">
                         <span class="mx-auto flex text-center text-3xl font-semibold text-primary">{{ $layanan_berbinar_plus["complete"]["price"] }}</span>
                     </div>
-                    <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/line-plus.png") }}" alt="line-plus" class="mx-auto mt-3 mb-8" />
+                    <img src="{{ asset("assets/images/landing/asset-kelas/berbinar-plus/line-plus.webp") }}" alt="line-plus" class="mx-auto mt-3 mb-8" />
                     <ul class="h-20 w-full space-y-4 overflow-y-scroll text-base text-gray-600 scrollbar-hide">
                         @foreach ($layanan_berbinar_plus["complete"]["services"] as $item)
                         <li class="flex items-start gap-2">

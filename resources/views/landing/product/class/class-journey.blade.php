@@ -53,11 +53,11 @@
     {{-- HERO SECTION --}}
     <section class="relative mb-20 max-md:overflow-hidden">
         <div class="absolute left-0 top-5 z-0 max-sm:top-32">
-            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero1.svg") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
+            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero1.webp") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
         </div>
 
         <div class="absolute right-0 top-8 z-0 max-md:-right-28 max-sm:-right-20 max-sm:top-40">
-            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero2.svg") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
+            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero2.webp") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
         </div>
 
         <div class="relative">
@@ -65,13 +65,13 @@
                 <div class="max-lg:min-w-auto flex max-w-xl flex-1 flex-col space-y-6 max-sm:space-y-2">
                     <a href="{{ route("product.index") }}">
                         <div class="flex cursor-pointer items-center space-x-2 lg:order-1">
-                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.svg") }}" alt="Left Arrow" class="h-3 w-auto" />
+                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.webp") }}" alt="Left Arrow" class="h-3 w-auto" />
                             <p class="text-[15px] font-semibold text-[#3986A3]">Produk Berbinar</p>
                         </div>
                     </a>
 
                     <div class="hidden w-full items-center justify-center max-lg:flex-none max-md:flex lg:order-2 lg:w-auto">
-                        <img src="{{ asset("assets/images/landing/asset-kelas/class-journey/hero-class-journey.png") }}" alt="Class" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
+                        <img src="{{ asset("assets/images/landing/asset-kelas/class-journey/hero-class-journey.webp") }}" alt="Class" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
                     </div>
 
                     <div class="lg:order-3">
@@ -93,7 +93,7 @@
                 </div>
 
                 <div class="flex w-full flex-initial items-center justify-center max-lg:flex-1 max-md:hidden lg:w-auto">
-                    <img src="{{ asset("assets/images/landing/asset-kelas/class-journey/hero-class-journey.png") }}" alt="Class" class="h-[340px] w-auto object-contain max-lg:h-[320px]" />
+                    <img src="{{ asset("assets/images/landing/asset-kelas/class-journey/hero-class-journey.webp") }}" alt="Class" class="h-[340px] w-auto object-contain max-lg:h-[320px]" />
                 </div>
             </div>
         </div>
@@ -102,7 +102,7 @@
     {{-- BENEFIT 101 CLASS JOURNEY --}}
     <section class="relative mb-12 w-full px-4 sm:px-14 lg:mb-16">
         <div class="absolute left-0 top-0 z-0">
-            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-line.svg") }}" alt="Vector Image" class="max-sm:top-40" />
+            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-line.webp") }}" alt="Vector Image" class="max-sm:top-40" />
         </div>
 
         <div class="relative z-10 w-full">
@@ -150,7 +150,7 @@
                 <div class="flex w-full flex-col gap-4 px-4 lg:flex-row lg:px-10">
                     {{-- Container Gambar --}}
                     <div class="mx-auto h-auto w-full flex-1 overflow-hidden p-0 text-center text-white lg:mr-2 lg:h-[492px] lg:w-[389px] lg:min-w-[389px] lg:max-w-[389px]">
-                        <img src="{{ asset("assets/images/landing/asset-kelas/class-journey/poster-maret.png") }}" alt="Poster Class Journey" class="mx-auto h-auto w-full object-contain lg:h-full" style="border-radius: 24px; box-shadow: none; max-width: 389px" />
+                        <img src="{{ asset("assets/images/landing/asset-kelas/class-journey/poster-maret.webp") }}" alt="Poster Class Journey" class="mx-auto h-auto w-full object-contain lg:h-full" style="border-radius: 24px; box-shadow: none; max-width: 389px" />
                     </div>
 
                     {{-- Container Teks --}}
@@ -243,7 +243,7 @@
                         {!! italicsServices($layanan["price"], $italicsServices) !!}
                         <span class="font-light text-black/60">*</span>
                     </p>
-                    <img src="{{ asset("assets/images/landing/asset-consulting/line.png") }}" alt="line" class="mb-4 w-3/4" />
+                    <img src="{{ asset("assets/images/landing/asset-consulting/line.webp") }}" alt="line" class="mb-4 w-3/4" />
                     <a href="{{ $link_pendaftaran }}" target="_blank" class="block w-full py-1">
                         <div class="mx-auto flex w-fit items-center justify-center rounded-lg bg-gradient-to-l from-[#AD7D29] to-[#F7B23B] px-8 py-2 hover:from-[#AD7D29]/80 hover:to-[#F7B23B]/80 hover:shadow-lg">
                             <span class="text-white">{!! italicsServices("Mulai Sekarang", $italicsServices) !!}</span>
@@ -464,9 +464,9 @@
                         transition:background 0.2s;
                         outline:none; /* Menghilangkan outline */
                         " aria-label="Close">
-                        <img src="/assets/images/landing/asset-kelas/class-journey/x.svg" alt="Close" style="width:10px;height:10px;object-fit:contain;" />
+                        <img src="/assets/images/landing/asset-kelas/class-journey/x.webp" alt="Close" style="width:10px;height:10px;object-fit:contain;" />
                     </button>
-                    <img src="/assets/images/landing/asset-kelas/class-journey/poster-maret.png" alt="Poster Class Journey" style="max-width:100%;border-radius:24px;" />
+                    <img src="/assets/images/landing/asset-kelas/class-journey/poster-maret.webp" alt="Poster Class Journey" style="max-width:100%;border-radius:24px;" />
                 </div>
             `,
             showCloseButton: false,

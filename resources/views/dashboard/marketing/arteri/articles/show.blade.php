@@ -12,7 +12,7 @@
                 <div>
                     <div class="mb-2 flex items-center gap-2">
                         <a href="{{ route("dashboard.arteri.articles.index") }} ">
-                            <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
+                            <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.webp") }}" alt="Back Btn" />
                         </a>
                         <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Detail Artikel</p>
                     </div>
@@ -128,11 +128,11 @@
                                 </div>
                             </div>
                             <div class="mt-2 flex justify-center gap-1">
-                                <img src="{{ asset("assets/images/dashboard/arteri/tidak-suka.svg") }}" alt="Tidak Suka" class="h-560 w-60" />
-                                <img src="{{ asset("assets/images/dashboard/arteri/bosan.svg") }}" alt="Bosan" class="h-560 w-60" />
-                                <img src="{{ asset("assets/images/dashboard/arteri/biasa-saja.svg") }}" alt="Biasa Saja" class="h-560 w-60" />
-                                <img src="{{ asset("assets/images/dashboard/arteri/senang.svg") }}" alt="Senang" class="h-560 w-60" />
-                                <img src="{{ asset("assets/images/dashboard/arteri/sangat-senang.svg") }}" alt="Sangat Senang" class="h-560 w-60" />
+                                <img src="{{ asset("assets/images/dashboard/arteri/tidak-suka.webp") }}" alt="Tidak Suka" class="h-560 w-60" />
+                                <img src="{{ asset("assets/images/dashboard/arteri/bosan.webp") }}" alt="Bosan" class="h-560 w-60" />
+                                <img src="{{ asset("assets/images/dashboard/arteri/biasa-saja.webp") }}" alt="Biasa Saja" class="h-560 w-60" />
+                                <img src="{{ asset("assets/images/dashboard/arteri/senang.webp") }}" alt="Senang" class="h-560 w-60" />
+                                <img src="{{ asset("assets/images/dashboard/arteri/sangat-senang.webp") }}" alt="Sangat Senang" class="h-560 w-60" />
                             </div>
 
                             <div>

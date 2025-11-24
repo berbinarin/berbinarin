@@ -45,7 +45,7 @@
     <div class="mt-28 sm:mt-32 leading-snug">
         <a href="{{ route('product.counseling.registration') }}">
             <div class="flex items-center justify-center space-x-2 cursor-pointer w-1/5 max-sm:w-1/3 max-sm:mb-5">
-                <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}" alt="Left Arrow"
+                <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.webp') }}" alt="Left Arrow"
                     class="h-3 w-auto">
                 <p class="text-base flex font-medium text-[#3986A3]">Kembali</p>
             </div>
@@ -90,7 +90,7 @@
             </div>
 
             @if ($loop->iteration == 1)
-                <img src="{{ asset('assets/images/landing/logo/logo-berbinar.png') }}" alt="Berbinar"
+                <img src="{{ asset('assets/images/landing/logo/logo-berbinar.webp') }}" alt="Berbinar"
                     class="h-20 w-auto object-contain" />
             @endif
         @endforeach
@@ -135,7 +135,7 @@
         @endforeach
 
         {{-- Logo di bawah semua card --}}
-        <img src="{{ asset('assets/images/landing/logo/logo-berbinar.png') }}" alt="Berbinar"
+        <img src="{{ asset('assets/images/landing/logo/logo-berbinar.webp') }}" alt="Berbinar"
             class="h-14 w-auto object-contain mt-6" />
     </div>
 @endsection

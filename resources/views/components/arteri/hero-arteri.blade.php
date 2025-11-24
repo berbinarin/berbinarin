@@ -5,7 +5,7 @@
         <div class="flex h-96 w-full items-center justify-center bg-gray-100 lg:h-[500px]">
             <div class="text-center">
                 <div class="mx-auto mb-4 flex w-full items-center justify-center">
-                    <img src="{{ asset("assets/images/landing/arteri/empty-icon.png") }}" alt="empty image" class="h-32 object-cover sm:h-44 md:h-48 lg:h-52" />
+                    <img src="{{ asset("assets/images/landing/arteri/empty-icon.webp") }}" alt="empty image" class="h-32 object-cover sm:h-44 md:h-48 lg:h-52" />
                 </div>
                 <span class="mx-auto mb-2 block text-center text-lg font-semibold sm:text-xl md:text-2xl lg:text-3xl">Oops!</span>
                 <p class="mx-auto block max-w-sm text-center text-[#606060] md:max-w-md">Sepertinya belum ada artikel di sini. Kami sedang menyiapkan konten terbaik untuk Anda. Stay tuned!</p>
@@ -37,7 +37,7 @@
                                 {{-- penulis & tanggal --}}
                                 <div class="mb-4 flex w-full items-center justify-start gap-2">
                                     <div class="size-6 overflow-hidden rounded-full">
-                                        <img src="{{ $heroArticles[$i]->author->profil_image ? asset("/image/" . $heroArticles[$i]->author->profil_image) : asset("assets/images/landing/arteri/dummy.png") }}" alt="{{ $heroArticles[$i]->author->name_author }}" class="object-cover" />
+                                        <img src="{{ $heroArticles[$i]->author->profil_image ? asset("/image/" . $heroArticles[$i]->author->profil_image) : asset("assets/images/landing/arteri/dummy.webp") }}" alt="{{ $heroArticles[$i]->author->name_author }}" class="object-cover" />
                                     </div>
                                     <span class="font-semibold text-white">
                                         {{ $heroArticles[$i]->author->name_author }}

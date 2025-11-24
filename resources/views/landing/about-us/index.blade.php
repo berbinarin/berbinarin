@@ -40,7 +40,7 @@
         }
 
         .bg-wave {
-            background-image: url('/assets/images/landing/asset-konseling/vector/vector-wave.svg');
+            background-image: url('/assets/images/landing/asset-konseling/vector/vector-wave.webp');
             background-repeat: no-repeat;
             background-position: center;
         }
@@ -81,7 +81,7 @@
         <div class="flex w-full flex-row items-center gap-6 rounded-2xl bg-white pb-8 pr-8 pt-8 shadow-md max-lg:flex-col max-lg:p-5 max-md:gap-y-8 max-sm:rounded-3xl max-sm:p-4">
             <div class="relative flex w-1/3 items-center justify-center max-lg:-top-56 max-lg:w-[75%] max-md:w-[80%] max-sm:-top-52 max-sm:w-[85%]">
                 <div class="absolute top-3 h-56 w-56 rounded-full bg-[#AFCFDA]"></div>
-                <img src="{{ asset("assets/images/landing/asset-tentang/image/pakdanny.png") }}" alt="Danny Sanjaya Arfensia, M.Psi., Psikolog" class="relative -top-6 z-10 h-56 w-auto" />
+                <img src="{{ asset("assets/images/landing/asset-tentang/image/pakdanny.webp") }}" alt="Danny Sanjaya Arfensia, M.Psi., Psikolog" class="relative -top-6 z-10 h-56 w-auto" />
                 <div class="absolute -bottom-6 z-20 w-full gap-y-3 rounded-e-full bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 text-left text-white max-lg:rounded-full max-lg:text-center max-sm:px-6 max-sm:py-3">
                     <p class="text-[16px] font-semibold leading-tight">Danny Sanjaya Arfensia, M.Psi., Psikolog</p>
                     <p class="mt-1 text-[14px] font-light">Chief Executive Officer</p>
@@ -102,7 +102,7 @@
         <div class="h-60 w-full bg-gradient-to-r from-[#1C4352] to-[#3F96B8] max-sm:h-72">
             <div class="visi absolute -top-14 left-1/2 flex w-[80%] -translate-x-1/2 transform flex-col gap-3 rounded-xl bg-white p-5 shadow-md max-sm:-top-20 max-sm:w-[94%]">
                 <div class="flex flex-row items-center gap-2">
-                    <img src="{{ asset("assets/images/landing/asset-tentang/vector-pin.svg") }}" alt="Vector" class="h-8 w-auto rounded-lg bg-[#EAF3F6] p-2" />
+                    <img src="{{ asset("assets/images/landing/asset-tentang/vector-pin.webp") }}" alt="Vector" class="h-8 w-auto rounded-lg bg-[#EAF3F6] p-2" />
                     <p class="text-2xl font-bold text-[#3986A3] max-sm:text-xl">Visi</p>
                 </div>
                 <p class="text-[16px] text-[#3F3F3F] max-md:text-justify max-sm:text-[15px]">Terdepan dalam menyediakan layanan psikologi yang berkualitas, berintegritas, dan mudah diakses oleh seluruh kalangan masyarakat.</p>
@@ -110,7 +110,7 @@
 
             <div class="misi absolute left-1/2 top-24 flex w-[80%] -translate-x-1/2 transform flex-col gap-3 rounded-xl bg-white p-5 shadow-md max-sm:top-[90px] max-sm:w-[94%]">
                 <div class="flex flex-row items-center gap-2">
-                    <img src="{{ asset("assets/images/landing/asset-tentang/vector-pin.svg") }}" alt="Vector" class="h-8 w-auto rounded-lg bg-[#EAF3F6] p-2" />
+                    <img src="{{ asset("assets/images/landing/asset-tentang/vector-pin.webp") }}" alt="Vector" class="h-8 w-auto rounded-lg bg-[#EAF3F6] p-2" />
                     <p class="text-2xl font-bold text-[#3986A3] max-sm:text-xl">Misi</p>
                 </div>
                 <ul class="list-disc pl-5 text-[16px] text-[#3F3F3F] marker:text-[#3986A3] max-md:text-justify max-sm:text-[15px]">
@@ -143,35 +143,35 @@
     <section id="mitra">
         <p class="font relative z-10 mx-20 my-6 text-center text-4xl font-semibold text-black max-sm:mx-2 max-sm:my-4 max-sm:text-[29px]">Mitra Afiliasi</p>
         <div class="wrapper">
-            <div class="item" style="--i: 1; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra1.png") }}')"></div>
-            <div class="item" style="--i: 2; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra2.png") }}')"></div>
-            <div class="item" style="--i: 3; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra3.png") }}')"></div>
-            <div class="item" style="--i: 4; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra4.png") }}')"></div>
-            <div class="item" style="--i: 5; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra5.png") }}')"></div>
-            <div class="item" style="--i: 6; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra6.png") }}')"></div>
-            <div class="item" style="--i: 7; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra7.png") }}')"></div>
-            <div class="item" style="--i: 8; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra8.png") }}')"></div>
-            <div class="item" style="--i: 9; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra9.png") }}')"></div>
-            <div class="item" style="--i: 10; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra10.png") }}')"></div>
-            <div class="item" style="--i: 11; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra11.png") }}')"></div>
-            <div class="item" style="--i: 12; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra12.png") }}')"></div>
-            <div class="item" style="--i: 13; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra13.png") }}')"></div>
-            <div class="item" style="--i: 14; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra14.png") }}')"></div>
-            <div class="item" style="--i: 15; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra15.png") }}')"></div>
-            <div class="item" style="--i: 16; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra16.png") }}')"></div>
-            <div class="item" style="--i: 17; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra17.png") }}')"></div>
-            <div class="item" style="--i: 18; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra18.png") }}')"></div>
-            <div class="item" style="--i: 19; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra19.png") }}')"></div>
-            <div class="item" style="--i: 20; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra20.png") }}')"></div>
-            <div class="item" style="--i: 21; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra21.png") }}')"></div>
-            <div class="item" style="--i: 22; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra22.png") }}')"></div>
-            <div class="item" style="--i: 23; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra23.png") }}')"></div>
-            <div class="item" style="--i: 24; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra24.png") }}')"></div>
-            <div class="item" style="--i: 25; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra25.png") }}')"></div>
-            <div class="item" style="--i: 26; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra26.png") }}')"></div>
-            <div class="item" style="--i: 27; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra27.png") }}')"></div>
-            <div class="item" style="--i: 28; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra28.png") }}')"></div>
-            <div class="item" style="--i: 29; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra29.png") }}')"></div>
+            <div class="item" style="--i: 1; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra1.webp") }}')"></div>
+            <div class="item" style="--i: 2; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra2.webp") }}')"></div>
+            <div class="item" style="--i: 3; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra3.webp") }}')"></div>
+            <div class="item" style="--i: 4; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra4.webp") }}')"></div>
+            <div class="item" style="--i: 5; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra5.webp") }}')"></div>
+            <div class="item" style="--i: 6; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra6.webp") }}')"></div>
+            <div class="item" style="--i: 7; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra7.webp") }}')"></div>
+            <div class="item" style="--i: 8; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra8.webp") }}')"></div>
+            <div class="item" style="--i: 9; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra9.webp") }}')"></div>
+            <div class="item" style="--i: 10; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra10.webp") }}')"></div>
+            <div class="item" style="--i: 11; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra11.webp") }}')"></div>
+            <div class="item" style="--i: 12; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra12.webp") }}')"></div>
+            <div class="item" style="--i: 13; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra13.webp") }}')"></div>
+            <div class="item" style="--i: 14; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra14.webp") }}')"></div>
+            <div class="item" style="--i: 15; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra15.webp") }}')"></div>
+            <div class="item" style="--i: 16; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra16.webp") }}')"></div>
+            <div class="item" style="--i: 17; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra17.webp") }}')"></div>
+            <div class="item" style="--i: 18; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra18.webp") }}')"></div>
+            <div class="item" style="--i: 19; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra19.webp") }}')"></div>
+            <div class="item" style="--i: 20; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra20.webp") }}')"></div>
+            <div class="item" style="--i: 21; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra21.webp") }}')"></div>
+            <div class="item" style="--i: 22; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra22.webp") }}')"></div>
+            <div class="item" style="--i: 23; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra23.webp") }}')"></div>
+            <div class="item" style="--i: 24; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra24.webp") }}')"></div>
+            <div class="item" style="--i: 25; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra25.webp") }}')"></div>
+            <div class="item" style="--i: 26; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra26.webp") }}')"></div>
+            <div class="item" style="--i: 27; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra27.webp") }}')"></div>
+            <div class="item" style="--i: 28; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra28.webp") }}')"></div>
+            <div class="item" style="--i: 29; background-image: url('{{ asset("assets/images/landing/asset-tentang/mitra-afiliasi/mitra29.webp") }}')"></div>
         </div>
     </section>
 

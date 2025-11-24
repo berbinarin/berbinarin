@@ -71,7 +71,7 @@ class InternshipController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'Data pendaftar magang berhasil diubah',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -83,7 +83,7 @@ class InternshipController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'Data pendaftar magang berhasil dihapus',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 }

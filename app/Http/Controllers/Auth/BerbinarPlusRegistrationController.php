@@ -42,7 +42,7 @@ class RegistrationController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Registrasi Berhasil',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 }

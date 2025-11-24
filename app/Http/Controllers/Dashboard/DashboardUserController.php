@@ -146,7 +146,7 @@ class DashboardUserController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Data berhasil diupdate',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -161,7 +161,7 @@ class DashboardUserController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Data user berhasil dihapus',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -191,7 +191,7 @@ class DashboardUserController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Token berhasil digenerate',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -206,7 +206,7 @@ class DashboardUserController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Token berhasil dihapus',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -238,7 +238,7 @@ class DashboardUserController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Pricelist berhasil ditambahkan.',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -262,7 +262,7 @@ class DashboardUserController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Pricelist berhasil diupdate',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -276,7 +276,7 @@ class DashboardUserController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Pricelist berhasil dihapus',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 

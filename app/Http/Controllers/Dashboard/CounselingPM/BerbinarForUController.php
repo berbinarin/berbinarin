@@ -68,7 +68,7 @@ class BerbinarForUController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Data Berbinar for U berhasil ditambahkan',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -115,7 +115,7 @@ class BerbinarForUController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Data Berbinar for U berhasil diubah',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -129,7 +129,7 @@ class BerbinarForUController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Data Berbinar for U berhasil dihapus',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 }

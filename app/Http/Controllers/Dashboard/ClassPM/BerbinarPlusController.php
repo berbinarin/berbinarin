@@ -77,7 +77,7 @@ class BerbinarPlusController extends Controller
 
         return redirect()->route('dashboard.berbinar-plus.index')->with([
             'alert' => true,
-            'icon' => asset('assets/images/dashboard/success.png'),
+            'icon' => asset('assets/images/dashboard/success.webp'),
             'title' => 'Berhasil!',
             'message' => 'Kelas berhasil ditambahkan.',
             'type' => 'success',
@@ -167,7 +167,7 @@ class BerbinarPlusController extends Controller
 
         return redirect()->route('dashboard.berbinar-plus.index')->with([
             'alert' => true,
-            'icon' => asset('assets/images/dashboard/success.png'),
+            'icon' => asset('assets/images/dashboard/success.webp'),
             'title' => 'Berhasil!',
             'message' => 'Kelas berhasil diupdate.',
             'type' => 'success',
@@ -187,10 +187,10 @@ class BerbinarPlusController extends Controller
         }
 
         $user->delete();
-        
+
         return redirect()->route('dashboard.berbinar-plus.index')->with([
             'alert' => true,
-            'icon' => asset('assets/images/dashboard/success.png'),
+            'icon' => asset('assets/images/dashboard/success.webp'),
             'title' => 'Berhasil!',
             'message' => 'User berhasil dihapus.',
             'type' => 'success',

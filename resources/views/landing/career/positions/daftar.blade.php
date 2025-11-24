@@ -19,7 +19,7 @@
       <!-- Tombol Kembali -->
        <a href="{{ route('career.positions.detail', $position->id) }}">
             <div class="flex cursor-pointer items-center space-x-2 lg:order-1 lg:ml-16 xl:ml-24">
-                <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.svg") }}" alt="Left Arrow" class="h-3 w-auto" />
+                <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.webp") }}" alt="Left Arrow" class="h-3 w-auto" />
                 <p class="text-[15px] font-semibold text-[#3986A3] xl:text-lg">Kembali</p>
             </div>
         </a>
@@ -125,11 +125,11 @@
     </div>
 
     <div class="md:w-4xl">
-      
+
 
       <form id="internshipForm" action="{{ route('career.positions.daftar.store', $position->id) }}" method="POST">
         @csrf
-        
+
         <!-- Page One: Biodata Diri -->
         <h2 class="tittleOne text-xl bg-gradient-to-r from-[#F7B23B] to-[#916823] bg-clip-text text-transparent font-bold text-bold text-center mt-4 md:-mt-7 mb-5 xl:text-3xl">Biodata Diri</h2>
         <div id="pageOne" class="pageOne flex flex-col mx-auto md:flex-row">
@@ -277,7 +277,7 @@
             <div class="px-4">
               <div class="mb-3 px-8 -mt-2 text-center">
                 <div class="flex justify-center items-center">
-                  <img src="{{ asset('assets/images/old/psikotes/feedback/sangat-suka-hd.png') }}" alt="" class="w-[100px]">
+                  <img src="{{ asset('assets/images/old/psikotes/feedback/sangat-suka-hd.webp') }}" alt="" class="w-[100px]">
                 </div>
 
                 <p class="text-sm xl:text-base">Terima kasih sudah mendaftar. Pastikan bahwa seluruh data telah benar, link dapat diakses, dan jangan lupa tekan tombol kirim di bawah ini 😆</p>
@@ -303,7 +303,7 @@
                       <div class="sm:flex sm:items-center">
                         <div class="w-full sm:w-auto mx-auto">
                           <div class="text-lg leading-6 font-medium text-gray-900 relative text-center" id="modal-title">
-                            <img src="{{ asset('assets/images/internship/register/icon-success.png') }}" alt="Success Icon" class="block mx-auto w-9 h-9 md:w-9 md:h-9 object-cover">
+                            <img src="{{ asset('assets/images/internship/register/icon-success.webp') }}" alt="Success Icon" class="block mx-auto w-9 h-9 md:w-9 md:h-9 object-cover">
                           </div>
                           <div class="mt-2 text-center">
                             <p class="text-xs text-gray-500">
@@ -546,15 +546,15 @@ document.addEventListener("DOMContentLoaded", function () {
     closeModalBtn.addEventListener('click', function() {
       successModal.classList.add('hidden');
       successModal.classList.remove('flex');
-      form.submit(); 
+      form.submit();
     });
   }
-  
+
   const modal = document.getElementById('myModal');
   if (modal) {
     const modalOverlay = modal.querySelector('.modal-overlay');
     const modalCloseBtn = document.getElementById('modalClose');
-    
+
     function closeModal() {
       modal.classList.remove('opacity-100', 'pointer-events-auto');
       modal.classList.add('opacity-0', 'pointer-events-none');
@@ -562,20 +562,20 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.style.display = 'none';
       }, 500);
     }
-    
+
     if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
     if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
-    
+
     modal.addEventListener('click', function(event) {
       if (event.target === modal) closeModal();
     });
-    
+
     document.addEventListener('keydown', function(event) {
       if (event.key === 'Escape' || event.key === 'Esc') closeModal();
     });
   }
 
-  // Navigasi form Multi-step 
+  // Navigasi form Multi-step
   const pageOne = document.getElementById('pageOne');
   const pageTwo = document.getElementById('pageTwo');
   const pageThree = document.getElementById('pageThree');
@@ -591,7 +591,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttonsPageOne = document.getElementById('buttonsPageOne');
   const formContainer = document.getElementById('formContainer');
 
-  // Page form Multi-step 
+  // Page form Multi-step
   const pageIndicatorOne = document.getElementById('pageIndicatorOne');
   const pageIndicatorTwo = document.getElementById('pageIndicatorTwo');
   const pageIndicatorThree = document.getElementById('pageIndicatorThree');

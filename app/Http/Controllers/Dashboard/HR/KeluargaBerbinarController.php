@@ -66,7 +66,7 @@ class KeluargaBerbinarController extends Controller
         }
         return redirect()->route('dashboard.keluarga-berbinar.index')->with([
             'alert' => true,
-            'icon' => asset('assets/images/dashboard/success.png'),
+            'icon' => asset('assets/images/dashboard/success.webp'),
             'title' => 'Berhasil!',
             'message' => 'Darta staff berhasil ditambahkan.',
             'type' => 'success',
@@ -134,7 +134,7 @@ class KeluargaBerbinarController extends Controller
 
         return redirect()->route('dashboard.keluarga-berbinar.index')->with([
             'alert' => true,
-            'icon' => asset('assets/images/dashboard/success.png'),
+            'icon' => asset('assets/images/dashboard/success.webp'),
             'title' => 'Berhasil!',
             'message' => 'Darta staff berhasil diperbarui.',
             'type' => 'success',
@@ -149,7 +149,7 @@ class KeluargaBerbinarController extends Controller
 
         return redirect()->route('dashboard.keluarga-berbinar.index')->with([
             'alert' => true,
-            'icon' => asset('assets/images/dashboard/success.png'),
+            'icon' => asset('assets/images/dashboard/success.webp'),
             'title' => 'Berhasil!',
             'message' => 'Darta staff berhasil dihapus.',
             'type' => 'success',

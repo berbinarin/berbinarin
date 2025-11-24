@@ -17,12 +17,12 @@ class PsikologUmumController extends Controller
     {
         $konselings = [
             [
-                'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
+                'image' => 'assets/images/landing/asset-konseling/vector/psikolog.webp',
                 'nama' => 'Psikolog Umum',
                 'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
             ],
             [
-                'image' => 'assets/images/landing/asset-konseling/vector/psikolog-staff.png',
+                'image' => 'assets/images/landing/asset-konseling/vector/psikolog-staff.webp',
                 'nama' => 'Psikolog Staff',
                 'deskripsi' => 'Salah satu benefit ekslusif bagi setiap staf yang bekerja di PT Berbinar Insightful Indonesia untuk melakukan konseling bersama Psikolog berizin prakter aktif (SIPP)',
             ],
@@ -38,7 +38,7 @@ class PsikologUmumController extends Controller
         return view('landing.product.counseling.psikolog.registration-psikolog');
     }
 
-    
+
     public function storePsikologRegistration(Request $request)
     {
         $rules = [

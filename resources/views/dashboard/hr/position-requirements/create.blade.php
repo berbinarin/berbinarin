@@ -12,7 +12,7 @@
             <div class="">
                 <div class="mb-2 flex items-center gap-2">
                     <a href="{{ route('dashboard.position-requirements.index') }}">
-                        <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
+                        <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.webp') }}" alt="Back Btn" />
                     </a>
                     <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Tambah Persyaratan Posisi</p>
                 </div>
@@ -21,7 +21,7 @@
                 </p>
             </div>
         </div>
-        
+
         <div class="rounded-md bg-white px-4 py-4 shadow-lg mb-7 shadow-gray-400 md:px-8 md:py-7 xl:px-10">
             <form action="{{ route('dashboard.position-requirements.store') }}" method="POST">
                 @csrf

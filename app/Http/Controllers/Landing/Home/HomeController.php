@@ -29,37 +29,37 @@ class HomeController extends Controller
 
         $products = [
             [
-                'vector' => 'assets/images/landing/asset-beranda/produk/logo-konseling.png',
+                'vector' => 'assets/images/landing/asset-beranda/produk/logo-konseling.webp',
                 'produk' => 'Berbinar Konseling',
                 'deskripsi' => 'Tempat konsultasi kesehatan mental klien dengan memilih psikolog maupun peer counselor yang sudah terjamin kualitas dan profesionalitasnya.',
                 'link' => route('product.counseling.index'),
             ],
             [
-                'vector' => 'assets/images/landing/asset-beranda/produk/logo-class.png',
+                'vector' => 'assets/images/landing/asset-beranda/produk/logo-class.webp',
                 'produk' => 'Berbinar Class',
                 'deskripsi' => 'Rintis perkembangan karier klien dengan kelas edukasi Berbinar yang terdiri beberapa topik untuk meningkatkan soft skill dan hard skill.',
                 'link' => route('product.class.index'),
             ],
             [
-                'vector' => 'assets/images/landing/asset-beranda/produk/logo-psikotes.png',
+                'vector' => 'assets/images/landing/asset-beranda/produk/logo-psikotes.webp',
                 'produk' => 'Berbinar Psikotes',
                 'deskripsi' => 'Serangkaian tes untuk mengukur, menentukan, dan mempersiapkan karier dengan mengidentifikasi potensi yang dimiliki setiap klien.',
                 'link' => route('product.psikotest.index'),
             ],
             [
-                'vector' => 'assets/images/landing/asset-beranda/produk/logo-consulting.png',
+                'vector' => 'assets/images/landing/asset-beranda/produk/logo-consulting.webp',
                 'produk' => 'Berbinar Consulting',
                 'deskripsi' => 'Suatu layanan dalam membantu suatu perusahaan, komunitas, dan organisasi yang berkaitan kinerja sumber daya manusia.',
                 'link' => route('product.consulting.index'),
             ],
             [
-                'vector' => 'assets/images/landing/asset-beranda/produk/logo-emoshuffle.png',
+                'vector' => 'assets/images/landing/asset-beranda/produk/logo-emoshuffle.webp',
                 'produk' => 'EmoShuffle',
                 'deskripsi' => 'Kartu yang dirancang dengan desain menarik dan dapat mendalami juga mengekspresikan perasaan klien saat bermain.',
                 'link' => route('product.counseling.index'),
             ],
             [
-                'vector' => 'assets/images/landing/asset-beranda/produk/logo-moodscantees.png',
+                'vector' => 'assets/images/landing/asset-beranda/produk/logo-moodscantees.webp',
                 'produk' => 'MoodScan Tees',
                 'deskripsi' => 'Kaos super nyaman yang memiliki desain konsep psikologis juga fitur QR Code untuk menyimpan pesan motivasi agar tampil bergaya.',
                 'link' => route('product.counseling.index'),
@@ -70,62 +70,62 @@ class HomeController extends Controller
             [
                 'comment' => '“Saya sangat senang bisa menggunakan produk dan layanan di Berbinar. Dengan melakukan psikotes di Berbinar, saya dapat mengetahui diri saya sendiri. Sehingga saya tahu apa yang harus dilakukan kedepannya.”',
                 'name' => 'Ezra Renita Sitorus',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/ezra.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/ezra.webp',
             ],
             [
                 'comment' => '“Pengalaman saya menggunakan produk psikotes secara online ini cukup menyenangkan. Karena tesnya interaktif, hasilnya memberikan wawasan baru tentang potensi diri saya dan membantu saya dalam memahami kelebihan dan kekurangan saya.”',
                 'name' => 'Yeni Triyastuti',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/yeni.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/yeni.webp',
             ],
             [
                 'comment' => '“Psikotes dari Berbinar membantu aku banget buat lebih mengenal diriku sendiri. Selain itu, konseling nya juga benar-benar membantu aku banget untuk menemukan solusi dari masalah yang sedang aku hadapi."',
                 'name' => 'Nurchaliza Rizqiani',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/nurchaliza.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/nurchaliza.webp',
             ],
             [
                 'comment' => '“Good for psikotest but sesuai masukan yang pernah aku isi, aku sempat salah sangka. Kukira akan dikabarin kalau aku masih kebagian kuota atau tidak. Ternyata aku yang inisiatif nanya, tapi gapapa. Buat kegiatan psikotesnya oke, aman-aman aja. Rate 10/10.”',
                 'name' => 'Golda Safira Indraswari',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/golda.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/golda.webp',
             ],
             [
                 'comment' => '“Rasa ingin tahu tentang diri sendiri jadi meningkat, karena hasil tesnya kadang bikin bertanya-tanya, ‘Ini memang aku seperti ini ya?’ atau ‘Kok rasanya nggak aku banget, tapi setelah dipikir-pikir, masuk akal juga kalau aku suka hal ini.’”',
                 'name' => 'Latief Ghilfawan Defianto',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/latief.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/latief.webp',
             ],
             [
                 'comment' => '“Produk Berbinar pun sangat beragam dan pastinya ramah di kantong. Menurut saya produk-produk Berbinar telah sesuai dengan kebutuhan masyarakat sekarang ini. Selain itu dengan harga yang affordable sehingga dapat dibeli oleh semua kalangan usia.”',
                 'name' => 'Regina Amanda Sharen',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/regina.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/regina.webp',
             ],
             [
                 'comment' => '“Layanan konseling yang diadakan Berbinar juga sangat membantu untuk menyelesaikan masalah mental dan kesehatan pikiran. Dengan harga yang terjangkau, kita bisa mendapatkan konselor dan bisa juga mendapatkan solusi dari permasalahan yang dihadapi.”',
                 'name' => 'Dhila Aprilianti',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/dhilla.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/dhilla.webp',
             ],
             [
                 'comment' => '“Setelah menggunakan produk dan layanan Berbinar, saya menjadi lebih tau apa yang harus dilakukan terhadap problem yang sedang saya alami dan lebih menerima kenyataan.”',
                 'name' => 'Ghina Yulianty',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/ghina.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/ghina.webp',
             ],
             [
                 'comment' => '“Produk psikotes Berbinar sangat baik dengan berbagai macam pilihan tes sesuai kebutuhan individu. Dengan menggunakan tes psikotes Berbinar, saya lebih bisa memahami diri saya lebih baik dari sebelumnya.”',
                 'name' => 'Felicia Amarantha',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/felicia.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/felicia.webp',
             ],
             [
                 'comment' => '“Konseling di Berbinar bener-bener bantu aku buat cari solusi ketika aku lagi ga baik-baik saja. Aku bener-bener merasa didengarkan dengan baik dan diberikan solusi yang solutif dan implementatif.”',
                 'name' => 'Barita Davitya Setiawati',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/barita.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/barita.webp',
             ],
             [
                 'comment' => '“Psikotes yang dilakukan sangat aman dan hasilnya cepat diolah untuk dikirimkan kembali ke peserta yang melakukan tes tersebut.”',
                 'name' => 'Raisha Hayyunindita',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/raisha.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/raisha.webp',
             ],
             [
                 'comment' => '“Setelah mencoba produk dan layanan Berbinar, saya sangat puas. Proses psikotes mudah diakses, hasilnya cepat dan akurat. Layanan klaim konseling juga sangat membantu dengan panduan dan solusi mendalam untuk memahami diri lebih baik.”',
                 'name' => 'Noor Fajrin Rukhairani',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/noor.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/noor.webp',
             ],
         ];
 

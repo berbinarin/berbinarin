@@ -46,7 +46,7 @@ class PositionDescriptionController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'Data berhasil masuk',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
         } catch (\Exception $e) {
             return redirect()->back()->withInput()->with([
@@ -54,7 +54,7 @@ class PositionDescriptionController extends Controller
                 'type' => 'error',
                 'title' => 'Gagal!',
                 'message' =>'Terjadi kesalahan : '. $e->getMessage(),
-                'icon' => asset('assets/images/dashboard/error.png'),
+                'icon' => asset('assets/images/dashboard/error.webp'),
             ]);
         }
     }
@@ -83,7 +83,7 @@ class PositionDescriptionController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'Data berhasil diupdate',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
         } catch (\Exception $e) {
             return redirect()->back()->withInput()->with([
@@ -91,7 +91,7 @@ class PositionDescriptionController extends Controller
                 'type' => 'error',
                 'title' => 'Gagal!',
                 'message' =>'Terjadi kesalahan saat update : '. $e->getMessage(),
-                'icon' => asset('assets/images/dashboard/error.png'),
+                'icon' => asset('assets/images/dashboard/error.webp'),
             ]);
         }
     }
@@ -110,7 +110,7 @@ class PositionDescriptionController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'Data berhasil dihapus',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
         } catch (\Exception $e) {
             return redirect()->route('dashboard.position-descriptions.index')->with([
@@ -118,7 +118,7 @@ class PositionDescriptionController extends Controller
                 'type' => 'error',
                 'title' => 'Gagal!',
                 'message' =>'Terjadi kesalahan saat menghapus data: '. $e->getMessage(),
-                'icon' => asset('assets/images/dashboard/error.png'),
+                'icon' => asset('assets/images/dashboard/error.webp'),
             ]);
         }
     }

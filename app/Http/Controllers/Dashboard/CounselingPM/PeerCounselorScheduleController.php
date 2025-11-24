@@ -33,7 +33,7 @@ class PeerCounselorScheduleController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Data Berhasil Dimasukkan',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -64,7 +64,7 @@ class PeerCounselorScheduleController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Data berhasil diubah',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -77,7 +77,7 @@ class PeerCounselorScheduleController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Data Berhasil Dihapus',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 }

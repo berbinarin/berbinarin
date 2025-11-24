@@ -106,11 +106,11 @@
     {{-- HERO SECTION --}}
     <section class="relative max-md:overflow-hidden">
         <div class="absolute left-0 top-5 z-0 max-sm:top-32">
-            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero1.svg") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
+            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero1.webp") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
         </div>
 
         <div class="absolute right-0 top-8 z-0 max-md:-right-28 max-sm:-right-20 max-sm:top-40">
-            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero2.svg") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
+            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero2.webp") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
         </div>
 
         <div class="relative">
@@ -118,13 +118,13 @@
                 <div class="max-lg:min-w-auto flex max-w-xl flex-1 flex-col space-y-6 max-sm:space-y-2">
                     <a href="{{ route("product.index") }}">
                         <div class="flex cursor-pointer items-center space-x-2 lg:order-1">
-                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.svg") }}" alt="Left Arrow" class="h-3 w-auto" />
+                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.webp") }}" alt="Left Arrow" class="h-3 w-auto" />
                             <p class="text-[15px] font-semibold text-[#3986A3]">Produk Berbinar</p>
                         </div>
                     </a>
 
                     <div class="hidden w-full items-center justify-center max-lg:flex-none max-md:flex lg:order-2 lg:w-auto">
-                        <img src="{{ asset("assets/images/landing/asset-kelas/hero.png") }}" alt="Class" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
+                        <img src="{{ asset("assets/images/landing/asset-kelas/hero.webp") }}" alt="Class" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
                     </div>
 
                     <div class="lg:order-3">
@@ -137,7 +137,7 @@
                 </div>
 
                 <div class="flex w-full flex-initial items-center justify-center max-lg:flex-1 max-md:hidden lg:w-auto">
-                    <img src="{{ asset("assets/images/landing/asset-kelas/hero.png") }}" alt="Class" class="h-[340px] w-auto object-contain max-lg:h-[320px]" />
+                    <img src="{{ asset("assets/images/landing/asset-kelas/hero.webp") }}" alt="Class" class="h-[340px] w-auto object-contain max-lg:h-[320px]" />
                 </div>
             </div>
         </div>
@@ -146,7 +146,7 @@
     {{-- PRODUK KELAS --}}
     <section class="relative mb-12 mt-10 w-full">
         <div class="absolute left-0 top-4 z-0 max-sm:top-40">
-            <img src="/assets/images/landing/asset-konseling/vector/vector-line.svg" alt="Vector Image" class="" />
+            <img src="/assets/images/landing/asset-konseling/vector/vector-line.webp" alt="Vector Image" class="" />
         </div>
 
         <h2 class="font relative z-10 mx-20 mt-14 text-center text-4xl font-semibold text-black max-sm:mx-2 max-sm:text-[29px]">
@@ -253,7 +253,7 @@
     <div class="fixed bottom-4 right-4 z-50">
         <a href="https://wa.me/6285694080365" target="_blank">
             <div class="flex size-12 items-center justify-center rounded-full bg-[#3986A3] p-2 text-white shadow-xl hover:bg-[#3986A3]/80 lg:size-16 lg:p-4">
-                <img src="{{ asset("assets/images/landing/logo/sosmed-icon/whatsapp.png") }}" alt="whatsapp icon" class="object-cover" />
+                <img src="{{ asset("assets/images/landing/logo/sosmed-icon/whatsapp.webp") }}" alt="whatsapp icon" class="object-cover" />
             </div>
         </a>
     </div>

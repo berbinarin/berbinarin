@@ -54,18 +54,18 @@
     <section class="relative mb-12 mt-24 w-full overflow-x-hidden">
         {{-- hexagon texture atas --}}
         <div class="absolute left-0 top-0 hidden h-fit md:block md:w-1/3 lg:w-1/5">
-            <img src="{{ asset("assets/images/landing/karir/hexagon-texture.png") }}" alt="top-left-texture" class="object-cover" />
+            <img src="{{ asset("assets/images/landing/karir/hexagon-texture.webp") }}" alt="top-left-texture" class="object-cover" />
         </div>
         {{-- hexagon texture bawah --}}
         <div class="absolute bottom-0 right-0 hidden h-fit rotate-180 md:block md:w-1/3 lg:w-1/5">
-            <img src="{{ asset("assets/images/landing/karir/hexagon-texture.png") }}" alt="top-left-texture" class="object-cover" />
+            <img src="{{ asset("assets/images/landing/karir/hexagon-texture.webp") }}" alt="top-left-texture" class="object-cover" />
         </div>
 
         <div class="mx-auto md:mx-14 md:pt-14 3xl:pt-6">
             <div class="w-full text-center md:flex md:flex-wrap md:items-center md:justify-center">
                 {{-- image atas --}}
                 <div class="flex w-full items-center justify-center px-4 md:hidden">
-                    <img src="{{ asset("assets/images/landing/karir/mobile-hexagon-top.png") }}" class="max-h-36 object-cover" />
+                    <img src="{{ asset("assets/images/landing/karir/mobile-hexagon-top.webp") }}" class="max-h-36 object-cover" />
                 </div>
 
                 {{-- tulisan --}}
@@ -84,12 +84,12 @@
 
                 {{-- hexagon banner --}}
                 <div class="relative z-20 hidden md:flex md:w-1/2 lg:w-fit">
-                    <img src="{{ asset("assets/images/landing/karir/hexa-banner-rev-20-04-2025.png") }}" alt="hexagon banner" class="h-96 3xl:h-[600px]" />
+                    <img src="{{ asset("assets/images/landing/karir/hexa-banner-rev-20-04-2025.webp") }}" alt="hexagon banner" class="h-96 3xl:h-[600px]" />
                 </div>
 
                 {{-- image bawah --}}
                 <div class="flex w-full items-center justify-center px-4 md:hidden">
-                    <img src="{{ asset("assets/images/landing/karir/mobile-hexagon-bottom.png") }}" class="max-h-36 object-cover" />
+                    <img src="{{ asset("assets/images/landing/karir/mobile-hexagon-bottom.webp") }}" class="max-h-36 object-cover" />
                 </div>
             </div>
         </div>
@@ -159,7 +159,7 @@
                                     <img src="{{ asset("image/" . $position->banner_path) }}" alt="{{ $position->name . " banner" }}" class="h-full w-full object-cover" />
                                 </div>
                                 {{-- image-banner end --}}
-                                <img src="{{ asset("assets/images/landing/logo/logo-berbinar.png") }}" alt="berbinar logo" class="absolute -bottom-5 right-4 z-20 size-10 rounded-full bg-white shadow-primary-light" />
+                                <img src="{{ asset("assets/images/landing/logo/logo-berbinar.webp") }}" alt="berbinar logo" class="absolute -bottom-5 right-4 z-20 size-10 rounded-full bg-white shadow-primary-light" />
                             </div>
                             {{-- banner end --}}
 
@@ -184,7 +184,7 @@
                             {{-- md:remote start --}}
                             <div class="mb-4 hidden w-full md:flex md:items-start">
                                 <span class="text-xs font-normal italic text-remote">
-                                    <img src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon" class="inline-block size-4" />
+                                    <img src="{{ asset("assets/images/landing/karir/remote.webp") }}" alt="remote icon" class="inline-block size-4" />
                                     {{ $position->location }}
                                 </span>
                             </div>
@@ -199,7 +199,7 @@
                             {{-- short detail start --}}
                             <div class="mb-2 flex w-full items-center justify-center md:hidden">
                                 <span class="text-xs font-normal italic text-remote">
-                                    <img src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon" class="inline-block size-4" />
+                                    <img src="{{ asset("assets/images/landing/karir/remote.webp") }}" alt="remote icon" class="inline-block size-4" />
                                     {{ $position->location }}
                                 </span>
                                 <div class="ms-2 flex items-center justify-center rounded-full bg-[#F7B23B4D] px-2 py-1 shadow-magang">
@@ -243,7 +243,7 @@
                         @foreach ($testimonis as $testimoni)
                             <div class="swiper-slide">
                                 <div class="relative h-96 w-full max-w-sm rounded-3xl bg-white px-4 pb-2 pt-4 shadow-md md:h-[480px]">
-                                    <img src="{{ asset("assets/images/landing/karir/vector-kutip.png") }}" alt="Kutip" class="mx-auto mb-4 block h-8 w-auto max-sm:h-7" />
+                                    <img src="{{ asset("assets/images/landing/karir/vector-kutip.webp") }}" alt="Kutip" class="mx-auto mb-4 block h-8 w-auto max-sm:h-7" />
 
                                     <div class="py-4 text-center">
                                         <p class="line-clamp-6 text-justify text-sm font-medium text-black xl:line-clamp-[11]">"{{ $testimoni["comment"] }}"</p>
@@ -323,7 +323,7 @@
     <section class="mx-auto mb-12 flex w-full items-center justify-center px-2 md:px-16">
         <a href="{{ route("career.keluarga-berbinar.index") }}">
             <div class="cursor-pointer">
-                <img src="{{ asset("assets/images/landing/karir/banner-keluarga-berbinar.png") }}" alt="banner keluarga berbinar" class="object-cover" />
+                <img src="{{ asset("assets/images/landing/karir/banner-keluarga-berbinar.webp") }}" alt="banner keluarga berbinar" class="object-cover" />
             </div>
         </a>
     </section>

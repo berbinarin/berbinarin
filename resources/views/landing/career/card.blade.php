@@ -48,7 +48,7 @@
         </div>
         {{--divider path--}}
         <div class="mx-auto h-20 relative md:mb-5 xl:mb-7">
-            <img src="{{asset("assets/images/landing/keluarga-berbinar/path.png")}}" alt="divider"
+            <img src="{{asset("assets/images/landing/keluarga-berbinar/path.webp")}}" alt="divider"
                  class="object-cover h-auto min-w-96 w-screen -translate-y-16 sm:-translate-y-24 md:-translate-y-28 lg:-translate-y-20 xl:-translate-y-32 2xl:scale-y-75 2xl:-translate-y-52 3xl:scale-y-75 3xl:-translate-y-54">
         </div>
 
@@ -179,7 +179,7 @@
                                 {{--FRONT CARD--}}
                                 <div onclick="handleFlip({{$i}})" id="front-{{$i}}" class="relative h-40 md:h-48 rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] pt-2 pb-3 px-4 cursor-pointer hover:shadow-lg lg:h-60 lg:w-full lg:p-4 lg:cursor-default lg:pointer-events-none">
                                     {{--texture--}}
-                                    <img src="{{asset('/assets/images/landing/keluarga-berbinar/texture-card.png')}}"
+                                    <img src="{{asset('/assets/images/landing/keluarga-berbinar/texture-card.webp')}}"
                                          alt="texture"
                                          class="hidden lg:block absolute z-10 scale-y-75 -bottom-8 left-0 ">
 
@@ -191,7 +191,7 @@
                                     <button
                                         onclick=""
                                         class="hidden lg:block absolute bottom-2 right-2 z-30 lg:pointer-events-auto lg:cursor-pointer">
-                                        <img src="{{ asset("/assets/images/landing/keluarga-berbinar/lini-masa.png") }}"
+                                        <img src="{{ asset("/assets/images/landing/keluarga-berbinar/lini-masa.webp") }}"
                                              alt=""
                                              class="size-5 mx-auto">
                                         <p class="text-center text-white font-semibold text-xs">Lini masa</p>
@@ -203,7 +203,7 @@
                                         {{--image-sm-md--}}
                                         <div class="relative h-full w-32 md:w-36 overflow-hidden group-even:order-last md:flex md:items-end lg:hidden">
                                             <img
-                                                src="{{asset('/assets/images/landing/keluarga-berbinar/image-example.png')}}"
+                                                src="{{asset('/assets/images/landing/keluarga-berbinar/image-example.webp')}}"
                                                 alt="image-example" class="object-cover">
                                             <span
                                                 class="absolute w-auto py-1 px-2 z-10 bottom-0 left-1/2 -translate-x-1/2 font-semibold text-nowrap tracking-wide text-xs text-white text-center bg-[#654064] rounded-lg shadow-lg">Manajer Divisi</span>
@@ -211,7 +211,7 @@
                                         {{--image-lg--}}
                                         <div class="hidden lg:block relative h-full w-48 py-1 overflow-hidden">
                                             <img
-                                                src="{{asset('/assets/images/landing/keluarga-berbinar/image-example.png')}}"
+                                                src="{{asset('/assets/images/landing/keluarga-berbinar/image-example.webp')}}"
                                                 alt="image-example" class="object-cover">
                                             <span
                                                 class="absolute w-auto py-1 px-2 z-10 bottom-2 left-1/2 -translate-x-1/2 font-semibold text-nowrap tracking-wide text-xs text-white text-center bg-[#654064] rounded-lg shadow-lg">Manajer Divisi</span>
@@ -240,7 +240,7 @@
                                                 2024 -
                                                 Sekarang</p>
                                             <a href="#" class="hidden xl:block xl:cursor-pointer xl:pointer-events-auto"> <img
-                                                    src="{{ asset('/assets/images/landing/keluarga-berbinar/linkedin/assets/images/landing/keluarga-berbinar/linkedin-fill.png') }}"
+                                                    src="{{ asset('/assets/images/landing/keluarga-berbinar/linkedin/assets/images/landing/keluarga-berbinar/linkedin-fill.webp') }}"
                                                     alt="linkedin" class="size-6"></a>
                                         </div>
                                     </div>
@@ -249,7 +249,7 @@
                                 {{--BACK CARD--}}
                                 <div onclick="handleFlip({{$i}})" id="back-{{$i}}" class="relative hidden min-h-40 md:min-h-48 lg:min-h-60 rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] pt-2 pb-3 px-4 lg:p-4 cursor-pointer hover:shadow-lg my-rotate-y-180">
                                     {{--texture--}}
-                                    <img src="{{asset('/assets/images/landing/keluarga-berbinar/texture-card.png')}}"
+                                    <img src="{{asset('/assets/images/landing/keluarga-berbinar/texture-card.webp')}}"
                                          alt="texture"
                                          class="hidden lg:block absolute z-10 scale-y-75 -bottom-8 left-0">
 
@@ -258,7 +258,7 @@
                                     {{--linkedin--}}
                                     <a href="#" class="absolute bottom-2 right-3 lg:hidden">
                                         <img
-                                            src="{{ asset('/assets/images/landing/keluarga-berbinar/linkedin-fill.png') }}"
+                                            src="{{ asset('/assets/images/landing/keluarga-berbinar/linkedin-fill.webp') }}"
                                             alt="linkedin" class="size-6">
                                     </a>
                                     {{--content--}}
@@ -292,7 +292,7 @@
                                 {{--FRONT CARD--}}
                                 <div id="front-" class="relative h-60 w-full rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] hover:shadow-lg p-4">
                                     {{--texture--}}
-                                    <img src="{{asset('/assets/images/landing/keluarga-berbinar/texture-card.png')}}"
+                                    <img src="{{asset('/assets/images/landing/keluarga-berbinar/texture-card.webp')}}"
                                          alt="texture"
                                          class="block absolute z-10 scale-y-75 -bottom-8 left-0 ">
                                     {{--status--}}
@@ -301,7 +301,7 @@
                                     <button
                                         onclick=""
                                         class="absolute bottom-2 right-2 block z-30">
-                                        <img src="{{asset("/assets/images/landing/keluarga-berbinar/lini-masa.png")}}"
+                                        <img src="{{asset("/assets/images/landing/keluarga-berbinar/lini-masa.webp")}}"
                                              alt=""
                                              class="size-5 mx-auto">
                                         <p class="text-center text-white font-semibold text-xs">Lini masa</p>
@@ -311,7 +311,7 @@
                                         {{--image--}}
                                         <div class="relative h-full w-48 py-1 overflow-hidden">
                                             <img
-                                                src="{{asset('/assets/images/landing/keluarga-berbinar/image-example.png')}}"
+                                                src="{{asset('/assets/images/landing/keluarga-berbinar/image-example.webp')}}"
                                                 alt="image-example" class="object-cover">
                                             <span
                                                 class="absolute w-auto py-1 px-2 z-10 bottom-2 left-1/2 -translate-x-1/2 font-semibold text-nowrap tracking-wide text-xs text-white text-center bg-[#654064] rounded-lg shadow-lg">Manajer Divisi</span>
@@ -328,7 +328,7 @@
                                                 2024 -
                                                 Sekarang</p>
                                             <a href="#" class=" xl:block"> <img
-                                                    src="{{ asset('/assets/images/landing/keluarga-berbinar/linkedin-fill.png') }}"
+                                                    src="{{ asset('/assets/images/landing/keluarga-berbinar/linkedin-fill.webp') }}"
                                                     alt="linkedin" class="size-6"></a>
                                         </div>
                                     </div>
@@ -337,7 +337,7 @@
                                 {{--BACK CARD--}}
                                 <div id="back-" onclick="" class="hidden relative min-h-60 w-full rounded-lg bg-gradient-to-b from-[#3986A3] to-[#15323D] hover:shadow-lg p-4 my-rotate-y-180 cursor-pointer">
                                     {{--texture--}}
-                                    <img src="{{asset('/assets/images/landing/keluarga-berbinar/texture-card.png')}}"
+                                    <img src="{{asset('/assets/images/landing/keluarga-berbinar/texture-card.webp')}}"
                                          alt="texture"
                                          class="block absolute z-10 scale-y-75 -bottom-8 left-0 ">
 

@@ -35,12 +35,12 @@ class PsikotestController extends Controller
                 'category' => 'Perusahaan',
                 'mitra' => [
                     [
-                        'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra10.png',
+                        'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra10.webp',
                         'name' => 'PT Parna Maspion Sejahtera',
                         'total' => '40 Klien',
                     ],
                     [
-                        'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra15.png',
+                        'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra15.webp',
                         'name' => 'PT Bara Blasting Perkasa',
                         'total' => '7 Klien',
                     ],
@@ -50,17 +50,17 @@ class PsikotestController extends Controller
                 'category' => 'Instansi Pendidikan',
                 'mitra' => [
                     [
-                        'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra3.png',
+                        'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra3.webp',
                         'name' => 'Calon Dosen Non PNS UNAIR',
                         'total' => '1 Klien',
                     ],
                     [
-                        'logo' => 'assets/images/landing/asset-psikotes/yayasan-darussalam.png',
+                        'logo' => 'assets/images/landing/asset-psikotes/yayasan-darussalam.webp',
                         'name' => 'Calon Guru Yayasan Darussalam',
                         'total' => '55 Klien',
                     ],
                     [
-                        'logo' => 'assets/images/landing/asset-psikotes/yayasan-darussalam.png',
+                        'logo' => 'assets/images/landing/asset-psikotes/yayasan-darussalam.webp',
                         'name' => 'Calon Kepala Sekolah Yayasan Darussalam',
                         'total' => '4 Klien',
                     ],
@@ -70,7 +70,7 @@ class PsikotestController extends Controller
                 'category' => 'Individu',
                 'mitra' => [
                     [
-                        'logo' => 'assets/images/landing/asset-psikotes/vector-person2.png',
+                        'logo' => 'assets/images/landing/asset-psikotes/vector-person2.webp',
                         'name' => 'Individu',
                         'total' => '8 Klien',
                     ],
@@ -80,7 +80,7 @@ class PsikotestController extends Controller
 
         $individus = [
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-memori.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-memori.webp',
                 'jenis_tes' => 'Tes Memori‍',
                 'harga' => 'Rp129.999',
                 'keterangan' => [
@@ -89,7 +89,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-selflove.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-selflove.webp',
                 'jenis_tes' => 'Tes Self-Love‍',
                 'harga' => 'Rp99.000',
                 'keterangan' => [
@@ -98,7 +98,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-dimensia.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-dimensia.webp',
                 'jenis_tes' => 'Tes Demensia',
                 'harga' => 'Rp199.999',
                 'keterangan' => [
@@ -107,7 +107,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-stress.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-stress.webp',
                 'jenis_tes' => 'Tes Stress‍',
                 'harga' => 'Rp159.000',
                 'keterangan' => [
@@ -116,7 +116,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-depresi.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-depresi.webp',
                 'jenis_tes' => 'Tes Depresi',
                 'harga' => 'Rp159.000',
                 'keterangan' => [
@@ -125,7 +125,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-kecemasan.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-kecemasan.webp',
                 'jenis_tes' => 'Tes Kecemasan',
                 'harga' => 'Rp159.000',
                 'keterangan' => [
@@ -134,7 +134,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-kecemasanplus.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-kecemasanplus.webp',
                 'jenis_tes' => 'Tes Kecemasan+',
                 'harga' => 'Rp229.000',
                 'keterangan' => [
@@ -143,7 +143,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-fungsikognitif.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-fungsikognitif.webp',
                 'jenis_tes' => 'Tes Fungsi Kognitif',
                 'harga' => 'Rp129.999',
                 'keterangan' => [
@@ -251,7 +251,7 @@ class PsikotestController extends Controller
 
         $pendidikans = [
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-wowgayabelajar.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-wowgayabelajar.webp',
                 'paket' => 'Paket WOW Gaya Belajar',
                 'harga' => 'Rp99.999',
                 'keterangan' => [
@@ -261,7 +261,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-hematcitacita.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-hematcitacita.webp',
                 'paket' => 'Paket Hemat Cita-Cita',
                 'harga' => 'Rp99.999',
                 'keterangan' => [
@@ -271,7 +271,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-lengkapteskepribadian.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-lengkapteskepribadian.webp',
                 'paket' => 'Paket Lengkap Tes Kepribadian',
                 'harga' => 'Rp129.999',
                 'keterangan' => [
@@ -281,7 +281,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/tes-memori.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/tes-memori.webp',
                 'paket' => 'Tes Memori',
                 'harga' => 'Rp99.999',
                 'keterangan' => [
@@ -291,7 +291,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/tes-paketminipenjurusan.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/tes-paketminipenjurusan.webp',
                 'paket' => 'Tes Paket Mini Penjurusan',
                 'harga' => 'Rp255.500',
                 'keterangan' => [
@@ -301,7 +301,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/tes-paketgoldpenjurusan.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/tes-paketgoldpenjurusan.webp',
                 'paket' => 'Tes Paket Gold Penjurusan',
                 'harga' => 'Rp319.000',
                 'keterangan' => [
@@ -311,7 +311,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-tahuminatbakat.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-tahuminatbakat.webp',
                 'paket' => 'Paket Tahu Bakat Minat',
                 'harga' => 'Rp351.000',
                 'keterangan' => [
@@ -321,7 +321,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-lengkappenjurusan.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-lengkappenjurusan.webp',
                 'paket' => 'Paket Lengkap Penjurusan',
                 'harga' => 'Rp399.000',
                 'keterangan' => [
@@ -334,7 +334,7 @@ class PsikotestController extends Controller
 
         $communitys = [
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kesiapanpernikahan.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kesiapanpernikahan.webp',
                 'paket' => 'Tes Kesiapan Pernikahan',
                 'harga' => 'Rp299.999',
                 'keterangan' => [
@@ -343,7 +343,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kesiapanorangtua.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kesiapanorangtua.webp',
                 'paket' => 'Tes Kesiapan Menjadi Orang Tua',
                 'harga' => 'Rp299.999',
                 'keterangan' => [
@@ -352,7 +352,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kecocokanpasangan.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kecocokanpasangan.webp',
                 'paket' => 'Tes Kecocokan Pasangan',
                 'harga' => 'Rp299.999',
                 'keterangan' => [
@@ -361,7 +361,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-stress.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-stress.webp',
                 'paket' => 'Tes Stress',
                 'harga' => 'Rp159.999',
                 'keterangan' => [
@@ -370,7 +370,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-depresi.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-depresi.webp',
                 'paket' => 'Tes Depresi',
                 'harga' => 'Rp159.999',
                 'keterangan' => [
@@ -379,7 +379,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kecemasan.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kecemasan.webp',
                 'paket' => 'Tes Kecemasan',
                 'harga' => 'Rp159.999',
                 'keterangan' => [
@@ -388,7 +388,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kecemasanplus.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kecemasanplus.webp',
                 'paket' => 'Tes Kecemasan+',
                 'harga' => 'Rp299.999',
                 'keterangan' => [
@@ -397,7 +397,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-fungsikognitif.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-fungsikognitif.webp',
                 'paket' => 'Tes Fungsi Kognitif',
                 'harga' => 'Rp129.999',
                 'keterangan' => [
@@ -406,7 +406,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-memori.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-memori.webp',
                 'paket' => 'Tes Memori',
                 'harga' => 'Rp129.999',
                 'keterangan' => [
@@ -415,7 +415,7 @@ class PsikotestController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-dimensia.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-dimensia.webp',
                 'paket' => 'Tes Demensia',
                 'harga' => 'Rp199.999',
                 'keterangan' => [
@@ -427,23 +427,23 @@ class PsikotestController extends Controller
 
         $dokumentasis = [
             [
-                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi1.png',
+                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi1.webp',
                 'jenis_psikotes' => 'Psikotes Offline'
             ],
             [
-                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi2.png',
+                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi2.webp',
                 'jenis_psikotes' => 'Psikotes Offline'
             ],
             [
-                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi3.png',
+                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi3.webp',
                 'jenis_psikotes' => 'Psikotes Offline'
             ],
             [
-                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi4.png',
+                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi4.webp',
                 'jenis_psikotes' => 'Psikotes Online'
             ],
             [
-                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi5.png',
+                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi5.webp',
                 'jenis_psikotes' => 'Psikotes Online'
             ],
         ];
@@ -451,19 +451,19 @@ class PsikotestController extends Controller
         $testimonis = [
             [
                 'comment' => '“Untuk saya yang baru pertama kali ikut tes, merasa sangat terbantu karena dibimbing dari awal dan diajari terlebih dahulu bahkan juga dikasih contoh sebelum memulai tes, jadi tidak seperti orang kebingungan”',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
             ],
             [
                 'comment' => '“Pengalaman mengikuti tes ini benar-benar mengesankan, proses seru dan asik, ditambah lagi para staf yang ramah dan tidak memaksa, menciptakan suasana yang nyaman sehingga saya merasa lebih terbuka”',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
             ],
             [
                 'comment' => '“Psikotes berjalan cukup baik. Dengan adanya penjelasan petunjuk yang diberikan membuat saya lebih memahami jenis soal yang nantinya dikerjakan”',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
             ],
             [
                 'comment' => '“Jujur pengalaman pertama kali mengikuti psikotes secara online. Meskipun dilakukan secara virtual, semuanya berjalan lancar berkat panduan yang jelas”',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
             ],
         ];
 

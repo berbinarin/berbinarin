@@ -11,7 +11,7 @@
             <!-- Header -->
             <div class="mb-4 flex items-center gap-2">
                 <a href="{{ route('dashboard.peer-staff.index') }}">
-                    <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
+                    <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.webp') }}" alt="Back Btn" />
                 </a>
                 <p class="xl:text-3xl lg:text-xl md:text-lg sm:text-base font-bold leading-normal text-gray-800">
                     Detail Data Psikolog Staff

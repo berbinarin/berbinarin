@@ -7,7 +7,7 @@
 @section("style")
     <style>
         .bg-hero {
-            background-image: url('/assets/images/landing/asset-beranda/bg-hero.png');
+            background-image: url('/assets/images/landing/asset-beranda/bg-hero.webp');
         }
 
         #swiperProduk {
@@ -117,7 +117,7 @@
             }
 
             .bg-hero {
-                background-image: url('/assets/images/landing/asset-beranda/bg-hero-mobile.png');
+                background-image: url('/assets/images/landing/asset-beranda/bg-hero-mobile.webp');
             }
         }
 
@@ -192,17 +192,17 @@
 
         <!-- VECTOR SINGA -->
         <div class="absolute bottom-0 right-20 z-10 hidden h-auto w-auto max-w-xs max-sm:right-2 sm:block">
-            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa.png") }}" alt="Singa" class="h-full w-full max-sm:h-[350px] max-sm:w-auto" />
+            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa.webp") }}" alt="Singa" class="h-full w-full max-sm:h-[350px] max-sm:w-auto" />
         </div>
 
         <div class="absolute bottom-0 right-20 z-10 block h-auto w-auto max-w-xs max-sm:right-2 sm:hidden">
-            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa3.png") }}" alt="Singa" class="h-full w-full max-sm:h-[350px] max-sm:w-auto" />
+            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa3.webp") }}" alt="Singa" class="h-full w-full max-sm:h-[350px] max-sm:w-auto" />
         </div>
 
         {{-- WHATSAPP ICON --}}
         {{--
             <div class="fixed bottom-16 right-16 w-auto max-w-xs h-auto z-30 hidden sm:block">
-            <img src="{{ asset('assets/images/landing/vector-whatsapp.png') }}" alt="Singa" class="w-auto h-12">
+            <img src="{{ asset('assets/images/landing/vector-whatsapp.webp') }}" alt="Singa" class="w-auto h-12">
             </div>
         --}}
 
@@ -249,16 +249,16 @@
         <div class="mx-14 my-9 mb-16 rounded-3xl bg-white shadow-md max-sm:mx-4 max-sm:my-5">
             <div class="flex flex-row items-center gap-x-6 p-8 max-md:flex-col max-md:p-5">
                 <!-- SCREEN DESKTOP -->
-                <img src="{{ asset("assets/images/landing/logo/logo-berbinar.png") }}" alt="Logo Berbinar" class="h-64 w-auto max-sm:h-60" />
+                <img src="{{ asset("assets/images/landing/logo/logo-berbinar.webp") }}" alt="Logo Berbinar" class="h-64 w-auto max-sm:h-60" />
                 <!-- SCREEN MOBILE -->
-                {{-- <img src="{{ asset('assets/images/landing/vector-konsul.png') }}" alt="Berbinar Mobile" class="h-[270px] w-full object-cover rounded-lg block md:hidden"> --}}
+                {{-- <img src="{{ asset('assets/images/landing/vector-konsul.webp') }}" alt="Berbinar Mobile" class="h-[270px] w-full object-cover rounded-lg block md:hidden"> --}}
 
                 <div class="flex-col space-y-6 max-md:space-y-3">
                     <div class="flex flex-row flex-wrap gap-3 max-md:mt-4 max-md:justify-center">
                         @foreach ($visimisis as $visimisi)
                             <div class="w-auto items-center rounded-full bg-[#3986A3] p-1.5">
                                 <div class="flex flex-row items-center gap-x-1.5">
-                                    <img src="{{ asset("assets/images/landing/asset-beranda/vector/tick.svg") }}" alt="Vector" class="h-6 w-6 rounded-full bg-white p-1" />
+                                    <img src="{{ asset("assets/images/landing/asset-beranda/vector/tick.webp") }}" alt="Vector" class="h-6 w-6 rounded-full bg-white p-1" />
                                     <p class="text-[15px] font-medium text-white max-sm:text-[13px]">{{ $visimisi["moto"] }}</p>
                                 </div>
                             </div>
@@ -273,7 +273,7 @@
     </section>
 
     {{-- KONTEN SOSMED --}}
-    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/vector-pattern.png'), linear-gradient(to bottom right, #eaf8ff, #bde8fd); background-blend-mode: normal, multiply">
+    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/vector-pattern.webp'), linear-gradient(to bottom right, #eaf8ff, #bde8fd); background-blend-mode: normal, multiply">
         <h1 class="my-8 text-center text-4xl font-semibold text-black max-sm:mx-4 max-sm:text-[29px]">
             Konten Terbaru
             <span class="bg-[#3886A3] px-2 text-white">Berbinar</span>
@@ -284,7 +284,7 @@
                 {{--
                     <a href="https://www.instagram.com/berbinar.in/" class="cursor-pointer">
                     <div class="inline-flex bg-white shadow-xl p-2 mb-5 gap-x-1 rounded-lg justify-center">
-                    <img src="{{ asset('assets/images/landing/sosmed-icon/vector-ig-color.png') }}" alt="Instagram" class="h-8 w-auto">
+                    <img src="{{ asset('assets/images/landing/sosmed-icon/vector-ig-color.webp') }}" alt="Instagram" class="h-8 w-auto">
                     <p class="text-black text-xl font-medium">@berbinar.in</p>
                     </div>
                     </a>
@@ -372,7 +372,7 @@
                 {{--
                     <a href="https://www.tiktok.com/@berbinar.in" class="cursor-pointer">
                     <div class="inline-flex bg-white shadow-xl p-2 mb-5 gap-x-1 rounded-lg justify-center">
-                    <img src="{{ asset('assets/images/landing/sosmed-icon/vector-tiktok-color.png') }}" alt="Instagram" class="h-8 w-auto">
+                    <img src="{{ asset('assets/images/landing/sosmed-icon/vector-tiktok-color.webp') }}" alt="Instagram" class="h-8 w-auto">
                     <p class="text-black text-xl font-medium">@berbinar.in</p>
                     </div>
                     </a>
@@ -456,7 +456,7 @@
                     @foreach ($testimonis as $testimoni)
                         <div class="swiper-slide">
                             <div class="flex h-auto w-auto flex-col items-center justify-center rounded-3xl bg-white p-5 text-center shadow-md">
-                                <img src="{{ asset("assets/images/landing/asset-beranda/vector-kutip.png") }}" alt="Kutip" class="h-8 w-auto max-sm:h-7" />
+                                <img src="{{ asset("assets/images/landing/asset-beranda/vector-kutip.webp") }}" alt="Kutip" class="h-8 w-auto max-sm:h-7" />
 
                                 <div class="flex flex-grow flex-col pt-4 text-center">
                                     <p class="min-h-[198px] flex-grow text-justify text-[16px] font-medium leading-snug text-black max-lg:min-h-[220px] max-md:min-h-[198px] max-sm:min-h-[175px] max-sm:text-[14px] max-sm:leading-tight">
@@ -485,7 +485,7 @@
     <section class="mx-14 my-10 rounded-xl bg-[#EAF3F6] p-8 max-sm:mx-4 max-sm:p-4">
         <div class="flex flex-col gap-y-4">
             <div class="flex justify-start">
-                <img src="{{ asset("assets/images/landing/asset-beranda/vector/quote.svg") }}" alt="Vector" class="h-8 w-auto max-sm:h-7" />
+                <img src="{{ asset("assets/images/landing/asset-beranda/vector/quote.webp") }}" alt="Vector" class="h-8 w-auto max-sm:h-7" />
             </div>
             <p class="text-justify text-xl font-medium leading-loose text-black max-sm:text-center max-sm:text-[16px] max-sm:leading-tight">
                 <span class="text-[#3986A3]">Kesehatan mental</span>
@@ -498,7 +498,7 @@
                 terhadap keresahan dalam menghadapi persoalan kesehatan mental
             </p>
             <div class="flex justify-end">
-                <img src="{{ asset("assets/images/landing/asset-beranda/vector/quote.svg") }}" alt="Vector" class="h-8 w-auto max-sm:h-7" />
+                <img src="{{ asset("assets/images/landing/asset-beranda/vector/quote.webp") }}" alt="Vector" class="h-8 w-auto max-sm:h-7" />
             </div>
         </div>
     </section>

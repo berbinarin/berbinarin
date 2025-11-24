@@ -14,7 +14,7 @@
                 <div class="py-4 md:pb-7 md:pt-12">
                     <div class="mb-2 flex items-center gap-2">
                         <a href="{{ route("dashboard.psychologists.index") }}">
-                            <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
+                            <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.webp") }}" alt="Back Btn" />
                         </a>
                         <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">
                             Data Konseling Psikolog
@@ -395,7 +395,7 @@
             <div class="text-center p-6">
                 <!-- Warning Icon -->
                 <div class="flex justify-center mb-4">
-                    <img src="{{ asset('assets/images/dashboard/svg-icon/warning.svg') }}" alt="Warning Icon" class="h-12 w-12">
+                    <img src="{{ asset('assets/images/dashboard/svg-icon/warning.webp') }}" alt="Warning Icon" class="h-12 w-12">
                 </div>
                 <!-- Title -->
                 <h3 class="text-xl font-semibold text-gray-900 mb-2">Konfirmasi Hapus Data</h3>

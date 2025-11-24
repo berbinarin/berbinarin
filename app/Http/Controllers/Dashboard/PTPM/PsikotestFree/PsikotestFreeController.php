@@ -69,7 +69,7 @@ class PsikotestFreeController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'User berhasil diupdate',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -84,7 +84,7 @@ class PsikotestFreeController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'User berhasil dihapus',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -121,7 +121,7 @@ class PsikotestFreeController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Pertanyaan berhasil ditambahkan',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -154,7 +154,7 @@ class PsikotestFreeController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Pertanyaan berhasil diupdate',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -169,7 +169,7 @@ class PsikotestFreeController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Pertanyaan berhasil dihapus',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 }

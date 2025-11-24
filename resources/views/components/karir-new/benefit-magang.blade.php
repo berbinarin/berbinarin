@@ -5,7 +5,7 @@
         {{--icon--}}
         <div
             class="flex items-center shrink-0 justify-center p-5 rounded-full shadow-benefit-icon md:absolute md:bg-white md:z-20 md:-top-12 md:left-1/2 md:-translate-x-1/2 ">
-            <img src="{{ asset("assets/images/landing/karir/benefit/icon-sertifikat.png") }}"
+            <img src="{{ asset("assets/images/landing/karir/benefit/icon-sertifikat.webp") }}"
                  alt="Sertifikat Elektronik"
                  class="size-14 md:size-12 translate-y-1">
         </div>
@@ -25,7 +25,7 @@
         {{--icon--}}
         <div
             class="flex order-last items-center shrink-0 justify-center p-5 rounded-full shadow-benefit-icon md:absolute md:bg-white md:z-20 md:-top-12 md:left-1/2 md:-translate-x-1/2 ">
-            <img src="{{ asset("assets/images/landing/karir/benefit/icon-relasi.png") }}" alt="relasi"
+            <img src="{{ asset("assets/images/landing/karir/benefit/icon-relasi.webp") }}" alt="relasi"
                  class="size-14 md:size-12">
         </div>
         {{--captions--}}
@@ -44,7 +44,7 @@
         {{--icon--}}
         <div
             class="flex items-center shrink-0 justify-center p-5 rounded-full shadow-benefit-icon md:absolute md:bg-white md:z-20 md:-top-12 md:left-1/2 md:-translate-x-1/2 ">
-            <img src="{{ asset("assets/images/landing/karir/benefit/icon-wawasan.png") }}" alt="wawasan"
+            <img src="{{ asset("assets/images/landing/karir/benefit/icon-wawasan.webp") }}" alt="wawasan"
                  class="size-14 md:size-12">
         </div>
         {{--captions--}}
@@ -63,7 +63,7 @@
         {{--icon--}}
         <div
             class="flex order-last items-center shrink-0 justify-center p-5 rounded-full shadow-benefit-icon md:absolute md:bg-white md:z-20 md:-top-12 md:left-1/2 md:-translate-x-1/2">
-            <img src="{{ asset("assets/images/landing/karir/benefit/icon-konseling.png") }}"
+            <img src="{{ asset("assets/images/landing/karir/benefit/icon-konseling.webp") }}"
                  alt="konseling gratis"
                  class="size-14 md:size-12">
         </div>
@@ -83,7 +83,7 @@
         {{--icon--}}
         <div
             class="flex items-center shrink-0 justify-center p-5 rounded-full shadow-benefit-icon md:absolute md:bg-white md:z-20 md:-top-12 md:left-1/2 md:-translate-x-1/2">
-            <img src="{{ asset("assets/images/landing/karir/benefit/icon-psikotest.png") }}"
+            <img src="{{ asset("assets/images/landing/karir/benefit/icon-psikotest.webp") }}"
                  alt="psikotes gratis"
                  class="size-14 md:size-12">
         </div>
@@ -103,7 +103,7 @@
         {{--icon--}}
         <div
             class="flex order-last items-center shrink-0 justify-center p-5 rounded-full shadow-benefit-icon md:absolute md:bg-white md:z-20 md:-top-12 md:left-1/2 md:-translate-x-1/2">
-            <img src="{{ asset("assets/images/landing/karir/benefit/icon-rekomendasi.png") }}"
+            <img src="{{ asset("assets/images/landing/karir/benefit/icon-rekomendasi.webp") }}"
                  alt="Rekomendasi LinkedIn"
                  class="size-14 md:size-12">
         </div>
@@ -123,7 +123,7 @@
         {{--icon--}}
         <div
             class="flex items-center shrink-0 justify-center p-5 rounded-full shadow-benefit-icon md:absolute md:bg-white md:z-20 md:-top-12 md:left-1/2 md:-translate-x-1/2">
-            <img src="{{ asset("assets/images/landing/karir/benefit/icon-skp.png") }}" alt="SKP"
+            <img src="{{ asset("assets/images/landing/karir/benefit/icon-skp.webp") }}" alt="SKP"
                  class="size-14 md:size-12">
         </div>
         {{--captions--}}
@@ -142,7 +142,7 @@
         {{--icon--}}
         <div
             class="flex order-last items-center shrink-0 justify-center p-5 rounded-full shadow-benefit-icon md:absolute md:bg-white md:z-20 md:-top-12 md:left-1/2 md:-translate-x-1/2">
-            <img src="{{ asset("assets/images/landing/karir/benefit/icon-pengalaman.png") }}"
+            <img src="{{ asset("assets/images/landing/karir/benefit/icon-pengalaman.webp") }}"
                  alt="Pengalaman"
                  class="size-14 md:size-12">
         </div>

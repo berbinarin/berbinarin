@@ -41,12 +41,12 @@ class BerbinarClassController extends Controller
             'title' => $validated['title'],
             'description' => $validated['description'],
             'price' => 0,
-            'thumbnail' => 'default.png',
+            'thumbnail' => 'default.webp',
         ]);
 
         return redirect()->route('dashboard.berbinar-class.index')->with([
             'alert' => true,
-            'icon' => asset('assets/images/dashboard/success.png'),
+            'icon' => asset('assets/images/dashboard/success.webp'),
             'title' => 'Berhasil!',
             'message' => 'Kelas berhasil ditambahkan.',
             'type' => 'success',
@@ -86,12 +86,12 @@ class BerbinarClassController extends Controller
             'title' => $validated['title'],
             'description' => $validated['description'],
             'price' => 0,
-            'thumbnail' => 'default.png',
+            'thumbnail' => 'default.webp',
         ]);
 
         return redirect()->route('dashboard.berbinar-class.index')->with([
             'alert' => true,
-            'icon' => asset('assets/images/dashboard/success.png'),
+            'icon' => asset('assets/images/dashboard/success.webp'),
             'title' => 'Berhasil!',
             'message' => 'Kelas berhasil diubah.',
             'type' => 'success',
@@ -107,7 +107,7 @@ class BerbinarClassController extends Controller
         $class->delete();
         return redirect()->route('dashboard.berbinar-class.index')->with([
             'alert' => true,
-            'icon' => asset('assets/images/dashboard/success.png'),
+            'icon' => asset('assets/images/dashboard/success.webp'),
             'title' => 'Berhasil!',
             'message' => 'Kelas berhasil dihapus.',
             'type' => 'success',

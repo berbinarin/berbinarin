@@ -72,7 +72,7 @@ class UserInternshipController extends Controller
                 'type' => 'error',
                 'title' => 'Gagal!',
                 'message' =>'Terdapat kesalahan : '.$e->getMessage(),
-                'icon' => asset('assets/images/dashboard/error.png'),
+                'icon' => asset('assets/images/dashboard/error.webp'),
             ]);
         }
     }
@@ -126,7 +126,7 @@ class UserInternshipController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'User Internship berhasil diubah',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -141,7 +141,7 @@ class UserInternshipController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'User Internship Berhasil dihapus',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -161,7 +161,7 @@ class UserInternshipController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'User internship berhasil diubah',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
         }catch(\Exception $e){
             return redirect()->route("/dashboard/admin/internship")->with([
@@ -169,7 +169,7 @@ class UserInternshipController extends Controller
                 'type' => 'error',
                 'title' => 'Gagal!',
                 'message' =>'Terjadi kesalahan'. $e->getMessage(),
-                'icon' => asset('assets/images/dashboard/error.png'),
+                'icon' => asset('assets/images/dashboard/error.webp'),
             ]);
         }
     }

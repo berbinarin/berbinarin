@@ -74,7 +74,7 @@ export default {
         54: ".54",
       },
       listStyleImage: {
-        checkmark: 'url("/assets/images/landing/asset-kelas/berbinar-plus/list.png")',
+        checkmark: 'url("/assets/images/landing/asset-kelas/berbinar-plus/list.webp")',
       },
     },
   },

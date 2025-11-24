@@ -20,7 +20,7 @@
                         <img src="{{ asset("image/" . $position->banner_path) }}" alt="banner" class="h-40 w-full object-cover sm:h-48 md:h-60 lg:h-64 xl:h-72" />
                     </div>
                     <div class="absolute -bottom-2 right-10 rounded-full bg-white sm:right-20 lg:-bottom-6 lg:left-8 lg:right-auto">
-                        <img src="{{ asset("assets/images/landing/logo/logo-berbinar.png") }}" alt="logo berbinar" class="size-14 object-cover" />
+                        <img src="{{ asset("assets/images/landing/logo/logo-berbinar.webp") }}" alt="logo berbinar" class="size-14 object-cover" />
                     </div>
                 </div>
                 {{-- deskripsi pekerjaan badge --}}
@@ -32,7 +32,7 @@
                         {{ $position->divisi }}
                     </h2>
                     <div class="mx-auto mb-8 w-full">
-                        <img src="{{ asset("assets/images/landing/karir/wave-detail.png") }}" alt="wave-detail" class="lg:-translate-x-16 lg:scale-x-125 lg:scale-y-75" />
+                        <img src="{{ asset("assets/images/landing/karir/wave-detail.webp") }}" alt="wave-detail" class="lg:-translate-x-16 lg:scale-x-125 lg:scale-y-75" />
                     </div>
 
                     <div class="mx-auto hidden w-full lg:flex lg:items-center lg:justify-start">
@@ -59,23 +59,23 @@
 
             <div class="mb-4 w-full rounded-2xl bg-[#E1EFF6] p-4 md:h-1/2 md:max-w-xs lg:h-auto lg:max-w-md">
                 <div class="mb-4 flex items-center justify-start gap-2 text-sm font-normal sm:text-base md:mb-6 lg:mb-8">
-                    <img src="{{ asset("assets/images/landing/karir/banner/detail/icon-location.png") }}" alt="icon-location" class="size-4 sm:size-5" />
+                    <img src="{{ asset("assets/images/landing/karir/banner/detail/icon-location.webp") }}" alt="icon-location" class="size-4 sm:size-5" />
                     Surabaya, Indonesia — Remote
                 </div>
                 <div class="mb-4 flex items-center justify-start gap-2 break-all text-sm font-normal sm:text-base md:mb-6 lg:mb-8">
-                    <img src="{{ asset("assets/images/landing/karir/banner/detail/icon-email.png") }}" alt="icon-location" class="size-4 sm:size-5" />
+                    <img src="{{ asset("assets/images/landing/karir/banner/detail/icon-email.webp") }}" alt="icon-location" class="size-4 sm:size-5" />
                     humanresource2.berbinar.in@gmail.com
                 </div>
                 <div class="mb-4 flex items-center justify-start gap-2 text-sm font-normal sm:text-base md:mb-6 lg:mb-8">
-                    <img src="{{ asset("assets/images/landing/karir/banner/detail/icon-user.png") }}" alt="icon-location" class="size-4 sm:size-5" />
+                    <img src="{{ asset("assets/images/landing/karir/banner/detail/icon-user.webp") }}" alt="icon-location" class="size-4 sm:size-5" />
                     {{ $position->divisi }}
                 </div>
                 <div class="mb-4 flex items-center justify-start gap-2 text-sm font-normal sm:text-base md:mb-6 lg:mb-8">
-                    <img src="{{ asset("assets/images/landing/karir/banner/detail/icon-clock.png") }}" alt="icon-location" class="size-4 sm:size-5" />
+                    <img src="{{ asset("assets/images/landing/karir/banner/detail/icon-clock.webp") }}" alt="icon-location" class="size-4 sm:size-5" />
                     Remote (WFH/WFA)
                 </div>
                 <div class="mb-4 flex items-center justify-start gap-2 text-sm font-normal sm:text-base md:mb-6 lg:mb-8">
-                    <img src="{{ asset("assets/images/landing/karir/banner/detail/icon-bag.png") }}" alt="icon-location" class="size-4 sm:size-5" />
+                    <img src="{{ asset("assets/images/landing/karir/banner/detail/icon-bag.webp") }}" alt="icon-location" class="size-4 sm:size-5" />
                     Unpaid
                 </div>
                 <div class="center flex items-center justify-center gap-2 px-4 text-center text-sm font-normal sm:text-base">Silakan kirim CV lengkap anda kepada kami untuk melamar posisi ini</div>
@@ -150,7 +150,7 @@
     <section class="mx-auto mb-12 flex w-full items-center justify-center px-2 md:px-16 lg:mt-12">
         <a href="{{ route("career.keluarga-berbinar.index") }}">
             <div class="cursor-pointer">
-                <img src="{{ asset("assets/images/landing/karir/banner-keluarga-berbinar.png") }}" alt="banner keluarga berbinar" class="object-cover" />
+                <img src="{{ asset("assets/images/landing/karir/banner-keluarga-berbinar.webp") }}" alt="banner keluarga berbinar" class="object-cover" />
             </div>
         </a>
     </section>

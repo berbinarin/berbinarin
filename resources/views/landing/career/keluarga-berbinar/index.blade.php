@@ -19,7 +19,7 @@
                 <div class="flex h-96 w-full items-center justify-center lg:h-[500px]">
                     <div class="text-center">
                         <div class="mx-auto mb-4 flex w-full items-center justify-center">
-                            <img src="{{ asset("assets/images/landing/arteri/empty-icon.png") }}" alt="empty image" class="h-32 object-cover sm:h-44 md:h-48 lg:h-52" />
+                            <img src="{{ asset("assets/images/landing/arteri/empty-icon.webp") }}" alt="empty image" class="h-32 object-cover sm:h-44 md:h-48 lg:h-52" />
                         </div>
                         <span class="mx-auto mb-2 block text-center text-lg font-semibold sm:text-xl md:text-2xl lg:text-3xl">Oops!</span>
                         <p class="mx-auto block max-w-sm text-center text-[#606060] md:max-w-md">Sepertinya belum ada data keluarga Berbinar di sini. Kami sedang mempersiapkan informasi terbaru tentang tim kami. Stay tuned!</p>
@@ -52,7 +52,7 @@
         </div>
         {{-- divider path --}}
         <div class="relative mx-auto h-20 md:mb-5 xl:mb-7">
-            <img src="{{ asset("assets/images/landing/keluarga-berbinar/path.png") }}" alt="divider" class="3xl:-translate-y-54 h-auto w-screen min-w-96 -translate-y-16 object-cover sm:-translate-y-24 md:-translate-y-28 lg:-translate-y-20 xl:-translate-y-32 3xl:scale-y-75 2xl:-translate-y-52 2xl:scale-y-75" />
+            <img src="{{ asset("assets/images/landing/keluarga-berbinar/path.webp") }}" alt="divider" class="3xl:-translate-y-54 h-auto w-screen min-w-96 -translate-y-16 object-cover sm:-translate-y-24 md:-translate-y-28 lg:-translate-y-20 xl:-translate-y-32 3xl:scale-y-75 2xl:-translate-y-52 2xl:scale-y-75" />
         </div>
 
         {{-- [MOBILE] divisi yang dipilih --}}
@@ -240,13 +240,13 @@
 
                 // texture BOTH FRONT AND BACK
                 const textureBack = document.createElement('img'); // element
-                textureBack.src = '/assets/images/landing/keluarga-berbinar/texture-card.png';
+                textureBack.src = '/assets/images/landing/keluarga-berbinar/texture-card.webp';
                 textureBack.alt = 'texture';
                 textureBack.id = 'back-texture';
                 textureBack.classList.add('texture');
 
                 const textureFront = document.createElement('img');
-                textureFront.src = '/assets/images/landing/keluarga-berbinar/texture-card.png';
+                textureFront.src = '/assets/images/landing/keluarga-berbinar/texture-card.webp';
                 textureFront.alt = 'texture';
                 textureFront.id = 'front-texture';
                 textureFront.classList.add('texture');
@@ -281,7 +281,7 @@
                 liniMasaBtn.classList.add('liniMasaBtn');
 
                 const liniMasaImg = document.createElement('img');
-                liniMasaImg.src = '/assets/images/landing/keluarga-berbinar/lini-masa.png';
+                liniMasaImg.src = '/assets/images/landing/keluarga-berbinar/lini-masa.webp';
                 liniMasaImg.classList.add('mx-auto', 'size-5');
                 const liniMasaSpan = document.createElement('span');
                 liniMasaSpan.classList.add('text-center', 'text-xs', 'font-semibold', 'text-white');
@@ -332,7 +332,7 @@
                     <p class="block text-base font-normal text-white">
                         ${dateStart}${isAlumni ? ` - ${dateEnd}` : '- Sekarang'}</p>
                     <a href="${staff.linkedin}" target="_blank" class="hidden w-auto xl:pointer-events-auto xl:inline-block xl:cursor-pointer">
-                        <img src="/assets/images/landing/keluarga-berbinar/linkedin-fill.png" alt="linkedin" class="size-6"></a>
+                        <img src="/assets/images/landing/keluarga-berbinar/linkedin-fill.webp" alt="linkedin" class="size-6"></a>
                 </div>`;
 
                 const contentHTML = `
@@ -374,7 +374,7 @@
                 linkedInBtn.classList.add('absolute', 'bottom-2', 'right-3', 'lg:hidden');
 
                 const imgLinkedInBtn = document.createElement('img');
-                imgLinkedInBtn.src = '/assets/images/landing/keluarga-berbinar/linkedin-fill.png';
+                imgLinkedInBtn.src = '/assets/images/landing/keluarga-berbinar/linkedin-fill.webp';
                 imgLinkedInBtn.alt = 'linkedin';
                 imgLinkedInBtn.classList.add('size-6');
 
@@ -825,5 +825,5 @@
 
 @endif
 @section("script")
-    
+
 @endsection

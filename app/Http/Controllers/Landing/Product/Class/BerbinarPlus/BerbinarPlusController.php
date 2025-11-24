@@ -17,27 +17,27 @@ class BerbinarPlusController extends Controller
     {
         $products = [
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-class-journey.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-class-journey.webp',
                 'produk' => '101 Class Journey',
                 'deskripsi' => 'Memperluas wawasan keilmuan dan keterampilan yang berasal dari ahli',
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.webp',
                 'produk' => 'BISIKAN',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-berbinar.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-berbinar.webp',
                 'produk' => 'Berbinar+',
                 'deskripsi' => 'Bundling package dimana customer bisa menggunakan produk kelas, konseling, dan psikotes.',
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.webp',
                 'produk' => 'Berarty',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.webp',
                 'produk' => 'Premium Class',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
             ],
@@ -71,43 +71,43 @@ class BerbinarPlusController extends Controller
                 'name' => 'Erwin Tri Susanto, S.Psi, MBA',
                 'field' => 'Human Resources',
                 'title' => 'Career Preparation',
-                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/erwin.png'
+                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/erwin.webp'
             ],
             [
                 'name' => 'Sefty Wulandari',
                 'field' => 'Social Media Specialist',
                 'title' => 'Pemasaran Influencer dan Kemitraan',
-                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/sefty.png'
+                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/sefty.webp'
             ],
             [
                 'name' => 'Dini Amelia Sari',
                 'field' => 'Digital Marketing',
                 'title' => 'Digital Marketing Essentials',
-                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/dini.png'
+                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/dini.webp'
             ],
             [
                 'name' => 'Indriana Luqul Jannah',
                 'field' => 'Digital Marketing',
                 'title' => 'SEO Basics',
-                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/indriana.png'
+                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/indriana.webp'
             ],
             [
                 'name' => 'Shafa Nathaniela Salwa',
                 'field' => 'Product management',
                 'title' => '-',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/virginia.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/virginia.webp'
             ],
             [
                 'name' => 'Hakiki Mahfuzh',
                 'field' => 'Product management',
                 'title' => '-',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/kasmayani.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/kasmayani.webp'
             ],
             [
                 'name' => 'Abdillah Farhan',
                 'field' => 'Digital Marketing',
                 'title' => '-',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/ira.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/ira.webp'
             ]
         ];
 
@@ -147,15 +147,15 @@ class BerbinarPlusController extends Controller
         $benefit_berbinar_plus = [
             [
                 'name' => 'E-Certificate',
-                'image' => 'certificate.png'
+                'image' => 'certificate.webp'
             ],
             [
                 'name' => 'Hands-On Experience',
-                'image' => 'hands-on.png'
+                'image' => 'hands-on.webp'
             ],
             [
                 'name' => 'Upgrade Skill',
-                'image' => 'upgrade.png'
+                'image' => 'upgrade.webp'
             ],
         ];
 

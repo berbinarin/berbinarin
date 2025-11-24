@@ -12,40 +12,40 @@ class Class101JourneyController extends Controller
             [
                 'name' => 'Early Bird',
                 'price' => 'Rp20.000',
-                'icon' => 'assets/images/landing/asset-kelas/class-journey/early-bird.png'
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/early-bird.webp'
             ],
             [
                 'name' => 'Bundling Bertiga',
                 'price' => 'Rp70.000',
-                'icon' => 'assets/images/landing/asset-kelas/class-journey/bundle-bertiga.png'
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/bundle-bertiga.webp'
             ],
             [
                 'name' => 'Normal Price',
                 'price' => 'Rp25.000',
-                'icon' => 'assets/images/landing/asset-kelas/class-journey/normal-price.png'
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/normal-price.webp'
             ],
         ];
 
         $benefit_class_journey = [
             [
                 'name' => 'E-Certificate',
-                'image' => 'certificate.png'
+                'image' => 'certificate.webp'
             ],
             [
                 'name' => 'Hands-On Experience',
-                'image' => 'hands-on.png'
+                'image' => 'hands-on.webp'
             ],
             [
                 'name' => 'Upgrade Skill',
-                'image' => 'upgrade.png'
+                'image' => 'upgrade.webp'
             ],
             [
                 'name' => 'Tips & Trick dari Ahli',
-                'image' => 'tips-n-trick.png'
+                'image' => 'tips-n-trick.webp'
             ],
             [
                 'name' => 'Networking',
-                'image' => 'networking.png'
+                'image' => 'networking.webp'
             ],
         ];
 
@@ -76,7 +76,7 @@ class Class101JourneyController extends Controller
             ]
         ];
 
-        $poster = 'public/assets/images/landing/asset-kelas/class-journey/poster-maret.png';
+        $poster = 'public/assets/images/landing/asset-kelas/class-journey/poster-maret.webp';
 
         $link_pendaftaran = 'https://bit.ly/Pendaftaran_101ClassJourney';
 

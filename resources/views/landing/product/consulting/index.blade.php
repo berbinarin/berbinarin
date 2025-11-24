@@ -17,11 +17,11 @@
         }
 
         .bg-psikolog {
-            background-image: url('/assets/images/landing/asset-konseling/image/bg-psikolog.png');
+            background-image: url('/assets/images/landing/asset-konseling/image/bg-psikolog.webp');
         }
 
         .bg-wave {
-            background-image: url('/assets/images/landing/asset-konseling/vector/vector-wave.svg');
+            background-image: url('/assets/images/landing/asset-konseling/vector/vector-wave.webp');
             background-repeat: no-repeat;
             background-position: center;
         }
@@ -95,11 +95,11 @@
     {{-- HERO SECTION --}}
     <section class="relative overflow-x-hidden md:overflow-visible">
         <div class="absolute left-0 top-5 z-0 max-sm:top-32">
-            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero1.svg") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
+            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero1.webp") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
         </div>
 
         <div class="absolute right-0 top-8 z-0 max-md:-right-28 max-sm:-right-20 max-sm:top-40">
-            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero2.svg") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
+            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero2.webp") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
         </div>
 
         <div class="relative">
@@ -107,13 +107,13 @@
                 <div class="max-lg:min-w-auto flex max-w-xl flex-1 flex-col space-y-6 max-sm:space-y-2">
                     <a href="{{ route("product.index") }}">
                         <div class="flex cursor-pointer items-center space-x-2 lg:order-1">
-                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.svg") }}" alt="Left Arrow" class="h-3 w-auto" />
+                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.webp") }}" alt="Left Arrow" class="h-3 w-auto" />
                             <p class="text-[15px] font-semibold text-[#3986A3]">Produk Berbinar</p>
                         </div>
                     </a>
 
                     <div class="hidden w-full items-center justify-center max-lg:flex-none max-md:flex lg:order-2 lg:w-auto">
-                        <img src="{{ asset("assets/images/landing/asset-consulting/hero.png") }}" alt="Consulting" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
+                        <img src="{{ asset("assets/images/landing/asset-consulting/hero.webp") }}" alt="Consulting" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
                     </div>
 
                     <div class="lg:order-3">
@@ -126,7 +126,7 @@
                 </div>
 
                 <div class="flex w-full flex-initial items-center justify-center max-lg:flex-1 max-md:hidden lg:w-auto">
-                    <img src="{{ asset("assets/images/landing/asset-consulting/hero.png") }}" alt="Consulting" class="h-[340px] w-auto object-contain max-lg:h-[320px]" />
+                    <img src="{{ asset("assets/images/landing/asset-consulting/hero.webp") }}" alt="Consulting" class="h-[340px] w-auto object-contain max-lg:h-[320px]" />
                 </div>
             </div>
         </div>
@@ -134,7 +134,7 @@
 
     {{-- LAYANAN --}}
     <section class="bg-psikolog relative mx-20 my-56 mt-24 h-[280px] rounded-3xl bg-cover p-10 max-md:my-5 max-md:h-[600px] max-md:overflow-hidden max-sm:mx-4 max-sm:h-[500px]">
-        <img src="/assets/images/landing/asset-produk/vector-curling-mobile.png" alt="Background" class="absolute -top-[150px] left-0 hidden w-[1000px] rounded-t-3xl object-cover max-md:-top-[220px] max-md:flex max-md:h-[700px] max-sm:-top-[200px] max-sm:h-[600px] max-sm:w-[1500px]" />
+        <img src="/assets/images/landing/asset-produk/vector-curling-mobile.webp" alt="Background" class="absolute -top-[150px] left-0 hidden w-[1000px] rounded-t-3xl object-cover max-md:-top-[220px] max-md:flex max-md:h-[700px] max-sm:-top-[200px] max-sm:h-[600px] max-sm:w-[1500px]" />
         <div class="absolute inset-0 flex rounded-3xl bg-[#2D6B8280] max-md:hidden"></div>
 
         <div class="relative flex flex-col justify-center space-y-4 text-center">
@@ -163,7 +163,7 @@
                                     {{-- list --}}
                                     @foreach ($layanan_consulting["description"] as $desc)
                                         <div class="flex flex-row items-start gap-x-2">
-                                            <img src="{{ asset("assets/images/landing/asset-tentang/green-check.svg") }}" alt="Vector" class="h-[18px] w-[18px] max-sm:h-4 max-sm:w-4" />
+                                            <img src="{{ asset("assets/images/landing/asset-tentang/green-check.webp") }}" alt="Vector" class="h-[18px] w-[18px] max-sm:h-4 max-sm:w-4" />
                                             <p class="-mt-0.5 text-justify text-[16px] text-[#70787D] max-sm:text-[15px]">{{ $desc }}</p>
                                         </div>
                                     @endforeach
@@ -207,7 +207,7 @@
                         <p class="mt-3 flex-grow text-[30px] font-semibold leading-none text-[#3986A3] max-sm:mt-1.5 max-sm:text-[22px]">
                             {{ $bundling["price"] }}
                         </p>
-                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-2 w-full sm:my-4" />
+                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.webp") }}" alt="Vector" class="my-2 w-full sm:my-4" />
                         <a href="{{ $bundling["link"] }}" target="_blank">
                             <div class="mb-1 flex justify-center">
                                 <button class="rounded-lg bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-4 py-1.5 text-sm text-white">Mulai Sekarang</button>
@@ -223,9 +223,9 @@
     {{-- ALUR PENDAFTARAN CONSULTING --}}
     <section class="relative w-full overflow-x-hidden overflow-y-hidden bg-clip-content px-4 sm:px-14">
         {{-- Ellipse ornamen top-right --}}
-        <img src="{{ asset("assets/images/landing/asset-consulting/Ellipse.png") }}" alt="ellipse ornament" class="absolute right-0 top-0 z-10 hidden size-[500px] -translate-y-3 translate-x-40 scale-125 lg:block" />
+        <img src="{{ asset("assets/images/landing/asset-consulting/Ellipse.webp") }}" alt="ellipse ornament" class="absolute right-0 top-0 z-10 hidden size-[500px] -translate-y-3 translate-x-40 scale-125 lg:block" />
         {{-- Ellipse ornamen bottom-left --}}
-        <img src="{{ asset("assets/images/landing/asset-consulting/Ellipse.png") }}" alt="ellipse ornament" class="absolute bottom-0 left-0 z-10 hidden size-[500px] -translate-x-40 translate-y-4 scale-125 lg:block" />
+        <img src="{{ asset("assets/images/landing/asset-consulting/Ellipse.webp") }}" alt="ellipse ornament" class="absolute bottom-0 left-0 z-10 hidden size-[500px] -translate-x-40 translate-y-4 scale-125 lg:block" />
 
         {{-- TITLE --}}
         <div class="mb-6 flex w-full items-center justify-center text-center">
@@ -236,7 +236,7 @@
         <div class="relative flex flex-col gap-4 overflow-x-auto py-6 scrollbar-hide lg:gap-8 lg:py-20">
             <!-- Image in its own flex item -->
             <div class="relative z-20 hidden justify-center lg:flex lg:translate-x-72 xl:translate-x-44 3xl:translate-x-10 2xl:translate-x-0">
-                <img src="{{ asset("assets/images/landing/asset-consulting/alur_pendaftaran.png") }}" alt="ornament alur pendaftaran" class="h-auto lg:max-w-screen-xl" />
+                <img src="{{ asset("assets/images/landing/asset-consulting/alur_pendaftaran.webp") }}" alt="ornament alur pendaftaran" class="h-auto lg:max-w-screen-xl" />
             </div>
 
             <!-- Steps in flex-row on large screen -->
@@ -245,7 +245,7 @@
                     <div class="lg:odd:pt-20">
                         <div class="flex shrink-0 flex-col items-center justify-center rounded-xl bg-white p-6 text-center shadow-lg lg:w-56 lg:p-4">
                             <img src="{{ asset($step["link"]) }}" alt="icon" class="mb-3 hidden size-12 lg:block" />
-                            <img src="{{ asset("assets/images/landing/asset-consulting/line.png") }}" alt="line" class="mb-4 hidden scale-y-150 lg:block" />
+                            <img src="{{ asset("assets/images/landing/asset-consulting/line.webp") }}" alt="line" class="mb-4 hidden scale-y-150 lg:block" />
                             <h1 class="mb-4 text-lg font-semibold text-slate-900">{{ $step["title"] }}</h1>
                             <p class="font-base text-justify text-[#70787D]">{{ $step["description"] }}</p>
                         </div>

@@ -13,12 +13,12 @@ class PeerCounselorController extends Controller
     {
         $konselings = [
             [
-                'image' => 'assets/images/landing/asset-konseling/vector/peercounselor.png',
+                'image' => 'assets/images/landing/asset-konseling/vector/peercounselor.webp',
                 'nama' => 'Umum',
                 'deskripsi' => 'Konseling bersama Peer Counselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
             ],
             [
-                'image' => 'assets/images/landing/asset-konseling/vector/berbinarforu.png',
+                'image' => 'assets/images/landing/asset-konseling/vector/berbinarforu.webp',
                 'nama' => 'Berbinar For U',
                 'deskripsi' => 'Berbinar For U adalah layanan curhat online gratis, nyaman, aman, dan anonim yang dijawab langsung oleh psikolog profesional terpercaya.',
             ],

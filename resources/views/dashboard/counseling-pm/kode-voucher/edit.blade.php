@@ -9,7 +9,7 @@
         <div class="py-4 md:pb-7 md:pt-12">
             <div class="mb-2 flex items-center gap-2">
                 <a href="{{ route('dashboard.code-voucher.index') }}">
-                    <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
+                    <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.webp') }}" alt="Back Btn" />
                 </a>
                 <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Ubah Kode Voucher</p>
             </div>
@@ -175,7 +175,7 @@
 <div id="confirmModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black bg-opacity-50">
     <div class="w-full max-w-md rounded-lg bg-white p-6 text-center">
         <div class="mb-4 flex justify-center">
-            <img src="{{ asset("assets/images/dashboard/svg-icon/warning.svg") }}" alt="Warning Icon" class="h-12 w-12" />
+            <img src="{{ asset("assets/images/dashboard/svg-icon/warning.webp") }}" alt="Warning Icon" class="h-12 w-12" />
         </div>
         <p class="mb-6 text-lg">Apakah Anda yakin ingin membatalkan penambahan data ini?</p>
         <div class="flex justify-center gap-4">

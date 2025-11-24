@@ -25,7 +25,7 @@ class SkorBdiController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => $skor,
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 }

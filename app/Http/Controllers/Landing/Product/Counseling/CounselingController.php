@@ -49,32 +49,32 @@ class CounselingController extends Controller
             [
                 'name' => 'Danny Sanjaya Arfensia',
                 'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/danny.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/danny.webp'
             ],
             [
                 'name' => 'Satria Kamal Agassi',
                 'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/satria.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/satria.webp'
             ],
             [
                 'name' => 'Virginia Sukma Dewi',
                 'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/virginia.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/virginia.webp'
             ],
             [
                 'name' => 'Ramadhani Lucky Al Kahfi',
                 'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/ramadhani.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/ramadhani.webp'
             ],
             [
                 'name' => 'Alto Kusumo Andrian',
                 'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/alto.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/alto.webp'
             ],
             [
                 'name' => 'Saraswati Stefannie Doho',
                 'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/saras.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/saras.webp'
             ],
         ];
 
@@ -171,7 +171,7 @@ class CounselingController extends Controller
         $peers = [
             [
                 'name' => "Adinda Fasya Az-zahra D.",
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/adinda.png',
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/adinda.webp',
                 'region' => 'Jakarta'
             ],
         ];
@@ -209,32 +209,32 @@ class CounselingController extends Controller
         $testimonis = [
             [
                 'comment' => '"Sesi konseling merubah pandang: tak masalah berubah demi orang lain. Dorongan jadi lebih baik. Lakukan yang dinginkan, tetap aman. Belajarlah. Lampiaskan sakit, geser ke positif, hargai diri dan peduli orang”',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
                 'name' => 'Anonim'
             ],
             [
                 'comment' => '"Konseling sangat membantu, konselor ramah. Pertama kali cerita, terbantu menceritakan masalah yang selama ini takut dibagikan sebelumnya. Rasanya lega, tanpa beban dan validasi. Kakak konselor memberi waktu dan kenyamanan."',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
                 'name' => 'Anonim'
             ],
             [
                 'comment' => '"Konselor mendengarkan dan memerhatikan dengan seksama, memberi saran dan bimbingan spesifik. Dituntun dengan pertanyaan terkait permasalahan, sangat terbantu. Akan segera menyelesaikan tugas setelah konseling hari ini."',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
                 'name' => 'Anonim'
             ],
             [
                 'comment' => '"Psikolognya mendengar dan menyimak cerita saya selama proses konseling dan juga menjelaskan masalah saya dengan cara yang mudah dipahami. Saya merasa nyaman dan tidak merasa dihakimi ketika saya menceritakan semua masalah saya."',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
                 'name' => 'Anonim'
             ],
             [
                 'comment' => '"Psikolog mendengarkan semua cerita dengan baik, bisa leluasa cerita dan mengungkapkan perasaan jadi lebih tenang, psikolog memperhatikan detail cerita sehingga bisa membantu menemukan akar permasalahannya"',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
                 'name' => 'Anonim'
             ],
             [
                 'comment' => '"Saya sangat senang dan terbantu, konselor ramah, ini pertama kali saya berkonsultasi dan berani cerita permasalahan yang saya alami. Sebelumnya saya takut untuk cerita permasalahan. Disini rasanya bisa cerita tanpa ada beban."',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
                 'name' => 'Anonim'
             ],
         ];
@@ -288,12 +288,12 @@ class CounselingController extends Controller
     {
         $konselings = [
             [
-                'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
+                'image' => 'assets/images/landing/asset-konseling/vector/psikolog.webp',
                 'nama' => 'Psikolog',
                 'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
             ],
             [
-                'image' => 'assets/images/landing/asset-konseling/vector/psikolog-staff.png',
+                'image' => 'assets/images/landing/asset-konseling/vector/psikolog-staff.webp',
                 'nama' => 'Peer Counselor',
                 'deskripsi' => 'Konseling bersama Peer Counselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
             ],
@@ -308,13 +308,13 @@ class CounselingController extends Controller
     {
         $konselings = [
             [
-                'image' => 'assets/images/landing/asset-konseling/vector/psikolog1-new.png',
+                'image' => 'assets/images/landing/asset-konseling/vector/psikolog1-new.webp',
                 'nama' => 'Psikolog',
                 'deskripsi' => 'Konseling bersama Psikolog berizin (SIPP) yang berpengalaman menangani keluhan staff.
                 Dilaksanakan secara profesional dan rahasia untuk mendukung kesehatan mental serta performa staff.',
             ],
             [
-                'image' => 'assets/images/landing/asset-konseling/vector/psikolog3-new.png',
+                'image' => 'assets/images/landing/asset-konseling/vector/psikolog3-new.webp',
                 'nama' => 'Peer Counselor',
                 'deskripsi' => 'Sesi bersama Peer Counselor terlatih oleh Psikolog Berbinar, siap menjadi pendengar empatik bagi staff dalam menghadapi tantangan kerja dan menjaga kesejahteraan emosional.',
             ],

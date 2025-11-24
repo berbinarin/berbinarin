@@ -1,7 +1,7 @@
 <nav class="flex w-56 flex-col items-center bg-white py-8 pl-10 pr-6">
     {{-- LOGO BERBINAR --}}
     <div>
-        <img src="{{ asset('assets/images/old/logo-berbinar.png') }}" alt="Logo Berbinar Insightful Indonesia"
+        <img src="{{ asset('assets/images/old/logo-berbinar.webp') }}" alt="Logo Berbinar Insightful Indonesia"
             title="Logo Berbinar Insightful Indonesia" class="w-12" />
     </div>
 
@@ -15,7 +15,7 @@
         <li class="{{ Request::is('dashboard') ? 'rounded-xl bg-[#3986A3]' : '' }} mt-1 rounded-lg p-2">
             <a href="{{ route('dashboard.index') }}"
                 class="{{ Request::is('dashboard') ? 'text-white' : 'text-gray-700 hover:text-primary' }} flex flex-row items-center duration-700">
-                <img src="{{ asset('assets/images/dashboard/Category.png') }}" alt="Dashboard Icon"
+                <img src="{{ asset('assets/images/dashboard/Category.webp') }}" alt="Dashboard Icon"
                     class="mr-2 h-[21px] w-[21px] object-contain transition duration-300 {{ Request::is('dashboard') ? 'brightness-0 invert' : 'brightness-100' }}" />
                 <span class="ml-4 text-xs lg:text-base font-bold leading-5">Dashboard</span>
             </a>

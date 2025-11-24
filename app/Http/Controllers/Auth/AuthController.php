@@ -30,7 +30,7 @@ class AuthController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'Pendaftaran Berhasil',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
         } catch (\Exception $e) {
             return redirect()->back()->with([
@@ -38,7 +38,7 @@ class AuthController extends Controller
                 'type' => 'error',
                 'title' => 'Gagal!',
                 'message' =>'Terjadi kesalahan, silahkan coba lagi',
-                'icon' => asset('assets/images/dashboard/error.png'),
+                'icon' => asset('assets/images/dashboard/error.webp'),
             ]);
         }
     }
@@ -63,7 +63,7 @@ class AuthController extends Controller
                 'type' => 'success',
                 'title' => 'Login Berhasil',
                 'message' =>'Silahkan masuk',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
 
         } else {
@@ -72,7 +72,7 @@ class AuthController extends Controller
                 'type' => 'error',
                 'title' => 'Gagal!',
                 'message' =>'Username atau Password salah',
-                'icon' => asset('assets/images/dashboard/error.png'),
+                'icon' => asset('assets/images/dashboard/error.webp'),
             ]);
         }
     }
@@ -85,7 +85,7 @@ class AuthController extends Controller
                 'type' => 'success',
                 'title' => 'Logout Berhasil',
                 'message' =>'Sampai jumpa lagi 😘',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 }

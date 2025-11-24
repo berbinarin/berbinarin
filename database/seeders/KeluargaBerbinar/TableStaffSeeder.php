@@ -15,7 +15,7 @@ class TableStaffSeeder extends Seeder
             'name' => 'Frans Longworth',
             'status' => true,
             'linkedin' => 'https://www.linkedin.com/in/frans-longworth/',
-            'photo' => 'photos/VmvKierVdEiWXyROrInzDB5LISPxbEyaJS8QOj4q.png',
+            'photo' => 'photos/VmvKierVdEiWXyROrInzDB5LISPxbEyaJS8QOj4q.webp',
             'motm' => 'yes',
         ]);
 
@@ -32,7 +32,7 @@ class TableStaffSeeder extends Seeder
             'name' => 'Caprice Cromblehome',
             'status' => true,
             'linkedin' => 'https://www.linkedin.com/in/frans-longworth/',
-            'photo' => 'photos/VmvKierVdEiWXyROrInzDB5LISPxbEyaJS8QOj4q.png',
+            'photo' => 'photos/VmvKierVdEiWXyROrInzDB5LISPxbEyaJS8QOj4q.webp',
             'motm' => 'yes',
         ]);
 

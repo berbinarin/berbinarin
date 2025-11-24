@@ -221,7 +221,7 @@
                             <div class="flex flex-row items-center justify-center">
                                 <a href="javascript:void(0)" onclick="toggleShareModal(true)" class="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#3886A3] to-[#225062] px-2 lg:px-6 py-2 font-medium text-white md:w-auto">
                                     <span>Bagikan</span>
-                                    <img src="{{ asset("assets/images/landing/arteri/upload.svg") }}" class="h-5 w-5" />
+                                    <img src="{{ asset("assets/images/landing/arteri/upload.webp") }}" class="h-5 w-5" />
                                 </a>
                             </div>
                         </div>
@@ -291,11 +291,11 @@
                                 <div class="flex flex-wrap justify-center md:justify-start md:pl-6">
                                     @php
                                         $reactions = [
-                                            ["label" => "tidak suka", "img" => "5-pissed.png", "hover" => "5-pissed2.png"],
-                                            ["label" => "bosan", "img" => "4-bummed.png", "hover" => "4-bummed2.png"],
-                                            ["label" => "biasa saja", "img" => "3-neutral.png", "hover" => "3-neutral2.png"],
-                                            ["label" => "senang", "img" => "2-happy.png", "hover" => "2-happy2.png"],
-                                            ["label" => "sangat senang", "img" => "1-wahoo.png", "hover" => "1-wahoo2.png"],
+                                            ["label" => "tidak suka", "img" => "5-pissed.webp", "hover" => "5-pissed2.webp"],
+                                            ["label" => "bosan", "img" => "4-bummed.webp", "hover" => "4-bummed2.webp"],
+                                            ["label" => "biasa saja", "img" => "3-neutral.webp", "hover" => "3-neutral2.webp"],
+                                            ["label" => "senang", "img" => "2-happy.webp", "hover" => "2-happy2.webp"],
+                                            ["label" => "sangat senang", "img" => "1-wahoo.webp", "hover" => "1-wahoo2.webp"],
                                         ];
                                     @endphp
 
@@ -320,7 +320,7 @@
                             <div class="flex justify-end px-4 md:px-0 md:pr-4">
                                 <a href="javascript:void(0)" onclick="toggleShareModal(true)" class="mt-6 flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#3886A3] to-[#225062] px-2 lg:px-6 py-2 font-medium text-white md:w-auto">
                                     <span>Bagikan</span>
-                                    <img src="{{ asset("assets/images/landing/arteri/upload.svg") }}" class="h-5 w-5" />
+                                    <img src="{{ asset("assets/images/landing/arteri/upload.webp") }}" class="h-5 w-5" />
                                 </a>
                             </div>
                         </div>
@@ -414,19 +414,19 @@
 
             <div class="mb-8 flex justify-between">
                 <a href="{{ $shareButtons["twitter"] ?? "#" }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
-                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/x.png") }}" class="h-5 w-5" />
+                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/x.webp") }}" class="h-5 w-5" />
                 </a>
                 <a href="{{ $shareButtons["instagram"] ?? "#" }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
-                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/instagram.png") }}" class="h-5 w-5" />
+                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/instagram.webp") }}" class="h-5 w-5" />
                 </a>
                 <a href="{{ $shareButtons["whatsapp"] ?? "#" }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
-                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/whatsapp.png") }}" class="h-5 w-5" />
+                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/whatsapp.webp") }}" class="h-5 w-5" />
                 </a>
                 <a href="{{ $shareButtons["facebook"] ?? "#" }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
-                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/facebook.png") }}" class="h-5 w-5" />
+                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/facebook.webp") }}" class="h-5 w-5" />
                 </a>
                 <a href="{{ $shareButtons["telegram"] ?? "#" }}" target="_blank" rel="noopener noreferrer" onclick="trackShare()" class="border-gray flex h-10 w-10 items-center justify-center rounded-full border-2 border-solid hover:bg-gray-200">
-                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/telegram.png") }}" class="h-5 w-5" />
+                    <img src="{{ asset("assets/images/landing/logo/sosmed-icon/telegram.webp") }}" class="h-5 w-5" />
                 </a>
             </div>
 

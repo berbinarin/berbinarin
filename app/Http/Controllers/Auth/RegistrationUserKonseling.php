@@ -30,7 +30,7 @@ class RegistrationUserKonseling extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Pendaftaran berhasil dimasukkan.',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
         } catch (\Exception $e) {
            return redirect()->back()->with([
@@ -38,7 +38,7 @@ class RegistrationUserKonseling extends Controller
                 'type'    => 'error',
                 'title'   => 'Gagal!',
                 'message' => 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage(),
-                'icon'    => asset('assets/images/dashboard/error.png'),
+                'icon'    => asset('assets/images/dashboard/error.webp'),
             ]);
         }
     }

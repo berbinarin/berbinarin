@@ -16,28 +16,28 @@
 
         .bg-individu {
             position: relative;
-            background-image: url('/assets/images/landing/asset-psikotes/bg-individu.png');
+            background-image: url('/assets/images/landing/asset-psikotes/bg-individu.webp');
             background-size: cover;
             background-position: center;
         }
 
         .bg-perusahaan {
             position: relative;
-            background-image: url('/assets/images/landing/asset-psikotes/bg-perusahaan.png');
+            background-image: url('/assets/images/landing/asset-psikotes/bg-perusahaan.webp');
             background-size: cover;
             background-position: center;
         }
 
         .bg-pendidikan {
             position: relative;
-            background-image: url('/assets/images/landing/asset-psikotes/bg-pendidikan.png');
+            background-image: url('/assets/images/landing/asset-psikotes/bg-pendidikan.webp');
             background-size: cover;
             background-position: center;
         }
 
         .bg-komunitas {
             position: relative;
-            background-image: url('/assets/images/landing/asset-psikotes/bg-komunitas.png');
+            background-image: url('/assets/images/landing/asset-psikotes/bg-komunitas.webp');
             background-size: cover;
             background-position: center;
         }
@@ -131,7 +131,7 @@
         }
 
         .bg-wave {
-            background-image: url('/assets/images/landing/asset-konseling/vector/vector-wave.svg');
+            background-image: url('/assets/images/landing/asset-konseling/vector/vector-wave.webp');
             background-repeat: no-repeat;
             background-position: center;
         }
@@ -160,7 +160,7 @@
             .bg-komunitas,
             .bg-individu {
                 position: relative;
-                background-image: url('/assets/images/landing/asset-psikotes/bg-mobile-texture.png');
+                background-image: url('/assets/images/landing/asset-psikotes/bg-mobile-texture.webp');
                 background-size: cover;
                 background-position: center;
             }
@@ -244,11 +244,11 @@
     {{-- HERO SECTION --}}
     <section class="relative max-md:overflow-x-hidden">
         <div class="absolute left-0 top-5 z-0 max-sm:top-32">
-            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero1.svg") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
+            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero1.webp") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
         </div>
 
         <div class="absolute right-0 top-8 z-0 max-md:-right-28 max-sm:-right-20 max-sm:top-40">
-            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero2.svg") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
+            <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-hero2.webp") }}" alt="Vector" class="h-[500px] w-auto max-sm:h-[250px]" />
         </div>
 
         <div class="relative">
@@ -256,13 +256,13 @@
                 <div class="max-lg:min-w-auto flex max-w-xl flex-1 flex-col space-y-6 max-sm:space-y-2">
                     <a href="{{ route("product.index") }}">
                         <div class="flex cursor-pointer items-center space-x-2 lg:order-1">
-                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.svg") }}" alt="Left Arrow" class="h-3 w-auto" />
+                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.webp") }}" alt="Left Arrow" class="h-3 w-auto" />
                             <p class="text-[15px] font-semibold text-[#3986A3]">Produk Berbinar</p>
                         </div>
                     </a>
 
                     <div class="hidden w-full items-center justify-center max-lg:flex-none max-md:flex lg:order-2 lg:w-auto">
-                        <img src="{{ asset("assets/images/landing/asset-psikotes/hero.png") }}" alt="Konseling" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
+                        <img src="{{ asset("assets/images/landing/asset-psikotes/hero.webp") }}" alt="Konseling" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
                     </div>
 
                     <div class="lg:order-3">
@@ -275,7 +275,7 @@
                 </div>
 
                 <div class="flex w-full flex-initial items-center justify-center max-lg:flex-1 max-md:hidden lg:w-auto">
-                    <img src="{{ asset("assets/images/landing/asset-psikotes/hero.png") }}" alt="Konseling" class="h-[340px] w-auto object-contain max-lg:h-[320px]" />
+                    <img src="{{ asset("assets/images/landing/asset-psikotes/hero.webp") }}" alt="Konseling" class="h-[340px] w-auto object-contain max-lg:h-[320px]" />
                 </div>
             </div>
         </div>
@@ -284,7 +284,7 @@
     {{-- KONSELING --}}
     <section class="relative mt-24 w-full">
         <div class="absolute left-0 top-4 z-0 max-sm:top-40">
-            <img src="/assets/images/landing/asset-konseling/vector/vector-line.svg" alt="Vector Image" class="" />
+            <img src="/assets/images/landing/asset-konseling/vector/vector-line.webp" alt="Vector Image" class="" />
         </div>
 
         <p class="font relative z-10 mx-20 my-8 text-center text-4xl font-semibold text-black max-sm:mx-2 max-sm:my-4 max-sm:text-[29px]">
@@ -294,11 +294,11 @@
 
         <div class="relative z-10 mx-20 mb-20 flex flex-row gap-x-1 rounded-xl bg-white p-10 shadow-md max-lg:flex-col max-lg:gap-y-4 max-sm:mx-4 max-sm:p-4">
             <div class="hidden flex-initial items-center lg:flex">
-                <img src="{{ asset("assets/images/landing/asset-psikotes/person.png") }}" alt="Vector" class="h-[350px] w-auto object-contain" />
+                <img src="{{ asset("assets/images/landing/asset-psikotes/person.webp") }}" alt="Vector" class="h-[350px] w-auto object-contain" />
             </div>
 
             <div class="flex items-center justify-center lg:hidden">
-                <img src="{{ asset("assets/images/landing/logo/logo-berbinar.png") }}" alt="Berbinar" class="h-[320px] w-auto object-contain max-md:h-[290px] max-sm:h-[270px]" />
+                <img src="{{ asset("assets/images/landing/logo/logo-berbinar.webp") }}" alt="Berbinar" class="h-[320px] w-auto object-contain max-md:h-[290px] max-sm:h-[270px]" />
             </div>
 
             <div class="flex-1">
@@ -307,7 +307,7 @@
                         @foreach ($visimisis as $visimisi)
                             <div class="flex w-auto items-center rounded-full bg-[#3986A3] p-2">
                                 <div class="flex flex-row items-center gap-x-1">
-                                    <img src="{{ asset("assets/images/landing/asset-beranda/vector/tick.svg") }}" alt="Vector" class="h-6 w-6 rounded-full bg-white p-1" />
+                                    <img src="{{ asset("assets/images/landing/asset-beranda/vector/tick.webp") }}" alt="Vector" class="h-6 w-6 rounded-full bg-white p-1" />
                                     <p class="text-[15px] font-medium text-white max-sm:text-[13px]">
                                         {{ $visimisi["moto"] }}
                                     </p>
@@ -320,7 +320,7 @@
                         <p class="text-justify text-[17px] font-[300] text-[#70787D] max-sm:text-[15px]">Berbinar memberikan produk yang dapat disesuaikan dengan kebutuhan SobatBinar dalam penggunaan jasa layanan psikologi, seperti konseling, psikotes, kelas, konsultan SDM, webinar/seminar, training, workshop, kaos motivasi, dan masih banyak lagi</p>
                         <br />
                         <div class="mb-2 flex flex-row items-start gap-x-1">
-                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/point.svg") }}" alt="Vector" class="mt-1 h-4 w-auto" />
+                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/point.webp") }}" alt="Vector" class="mt-1 h-4 w-auto" />
                             <p class="text-justify text-[17px] text-[#70787D] max-sm:text-[15px]">
                                 Layanan psikotes Berbinar
                                 <span class="font-bold">teruji</span>
@@ -329,7 +329,7 @@
                             </p>
                         </div>
                         <div class="mb-2 flex flex-row items-start gap-x-1">
-                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/point.svg") }}" alt="Vector" class="mt-1 h-4 w-auto" />
+                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/point.webp") }}" alt="Vector" class="mt-1 h-4 w-auto" />
                             <p class="text-justify text-[17px] text-[#70787D] max-sm:text-[15px]">
                                 Layanan telah disesuaikan dengan
                                 <span class="font-bold">kebutuhan pasar</span>
@@ -342,7 +342,7 @@
                             <li>Bisa merencanakan sesi tes offline sesuai kesepakatan di lokasi pilihan untuk konsultasi lebih lanjut</li>
                         </ul>
                         <div class="mb-2 flex flex-row items-start gap-x-1">
-                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/point.svg") }}" alt="Vector" class="mt-1 h-4 w-auto" />
+                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/point.webp") }}" alt="Vector" class="mt-1 h-4 w-auto" />
                             <p class="text-justify text-[17px] text-[#70787D] max-sm:text-[15px]">
                                 Psikolog
                                 <span class="font-bold">berlisensi</span>
@@ -351,7 +351,7 @@
                             </p>
                         </div>
                         <div class="mb-2 flex flex-row items-start gap-x-1">
-                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/point.svg") }}" alt="Vector" class="mt-1 h-4 w-auto" />
+                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/point.webp") }}" alt="Vector" class="mt-1 h-4 w-auto" />
                             <p class="text-justify text-[17px] text-[#70787D] max-sm:text-[15px]">
                                 Layanan psikotes Berbinar dapat diakses secara
                                 <span class="font-bold">online</span>
@@ -360,7 +360,7 @@
                             </p>
                         </div>
                         <div class="mb-2 flex flex-row items-start gap-x-1">
-                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/point.svg") }}" alt="Vector" class="mt-1 h-4 w-auto" />
+                            <img src="{{ asset("assets/images/landing/asset-psikotes/icon/point.webp") }}" alt="Vector" class="mt-1 h-4 w-auto" />
                             <p class="text-justify text-[17px] text-[#70787D] max-sm:text-[15px]">
                                 <span class="font-bold">Harga terjangkau</span>
                                 (dalam kondisi tertentu, dapat
@@ -395,7 +395,7 @@
                         <p class="text-gradient text-center text-2xl font-bold max-sm:text-xl">
                             {{ $psikotes["category"] }}
                         </p>
-                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-2 w-full" />
+                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.webp") }}" alt="Vector" class="my-2 w-full" />
 
                         @foreach ($psikotes["mitra"] as $mitra)
                             <div class="mb-3 flex flex-row gap-x-2">
@@ -455,16 +455,16 @@
                                     {{ $individu["harga"] }}
                                     <span class="align-top text-[18px] text-[#70787D]">*</span>
                                 </p>
-                                <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-2.5 w-full" />
+                                <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.webp") }}" alt="Vector" class="my-2.5 w-full" />
 
                                 <div class="flex flex-col space-y-1">
                                     <div class="flex items-center gap-1">
-                                        <img src="{{ asset($individu["keterangan"]["laporan_tertulis"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $individu["keterangan"]["laporan_tertulis"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                        <img src="{{ asset($individu["keterangan"]["laporan_tertulis"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $individu["keterangan"]["laporan_tertulis"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
                                         <span class="text-[#70787D]">Laporan Tertulis</span>
                                     </div>
 
                                     <div class="flex items-center gap-1">
-                                        <img src="{{ asset($individu["keterangan"]["konseling_hasil_tes"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $individu["keterangan"]["konseling_hasil_tes"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                        <img src="{{ asset($individu["keterangan"]["konseling_hasil_tes"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $individu["keterangan"]["konseling_hasil_tes"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
                                         <span class="text-[#70787D]">Konseling Hasil Tes</span>
                                     </div>
                                 </div>
@@ -494,16 +494,16 @@
                         {{ $individu["harga"] }}
                         <span class="align-top text-[13px] text-[#70787D]">*</span>
                     </p>
-                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-1 w-full" />
+                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.webp") }}" alt="Vector" class="my-1 w-full" />
 
                     <div class="flex flex-col gap-y-0.5 text-left">
                         <div class="flex items-start gap-1">
-                            <img src="{{ asset($individu["keterangan"]["laporan_tertulis"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $individu["keterangan"]["laporan_tertulis"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3.5 w-3.5 object-contain max-sm:h-3 max-sm:w-3" />
+                            <img src="{{ asset($individu["keterangan"]["laporan_tertulis"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $individu["keterangan"]["laporan_tertulis"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3.5 w-3.5 object-contain max-sm:h-3 max-sm:w-3" />
                             <span class="leading-snug text-[#70787D] max-sm:text-[14px] max-sm:leading-tight">Laporan Tertulis</span>
                         </div>
 
                         <div class="flex items-start gap-1">
-                            <img src="{{ asset($individu["keterangan"]["konseling_hasil_tes"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $individu["keterangan"]["konseling_hasil_tes"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3.5 w-3.5 object-contain max-sm:h-3 max-sm:w-3" />
+                            <img src="{{ asset($individu["keterangan"]["konseling_hasil_tes"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $individu["keterangan"]["konseling_hasil_tes"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3.5 w-3.5 object-contain max-sm:h-3 max-sm:w-3" />
                             <span class="leading-snug text-[#70787D] max-sm:text-[14px] max-sm:leading-tight">Konseling Hasil Tes</span>
                         </div>
                     </div>
@@ -555,51 +555,51 @@
                                         {{ $staff["harga"] }}
                                         <span class="align-top text-[18px] text-[#70787D]">*</span>
                                     </p>
-                                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-4 w-full" />
+                                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.webp") }}" alt="Vector" class="my-4 w-full" />
 
                                     <div class="flex flex-col space-y-1 text-left">
                                         <div class="flex items-center gap-1">
-                                            <img src="{{ asset($staff["keterangan"]["tes_intelegensi"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["tes_intelegensi"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                            <img src="{{ asset($staff["keterangan"]["tes_intelegensi"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["tes_intelegensi"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
                                             <span class="text-[#70787D]">Tes Intelegensi</span>
                                         </div>
 
                                         <div class="flex items-center gap-1">
-                                            <img src="{{ asset($staff["keterangan"]["tes_sikap_kerja"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["tes_sikap_kerja"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                            <img src="{{ asset($staff["keterangan"]["tes_sikap_kerja"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["tes_sikap_kerja"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
                                             <span class="text-[#70787D]">Tes Sikap Kerja</span>
                                         </div>
 
                                         <div class="flex items-center gap-1">
-                                            <img src="{{ asset($staff["keterangan"]["tes_kepribadian"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["tes_kepribadian"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                            <img src="{{ asset($staff["keterangan"]["tes_kepribadian"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["tes_kepribadian"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
                                             <span class="text-[#70787D]">Tes Kepribadian</span>
                                         </div>
 
                                         <div class="flex items-center gap-1">
-                                            <img src="{{ asset($staff["keterangan"]["focus_group_discussion"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["focus_group_discussion"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                            <img src="{{ asset($staff["keterangan"]["focus_group_discussion"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["focus_group_discussion"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
                                             <span class="text-[#70787D]">Focus Group Discussion</span>
                                         </div>
 
                                         <div class="flex items-center gap-1">
-                                            <img src="{{ asset($staff["keterangan"]["wawancara"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["wawancara"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                            <img src="{{ asset($staff["keterangan"]["wawancara"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["wawancara"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
                                             <span class="text-[#70787D]">Wawancara</span>
                                         </div>
 
                                         <div class="flex items-center gap-1">
-                                            <img src="{{ asset($staff["keterangan"]["psikogram"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["psikogram"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                            <img src="{{ asset($staff["keterangan"]["psikogram"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["psikogram"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
                                             <span class="text-[#70787D]">Psikogram</span>
                                         </div>
 
                                         <div class="flex items-start gap-1">
-                                            <img src="{{ asset($staff["keterangan"]["deskripsi"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["deskripsi"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3.5 w-3.5 object-contain" />
+                                            <img src="{{ asset($staff["keterangan"]["deskripsi"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["deskripsi"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3.5 w-3.5 object-contain" />
                                             <span class="leading-snug text-[#70787D]">Deskripsi Karakteristik, Kelemahan, Kelebihan, dan Rekomendasi</span>
                                         </div>
 
                                         <div class="flex items-center gap-1">
-                                            <img src="{{ asset($staff["keterangan"]["proyeksi_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["proyeksi_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                            <img src="{{ asset($staff["keterangan"]["proyeksi_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["proyeksi_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
                                             <span class="text-[#70787D]">Proyeksi Pengembangan</span>
                                         </div>
 
                                         <div class="flex items-center gap-1">
-                                            <img src="{{ asset($staff["keterangan"]["saran_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["saran_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                            <img src="{{ asset($staff["keterangan"]["saran_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["saran_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
                                             <span class="text-[#70787D]">Saran Pengembangan</span>
                                         </div>
                                     </div>
@@ -626,51 +626,51 @@
                             {{ $staff["harga"] }}
                             <span class="align-super text-[13px] text-[#70787D]">*</span>
                         </p>
-                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-2 w-full" />
+                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.webp") }}" alt="Vector" class="my-2 w-full" />
 
                         <div class="flex flex-col space-y-1 text-left">
                             <div class="flex items-center gap-1">
-                                <img src="{{ asset($staff["keterangan"]["tes_intelegensi"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["tes_intelegensi"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                <img src="{{ asset($staff["keterangan"]["tes_intelegensi"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["tes_intelegensi"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                 <span class="leading-snug text-[#70787D] max-sm:text-[15px] max-sm:leading-tight">Tes Intelegensi</span>
                             </div>
 
                             <div class="flex items-center gap-1">
-                                <img src="{{ asset($staff["keterangan"]["tes_sikap_kerja"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["tes_sikap_kerja"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                <img src="{{ asset($staff["keterangan"]["tes_sikap_kerja"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["tes_sikap_kerja"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                 <span class="text-[#70787D]">Tes Sikap Kerja</span>
                             </div>
 
                             <div class="flex items-center gap-1">
-                                <img src="{{ asset($staff["keterangan"]["tes_kepribadian"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["tes_kepribadian"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                <img src="{{ asset($staff["keterangan"]["tes_kepribadian"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["tes_kepribadian"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                 <span class="leading-snug text-[#70787D] max-sm:text-[15px] max-sm:leading-tight">Tes Kepribadian</span>
                             </div>
 
                             <div class="flex items-center gap-1">
-                                <img src="{{ asset($staff["keterangan"]["focus_group_discussion"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["focus_group_discussion"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                <img src="{{ asset($staff["keterangan"]["focus_group_discussion"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["focus_group_discussion"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                 <span class="leading-snug text-[#70787D] max-sm:text-[15px] max-sm:leading-tight">Focus Group Discussion</span>
                             </div>
 
                             <div class="flex items-center gap-1">
-                                <img src="{{ asset($staff["keterangan"]["wawancara"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["wawancara"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                <img src="{{ asset($staff["keterangan"]["wawancara"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["wawancara"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                 <span class="leading-snug text-[#70787D] max-sm:text-[15px] max-sm:leading-tight">Wawancara</span>
                             </div>
 
                             <div class="flex items-center gap-1">
-                                <img src="{{ asset($staff["keterangan"]["psikogram"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["psikogram"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                <img src="{{ asset($staff["keterangan"]["psikogram"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["psikogram"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                 <span class="leading-snug text-[#70787D] max-sm:text-[15px] max-sm:leading-tight">Psikogram</span>
                             </div>
 
                             <div class="flex items-start gap-1">
-                                <img src="{{ asset($staff["keterangan"]["deskripsi"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["deskripsi"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-0.5 h-3.5 w-3.5" />
+                                <img src="{{ asset($staff["keterangan"]["deskripsi"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["deskripsi"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-0.5 h-3.5 w-3.5" />
                                 <span class="leading-snug text-[#70787D] max-sm:text-[15px] max-sm:leading-tight">Deskripsi Karakteristik, Kelemahan, Kelebihan, dan Rekomendasi</span>
                             </div>
 
                             <div class="flex items-center gap-1">
-                                <img src="{{ asset($staff["keterangan"]["proyeksi_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["proyeksi_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                <img src="{{ asset($staff["keterangan"]["proyeksi_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["proyeksi_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                 <span class="leading-snug text-[#70787D] max-sm:text-[15px] max-sm:leading-tight">Proyeksi Pengembangan</span>
                             </div>
 
                             <div class="flex items-center gap-1">
-                                <img src="{{ asset($staff["keterangan"]["saran_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $staff["keterangan"]["saran_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                <img src="{{ asset($staff["keterangan"]["saran_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $staff["keterangan"]["saran_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                 <span class="leading-snug text-[#70787D] max-sm:text-[15px] max-sm:leading-tight">Saran Pengembangan</span>
                             </div>
                         </div>
@@ -702,51 +702,51 @@
                                         {{ $supervisor["harga"] }}
                                         <span class="align-top text-[18px] text-[#70787D]">*</span>
                                     </p>
-                                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-4 w-full" />
+                                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.webp") }}" alt="Vector" class="my-4 w-full" />
 
                                     <div class="flex flex-col space-y-1 text-left">
                                         <div class="flex items-center gap-1">
-                                            <img src="{{ asset($supervisor["keterangan"]["tes_intelegensi"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["tes_intelegensi"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                            <img src="{{ asset($supervisor["keterangan"]["tes_intelegensi"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["tes_intelegensi"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                             <span class="text-[#70787D]">Tes Intelegensi</span>
                                         </div>
 
                                         <div class="flex items-center gap-1">
-                                            <img src="{{ asset($supervisor["keterangan"]["tes_sikap_kerja"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["tes_sikap_kerja"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                            <img src="{{ asset($supervisor["keterangan"]["tes_sikap_kerja"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["tes_sikap_kerja"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                             <span class="text-[#70787D]">Tes Sikap Kerja</span>
                                         </div>
 
                                         <div class="flex items-center gap-1">
-                                            <img src="{{ asset($supervisor["keterangan"]["tes_kepribadian"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["tes_kepribadian"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                            <img src="{{ asset($supervisor["keterangan"]["tes_kepribadian"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["tes_kepribadian"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                             <span class="text-[#70787D]">Tes Kepribadian</span>
                                         </div>
 
                                         <div class="flex items-center gap-1">
-                                            <img src="{{ asset($supervisor["keterangan"]["focus_group_discussion"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["focus_group_discussion"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                            <img src="{{ asset($supervisor["keterangan"]["focus_group_discussion"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["focus_group_discussion"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                             <span class="text-[#70787D]">Focus Group Discussion</span>
                                         </div>
 
                                         <div class="flex items-center gap-1">
-                                            <img src="{{ asset($supervisor["keterangan"]["wawancara"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["wawancara"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                            <img src="{{ asset($supervisor["keterangan"]["wawancara"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["wawancara"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                             <span class="text-[#70787D]">Wawancara</span>
                                         </div>
 
                                         <div class="flex items-center gap-1">
-                                            <img src="{{ asset($supervisor["keterangan"]["psikogram"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["psikogram"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                            <img src="{{ asset($supervisor["keterangan"]["psikogram"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["psikogram"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                             <span class="text-[#70787D]">Psikogram</span>
                                         </div>
 
                                         <div class="flex items-start gap-1">
-                                            <img src="{{ asset($supervisor["keterangan"]["deskripsi"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["deskripsi"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3.5 w-3.5" />
+                                            <img src="{{ asset($supervisor["keterangan"]["deskripsi"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["deskripsi"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3.5 w-3.5" />
                                             <span class="leading-snug text-[#70787D]">Deskripsi Karakteristik, Kelemahan, Kelebihan, dan Rekomendasi</span>
                                         </div>
 
                                         <div class="flex items-center gap-1">
-                                            <img src="{{ asset($supervisor["keterangan"]["proyeksi_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["proyeksi_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                            <img src="{{ asset($supervisor["keterangan"]["proyeksi_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["proyeksi_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                             <span class="text-[#70787D]">Proyeksi Pengembangan</span>
                                         </div>
 
                                         <div class="flex items-center gap-1">
-                                            <img src="{{ asset($supervisor["keterangan"]["saran_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["saran_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                            <img src="{{ asset($supervisor["keterangan"]["saran_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["saran_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                             <span class="text-[#70787D]">Saran Pengembangan</span>
                                         </div>
                                     </div>
@@ -773,51 +773,51 @@
                             {{ $supervisor["harga"] }}
                             <span class="align-super text-[13px] text-[#70787D]">*</span>
                         </p>
-                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-2 w-full" />
+                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.webp") }}" alt="Vector" class="my-2 w-full" />
 
                         <div class="flex flex-col space-y-1 text-left">
                             <div class="flex items-center gap-1">
-                                <img src="{{ asset($supervisor["keterangan"]["tes_intelegensi"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["tes_intelegensi"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                <img src="{{ asset($supervisor["keterangan"]["tes_intelegensi"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["tes_intelegensi"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                 <span class="leading-snug text-[#70787D] max-sm:text-[15px] max-sm:leading-tight">Tes Intelegensi</span>
                             </div>
 
                             <div class="flex items-center gap-1">
-                                <img src="{{ asset($supervisor["keterangan"]["tes_sikap_kerja"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["tes_sikap_kerja"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                <img src="{{ asset($supervisor["keterangan"]["tes_sikap_kerja"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["tes_sikap_kerja"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                 <span class="leading-snug text-[#70787D] max-sm:text-[15px] max-sm:leading-tight">Tes Sikap Kerja</span>
                             </div>
 
                             <div class="flex items-center gap-1">
-                                <img src="{{ asset($supervisor["keterangan"]["tes_kepribadian"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["tes_kepribadian"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                <img src="{{ asset($supervisor["keterangan"]["tes_kepribadian"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["tes_kepribadian"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                 <span class="leading-snug text-[#70787D] max-sm:text-[15px] max-sm:leading-tight">Tes Kepribadian</span>
                             </div>
 
                             <div class="flex items-center gap-1">
-                                <img src="{{ asset($supervisor["keterangan"]["focus_group_discussion"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["focus_group_discussion"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                <img src="{{ asset($supervisor["keterangan"]["focus_group_discussion"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["focus_group_discussion"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                 <span class="leading-snug text-[#70787D] max-sm:text-[15px] max-sm:leading-tight">Focus Group Discussion</span>
                             </div>
 
                             <div class="flex items-center gap-1">
-                                <img src="{{ asset($supervisor["keterangan"]["wawancara"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["wawancara"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                <img src="{{ asset($supervisor["keterangan"]["wawancara"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["wawancara"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                 <span class="leading-snug text-[#70787D] max-sm:text-[15px] max-sm:leading-tight">Wawancara</span>
                             </div>
 
                             <div class="flex items-center gap-1">
-                                <img src="{{ asset($supervisor["keterangan"]["psikogram"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["psikogram"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                <img src="{{ asset($supervisor["keterangan"]["psikogram"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["psikogram"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                 <span class="leading-snug text-[#70787D] max-sm:text-[15px] max-sm:leading-tight">Psikogram</span>
                             </div>
 
                             <div class="flex items-start gap-1">
-                                <img src="{{ asset($supervisor["keterangan"]["deskripsi"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["deskripsi"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-0.5 h-3.5 w-3.5" />
+                                <img src="{{ asset($supervisor["keterangan"]["deskripsi"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["deskripsi"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-0.5 h-3.5 w-3.5" />
                                 <span class="leading-snug text-[#70787D] max-sm:text-[15px] max-sm:leading-tight">Deskripsi Karakteristik, Kelemahan, Kelebihan, dan Rekomendasi</span>
                             </div>
 
                             <div class="flex items-center gap-1">
-                                <img src="{{ asset($supervisor["keterangan"]["proyeksi_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["proyeksi_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                <img src="{{ asset($supervisor["keterangan"]["proyeksi_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["proyeksi_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                 <span class="leading-snug text-[#70787D] max-sm:text-[15px] max-sm:leading-tight">Proyeksi Pengembangan</span>
                             </div>
 
                             <div class="flex items-center gap-1">
-                                <img src="{{ asset($supervisor["keterangan"]["saran_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $supervisor["keterangan"]["saran_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
+                                <img src="{{ asset($supervisor["keterangan"]["saran_pengembangan"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $supervisor["keterangan"]["saran_pengembangan"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5" />
                                 <span class="leading-snug text-[#70787D] max-sm:text-[15px] max-sm:leading-tight">Saran Pengembangan</span>
                             </div>
                         </div>
@@ -870,21 +870,21 @@
                                     {{ $pendidikan["harga"] }}
                                     <span class="align-top text-[18px] text-[#70787D]">*</span>
                                 </p>
-                                <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-4 w-full" />
+                                <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.webp") }}" alt="Vector" class="my-4 w-full" />
 
                                 <div class="flex flex-col space-y-1">
                                     <div class="flex items-center gap-1">
-                                        <img src="{{ asset($pendidikan["keterangan"]["laporan_tertulis"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $pendidikan["keterangan"]["laporan_tertulis"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                        <img src="{{ asset($pendidikan["keterangan"]["laporan_tertulis"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $pendidikan["keterangan"]["laporan_tertulis"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
                                         <span class="text-[#70787D]">Laporan Tertulis</span>
                                     </div>
 
                                     <div class="flex items-center gap-1">
-                                        <img src="{{ asset($pendidikan["keterangan"]["tes_gaya_belajar"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $pendidikan["keterangan"]["tes_gaya_belajar"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                        <img src="{{ asset($pendidikan["keterangan"]["tes_gaya_belajar"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $pendidikan["keterangan"]["tes_gaya_belajar"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
                                         <span class="text-[#70787D]">Konseling Hasil Tes</span>
                                     </div>
 
                                     <div class="flex items-center gap-1">
-                                        <img src="{{ asset($pendidikan["keterangan"]["konseling_hasil_tes"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $pendidikan["keterangan"]["konseling_hasil_tes"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                        <img src="{{ asset($pendidikan["keterangan"]["konseling_hasil_tes"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $pendidikan["keterangan"]["konseling_hasil_tes"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
                                         <span class="text-[#70787D]">Konseling Hasil Tes</span>
                                     </div>
                                 </div>
@@ -914,21 +914,21 @@
                         {{ $pendidikan["harga"] }}
                         <span class="align-top text-[13px] text-[#70787D]">*</span>
                     </p>
-                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-1 w-full" />
+                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.webp") }}" alt="Vector" class="my-1 w-full" />
 
                     <div class="flex flex-col gap-y-0.5 text-left">
                         <div class="flex items-start gap-1">
-                            <img src="{{ asset($pendidikan["keterangan"]["laporan_tertulis"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $pendidikan["keterangan"]["laporan_tertulis"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3 w-3 object-contain" />
+                            <img src="{{ asset($pendidikan["keterangan"]["laporan_tertulis"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $pendidikan["keterangan"]["laporan_tertulis"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3 w-3 object-contain" />
                             <span class="leading-snug text-[#70787D] max-sm:text-[14px] max-sm:leading-tight">Laporan Tertulis</span>
                         </div>
 
                         <div class="flex items-start gap-1">
-                            <img src="{{ asset($pendidikan["keterangan"]["tes_gaya_belajar"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $pendidikan["keterangan"]["tes_gaya_belajar"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3 w-3 object-contain" />
+                            <img src="{{ asset($pendidikan["keterangan"]["tes_gaya_belajar"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $pendidikan["keterangan"]["tes_gaya_belajar"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3 w-3 object-contain" />
                             <span class="leading-snug text-[#70787D] max-sm:text-[14px] max-sm:leading-tight">Tes Gaya Belajar</span>
                         </div>
 
                         <div class="flex items-start gap-1">
-                            <img src="{{ asset($pendidikan["keterangan"]["konseling_hasil_tes"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $pendidikan["keterangan"]["konseling_hasil_tes"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3 w-3 object-contain" />
+                            <img src="{{ asset($pendidikan["keterangan"]["konseling_hasil_tes"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $pendidikan["keterangan"]["konseling_hasil_tes"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3 w-3 object-contain" />
                             <span class="leading-snug text-[#70787D] max-sm:text-[14px] max-sm:leading-tight">Konseling Hasil Tes</span>
                         </div>
                     </div>
@@ -980,16 +980,16 @@
                                     {{ $community["harga"] }}
                                     <span class="align-top text-[18px] text-[#70787D]">*</span>
                                 </p>
-                                <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-4 w-full" />
+                                <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.webp") }}" alt="Vector" class="my-4 w-full" />
 
                                 <div class="flex flex-col space-y-1">
                                     <div class="flex items-center gap-1">
-                                        <img src="{{ asset($community["keterangan"]["laporan_tertulis"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $community["keterangan"]["laporan_tertulis"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                        <img src="{{ asset($community["keterangan"]["laporan_tertulis"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $community["keterangan"]["laporan_tertulis"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
                                         <span class="text-[#70787D]">Laporan Tertulis</span>
                                     </div>
 
                                     <div class="flex items-center gap-1">
-                                        <img src="{{ asset($community["keterangan"]["konseling_hasil_tes"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $community["keterangan"]["konseling_hasil_tes"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
+                                        <img src="{{ asset($community["keterangan"]["konseling_hasil_tes"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $community["keterangan"]["konseling_hasil_tes"] ? "Centang Hijau" : "Silang Merah" }}" class="h-3.5 w-3.5 object-contain" />
                                         <span class="text-[#70787D]">Konseling Hasil Tes</span>
                                     </div>
                                 </div>
@@ -1019,16 +1019,16 @@
                         {{ $community["harga"] }}
                         <span class="align-top text-[13px] text-[#70787D]">*</span>
                     </p>
-                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.svg") }}" alt="Vector" class="my-1 w-full" />
+                    <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-divider.webp") }}" alt="Vector" class="my-1 w-full" />
 
                     <div class="flex flex-col gap-y-0.5 text-left">
                         <div class="flex items-start gap-1">
-                            <img src="{{ asset($community["keterangan"]["laporan_tertulis"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $community["keterangan"]["laporan_tertulis"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3 w-3 object-contain" />
+                            <img src="{{ asset($community["keterangan"]["laporan_tertulis"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $community["keterangan"]["laporan_tertulis"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3 w-3 object-contain" />
                             <span class="leading-snug text-[#70787D] max-sm:text-[14px] max-sm:leading-tight">Laporan Tertulis</span>
                         </div>
 
                         <div class="flex items-start gap-1">
-                            <img src="{{ asset($community["keterangan"]["konseling_hasil_tes"] ? "assets/images/landing/asset-psikotes/icon/check.svg" : "assets/images/landing/asset-psikotes/icon/cross.svg") }}" alt="{{ $community["keterangan"]["konseling_hasil_tes"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3 w-3 object-contain" />
+                            <img src="{{ asset($community["keterangan"]["konseling_hasil_tes"] ? "assets/images/landing/asset-psikotes/icon/check.webp" : "assets/images/landing/asset-psikotes/icon/cross.webp") }}" alt="{{ $community["keterangan"]["konseling_hasil_tes"] ? "Centang Hijau" : "Silang Merah" }}" class="mt-1 h-3 w-3 object-contain" />
                             <span class="leading-snug text-[#70787D] max-sm:text-[14px] max-sm:leading-tight">Konseling Hasil Tes</span>
                         </div>
                     </div>
@@ -1055,7 +1055,7 @@
                     @foreach ($testimonis as $testimoni)
                         <div class="swiper-slide">
                             <div class="flex h-auto w-auto flex-col items-center justify-center rounded-3xl bg-white p-5 text-center shadow-md">
-                                <img src="{{ asset("assets/images/landing/asset-produk/vector-kutip.png") }}" alt="Kutip" class="h-8 w-auto max-sm:h-7" />
+                                <img src="{{ asset("assets/images/landing/asset-produk/vector-kutip.webp") }}" alt="Kutip" class="h-8 w-auto max-sm:h-7" />
 
                                 <div class="flex flex-grow flex-col pt-4 text-center">
                                     <p class="min-h-[168px] flex-grow text-justify text-[16px] font-medium text-black max-lg:min-h-[168px] max-md:leading-snug max-sm:text-[15px] max-sm:leading-tight">
@@ -1150,13 +1150,13 @@
                 <div class="swiper-container swiperDokumentasiAce block overflow-hidden md:hidden">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="{{ asset("assets/images/landing/asset-psikotes/komunitas/komunitas1.png") }}" alt="Komunitas" class="h-[270px] w-full rounded-xl object-cover" />
+                            <img src="{{ asset("assets/images/landing/asset-psikotes/komunitas/komunitas1.webp") }}" alt="Komunitas" class="h-[270px] w-full rounded-xl object-cover" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="{{ asset("assets/images/landing/asset-psikotes/komunitas/komunitas2.png") }}" alt="Komunitas" class="h-[270px] w-full rounded-xl object-cover" />
+                            <img src="{{ asset("assets/images/landing/asset-psikotes/komunitas/komunitas2.webp") }}" alt="Komunitas" class="h-[270px] w-full rounded-xl object-cover" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="{{ asset("assets/images/landing/asset-psikotes/komunitas/komunitas3.png") }}" alt="Komunitas" class="h-[270px] w-full rounded-xl object-cover" />
+                            <img src="{{ asset("assets/images/landing/asset-psikotes/komunitas/komunitas3.webp") }}" alt="Komunitas" class="h-[270px] w-full rounded-xl object-cover" />
                         </div>
                     </div>
                 </div>
@@ -1179,15 +1179,15 @@
         <div class="mx-20 my-5 hidden max-lg:my-8 md:block">
             <div class="flex w-full flex-wrap items-center justify-center gap-x-8 gap-y-5">
                 <div class="relative">
-                    <img src="{{ asset("assets/images/landing/asset-psikotes/komunitas/komunitas1.png") }}" alt="Komunitas" class="h-52 w-[345px] rounded-xl object-cover max-lg:h-[250px] max-lg:w-[450px]" />
+                    <img src="{{ asset("assets/images/landing/asset-psikotes/komunitas/komunitas1.webp") }}" alt="Komunitas" class="h-52 w-[345px] rounded-xl object-cover max-lg:h-[250px] max-lg:w-[450px]" />
                 </div>
 
                 <div class="relative">
-                    <img src="{{ asset("assets/images/landing/asset-psikotes/komunitas/komunitas2.png") }}" alt="Komunitas" class="h-52 w-[345px] rounded-xl object-cover max-lg:h-[250px] max-lg:w-[450px]" />
+                    <img src="{{ asset("assets/images/landing/asset-psikotes/komunitas/komunitas2.webp") }}" alt="Komunitas" class="h-52 w-[345px] rounded-xl object-cover max-lg:h-[250px] max-lg:w-[450px]" />
                 </div>
 
                 <div class="relative">
-                    <img src="{{ asset("assets/images/landing/asset-psikotes/komunitas/komunitas3.png") }}" alt="Komunitas" class="h-52 w-[345px] rounded-xl object-cover max-lg:h-[250px] max-lg:w-[450px]" />
+                    <img src="{{ asset("assets/images/landing/asset-psikotes/komunitas/komunitas3.webp") }}" alt="Komunitas" class="h-52 w-[345px] rounded-xl object-cover max-lg:h-[250px] max-lg:w-[450px]" />
                 </div>
             </div>
         </div>

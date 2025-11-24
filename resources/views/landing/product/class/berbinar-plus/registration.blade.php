@@ -22,7 +22,7 @@
                 <!-- Tombol Kembali -->
                 <a href="{{ route('product.class.berbinar-plus.index') }}">
                     <div class="flex cursor-pointer items-center space-x-2 lg:order-1 mt-2">
-                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.svg") }}" alt="Left Arrow" class="h-3 w-auto" />
+                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.webp") }}" alt="Left Arrow" class="h-3 w-auto" />
                         <p class="text-[15px] font-semibold text-[#3986A3] xl:text-lg">Kembali</p>
                     </div>
                 </a>
@@ -53,7 +53,7 @@
                                 class="flex justify-between items-center w-full bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary p-2 rounded-md mb-2"
                                 id="genderToggle">
                                 <span id="genderSelected" class="text-gray-500">Pilih Jenis Kelamin</span>
-                                <img src="{{ asset('assets/images/landing/produk/emo/chevron.png') }}" alt=""
+                                <img src="{{ asset('assets/images/landing/produk/emo/chevron.webp') }}" alt=""
                                     class="transform transition-transform w-[.9rem] mr-1" id="genderIcon">
                             </button>
                             <div class="absolute bg-white border border-gray-300 rounded-md mt-2 w-full z-10 hidden"
@@ -100,7 +100,7 @@
                                 class="flex justify-between items-center w-full bg-gray-100 border border-gray-100 shadow-sm focus:outline-none focus:ring-primary focus:border-primary p-2 rounded-md mb-2"
                                 id="educationToggle">
                                 <span id="educationSelected" class="text-gray-500">Apa Pendidikan Terakhirmu?</span>
-                                <img src="{{ asset('assets/images/landing/produk/emo/chevron.png') }}" alt=""
+                                <img src="{{ asset('assets/images/landing/produk/emo/chevron.webp') }}" alt=""
                                     class="transform transition-transform w-[.9rem] mr-1" id="educationIcon">
                             </button>
                             <div class="absolute bg-white border border-gray-300 rounded-md mt-2 w-full z-10 hidden"
@@ -171,7 +171,7 @@
                                                         Booklet Berbinar Class
                                                     </h3>
                                                     <a onclick="closeModal()" class="absolute translate-y-1 lg:translate-y-2 bg-[#E4F3F8] rounded-full right-5 lg:right-10 cursor-pointer">
-                                                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-close.svg") }}" class="scale-50" alt="close">
+                                                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/vector-close.webp") }}" class="scale-50" alt="close">
                                                     </a>
                                                 </div>
 
@@ -181,7 +181,7 @@
                                                         <div class="swiper-wrapper">
                                                             @for ($i = 1; $i <= 23; $i++)
                                                                 <div class="swiper-slide">
-                                                                    <img src="{{ asset('assets/images/products/berbinar-plus/booklet/' . $i . '.png') }}" alt="Booklet {{ $i }}" class="w-full rounded-2xl" />
+                                                                    <img src="{{ asset('assets/images/products/berbinar-plus/booklet/' . $i . '.webp') }}" alt="Booklet {{ $i }}" class="w-full rounded-2xl" />
                                                                 </div>
                                                             @endfor
                                                         </div>
@@ -240,7 +240,7 @@
                                 <button @click="open = !open" type="button"
                                     class="w-full bg-gray-100 border-2 border-gray-100 rounded-md shadow-sm p-2 flex justify-between items-center focus:outline-none focus:ring-primary focus:border-primary">
                                     <span x-text="selected ? selected : 'Pilih Paket Layanan Kamu'"></span>
-                                    <img src="{{ asset('assets/images/landing/produk/emo/chevron.png') }}" alt=""
+                                    <img src="{{ asset('assets/images/landing/produk/emo/chevron.webp') }}" alt=""
                                     class="transform transition-transform w-[.9rem] mr-1">
                                 </button>
                                 <div x-show="open" class="absolute max-sm:max-h-40 max-sm:overflow-y-auto left-0 mt-2 w-full bg-white border border-gray-300 rounded-md shadow-lg z-10">
@@ -261,7 +261,7 @@
                                 <input type="file" id="bukti_transfer" name="bukti_transfer" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept="image/*" required/>
                                 <div class="mt-1 block w-full h-10 pl-2 bg-gray-100 border border-gray-100 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary pointer-events-none cursor-pointer content-center flex items-center">
                                     <button type="button" class="pointer-events-none border flex justify-between gap-2 py-[2px] px-2 border-[#B3B3B3] rounded-md cursor-pointer items-center">
-                                        <img src="{{ asset('assets/images/landing/produk/emo/upload-line-icon.png') }}" alt="" class="w-4 h-4">
+                                        <img src="{{ asset('assets/images/landing/produk/emo/upload-line-icon.webp') }}" alt="" class="w-4 h-4">
                                         Upload File
                                     </button>
                                     <span id="fileName" class="ml-3 text-base text-gray-600 truncate"></span>
@@ -297,7 +297,7 @@
                             class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 hidden sm:p-4">
                             <div class="bg-white p-6 w-4/5 md:w-1/3 rounded-lg text-center"
                                 style="background-color: white;">
-                                <img src="{{ asset('assets/images/landing/produk/emo/confirm.png') }}" alt="" class="mx-auto">
+                                <img src="{{ asset('assets/images/landing/produk/emo/confirm.webp') }}" alt="" class="mx-auto">
                                 <p>Apakah data yang Anda masukkan sudah benar?</p>
                                 <p>Tolong pastikan bahwa informasi yang Anda masukkan telah tepat.</p>
                                 <div class="flex justify-between gap-4 mt-4">

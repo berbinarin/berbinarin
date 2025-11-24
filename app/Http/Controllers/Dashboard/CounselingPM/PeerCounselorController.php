@@ -87,7 +87,7 @@ class PeerCounselorController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'Data Peer Counselor berhasil ditambahkan',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webpp'),
             ]);
     }
 
@@ -184,7 +184,7 @@ class PeerCounselorController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'Data Peer Counselor berhasil diediubahdit',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webpp'),
             ]);
     }
 
@@ -196,7 +196,7 @@ class PeerCounselorController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'Data Peer Counselor berhasil dihapus',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webpp'),
             ]);
     }
 

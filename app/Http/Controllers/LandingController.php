@@ -42,37 +42,37 @@ class LandingController extends Controller
 
         $products = [
             [
-                'vector' => 'assets/images/landing/asset-beranda/produk/logo-konseling.png',
+                'vector' => 'assets/images/landing/asset-beranda/produk/logo-konseling.webp',
                 'produk' => 'Berbinar Konseling',
                 'deskripsi' => 'Tempat konsultasi kesehatan mental klien dengan memilih psikolog maupun peer counselor yang sudah terjamin kualitas dan profesionalitasnya.',
                 'link' => route('konseling-new'),
             ],
             [
-                'vector' => 'assets/images/landing/asset-beranda/produk/logo-class.png',
+                'vector' => 'assets/images/landing/asset-beranda/produk/logo-class.webp',
                 'produk' => 'Berbinar Class',
                 'deskripsi' => 'Rintis perkembangan karier klien dengan kelas edukasi Berbinar yang terdiri beberapa topik untuk meningkatkan soft skill dan hard skill.',
                 'link' => route('kelas-new'),
             ],
             [
-                'vector' => 'assets/images/landing/asset-beranda/produk/logo-psikotes.png',
+                'vector' => 'assets/images/landing/asset-beranda/produk/logo-psikotes.webp',
                 'produk' => 'Berbinar Psikotes',
                 'deskripsi' => 'Serangkaian tes untuk mengukur, menentukan, dan mempersiapkan karier dengan mengidentifikasi potensi yang dimiliki setiap klien.',
                 'link' => route('psikotest-new'),
             ],
             [
-                'vector' => 'assets/images/landing/asset-beranda/produk/logo-consulting.png',
+                'vector' => 'assets/images/landing/asset-beranda/produk/logo-consulting.webp',
                 'produk' => 'Berbinar Consulting',
                 'deskripsi' => 'Suatu layanan dalam membantu suatu perusahaan, komunitas, dan organisasi yang berkaitan kinerja sumber daya manusia.',
                 'link' => route('consulting-new'),
             ],
             [
-                'vector' => 'assets/images/landing/asset-beranda/produk/logo-emoshuffle.png',
+                'vector' => 'assets/images/landing/asset-beranda/produk/logo-emoshuffle.webp',
                 'produk' => 'EmoShuffle',
                 'deskripsi' => 'Kartu yang dirancang dengan desain menarik dan dapat mendalami juga mengekspresikan perasaan klien saat bermain.',
                 'link' => route('konseling-new'),
             ],
             [
-                'vector' => 'assets/images/landing/asset-beranda/produk/logo-moodscantees.png',
+                'vector' => 'assets/images/landing/asset-beranda/produk/logo-moodscantees.webp',
                 'produk' => 'MoodScan Tees',
                 'deskripsi' => 'Kaos super nyaman yang memiliki desain konsep psikologis juga fitur QR Code untuk menyimpan pesan motivasi agar tampil bergaya.',
                 'link' => route('konseling-new'),
@@ -83,62 +83,62 @@ class LandingController extends Controller
             [
                 'comment' => '“Saya sangat senang bisa menggunakan produk dan layanan di Berbinar. Dengan melakukan psikotes di Berbinar, saya dapat mengetahui diri saya sendiri. Sehingga saya tahu apa yang harus dilakukan kedepannya.”',
                 'name' => 'Ezra Renita Sitorus',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/ezra.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/ezra.webp',
             ],
             [
                 'comment' => '“Pengalaman saya menggunakan produk psikotes secara online ini cukup menyenangkan. Karena tesnya interaktif, hasilnya memberikan wawasan baru tentang potensi diri saya dan membantu saya dalam memahami kelebihan dan kekurangan saya.”',
                 'name' => 'Yeni Triyastuti',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/yeni.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/yeni.webp',
             ],
             [
                 'comment' => '“Psikotes dari Berbinar membantu aku banget buat lebih mengenal diriku sendiri. Selain itu, konseling nya juga benar-benar membantu aku banget untuk menemukan solusi dari masalah yang sedang aku hadapi."',
                 'name' => 'Nurchaliza Rizqiani',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/nurchaliza.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/nurchaliza.webp',
             ],
             [
                 'comment' => '“Good for psikotest but sesuai masukan yang pernah aku isi, aku sempat salah sangka. Kukira akan dikabarin kalau aku masih kebagian kuota atau tidak. Ternyata aku yang inisiatif nanya, tapi gapapa. Buat kegiatan psikotesnya oke, aman-aman aja. Rate 10/10.”',
                 'name' => 'Golda Safira Indraswari',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/golda.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/golda.webp',
             ],
             [
                 'comment' => '“Rasa ingin tahu tentang diri sendiri jadi meningkat, karena hasil tesnya kadang bikin bertanya-tanya, ‘Ini memang aku seperti ini ya?’ atau ‘Kok rasanya nggak aku banget, tapi setelah dipikir-pikir, masuk akal juga kalau aku suka hal ini.’”',
                 'name' => 'Latief Ghilfawan Defianto',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/latief.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/latief.webp',
             ],
             [
                 'comment' => '“Produk Berbinar pun sangat beragam dan pastinya ramah di kantong. Menurut saya produk-produk Berbinar telah sesuai dengan kebutuhan masyarakat sekarang ini. Selain itu dengan harga yang affordable sehingga dapat dibeli oleh semua kalangan usia.”',
                 'name' => 'Regina Amanda Sharen',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/regina.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/regina.webp',
             ],
             [
                 'comment' => '“Layanan konseling yang diadakan Berbinar juga sangat membantu untuk menyelesaikan masalah mental dan kesehatan pikiran. Dengan harga yang terjangkau, kita bisa mendapatkan konselor dan bisa juga mendapatkan solusi dari permasalahan yang dihadapi.”',
                 'name' => 'Dhila Aprilianti',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/dhilla.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/dhilla.webp',
             ],
             [
                 'comment' => '“Setelah menggunakan produk dan layanan Berbinar, saya menjadi lebih tau apa yang harus dilakukan terhadap problem yang sedang saya alami dan lebih menerima kenyataan.”',
                 'name' => 'Ghina Yulianty',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/ghina.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/ghina.webp',
             ],
             [
                 'comment' => '“Produk psikotes Berbinar sangat baik dengan berbagai macam pilihan tes sesuai kebutuhan individu. Dengan menggunakan tes psikotes Berbinar, saya lebih bisa memahami diri saya lebih baik dari sebelumnya.”',
                 'name' => 'Felicia Amarantha',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/felicia.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/felicia.webp',
             ],
             [
                 'comment' => '“Konseling di Berbinar bener-bener bantu aku buat cari solusi ketika aku lagi ga baik-baik saja. Aku bener-bener merasa didengarkan dengan baik dan diberikan solusi yang solutif dan implementatif.”',
                 'name' => 'Barita Davitya Setiawati',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/barita.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/barita.webp',
             ],
             [
                 'comment' => '“Psikotes yang dilakukan sangat aman dan hasilnya cepat diolah untuk dikirimkan kembali ke peserta yang melakukan tes tersebut.”',
                 'name' => 'Raisha Hayyunindita',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/raisha.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/raisha.webp',
             ],
             [
                 'comment' => '“Setelah mencoba produk dan layanan Berbinar, saya sangat puas. Proses psikotes mudah diakses, hasilnya cepat dan akurat. Layanan klaim konseling juga sangat membantu dengan panduan dan solusi mendalam untuk memahami diri lebih baik.”',
                 'name' => 'Noor Fajrin Rukhairani',
-                'image' => 'assets/images/landing/asset-beranda/testimoni/noor.png',
+                'image' => 'assets/images/landing/asset-beranda/testimoni/noor.webp',
             ],
         ];
 
@@ -153,42 +153,42 @@ class LandingController extends Controller
     {
         $values = [
             [
-                'vector' => 'assets/images/landing/asset-tentang/nilai-berbinar/jujur.svg',
+                'vector' => 'assets/images/landing/asset-tentang/nilai-berbinar/jujur.webp',
                 'nilai' => 'Jujur',
                 'deskripsi' => 'Membangun kepercayaan dengan mengembangkan komunikasi dan hubungan yang jujur.'
             ],
             [
-                'vector' => 'assets/images/landing/asset-tentang/nilai-berbinar/empati.svg',
+                'vector' => 'assets/images/landing/asset-tentang/nilai-berbinar/empati.webp',
                 'nilai' => 'Empati',
                 'deskripsi' => 'Memahami apa yang dirasakan orang lain, melihat dari sudut pandang orang tersebut, dan juga membayangkan diri sendiri berada pada posisi orang tersebut.'
             ],
             [
-                'vector' => 'assets/images/landing/asset-tentang/nilai-berbinar/innovatif.svg',
+                'vector' => 'assets/images/landing/asset-tentang/nilai-berbinar/innovatif.webp',
                 'nilai' => 'Inovatif',
                 'deskripsi' => 'Menciptakan ide, pemikiran, dan cara baru untuk diterapkan dalam pelaksanaan dan penyelesaian pekerjaan.'
             ],
             [
-                'vector' => 'assets/images/landing/asset-tentang/nilai-berbinar/terusbelajar.svg',
+                'vector' => 'assets/images/landing/asset-tentang/nilai-berbinar/terusbelajar.webp',
                 'nilai' => 'Terus Belajar dan Rasa Ingin Tahu yang Tinggi',
                 'deskripsi' => 'Mau untuk terus belajar untuk berkembang jadi lebih baik, dengan dilandasi rasa ingin tahu yang tinggi.'
             ],
             [
-                'vector' => 'assets/images/landing/asset-tentang/nilai-berbinar/memberidampak.svg',
+                'vector' => 'assets/images/landing/asset-tentang/nilai-berbinar/memberidampak.webp',
                 'nilai' => 'Memberi Dampak',
                 'deskripsi' => 'Memberikan pengaruh positif untuk lingkungan sekitar dan tetap berlandaskan pada kode etik yang berlaku.'
             ],
             [
-                'vector' => 'assets/images/landing/asset-tentang/nilai-berbinar/inisiatif.svg',
+                'vector' => 'assets/images/landing/asset-tentang/nilai-berbinar/inisiatif.webp',
                 'nilai' => 'Inisiatif',
                 'deskripsi' => 'Memulai suatu tindakan yang selaras dengan tujuan organisasi, namun tetap sesuai dengan fungsi dan wewenangnya.'
             ],
             [
-                'vector' => 'assets/images/landing/asset-tentang/nilai-berbinar/kolaboratif.svg',
+                'vector' => 'assets/images/landing/asset-tentang/nilai-berbinar/kolaboratif.webp',
                 'nilai' => 'Kolaboratif',
                 'deskripsi' => 'Melakukan interaksi, komunikasi, dan diskusi dengan setiap individu dan kelompok, baik yang terlibat secara langsung maupun tidak langsung.'
             ],
             [
-                'vector' => 'assets/images/landing/asset-tentang/nilai-berbinar/berorientasi.svg',
+                'vector' => 'assets/images/landing/asset-tentang/nilai-berbinar/berorientasi.webp',
                 'nilai' => 'Berorientasi Pada Kebutuhan',
                 'deskripsi' => 'Menjadikan kebutuhan konsumen sebagai dasar untuk merencanakan dan mendesain strategi bisnis.'
             ],
@@ -245,37 +245,37 @@ class LandingController extends Controller
             [
                 'name' => 'Danny Sanjaya Arfensia',
                 'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/danny.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/danny.webp'
             ],
             [
                 'name' => 'Satria Kamal Agassi',
                 'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/satria.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/satria.webp'
             ],
             [
                 'name' => 'Ira Mayang Sari',
                 'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/ira.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/ira.webp'
             ],
             [
                 'name' => 'Adismara Putri Pradiri',
                 'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/adismara.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/adismara.webp'
             ],
             [
                 'name' => 'Ramadhani Lucky Al Kahfi',
                 'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/ramadhani.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/ramadhani.webp'
             ],
             [
                 'name' => 'Alto Kusumo Andrian',
                 'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/alto.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/alto.webp'
             ],
             [
                 'name' => 'Saraswati Stefannie Doho',
                 'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/saras.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/saras.webp'
             ],
         ];
 
@@ -372,22 +372,22 @@ class LandingController extends Controller
         $peers = [
             [
                 'name' => "Shafiyyah Muthi'ah",
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/shafiyyah.png',
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/shafiyyah.webp',
                 'region' => 'Tangerang Selatan'
             ],
             [
                 'name' => "Firda Annisapriyanti",
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/Firda.png',
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/Firda.webp',
                 'region' => 'Palembang'
             ],
             [
                 'name' => 'Thahira Raudhatunissa',
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/thahira.png',
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/thahira.webp',
                 'region' => 'Surabaya'
             ],
             [
                 'name' => 'Najwa Chana Indica',
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/najwa.png',
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/najwa.webp',
                 'region' => 'Malang'
             ]
         ];
@@ -425,32 +425,32 @@ class LandingController extends Controller
         $testimonis = [
             [
                 'comment' => '"Sesi konseling merubah pandang: tak masalah berubah demi orang lain. Dorongan jadi lebih baik. Lakukan yang dinginkan, tetap aman. Belajarlah. Lampiaskan sakit, geser ke positif, hargai diri dan peduli orang”',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
                 'name' => 'Anonim'
             ],
             [
                 'comment' => '"Konseling sangat membantu, konselor ramah. Pertama kali cerita, terbantu menceritakan masalah yang selama ini takut dibagikan sebelumnya. Rasanya lega, tanpa beban dan validasi. Kakak konselor memberi waktu dan kenyamanan."',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
                 'name' => 'Anonim'
             ],
             [
                 'comment' => '"Konselor mendengarkan dan memerhatikan dengan seksama, memberi saran dan bimbingan spesifik. Dituntun dengan pertanyaan terkait permasalahan, sangat terbantu. Akan segera menyelesaikan tugas setelah konseling hari ini."',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
                 'name' => 'Anonim'
             ],
             [
                 'comment' => '"Psikolognya mendengar dan menyimak cerita saya selama proses konseling dan juga menjelaskan masalah saya dengan cara yang mudah dipahami. Saya merasa nyaman dan tidak merasa dihakimi ketika saya menceritakan semua masalah saya."',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
                 'name' => 'Anonim'
             ],
             [
                 'comment' => '"Psikolog mendengarkan semua cerita dengan baik, bisa leluasa cerita dan mengungkapkan perasaan jadi lebih tenang, psikolog memperhatikan detail cerita sehingga bisa membantu menemukan akar permasalahannya"',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
                 'name' => 'Anonim'
             ],
             [
                 'comment' => '"Saya sangat senang dan terbantu, konselor ramah, ini pertama kali saya berkonsultasi dan berani cerita permasalahan yang saya alami. Sebelumnya saya takut untuk cerita permasalahan. Disini rasanya bisa cerita tanpa ada beban."',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
                 'name' => 'Anonim'
             ],
         ];
@@ -522,12 +522,12 @@ class LandingController extends Controller
                 'category' => 'Perusahaan',
                 'mitra' => [
                     [
-                        'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra10.png',
+                        'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra10.webp',
                         'name' => 'PT Parna Maspion Sejahtera',
                         'total' => '40 Klien',
                     ],
                     [
-                        'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra15.png',
+                        'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra15.webp',
                         'name' => 'PT Bara Blasting Perkasa',
                         'total' => '7 Klien',
                     ],
@@ -537,17 +537,17 @@ class LandingController extends Controller
                 'category' => 'Instansi Pendidikan',
                 'mitra' => [
                     [
-                        'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra3.png',
+                        'logo' => 'assets/images/landing/asset-tentang/mitra-afiliasi/mitra3.webp',
                         'name' => 'Calon Dosen Non PNS UNAIR',
                         'total' => '1 Klien',
                     ],
                     [
-                        'logo' => 'assets/images/landing/asset-psikotes/yayasan-darussalam.png',
+                        'logo' => 'assets/images/landing/asset-psikotes/yayasan-darussalam.webp',
                         'name' => 'Calon Guru Yayasan Darussalam',
                         'total' => '55 Klien',
                     ],
                     [
-                        'logo' => 'assets/images/landing/asset-psikotes/yayasan-darussalam.png',
+                        'logo' => 'assets/images/landing/asset-psikotes/yayasan-darussalam.webp',
                         'name' => 'Calon Kepala Sekolah Yayasan Darussalam',
                         'total' => '4 Klien',
                     ],
@@ -557,7 +557,7 @@ class LandingController extends Controller
                 'category' => 'Individu',
                 'mitra' => [
                     [
-                        'logo' => 'assets/images/landing/asset-psikotes/vector-person2.png',
+                        'logo' => 'assets/images/landing/asset-psikotes/vector-person2.webp',
                         'name' => 'Individu',
                         'total' => '8 Klien',
                     ],
@@ -567,7 +567,7 @@ class LandingController extends Controller
 
         $individus = [
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-memori.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-memori.webp',
                 'jenis_tes' => 'Tes Memori‍',
                 'harga' => 'Rp129.999',
                 'keterangan' => [
@@ -576,7 +576,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-selflove.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-selflove.webp',
                 'jenis_tes' => 'Tes Self-Love‍',
                 'harga' => 'Rp99.000',
                 'keterangan' => [
@@ -585,7 +585,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-dimensia.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-dimensia.webp',
                 'jenis_tes' => 'Tes Demensia‍',
                 'harga' => 'Rp199.999',
                 'keterangan' => [
@@ -594,7 +594,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-stress.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-stress.webp',
                 'jenis_tes' => 'Tes Stress‍',
                 'harga' => 'Rp159.000',
                 'keterangan' => [
@@ -603,7 +603,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-depresi.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-depresi.webp',
                 'jenis_tes' => 'Tes Depresi',
                 'harga' => 'Rp159.000',
                 'keterangan' => [
@@ -612,7 +612,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-kecemasan.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-kecemasan.webp',
                 'jenis_tes' => 'Tes Kecemasan',
                 'harga' => 'Rp159.000',
                 'keterangan' => [
@@ -621,7 +621,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-kecemasanplus.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-kecemasanplus.webp',
                 'jenis_tes' => 'Tes Kecemasan+',
                 'harga' => 'Rp229.000',
                 'keterangan' => [
@@ -630,7 +630,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-fungsikognitif.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-individu/tes-fungsikognitif.webp',
                 'jenis_tes' => 'Tes Fungsi Kognitif',
                 'harga' => 'Rp129.999',
                 'keterangan' => [
@@ -738,7 +738,7 @@ class LandingController extends Controller
 
         $pendidikans = [
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-wowgayabelajar.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-wowgayabelajar.webp',
                 'paket' => 'Paket WOW Gaya Belajar',
                 'harga' => 'Rp99.999',
                 'keterangan' => [
@@ -748,7 +748,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-hematcitacita.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-hematcitacita.webp',
                 'paket' => 'Paket Hemat Cita-Cita',
                 'harga' => 'Rp99.999',
                 'keterangan' => [
@@ -758,7 +758,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-lengkapteskepribadian.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-lengkapteskepribadian.webp',
                 'paket' => 'Paket Lengkap Tes Kepribadian',
                 'harga' => 'Rp129.999',
                 'keterangan' => [
@@ -768,7 +768,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/tes-memori.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/tes-memori.webp',
                 'paket' => 'Tes Memori',
                 'harga' => 'Rp99.999',
                 'keterangan' => [
@@ -778,7 +778,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/tes-paketminipenjurusan.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/tes-paketminipenjurusan.webp',
                 'paket' => 'Tes Paket Mini Penjurusan',
                 'harga' => 'Rp255.500',
                 'keterangan' => [
@@ -788,7 +788,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/tes-paketgoldpenjurusan.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/tes-paketgoldpenjurusan.webp',
                 'paket' => 'Tes Paket Gold Penjurusan',
                 'harga' => 'Rp319.000',
                 'keterangan' => [
@@ -798,7 +798,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-tahuminatbakat.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-tahuminatbakat.webp',
                 'paket' => 'Paket Tahu Bakat Minat',
                 'harga' => 'Rp351.000',
                 'keterangan' => [
@@ -808,7 +808,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-lengkappenjurusan.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-pendidikan/paket-lengkappenjurusan.webp',
                 'paket' => 'Paket Lengkap Penjurusan',
                 'harga' => 'Rp399.000',
                 'keterangan' => [
@@ -821,7 +821,7 @@ class LandingController extends Controller
 
         $communitys = [
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kesiapanpernikahan.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kesiapanpernikahan.webp',
                 'paket' => 'Tes Kesiapan Pernikahan',
                 'harga' => 'Rp299.999',
                 'keterangan' => [
@@ -830,7 +830,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kesiapanorangtua.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kesiapanorangtua.webp',
                 'paket' => 'Tes Kesiapan Menjadi Orang Tua',
                 'harga' => 'Rp299.999',
                 'keterangan' => [
@@ -839,7 +839,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kecocokanpasangan.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kecocokanpasangan.webp',
                 'paket' => 'Tes Kecocokan Pasangan',
                 'harga' => 'Rp299.999',
                 'keterangan' => [
@@ -848,7 +848,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-stress.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-stress.webp',
                 'paket' => 'Tes Stress',
                 'harga' => 'Rp159.999',
                 'keterangan' => [
@@ -857,7 +857,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-depresi.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-depresi.webp',
                 'paket' => 'Tes Depresi',
                 'harga' => 'Rp159.999',
                 'keterangan' => [
@@ -866,7 +866,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kecemasan.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kecemasan.webp',
                 'paket' => 'Tes Kecemasan',
                 'harga' => 'Rp159.999',
                 'keterangan' => [
@@ -875,7 +875,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kecemasanplus.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-kecemasanplus.webp',
                 'paket' => 'Tes Kecemasan+',
                 'harga' => 'Rp299.999',
                 'keterangan' => [
@@ -884,7 +884,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-fungsikognitif.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-fungsikognitif.webp',
                 'paket' => 'Tes Fungsi Kognitif',
                 'harga' => 'Rp129.999',
                 'keterangan' => [
@@ -893,7 +893,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-memori.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-memori.webp',
                 'paket' => 'Tes Memori',
                 'harga' => 'Rp129.999',
                 'keterangan' => [
@@ -902,7 +902,7 @@ class LandingController extends Controller
                 ],
             ],
             [
-                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-dimensia.png',
+                'illustrasi' => 'assets/images/landing/asset-psikotes/illustrasi/psikotes-komunitas/tes-dimensia.webp',
                 'paket' => 'Tes Demensia',
                 'harga' => 'Rp199.999',
                 'keterangan' => [
@@ -914,23 +914,23 @@ class LandingController extends Controller
 
         $dokumentasis = [
             [
-                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi1.png',
+                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi1.webp',
                 'jenis_psikotes' => 'Psikotes Offline'
             ],
             [
-                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi2.png',
+                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi2.webp',
                 'jenis_psikotes' => 'Psikotes Offline'
             ],
             [
-                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi3.png',
+                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi3.webp',
                 'jenis_psikotes' => 'Psikotes Offline'
             ],
             [
-                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi4.png',
+                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi4.webp',
                 'jenis_psikotes' => 'Psikotes Online'
             ],
             [
-                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi5.png',
+                'image' => 'assets/images/landing/asset-psikotes/dokumentasi-psikotes/dokumentasi5.webp',
                 'jenis_psikotes' => 'Psikotes Online'
             ],
         ];
@@ -938,19 +938,19 @@ class LandingController extends Controller
         $testimonis = [
             [
                 'comment' => '“Untuk saya yang baru pertama kali ikut tes, merasa sangat terbantu karena dibimbing dari awal dan diajari terlebih dahulu bahkan juga dikasih contoh sebelum memulai tes, jadi tidak seperti orang kebingungan”',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
             ],
             [
                 'comment' => '“Pengalaman mengikuti tes ini benar-benar mengesankan, proses seru dan asik, ditambah lagi para staf yang ramah dan tidak memaksa, menciptakan suasana yang nyaman sehingga saya merasa lebih terbuka”',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
             ],
             [
                 'comment' => '“Psikotes berjalan cukup baik. Dengan adanya penjelasan petunjuk yang diberikan membuat saya lebih memahami jenis soal yang nantinya dikerjakan”',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
             ],
             [
                 'comment' => '“Jujur pengalaman pertama kali mengikuti psikotes secara online. Meskipun dilakukan secara virtual, semuanya berjalan lancar berkat panduan yang jelas”',
-                'image' => 'assets/images/landing/asset-konseling/image/anonim.png',
+                'image' => 'assets/images/landing/asset-konseling/image/anonim.webp',
             ],
         ];
 
@@ -1015,31 +1015,31 @@ class LandingController extends Controller
     {
         $products = [
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-class-journey.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-class-journey.webp',
                 'produk' => '101 Class Journey',
                 'deskripsi' => 'Memperluas wawasan keilmuan dan keterampilan yang berasal dari ahli',
                 'route' => '101-class-journey' // name of the sub routes
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.webp',
                 'produk' => 'BISIKAN',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
                 'route' => '#'
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-berbinar.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-berbinar.webp',
                 'produk' => 'Berbinar+',
                 'deskripsi' => 'Bundling package dimana customer bisa menggunakan produk kelas, konseling, dan psikotes.',
                 'route' => 'berbinar-plus-new'
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-berarty.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-berarty.webp',
                 'produk' => 'BERARTY',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
                 'route' => 'berarty-new'
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-premium-class.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-premium-class.webp',
                 'produk' => 'Premium Class',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
                 'route' => 'premium-class-new'
@@ -1129,27 +1129,27 @@ class LandingController extends Controller
     public function berbinar_plus_new(){
         $products = [
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-class-journey.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-class-journey.webp',
                 'produk' => '101 Class Journey',
                 'deskripsi' => 'Memperluas wawasan keilmuan dan keterampilan yang berasal dari ahli',
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.webp',
                 'produk' => 'BISIKAN',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-berbinar.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-berbinar.webp',
                 'produk' => 'Berbinar+',
                 'deskripsi' => 'Bundling package dimana customer bisa menggunakan produk kelas, konseling, dan psikotes.',
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.webp',
                 'produk' => 'Berarty',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
             ],
             [
-                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.png',
+                'vector' => 'assets/images/landing/asset-kelas/produk/vector-bisikan.webp',
                 'produk' => 'Premium Class',
                 'deskripsi' => 'Sharing session terkait psikologi lewat instagram Berbinar dan tersedia juga di youtube channel',
             ],
@@ -1183,43 +1183,43 @@ class LandingController extends Controller
                 'name' => 'Erwin Tri Susanto, S.Psi, MBA',
                 'field' => 'Human Resources',
                 'title' => 'Career Preparation',
-                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/erwin.png'
+                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/erwin.webp'
             ],
             [
                 'name' => 'Sefty Wulandari',
                 'field' => 'Social Media Specialist',
                 'title' => 'Pemasaran Influencer dan Kemitraan',
-                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/sefty.png'
+                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/sefty.webp'
             ],
             [
                 'name' => 'Dini Amelia Sari',
                 'field' => 'Digital Marketing',
                 'title' => 'Digital Marketing Essentials',
-                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/dini.png'
+                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/dini.webp'
             ],
             [
                 'name' => 'Indriana Luqul Jannah',
                 'field' => 'Digital Marketing',
                 'title' => 'SEO Basics',
-                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/indriana.png'
+                'image' => 'assets/images/landing/asset-kelas/berbinar-plus/pemateri/indriana.webp'
             ],
             [
                 'name' => 'Shafa Nathaniela Salwa',
                 'field' => 'Product management',
                 'title' => '-',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/virginia.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/virginia.webp'
             ],
             [
                 'name' => 'Hakiki Mahfuzh',
                 'field' => 'Product management',
                 'title' => '-',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/kasmayani.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/kasmayani.webp'
             ],
             [
                 'name' => 'Abdillah Farhan',
                 'field' => 'Digital Marketing',
                 'title' => '-',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/ira.png'
+                'image' => 'assets/images/landing/asset-konseling/image/psikolog/ira.webp'
             ]
         ];
 
@@ -1259,15 +1259,15 @@ class LandingController extends Controller
         $benefit_berbinar_plus = [
             [
                 'name' => 'E-Certificate',
-                'image' => 'certificate.png'
+                'image' => 'certificate.webp'
             ],
             [
                 'name' => 'Hands-On Experience',
-                'image' => 'hands-on.png'
+                'image' => 'hands-on.webp'
             ],
             [
                 'name' => 'Upgrade Skill',
-                'image' => 'upgrade.png'
+                'image' => 'upgrade.webp'
             ],
         ];
 
@@ -1280,40 +1280,40 @@ class LandingController extends Controller
             [
                 'name' => 'Early Bird',
                 'price' => 'Rp15.000',
-                'icon' => 'assets/images/landing/asset-kelas/class-journey/early-bird.png'
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/early-bird.webp'
             ],
             [
                 'name' => 'Triple Bundle',
                 'price' => 'Rp55.000',
-                'icon' => 'assets/images/landing/asset-kelas/class-journey/bundle-bertiga.png'
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/bundle-bertiga.webp'
             ],
             [
                 'name' => 'Normal Price',
                 'price' => 'Rp20.000',
-                'icon' => 'assets/images/landing/asset-kelas/class-journey/normal-price.png'
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/normal-price.webp'
             ],
         ];
 
         $benefit_class_journey = [
             [
                 'name' => 'E-Certificate',
-                'image' => 'certificate.png'
+                'image' => 'certificate.webp'
             ],
             [
                 'name' => 'Hands-On Experience',
-                'image' => 'hands-on.png'
+                'image' => 'hands-on.webp'
             ],
             [
                 'name' => 'Upgrade Skill',
-                'image' => 'upgrade.png'
+                'image' => 'upgrade.webp'
             ],
             [
                 'name' => 'Tips and Trick dari Ahli',
-                'image' => 'tips-n-trick.png'
+                'image' => 'tips-n-trick.webp'
             ],
             [
                 'name' => 'Networking',
-                'image' => 'networking.png'
+                'image' => 'networking.webp'
             ],
         ];
 
@@ -1340,7 +1340,7 @@ class LandingController extends Controller
             ]
         ];
 
-        $poster = 'public/assets/images/landing/asset-kelas/class-journey/poster-maret.png';
+        $poster = 'public/assets/images/landing/asset-kelas/class-journey/poster-maret.webp';
 
         $link_pendaftaran = 'https://bit.ly/Pendaftaran_101ClassJourney';
 
@@ -1356,49 +1356,49 @@ class LandingController extends Controller
                 'price' => 'Rp1.800.000',
                 'description' => ['Penyusunan kriteria jabatan dan deskripsi pekerjaan', 'Membuat proses rekrutmen dari sistem tes hingga wawancara', 'Melaporkan evaluasi kandidat berdasarkan kompetensi'],
                 'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
-                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Rekrutmen dan Seleksi.png'
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Rekrutmen dan Seleksi.webp'
             ],
             [
                 'category' => 'Pelatihan & Pengembangan',
                 'price' => 'Rp1.500.000',
                 'description' => ['Menyusun kurikulum pelatihan', 'Menganalisa kebutuhan pelatihan berdasarkan kinerja dan target bisnis', 'Evaluasi pasca-pelatihan untuk  menilai peningkatan keterampilan'],
                 'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
-                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Pelatihan & Pengembangan.png'
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Pelatihan & Pengembangan.webp'
             ],
             [
                 'category' => 'Analisis Beban Kerja & Perencanaan Organisasi',
                 'price' => 'Rp1.800.000',
                 'description' => ['Menganalisa beban kerja setiap jabatan', 'Peninjauan dan perencanaan struktur organisasi yang lebih efektif', 'Rekomendasi jumlah optimal staf berdasarkan beban kerja'],
                 'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
-                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Analisis Beban Kerja & Perencanaan Organisasi.png'
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Analisis Beban Kerja & Perencanaan Organisasi.webp'
             ],
             [
                 'category' => 'Coaching',
                 'price' => 'Rp2.000.000',
                 'description' => ['Melakukan sesi coaching personal untuk individu atau tim secara tatap muka', 'Pembahasan tujuan dan perencanaan pengembangan dengan berbagai metode penyesuaian strategi berdasarkan progress'],
                 'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
-                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Coaching.png'
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Coaching.webp'
             ],
             [
                 'category' => 'Penilaian Kinerja',
                 'price' => 'Rp2.150.000',
                 'description' => ['Penyusunan indikator kinerja utama (KPI) yang jelas dan terukur', 'Implementasi metode evaluasi kinerja', 'Laporan performa karyawan dengan rekomendasi pengembangan', 'Feedback terstruktur yang membantu peningkatan kompetensi'],
                 'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
-                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Penilaian Kerja.png'
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Penilaian Kerja.webp'
             ],
             [
                 'category' => 'Kompensasi & Benefit',
                 'price' => 'Rp1.780.000',
                 'description' => ['Analisis dan benchmark terhadap standar industri terkait gaji dan benefit', 'Penyusunan paket kompensasi yang adil dan menarik bagi karyawan', 'Rekomendasi mengenai insentif dan benefit tambahan yang relevan'],
                 'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
-                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Kompensasi & Benefit.png'
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Kompensasi & Benefit.webp'
             ],
             [
                 'category' => 'Standar Operasional Prosedur (SOP)',
                 'price' => 'Rp1.600.000',
                 'description' => ['Identifikasi dan dokumentasi alur proses kerja', 'Penyusunan dokumen SOP yang jelas dan terstruktur', 'Implementasi dan sosialisasi SOP kepada seluruh staf', 'Evaluasi dan update SOP secara berkala sesuai perubahan kondisi bisnis'],
                 'link' => 'https://forms.gle/6fiypk4DtqJLs4mAA',
-                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Standar Operasional Prosedur.png'
+                'icon' => 'assets/images/landing/asset-consulting/icon-produk/Standar Operasional Prosedur.webp'
             ],
         ];
 
@@ -1433,32 +1433,32 @@ class LandingController extends Controller
             [
                 'title' => "Pengisian Link Google Form",
                 'description' => "klik mulai sekarang pada layanan berbinar consulting dan isi data diri sobatbinar secara lengkap dan jelas sesuai yang tersedia dalam link",
-                'link' => "assets/images/landing/asset-consulting/link-google-form.png"
+                'link' => "assets/images/landing/asset-consulting/link-google-form.webp"
             ],
             [
                 'title' => "Konfirmasi Pendaftaran",
                 'description' => "lakukan konfirmasi kepada (cp) tim berbinar dan tunggu 1x24 jam untuk dapatkan informasi selengkapnya",
-                'link' => "assets/images/landing/asset-consulting/check-mark-pendaftaran.png"
+                'link' => "assets/images/landing/asset-consulting/check-mark-pendaftaran.webp"
             ],
             [
                 'title' => "Informasi Jadwal dan Pembayaran",
                 'description' => "(cp) tim berbinar akan melakukan konfirmasi untuk pemberitahuan mengenai ketersediaan jadwal consulting dan melakukan pembayaran pada rekening bank yang tersedia",
-                'link' => "assets/images/landing/asset-consulting/jadwal-dan-pembayaran.png"
+                'link' => "assets/images/landing/asset-consulting/jadwal-dan-pembayaran.webp"
             ],
             [
                 'title' => "Verifikasi Pembayaran",
                 'description' => "kirimkan bukti pembayaran kepada (cp) tim berbinar untuk melakukan pengecekan",
-                'link' => "assets/images/landing/asset-consulting/check-mark-pembayaran.png"
+                'link' => "assets/images/landing/asset-consulting/check-mark-pembayaran.webp"
             ],
             [
                 'title' => "Jadwal pelaksanaan",
                 'description' => "(cp) tim berbinar akan mengirimkan jadwal yang telah ditentukan beserta dengan link yang akan diakses dan teknis pelaksanaan",
-                'link' => "assets/images/landing/asset-consulting/jadwal-pelaksanaan.png"
+                'link' => "assets/images/landing/asset-consulting/jadwal-pelaksanaan.webp"
             ],
             [
                 'title' => "Pelaksanaan Layanan Consulting",
                 'description' => "setelah mengetahui keseluruhan informasi, sobatbinar bisa memulai layanan consulting bersama konsultan sesuai jadwal yang telah ditentukan",
-                'link' => "assets/images/landing/asset-consulting/layanan-consulting.png"
+                'link' => "assets/images/landing/asset-consulting/layanan-consulting.webp"
             ]
         ];
 
@@ -1491,40 +1491,40 @@ class LandingController extends Controller
             [
                 'name' => 'Early Bird',
                 'price' => 'Rp15.000',
-                'icon' => 'assets/images/landing/asset-kelas/class-journey/early-bird.png'
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/early-bird.webp'
             ],
             [
                 'name' => 'Triple Bundle',
                 'price' => 'Rp55.000',
-                'icon' => 'assets/images/landing/asset-kelas/class-journey/bundle-bertiga.png'
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/bundle-bertiga.webp'
             ],
             [
                 'name' => 'Normal Price',
                 'price' => 'Rp20.000',
-                'icon' => 'assets/images/landing/asset-kelas/class-journey/normal-price.png'
+                'icon' => 'assets/images/landing/asset-kelas/class-journey/normal-price.webp'
             ],
         ];
 
         $benefit_class_journey = [
             [
                 'name' => 'E-Certificate',
-                'image' => 'certificate.png'
+                'image' => 'certificate.webp'
             ],
             [
                 'name' => 'Hands-On Experience',
-                'image' => 'hands-on.png'
+                'image' => 'hands-on.webp'
             ],
             [
                 'name' => 'Upgrade Skill',
-                'image' => 'upgrade.png'
+                'image' => 'upgrade.webp'
             ],
             [
                 'name' => 'Tips and Trick dari Ahli',
-                'image' => 'tips-n-trick.png'
+                'image' => 'tips-n-trick.webp'
             ],
             [
                 'name' => 'Networking',
-                'image' => 'networking.png'
+                'image' => 'networking.webp'
             ],
         ];
 
@@ -1551,7 +1551,7 @@ class LandingController extends Controller
             ]
         ];
 
-        $poster = 'public/assets/images/landing/asset-kelas/class-journey/poster-maret.png';
+        $poster = 'public/assets/images/landing/asset-kelas/class-journey/poster-maret.webp';
 
         $link_pendaftaran = 'https://bit.ly/Pendaftaran_101ClassJourney';
         return view('moduls.landing-new.produk-bisikan', compact('layanan_class_journey', 'benefit_class_journey', 'faqs', 'poster', 'link_pendaftaran'));
@@ -1672,69 +1672,69 @@ class LandingController extends Controller
 
         //get list of field photo where the motm field is true
         $list_image = TableStaff::where('motm', 'yes')->pluck('photo')->map(function ($photo) {
-            return $photo ? '/image/' . $photo : '/assets/images/landing/keluarga-berbinar/dummy.png';
+            return $photo ? '/image/' . $photo : '/assets/images/landing/keluarga-berbinar/dummy.webp';
         });
 
         $testimonis = [
             [
                 'comment' => 'Banyak ilmu dan pengalaman baru yang didapat di Berbinar. Bukan hanya terkait hardskill, tapi juga softskill seperti kedisiplinan, kerjasama tim, dan komunikasi. Temen-temen disini juga ramah dan asik-asik semua. Magang di Berbinar bisa jadi opsi terbaik buat yang baru mau terjun ke dunia kerja biar nggak terlalu kaget.',
                 'name' => 'Khalisah Oktavia',
-                'image' => 'assets/images/landing/karir/testimoni/magang-oktavia.png',
+                'image' => 'assets/images/landing/karir/testimoni/magang-oktavia.webp',
                 'division' => 'Secretary and Finance',
             ]
             ,
             [
                 'comment' => 'Selama bekerja di Berbinar, saya selalu merasa tertantang keluar dari zona nyaman dan menjadi "the best version of yourself". Selain itu, banyak hal yang saya pelajari sebagai posisi manager yaitu task management, mengatur waktu, mengeluarkan ide baru dan pendapat.',
                 'name' => 'Ismail Ridwan Arayana',
-                'image' => 'assets/images/landing/karir/testimoni/magang-arayana.png',
+                'image' => 'assets/images/landing/karir/testimoni/magang-arayana.webp',
                 'division' => 'Human Resource',
             ],
             [
                 'comment' => 'Lingkungan yang suportif, kesempatan bagi yang kurang pengalaman supaya bisa memiliki pengalaman yang sangat berharga.',
                 'name' => 'Hairul Anam',
-                'image' => 'assets/images/landing/karir/testimoni/magang-irul.png',
+                'image' => 'assets/images/landing/karir/testimoni/magang-irul.webp',
                 'division' => 'Web and Mobile Apps Developer',
             ],
             [
                 'comment' => 'They said: Never forget your first company. YAA Will Never Forget You! Aku selalu bersyukur pernah menjadi bagian perjalanan Berbinar. Langkah pertama yang membawaku sejauh ini . Walaupun perjalanannya tidak sempurna, tapi disini ku mendapatkan banyak pengalaman, teman dan pembelajaran. Senang sekali bertemu orang-orang profesional yang menyenangkan. Best Experience Ever!',
                 'name' => 'Alifa Fatimatun Nazar',
-                'image' => 'assets/images/landing/karir/testimoni/magang-alifa.png',
+                'image' => 'assets/images/landing/karir/testimoni/magang-alifa.webp',
                 'division' => 'Tiktok Creator',
             ],
             [
                 'comment' => 'Magang di Berbinar sebagai Counseling Product Management memberi saya pengalaman luar biasa, terutama sebagai peer counselor. Saya belajar mendengarkan dengan empati, mendukung klien, sekaligus memahami pengelolaan layanan kesehatan mental. Selain memperkuat soft skill seperti komunikasi dan empati, saya juga mengasah keterampilan strategis dalam merancang program konseling. Berbinar adalah tempat yang sempurna untuk berkembang di bidang kesehatan mental!',
                 'name' => "Shafiyyah Muthi'ah",
-                'image' => 'assets/images/landing/karir/testimoni/magang-shfiyyah.png',
+                'image' => 'assets/images/landing/karir/testimoni/magang-shfiyyah.webp',
                 'division' => 'Counseling Product Management',
             ],
             [
                 'comment' => 'Banyak insight yang didapat, workflow juga jelas dan terstruktur. Anggotanya juga baik dan suportif juga sangat membantu karena saling backup jika terdapat kendala. Selama magang disini saya nyaman karena manfaatnya banyak sekali.',
                 'name' => 'Kiara Allegria',
-                'image' => 'assets/images/landing/karir/testimoni/magang-kiara.png',
+                'image' => 'assets/images/landing/karir/testimoni/magang-kiara.webp',
                 'division' => 'Instagram Creator',
             ],
             [
                 'comment' => 'Selama magang di Berbinar sebagai Graphic Designer, saya banyak belajar hal-hal baru. Tim desain sangat solid dan kolaboratif, selalu bertukar pikiran untuk menghasilkan karya terbaik.',
                 'name' => 'Fadhilah Putri Haryanti',
-                'image' => 'assets/images/landing/karir/testimoni/magang-fadhillah.png',
+                'image' => 'assets/images/landing/karir/testimoni/magang-fadhillah.webp',
                 'division' => 'Graphic Designer',
             ],
             [
                 'comment' => 'Ini honest review ya. Di waktu awal join itu masih bingung harus adaptasi dan kayak amaze sama rekan se-tim. Soalnya waktu aku cek daily report mereka itu progres kerjaannya bagus dan terstruktur banget. Terus aku juga amaze sama culture perusahaan yang sangat menjunjung tinggi kedisiplinan. Nah dari kebiasaan ngerjain tugas sebelum deadline, ngisi daily report tepat waktu, rutin ikut weekly meeting itu sekarang ngebentuk aku jadi sosok yang amat disiplin dan tanggung jawab terhadap tugas yang diberikan. Ohiya rekan se-tim ku asik dan seru banget orang-orangnya, kadang kita kalau udah selesai bahas kerjaan juga coba main game buat cooling down xixi. And next, I think buat pekerjaannya itu ngga terlalu memberatkan kita-kita yang masih pemula ini karena nantinya di awal bakal ada training sama manager divisi terus juga terkait jobdesc sebenarnya bisa dikerjakan kapan-kapan aja (fleksibel) tapi tetep harus inget deadline yang dikasih hehee',
                 'name' => 'Wilda Maulidiyah',
-                'image' => 'assets/images/landing/karir/testimoni/magang-wilda.png',
+                'image' => 'assets/images/landing/karir/testimoni/magang-wilda.webp',
                 'division' => 'Marketing Strategist & Sales',
             ],
             [
                 'comment' => 'Berbinar itu jadi tempat pertama kali aku magang dan pengalamannya magang di Berbinar itu seru, menegangkan waktu pertama kali melayani klien, work flownya gak nyangka secepet itu dan untungnya aku bisa adaptasi, banyak belajar lagi tentang alat tes, staf-staf di Berbinar juga baik-baik, pokoknya ini jadi pengalaman magang yang seru dan challenging untuk aku',
                 'name' => 'Talitha Aurelia Artedi',
-                'image' => 'assets/images/landing/karir/testimoni/magang-talitha.png',
+                'image' => 'assets/images/landing/karir/testimoni/magang-talitha.webp',
                 'division' => 'Psychological Testing Product Management',
             ],
             [
                 'comment' => 'Seru banget, ketemu temen-temen baru dari berbagai daerah. intern di Berbinar juga bikin lebih produktif karena ada daily report wajib yang harus diisi tiap harinya. Lovee banget intinya sama Berbinar.',
                 'name' => 'Safitri',
-                'image' => 'assets/images/landing/karir/testimoni/magang-safitri.png',
+                'image' => 'assets/images/landing/karir/testimoni/magang-safitri.webp',
                 'division' => 'Class Product Management',
             ],
         ];
@@ -1952,13 +1952,13 @@ class LandingController extends Controller
     public function daftar_konseling(Request $request) {
         $konselings = [
             [
-                'image' => 'assets/images/landing/asset-konseling/vector/psikolog.png',
+                'image' => 'assets/images/landing/asset-konseling/vector/psikolog.webp',
                 'nama' => 'Psikolog',
                 'deskripsi' => 'Konseling bersama Psikolog berizin praktek aktif (SIPP) dan berpengalaman dalam menghadapi berbagai permasalahan yang berkaitan dengan konseling',
                 'link' => route('konseling-new/jadwal-konseling')
             ],
             [
-                'image' => 'assets/images/landing/asset-konseling/vector/peercounselor.png',
+                'image' => 'assets/images/landing/asset-konseling/vector/peercounselor.webp',
                 'nama' => 'Peer Counselor',
                 'deskripsi' => 'Konseling bersama Peer Conselor yang dilatih secara langsung oleh Psikolog Berbinar dan merupakan mahasiswa yang telah lulus mata kuliah konseling',
                 'link' => route('konseling-new/jadwal-konseling')
@@ -1989,19 +1989,19 @@ class LandingController extends Controller
     public function daftar_psikotes(Request $request) {
         $layanan_psikotes = [
             [
-                'image' => 'assets/images/landing/asset-psikotes/illustrasi/individu.png',
+                'image' => 'assets/images/landing/asset-psikotes/illustrasi/individu.webp',
                 'name' => 'Individu'
             ],
             [
-                'image' => 'assets/images/landing/asset-psikotes/illustrasi/perusahaan.png',
+                'image' => 'assets/images/landing/asset-psikotes/illustrasi/perusahaan.webp',
                 'name' => 'Perusahaan'
             ],
             [
-                'image' => 'assets/images/landing/asset-psikotes/illustrasi/komunitas.png',
+                'image' => 'assets/images/landing/asset-psikotes/illustrasi/komunitas.webp',
                 'name' => 'Komunitas'
             ],
             [
-                'image' => 'assets/images/landing/asset-psikotes/illustrasi/Pendidikan.png',
+                'image' => 'assets/images/landing/asset-psikotes/illustrasi/Pendidikan.webp',
                 'name' => 'Pendidikan'
             ],
         ];
@@ -2081,70 +2081,70 @@ class LandingController extends Controller
                 "jabatan" => "Manager",
                 "divisi" => "Tiktok Creator",
                 "testimonial" => "Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya sangat bagus.",
-                "image" => "assets/images/ImgLandingController/Ace-Pebri.png"
+                "image" => "assets/images/ImgLandingController/Ace-Pebri.webp"
             ],
             [
                 "name" => "Mellynda Silanur Rohmah",
                 "jabatan" => "Manager",
                 "divisi" => "Human Resource",
                 "testimonial" => "Tentunya produk dari berbinar itu memiliki kualitas unggul karena ditangani langsung oleh seorang psikolog, tetapi dengan harga yang terjangkau.",
-                "image" => "assets/images/ImgLandingController/Mellynda.png"
+                "image" => "assets/images/ImgLandingController/Mellynda.webp"
             ],
             [
                 "name" => "Caroline Athalia Rianda",
                 "jabatan" => "Manager",
                 "divisi" => "Graphic Designer",
                 "testimonial" => "Sejauh yang aku tau di berbinar sendiri itu udah nyediain beragam banget layanan psikologi  untuk sobat binar semua ",
-                "image" => "assets/images/ImgLandingController/Caroline.png"
+                "image" => "assets/images/ImgLandingController/Caroline.webp"
             ],
             [
                 "name" => "Mawaliatul Khasanah",
                 "jabatan" => "Manager",
                 "divisi" => "IG Creator",
                 "testimonial" => "Produknya keren, kualitas dan kuantitas bisa di tingkatkan",
-                "image" => "assets/images/ImgLandingController/Mawaliatul.png"
+                "image" => "assets/images/ImgLandingController/Mawaliatul.webp"
             ],
             [
                 "name" => "Regina Amanda Sharen",
                 "jabatan" => "Manager",
                 "divisi" => "Secretary & Finance",
                 "testimonial" => "Produk Berbinar pun sgt beragam dan pastiny ramah di kantong. Menurut saya produk-produk Berbinar telah sesuai dengan kebutuhan masyarakat skrng ini. Selain itu dengan harga yg affordable sehingga dapat dibeli oleh semua kalangan usia.",
-                "image" => "assets/images/ImgLandingController/Regina.png"
+                "image" => "assets/images/ImgLandingController/Regina.webp"
             ],
             [
                 "name" => "Zalfa Qanita",
                 "jabatan" => "Manager",
                 "divisi" => "PTPM",
                 "testimonial" => "Produk dan layanan di Berbinar itu lengkap banget mulai dari konseling, asesmen psikologi, sampai kelas-kelas yang bisa nambah skill dan pengetahuan. Selain itu, produk dan layanan di Berbinar juga punya harga relatif terjangkau dan berkualitas.",
-                "image" => "assets/images/ImgLandingController/Zalfa.png"
+                "image" => "assets/images/ImgLandingController/Zalfa.webp"
             ],
             [
                 "name" => "Ghina",
                 "jabatan" => "Manager",
                 "divisi" => "Class Product Management",
                 "testimonial" => "Saya memang baru memakai produk dari Berbinar yaitu layanan psikotes, dan untuk kualitasnya menurut saya yang baru pertama kali melakukan psikotes sangat bagus dan mudah dipahami. Dan mengikuti layanan psikotes di Berbinar seras santai dan tidak tertekan.",
-                "image" => "assets/images/ImgLandingController/Ghina.png"
+                "image" => "assets/images/ImgLandingController/Ghina.webp"
             ],
             [
                 "name" => "Dhila Aprilianti ",
                 "jabatan" => "Staff",
                 "divisi" => "Graphic Designer ",
                 "testimonial" => "Layanan konseling yang diadakan berbinar juga sangat membantu untuk menyelesaikan masalah mental dan kesehatan pikiran, dengan harga yang terjangkau kita bisa mendapatkan konselor dan bisa juga mendapatkan solusi dari permasalahan yang dihadapi.",
-                "image" => "assets/images/ImgLandingController/Dhila-Aprilianti.jpg"
+                "image" => "assets/images/ImgLandingController/Dhila-Aprilianti.webp"
             ],
             [
                 "name" => "Fransiska Dian Nurfala",
                 "jabatan" => "Staff",
                 "divisi" => "Graphic Designer",
                 "testimonial" => "Produk Berbinar menarik dan bermanfaat bagi yang membutuhkan layanan psikologi serta konten-konten yang disajikan memberikan insight bagi pembacanya.",
-                "image" => "assets/images/ImgLandingController/Fransiska.jpg"
+                "image" => "assets/images/ImgLandingController/Fransiska.webp"
             ],
             [
                 "name" => "Ananda Deshinta Rasyid",
                 "jabatan" => "Staff",
                 "divisi" => "Class Product Management",
                 "testimonial" => "Berbinar salah satu layanan edukasi psikologi yang dibilang cukup lengkap, dan produk produknya sangat dibutuhkan oleh anak remaja jaman sekarang.",
-                "image" => "assets/images/ImgLandingController/Deshinta.jpg"
+                "image" => "assets/images/ImgLandingController/Deshinta.webp"
             ],
         ];
 
@@ -2217,42 +2217,42 @@ class LandingController extends Controller
                 "jabatan" => "-",
                 "divisi" => "-",
                 "testimonial" => "Sesi konseling merubah pandang: tak masalah berubah demi orang lain. Dorongan jadi lebih baik. Lakukan yang diinginkan, tetap aman. Belajarlah. Lampiaskan sakit, geser ke positif, hargai diri dan peduli orang.",
-                "image" => "assets/images/ImgLandingController/Anonim-Pria.png"
+                "image" => "assets/images/ImgLandingController/Anonim-Pria.webp"
             ],
             [
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
                 "testimonial" => "Konseling sangat membantu, konselor ramah. Pertama kali cerita, terbantu menceritakan masalah yang selama ini takut dibagikan sebelumnya. Rasanya lega, tanpa beban dan validasi. Kakak konselor memberi waktu dan kenyamanan.",
-                "image" => "assets/images/ImgLandingController/Anonim-Pria.png"
+                "image" => "assets/images/ImgLandingController/Anonim-Pria.webp"
             ],
             [
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
                 "testimonial" => "Konselor mendengarkan dan memerhatikan dengan seksama, memberi saran dan bimbingan spesifik. Dituntun dengan pertanyaan terkait permasalahan, sangat terbantu. Akan segera menyelesaikan tugas setelah konseling hari ini.",
-                "image" => "assets/images/ImgLandingController/Anomim-Wanita.png"
+                "image" => "assets/images/ImgLandingController/Anomim-Wanita.webp"
             ],
             [
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
                 "testimonial" => "Psikolognya mendengar dan menyimak cerita saya selama proses konseling dan juga menjelaskan masalah saya dengan cara yang mudah dipahami. Saya merasa nyaman dan tidak merasa dihakimi ketika saya menceritakan semua masalah saya.",
-                "image" => "assets/images/ImgLandingController/Anonim-Pria.png"
+                "image" => "assets/images/ImgLandingController/Anonim-Pria.webp"
             ],
             [
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
                 "testimonial" => "Psikolog mendengarkan semua cerita dengan baik, bisa leluasa cerita dan mengungkapkan perasaan jadi lebih tenang, psikolog memperhatikan detail cerita sehingga bisa membantu menemukan akar permasalahannya",
-                "image" => "assets/images/ImgLandingController/Anomim-Wanita.png"
+                "image" => "assets/images/ImgLandingController/Anomim-Wanita.webp"
             ],
             [
                 "name" => "Anonim",
                 "jabatan" => "-",
                 "divisi" => "-",
                 "testimonial" => "Saya sangat senang dan terbantu, konselor ramah, ini pertama kali saya berkonsultasi dan berani cerita permasalahan yang saya alami. Sebelumnya saya takut untuk cerita permasalahan. Disini rasanya bisa cerita tanpa ada beban. Konselor memberi waktu kita untuk bercerita dan membuat kita nyaman selama sesi konseling.",
-                "image" => "assets/images/ImgLandingController/Anomim-Wanita.png"
+                "image" => "assets/images/ImgLandingController/Anomim-Wanita.webp"
             ],
         ];
 
@@ -2516,21 +2516,21 @@ class LandingController extends Controller
                 "jabatan" => "Staff",
                 "divisi" => "Marketing Strategist and Sales",
                 "testimonial" => "Selama bekerja di Berbinar, impact yang saya rasakan adalah skill time management, kolaborasi dan juga decision making yang semakin terasah. Meskipun dilaksanakan secara daring pun experience bekerja disini sangat terasa, banyak sekali yang saya pelajari.",
-                "image" => "assets/images/testimoni/Oktaviani.png"
+                "image" => "assets/images/testimoni/Oktaviani.webp"
             ],
             [
                 "name" => "Zalfa Qanita",
                 "jabatan" => "Manager",
                 "divisi" => "PTPM",
                 "testimonial" => "Selama bekerja di Berbinar, saya selalu merasa tertantang keluar dari zona nyaman dan menjadi 'the best version of yourself'. Selain itu, banyak hal yang saya pelajari sebagai posisi manager yaitu task management, mengatur waktu, mengeluarkan ide baru dan pendapat.",
-                "image" => "assets/images/testimoni/Zalfa.png"
+                "image" => "assets/images/testimoni/Zalfa.webp"
             ],
             [
                 "name" => "Ghina",
                 "jabatan" => "Manager",
                 "divisi" => "Class Product Management",
                 "testimonial" => "Selama di berbinar, aku belajar banyak banget. mulai dari hal hal yang sebelumnya ada basic sampe hal hal yang baru dan belum pernah aku dapetin. berbinar punya banyak acara yang menarik yang bisa diikutin. temen temennya juga asik dan seru banget!",
-                "image" => "assets/images/testimoni/Ghina.png"
+                "image" => "assets/images/testimoni/Ghina.webp"
             ],
         ];
 
@@ -2706,8 +2706,8 @@ class LandingController extends Controller
             return redirect()->back()->with('error', 'Position not found or inactive');
         }
         $imagePath = $this->getImagePath($position->divisi);
-        $imagePathMobile = $imagePath . '-mobile.png';
-        $imagePath = $imagePath . '.png';
+        $imagePathMobile = $imagePath . '-mobile.webp';
+        $imagePath = $imagePath . '.webp';
         $HiringPositionsJobDescription = Hiring_Positions_Job_Descriptions::where('position_id', $id)->get();
         $Hiring_Positions_Requirement = Hiring_Positions_Requirements::where('position_id', $id)->get();
 
@@ -3220,32 +3220,32 @@ class LandingController extends Controller
             [
                 'title' => "Pengisian Link Google Form",
                 'description' => "klik mulai sekarang pada layanan berbinar consulting dan isi data diri sobatbinar secara lengkap dan jelas sesuai yang tersedia dalam link",
-                'link' => "assets/images/landing/asset-consulting/link-google-form.png"
+                'link' => "assets/images/landing/asset-consulting/link-google-form.webp"
             ],
             [
                 'title' => "Konfirmasi Pendaftaran",
                 'description' => "lakukan konfirmasi kepada (cp) tim berbinar dan tunggu 1x24 jam untuk dapatkan informasi selengkapnya",
-                'link' => "assets/images/landing/asset-consulting/check-mark-pendaftaran.png"
+                'link' => "assets/images/landing/asset-consulting/check-mark-pendaftaran.webp"
             ],
             [
                 'title' => "Informasi Jadwal dan Pembayaran",
                 'description' => "(cp) tim berbinar akan melakukan konfirmasi untuk pemberitahuan mengenai ketersediaan jadwal consulting dan melakukan pembayaran pada rekening bank yang tersedia",
-                'link' => "assets/images/landing/asset-consulting/jadwal-dan-pembayaran.png"
+                'link' => "assets/images/landing/asset-consulting/jadwal-dan-pembayaran.webp"
             ],
             [
                 'title' => "Verifikasi Pembayaran",
                 'description' => "kirimkan bukti pembayaran kepada (cp) tim berbinar untuk melakukan pengecekan",
-                'link' => "assets/images/landing/asset-consulting/check-mark-pembayaran.png"
+                'link' => "assets/images/landing/asset-consulting/check-mark-pembayaran.webp"
             ],
             [
                 'title' => "Jadwal pelaksanaan",
                 'description' => "(cp) tim berbinar akan mengirimkan jadwal yang telah ditentukan beserta dengan link yang akan diakses dan teknis pelaksanaan",
-                'link' => "assets/images/landing/asset-consulting/jadwal-pelaksanaan.png"
+                'link' => "assets/images/landing/asset-consulting/jadwal-pelaksanaan.webp"
             ],
             [
                 'title' => "Pelaksanaan Layanan Consulting",
                 'description' => "setelah mengetahui keseluruhan informasi, sobatbinar bisa memulai layanan consulting bersama konsultan sesuai jadwal yang telah ditentukan",
-                'link' => "assets/images/landing/asset-consulting/layanan-consulting.png"
+                'link' => "assets/images/landing/asset-consulting/layanan-consulting.webp"
             ]
         ];
         return view ('moduls.landing-new.produk-premium-class', compact ('faqs', 'alur_pendaftaran'));

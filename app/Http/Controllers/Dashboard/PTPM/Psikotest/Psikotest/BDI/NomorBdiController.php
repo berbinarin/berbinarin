@@ -26,7 +26,7 @@ class NomorBdiController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Nomor BDI Berhasil diperbarui',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
         }
         $nomorBdis = NomorBdi::with('SoalBdi')->get();

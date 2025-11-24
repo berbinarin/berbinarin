@@ -111,7 +111,7 @@
         @if (count($articles) === 0)
             <div class="mt-12 w-full">
                 <div class="mx-auto mb-4 flex w-full items-center justify-center">
-                    <img src="{{ asset("assets/images/landing/arteri/empty-icon.png") }}" alt="empty image" class="h-32 object-cover sm:h-44 md:h-48 lg:h-52" />
+                    <img src="{{ asset("assets/images/landing/arteri/empty-icon.webp") }}" alt="empty image" class="h-32 object-cover sm:h-44 md:h-48 lg:h-52" />
                 </div>
                 <span class="mx-auto mb-2 block text-center text-lg font-semibold sm:text-xl md:text-2xl lg:text-3xl">Oops!</span>
                 <p class="mx-auto block max-w-sm text-center text-[#606060] md:max-w-md">Sepertinya belum ada artikel di sini. Kami sedang menyiapkan konten terbaik untuk Anda. Stay tuned!</p>
@@ -141,7 +141,7 @@
                                 <div class="mb-2 flex w-full items-center justify-between gap-2 lg:justify-start">
                                     <div class="flex items-center justify-center gap-2">
                                         <div class="size-6 overflow-hidden rounded-full">
-                                            <img src="{{ asset("/image/" . $article->author->profil_image) ? asset("/image/" . $article->author->profil_image) : asset("assets/images/landing/arteri/dummy.png") }}" alt="profile dummy" class="object-cover" />
+                                            <img src="{{ asset("/image/" . $article->author->profil_image) ? asset("/image/" . $article->author->profil_image) : asset("assets/images/landing/arteri/dummy.webp") }}" alt="profile dummy" class="object-cover" />
                                         </div>
                                         <span class="text-sm text-gray-600">{{ $article->author->name_author }}</span>
                                     </div>

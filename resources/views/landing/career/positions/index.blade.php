@@ -30,7 +30,7 @@
                                     <img src="{{ asset('image/' . $position->banner_path) }}" alt="{{ $position->name . ' banner' }}" class="object-cover h-full w-full">
                             </div>
                             {{--image-banner end--}}
-                            <img src="{{ asset("assets/images/landing/logo/logo-berbinar.png") }}" alt="berbinar logo"
+                            <img src="{{ asset("assets/images/landing/logo/logo-berbinar.webp") }}" alt="berbinar logo"
                                  class="absolute z-20 bg-white size-10 right-4 -bottom-5 rounded-full shadow-primary-light">
                         </div>
                         {{--banner end--}}
@@ -55,7 +55,7 @@
                         {{--md:remote start--}}
                         <div class="hidden w-full mb-4 md:flex md:items-start">
                                 <span class="font-normal text-xs text-remote italic">
-                                    <img src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
+                                    <img src="{{ asset("assets/images/landing/karir/remote.webp") }}" alt="remote icon"
                                          class="inline-block size-4">{{$position->location}}
                                 </span>
                         </div>
@@ -74,7 +74,7 @@
                         {{--short detail start--}}
                         <div class="w-full flex items-center justify-center mb-2 md:hidden">
                                 <span class="font-normal text-xs text-remote italic">
-                                    <img src="{{ asset("assets/images/landing/karir/remote.png") }}" alt="remote icon"
+                                    <img src="{{ asset("assets/images/landing/karir/remote.webp") }}" alt="remote icon"
                                          class="inline-block size-4">
                                     {{$position->location}}
                                 </span>
@@ -157,7 +157,7 @@
     <section class="w-full lg:mt-12 mx-auto flex items-center justify-center px-2 md:px-16 mb-12">
         <a href="{{route('career.keluarga-berbinar.index')}}">
             <div class=" cursor-pointer">
-                <img src="{{asset('assets/images/landing/karir/banner-keluarga-berbinar.png')}}"
+                <img src="{{asset('assets/images/landing/karir/banner-keluarga-berbinar.webp')}}"
                      alt="banner keluarga berbinar" class="object-cover">
             </div>
         </a>

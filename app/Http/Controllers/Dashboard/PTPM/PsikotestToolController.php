@@ -39,7 +39,7 @@ class PsikotestToolController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Token berhasil digenerate',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
   }
 
@@ -54,7 +54,7 @@ class PsikotestToolController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Token berhasil dihapus',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
   }
 
@@ -72,7 +72,7 @@ class PsikotestToolController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'Token Valid!',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
       }
       return redirect()->back()->with([
@@ -80,7 +80,7 @@ class PsikotestToolController extends Controller
                 'type' => 'error',
                 'title' => 'Gagal!',
                 'message' =>'Token Salah!',
-                'icon' => asset('assets/images/dashboard/error.png'),
+                'icon' => asset('assets/images/dashboard/error.webp'),
             ]);
   }
 }

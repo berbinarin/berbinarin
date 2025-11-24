@@ -9,7 +9,7 @@
             <div class="py-4 md:pb-7 md:pt-5 flex-shrink-0">
                 <div class="mb-2 flex items-center gap-2">
                     <a href="{{ route('dashboard.peer-staff.index') }}">
-                        <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.png') }}" alt="Back Btn" />
+                        <img src="{{ asset('assets/images/dashboard/svg-icon/dashboard-back.webp') }}" alt="Back Btn" />
                     </a>
                     <p class="xl:text-3xl lg:text-xl md:text-lg sm:text-base font-bold leading-normal text-gray-800">
                         Edit Data Psikolog Staff
@@ -223,7 +223,7 @@
                             background-clip: padding-box, border-box;
                         ">
             <!-- Warning Icon -->
-            <img src="{{ asset('assets/images/dashboard/warning.png') }}" alt="Warning Icon"
+            <img src="{{ asset('assets/images/dashboard/warning.webp') }}" alt="Warning Icon"
                 class="mx-auto h-[83px] w-[83px]" />
 
             <!-- Title -->

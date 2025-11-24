@@ -1,7 +1,7 @@
 <div class="lg:flex justify-around relative">
     {{--background image--}}
     <div class="hidden lg:block absolute inset-0 z-0 xl:-translate-y-3">
-        <img src="{{ asset("assets/images/landing/karir/garis.png") }}" alt="garis"
+        <img src="{{ asset("assets/images/landing/karir/garis.webp") }}" alt="garis"
              class="object-cover">
     </div>
 
@@ -10,13 +10,13 @@
         class="flex items-center justify-around mx-auto mb-4 relative z-20 lg:flex-col lg:items-center lg:justify-center lg:pb-60">
         {{--masking biru halus --}}
         <div class="hidden lg:flex lg:items-center lg:justify-center absolute z-10 -bottom-20 -left-8">
-            <img src="{{ asset('assets/images/landing/karir/Ellipse1.png') }}" alt="ellipse 3"
+            <img src="{{ asset('assets/images/landing/karir/Ellipse1.webp') }}" alt="ellipse 3"
                  class="translate-x-4">
         </div>
 
         {{--image & image caption--}}
         <div class="flex-col items-center justify-center shrink-0 gap-1 lg:mb-4">
-            <img src="{{ asset('assets/images/landing/karir/mencari.png') }}" alt="icon mencari"
+            <img src="{{ asset('assets/images/landing/karir/mencari.webp') }}" alt="icon mencari"
                  class="size-28">
             <h4 class="text-center font-semibold text-lg text-black">Mencari</h4>
         </div>
@@ -33,7 +33,7 @@
 
         {{--masking biru halus --}}
         <div class="hidden lg:block absolute z-10 -top-20 -left-8 ">
-            <img src="{{ asset('assets/images/landing/karir/Ellipse2.png') }}" alt="ellipse 1"
+            <img src="{{ asset('assets/images/landing/karir/Ellipse2.webp') }}" alt="ellipse 1"
                  class="object-cover">
         </div>
 
@@ -45,7 +45,7 @@
 
         {{--image & image caption--}}
         <div class="flex-col items-center justify-center shrink-0 gap-1 lg:mb-4">
-            <img src="{{ asset('assets/images/landing/karir/administrasi.png') }}"
+            <img src="{{ asset('assets/images/landing/karir/administrasi.webp') }}"
                  alt="icon administrasi"
                  class="size-28">
             <h4 class="text-center font-semibold text-lg text-black">Administrasi</h4>
@@ -59,13 +59,13 @@
 
         {{--masking biru halus --}}
         <div class="hidden lg:block absolute z-10 -bottom-20 -left-8">
-            <img src="{{ asset('assets/images/landing/karir/Ellipse3.png') }}" alt="ellipse 3"
+            <img src="{{ asset('assets/images/landing/karir/Ellipse3.webp') }}" alt="ellipse 3"
                  class="object-cover">
         </div>
 
         {{--image & image caption--}}
         <div class="flex-col items-center justify-center shrink-0 gap-1 lg:mb-4">
-            <img src="{{ asset('assets/images/landing/karir/pengiriman berkas.png') }}"
+            <img src="{{ asset('assets/images/landing/karir/pengiriman berkas.webp') }}"
                  alt="icon mengirim berkas"
                  class="size-28 mx-auto">
             <h4 class="text-center font-semibold text-lg text-black">Pengiriman <span
@@ -84,7 +84,7 @@
 
         {{--masking biru halus --}}
         <div class="hidden lg:block absolute z-10 -top-20 -left-8 ">
-            <img src="{{ asset('assets/images/landing/karir/Ellipse2.png') }}" alt="ellipse 1"
+            <img src="{{ asset('assets/images/landing/karir/Ellipse2.webp') }}" alt="ellipse 1"
                  class="object-cover">
         </div>
 
@@ -96,7 +96,7 @@
 
         {{--image & image caption--}}
         <div class="flex-col items-center justify-center shrink-0 gap-1 lg:mb-4">
-            <img src="{{ asset('assets/images/landing/karir/selesai.png') }}" alt="icon selesai"
+            <img src="{{ asset('assets/images/landing/karir/selesai.webp') }}" alt="icon selesai"
                  class="size-28">
             <h4 class="text-center font-semibold text-lg text-black">Selesai</h4>
         </div>

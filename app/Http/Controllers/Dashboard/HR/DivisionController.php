@@ -49,7 +49,7 @@ class DivisionController extends Controller
                         'type' => 'error',
                         'title' => 'Gagal!',
                         'message' => "Sub divisi '{$subdivisi}' sudah ada di divisi '{$division->nama_divisi}'.",
-                        'icon' => asset('assets/images/dashboard/error.png'),
+                        'icon' => asset('assets/images/dashboard/error.webp'),
                     ]);
                 }
 
@@ -65,7 +65,7 @@ class DivisionController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'Divisi dan Sub Divisi berhasil ditambahkan',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
     }
     public function show($id)
@@ -129,7 +129,7 @@ class DivisionController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'Data berhasil diupdate',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -147,7 +147,7 @@ class DivisionController extends Controller
                 'type' => 'error',
                 'title' => 'Gagal!',
                 'message' =>'Data dan sub divisi ini sudah digunakan dan tidak dapat dihapus',
-                'icon' => asset('assets/images/dashboard/error.png'),
+                'icon' => asset('assets/images/dashboard/error.webp'),
             ]);
         }
 
@@ -160,7 +160,7 @@ class DivisionController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'Data berhasil dihapus',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 

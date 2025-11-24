@@ -57,7 +57,7 @@ class PositionController extends Controller
                 'type'    => 'error',
                 'title'   => 'Gagal!',
                 'message' => 'Posisi tidak ditemukan.',
-                'icon'    => asset('assets/images/dashboard/error.png'),
+                'icon'    => asset('assets/images/dashboard/error.webp'),
             ]);
         }
 
@@ -149,7 +149,7 @@ class PositionController extends Controller
                 'type'    => 'error',
                 'title'   => 'Gagal!',
                 'message' => 'Terjadi kesalahan saat mengirim data: ' . $e->getMessage(),
-                'icon'    => asset('assets/images/dashboard/error.png'),
+                'icon'    => asset('assets/images/dashboard/error.webp'),
             ]);
             }
     }

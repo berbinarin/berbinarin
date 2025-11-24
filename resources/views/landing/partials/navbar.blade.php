@@ -24,7 +24,7 @@
 <nav class="fixed left-0 right-0 top-0 z-30 mx-14 mt-7 flex items-center rounded-3xl bg-white bg-opacity-90 px-4 py-2.5 shadow-md backdrop-blur-sm max-sm:mx-4 max-sm:px-4 max-sm:py-2">
     <!-- Logo -->
     <div class="flex items-center">
-        <img src="{{ asset("assets/images/landing/logo/logo-berbinar.png") }}" alt="Logo" class="h-12 w-auto max-sm:h-8" />
+        <img src="{{ asset("assets/images/landing/logo/logo-berbinar.webp") }}" alt="Logo" class="h-12 w-auto max-sm:h-8" />
     </div>
 
     <!-- Burger Menu -->
@@ -87,9 +87,9 @@
     <nav class="fixed top-0 left-0 right-0 mx-14 flex items-center px-8 py-3.5 bg-white bg-opacity-90 backdrop-blur-sm rounded-3xl shadow-md z-30 mt-10">
     <!-- Logo -->
     <div class="flex items-center">
-    <img src="{{ asset('assets/images/landing/logo/logo-berbinar.png') }}" alt="Logo" class="h-12 w-auto">
+    <img src="{{ asset('assets/images/landing/logo/logo-berbinar.webp') }}" alt="Logo" class="h-12 w-auto">
     </div>
-    
+
     <div class="ml-auto">
     <!-- Navigation Links -->
     <div class="flex items-center space-x-14">

@@ -11,7 +11,7 @@
             <div class="py-4 md:pb-7 md:pt-12">
                 <div class="mb-2 flex items-center gap-2">
                     <a href="{{ route("dashboard.berbinar-class.index") }}">
-                        <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
+                        <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.webp") }}" alt="Back Btn" />
                     </a>
                     <p class="text-base font-bold leading-normal text-gray-800 sm:text-lg md:text-2xl lg:text-4xl">Detail Daftar Kelas</p>
                 </div>
@@ -28,7 +28,7 @@
                     <h1 class="mb-6 text-2xl text-primary-alt font-bold">Deskripsi</h1>
                     <p class="font-semibold text-lg mb-6">{{ $class->description }} </p>
                     {{-- <div class="flex items-start gap-2">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Lokasi" class="h-5 w-4 mt-0.5" />
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.webp') }}" alt="Lokasi" class="h-5 w-4 mt-0.5" />
                         <div>
                             <span class="font-bold text-xl">Pengembangan Produk Digital</span>
                             <p class="font-semibold text-lg">Pelajari langkah-langkah sederhana untuk mengembangkan produk digital Cocok untuk kamu yang baru ingin mengenal dunia teknologi dan ingin tahu bagaimana ide bisa menjadi solusi nyata.</p>
@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="flex items-start gap-2">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Lokasi" class="h-5 w-4 mt-0.5" />
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.webp') }}" alt="Lokasi" class="h-5 w-4 mt-0.5" />
                         <div>
                             <span class="font-bold text-xl">Pengenalan & Strategi Product Management dalam Dunia Kerja</span>
                             <p class="font-semibold text-lg">Pelajari peran Product Manager dan dasar-dasar strategi manajemen produk dengan cara yang ringan dan praktis, cocok untuk Kamu yang ingin memahami profesi ini lebih dalam.</p>

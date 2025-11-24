@@ -96,7 +96,7 @@ class UserPsikotestPaidController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'User Berhasil Dihapus',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -118,7 +118,7 @@ class UserPsikotestPaidController extends Controller
                 'type'    => 'success',
                 'title'   => 'Berhasil!',
                 'message' => 'Login Berhasil',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
             // return redirect()->route('psikotest-tools.index');
         } else {
@@ -127,7 +127,7 @@ class UserPsikotestPaidController extends Controller
                 'type'    => 'error',
                 'title'   => 'Gagal!',
                 'message' => 'Username atau Password salah',
-                'icon'    => asset('assets/images/dashboard/error.png'),
+                'icon'    => asset('assets/images/dashboard/error.webp'),
             ]);
         }
     }
@@ -140,7 +140,7 @@ class UserPsikotestPaidController extends Controller
                 'type'    => 'success',
                 'title'   => 'Logout Berhasil',
                 'message' => 'Sampai jumpa lagi 😘',
-                'icon'    => asset('assets/images/dashboard/success.png'),
+                'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 

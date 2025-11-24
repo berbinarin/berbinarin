@@ -81,7 +81,7 @@
     <div id="deleteModal" class="fixed inset-0 z-10 hidden items-center justify-center bg-black bg-opacity-50 flex">
         <div class="w-full max-w-md rounded-lg bg-white p-6 text-center">
             <div class="mb-4 flex justify-center">
-                <img src="{{ asset('assets/images/dashboard/svg-icon/warning.svg') }}" alt="Warning Icon" class="h-12 w-12" />
+                <img src="{{ asset('assets/images/dashboard/svg-icon/warning.webp') }}" alt="Warning Icon" class="h-12 w-12" />
             </div>
             <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900" id="modal-title">Konfirmasi Hapus</h3>
             <p class="mb-6 text-base text-gray-500">Apakah Anda yakin ingin menghapus user ini? Semua data terkait juga akan dihapus.</p>

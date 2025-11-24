@@ -54,11 +54,11 @@
         }
 
         .bg-psikolog {
-            background-image: url('/assets/images/landing/asset-konseling/image/bg-psikolog.png');
+            background-image: url('/assets/images/landing/asset-konseling/image/bg-psikolog.webp');
         }
 
         .bg-wave {
-            background-image: url('/assets/images/landing/asset-konseling/vector/vector-wave.svg');
+            background-image: url('/assets/images/landing/asset-konseling/vector/vector-wave.webp');
             background-repeat: no-repeat;
             background-position: center;
         }
@@ -196,12 +196,12 @@
     {{-- HERO SECTION --}}
     <section class="relative max-sm:overflow-x-hidden">
         <div class="absolute left-0 top-5 z-0 max-sm:top-32">
-            <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-hero1.svg') }}" alt="Vector"
+            <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-hero1.webp') }}" alt="Vector"
                 class="h-[500px] w-auto max-sm:h-[250px]" />
         </div>
 
         <div class="absolute right-0 top-8 z-0 max-md:-right-28 max-sm:-right-20 max-sm:top-40">
-            <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-hero2.svg') }}" alt="Vector"
+            <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-hero2.webp') }}" alt="Vector"
                 class="h-[500px] w-auto max-sm:h-[250px]" />
         </div>
 
@@ -210,7 +210,7 @@
                 <div class="max-lg:min-w-auto flex max-w-xl flex-1 flex-col space-y-6 max-sm:space-y-2">
                     <a href="{{ route('product.index') }}">
                         <div class="flex cursor-pointer items-center space-x-2 lg:order-1">
-                            <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.svg') }}"
+                            <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-arrow.webp') }}"
                                 alt="Left Arrow" class="h-3 w-auto" />
                             <p class="text-[15px] font-semibold text-[#3986A3]">Produk Berbinar</p>
                         </div>
@@ -218,7 +218,7 @@
 
                     <div
                         class="hidden w-full items-center justify-center max-lg:flex-none max-md:flex lg:order-2 lg:w-auto">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/hero.png') }}" alt="Konseling"
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/hero.webp') }}" alt="Konseling"
                             class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
                     </div>
 
@@ -238,7 +238,7 @@
                             <h1 class="bg-gradient-to-r from-amber-400 to-yellow-700 bg-clip-text text-transparent pb-4 text-center text-3xl font-bold max-sm:text-2xl">Syarat dan Ketentuan</h1>
                             <div class="mb-6">
                                 <div class="flex items-start gap-2">
-                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.png') }}" alt="Lokasi" class="h-5 w-5 mt-0.5" />
+                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/location.webp') }}" alt="Lokasi" class="h-5 w-5 mt-0.5" />
                                     <span class="font-semibold">Lokasi offline Konseling</span>
                                 </div>
                                 <ol class="list-decimal mt-1 space-y-1 pl-7">
@@ -253,7 +253,7 @@
 
                             <div class="mb-6">
                                 <div class="flex items-start gap-2">
-                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/payment.png') }}" alt="Pembayaran" class="h-5 w-5 mt-0.5" />
+                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/payment.webp') }}" alt="Pembayaran" class="h-5 w-5 mt-0.5" />
                                     <span class="font-semibold">Pembayaran</span>
                                 </div>
                                 <ol class="list-decimal mt-1 space-y-1 pl-7">
@@ -263,7 +263,7 @@
 
                             <div class="mb-6">
                                 <div class="flex items-start gap-2">
-                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.png') }}" alt="Pembalasan Pesan" class="h-5 w-5 mt-0.5" />
+                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.webp') }}" alt="Pembalasan Pesan" class="h-5 w-5 mt-0.5" />
                                     <span class="font-semibold">Pembalasan Pesan</span>
                                 </div>
                                 <ol class="list-decimal mt-1 space-y-1 pl-7">
@@ -275,7 +275,7 @@
 
                             <div class="mb-6">
                                 <div class="flex items-start gap-2">
-                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/cancel.png') }}" alt="Pengajuan Pembatalan" class="h-5 w-5 mt-0.5" />
+                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/cancel.webp') }}" alt="Pengajuan Pembatalan" class="h-5 w-5 mt-0.5" />
                                     <span class="font-semibold">Pengajuan Pembatalan</span>
                                 </div>
                                 <ol class="list-decimal mt-1 space-y-1 pl-7">
@@ -294,7 +294,7 @@
                 </div>
 
                 <div class="flex w-full flex-initial items-center justify-center max-lg:flex-1 max-md:hidden lg:w-auto">
-                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/hero.png') }}" alt="Konseling"
+                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/hero.webp') }}" alt="Konseling"
                         class="h-[340px] w-auto max-lg:h-[320px]" />
                 </div>
             </div>
@@ -304,7 +304,7 @@
     {{-- KONSELING --}}
     <section class="relative w-full">
         <div class="absolute left-0 top-4 z-0 max-sm:top-40">
-            <img src="/assets/images/landing/asset-konseling/vector/vector-line.svg" alt="Vector Image" class="" />
+            <img src="/assets/images/landing/asset-konseling/vector/vector-line.webp" alt="Vector Image" class="" />
         </div>
 
         <p
@@ -324,13 +324,13 @@
                                         {!! italic_en($konseling['name']) !!}</p>
                                     <img src="{{ asset($konseling['image']) }}" alt="{{ $konseling['name'] }}"
                                         class="mx-auto mt-4 h-32 w-auto max-sm:h-24" />
-                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-divider.svg') }}"
+                                    <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-divider.webp') }}"
                                         alt="Vector" class="my-4 w-full" />
 
                                     <div>
                                         @foreach ($konseling['description'] as $desc)
                                             <div class="flex flex-row items-start gap-x-2">
-                                                <img src="{{ asset('assets/images/landing/asset-tentang/green-check.svg') }}"
+                                                <img src="{{ asset('assets/images/landing/asset-tentang/green-check.webp') }}"
                                                     alt="Vector" class="h-[18px] w-[18px] max-sm:h-4 max-sm:w-4" />
                                                 <p
                                                     class="-mt-0.5 text-justify text-[16px] text-[#70787D] max-sm:text-[15px]">
@@ -363,7 +363,7 @@
                         <div>
                             @foreach ($konseling['description'] as $desc)
                                 <div class="flex flex-row items-start gap-x-2">
-                                    <img src="{{ asset('assets/images/landing/asset-tentang/green-check.svg') }}"
+                                    <img src="{{ asset('assets/images/landing/asset-tentang/green-check.webp') }}"
                                         alt="Vector" class="h-[18px] w-[18px] max-sm:h-4 max-sm:w-4" />
                                     <p class="-mt-0.5 text-justify text-[16px] text-[#70787D] max-sm:text-[15px]">
                                         {!! italic_en($desc) !!}</p>
@@ -408,11 +408,11 @@
 
                 <div class="flex max-lg:hidden">
                     <div class="swiper-button-prev">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-navigation.svg') }}"
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-navigation.webp') }}"
                             class="h-auto w-3" />
                     </div>
                     <div class="swiper-button-next">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/right-navigation.svg') }}"
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/right-navigation.webp') }}"
                             class="h-auto w-3" />
                     </div>
                 </div>
@@ -427,7 +427,7 @@
     {{-- JADWAL KONSELING PSIKOLOG --}}
     <div
         class="bg-psikolog relative mx-20 mt-24 h-[300px] rounded-3xl bg-cover bg-center p-10 max-md:h-[800px] max-md:overflow-hidden max-sm:mx-4">
-        <img src="/assets/images/landing/asset-produk/vector-curling-mobile.png" alt="Background"
+        <img src="/assets/images/landing/asset-produk/vector-curling-mobile.webp" alt="Background"
             class="absolute -top-[150px] left-0 hidden h-[820px] w-[1000px] rounded-t-3xl object-cover max-md:flex" />
         <div class="absolute inset-0 flex rounded-3xl bg-[#2D6B8280] max-md:hidden"></div>
 
@@ -438,7 +438,7 @@
                 <div class="mt-6 flex flex-1 flex-col">
                     <div class="flex flex-row items-center justify-center space-x-0.5">
                         <p class="text-2xl font-medium italic text-white">Weekdays</p>
-                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/sun.png") }}" alt="Vector" class="h-5 w-auto" />
+                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/sun.webp") }}" alt="Vector" class="h-5 w-auto" />
                     </div>
 
                     <div class="relative mx-auto mt-3 flex w-full max-w-[270px] justify-center">
@@ -492,13 +492,13 @@
                         <div class="space-y-1">
                         @foreach ($weeksOn as $weekOn)
                         <div class="flex gap-x-1">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-centang.svg') }}" alt="Vector" class="h-5 w-auto">
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-centang.webp') }}" alt="Vector" class="h-5 w-auto">
                         <p class="text-sm text-justify text-[#70787D]">{{ $weekOn['description'] }}</p>
                         </div>
                         @endforeach
                         </div>
 
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-divider.svg') }}" alt="Vector" class="my-5 w-full">
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/vector-divider.webp') }}" alt="Vector" class="my-5 w-full">
 
                         <div class="space-y-1">
                         @foreach ($weekdayPricesOn as $weekdayPriceOn)
@@ -518,7 +518,7 @@
                 <div class="mt-6 flex flex-1 flex-col">
                     <div class="flex flex-row items-center justify-center space-x-0.5">
                         <p class="text-2xl font-medium italic text-white">Weekend</p>
-                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/sunglasses.png") }}" alt="Vector" class="h-8 w-auto" />
+                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/sunglasses.webp") }}" alt="Vector" class="h-8 w-auto" />
                     </div>
 
                     <div class="relative mx-auto mt-3 flex w-full max-w-[270px] justify-center">
@@ -574,11 +574,11 @@
 
                 <div class="hidden max-lg:hidden">
                     <div class="swiper-button-prev">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-navigation.svg') }}"
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-navigation.webp') }}"
                             class="h-auto w-3" />
                     </div>
                     <div class="swiper-button-next">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/right-navigation.svg') }}"
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/right-navigation.webp') }}"
                             class="h-auto w-3" />
                     </div>
                 </div>
@@ -593,7 +593,7 @@
     {{-- PEER COUNSELOR COUNSELING SCHEDULE --}}
     <div
         class="bg-psikolog relative mx-20 mt-24 h-[280px] rounded-3xl bg-cover p-10 max-md:h-[800px] max-md:overflow-hidden max-sm:mx-4">
-        <img src="/assets/images/landing/asset-produk/vector-curling-mobile.png" alt="Background"
+        <img src="/assets/images/landing/asset-produk/vector-curling-mobile.webp" alt="Background"
             class="absolute -top-[150px] left-0 hidden h-[750px] w-[1000px] rounded-t-3xl object-cover max-md:flex" />
         <div class="absolute inset-0 flex rounded-3xl bg-[#2D6B8280] max-md:hidden"></div>
 
@@ -662,7 +662,7 @@
                         <div class="swiper-slide">
                             <div
                                 class="flex h-auto w-auto flex-col items-center justify-center rounded-3xl bg-white p-5 text-center shadow-md">
-                                <img src="{{ asset('assets/images/landing/asset-produk/vector-kutip.png') }}"
+                                <img src="{{ asset('assets/images/landing/asset-produk/vector-kutip.webp') }}"
                                     alt="Kutip" class="h-8 w-auto max-sm:h-7" />
 
                                 <div class="flex flex-grow flex-col pt-4 text-center">

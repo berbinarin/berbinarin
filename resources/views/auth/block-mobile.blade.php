@@ -22,7 +22,7 @@
         <div class="flex min-h-screen items-center justify-center">
             <div class="flex flex-col items-center justify-center text-center">
                 <h1 class="mb-2 bg-gradient-to-r from-[#AD7D29] to-[#473311] bg-clip-text text-6xl font-bold text-transparent">Oops!</h1>
-                <img src="{{ asset("assets/images/dashboard/oops.png") }}" alt="Akses Dibatasi" class="h-[272px] w-[245px]" />
+                <img src="{{ asset("assets/images/dashboard/oops.webp") }}" alt="Akses Dibatasi" class="h-[272px] w-[245px]" />
                 <h1 class="text-lg font-semibold text-[#3F3F3F]">
                     Terjadi kesalahan,
                     <br />

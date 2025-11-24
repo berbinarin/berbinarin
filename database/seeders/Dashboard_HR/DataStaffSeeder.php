@@ -20,7 +20,7 @@ class DataStaffSeeder extends Seeder
             DB::table('data_staff')->insert([
                 'nama_lengkap' => $faker->name,
                 'linkedin'     => $faker->url,
-                'foto'         => 'default.jpg', 
+                'foto'         => 'default.webp',
                 'motm'         => 'no',
             ]);
         }

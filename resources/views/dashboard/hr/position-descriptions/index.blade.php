@@ -79,7 +79,7 @@
             "
         >
             <!-- Warning Icon -->
-            <img src="{{ asset("assets/images/dashboard/warning.png") }}" alt="Warning Icon" class="mx-auto h-[83px] w-[83px]" />
+            <img src="{{ asset("assets/images/dashboard/warning.webp") }}" alt="Warning Icon" class="mx-auto h-[83px] w-[83px]" />
 
             <!-- Title -->
             <h2 class="mt-4 text-2xl font-bold text-stone-900">Konfirmasi Hapus</h2>

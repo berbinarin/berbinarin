@@ -108,23 +108,23 @@
 
     <section id="customSection" class="mb-12 w-full overflow-x-hidden">
         <div class="absolute left-0 top-0 h-fit w-1/2 pt-32 md:block md:w-1/3 md:pt-0 lg:w-1/4">
-            <img src="{{ asset("assets/images/landing/produk/emo/blop-1.png") }}" alt="top-left-texture" class="object-cover" />
+            <img src="{{ asset("assets/images/landing/produk/emo/blop-1.webp") }}" alt="top-left-texture" class="object-cover" />
         </div>
         <div class="absolute right-0 top-0 h-fit w-1/2 pt-32 md:block md:w-1/3 md:pt-0 lg:w-1/4">
-            <img src="{{ asset("assets/images/landing/produk/emo/blop-2.png") }}" alt="top-right-texture" class="object-cover" />
+            <img src="{{ asset("assets/images/landing/produk/emo/blop-2.webp") }}" alt="top-right-texture" class="object-cover" />
         </div>
         <div class="relative">
             <div class="z-10 mx-20 flex flex-row items-center justify-between gap-x-10 max-sm:mx-4 max-sm:mt-32">
                 <div class="max-lg:min-w-auto flex max-w-xl flex-1 flex-col space-y-6 max-sm:space-y-2">
                     <a href="{{ route("product.index") }}">
                         <div class="flex cursor-pointer items-center space-x-2 lg:order-1">
-                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.svg") }}" alt="Left Arrow" class="h-3 w-auto" />
+                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.webp") }}" alt="Left Arrow" class="h-3 w-auto" />
                             <p class="text-[15px] font-semibold text-[#3986A3]">Produk Berbinar</p>
                         </div>
                     </a>
 
                     <div class="hidden w-full items-center justify-center max-lg:flex-none max-md:flex lg:order-2 lg:w-auto">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/banner-berarty.png") }}" alt="Konseling" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/banner-berarty.webp") }}" alt="Konseling" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
                     </div>
 
                     <div class="lg:order-3">
@@ -146,14 +146,14 @@
                 </div>
 
                 <div class="flex w-full flex-initial items-center justify-center max-lg:flex-1 max-md:hidden lg:w-auto">
-                    <img src="{{ asset("assets/images/landing/produk/berarty/banner-berarty.png") }}" alt="Konseling" class="h-[340px] w-auto max-lg:h-[320px]" />
+                    <img src="{{ asset("assets/images/landing/produk/berarty/banner-berarty.webp") }}" alt="Konseling" class="h-[340px] w-auto max-lg:h-[320px]" />
                 </div>
             </div>
         </div>
     </section>
 
     <div class="relative">
-        <img src="/assets/images/landing/asset-konseling/vector/vector-line.svg" alt="Vector Image" class="pointer-events-none absolute left-0 z-0 w-full select-none object-fill max-sm:top-40" />
+        <img src="/assets/images/landing/asset-konseling/vector/vector-line.webp" alt="Vector Image" class="pointer-events-none absolute left-0 z-0 w-full select-none object-fill max-sm:top-40" />
     </div>
     {{-- KONTEN BERARTY --}}
 
@@ -171,7 +171,7 @@
                         <div class="mr-6 w-1/2">
                             <p class="my-3 text-justify text-xl/10 text-[#70787D]">Episode ini membahas dampak kata-kata negatif terhadap kepercayaan diri serta memberikan kiat wawancara kerja. Acara mingguan ini memberi kesempatan bagi pemirsa untuk berkonsultasi gratis dengan psikolog dan membantu mengatasi masalah pribadi. Episode ini juga menekankan pentingnya keaslian dan persiapan dalam wawancara, serta konsistensi antara CV, tes psikometrik, dan jawaban saat wawancara.</p>
                         </div>
-                        <img src="{{ asset("assets/images/landing/produk/berarty/berarty-episode54-main.png") }}" alt="Berarty Episode 54" class="w-full rounded-xl object-cover md:ml-6 md:w-1/2" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/berarty-episode54-main.webp") }}" alt="Berarty Episode 54" class="w-full rounded-xl object-cover md:ml-6 md:w-1/2" />
                     </div>
                     <a href="https://www.youtube.com/watch?v=RqALllUyL7o" class="mt-2 rounded-lg bg-gradient-to-r from-amber-400 to-yellow-700 px-6 py-3 text-center font-semibold text-white">Tonton BERARTY</a>
                 </div>
@@ -187,7 +187,7 @@
                     <span class="text-primary">Episode 54</span>
                 </h2>
                 <div class="flex flex-col items-center gap-3 md:flex-row">
-                    <img src="{{ asset("assets/images/landing/produk/berarty/berarty-episode54-main.png") }}" alt="Berarty Episode 54" class="w-full rounded-xl object-cover md:w-1/2" />
+                    <img src="{{ asset("assets/images/landing/produk/berarty/berarty-episode54-main.webp") }}" alt="Berarty Episode 54" class="w-full rounded-xl object-cover md:w-1/2" />
                     <div>
                         <p class="mb-3 text-justify text-sm text-[#70787D]">Episode ini membahas dampak kata-kata negatif terhadap kepercayaan diri serta memberikan kiat wawancara kerja. Acara mingguan ini memberi kesempatan bagi pemirsa untuk berkonsultasi gratis dengan psikolog dan membantu mengatasi masalah pribadi. Episode ini juga menekankan pentingnya keaslian dan persiapan dalam wawancara, serta konsistensi antara CV, tes psikometrik, dan jawaban saat wawancara.</p>
                         <a href="https://www.youtube.com/watch?v=RqALllUyL7o" class="mt-2 block rounded-lg bg-gradient-to-r from-amber-400 to-yellow-700 py-2 text-center font-semibold text-white">Tonton BERARTY</a>
@@ -205,7 +205,7 @@
                 {{-- Card Konten Desktop --}}
                 <div class="w-1/3 rounded-3xl px-2 py-6 shadow-lg">
                     <div class="justify-items-center px-3">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/berarty-episode55.png") }}" alt="" class="w-full" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/berarty-episode55.webp") }}" alt="" class="w-full" />
                     </div>
                     <div class="mb-8 mt-4 flex flex-col gap-2 px-4 text-center">
                         <h2 class="text-center font-semibold">BERARTY Episode 55</h2>
@@ -217,7 +217,7 @@
                 {{-- Card Konten Desktop --}}
                 <div class="w-1/3 rounded-3xl px-2 py-6 shadow-lg">
                     <div class="justify-items-center px-3">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/berarty-episode53-part1.png") }}" alt="" class="w-full" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/berarty-episode53-part1.webp") }}" alt="" class="w-full" />
                     </div>
                     <div class="mb-8 mt-4 flex flex-col gap-2 px-4 text-center">
                         <h2 class="text-center font-semibold">BERARTY Episode 53 part 1</h2>
@@ -229,7 +229,7 @@
                 {{-- Card Konten Desktop --}}
                 <div class="w-1/3 rounded-3xl px-2 py-6 shadow-lg">
                     <div class="justify-items-center px-3">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/berarty-episode53-part2.png") }}" alt="" class="w-full" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/berarty-episode53-part2.webp") }}" alt="" class="w-full" />
                     </div>
                     <div class="mb-8 mt-4 flex flex-col gap-2 px-4 text-center">
                         <h2 class="text-center font-semibold">BERARTY Episode 53 part 2</h2>
@@ -250,7 +250,7 @@
                         <div class="swiper-slide">
                             <div class="rounded-2xl p-2 shadow-lg">
                                 <div>
-                                    <img src="{{ asset("assets/images/landing/produk/berarty/berarty-episode55.png") }}" alt="" />
+                                    <img src="{{ asset("assets/images/landing/produk/berarty/berarty-episode55.webp") }}" alt="" />
                                 </div>
                                 <div class="mt-2 flex h-32 flex-col gap-2 px-4 text-center">
                                     <h2 class="text-center font-semibold">BERARTY Episode 55</h2>
@@ -264,7 +264,7 @@
                         <div class="swiper-slide">
                             <div class="rounded-2xl p-2 shadow-lg">
                                 <div>
-                                    <img src="{{ asset("assets/images/landing/produk/berarty/berarty-episode53-part1.png") }}" alt="" />
+                                    <img src="{{ asset("assets/images/landing/produk/berarty/berarty-episode53-part1.webp") }}" alt="" />
                                 </div>
                                 <div class="mt-2 flex h-32 flex-col gap-2 px-4 text-center">
                                     <h2 class="text-center font-semibold">BERARTY Episode 53 part 1</h2>
@@ -279,7 +279,7 @@
                         <div class="swiper-slide">
                             <div class="rounded-2xl p-2 shadow-lg">
                                 <div>
-                                    <img src="{{ asset("assets/images/landing/produk/berarty/berarty-episode53-part2.png") }}" alt="" />
+                                    <img src="{{ asset("assets/images/landing/produk/berarty/berarty-episode53-part2.webp") }}" alt="" />
                                 </div>
                                 <div class="mt-2 flex h-32 flex-col gap-2 px-4 text-center">
                                     <h2 class="text-center font-semibold">BERARTY Episode 53 part 2</h2>
@@ -309,37 +309,37 @@
 
                 {{-- Topik Desktop Item --}}
                 <div class="z-10 flex w-1/6 flex-col items-center gap-5">
-                    <img src="{{ asset("assets/images/landing/produk/bisikan/konten-kesehatan-mental.png") }}" alt="" class="h-20" />
+                    <img src="{{ asset("assets/images/landing/produk/bisikan/konten-kesehatan-mental.webp") }}" alt="" class="h-20" />
                     <span class="inline-block text-center text-sm font-semibold">Kesehatan Mental</span>
                 </div>
 
                 {{-- Topik Desktop Item --}}
                 <div class="z-10 flex w-1/6 flex-col items-center gap-5">
-                    <img src="{{ asset("assets/images/landing/produk/bisikan/konten-regulasi-emosi.png") }}" alt="" class="h-20" />
+                    <img src="{{ asset("assets/images/landing/produk/bisikan/konten-regulasi-emosi.webp") }}" alt="" class="h-20" />
                     <span class="inline-block text-center text-sm font-semibold">Regulasi Emosi</span>
                 </div>
 
                 {{-- Topik Desktop Item --}}
                 <div class="z-10 flex w-1/6 flex-col items-center gap-5">
-                    <img src="{{ asset("assets/images/landing/produk/bisikan/konten-hubungan-interpersonal.png") }}" alt="" class="h-20" />
+                    <img src="{{ asset("assets/images/landing/produk/bisikan/konten-hubungan-interpersonal.webp") }}" alt="" class="h-20" />
                     <span class="inline-block text-center text-sm font-semibold">Hubungan Interpersonal</span>
                 </div>
 
                 {{-- Topik Desktop Item --}}
                 <div class="z-10 flex w-1/6 flex-col items-center gap-5">
-                    <img src="{{ asset("assets/images/landing/produk/bisikan/konten-self-growth.png") }}" alt="" class="h-20" />
+                    <img src="{{ asset("assets/images/landing/produk/bisikan/konten-self-growth.webp") }}" alt="" class="h-20" />
                     <span class="inline-block text-center text-sm font-semibold italic">Self Growth</span>
                 </div>
 
                 {{-- Topik Desktop Item --}}
                 <div class="z-10 flex w-1/6 flex-col items-center gap-5">
-                    <img src="{{ asset("assets/images/landing/produk/bisikan/konten-mengenal-diri.png") }}" alt="" class="h-20" />
+                    <img src="{{ asset("assets/images/landing/produk/bisikan/konten-mengenal-diri.webp") }}" alt="" class="h-20" />
                     <span class="inline-block text-center text-sm font-semibold">Mengenal diri lewat psikologi</span>
                 </div>
 
                 {{-- Topik Desktop Item --}}
                 <div class="z-10 flex w-1/6 flex-col items-center gap-5">
-                    <img src="{{ asset("assets/images/landing/produk/bisikan/konten-cerita-nyata.png") }}" alt="" class="h-20" />
+                    <img src="{{ asset("assets/images/landing/produk/bisikan/konten-cerita-nyata.webp") }}" alt="" class="h-20" />
                     <span class="inline-block text-center text-sm font-semibold">Cerita nyata dan tips praktis dari narasumber terpercaya</span>
                 </div>
             </div>
@@ -355,7 +355,7 @@
                         {{-- Topik Mobile Item --}}
                         <div class="swiper-slide">
                             <div class="flex flex-col items-center gap-5">
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/konten-kesehatan-mental.png") }}" alt="" class="h-16" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/konten-kesehatan-mental.webp") }}" alt="" class="h-16" />
                                 <span class="inline-block text-center text-sm font-semibold">Kesehatan Mental</span>
                             </div>
                         </div>
@@ -363,7 +363,7 @@
                         {{-- Topik Mobile Item --}}
                         <div class="swiper-slide">
                             <div class="flex flex-col items-center gap-5">
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/konten-regulasi-emosi.png") }}" alt="" class="h-16" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/konten-regulasi-emosi.webp") }}" alt="" class="h-16" />
                                 <span class="inline-block text-center text-sm font-semibold">Regulasi Emosi</span>
                             </div>
                         </div>
@@ -371,7 +371,7 @@
                         {{-- Topik Mobile Item --}}
                         <div class="swiper-slide">
                             <div class="flex flex-col items-center gap-5">
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/konten-hubungan-interpersonal.png") }}" alt="" class="h-16" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/konten-hubungan-interpersonal.webp") }}" alt="" class="h-16" />
                                 <span class="inline-block text-center text-sm font-semibold">Hubungan Interpersonal</span>
                             </div>
                         </div>
@@ -379,7 +379,7 @@
                         {{-- Topik Mobile Item --}}
                         <div class="swiper-slide">
                             <div class="flex flex-col items-center gap-5">
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/konten-self-growth.png") }}" alt="" class="h-16" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/konten-self-growth.webp") }}" alt="" class="h-16" />
                                 <span class="inline-block text-center text-sm font-semibold italic">Self Growth</span>
                             </div>
                         </div>
@@ -387,7 +387,7 @@
                         {{-- Topik Mobile Item --}}
                         <div class="swiper-slide">
                             <div class="flex flex-col items-center gap-5">
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/konten-mengenal-diri.png") }}" alt="" class="h-16" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/konten-mengenal-diri.webp") }}" alt="" class="h-16" />
                                 <span class="inline-block text-center text-sm font-semibold">Mengenal diri lewat psikologi</span>
                             </div>
                         </div>
@@ -395,7 +395,7 @@
                         {{-- Topik Mobile Item --}}
                         <div class="swiper-slide">
                             <div class="flex flex-col items-center gap-5">
-                                <img src="{{ asset("assets/images/landing/produk/bisikan/konten-cerita-nyata.png") }}" alt="" class="h-16" />
+                                <img src="{{ asset("assets/images/landing/produk/bisikan/konten-cerita-nyata.webp") }}" alt="" class="h-16" />
                                 <span class="inline-block text-center text-sm font-semibold">Cerita nyata dan tips praktis dari narasumber terpercaya</span>
                             </div>
                         </div>
@@ -422,7 +422,7 @@
                 {{-- Manfaat Desktop Item --}}
                 <div class="relative w-72 rounded-2xl border-[2px] border-[#d7e6ed] bg-white px-2 pb-3 pt-14 shadow-md">
                     <div class="absolute left-1/2 top-0 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Idea.png") }}" alt="" class="h-12 w-12" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Idea.webp") }}" alt="" class="h-12 w-12" />
                     </div>
                     <div class="flex flex-col gap-1 text-center">
                         <h1 class="text-2xl font-semibold text-primary">Wawasan</h1>
@@ -433,7 +433,7 @@
                 {{-- Manfaat Desktop Item --}}
                 <div class="relative w-72 rounded-2xl border-[2px] border-[#d7e6ed] bg-white px-2 pb-3 pt-14 shadow-md">
                     <div class="absolute left-1/2 top-0 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Meditation.png") }}" alt="" class="h-12 w-12" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Meditation.webp") }}" alt="" class="h-12 w-12" />
                     </div>
                     <div class="flex flex-col gap-1 text-center">
                         <h1 class="text-2xl font-semibold italic text-primary">Self-healing</h1>
@@ -447,7 +447,7 @@
                 {{-- Manfaat Desktop Item --}}
                 <div class="relative w-72 rounded-2xl border-[2px] border-[#d7e6ed] bg-white px-2 pb-3 pt-14 shadow-md">
                     <div class="absolute left-1/2 top-0 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Book.png") }}" alt="" class="h-12 w-12" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Book.webp") }}" alt="" class="h-12 w-12" />
                     </div>
                     <div class="flex flex-col gap-1 text-center">
                         <h1 class="text-2xl font-semibold text-primary">Pengetahuan</h1>
@@ -461,7 +461,7 @@
                 {{-- Manfaat Desktop Item --}}
                 <div class="relative w-72 rounded-2xl border-[2px] border-[#d7e6ed] bg-white px-2 pb-3 pt-14 shadow-md">
                     <div class="absolute left-1/2 top-0 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Rucksack.png") }}" alt="" class="h-12 w-12" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Rucksack.webp") }}" alt="" class="h-12 w-12" />
                     </div>
                     <div class="flex flex-col gap-1 text-center">
                         <h1 class="text-2xl font-semibold text-primary">Teman Perjalanan</h1>
@@ -472,7 +472,7 @@
                 {{-- Manfaat Desktop Item --}}
                 <div class="relative w-72 rounded-2xl border-[2px] border-[#d7e6ed] bg-white px-2 pb-3 pt-14 shadow-md">
                     <div class="absolute left-1/2 top-0 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Lotus.png") }}" alt="" class="h-12 w-12" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Lotus.webp") }}" alt="" class="h-12 w-12" />
                     </div>
                     <div class="flex flex-col gap-1 text-center">
                         <h1 class="text-2xl font-semibold text-primary"><span class="italic">Mindful Living</span></h1>
@@ -492,7 +492,7 @@
                 {{-- Manfaat Mobile Item --}}
                 <div class="relative basis-[calc(50%-0.25rem)] rounded-lg border-[2px] border-[#d7e6ed] px-2 pb-3 pt-8">
                     <div class="absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Idea.png") }}" alt="" class="h-6 w-6" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Idea.webp") }}" alt="" class="h-6 w-6" />
                     </div>
                     <div class="flex flex-col gap-1 text-center">
                         <h3 class="font-semibold text-primary">Wawasan</h3>
@@ -503,7 +503,7 @@
                 {{-- Manfaat Mobile Item --}}
                 <div class="relative basis-[calc(50%-0.25rem)] rounded-lg border-[2px] border-[#d7e6ed] px-2 pb-3 pt-8">
                     <div class="absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Meditation.png") }}" alt="" class="h-6 w-6" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Meditation.webp") }}" alt="" class="h-6 w-6" />
                     </div>
                     <div class="flex flex-col gap-1 text-center">
                         <h3 class="font-semibold italic text-primary">Self-healing</h3>
@@ -517,7 +517,7 @@
                 {{-- Manfaat Mobile Item --}}
                 <div class="relative basis-[calc(50%-0.25rem)] rounded-lg border-[2px] border-[#d7e6ed] px-2 pb-3 pt-8">
                     <div class="absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Book.png") }}" alt="" class="h-6 w-6" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Book.webp") }}" alt="" class="h-6 w-6" />
                     </div>
                     <div class="flex flex-col gap-1 text-center">
                         <h3 class="font-semibold text-primary">Pengetahuan</h3>
@@ -528,7 +528,7 @@
                 {{-- Manfaat Mobile Item --}}
                 <div class="relative basis-[calc(50%-0.25rem)] rounded-lg border-[2px] border-[#d7e6ed] px-2 pb-3 pt-8">
                     <div class="absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Rucksack.png") }}" alt="" class="h-6 w-6" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Rucksack.webp") }}" alt="" class="h-6 w-6" />
                     </div>
                     <div class="flex flex-col gap-1 text-center">
                         <h3 class="font-semibold text-primary">Teman Perjalanan</h3>
@@ -539,7 +539,7 @@
                 {{-- Manfaat Mobile Item --}}
                 <div class="relative basis-[calc(50%-0.25rem)] rounded-lg border-[2px] border-[#d7e6ed] px-2 pb-3 pt-8">
                     <div class="absolute left-1/2 top-0 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-md">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Lotus.png") }}" alt="" class="h-6 w-6" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Manfaat/Lotus.webp") }}" alt="" class="h-6 w-6" />
                     </div>
                     <div class="flex flex-col gap-1 text-center">
                         <h3 class="font-semibold text-primary"><span class="italic">Mindful</span></h3>
@@ -563,7 +563,7 @@
             <div class="flex w-full items-end gap-4 rounded-3xl bg-white px-2 shadow-lg md:gap-6 md:px-4 lg:gap-10 lg:px-6">
                 {{-- Bagian KIRI: Gambar --}}
                 <div class="mt-6 flex h-full w-[40%] items-end md:mt-10 md:w-[45%] lg:w-[50%]">
-                    <img src="{{ asset("assets/images/landing/produk/berarty/Clip-path.png") }}" alt="Gambar BERARTY" class="h-auto max-h-[180px] w-full object-contain md:max-h-[250px] lg:max-h-[350px]" />
+                    <img src="{{ asset("assets/images/landing/produk/berarty/Clip-path.webp") }}" alt="Gambar BERARTY" class="h-auto max-h-[180px] w-full object-contain md:max-h-[250px] lg:max-h-[350px]" />
                 </div>
 
                 {{-- Bagian KANAN --}}
@@ -572,17 +572,17 @@
                     <div class="mt-4 grid grid-cols-1 gap-3 md:mt-10 md:grid-cols-3 md:gap-4">
                         <!-- Spotify -->
                         <a href="https://open.spotify.com/user/31c274wo5o5x4tujcjrimf4kujhu?si=7110e65c3c01489a" target="_blank" rel="noopener noreferrer" class="flex h-12 w-full max-w-[320px] items-center justify-center gap-2 rounded-full border-2 border-[#8FE0AC] bg-gradient-to-r from-[#8FE0AC] to-[#3986A3] px-4 py-2 font-semibold text-white shadow ring-1 ring-inset ring-white">
-                            <img src="{{ asset("assets/images/landing/produk/berarty/spotify-white-logo.png") }}" alt="Spotify" class="h-5 w-5" />
+                            <img src="{{ asset("assets/images/landing/produk/berarty/spotify-white-logo.webp") }}" alt="Spotify" class="h-5 w-5" />
                             <span>Spotify</span>
                         </a>
                         <!-- Youtube -->
                         <a href="https://www.youtube.com/@berbinar" target="_blank" rel="noopener noreferrer" class="flex h-12 w-full max-w-[320px] items-center justify-center gap-2 rounded-full border-2 border-[#F7B23B] bg-gradient-to-r from-[#DC6E6E] to-[#3986A3] px-4 py-2 font-semibold text-white shadow ring-1 ring-inset ring-white">
-                            <img src="https://www.vectorlogo.zone/logos/youtube/youtube-icon.svg" alt="Youtube" class="h-5 w-5" />
+                            <img src="https://www.vectorlogo.zone/logos/youtube/youtube-icon.webp" alt="Youtube" class="h-5 w-5" />
                             <span>Youtube</span>
                         </a>
                         <!-- Instagram -->
                         <a href="https://www.instagram.com/berbinar.in?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="flex h-12 w-full max-w-[320px] items-center justify-center gap-2 rounded-full border-2 border-[#D77BB2] bg-gradient-to-r from-[#D77BB2] to-[#3986A3] px-4 py-2 font-semibold text-white shadow ring-1 ring-inset ring-white">
-                            <img src="{{ asset("assets/images/landing/produk/berarty/instagram-logo.png") }}" alt="Instagram" class="h-5 w-5" />
+                            <img src="{{ asset("assets/images/landing/produk/berarty/instagram-logo.webp") }}" alt="Instagram" class="h-5 w-5" />
                             <span>Instagram</span>
                         </a>
                     </div>
@@ -618,11 +618,11 @@
                         <!-- Card Tiktok -->
                         <div class="mt-4 grid grid-cols-1 gap-3 md:mt-10 md:grid-cols-3 md:gap-4">
                             <div class="relative flex h-[180px] w-full flex-col justify-center overflow-hidden rounded-3xl bg-white p-4 text-center shadow-[0_4px_24px_0_#3986A373]">
-                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_1.png") }}" alt="" class="absolute bottom-0 right-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_2.png") }}" alt="" class="absolute bottom-0 right-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_3.png") }}" alt="" class="absolute left-0 top-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_4.png") }}" alt="" class="absolute bottom-0 left-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_5.png") }}" alt="" class="absolute left-0 top-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_1.webp") }}" alt="" class="absolute bottom-0 right-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_2.webp") }}" alt="" class="absolute bottom-0 right-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_3.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_4.webp") }}" alt="" class="absolute bottom-0 left-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_5.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
                                 <div class="z-10 flex flex-col justify-center text-center">
                                     <span class="mb-2 text-center text-2xl font-semibold text-cyan-950">
                                         Tiktok
@@ -638,11 +638,11 @@
                             </div>
                             <!-- Card Youtube -->
                             <div class="relative flex h-[180px] w-full flex-col justify-center overflow-hidden rounded-3xl bg-white p-4 text-center shadow-[0_4px_24px_0_#3986A373]">
-                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_1.png") }}" alt="" class="absolute bottom-0 right-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_2.png") }}" alt="" class="absolute bottom-0 right-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_3.png") }}" alt="" class="absolute left-0 top-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_4.png") }}" alt="" class="absolute bottom-0 left-0 z-0" />
-                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_5.png") }}" alt="" class="absolute left-0 top-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_1.webp") }}" alt="" class="absolute bottom-0 right-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_2.webp") }}" alt="" class="absolute bottom-0 right-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_3.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_4.webp") }}" alt="" class="absolute bottom-0 left-0 z-0" />
+                                <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_5.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
                                 <div class="z-10 flex flex-col justify-center text-center">
                                     <span class="mb-2 text-center text-2xl font-semibold text-cyan-950">Youtube</span>
                                     <span class="mb-4 mt-1 text-center text-xl text-[#555555]">
@@ -665,19 +665,19 @@
                 <div class="flex w-full items-center justify-between gap-2">
                     <!-- Spotify -->
                     <a href="https://open.spotify.com/user/31c274wo5o5x4tujcjrimf4kujhu?si=7110e65c3c01489a" target="_blank" rel="noopener noreferrer" class="h-[clamp(2.5rem, 6vw, 3.25rem)] flex basis-1/3 items-center justify-center gap-1 rounded-full border-2 border-[#8FE0AC] bg-gradient-to-r from-[#8FE0AC] to-[#3986A3] px-3 py-2 font-semibold text-white shadow ring-2 ring-inset ring-white">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/spotify-white-logo.png") }}" alt="Logo Spotify" class="h-[clamp(18px,3vw,24px)] w-[clamp(18px,3vw,24px)]" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/spotify-white-logo.webp") }}" alt="Logo Spotify" class="h-[clamp(18px,3vw,24px)] w-[clamp(18px,3vw,24px)]" />
                         <span class="text-[clamp(13px,3vw,16px)] drop-shadow">Spotify</span>
                     </a>
 
                     <!-- Youtube -->
                     <a href="https://www.youtube.com/@berbinar" target="_blank" rel="noopener noreferrer" class="h-[clamp(2.5rem, 6vw, 3.25rem)] flex basis-1/3 items-center justify-center gap-1 rounded-full border-2 border-[#DC6E6E] bg-gradient-to-r from-[#DC6E6E] to-[#3986A3] px-3 py-2 font-semibold text-white shadow ring-2 ring-inset ring-white">
-                        <img src="https://www.vectorlogo.zone/logos/youtube/youtube-icon.svg" alt="Logo Youtube" class="h-[clamp(18px,3vw,24px)] w-[clamp(18px,3vw,24px)]" />
+                        <img src="https://www.vectorlogo.zone/logos/youtube/youtube-icon.webp" alt="Logo Youtube" class="h-[clamp(18px,3vw,24px)] w-[clamp(18px,3vw,24px)]" />
                         <span class="text-[clamp(13px,3vw,16px)] drop-shadow">Youtube</span>
                     </a>
 
                     <!-- Instagram -->
                     <a href="https://www.instagram.com/berbinar.in?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="h-[clamp(2.5rem, 6vw, 3.25rem)] flex basis-1/3 items-center justify-center gap-1 rounded-full border-2 border-[#D77BB2] bg-gradient-to-r from-[#D77BB2] to-[#3986A3] px-3 py-2 font-semibold text-white shadow ring-2 ring-inset ring-white">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/instagram-logo.png") }}" alt="Logo Instagram" class="h-[clamp(18px,3vw,24px)] w-[clamp(18px,3vw,24px)]" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/instagram-logo.webp") }}" alt="Logo Instagram" class="h-[clamp(18px,3vw,24px)] w-[clamp(18px,3vw,24px)]" />
                         <span class="text-[clamp(12px,3vw,15px)] drop-shadow">Instagram</span>
                     </a>
                 </div>
@@ -685,11 +685,11 @@
                 {{-- Info Cards Mobile --}}
                 <div class="flex flex-col gap-4">
                     <div class="relative flex flex-col items-center overflow-hidden rounded-xl bg-white p-4 shadow-[0_4px_24px_0_#3986A373]">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_6.png") }}" alt="" class="absolute bottom-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_7.png") }}" alt="" class="absolute bottom-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_3.png") }}" alt="" class="absolute left-0 top-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_4.png") }}" alt="" class="absolute bottom-0 left-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_5.png") }}" alt="" class="absolute left-0 top-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_6.webp") }}" alt="" class="absolute bottom-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_7.webp") }}" alt="" class="absolute bottom-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_3.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_4.webp") }}" alt="" class="absolute bottom-0 left-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_5.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
                         <div class="z-10 flex flex-col justify-center text-center">
                             <span class="text-lg font-semibold text-cyan-950">BERARTY Tiktok Live</span>
                             <span class="mt-1 text-center text-lg text-[#555555]">Tiktok Live BERARTY diadakan setiap minggu pukul</span>
@@ -698,11 +698,11 @@
                     </div>
 
                     <div class="relative flex flex-col items-center overflow-hidden rounded-xl bg-white p-4 shadow-[0_4px_24px_0_#3986A373]">
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_6.png") }}" alt="" class="absolute bottom-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_7.png") }}" alt="" class="absolute bottom-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_3.png") }}" alt="" class="absolute left-0 top-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_4.png") }}" alt="" class="absolute bottom-0 left-0 z-0" />
-                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_5.png") }}" alt="" class="absolute left-0 top-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_6.webp") }}" alt="" class="absolute bottom-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_7.webp") }}" alt="" class="absolute bottom-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_3.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_4.webp") }}" alt="" class="absolute bottom-0 left-0 z-0" />
+                        <img src="{{ asset("assets/images/landing/produk/berarty/Ellipses/Ellipse_5.webp") }}" alt="" class="absolute left-0 top-0 z-0" />
                         <div class="z-10 flex flex-col justify-center text-center">
                             <span class="text-lg font-semibold text-cyan-950">Youtube Replay Video</span>
                             <span class="mt-1 text-center text-lg text-[#555555]">BERARTY akan diperbarui setiap hari :</span>
@@ -774,7 +774,7 @@
         {{-- Desktop View --}}
         <div class="hidden md:block">
             <div class="relative flex flex-col items-center rounded-2xl bg-gradient-to-b from-cyan-700 to-slate-950 p-12 shadow-xl">
-                <img src="{{ asset("assets/images/landing/produk/berarty/bg-wavy.png") }}" alt="" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30" />
+                <img src="{{ asset("assets/images/landing/produk/berarty/bg-wavy.webp") }}" alt="" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30" />
                 <h1 class="mb-4 pb-4 text-4xl font-bold text-white">Hubungi Kami Sekarang</h1>
                 <span class="mb-4 w-3/5 pb-2 text-center text-xl/10 text-white">
                     Buat janji dan lakukan konseling dengan tim Berbinar Insightful Indonesia untuk layanan konseling
@@ -790,7 +790,7 @@
         {{-- Mobile View --}}
         <div class="md:hidden">
             <div class="relative flex flex-col items-center rounded-2xl bg-gradient-to-b from-cyan-700 to-slate-800 p-4 shadow-xl">
-                <img src="{{ asset("assets/images/landing/produk/berarty/bg-wavy.png") }}" alt="" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30" />
+                <img src="{{ asset("assets/images/landing/produk/berarty/bg-wavy.webp") }}" alt="" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30" />
                 <h1 class="my-4 px-2 text-2xl font-bold text-white">Konsultasi Sekarang</h1>
                 <span class="mb-1 pb-2 text-center text-base/8 text-white">
                     Buat janji dan lakukan konseling dengan tim Berbinar Insightful Indonesia, baik

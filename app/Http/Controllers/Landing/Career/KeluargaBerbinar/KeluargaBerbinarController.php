@@ -73,7 +73,7 @@ class KeluargaBerbinarController extends Controller
                 'date_start' => $latestRecord ? Carbon::parse($latestRecord->date_start)->format('M Y') : null,
                 'status' => $hasInactive ? 'alumni' : ($isActive ? 'active' : 'alumni'),
                 'linkedin' => $staff->linkedin,
-                'photo' => $staff->photo ? '/image/' . $staff->photo : '/assets/images/landing/keluarga-berbinar/dummy.png',
+                'photo' => $staff->photo ? '/image/' . $staff->photo : '/assets/images/landing/keluarga-berbinar/dummy.webp',
                 'motm' => $staff->motm,
                 'division' => $latestRecord && $latestRecord->division ? $latestRecord->division->nama_divisi : '-',
                 'subdivision' => $latestRecord && $latestRecord->subDivision ? $latestRecord->subDivision->nama_subdivisi : '-',

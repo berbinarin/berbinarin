@@ -13,7 +13,7 @@
                     <div class="">
                         <div class="flex flex-row gap-2">
                             <a href="{{ route("dashboard.data.index") }}">
-                                <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.png") }}" alt="Back Btn" />
+                                <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.webp") }}" alt="Back Btn" />
                             </a>
                             <p tabindex="0" class="mb-2 text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Data Konseling Peer Counselor</p>
                         </div>

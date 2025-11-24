@@ -99,23 +99,23 @@
 @section("content")
     <section id="customSection" class="mb-12 w-full overflow-x-hidden">
         <div class="absolute left-0 top-0 h-fit w-1/2 pt-32 md:block md:w-1/3 md:pt-0 lg:w-1/4">
-            <img src="{{ asset("assets/images/landing/produk/emo/blop-1.png") }}" alt="top-left-texture" class="object-cover" />
+            <img src="{{ asset("assets/images/landing/produk/emo/blop-1.webp") }}" alt="top-left-texture" class="object-cover" />
         </div>
         <div class="absolute right-0 top-0 h-fit w-1/2 pt-32 md:block md:w-1/3 md:pt-0 lg:w-1/4">
-            <img src="{{ asset("assets/images/landing/produk/emo/blop-2.png") }}" alt="top-right-texture" class="object-cover" />
+            <img src="{{ asset("assets/images/landing/produk/emo/blop-2.webp") }}" alt="top-right-texture" class="object-cover" />
         </div>
         <div class="relative">
             <div class="z-10 mx-20 flex flex-row items-center justify-between gap-x-10 max-sm:mx-4 max-sm:mt-32">
                 <div class="max-lg:min-w-auto flex max-w-xl flex-1 flex-col space-y-6 max-sm:space-y-2">
                     <a href="{{ route("product.index") }}">
                         <div class="flex cursor-pointer items-center space-x-2 lg:order-1">
-                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.svg") }}" alt="Left Arrow" class="h-3 w-auto" />
+                            <img src="{{ asset("assets/images/landing/asset-konseling/vector/left-arrow.webp") }}" alt="Left Arrow" class="h-3 w-auto" />
                             <p class="text-[15px] font-semibold text-[#3986A3]">Produk Berbinar</p>
                         </div>
                     </a>
 
                     <div class="hidden w-full items-center justify-center max-lg:flex-none max-md:flex lg:order-2 lg:w-auto">
-                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/hero.png") }}" alt="Konseling" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
+                        <img src="{{ asset("assets/images/landing/asset-konseling/vector/hero.webp") }}" alt="Konseling" class="h-[340px] w-auto object-contain max-sm:h-[320px]" />
                     </div>
 
                     <div class="lg:order-3">
@@ -128,7 +128,7 @@
                 </div>
 
                 <div class="flex w-full flex-initial items-center justify-center max-lg:flex-1 max-md:hidden lg:w-auto">
-                    <img src="{{ asset("assets/images/landing/produk/emo/banner.png") }}" alt="Konseling" class="h-[340px] w-auto max-lg:h-[320px]" />
+                    <img src="{{ asset("assets/images/landing/produk/emo/banner.webp") }}" alt="Konseling" class="h-[340px] w-auto max-lg:h-[320px]" />
                 </div>
             </div>
         </div>
@@ -136,29 +136,29 @@
     {{-- Mobile screen mini map --}}
     <section class="relative mb-12 block w-full md:hidden">
         <div class="absolute pt-4">
-            <img src="{{ asset("assets/images/landing/produk/emo/path.png") }}" alt="top-texture" class="object-cover" />
+            <img src="{{ asset("assets/images/landing/produk/emo/path.webp") }}" alt="top-texture" class="object-cover" />
         </div>
         <div class="relative mx-auto">
             <h1 class="mb-4 bg-gradient-to-r from-[#1C4352] to-[#3986A3] bg-clip-text px-4 py-1 text-center font-[inter] text-4xl font-semibold text-transparent md:px-0 lg:text-5xl lg:tracking-wide">Cara Memainkan Emoshuffle</h1>
             <div class="flex w-1/2 justify-start pl-4 md:w-3/4 md:justify-center md:pl-0 md:pt-16">
-                <img class="h-24 object-cover md:pr-20" src="{{ asset("assets/images/landing/produk/emo/flag.png") }}" />
+                <img class="h-24 object-cover md:pr-20" src="{{ asset("assets/images/landing/produk/emo/flag.webp") }}" />
             </div>
             <div class="relative grid gap-4 font-semibold" style="grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(4, minmax(0, 1fr))">
-                <img src="{{ asset("assets/images/landing/produk/emo/mobile-line.png") }}" class="absolute" style="padding-left: 50px" />
+                <img src="{{ asset("assets/images/landing/produk/emo/mobile-line.webp") }}" class="absolute" style="padding-left: 50px" />
                 <div class="z-10 flex items-center pr-8 text-sm" style="grid-column: span 3">
-                    <img class="h-28 object-cover" src="{{ asset("assets/images/landing/produk/emo/reload-icon.png") }}" />
+                    <img class="h-28 object-cover" src="{{ asset("assets/images/landing/produk/emo/reload-icon.webp") }}" />
                     <p class="leading-relaxed">Sebelum permainan dimulai, kartu dikocok terlebih dahulu agar urutan kartu tidak dapat diprediksi oleh pemain</p>
                 </div>
                 <div class="z-10 flex items-center pr-8 text-sm" style="grid-column: span 3">
-                    <img class="h-28 object-cover" src="{{ asset("assets/images/landing/produk/emo/upload-icon.png") }}" />
+                    <img class="h-28 object-cover" src="{{ asset("assets/images/landing/produk/emo/upload-icon.webp") }}" />
                     <p class="leading-relaxed">Letakkan tumpukan kartu di tengah. Setiap pemain kemudian mengambil 5 hingga 7 kartu secara bergiliran</p>
                 </div>
                 <div class="z-10 flex items-center pr-8 text-sm" style="grid-column: span 3">
-                    <img class="h-28 object-cover" src="{{ asset("assets/images/landing/produk/emo/book-icon.png") }}" />
+                    <img class="h-28 object-cover" src="{{ asset("assets/images/landing/produk/emo/book-icon.webp") }}" />
                     <p class="leading-relaxed">Setiap pemain akan secara bergiliran membacakan satu kartu miliknya kepada semua pemain.</p>
                 </div>
                 <div class="z-10 flex items-center pr-8 text-sm" style="grid-column: span 3">
-                    <img class="h-28 object-cover" src="{{ asset("assets/images/landing/produk/emo/comment-icon.png") }}" />
+                    <img class="h-28 object-cover" src="{{ asset("assets/images/landing/produk/emo/comment-icon.webp") }}" />
                     <p class="leading-relaxed">Pemain lain memberikan jawaban sesuai isi kartu yang dibacakan. Ada tiga jenis kartu berbeda yang mungkin muncul dalam permainan ini.</p>
                 </div>
             </div>
@@ -167,13 +167,13 @@
                 <div class="swiper card-swiper mt-8">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="{{ asset("assets/images/landing/produk/emo/card-1.png") }}" alt="Kartu Question" class="w-full rounded-lg shadow-md" />
+                            <img src="{{ asset("assets/images/landing/produk/emo/card-1.webp") }}" alt="Kartu Question" class="w-full rounded-lg shadow-md" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="{{ asset("assets/images/landing/produk/emo/card-2.png") }}" alt="Kartu Quote" class="w-full rounded-lg shadow-md" />
+                            <img src="{{ asset("assets/images/landing/produk/emo/card-2.webp") }}" alt="Kartu Quote" class="w-full rounded-lg shadow-md" />
                         </div>
                         <div class="swiper-slide">
-                            <img src="{{ asset("assets/images/landing/produk/emo/card-3.png") }}" alt="Kartu Challenge" class="w-full rounded-lg shadow-md" />
+                            <img src="{{ asset("assets/images/landing/produk/emo/card-3.webp") }}" alt="Kartu Challenge" class="w-full rounded-lg shadow-md" />
                         </div>
                     </div>
                     <div class="swiper-pagination mb-[26px] mt-[26px]" style="position: relative; height: 8px"></div>
@@ -181,11 +181,11 @@
             </div>
 
             <div class="relative grid gap-4 py-10 font-semibold" style="grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(0, 1fr))">
-                <img src="{{ asset("assets/images/landing/produk/emo/mobile-line.png") }}" class="absolute" style="padding-left: 50px; clip-path: inset(50px 0px 50px 0px)" />
+                <img src="{{ asset("assets/images/landing/produk/emo/mobile-line.webp") }}" class="absolute" style="padding-left: 50px; clip-path: inset(50px 0px 50px 0px)" />
                 <div class="z-10 flex items-center px-4" style="grid-column: span 3">
                     <div class="flex w-full rounded-lg border border-[#B3B3B3] bg-white shadow-md shadow-[#B3B3B3]">
                         <div class="flex items-center justify-center bg-[#F7B23B] pr-4" style="border-top-right-radius: 9999px; border-bottom-right-radius: 9999px">
-                            <img class="h-20 w-20 py-2 pl-2" src="{{ asset("assets/images/landing/produk/emo/phone-icon.png") }}" />
+                            <img class="h-20 w-20 py-2 pl-2" src="{{ asset("assets/images/landing/produk/emo/phone-icon.webp") }}" />
                         </div>
                         <div class="px-3 py-2 text-start text-xs text-[#70787D]" style="max-width: 300px">
                             Jika ada pemain yang merasa tidak nyaman untuk menjawab, berikan kesempatan untuk mengambil kartu
@@ -199,13 +199,13 @@
                 <div class="z-10 flex items-center px-4" style="grid-column: span 3">
                     <div class="flex w-full rounded-lg border border-[#B3B3B3] bg-white shadow-md shadow-[#B3B3B3]">
                         <div class="flex items-center justify-center bg-[#F7B23B] pr-4" style="border-top-right-radius: 9999px; border-bottom-right-radius: 9999px">
-                            <img class="h-20 w-20 py-2 pl-2" src="{{ asset("assets/images/landing/produk/emo/phone-icon.png") }}" />
+                            <img class="h-20 w-20 py-2 pl-2" src="{{ asset("assets/images/landing/produk/emo/phone-icon.webp") }}" />
                         </div>
                         <div class="px-3 py-2 text-start text-xs text-gray-800" style="max-width: 300px">Teruskan permainan hingga semua kartu di tumpukan EmoShuffle telah diambil dan kartu-kartu tersebut telah dibacakan atau tindakan yang diinstruksikan telah dilakukan.</div>
                     </div>
                 </div>
                 <div class="z-10 flex items-center pr-8 text-sm" style="grid-column: span 3">
-                    <img class="h-28 object-cover" src="{{ asset("assets/images/landing/produk/emo/warning-icon.png") }}" />
+                    <img class="h-28 object-cover" src="{{ asset("assets/images/landing/produk/emo/warning-icon.webp") }}" />
                     <p class="leading-relaxed">Jika seorang pemain tidak menjawab pertanyaan, ia harus mengambil 1 kartu perintah dan menjalankan instruksinya.</p>
                 </div>
             </div>
@@ -215,19 +215,19 @@
     {{-- Desktop screen mini map --}}
     <section class="relative mb-12 hidden w-full md:block">
         <div class="absolute pt-8 md:pt-0">
-            <img src="{{ asset("assets/images/landing/produk/emo/path.png") }}" alt="top-texture" class="object-cover" />
+            <img src="{{ asset("assets/images/landing/produk/emo/path.webp") }}" alt="top-texture" class="object-cover" />
         </div>
         <div class="relative mx-auto md:mx-14 md:pt-14 3xl:pt-6">
             <h1 class="mb-4 bg-gradient-to-r from-[#1C4352] to-[#3986A3] bg-clip-text px-4 py-1 text-center font-[inter] text-4xl font-semibold text-transparent md:px-0 lg:text-5xl lg:tracking-wide">Cara Memainkan Emoshuffle</h1>
             <div class="flex w-1/2 justify-center md:w-3/4 md:pt-16" style="padding-left: 200px">
-                <img class="object-cover" src="{{ asset("assets/images/landing/produk/emo/flag.png") }}" />
+                <img class="object-cover" src="{{ asset("assets/images/landing/produk/emo/flag.webp") }}" />
             </div>
             <div class="relative grid font-semibold" style="grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: repeat(10, minmax(0, 1fr))">
                 <div>
-                    <img src="{{ asset("assets/images/landing/produk/emo/dotted-line.png") }}" class="absolute left-1/2 -translate-x-1/2" />
+                    <img src="{{ asset("assets/images/landing/produk/emo/dotted-line.webp") }}" class="absolute left-1/2 -translate-x-1/2" />
                 </div>
                 <div class="z-10" style="grid-column: span 7">
-                    <img src="{{ asset("assets/images/landing/produk/emo/reload-icon.png") }}" class="h-44 justify-self-end object-cover" style="justify-self: end" />
+                    <img src="{{ asset("assets/images/landing/produk/emo/reload-icon.webp") }}" class="h-44 justify-self-end object-cover" style="justify-self: end" />
                 </div>
                 <div class="flex items-center" style="grid-column: span 4">
                     <p style="padding-right: 70px">Sebelum permainan dimulai, kartu dikocok terlebih dahulu agar urutan kartu tidak dapat diprediksi oleh pemain</p>
@@ -235,11 +235,11 @@
                 <div class="z-10" style="grid-row: span 1; grid-column: span 6">
                     <div class="flex items-center" style="justify-self: end">
                         <p style="padding-left: 70px">Letakkan tumpukan kartu di tengah. Setiap pemain kemudian mengambil 5 hingga 7 kartu secara bergiliran.</p>
-                        <img src="{{ asset("assets/images/landing/produk/emo/upload-icon.png") }}" />
+                        <img src="{{ asset("assets/images/landing/produk/emo/upload-icon.webp") }}" />
                     </div>
                 </div>
                 <div class="z-10" style="grid-column: span 8">
-                    <img src="{{ asset("assets/images/landing/produk/emo/book-icon.png") }}" class="h-44 justify-self-end object-cover" style="justify-self: end" />
+                    <img src="{{ asset("assets/images/landing/produk/emo/book-icon.webp") }}" class="h-44 justify-self-end object-cover" style="justify-self: end" />
                 </div>
                 <div class="flex items-center" style="grid-column: span 3">
                     <p style="padding-right: 70px">Setiap pemain akan secara bergiliran membacakan satu kartu miliknya kepada semua pemain.</p>
@@ -247,21 +247,21 @@
                 <div class="z-10" style="grid-column: span 7">
                     <div class="flex items-center" style="justify-self: end">
                         <p style="padding-left: 150px">Pemain lain memberikan jawaban sesuai isi kartu yang dibacakan. Ada tiga jenis kartu berbeda yang mungkin muncul dalam permainan ini.</p>
-                        <img src="{{ asset("assets/images/landing/produk/emo/comment-icon.png") }}" />
+                        <img src="{{ asset("assets/images/landing/produk/emo/comment-icon.webp") }}" />
                     </div>
                 </div>
                 <div class="z-10" style="grid-column: span 12; grid-row: span 5">
                     <div class="rounded-3xl border p-4 backdrop-blur-sm" style="border-color: #74aabf; background-color: #d7e6ed90">
                         <h1 class="bg-gradient-to-r from-[#1C4352] to-[#3986A3] bg-clip-text py-4 text-center font-[inter] text-4xl font-semibold text-transparent lg:text-5xl lg:tracking-wide">3 Jenis Kartu</h1>
                         <div class="flex justify-center gap-16 pt-8">
-                            <img src="{{ asset("assets/images/landing/produk/emo/card-1.png") }}" class="transition-all ease-in-out hover:scale-[115%] hover:brightness-125" />
-                            <img src="{{ asset("assets/images/landing/produk/emo/card-2.png") }}" class="transition-all ease-in-out hover:scale-[115%] hover:brightness-125" />
-                            <img src="{{ asset("assets/images/landing/produk/emo/card-3.png") }}" class="transition-all ease-in-out hover:scale-[115%] hover:brightness-125" />
+                            <img src="{{ asset("assets/images/landing/produk/emo/card-1.webp") }}" class="transition-all ease-in-out hover:scale-[115%] hover:brightness-125" />
+                            <img src="{{ asset("assets/images/landing/produk/emo/card-2.webp") }}" class="transition-all ease-in-out hover:scale-[115%] hover:brightness-125" />
+                            <img src="{{ asset("assets/images/landing/produk/emo/card-3.webp") }}" class="transition-all ease-in-out hover:scale-[115%] hover:brightness-125" />
                         </div>
                         <div class="flex flex-col gap-4 pt-14 font-light text-[#70787D]" style="padding-left: 130px; padding-right: 130px">
                             <div class="flex rounded-lg border border-[#B3B3B3] bg-white shadow-md shadow-[#B3B3B3]">
                                 <div class="flex justify-center rounded-r-full bg-[#F7B23B] p-4">
-                                    <img src="{{ asset("assets/images/landing/produk/emo/phone-icon.png") }}" />
+                                    <img src="{{ asset("assets/images/landing/produk/emo/phone-icon.webp") }}" />
                                 </div>
                                 <div class="px-4 py-2">
                                     Jika ada pemain yang merasa tidak nyaman untuk menjawab, berikan kesempatan untuk mengambil kartu
@@ -273,7 +273,7 @@
                             </div>
                             <div class="flex rounded-lg border border-[#B3B3B3] bg-white shadow-md shadow-[#B3B3B3]">
                                 <div class="flex justify-center rounded-r-full bg-[#F7B23B] p-4">
-                                    <img src="{{ asset("assets/images/landing/produk/emo/phone-icon.png") }}" />
+                                    <img src="{{ asset("assets/images/landing/produk/emo/phone-icon.webp") }}" />
                                 </div>
                                 <div class="px-4 py-2">Teruskan permainan hingga semua kartu di tumpukan EmoShuffle telah diambil dan kartu-kartu tersebut telah dibacakan atau tindakan yang diinstruksikan telah dilakukan.</div>
                             </div>
@@ -283,8 +283,8 @@
 
                 <div class="z-10" style="grid-column: span 8">
                     <div class="flex justify-end">
-                        <img src="{{ asset("assets/images/landing/produk/emo/flag.png") }}" class="pb-8 pr-8" />
-                        <img src="{{ asset("assets/images/landing/produk/emo/warning-icon.png") }}" class="h-44 object-cover" />
+                        <img src="{{ asset("assets/images/landing/produk/emo/flag.webp") }}" class="pb-8 pr-8" />
+                        <img src="{{ asset("assets/images/landing/produk/emo/warning-icon.webp") }}" class="h-44 object-cover" />
                     </div>
                 </div>
                 <div class="flex items-center" style="grid-column: span 3">
@@ -297,7 +297,7 @@
     {{-- Mobile screen price --}}
     <section class="block w-full p-6 md:hidden">
         <div class="relative left-1/2" style="min-height: 460px; width: 90%; transform: translateX(-50%)">
-            <img src="{{ asset("assets/images/landing/produk/emo/pricebg-mobile-try.png") }}" class="absolute h-full w-full rounded-b-[60px] rounded-t-3xl object-cover" style="z-index: -20" />
+            <img src="{{ asset("assets/images/landing/produk/emo/pricebg-mobile-try.webp") }}" class="absolute h-full w-full rounded-b-[60px] rounded-t-3xl object-cover" style="z-index: -20" />
 
             <div class="flex flex-col items-center gap-4 px-8 py-5 text-white">
                 <h1 class="bg-clip-text text-center font-[inter] text-2xl font-semibold text-white lg:text-4xl lg:tracking-wide">Dapatkan Segera EmoShuffle Milikmu!</h1>
@@ -308,10 +308,10 @@
                         class="relative flex h-[400px] w-[260px] flex-col items-center justify-between overflow-hidden rounded-2xl bg-white px-6 py-4 shadow-md shadow-black"
                         x-data="{
                             images: [
-                                '{{ asset("assets/images/landing/produk/emo/card-price.png") }}',
-                                '{{ asset("assets/images/landing/produk/emo/card-price2.png") }}',
-                                '{{ asset("assets/images/landing/produk/emo/card-price3.png") }}',
-                                '{{ asset("assets/images/landing/produk/emo/card-price4.png") }}',
+                                '{{ asset("assets/images/landing/produk/emo/card-price.webp") }}',
+                                '{{ asset("assets/images/landing/produk/emo/card-price2.webp") }}',
+                                '{{ asset("assets/images/landing/produk/emo/card-price3.webp") }}',
+                                '{{ asset("assets/images/landing/produk/emo/card-price4.webp") }}',
                             ],
                             active: 0,
                             setActive(idx) {
@@ -387,7 +387,7 @@
     {{-- Desktop screen price --}}
     <section class="mb-20 hidden w-full md:block">
         <div class="relative left-1/2 h-full" style="min-height: 550px; width: 90%; transform: translateX(-50%)">
-            <img src="{{ asset("assets/images/landing/produk/emo/price-bg.png") }}" class="absolute h-full w-full rounded-3xl object-cover" style="z-index: -20" />
+            <img src="{{ asset("assets/images/landing/produk/emo/price-bg.webp") }}" class="absolute h-full w-full rounded-3xl object-cover" style="z-index: -20" />
             <div class="absolute inset-0 rounded-3xl" style="opacity: 0.7; z-index: -19; background-color: #205467"></div>
 
             <div class="relative flex h-full flex-col items-center justify-center gap-8 px-8 py-10 text-white">
@@ -400,10 +400,10 @@
                         style="position: absolute; bottom: -500px; left: 50%; transform: translateX(-50%)"
                         x-data="{
                             images: [
-                                '{{ asset("assets/images/landing/produk/emo/card-price.png") }}',
-                                '{{ asset("assets/images/landing/produk/emo/card-price2.png") }}',
-                                '{{ asset("assets/images/landing/produk/emo/card-price3.png") }}',
-                                '{{ asset("assets/images/landing/produk/emo/card-price4.png") }}',
+                                '{{ asset("assets/images/landing/produk/emo/card-price.webp") }}',
+                                '{{ asset("assets/images/landing/produk/emo/card-price2.webp") }}',
+                                '{{ asset("assets/images/landing/produk/emo/card-price3.webp") }}',
+                                '{{ asset("assets/images/landing/produk/emo/card-price4.webp") }}',
                             ],
                             active: 0,
                             setActive(idx) {
@@ -529,7 +529,7 @@
     </section>
 
     <div class="relative flex items-center justify-center" style="padding-top: 100px; height: 350px">
-        <img src="{{ asset("assets/images/landing/produk/emo/footer-new.png") }}" />
+        <img src="{{ asset("assets/images/landing/produk/emo/footer-new.webp") }}" />
     </div>
 @endsection
 

@@ -423,7 +423,7 @@ class DashboardPapiKostickController extends Controller
             'type'    => 'success',
             'title'   => 'Berhasil!',
             'message' => 'Soal berhasil diupdate',
-            'icon'    => asset('assets/images/dashboard/success.png'),
+            'icon'    => asset('assets/images/dashboard/success.webp'),
         ]);
     }
 }

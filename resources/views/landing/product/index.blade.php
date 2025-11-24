@@ -14,7 +14,7 @@
             width: 100vw;
             max-width: 100%;
             height: 100vh;
-            background-image: url('/assets/images/landing/asset-produk/curling-mobile.png');
+            background-image: url('/assets/images/landing/asset-produk/curling-mobile.webp');
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -25,7 +25,7 @@
         .header-produk {
             position: relative;
             z-index: 2;
-            background-image: linear-gradient(to right, #e1e9ec, #9cc3d1), url('/assets/images/landing/asset-produk/bg-curl.png');
+            background-image: linear-gradient(to right, #e1e9ec, #9cc3d1), url('/assets/images/landing/asset-produk/bg-curl.webp');
             background-blend-mode: multiply;
             background-size: cover;
             background-position: center;

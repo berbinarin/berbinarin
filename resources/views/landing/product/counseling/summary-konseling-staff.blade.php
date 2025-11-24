@@ -22,7 +22,7 @@
         class="mx-4 mb-8 mt-20 flex flex-col justify-center rounded-2xl bg-none px-16 py-8 shadow-none max-md:px-1 sm:mx-24 sm:mb-20 sm:mt-36 md:bg-white md:shadow-lg">
         <div class="flex justify-end">
             <div class="flex cursor-pointer items-center space-x-1" id="openModal">
-                <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.png') }}" alt="Syarat & Ketentuan"
+                <img src="{{ asset('assets/images/landing/asset-konseling/vector/sk-vector.webp') }}" alt="Syarat & Ketentuan"
                     class="h-3 w-auto" />
                 <p class="text-[15px] font-semibold text-[#3986A3]">
                     <span class="hidden sm:block">Syarat & Ketentuan</span>
@@ -41,7 +41,7 @@
                     Syarat dan Ketentuan</h1>
                 <div class="mb-6">
                     <div class="flex items-start gap-2">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/payment.png') }}" alt="Pembayaran"
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/payment.webp') }}" alt="Pembayaran"
                             class="mt-0.5 h-5 w-5" />
                         <span class="font-semibold">Pembayaran</span>
                     </div>
@@ -53,7 +53,7 @@
 
                 <div class="mb-6">
                     <div class="flex items-start gap-2">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.png') }}"
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/chat.webp') }}"
                             alt="Pembalasan Pesan" class="mt-0.5 h-5 w-5" />
                         <span class="font-semibold">Pembalasan Pesan</span>
                     </div>
@@ -69,7 +69,7 @@
 
                 <div class="mb-6">
                     <div class="flex items-start gap-2">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/cancel.png') }}"
+                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/cancel.webp') }}"
                             alt="Pengajuan Pembatalan" class="mt-0.5 h-5 w-5" />
                         <span class="font-semibold">Pengajuan Pembatalan</span>
                     </div>
@@ -90,7 +90,7 @@
 
         <div class="flex flex-col space-y-4">
             <h1 class="text-gradient text-center text-3xl font-bold md:text-4xl drop-shadow-lg">Terima Kasih</h1>
-            <img src="{{ asset('assets/images/landing/logo/logo-berbinar.png') }}" alt="Berbinar"
+            <img src="{{ asset('assets/images/landing/logo/logo-berbinar.webp') }}" alt="Berbinar"
                 class="h-[120px] w-auto object-contain" />
             <p class="text-gradient text-center text-base font-medium md:text-2xl drop-shadow-lg">
                 Setelah mengisi form, para staff diharapkan untuk melakukan konfirmasi apabila telah submit form pengajuan

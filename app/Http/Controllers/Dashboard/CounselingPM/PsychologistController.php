@@ -97,7 +97,7 @@ class PsychologistController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'Data Psikolog berhasil ditambahkan',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 
@@ -183,7 +183,7 @@ class PsychologistController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'Data Psikolog berhasil diubah',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
     }
     public function destroy($id)
@@ -194,7 +194,7 @@ class PsychologistController extends Controller
                 'type' => 'success',
                 'title' => 'Berhasil!',
                 'message' =>'Data Psikolog berhasil dihapus',
-                'icon' => asset('assets/images/dashboard/success.png'),
+                'icon' => asset('assets/images/dashboard/success.webp'),
             ]);
     }
 

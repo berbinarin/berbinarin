@@ -30,7 +30,7 @@ class ResultBaumController extends Controller
             'type'    => 'error',
             'title'   => 'Gagal!',
             'message' => 'Tes BAUM tidak ditemukan.',
-            'icon'    => asset('assets/images/dashboard/error.png'),
+            'icon'    => asset('assets/images/dashboard/error.webp'),
         ]);
         }
     }
