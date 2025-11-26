@@ -18,7 +18,7 @@
                 {{-- item --}}
                 @for ($i = 0; $i < min(3, count($heroArticles)); $i++)
                     {{-- ...existing code... --}}
-                    <div class="swiper-slide relative flex aspect-video items-center justify-center bg-cover bg-center bg-no-repeat shadow-xl shadow-primary lg:shadow-none" style="background-image: url('{{ asset("/image/" . $heroArticles[$i]->cover_image) }}')">
+                    <div class="swiper-slide relative flex aspect-video items-center justify-center bg-cover bg-center bg-no-repeat shadow-xl shadow-primary lg:shadow-none" style="background-image: url('{{ asset("storage/artikel/covers/" . $heroArticles[$i]->cover_image) }}')">
                         <!-- Dark overlay -->
                         <div class="absolute inset-0 bg-black/50"></div>
                         <div class="relative inset-0 flex h-full w-full items-center justify-center px-4 sm:px-14 lg:items-end lg:justify-start lg:pb-24">
@@ -37,7 +37,7 @@
                                 {{-- penulis & tanggal --}}
                                 <div class="mb-4 flex w-full items-center justify-start gap-2">
                                     <div class="size-6 overflow-hidden rounded-full">
-                                        <img src="{{ $heroArticles[$i]->author->profil_image ? asset("/image/" . $heroArticles[$i]->author->profil_image) : asset("assets/images/landing/arteri/dummy.webp") }}" alt="{{ $heroArticles[$i]->author->name_author }}" class="object-cover" />
+                                        <img src="{{ $heroArticles[$i]->author->profil_image ? asset("storage/artikel/penulis/" . $heroArticles[$i]->author->profil_image) : asset("assets/images/landing/arteri/dummy.webp") }}" alt="{{ $heroArticles[$i]->author->name_author }}" class="object-cover" />
                                     </div>
                                     <span class="font-semibold text-white">
                                         {{ $heroArticles[$i]->author->name_author }}
@@ -75,7 +75,7 @@
                                     {{-- author --}}
                                     <div class="flex items-center justify-start gap-2 sm:gap-4">
                                         <div class="size-5 overflow-hidden rounded-full sm:size-7">
-                                            <img src="{{ asset("/image/" . $heroArticles[$i]->author->profil_image) }}" alt="{{ $heroArticles[$i]->author->name_author }}" class="object-cover" />
+                                            <img src="{{ asset("storage/artikel/penulis/" . $heroArticles[$i]->author->profil_image) }}" alt="{{ $heroArticles[$i]->author->name_author }}" class="object-cover" />
                                         </div>
                                         <span class="text-base font-medium text-white sm:text-lg">
                                             {{ $heroArticles[$i]->author->name_author }}

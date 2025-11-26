@@ -131,7 +131,7 @@
                             {{-- image --}}
                             <div class="mx-auto mb-4 w-full max-w-2xl">
                                 <div class="relative aspect-video w-full overflow-hidden rounded-lg">
-                                    <img src="{{ asset("/image/" . $article->cover_image) }}" loading="lazy" alt="artikel-banner-small" class="absolute inset-0 h-full w-full object-cover" />
+                                    <img src="{{ asset("storage/artikel/covers/" . $article->cover_image) }}" loading="lazy" alt="artikel-banner-small" class="absolute inset-0 h-full w-full object-cover" />
                                 </div>
                             </div>
 
@@ -141,7 +141,7 @@
                                 <div class="mb-2 flex w-full items-center justify-between gap-2 lg:justify-start">
                                     <div class="flex items-center justify-center gap-2">
                                         <div class="size-6 overflow-hidden rounded-full">
-                                            <img src="{{ asset("/image/" . $article->author->profil_image) ? asset("/image/" . $article->author->profil_image) : asset("assets/images/landing/arteri/dummy.webp") }}" alt="profile dummy" class="object-cover" />
+                                            <img src="{{ $article->author->profil_image ? asset('storage/artikel/penulis/' . $article->author->profil_image) : asset('assets/images/landing/arteri/dummy.webp') }}" alt="profile dummy" class="object-cover" />
                                         </div>
                                         <span class="text-sm text-gray-600">{{ $article->author->name_author }}</span>
                                     </div>

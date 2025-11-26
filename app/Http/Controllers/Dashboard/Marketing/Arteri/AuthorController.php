@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard\Marketing\Arteri;
 
 use App\Http\Controllers\Controller;
 use App\Models\Articles\Author;
+use App\Services\ImageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,6 +13,14 @@ class AuthorController extends Controller
     /**
      * Display a listing of the resource.
      */
+    // Inject Service di Constructor
+    protected $imageService;
+
+    public function __construct(ImageService $imageService)
+    {
+        $this->imageService = $imageService;
+    }
+
     public function index()
     {
         $authors = Author::withCount('articles')->get();
@@ -32,8 +41,8 @@ class AuthorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name_author' => 'required|string|max:255',
-            'profil_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'name_author' => 'required',
+            'profil_image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
         ]);
 
         if (Author::where('name_author', $request->input('name_author'))->exists()) {
@@ -44,7 +53,13 @@ class AuthorController extends Controller
 
         $fotoProfil = null;
         if ($request->hasFile('profil_image')) {
-            $fotoProfil = $request->file('profil_image')->store('uploads/penulis', 'public');
+            // ImageService untuk upload, resize, dan convert ke webp
+            $fotoProfil = $this->imageService->upload(
+                $request->file('profil_image'),
+                'artikel/penulis', // folder tujuan
+                300,       // (width: 300px)
+                300        // (height: 300px, crop square)
+            );
         }
 
         Author::create([
@@ -82,8 +97,8 @@ class AuthorController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name_author' => 'required|string|max:255',
-            'profil_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'name_author' => 'required',
+            'profil_image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
         ]);
 
         if (Author::where('name_author', $request->input('name_author'))->where('id', '!=', $id)->exists()) {
@@ -94,12 +109,19 @@ class AuthorController extends Controller
 
         $author = Author::findOrFail($id);
 
-        // Perbarui foto profil jika ada
+        // Perbarui foto profil
         if ($request->hasFile('profil_image')) {
+            // Hapus foto lama jika ada
             if ($author->profil_image) {
-                Storage::disk('public')->delete($author->profil_image);
+                $this->imageService->delete('artikel/penulis', $author->profil_image);
             }
-            $author->profil_image = $request->file('profil_image')->store('uploads/penulis', 'public');
+            // Upload foto baru
+            $author->profil_image = $this->imageService->upload(
+                $request->file('profil_image'),
+                'artikel/penulis',
+                300,
+                300
+            );
         }
 
         // Perbarui data penulis
@@ -131,8 +153,9 @@ class AuthorController extends Controller
             ]);
         }
 
+        // Hapus gambar penulis jika ada
         if ($author->profil_image) {
-            Storage::disk('public')->delete($author->profil_image);
+            $this->imageService->delete('artikel/penulis', $author->profil_image);
         }
 
         // Hapus penulis

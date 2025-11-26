@@ -49,7 +49,7 @@
                                 <label for="cover_image" class="mb-2 block text-lg font-semibold leading-6 text-gray-500">Unggah Sampul</label>
                                 <label for="file-upload" class="relative flex h-40 w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg border border-gray-300 bg-gray-50 transition-colors duration-200 hover:bg-gray-100">
                                     @if ($article->cover_image)
-                                        <img id="image-preview" class="radius-1" src="{{ asset("/image/" . $article->cover_image) }}" alt="Sampul" class="absolute h-full w-full object-cover p-1" />
+                                        <img id="image-preview" class="radius-1" src="{{ asset("storage/artikel/covers/" . $article->cover_image) }}" alt="Sampul" class="absolute h-full w-full object-cover p-1" />
                                     @else
                                         <svg id="upload-icon" class="mb-2 h-12 w-12 text-gray-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v-1.75a2.75 2.75 0 012.75-2.75h3.75A2.75 2.75 0 0112 12.75v1.75h-4.5a1.25 1.25 0 000 2.5h4.5v1.75a2.75 2.75 0 01-2.75 2.75H5.75A2.75 2.75 0 013 19.25v-1.75zm18 1.75v-1.75a2.75 2.75 0 00-2.75-2.75h-3.75A2.75 2.75 0 0012 16.5v1.75h4.5a1.25 1.25 0 010 2.5H12v1.75a2.75 2.75 0 002.75 2.75h3.75A2.75 2.75 0 0021 22.25v-1.75z" />
@@ -70,8 +70,8 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="url" class="mb-2 block text-lg font-semibold leading-6 text-gray-500">Tautan</label>
-                                <input type="text" name="url" id="url" class="block w-full rounded-lg border border-gray-300 px-4 py-3 text-base text-black shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-primary" placeholder="Url Artikel" value="{{ old("url", $article->url) }}" />
+                                {{-- <label for="url" class="mb-2 block text-lg font-semibold leading-6 text-gray-500">Tautan</label> --}}
+                                <input type="hidden" name="url" id="url" class="block w-full rounded-lg border border-gray-300 px-4 py-3 text-base text-black shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-primary" placeholder="Url Artikel" value="{{ old("url", $article->url) }}" />
                             </div>
                         </div>
                     </div>

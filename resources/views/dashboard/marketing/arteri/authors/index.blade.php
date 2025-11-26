@@ -35,14 +35,14 @@
                                     <tr class="data-consume">
                                         <td class="text-center font-bold">{{ $index + 1 }}.</td>
                                         <td class="flex justify-center">
-                                            <img src="{{ $author->profil_image ? asset("/image/" . $author->profil_image) : asset("assets/images/landing/arteri/dummy.webp") }}" alt="Foto Profil" class="h-12 w-12 rounded-full" />
+                                            <img src="{{ $author->profil_image ? asset('storage/artikel/penulis/' . $author->profil_image) : asset('assets/images/landing/arteri/dummy.webp') }}" alt="Foto Penulis" class="h-12 w-12 rounded-full" />
                                         </td>
                                         <td class="whitespace-normal break-words text-left font-semibold" style="min-width: 300px">{{ $author->name_author }}</td>
                                         <td class="whitespace-normal break-words text-center font-semibold" style="min-width: 300px">{{ $author->articles_count }}</td>
                                         <td class="whitespace-no-wrap px-6 py-4 text-center">
                                             <div class="flex items-center justify-center gap-2">
                                                 <!-- Tombol Edit -->
-                                                <button onclick="bukaModalEditPenulis({{ $author->id }}, '{{ $author->name_author }}', '{{ asset("storage/" . $author->profil_image) }}')" type="button" class="inline-flex items-center justify-center rounded p-2 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #e9b306">
+                                                <button onclick="bukaModalEditPenulis({{ $author->id }}, '{{ $author->name_author }}', '{{ asset('storage/artikel/penulis/' . $author->profil_image) }}')" type="button" class="inline-flex items-center justify-center rounded p-2 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #e9b306">
                                                     <i class="bx bxs-edit-alt text-white"></i>
                                                 </button>
                                                 <button onclick="bukaModalHapus({{ $author->id }})" type="button" class="inline-flex items-center justify-center rounded p-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #ef4444">
@@ -88,10 +88,14 @@
                                     <input type="file" id="foto_profil" name="profil_image" class="hidden" accept="image/*" onchange="previewImage(event)" />
                                 </div>
                             </div>
+                            <div class="mb-2 text-xs text-gray-500 text-center">
+                                 <span class="font-semibold">jpeg, jpg, png</span> &bull; Maksimal <span class="font-semibold">1 MB</span>
+                            </div>
 
                             <label class="mb-2 block text-sm font-medium text-gray-700" for="nama_penulis">Nama Penulis</label>
                             <input class="focus:shadow-outline w-full appearance-none rounded-lg border bg-gray-100 px-4 py-3 leading-tight text-gray-700 shadow focus:outline-none" id="nama_penulis" type="text" name="name_author" placeholder="Masukkan nama penulis" required />
                         </div>
+
 
                         <div class="flex items-center justify-between gap-3">
                             <button type="button" onclick="tutupModalTambahPenulis()" class="w-1/2 rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-800 hover:bg-gray-100 focus:outline-none">Batal</button>
@@ -133,10 +137,13 @@
                                     <input type="file" id="edit_foto_profil" name="profil_image" class="hidden" accept="image/*" onchange="previewEditImage(event)" />
                                 </div>
                             </div>
-
+                            <div class="mb-2 text-xs text-gray-500 text-center">
+                                 <span class="font-semibold">jpeg, jpg, png</span> &bull; Maksimal <span class="font-semibold">1 MB</span>
+                            </div>
                             <label class="mb-2 block text-sm font-medium text-gray-700" for="edit_nama_penulis">Nama Penulis</label>
                             <input class="focus:shadow-outline w-full appearance-none rounded-lg border bg-gray-100 px-4 py-3 leading-tight text-gray-700 shadow focus:outline-none" id="edit_nama_penulis" type="text" name="name_author" placeholder="Masukkan nama penulis" required />
                         </div>
+
 
                         <div class="flex items-center justify-between gap-3">
                             <button type="button" onclick="tutupModalEditPenulis()" class="w-1/2 rounded-lg border border-gray-300 bg-white px-4 py-3 font-medium text-gray-800 hover:bg-gray-100 focus:outline-none">Batal</button>

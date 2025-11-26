@@ -51,7 +51,8 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v-1.75a2.75 2.75 0 012.75-2.75h3.75A2.75 2.75 0 0112 12.75v1.75h-4.5a1.25 1.25 0 000 2.5h4.5v1.75a2.75 2.75 0 01-2.75 2.75H5.75A2.75 2.75 0 013 19.25v-1.75zm18 1.75v-1.75a2.75 2.75 0 00-2.75-2.75h-3.75A2.75 2.75 0 0012 16.5v1.75h4.5a1.25 1.25 0 010 2.5H12v1.75a2.75 2.75 0 002.75 2.75h3.75A2.75 2.75 0 0021 22.25v-1.75z" />
                                     </svg>
                                     <span id="uploadText" class="font-semibold text-gray-400">Unggah sampul ukuran 16:9</span>
-                                    <span id="uploadText" class="font-semibold text-gray-400 text-xs">Ukuran file gambar maksimal 1MB</span>
+                                    <span id="uploadText" class="font-semibold text-gray-400 text-xs">Ukuran file gambar maksimal 2MB</span>
+                                    <span id="uploadText" class="font-semibold text-gray-400 text-xs">Format jpg,png,jpeg</span>
                                     <input id="file-upload" name="cover_image" type="file" class="hidden" onchange="showFilename()" />
                                 </label>
                             </div>
@@ -65,8 +66,8 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="url" class="mb-2 block text-lg font-semibold leading-6 text-gray-500">Tautan</label>
-                                <input type="text" name="url" id="url" class="block w-full rounded-lg border border-gray-300 px-4 py-3 text-base text-black shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-primary" placeholder="Url Artikel" />
+                                {{-- <label for="url" class="mb-2 block text-lg font-semibold leading-6 text-gray-500">Tautan</label> --}}
+                                <input type="hidden" name="url" id="url" class="block w-full rounded-lg border border-gray-300 px-4 py-3 text-base text-black shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-primary" placeholder="Url Artikel" />
                             </div>
                         </div>
                     </div>

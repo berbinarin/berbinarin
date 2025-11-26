@@ -11,11 +11,19 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Articles\Interaction;
 use Illuminate\Support\Str;
 use App\Helpers\CategoryColorHelper;
+use App\Services\ImageService;
 use App\Http\Controllers\Landing\Marketing\Arteri\CommentController;
 use App\Models\Articles\Comment;
 
 class ArticleController extends Controller
 {
+    protected $imageService;
+
+    public function __construct(ImageService $imageService)
+    {
+        $this->imageService = $imageService;
+    }
+
     public function index()
     {
         $articles = Article::with('category', 'author')->get();
@@ -41,13 +49,22 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:1024',
+            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'author_id' => 'required',
             'category_id' => 'required|exists:categories_article,id',
             'content' => 'required|string',
         ]);
 
-        $coverImagePath = $request->file('cover_image')->store('uploads/articles', 'public');
+        $coverImagePath = null;
+        if ($request->hasFile('cover_image')) {
+            // Gunakan ImageService untuk upload dan convert ke webp
+            $coverImagePath = $this->imageService->upload(
+                $request->file('cover_image'),
+                'artikel/covers', // folder tujuan
+                1920, // width 
+                1080  // height 
+            );
+        }
 
         Article::create([
             'title' => $request->input('title'),
@@ -107,7 +124,7 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1024',
+            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'author_id' => 'required|exists:author_article,id',
             'category_id' => 'required|exists:categories_article,id',
             'content' => 'required',
@@ -116,10 +133,17 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
 
         if ($request->hasFile('cover_image')) {
+            // Hapus cover lama jika ada
             if ($article->cover_image) {
-                Storage::disk('public')->delete($article->cover_image);
+                $this->imageService->delete('artikel/covers', $article->cover_image);
             }
-            $article->cover_image = $request->file('cover_image')->store('uploads/articles', 'public');
+            // Upload cover baru dengan ImageService
+            $article->cover_image = $this->imageService->upload(
+                $request->file('cover_image'),
+                'artikel/covers',
+                1920, // width
+                1080 // height
+            );
         }
 
         $article->update([
@@ -138,7 +162,7 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
 
         if ($article->cover_image) {
-            Storage::disk('public')->delete($article->cover_image);
+            $this->imageService->delete('artikel/covers', $article->cover_image);
         }
 
         $article->delete();

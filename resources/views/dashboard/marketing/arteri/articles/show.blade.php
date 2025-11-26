@@ -44,8 +44,7 @@
                             <label class="mb-2 block text-lg font-semibold leading-6 text-gray-500">Sampul</label>
                             <div class="flex h-40 w-full items-center justify-center overflow-hidden rounded-lg border border-gray-200 bg-gray-100">
                                 @if ($article->cover_image)
-                                    <img src="{{ asset("/image/" . $article->cover_image) }}" alt="Sampul" class="h-full w-full object-cover" />
-                                @else
+                                    <img src="{{ asset('storage/artikel/covers/' . $article->cover_image) }}" alt="Sampul" class="h-full w-full object-cover" />                                @else
                                     <span class="text-gray-400">Tidak ada sampul</span>
                                 @endif
                             </div>
