@@ -35,7 +35,7 @@
                                     <tr class="data-consume">
                                         <td class="text-center font-bold">{{ $index + 1 }}.</td>
                                         <td class="flex justify-center">
-                                            <img src="{{ $author->profil_image ? asset('storage/artikel/penulis/' . $author->profil_image) : asset('assets/images/landing/arteri/dummy.webp') }}" alt="Foto Penulis" class="h-12 w-12 rounded-full" />
+                                            <img src="{{ $author->profil_image ? asset('image/artikel/penulis/' . $author->profil_image) : asset('assets/images/landing/arteri/dummy.webp') }}" alt="Foto Penulis" class="h-12 w-12 rounded-full" />
                                         </td>
                                         <td class="whitespace-normal break-words text-left font-semibold" style="min-width: 300px">{{ $author->name_author }}</td>
                                         <td class="whitespace-normal break-words text-center font-semibold" style="min-width: 300px">{{ $author->articles_count }}</td>
