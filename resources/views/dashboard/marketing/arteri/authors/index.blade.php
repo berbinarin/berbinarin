@@ -42,7 +42,7 @@
                                         <td class="whitespace-no-wrap px-6 py-4 text-center">
                                             <div class="flex items-center justify-center gap-2">
                                                 <!-- Tombol Edit -->
-                                                <button onclick="bukaModalEditPenulis({{ $author->id }}, '{{ $author->name_author }}', '{{ asset('storage/artikel/penulis/' . $author->profil_image) }}')" type="button" class="inline-flex items-center justify-center rounded p-2 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #e9b306">
+                                                <button onclick="bukaModalEditPenulis({{ $author->id }}, '{{ $author->name_author }}', '{{ asset('image/artikel/penulis/' . $author->profil_image) }}')" type="button" class="inline-flex items-center justify-center rounded p-2 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #e9b306">
                                                     <i class="bx bxs-edit-alt text-white"></i>
                                                 </button>
                                                 <button onclick="bukaModalHapus({{ $author->id }})" type="button" class="inline-flex items-center justify-center rounded p-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #ef4444">

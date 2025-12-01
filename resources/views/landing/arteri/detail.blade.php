@@ -213,7 +213,7 @@
                         <!-- Desktop Author & Date -->
                         <div class="mb-4 hidden w-full items-center justify-between gap-2 lg:flex">
                             <div class="flex items-center justify-start gap-2">
-                                <img src="{{ asset("storage/artikel/penulis/" . $article->author->profil_image) }}" alt="profile dummy" class="size-6 rounded-full object-cover" />
+                                <img src="{{ asset("image/artikel/penulis/" . $article->author->profil_image) }}" alt="profile dummy" class="size-6 rounded-full object-cover" />
                                 <span class="text-slate-700">{{ $article->author->name_author }}</span>
                                 <span class="text-slate-700">&bull;</span>
                                 <span class="text-slate-700">{{ $article->created_at->format("d F Y") }}</span>
@@ -229,12 +229,12 @@
                         <hr class="border mb-6 hidden lg:block">
 
                         <!-- Article Cover Image -->
-                        <img src="{{ asset("storage/artikel/covers/" . $article->cover_image) }}" alt="cover" class="z-10 mb-4 aspect-video w-full max-w-full rounded-xl object-cover" />
+                        <img src="{{ asset("image/artikel/covers/" . $article->cover_image) }}" alt="cover" class="z-10 mb-4 aspect-video w-full max-w-full rounded-xl object-cover" />
 
                         <!-- Mobile Author & Date -->
                         <div class="mb-6 flex w-full items-center justify-between lg:hidden">
                             <span class="flex items-center justify-start gap-2">
-                                <img src="{{ asset("storage/artikel/covers/" . $article->author->profil_image) }}" alt="writer profile" class="size-5 rounded-full object-cover" />
+                                <img src="{{ asset("image/artikel/covers/" . $article->author->profil_image) }}" alt="writer profile" class="size-5 rounded-full object-cover" />
                                 <span class="text-sm text-slate-700">{{ $article->author->name_author }}</span>
                             </span>
                             <span class="text-sm text-slate-700">{{ $article->created_at->format("d F Y") }}</span>
@@ -261,7 +261,7 @@
                         @foreach ($latestArticles->filter(fn($latest) => $latest->id !== $article->id)->take(3) as $latest)
                             <a href="{{ route('arteri.detail', ['slug' => Str::slug($latest->title)]) }}" class="block mb-6 rounded-lg bg-white hover:bg-gray-50 shadow transition">
                                 <div class="flex min-h-28">
-                                    <img src="{{ asset('storage/artikel/covers/' . $latest->cover_image) }}" alt="cover" class="h-auto w-1/2 rounded object-cover" />
+                                    <img src="{{ asset('image/artikel/covers/' . $latest->cover_image) }}" alt="cover" class="h-auto w-1/2 rounded object-cover" />
                                     <div class="w-1/2 flex flex-col min-h-max items-start justify-between p-2">
                                         <h3 class="text-base font-medium text-slate-900 line-clamp-3">{{ $latest->title }}</h3>
                                         <div
@@ -368,7 +368,7 @@
                                 @forelse ($comments as $comment)
                                     <div class="w-full mb-4 flex flex-row items-start comment-item">
                                         <span class="w-1/6 lg:w-[10%] items-center justify-start gap-2">
-                                            <img src="{{ asset('storage/artikel/penulis/' . $article->author->profil_image) }}" alt="writer profile" class="size-5 rounded-full object-cover" />
+                                            <img src="{{ asset('image/artikel/penulis/' . $article->author->profil_image) }}" alt="writer profile" class="size-5 rounded-full object-cover" />
                                         </span>
                                         <div class="w-5/6 lg:w-[90%]">
                                             <div class="flex flex-row gap-1 lg:gap-2 pb-2">
