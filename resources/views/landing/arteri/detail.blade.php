@@ -250,8 +250,8 @@
                         </div>
                     </div>
 
-                    <!-- Latest Articles Section -->
-                    <div class="bg-white lg:w-1/3 rounded-xl max-h-fit p-4 shadow-sm lg:p-6 lg:pb-1">
+<!-- Latest Articles Section -->
+                    <div class="bg-white lg:w-1/3 sticky rounded-xl max-h-fit p-4 shadow-sm lg:p-6 lg:pb-1">
                         <div class="mb-4 flex items-center">
                             <div class="mr-2 h-6 w-1 rounded-full bg-primary"></div>
                             <h2 class="lg:text-xl font-semibold">Artikel Terbaru</h2>
@@ -317,14 +317,14 @@
                                 </div>
                             </div>
 
-                            <div class="flex justify-end px-4 md:px-0 md:pr-4">
+                            <div class="flex justify-end px-4 md:px-0 md:pr-4 lg:hidden">
                                 <a href="javascript:void(0)" onclick="toggleShareModal(true)" class="mt-6 flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#3886A3] to-[#225062] px-2 lg:px-6 py-2 font-medium text-white md:w-auto">
                                     <span>Bagikan</span>
                                     <img src="{{ asset("assets/images/landing/arteri/upload.webp") }}" class="h-5 w-5" />
                                 </a>
                             </div>
                         </div>
-                        
+
 
 
                     </div>

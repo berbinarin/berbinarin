@@ -283,9 +283,9 @@
                 <p class="text-sm xl:text-base">Terima kasih sudah mendaftar. Pastikan bahwa seluruh data telah benar, link dapat diakses, dan jangan lupa tekan tombol kirim di bawah ini 😆</p>
                 <p class="text-sm mt-4 mb-4">
                     Jika ada pertanyaan lebih lanjut, bisa hubungi WA di bawah ini:
-                    <div class="mt-1">Nanda (<a href="https://wa.me/628111990797" class="text-blue-500">08111990797</a>)</div>
-                    <div class="mt-1">Dinda (<a href="https://wa.me/6281585376200" class="text-blue-500">081585376200</a>)</div>
-                    <div class="mt-1">Aurellia (<a href="https://wa.me/6285325352099" class="text-blue-500">085325352099</a>)</div>
+                    <div class="mt-1">Afifah (<a href="https://wa.me/6289531470769" target="_blank" class="text-blue-500">089531470769</a>)</div>
+                    <div class="mt-1">Dinda (<a href="https://wa.me/6281585376200" target="_blank" class="text-blue-500">081585376200</a>)</div>
+                    <div class="mt-1">Aurellia (<a href="https://wa.me/6285325352099" target="_blank" class="text-blue-500">085325352099</a>)</div>
                 </p>
               </div>
 
