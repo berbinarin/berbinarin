@@ -29,6 +29,7 @@
                                     <th>Jabatan</th>
                                     <th>Lokasi</th>
                                     <th>Divisi</th>
+                                    <th>Banner</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -43,6 +44,13 @@
                                         <td>
                                             {{-- <!-- <a href="{{ $item->link }}">{{ $item->link }}</a> --> --}}
                                             {{ $item->divisi }}
+                                        </td>
+                                        <td>
+                                            @if ($item->banner_path)
+                                                <img src="{{ asset('image/positions/banner/' . $item->banner_path) }}" alt="Banner" class="h-12 w-auto rounded-sm" />
+                                            @else
+                                                <span class="text-gray-400 text-xs">Tidak ada banner</span>
+                                            @endif
                                         </td>
                                         <td class="flex gap-2">
                                             <a href="{{ route("dashboard.positions.edit", ["position" => $item->id]) }}" class="mt-4 inline-flex items-start justify-start rounded bg-yellow-500 p-3 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-0"><i class="bx bxs-edit-alt text-white"></i></a>

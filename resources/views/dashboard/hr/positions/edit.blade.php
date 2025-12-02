@@ -271,7 +271,7 @@
                                     <i class="bx bx-plus-circle text-xl"></i>
                                     Unggah Banner Posisi
                                 </h1>
-                                Ukuran : 260px × 120px
+                                Ukuran : 800px × 300px
                             </button>
 
                             <div id="bannerPreviewContainer" class="mt-4">
