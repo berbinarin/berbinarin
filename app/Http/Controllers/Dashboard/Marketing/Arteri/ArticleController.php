@@ -49,7 +49,7 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:3072',
             'author_id' => 'required',
             'category_id' => 'required|exists:categories_article,id',
             'content' => 'required|string',
@@ -57,7 +57,6 @@ class ArticleController extends Controller
 
         $coverImagePath = null;
         if ($request->hasFile('cover_image')) {
-            // Gunakan ImageService untuk upload dan convert ke webp
             $coverImagePath = $this->imageService->upload(
                 $request->file('cover_image'),
                 'artikel/covers', // folder tujuan
@@ -75,12 +74,12 @@ class ArticleController extends Controller
         ]);
 
         return redirect()->route('dashboard.arteri.articles.index')->with([
-                'alert'   => true,
-                'type'    => 'success',
-                'title'   => 'Berhasil!',
-                'message' => 'Artikel berhasil ditambahkan',
-                'icon'    => asset('assets/images/dashboard/success.webp'),
-            ]);
+            'alert'   => true,
+            'type'    => 'success',
+            'title'   => 'Berhasil!',
+            'message' => 'Artikel berhasil ditambahkan',
+            'icon'    => asset('assets/images/dashboard/success.webp'),
+        ]);
     }
 
     public function show(string $id)
@@ -124,7 +123,7 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:3072',
             'author_id' => 'required|exists:author_article,id',
             'category_id' => 'required|exists:categories_article,id',
             'content' => 'required',

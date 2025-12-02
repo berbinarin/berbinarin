@@ -9,9 +9,17 @@ use App\Models\KeluargaBerbinar\Division;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Services\ImageService;
 
 class PositionController extends Controller
 {
+    protected $imageService;
+
+    public function __construct(ImageService $imageService)
+    {
+        $this->imageService = $imageService;
+    }
+
     public function index()
     {
         $positions = Hiring_Positions::all();
@@ -29,15 +37,22 @@ class PositionController extends Controller
         try {
             $validated = $request->validated();
 
-            // Menyimpan file Banner
-            $bannerPath = $request->file('banner_path')->store('uploads/positions/banner', 'public');
+            $bannerPath = null;
+            if ($request->hasFile('banner_path')) {
+                $bannerPath = $this->imageService->upload(
+                    $request->file('banner_path'),
+                    'positions/banner', // folder tujuan
+                    800, // width 
+                    300  // height 
+                );
+            }
 
             Hiring_Positions::create([
                 "name" => $validated["name"],
                 "type" => $validated["type"],
                 "positions" => $validated["positions"],
                 "location" => $validated["location"],
-                "banner_path" => $bannerPath,
+                "banner_path" => $bannerPath ?: null,
                 "divisi" => $validated["divisi"],
                 "is_active" => true,
             ]);
@@ -91,7 +106,7 @@ class PositionController extends Controller
                 'icon'    => asset('assets/images/dashboard/success.webp'),
             ]);
         } catch (\Exception $e) {
-           return redirect()->back()->withInput()->with([
+            return redirect()->back()->withInput()->with([
                 'alert'   => true,
                 'type'    => 'error',
                 'title'   => 'Gagal!',
@@ -163,7 +178,7 @@ class PositionController extends Controller
 
             return redirect()->route('dashboard.positions.index');
         } catch (\Exception $e) {
-           return redirect()->route('dashboard.positions.index')->with([
+            return redirect()->route('dashboard.positions.index')->with([
                 'alert'   => true,
                 'type'    => 'error',
                 'title'   => 'Gagal!',

@@ -17,7 +17,7 @@
             <div class="mx-auto w-full lg:flex lg:flex-wrap lg:items-center lg:justify-center">
                 <div class="relative z-20 mb-4 w-full p-4 sm:px-16 md:px-14 lg:w-1/2 lg:p-0">
                     <div class="flex w-full items-center justify-center overflow-hidden rounded-2xl lg:rounded-3xl">
-                        <img src="{{ asset("image/" . $position->banner_path) }}" alt="banner" class="h-40 w-full object-cover sm:h-48 md:h-60 lg:h-64 xl:h-72" />
+                        <img src="{{ asset("image/positions/banner/" . $position->banner_path) }}" alt="banner" class="h-40 w-full object-cover sm:h-48 md:h-60 lg:h-64 xl:h-72" />
                     </div>
                     <div class="absolute -bottom-2 right-10 rounded-full bg-white sm:right-20 lg:-bottom-6 lg:left-8 lg:right-auto">
                         <img src="{{ asset("assets/images/landing/logo/logo-berbinar.webp") }}" alt="logo berbinar" class="size-14 object-cover" />
