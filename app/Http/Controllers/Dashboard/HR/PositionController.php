@@ -86,10 +86,17 @@ class PositionController extends Controller
             $HiringPositions = Hiring_Positions::find($id);
 
             if ($request->hasFile('banner_path')) {
+                // Hapus banner lama jika ada
                 if ($HiringPositions->banner_path) {
-                    Storage::disk('public')->delete($HiringPositions->banner_path);
+                    $this->imageService->delete('positions/banner', $HiringPositions->banner_path);
                 }
-                $HiringPositions->banner_path = $request->file('banner_path')->store('uploads/positions/banner', 'public');
+                // Upload banner baru via ImageService
+                $HiringPositions->banner_path = $this->imageService->upload(
+                    $request->file('banner_path'),
+                    'positions/banner',
+                    800,
+                    300
+                );
             }
 
             $HiringPositions->name = $request->name;
@@ -124,8 +131,9 @@ class PositionController extends Controller
                 throw new \Exception('Data tidak ditemukan.');
             }
 
+            // Hapus banner via ImageService jika ada
             if ($HiringPositions->banner_path) {
-                Storage::disk('public')->delete($HiringPositions->banner_path);
+                $this->imageService->delete('positions/banner', $HiringPositions->banner_path);
             }
 
             $HiringPositions->delete();
