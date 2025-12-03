@@ -38,6 +38,7 @@
             justify-content: center;
             align-items: center;
             color: white;
+            padding: 7px 7px 7px 7px;
         }
 
         #swiperPeer {
@@ -243,10 +244,7 @@
                                 </div>
                                 <ol class="list-decimal mt-1 space-y-1 pl-7">
                                     <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, dan Sidoarjo</li>
-                                    <li class="max-sm:text-sm">
-                                        b.
-                                        <i>Peer Counselor</i>
-                                        : Jakarta
+                                    <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Jakarta dan Surabaya
                                     </li>
                                 </ol>
                             </div>
@@ -408,12 +406,10 @@
 
                 <div class="flex max-lg:hidden">
                     <div class="swiper-button-prev">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-navigation.webp') }}"
-                            class="h-auto w-3" />
+                        <!-- <img src="{{ asset('assets/images/landing/asset-konseling/vector/left-navigation.webp') }}" class="h-auto w-3" /> -->
                     </div>
                     <div class="swiper-button-next">
-                        <img src="{{ asset('assets/images/landing/asset-konseling/vector/right-navigation.webp') }}"
-                            class="h-auto w-3" />
+                        <!-- <img src="{{ asset('assets/images/landing/asset-konseling/vector/right-navigation.webp') }}" class="h-auto w-3" /> -->
                     </div>
                 </div>
 

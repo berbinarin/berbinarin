@@ -92,7 +92,7 @@
                 </div>
                 <ol class="list-decimal mt-1 space-y-1 pl-7">
                     <li class="max-sm:text-sm">a. Psikolog : Subaraya, Kediri, dan Sidoarjo</li>
-                    <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Jakarta</li>
+                    <li class="max-sm:text-sm">b. <i>Peer Counselor</i>: Jakarta dan Surabaya</li>
                 </ol>
             </div>
 

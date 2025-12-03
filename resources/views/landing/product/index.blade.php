@@ -215,10 +215,10 @@
                                     <p class="font-semibold">Berbinar For U</p>
                                     <p class="text-[#70787D]">Layanan konseling bersama dengan Peer Counselor yang, dengan harga gratis dan terjamin profesionalitasnya.</p>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <p class="font-semibold">Coba Ungkapkan New</p>
                                     <p class="text-[#70787D]">Wadah curhatan secara anonim secara daring disini dan akan di jawab melalui reels Instagram oleh Psikolog.</p>
-                                </li>
+                                </li> -->
                                 <li>
                                     <p class="font-semibold">Training Peer Counselor</p>
                                     <p class="text-[#70787D]">Acara tahunan yang menyelenggarakan pelatihan Peer Counselor secara online dan diselenggarakan dengan mengundang berbagai komunitas Psikolog.</p>

@@ -174,6 +174,11 @@ class CounselingController extends Controller
                 'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/adinda.webp',
                 'region' => 'Jakarta'
             ],
+            [
+                'name' => "Qay Azneen W.",
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/qay.webp',
+                'region' => 'Surabaya'
+            ],
         ];
 
         $peerOnlines = [
