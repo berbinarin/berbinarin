@@ -276,14 +276,14 @@
 
                             <div id="bannerPreviewContainer" class="mt-4">
                                 <div class="relative mb-2 flex min-h-[200px] w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-xl border-2 border-dashed border-blue-400 transition duration-200 hover:bg-blue-50">
-                                    <img id="bannerPreview" class="absolute inset-0 h-full w-full object-cover" src="{{ $position->banner_path ? asset('image/' . $position->banner_path) : '' }}" alt="Banner Preview" />
+                                    <img id="bannerPreview" class="absolute inset-0 h-full w-full object-cover" src="{{ $position->banner_path ? asset('image/positions/banner/' . $position->banner_path) : '' }}" alt="Banner Preview" />
                                     <div class="progress-container absolute bottom-2 left-2 hidden w-full rounded-[10px] bg-gray-200" style="width: calc(100% - 1rem); height: 2rem" id="progressContainer">
                                         <div id="progressBar" class="progress-bar flex h-full items-center justify-center rounded-[10px] bg-blue-600 text-center text-sm font-medium leading-none text-blue-100 ring-2 ring-inset ring-white transition-all duration-300" style="width: 0%">0%</div>
                                     </div>
                                 </div>
                             </div>
 
-                            <input type="file" id="bannerInput" name="banner_path" accept=".jpeg, .webp, .webp, .webp" class="hidden" />
+                            <input type="file" id="bannerInput" name="banner_path" accept=".jpeg, .webp, .jpg, .png" class="hidden" />
                         </div>
                     </div>
 
