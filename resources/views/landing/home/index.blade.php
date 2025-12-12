@@ -7,7 +7,8 @@
 @section("style")
     <style>
         .bg-hero {
-            background-image: url('/assets/images/landing/asset-beranda/bg-hero.webp');
+            background-image: url('/assets/images/landing/asset-beranda/bg-hero-natal.webp');
+            /* background-image: url('/assets/images/landing/asset-beranda/bg-hero.webp'); */
         }
 
         #swiperProduk {
@@ -117,7 +118,8 @@
             }
 
             .bg-hero {
-                background-image: url('/assets/images/landing/asset-beranda/bg-hero-mobile.webp');
+                /* background-image: url('/assets/images/landing/asset-beranda/bg-hero-mobile.webp'); */
+                background-image: url('/assets/images/landing/asset-beranda/bg-hero-mobile-natal.webp');
             }
         }
 
@@ -171,7 +173,7 @@
 @section("content")
     <!-- HERO SECTION -->
     <section class="bg-mini bg-hero relative h-[110vh] w-full bg-cover max-lg:bg-center max-sm:h-[90vh]">
-        <div class="absolute inset-0 z-10 bg-gradient-to-r from-[#9CC3D1] to-transparent max-sm:bg-[#9CC3D1] max-sm:opacity-70"></div>
+        <!-- <div class="absolute inset-0 z-10 bg-gradient-to-r from-[#9CC3D1] to-transparent max-sm:bg-[#9CC3D1] max-sm:opacity-70"></div> -->
 
         <div class="relative z-20 flex h-full items-center px-14 text-left max-sm:px-4">
             <div class="flex flex-col justify-center text-black max-sm:w-full">
@@ -179,7 +181,8 @@
                     Edukasi & Layanan
                     <br />
                     Psikologi
-                    <span class="text-[#3886A3]">Berbinar</span>
+                    <!-- <span class="text-[#3886A3]">Berbinar</span> -->
+                    <span class="text-[#FF060A]">Berbinar</span>
                 </h1>
                 <p class="deskripsi-mini mt-4 w-3/5 text-justify text-lg font-normal text-[#444444] max-lg:w-3/4 max-md:text-[17px] max-sm:w-full max-sm:text-[15px] max-sm:leading-relaxed">Berbinar Insightful Indonesia adalah mitra terpercaya dalam menghadirkan layanan psikologi secara terintegrasi seperti konseling, psikotes, kelas edukasi, dan konsultasi profesional. Melalui pendekatan inklusif dan alat psikologi terstandar, Berbinar hadir untuk membangun hubungan antara perusahaan dengan klien secara profesional. dan meraih potensi yang terbaik.</p>
                 <div class="flex justify-start">
@@ -192,11 +195,16 @@
 
         <!-- VECTOR SINGA -->
         <div class="absolute bottom-0 right-20 z-10 hidden h-auto w-auto max-w-xs max-sm:right-2 sm:block">
-            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa.webp") }}" alt="Singa" class="h-full w-full max-sm:h-[350px] max-sm:w-auto" />
+            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa-natal.webp") }}" alt="Singa" class="h-full w-full max-sm:h-[350px] max-sm:w-auto" />
         </div>
 
-        <div class="absolute bottom-0 right-20 z-10 block h-auto w-auto max-w-xs max-sm:right-2 sm:hidden">
+        <!-- untuk default -->
+        <!-- <div class="absolute bottom-0 right-20 z-10 block h-auto w-auto max-w-xs max-sm:right-2 sm:hidden">
             <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa3.webp") }}" alt="Singa" class="h-full w-full max-sm:h-[350px] max-sm:w-auto" />
+        </div> -->
+
+        <div class="absolute bottom-0 right-20 z-10 block h-auto w-auto max-w-xs max-sm:right-2 sm:hidden">
+            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa3-natal.webp") }}" alt="Singa" class="h-full w-full max-sm:h-[420px] max-sm:w-auto" />
         </div>
 
         {{-- WHATSAPP ICON --}}
