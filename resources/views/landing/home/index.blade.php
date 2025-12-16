@@ -1,4 +1,5 @@
-@extends("landing.layouts.app",
+@extends(
+    "landing.layouts.app",
     [
         "title" => "Berbinar Insightful Indonesia",
     ]
