@@ -374,6 +374,26 @@
         </div>
     </section>
 
+    <section class="relative w-full p-4 mt-16 lg:mt-6 lg:mb-16">
+        <div class="bg-[#D7E6ED] p-4 lg:p-8 rounded-xl lg:rounded-3xl h-[350px] lg:h-[400px] lg:mx-16">
+            <h2 class="text-xl lg:text-5xl font-bold text-black">CHRISTMAS PAYDAY SALE</h2>
+            <h3 class="text-lg lg:text-3xl font-semibold">Counseling Deals</h3>
+
+            <img src="{{ asset('assets/images/landing/asset-konseling/vector/kado1.webp') }}" alt="" class="absolute top-20 w-4/5 lg:w-1/3 lg:-top-10 lg:right-40 z-10">
+
+            <div class="bg-white/80 text-sm lg:text-xl rounded-xl p-2 flex flex-col gap-1 absolute top-[104px] lg:top-40 z-20 w-fit">
+                <p>Peer Counselor: 45.000 <span class="font-bold"> → 40.000/jam</span></p>
+                <p>Psikolog: 150.000 <span class="font-bold"> → 135.000/jam</span></p>
+                <p>Berbinar For U <span class="font-bold"> → FREE</span></p>
+            </div>
+
+            <div class="bg-white/80 text-sm lg:text-lg rounded-2xl lg:rounded-full p-2 flex flex-col gap-1 absolute bottom-8 lg:bottom-16 z-20">
+                <p class="font-bold">YEARSALECOUNSELING &nbsp; <span class="bg-[#EB5350] rounded-xl lg:rounded-full text-white font-normal p-1 lg:px-2">CODEVOUCHER</span></p>
+            </div>
+
+        </div>
+    </section>
+
     {{-- PSIKOLOG BERBINAR --}}
     <section class="relative w-full">
         <div class="relative z-10 mx-[320px] mt-8 justify-center text-center max-xl:mx-12 max-sm:mx-3 max-sm:mt-12">
