@@ -196,7 +196,7 @@
 
         <!-- VECTOR SINGA -->
         <div class="absolute bottom-0 right-20 z-10 hidden h-auto w-auto max-w-xs max-sm:right-2 sm:block">
-            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa-natal.webp") }}" alt="Singa" class="h-full w-full max-sm:h-[350px] max-sm:w-auto" />
+            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa-santa.webp") }}" alt="Singa" class="h-full w-full max-sm:h-[350px] max-sm:w-auto" style="opacity: 0.9;" />
         </div>
 
         <!-- untuk default -->
@@ -205,7 +205,7 @@
         </div> -->
 
         <div class="absolute bottom-0 right-20 z-10 block h-auto w-auto max-w-xs max-sm:right-2 sm:hidden">
-            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa3-natal.webp") }}" alt="Singa" class="h-full w-full max-sm:h-[420px] max-sm:w-auto" />
+            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa3-santa.webp") }}" alt="Singa" class="h-full w-full max-sm:h-[420px] max-sm:w-auto" />
         </div>
 
         {{-- WHATSAPP ICON --}}
@@ -251,9 +251,13 @@
 
     {{-- WHY BERBINAR SECTION --}}
     <section>
-        <h1 class="text-mini font mt-40 text-center text-4xl font-semibold text-black max-sm:mx-2 max-sm:mt-64 max-sm:text-[29px]">
+        <!-- <h1 class="text-mini font mt-40 text-center text-4xl font-semibold text-black max-sm:mx-2 max-sm:mt-64 max-sm:text-[29px]">
             Mengapa Harus
             <span class="bg-[#3886A3] px-2 text-white">Berbinar</span>
+        </h1> -->
+        <h1 class="text-mini font mt-40 text-center text-4xl font-semibold text-black max-sm:mx-2 max-sm:mt-64 max-sm:text-[29px]">
+            Mengapa Harus
+            <span class="bg-[#FF5E61] px-2 text-white">Berbinar</span>
         </h1>
         <div class="mx-14 my-9 mb-16 rounded-3xl bg-white shadow-md max-sm:mx-4 max-sm:my-5">
             <div class="flex flex-row items-center gap-x-6 p-8 max-md:flex-col max-md:p-5">
@@ -265,9 +269,15 @@
                 <div class="flex-col space-y-6 max-md:space-y-3">
                     <div class="flex flex-row flex-wrap gap-3 max-md:mt-4 max-md:justify-center">
                         @foreach ($visimisis as $visimisi)
-                            <div class="w-auto items-center rounded-full bg-[#3986A3] p-1.5">
+                            <!-- <div class="w-auto items-center rounded-full bg-[#3986A3] p-1.5">
                                 <div class="flex flex-row items-center gap-x-1.5">
                                     <img src="{{ asset("assets/images/landing/asset-beranda/vector/tick.webp") }}" alt="Vector" class="h-6 w-6 rounded-full bg-white p-1" />
+                                    <p class="text-[15px] font-medium text-white max-sm:text-[13px]">{{ $visimisi["moto"] }}</p>
+                                </div>
+                            </div> -->
+                            <div class="w-auto items-center rounded-full bg-[#FF5E61] p-1.5">
+                                <div class="flex flex-row items-center gap-x-1.5">
+                                    <img src="{{ asset("assets/images/landing/asset-beranda/vector/tick-red.webp") }}" alt="Vector" class="h-6 w-6 rounded-full bg-white p-1" />
                                     <p class="text-[15px] font-medium text-white max-sm:text-[13px]">{{ $visimisi["moto"] }}</p>
                                 </div>
                             </div>
@@ -275,17 +285,19 @@
                     </div>
 
                     <p class="text-justify text-[17px] text-[#70787D] max-md:mt-3 max-sm:text-[15px]">Berbinar adalah solusi lengkap untuk kebutuhan psikologi Anda—dari konseling, psikotes, kelas edukasi, hingga layanan consulting profesional dengan biaya terjangkau dan fleksibilitas yang tinggi yang tentunya semua dirancang khusus sesuai kebutuhan. Saatnya wujudkan potensi terbaik Anda bersama Berbinar!</p>
-                    <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 font-medium text-white max-md:w-full max-sm:text-[15px]">Lihat Produk Berbinar</button>
+                    <button class="text-md rounded-xl bg-gradient-to-r from-[#FF5E61] to-[#D80004] px-4 py-2 font-medium text-white max-md:w-full max-sm:text-[15px]">Lihat Produk Berbinar</button>
                 </div>
             </div>
         </div>
     </section>
 
     {{-- KONTEN SOSMED --}}
-    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/vector-pattern.webp'), linear-gradient(to bottom right, #eaf8ff, #bde8fd); background-blend-mode: normal, multiply">
+    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/vector-pattern.webp'), linear-gradient(to bottom right, #FFEAEA, #FF6A6C); background-blend-mode: normal, multiply">
         <h1 class="my-8 text-center text-4xl font-semibold text-black max-sm:mx-4 max-sm:text-[29px]">
+            <!-- Konten Terbaru
+            <span class="bg-[#3886A3] px-2 text-white">Berbinar</span> -->
             Konten Terbaru
-            <span class="bg-[#3886A3] px-2 text-white">Berbinar</span>
+            <span class="bg-[#FF5E61] px-2 text-white">Berbinar</span>
         </h1>
         <div class="-mt-8 flex flex-row justify-evenly max-sm:flex-col max-sm:items-center">
             {{-- INSTAGRAM --}}
@@ -421,8 +433,10 @@
     {{-- PRODUK --}}
     <section class="mt-6">
         <p class="font relative z-10 mx-20 my-8 text-center text-4xl font-semibold text-black max-sm:mx-2 max-sm:my-4 max-sm:text-[29px]">
+            <!-- Produk
+            <span class="bg-primary px-2 text-white">Berbinar</span> -->
             Produk
-            <span class="bg-primary px-2 text-white">Berbinar</span>
+            <span class="bg-[#FF5E61] px-2 text-white">Berbinar</span>
         </p>
         <div class="swiperContainer">
             <div class="swiper" id="swiperProduk">
@@ -456,7 +470,8 @@
     <section class="mt-6">
         <p class="font relative z-10 mx-20 my-8 text-center text-4xl font-semibold text-black max-sm:mx-2 max-sm:my-4 max-sm:text-[29px]">
             Apa Kata Mereka Tentang
-            <span class="bg-primary px-2 text-white">Berbinar</span>
+            <!-- <span class="bg-primary px-2 text-white">Berbinar</span> -->
+            <span class="bg-[#FF5E61] px-2 text-white">Berbinar</span>
             ?
         </p>
         <div class="swiperContainer">
