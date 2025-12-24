@@ -68,7 +68,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Menambahkan animasi salju menggunakan Lottie
-            const animationPath = '/let-it-snow.json';
+            const animationPath = '/lottie/let-it-snow.json';
             const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
             if (isMobile) {
