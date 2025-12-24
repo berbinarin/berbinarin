@@ -67,6 +67,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Menambahkan animasi salju menggunakan Lottie
             const animationPath = '/let-it-snow.json';
             const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
@@ -93,5 +94,5 @@
                 });
             }
         });
-    </script>   
+    </script>
 </html>
