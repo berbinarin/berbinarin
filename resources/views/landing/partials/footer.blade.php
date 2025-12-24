@@ -1,13 +1,18 @@
 <!-- Footer Section -->
 <section class="footer">
-    <img src="{{ asset("assets/images/landing/logo/vector-wave.webp") }}" alt="Wave Vector" class="mb-0 w-full bg-[#F7F9FA] lg:-mb-[80px]" />
-    <footer class="bg-[#EAF8FF] pb-3 pt-1 lg:py-10">
+    <img src="{{ asset("assets/images/landing/logo/vector-wave-natal.webp") }}" alt="Wave Vector" class="mb-0 w-full bg-[#F7F9FA] lg:-mb-[80px]" />
+    <!-- dibawah yang biasa ini -->
+    <!-- <img src="{{ asset("assets/images/landing/logo/vector-wave.webp") }}" alt="Wave Vector" class="mb-0 w-full bg-[#F7F9FA] lg:-mb-[80px]" /> -->
+
+    <!-- #FFEAEA untuk natal, untuk default web warna #EAF8FF -->
+    <footer class="bg-[#FFEAEA] pb-3 pt-1 lg:py-10">
         <div class="mx-5 flex flex-row items-start justify-between max-sm:flex-col lg:mx-14">
             <!-- Informasi Perusahaan -->
             <div class="mb-4 w-full space-y-4 text-left lg:mb-0 lg:w-2/4">
                 <div class="flex items-center space-x-1">
                     <img src="{{ asset("assets/images/landing/logo/logo-berbinar.webp") }}" alt="Logo Berbinar" class="h-8 w-auto" />
-                    <h4 class="text-lg font-bold text-[#3986A3]">PT. Berbinar Insightful Indonesia</h4>
+                    <h4 class="text-lg font-bold text-[#FF060A]">PT. Berbinar Insightful Indonesia</h4>
+                    <!-- <h4 class="text-lg font-bold text-[#3986A3]">PT. Berbinar Insightful Indonesia</h4> -->
                 </div>
                 <p class="text-[#6F6C90]">#SelaluAdaBuatKamu</p>
                 <p class="w-2/3 text-[#6F6C90] max-sm:w-full">Jl. Kebonsari III No.1F, Kebonsari, Kec. Jambangan, Kota Surabaya, Jawa Timur, 60233</p>
@@ -15,7 +20,8 @@
 
             <!-- Produk Berbinar -->
             <div class="mx-4 w-full text-left max-sm:mx-0 max-sm:mt-1 lg:w-1/4">
-                <h4 class="mb-6 font-semibold text-[#75BADB] max-sm:mb-2">Produk Berbinar</h4>
+                <h4 class="mb-6 font-semibold text-[#FF060A] max-sm:mb-2">Produk Berbinar</h4>
+                <!-- <h4 class="mb-6 font-semibold text-[#75BADB] max-sm:mb-2">Produk Berbinar</h4> -->
                 <ul class="space-y-2">
                     <li><a href="{{ route("product.counseling.index") }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Berbinar Konseling</a></li>
                     <li><a href="{{ route("product.psikotest.index") }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Berbinar Psikotes</a></li>
@@ -28,7 +34,8 @@
 
             <!-- Lainnya -->
             <div class="mx-4 w-full text-left max-sm:mx-0 max-sm:mt-4 lg:w-1/4">
-                <h4 class="mb-6 font-semibold text-[#75BADB] max-sm:mb-2">Lainnya</h4>
+                <h4 class="mb-6 font-semibold text-[#FF060A] max-sm:mb-2">Lainnya</h4>
+                <!-- <h4 class="mb-6 font-semibold text-[#75BADB] max-sm:mb-2">Lainnya</h4> -->
                 <ul class="space-y-2">
                     <li><a href="{{ route("home.faq") }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">FAQ</a></li>
                     <li><a href="{{ route("home.term-condition") }}" class="text-[16px] font-normal text-[#6F6C90] hover:text-gray-800">Syarat & Ketentuan</a></li>
@@ -38,7 +45,8 @@
 
             <!-- Sosial Media -->
             <div class="mx-4 w-full text-left max-sm:mx-0 max-sm:mt-4 lg:w-1/4">
-                <h4 class="mb-6 font-semibold text-[#75BADB] max-sm:mb-2">Media Sosial</h4>
+                <h4 class="mb-6 font-semibold text-[#FF060A] max-sm:mb-2">Media Sosial</h4>
+                <!-- <h4 class="mb-6 font-semibold text-[#75BADB] max-sm:mb-2">Media Sosial</h4> -->
                 <div class="-mx-2 flex flex-wrap">
                     <a href="https://x.com/PsikologiDiri?mx=2" class="mb-4 px-2" target="_blank" rel="noopener noreferrer">
                         <img src="{{ asset("assets/images/landing/logo/sosmed-icon/x.webp") }}" alt="X" class="mx-auto h-5 w-auto" />
