@@ -98,7 +98,7 @@
     <div class="hidden md:block text-center font-semibold text-black text-base sm:text-base mt-3">
         <span>
             Kamu staf aktif Berbinar? Klaim konseling gratismu
-            <a href="{{ route('product.counseling.registration-staff') }}"
+            <a href="https://staff.berbinar.in/"
                 class="text-[#3986A3] hover:underline">disini!</a>
         </span>
     </div>
