@@ -49,7 +49,7 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:3072',
+            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:3072',
             'author_id' => 'required',
             'category_id' => 'required|exists:categories_article,id',
             'content' => 'required|string',
@@ -123,7 +123,7 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:3072',
+            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:3072',
             'author_id' => 'required|exists:author_article,id',
             'category_id' => 'required|exists:categories_article,id',
             'content' => 'required',
