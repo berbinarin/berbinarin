@@ -97,7 +97,7 @@
                 terkait pembayaran dan informasi lebih lanjut mengenai pelaksanaan psikotes.
                 <br />
                 <br />
-                Jika ada hal yang ingin disampaikan, silahkan hubungi narahubung di bawah ini: 087876662013 (Dindu)
+                Jika ada hal yang ingin disampaikan, silahkan hubungi narahubung di bawah ini: 085121005396 (Qay Azneen)
             </p>
         </div>
 
