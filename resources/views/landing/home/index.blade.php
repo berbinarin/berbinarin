@@ -8,8 +8,8 @@
 @section("style")
     <style>
         .bg-hero {
-            background-image: url('/assets/images/landing/asset-beranda/bg-hero-taru.webp');
-            /* background-image: url('/assets/images/landing/asset-beranda/bg-hero.webp'); */
+            /* background-image: url('/assets/images/landing/asset-beranda/bg-hero-taru.webp'); */
+            background-image: url('/assets/images/landing/asset-beranda/bg-hero.webp');
         }
 
         #swiperProduk {
@@ -119,8 +119,8 @@
             }
 
             .bg-hero {
-                /* background-image: url('/assets/images/landing/asset-beranda/bg-hero-mobile.webp'); */
-                background-image: url('/assets/images/landing/asset-beranda/bg-hero-mobile-taru.webp');
+                background-image: url('/assets/images/landing/asset-beranda/bg-hero-mobile.webp');
+                /* background-image: url('/assets/images/landing/asset-beranda/bg-hero-mobile-taru.webp'); */
             }
         }
 
@@ -165,60 +165,21 @@
 
         @media (min-width: 1280px) {
         }
-
-        @media (min-width: 1536px) {
-        }
-        #lottie-snow-wrapper {
-            position: fixed;
-            inset: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 50;
-            pointer-events: none;
-            display: none;
-        }
-
-        /* Mobile */
-        @media screen and (max-width: 768px) {
-            #lottie-snow-wrapper {
-                display: flex;
-                align-items: center; /* vertikal tengah */
-                justify-content: center; /* horizontal tengah */
-            }
-
-            #lottie-snow {
-                width: 100%;
-                max-width: 400px; /* atur sesuai selera */
-                height: 40vh; /* biar atas & bawah ada space */
-            }
-        }
-
-        /* Desktop (kalau masih mau full height) */
-        @media screen and (min-width: 769px) {
-            #lottie-snow-wrapper {
-                display: block;
-            }
-
-            #lottie-snow {
-                height: 100vh;
-            }
-        }
     </style>
 @endsection
 
 @section("content")
     <!-- HERO SECTION -->
     <section class="bg-mini bg-hero relative h-[110vh] w-full bg-cover max-lg:bg-center max-sm:h-[90vh]">
-        <!-- <div class="absolute inset-0 z-10 bg-gradient-to-r from-[#9CC3D1] to-transparent max-sm:bg-[#9CC3D1] max-sm:opacity-70"></div> -->
+        <div class="absolute inset-0 z-10 bg-gradient-to-r from-[#9CC3D1] to-transparent max-sm:bg-[#9CC3D1] max-sm:opacity-70"></div>
 
         <div class="relative z-20 flex h-full items-center px-14 text-left max-sm:px-4">
-            <div class="flex flex-col justify-center text-white max-sm:w-full">
+            <div class="flex flex-col justify-center text-black max-sm:w-full">
                 <h1 class="judul-mini text-6xl font-semibold max-md:text-5xl max-sm:text-[40px]">
                     Edukasi & Layanan
                     <br />
                     Psikologi
-                    <!-- <span class="text-[#3886A3]">Berbinar</span> -->
-                    <span class="text-[#FBDE6F]">Berbinar</span>
+                    <span class="text-[#3886A3]">Berbinar</span>
                 </h1>
                 <p class="deskripsi-mini mt-4 w-3/5 text-justify text-lg font-normal text-[#fffff] max-lg:w-3/4 max-md:text-[17px] max-sm:w-full max-sm:text-[15px] max-sm:leading-relaxed">Berbinar Insightful Indonesia adalah mitra terpercaya dalam menghadirkan layanan psikologi secara terintegrasi seperti konseling, psikotes, kelas edukasi, dan konsultasi profesional. Melalui pendekatan inklusif dan alat psikologi terstandar, Berbinar hadir untuk membangun hubungan antara perusahaan dengan klien secara profesional. dan meraih potensi yang terbaik.</p>
                 <div class="flex justify-start">
@@ -231,7 +192,7 @@
 
         <!-- VECTOR SINGA -->
         <div class="absolute bottom-0 right-20 z-10 hidden h-auto w-auto max-w-xs max-sm:right-2 sm:block">
-            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa-taru.webp") }}" alt="Singa" class="h-[500px] w-[500px] max-sm:h-[350px] max-sm:w-auto" style="opacity: 0.9" />
+            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa.webp") }}" alt="Singa" class="h-full w-full max-sm:h-[350px] max-sm:w-auto" style="opacity: 0.9" />
         </div>
 
         <!-- untuk default -->
@@ -240,7 +201,7 @@
         </div> -->
 
         <div class="absolute bottom-0 right-20 z-10 block h-auto w-auto max-w-xs max-sm:right-2 sm:hidden">
-            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa3-taru.webp") }}" alt="Singa" class="h-full w-full max-sm:h-[420px] max-sm:w-auto" />
+            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa3.webp") }}" alt="Singa" class="h-full w-full max-sm:h-[420px] max-sm:w-auto" />
         </div>
 
         {{-- WHATSAPP ICON --}}
@@ -292,7 +253,7 @@
         </h1> -->
         <h1 class="text-mini font mt-40 text-center text-4xl font-semibold text-black max-sm:mx-2 max-sm:mt-64 max-sm:text-[29px]">
             Mengapa Harus
-            <span class="bg-[#E0A135] px-2 text-white">Berbinar</span>
+            <span class="bg-[#3986A3] px-2 text-white">Berbinar</span>
         </h1>
         <div class="mx-14 my-9 mb-16 rounded-3xl bg-white shadow-md max-sm:mx-4 max-sm:my-5">
             <div class="flex flex-row items-center gap-x-6 p-8 max-md:flex-col max-md:p-5">
@@ -304,15 +265,9 @@
                 <div class="flex-col space-y-6 max-md:space-y-3">
                     <div class="flex flex-row flex-wrap gap-3 max-md:mt-4 max-md:justify-center">
                         @foreach ($visimisis as $visimisi)
-                            <!-- <div class="w-auto items-center rounded-full bg-[#3986A3] p-1.5">
+                            <div class="w-auto items-center rounded-full bg-[#3986A3] p-1.5">
                                 <div class="flex flex-row items-center gap-x-1.5">
                                     <img src="{{ asset("assets/images/landing/asset-beranda/vector/tick.webp") }}" alt="Vector" class="h-6 w-6 rounded-full bg-white p-1" />
-                                    <p class="text-[15px] font-medium text-white max-sm:text-[13px]">{{ $visimisi["moto"] }}</p>
-                                </div>
-                            </div> -->
-                            <div class="w-auto items-center rounded-full bg-[#E0A135] p-1.5">
-                                <div class="flex flex-row items-center gap-x-1.5">
-                                    <img src="{{ asset("assets/images/landing/asset-beranda/vector/tick-gold.webp") }}" alt="Vector" class="h-6 w-6 rounded-full bg-white p-1" />
                                     <p class="text-[15px] font-medium text-white max-sm:text-[13px]">{{ $visimisi["moto"] }}</p>
                                 </div>
                             </div>
@@ -320,19 +275,19 @@
                     </div>
 
                     <p class="text-justify text-[17px] text-[#70787D] max-md:mt-3 max-sm:text-[15px]">Berbinar adalah solusi lengkap untuk kebutuhan psikologi Anda—dari konseling, psikotes, kelas edukasi, hingga layanan consulting profesional dengan biaya terjangkau dan fleksibilitas yang tinggi yang tentunya semua dirancang khusus sesuai kebutuhan. Saatnya wujudkan potensi terbaik Anda bersama Berbinar!</p>
-                    <button class="text-md rounded-xl bg-gradient-to-r from-[#F5BC3A] to-[#AE7E29] px-4 py-2 font-medium text-white max-md:w-full max-sm:text-[15px]">Lihat Produk Berbinar</button>
+                    <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 font-medium text-white max-md:w-full max-sm:text-[15px]">Lihat Produk Berbinar</button>
                 </div>
             </div>
         </div>
     </section>
 
     {{-- KONTEN SOSMED --}}
-    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/vector-pattern.webp'), linear-gradient(to bottom right, #28294d, #000000); background-blend-mode: normal, multiply">
-        <h1 class="my-8 text-center text-4xl font-semibold text-white max-sm:mx-4 max-sm:text-[29px]">
+    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/vector-pattern.webp'), linear-gradient(to bottom right, #EAF8FF, #BDE8FD); background-blend-mode: normal, multiply">
+        <h1 class="my-8 text-center text-4xl font-semibold text-black max-sm:mx-4 max-sm:text-[29px]">
             <!-- Konten Terbaru
             <span class="bg-[#3886A3] px-2 text-white">Berbinar</span> -->
             Konten Terbaru
-            <span class="bg-[#E0A135] px-2 text-white">Berbinar</span>
+            <span class="bg-[#3986A3] px-2 text-white">Berbinar</span>
         </h1>
         <div class="-mt-8 flex flex-row justify-evenly max-sm:flex-col max-sm:items-center">
             {{-- INSTAGRAM --}}
@@ -471,7 +426,7 @@
             <!-- Produk
             <span class="bg-primary px-2 text-white">Berbinar</span> -->
             Produk
-            <span class="bg-[#E0A135] px-2 text-white">Berbinar</span>
+            <span class="bg-[#3986A3] px-2 text-white">Berbinar</span>
         </p>
         <div class="swiperContainer">
             <div class="swiper" id="swiperProduk">
@@ -506,7 +461,7 @@
         <p class="font relative z-10 mx-20 my-8 text-center text-4xl font-semibold text-black max-sm:mx-2 max-sm:my-4 max-sm:text-[29px]">
             Apa Kata Mereka Tentang
             <!-- <span class="bg-primary px-2 text-white">Berbinar</span> -->
-            <span class="bg-[#E0A135] px-2 text-white">Berbinar</span>
+            <span class="bg-[#3986A3] px-2 text-white">Berbinar</span>
             ?
         </p>
         <div class="swiperContainer">
@@ -515,7 +470,7 @@
                     @foreach ($testimonis as $testimoni)
                         <div class="swiper-slide">
                             <div class="flex h-auto w-auto flex-col items-center justify-center rounded-3xl bg-white p-5 text-center shadow-md">
-                                <img src="{{ asset("assets/images/landing/asset-beranda/vector-kutip-kuning.webp") }}" alt="Kutip" class="h-8 w-auto max-sm:h-7" />
+                                <img src="{{ asset("assets/images/landing/asset-beranda/vector-kutip.webp") }}" alt="Kutip" class="h-8 w-auto max-sm:h-7" />
 
                                 <div class="flex flex-grow flex-col pt-4 text-center">
                                     <p class="min-h-[198px] flex-grow text-justify text-[16px] font-medium leading-snug text-black max-lg:min-h-[220px] max-md:min-h-[198px] max-sm:min-h-[175px] max-sm:text-[14px] max-sm:leading-tight">
@@ -564,7 +519,7 @@
 @endsection
 
 @section("script")
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Menambahkan animasi kembang api menggunakan Lottie
@@ -608,7 +563,7 @@
                 });
             }
         });
-    </script>
+    </script> -->
 
     <script>
         let valueDisplays = document.querySelectorAll('.num');

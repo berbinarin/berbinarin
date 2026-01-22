@@ -52,11 +52,6 @@ class CounselingController extends Controller
                 'image' => 'assets/images/landing/asset-konseling/image/psikolog/danny.webp'
             ],
             [
-                'name' => 'Satria Kamal Agassi',
-                'title' => 'S.Psi., M.Psi., Psikolog',
-                'image' => 'assets/images/landing/asset-konseling/image/psikolog/satria.webp'
-            ],
-            [
                 'name' => 'Virginia Sukma Dewi',
                 'title' => 'S.Psi., M.Psi., Psikolog',
                 'image' => 'assets/images/landing/asset-konseling/image/psikolog/virginia.webp'
