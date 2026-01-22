@@ -25,6 +25,7 @@ class TableStaffSeeder extends Seeder
                 'subdivision_id' => 2, // Recruitment
                 'date_start' => '2024-01-01',
                 'date_end' => '2025-12-31',
+                'status' => 'active', 
             ],
         ]);
 
@@ -42,8 +43,8 @@ class TableStaffSeeder extends Seeder
                 'subdivision_id' => 1, // Recruitment
                 'date_start' => '2022-01-01',
                 'date_end' => '2023-12-31',
+                'status' => 'active', 
             ],
         ]);
-
     }
 }
