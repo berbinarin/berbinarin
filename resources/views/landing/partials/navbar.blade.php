@@ -4,7 +4,7 @@
         function isNavbarActive($routeName)
         {
             return Str::startsWith(Route::currentRouteName(), $routeName)
-                ? "border-b-2 border-[#3886A3] font-semibold text-[#3886A3]"
+                ? "border-b-2 border-[#DA8900] font-semibold text-[#DA8900]"
                 : "font-semibold text-gray-600";
         }
     }
@@ -14,7 +14,7 @@
         function isNavbarActiveMobile($routeName)
         {
             return Str::startsWith(Route::currentRouteName(), $routeName)
-                ? "font-Plus-Jakarta-Sans block py-4 text-2xl font-medium text-[#3886A3]"
+                ? "font-Plus-Jakarta-Sans block py-4 text-2xl font-medium text-[#DA8900]"
                 : "font-Plus-Jakarta-Sans block py-4 text-2xl font-medium text-gray-600";
         }
     }
@@ -29,7 +29,7 @@
 
     <!-- Burger Menu -->
     <div class="ml-auto flex md:hidden">
-        <button id="burgerMenu" class="text-[#3986A3] focus:outline-none">
+        <button id="burgerMenu" class="text-[#DA8900] focus:outline-none">
             <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <line x1="4" y1="6" x2="20" y2="6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 <line x1="4" y1="12" x2="20" y2="12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />

@@ -108,6 +108,14 @@
 
 @section('script')
     <script>
+        // Helper function untuk menghapus tag HTML
+        function stripHtmlTags(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.innerHTML = text;
+            return div.textContent || div.innerText || '';
+        }
+
         //list divisi
         const availableDivision = @json($availableDivision);
         // list staff
@@ -152,9 +160,13 @@
         function updateFilteredStaffList() {
             filteredStaffList = staffList.filter((staff) => {
                 const matchRecord = staff.records.find((record) => {
+                    // Untuk perbandingan, kita perlu menghapus tag HTML
+                    const recordDivisionPlain = stripHtmlTags(record.division);
+                    const recordSubdivisionPlain = record.subdivision ? stripHtmlTags(record.subdivision) : '';
+                    
                     const matchYear = year_value ? record.year_start <= parseInt(year_value) && (!record.year_end || record.year_end >= parseInt(year_value)) : true;
-                    const matchDivision = division_value ? record.division === division_value : true;
-                    const matchSubdivision = subdivision_value ? record.subdivision === subdivision_value : true;
+                    const matchDivision = division_value ? recordDivisionPlain === stripHtmlTags(division_value) : true;
+                    const matchSubdivision = subdivision_value ? recordSubdivisionPlain === stripHtmlTags(subdivision_value) : true;
 
                     return matchYear && matchDivision && matchSubdivision;
                 });
@@ -226,7 +238,7 @@
                 const hasActive = staff.records.some(rec => rec.status === 'active');
                 const statusText = filteredRecord
                     ? (filteredRecord.status === 'active' ? 'Aktif' : (filteredRecord.status === 'alumni' ? 'Alumni' : ''))
-                    : '';
+                    : (staff.status === 'active' ? 'Aktif' : 'Alumni');
                 const bgColorStatus = statusText === 'Aktif' ? 'bg-[#04CA00]' : (statusText === 'Alumni' ? 'bg-[#F7B23B]' : 'bg-gray-300');
 
                 // cardContainer
@@ -320,14 +332,14 @@
                 <div class="h-full content-end space-y-2 py-1 lg:hidden">
                     <h3 class="text-start text-xl font-semibold text-white md:text-2xl">${staff.name}</h3>
                     <p class="block text-start text-sm font-thin text-white md:text-base">
-                        As ${division}</p>
+                        Sebagai ${division}</p>
                     <p class="mb-2 block text-start text-sm font-thin text-white md:text-base"> ${staff.date_start}${staff.status ? '- Sekarang' : `- ${staff.records[staff.records.length - 1].date_end}`}</p>
                </div>`;
 
                 const infoLg = `
                 <div class="hidden h-full content-start space-y-2 py-1 pt-8 lg:block">
                     <h3 class="text-2xl font-semibold text-white">${staff.name}</h3>
-                    <p class="block text-base font-normal text-white">As
+                    <p class="block text-base font-normal text-white">Sebagai
                         ${division}</p>
                     <p class="block text-base font-normal text-white">
                         ${dateStart}${isAlumni ? ` - ${dateEnd}` : '- Sekarang'}</p>
@@ -405,7 +417,7 @@
 
                         const role = document.createElement('h4');
                         role.classList.add('text-start', 'text-base', 'lg:text-lg', 'font-semibold', 'text-white');
-                        role.textContent = `As ${record.subdivision || '-'} at ${record.division} `;
+                        role.innerHTML = `As ${record.subdivision || '-'} at ${record.division} `;
 
                         const timeLine = document.createElement('p');
                         timeLine.classList.add('text-base', 'font-thin', 'text-white');
@@ -432,7 +444,10 @@
 
         // ge bgcolor based on division or subdivision
         function getDivisionColor(subdivision) {
-            switch (subdivision) {
+            // Gunakan stripHtmlTags untuk mendapatkan plain text
+            const plainSubdivision = stripHtmlTags(subdivision);
+            
+            switch (plainSubdivision) {
                 case 'UIUX Designer':
                     return 'bg-[#8F7158]';
                 case 'Front End Developer':
@@ -507,7 +522,8 @@
 
                     subdivisionElement.classList.add('font-semibold', 'tracking-wide', 'text-nowrap', 'text-white', 'bg-primary', 'text-center', 'px-4', 'py-1', 'border-2', 'border-transparent', 'cursor-pointer');
 
-                    subdivisionElement.textContent = subdivision;
+                    // GANTI textContent MENJADI innerHTML
+                    subdivisionElement.innerHTML = subdivision;
                     subdivisionElement.id = `subdivision-${index}`;
 
                     subdivisionElement.addEventListener('click', () => {
@@ -560,7 +576,8 @@
 
                 divisionElement.classList.add('w-full', 'h-14', 'mx-auto', 'font-semibold', 'py-2', 'ps-4', 'text-sm', 'text-slate-900', 'text-start', 'bg-white', 'rounded-full', 'mb-4', 'flex', 'justify-start', 'items-center', 'cursor-pointer');
 
-                divisionElement.textContent = division['division'];
+                // GANTI textContent MENJADI innerHTML
+                divisionElement.innerHTML = division['division'];
                 divisionElement.id = `division-${index}`;
 
                 divisionElement.addEventListener('click', () => {
@@ -634,10 +651,10 @@
                     divisionElement.classList.add('hidden');
                 }
 
-                divisionElement.textContent = division['division'];
+                // GANTI textContent MENJADI innerHTML
+                divisionElement.innerHTML = division['division'];
                 divisionElement.id = `division-mobile-${index}`;
 
-                // todo: add even handler handleSelectDivision
                 divisionElement.addEventListener('click', () => {
                     handleSelectDivisionMobile(index);
                 });

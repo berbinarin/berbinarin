@@ -45,6 +45,14 @@ class KeluargaBerbinarController extends Controller
         // Sort division alphabetically in each year
         foreach ($divisionsPerYear as &$divisions) {
             usort($divisions, fn($a, $b) => strcmp($a['division'], $b['division']));
+            
+            // Apply italic helper to each division and subdivision
+            foreach ($divisions as &$divisionData) {
+                $divisionData['division'] = italic_en($divisionData['division']);
+                if (!empty($divisionData['subdivision'])) {
+                    $divisionData['subdivision'] = array_map('italic_en', $divisionData['subdivision']);
+                }
+            }
         }
 
         // Sort years ascending
@@ -52,7 +60,6 @@ class KeluargaBerbinarController extends Controller
 
         return $divisionsPerYear;
     }
-
 
     public function index()
     {
@@ -67,6 +74,27 @@ class KeluargaBerbinarController extends Controller
                 return $record->status === 'active';
             });
 
+            // Proses records dengan helper italic_en
+            $processedRecords = $staff->records->map(function ($record) use ($staff) {
+                $isActive = $record->status === 'active';
+                $isInactive = $record->status === 'inactive';
+
+                // Jika status kosong/null, set alumni
+                $status = $record->status ?: 'alumni';
+                if ($isActive) $status = 'active';
+                elseif ($isInactive) $status = 'alumni';
+
+                return [
+                    'division' => italic_en($record->division->nama_divisi ?? '-'),
+                    'subdivision' => italic_en($record->subDivision->nama_subdivisi ?? '-'),
+                    'date_start' => Carbon::parse($record->date_start)->format('M Y'),
+                    'date_end' => $record->date_end ? Carbon::parse($record->date_end)->format('M Y') : 'Sekarang',
+                    'year_start' => Carbon::parse($record->date_start)->year,
+                    'year_end' => $record->date_end ? Carbon::parse($record->date_end)->year : null,
+                    'status' => $status,
+                ];
+            })->toArray();
+
             return [
                 'id' => $staff->id,
                 'name' => $staff->name,
@@ -75,27 +103,9 @@ class KeluargaBerbinarController extends Controller
                 'linkedin' => $staff->linkedin,
                 'photo' => $staff->photo ? '/image/' . $staff->photo : '/assets/images/landing/keluarga-berbinar/dummy.webp',
                 'motm' => $staff->motm,
-                'division' => $latestRecord && $latestRecord->division ? $latestRecord->division->nama_divisi : '-',
-                'subdivision' => $latestRecord && $latestRecord->subDivision ? $latestRecord->subDivision->nama_subdivisi : '-',
-                'records' => $staff->records->map(function ($record) use ($staff) {
-                    $isActive = $record->status === 'active';
-                    $isInactive = $record->status === 'inactive';
-
-                    // Jika status kosong/null, set alumni
-                    $status = $record->status ?: 'alumni';
-                    if ($isActive) $status = 'active';
-                    elseif ($isInactive) $status = 'alumni';
-
-                    return [
-                        'division' => $record->division->nama_divisi ?? '-',
-                        'subdivision' => $record->subDivision->nama_subdivisi ?? '-',
-                        'date_start' => Carbon::parse($record->date_start)->format('M Y'),
-                        'date_end' => $record->date_end ? Carbon::parse($record->date_end)->format('M Y') : 'Sekarang',
-                        'year_start' => Carbon::parse($record->date_start)->year,
-                        'year_end' => $record->date_end ? Carbon::parse($record->date_end)->year : null,
-                        'status' => $status,
-                    ];
-                })->toArray(),
+                'division' => italic_en($latestRecord && $latestRecord->division ? $latestRecord->division->nama_divisi : '-'),
+                'subdivision' => italic_en($latestRecord && $latestRecord->subDivision ? $latestRecord->subDivision->nama_subdivisi : '-'),
+                'records' => $processedRecords,
                 'years' => $staff->records->flatMap(function ($record) {
                     $years = [Carbon::parse($record->date_start)->year];
                     if ($record->date_end) {
@@ -120,7 +130,6 @@ class KeluargaBerbinarController extends Controller
             'listStaff' => $data,
             'availableYears' => $availableYears,
             'availableDivision' => $availableDivision,
-
         ]);
     }
 }
