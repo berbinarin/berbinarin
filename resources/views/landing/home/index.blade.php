@@ -8,7 +8,7 @@
 @section("style")
     <style>
         .bg-hero {
-            background-image: url('/assets/images/landing/asset-beranda/bg-hero-imlek.webp');
+            background-image: url('/assets/images/landing/asset-beranda/bg-hero-imlek.png');
             /* background-image: url('/assets/images/landing/asset-beranda/bg-hero.webp'); */
         }
 
@@ -165,10 +165,27 @@
 
         @media (min-width: 1280px) {
         }
+
+        #firecrackers-overlay img {
+            max-width: 800px;
+            width: 400px;
+            height: auto;
+        }
+
+        @media (min-width: 1024px) {
+            #firecrackers-overlay img {
+                max-width: 420px;
+                width: 40vw;
+            }
+        }
     </style>
 @endsection
 
 @section("content")
+    <!-- petasan cina -->
+    <div id="firecrackers-overlay" style="position: fixed; z-index: 9999; top: 0; left: 0; width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center">
+        <img src="{{ asset("assets/images/landing/asset-beranda/firecrackers.gif") }}" alt="Firecrackers" />
+    </div>
     <!-- HERO SECTION -->
     <section class="bg-mini bg-hero relative h-[110vh] w-full bg-cover max-lg:bg-center max-sm:h-[90vh]">
         <!-- <div class="absolute inset-0 z-10 bg-gradient-to-r from-[#9CC3D1] to-transparent max-sm:bg-[#9CC3D1] max-sm:opacity-70"></div> -->
@@ -202,7 +219,7 @@
         </div> -->
 
         <div class="absolute bottom-0 right-20 z-10 block h-auto w-auto max-w-xs max-sm:right-2 sm:hidden">
-            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa3-cina.png") }}" alt="Singa" class="h-full w-full max-sm:h-[420px] max-sm:w-auto" style="opacity: 0.8"/>
+            <img src="{{ asset("assets/images/landing/asset-beranda/vector-singa3-cina.png") }}" alt="Singa" class="h-full w-full max-sm:h-[420px] max-sm:w-auto" style="opacity: 0.8" />
         </div>
 
         {{-- WHATSAPP ICON --}}
@@ -285,7 +302,7 @@
 
     {{-- KONTEN SOSMED --}}
     <!-- <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/vector-pattern.webp'), linear-gradient(to bottom right, #EAF8FF, #BDE8FD); background-blend-mode: normal, multiply"> -->
-    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/vector-pattern.webp'), linear-gradient(to bottom right, #AE0001, #600001, #AE0001); background-blend-mode: normal, multiply">
+    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/vector-pattern.webp'), linear-gradient(to bottom right, #ae0001, #600001, #ae0001); background-blend-mode: normal, multiply">
         <h1 class="my-8 text-center text-4xl font-semibold text-white max-sm:mx-4 max-sm:text-[29px]">
             <!-- Konten Terbaru
             <span class="bg-[#3886A3] px-2 text-white">Berbinar</span> -->
@@ -567,6 +584,17 @@
             }
         });
     </script> -->
+
+    <!-- script buat petasan cina -->
+    <script>
+        const firecrackersDuration = 1500;
+        window.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                const overlay = document.getElementById('firecrackers-overlay');
+                if (overlay) overlay.style.display = 'none';
+            }, firecrackersDuration);
+        });
+    </script>
 
     <script>
         let valueDisplays = document.querySelectorAll('.num');
