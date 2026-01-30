@@ -99,10 +99,10 @@
             Jika Anda memiliki pertanyaan atau kekhawatiran terkait Kebijakan Privasi ini, silakan hubungi kami di:
             <ul class="list-disc mt-2 pl-7 sm:pl-10 leading-relaxed sm:text-[16px] text-[15px] text-justify text-[#767676] marker:text-[#3986A3]">
                 <li class="max-sm:leading-normal">
-                    Nomor WhatsApp: 082141869800
+                    Nomor WhatsApp: <span class="text-[#3986A3] font-bold"><a href="https://wa.me/+6282141869800">+62 821-4186-9800</a></span>
                 </li>  
                 <li class="max-sm:leading-normal">
-                    Email: berbinar.in@gmail.com
+                    Email: <span class="text-[#3986A3] font-bold"><a href="mailto:berbinar.in@gmail.com">berbinar.in@gmail.com</a></span>
                 </li>  
             </ul>
         </p>
