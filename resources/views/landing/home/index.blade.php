@@ -291,7 +291,7 @@
                 <div class="flex-col space-y-6 max-md:space-y-3">
                     <div class="flex flex-row flex-wrap gap-3 max-md:mt-4 max-md:justify-center">
                         @foreach ($visimisis as $visimisi)
-                            <div class="w-auto items-center rounded-full bg-[{{ $theme['why_berbinar']['badge'] }}] p-1.5">
+                            <div class="w-auto items-center rounded-full bg-[{{ $theme['why_berbinar']['badge'] }}] p-1.5" style="background-color: {{ $theme['why_berbinar']['badge'] }}">
                                 <div class="flex flex-row items-center gap-x-1.5">
                                     <img src="{{ asset(data_get($theme, 'why_berbinar.tick')) }}" alt="Vector" class="h-6 w-6 rounded-full bg-white p-1" />
                                     <p class="text-[15px] font-medium text-white max-sm:text-[13px]">{{ $visimisi["moto"] }}</p>
