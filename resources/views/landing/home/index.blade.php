@@ -178,6 +178,16 @@
                 max-width: 420px;
                 width: 40vw;
             }
+            
+        }
+
+        @keyframes zibairunnin-move {
+            0% {
+                left: 100vw;
+            }
+            100% {
+                left: -400px;
+            }
         }
     </style>
 @endsection
@@ -185,8 +195,19 @@
 @section("content")
     <!-- petasan cina -->
     @if ($theme['name'] === 'imlek')
-        <div id="firecrackers-overlay" style="position: fixed; z-index: 9999; top: 0; left: 0; width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center">
-        <img src="{{ asset("assets/images/landing/asset-beranda/firecrackers.gif") }}" alt="Firecrackers" />
+        <div id="firecrackers-bg" style="position: fixed; z-index: 9998; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center"></div>
+        <div id="firecrackers-overlay" style="position: fixed; z-index: 9999; top: 0; left: 0; width: 100vw; height: 100vh; display: none; align-items: center; justify-content: center">
+            <div id="firecrackers-desktop" style="display: none; width: 100vw; height: 100vh; justify-content: space-between; align-items: center;">
+                <img src="{{ asset('assets/images/landing/asset-beranda/firecrackers.gif') }}" alt="Firecrackers" style="max-width: 420px; width: 40vw; height: auto;" />
+                <img src="{{ asset('assets/images/landing/asset-beranda/firecrackers.gif') }}" alt="Firecrackers" style="max-width: 420px; width: 40vw; height: auto; transform: scaleX(-1);" />
+            </div>
+            <div id="firecrackers-mobile" style="display: none;">
+                <img src="{{ asset('assets/images/landing/asset-beranda/firecrackers.gif') }}" alt="Firecrackers" style="max-width: 400px; width: 80vw; height: auto;" />
+            </div>
+        </div>
+        <!-- Zibairunnin GIF-->
+        <div id="zibairunnin-gif" style="position: fixed; z-index: 10000; top: 20%; left: 100vw; width: 700px; height: auto; pointer-events: none; display: none;">
+            <img src="{{ asset('assets/images/landing/asset-beranda/zibairunnin.gif') }}" alt="Zibairunnin" style="width: 100%; height: auto;" />
         </div>
     @endif
     
@@ -599,9 +620,27 @@
             const firecrackersDuration = 1500;
             window.addEventListener('DOMContentLoaded', function () {
                 setTimeout(function () {
-                    const overlay = document.getElementById('firecrackers-overlay');
-                    if (overlay) overlay.style.display = 'none';
-                }, firecrackersDuration);
+                    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+                    document.getElementById('firecrackers-overlay').style.display = 'flex';
+                    if (isMobile) {
+                        document.getElementById('firecrackers-mobile').style.display = 'block';
+                    } else {
+                        document.getElementById('firecrackers-desktop').style.display = 'flex';
+                    }
+                    // Tampilkan dan animasikan zibairunnin.gif
+                    const zibairunnin = document.getElementById('zibairunnin-gif');
+                    if (zibairunnin) {
+                        zibairunnin.style.display = 'block';
+                        zibairunnin.style.animation = 'zibairunnin-move 1.5s linear forwards';
+                    }
+                    setTimeout(function () {
+                        const overlay = document.getElementById('firecrackers-overlay');
+                        const bg = document.getElementById('firecrackers-bg');
+                        if (overlay) overlay.style.display = 'none';
+                        if (bg) bg.style.display = 'none';
+                        if (zibairunnin) zibairunnin.style.display = 'none';
+                    }, firecrackersDuration);
+                }, 1000);
             });
         </script>
     @endif

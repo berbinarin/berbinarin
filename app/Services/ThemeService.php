@@ -7,7 +7,7 @@ class ThemeService
     public function getTheme(): string
     {
         $today = now();
-        $theme = 'default';
+        $theme = 'imlek';
 
         // Imlek
         if ($today->between(
