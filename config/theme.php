@@ -44,7 +44,7 @@ return [
     'imlek' => [
         'name' => 'imlek',
         'hero' => [
-            'bg' => 'assets/images/landing/asset-beranda/bg-hero-imlek.webp',
+            'bg' => 'assets/images/landing/asset-beranda/bg-hero-imlek.png',
             'bg_mobile' => 'assets/images/landing/asset-beranda/bg-hero-mobile-imlek.webp',
             'color_berbinar' => '#FFBB48',
             'text_color' => 'text-white',
