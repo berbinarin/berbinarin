@@ -46,6 +46,9 @@ class RoleSeeder extends Seeder
             ],
             [
                 'name' => 'manager-cpm'
+            ],
+            [
+                'name' => 'smc'
             ],            
         ];
 

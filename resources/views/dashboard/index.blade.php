@@ -42,6 +42,13 @@
                                 mendaftar melalui situs Web Berbinar.</p>
                         @endrole
 
+                        @role('smc')
+                            <p tabindex="0" class="focus:outline-none text-4xl font-bold leading-normal text-gray-800">
+                                Dashboard</p>
+                            <p class="w-full text-disabled">Fitur ini digunakan untuk menampilkan data pendaftar sosial media creator yang
+                                mendaftar melalui situs Web Berbinar.</p>
+                        @endrole
+
 
                         @role('class-pm')
                             <p tabindex="0" class="focus:outline-none text-4xl font-bold leading-normal text-gray-800 mb-2">
@@ -237,6 +244,48 @@
                 @endsection
             @endrole
 
+
+            @role('smc')
+                <div class="flex flex-col xl:w-[80vw] gap-6">
+                    <div class="flex flex-row w-full gap-6">
+
+                        <div class="flex w-1/3 items-center p-8 bg-white shadow rounded-lg">
+                            <div
+                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-md mr-6">
+                                <i class='bx bx-user text-3xl'></i>
+                            </div>
+                            <div>
+                                <span class="block text-2xl font-bold">90</span>
+                                <span class="block text-gray-500">Data</span>
+                            </div>
+                        </div>
+
+                        <div class="flex w-1/3 items-center p-8 bg-white shadow rounded-lg">
+                            <div
+                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-md mr-6">
+                                <i class='bx bxs-graduation text-3xl'></i>
+                            </div>
+                            <div>
+                                <span class="block text-2xl font-bold">70</span>
+                                <span class="block text-gray-500">Data</span>
+                            </div>
+                        </div>
+
+                        <div class="flex w-1/3 items-center p-8 bg-white shadow rounded-lg">
+                            <div
+                                class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-primary bg-blur-bg rounded-md mr-6">
+                                <i class='bx bxs-buildings text-3xl'></i>
+                            </div>
+                            <div>
+                                <span class="block text-2xl font-bold">60</span>
+                                <span class="block text-gray-500">Data</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            @endrole
 
             @role('hr_data-analyst')
                 <div class="flex flex-col xl:w-[80vw] gap-6">
@@ -948,6 +997,7 @@
             @endrole
 
 
+    
             @role('class-pm')
                 <div class="flex flex-col w-full gap-6">
                     <div class="flex flex-row w-full gap-6">

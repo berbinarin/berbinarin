@@ -91,5 +91,12 @@ class AdminSeeder extends Seeder
             'email' => 'manager-cpm@gmail.com',
             'password' => Hash::make('berbinar123'),
         ])->assignRole('manager-cpm');
+
+        // SMC
+        User::create([
+            'username' => 'smc',
+            'email' => 'smc@gmail.com',
+            'password' => Hash::make('berbinar123'),
+        ])->assignRole('smc');
     }
 }
