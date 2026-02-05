@@ -5,11 +5,10 @@
     ]
 )
 
-
 @section("style")
     <style>
         .bg-hero {
-            background-image: url( {{ $theme['hero']['bg'] }});
+            background-image: url({{ $theme["hero"]["bg"] }});
             /* background-image: url('/assets/images/landing/asset-beranda/bg-hero.webp'); */
         }
 
@@ -44,7 +43,7 @@
         }
 
         .swiper-pagination-bullet-active {
-            background-color: #3886a3;
+            background-color: {{ $theme["learn_more"]["swiper_pagination_active"] ?? "#3886a3" }};
             width: 16px;
             height: 8px;
             border-radius: 10px;
@@ -120,7 +119,7 @@
             }
 
             .bg-hero {
-                background-image: url({{ $theme['hero']['bg_mobile'] }});
+                background-image: url({{ $theme["hero"]["bg_mobile"] }});
                 /* background-image: url('/assets/images/landing/asset-beranda/bg-hero-mobile-taru.webp'); */
             }
         }
@@ -178,7 +177,6 @@
                 max-width: 420px;
                 width: 40vw;
             }
-            
         }
 
         @keyframes zibairunnin-move {
@@ -194,39 +192,39 @@
 
 @section("content")
     <!-- petasan cina -->
-    @if ($theme['name'] === 'imlek')
-        <div id="firecrackers-bg" style="position: fixed; z-index: 9998; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center"></div>
+    @if ($theme["name"] === "imlek")
+        <div id="firecrackers-bg" style="position: fixed; z-index: 9998; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.7); display: flex; align-items: center; justify-content: center"></div>
         <div id="firecrackers-overlay" style="position: fixed; z-index: 9999; top: 0; left: 0; width: 100vw; height: 100vh; display: none; align-items: center; justify-content: center">
-            <div id="firecrackers-desktop" style="display: none; width: 100vw; height: 100vh; justify-content: space-between; align-items: center;">
-                <img src="{{ asset('assets/images/landing/asset-beranda/firecrackers.gif') }}" alt="Firecrackers" style="max-width: 420px; width: 40vw; height: auto;" />
-                <img src="{{ asset('assets/images/landing/asset-beranda/firecrackers.gif') }}" alt="Firecrackers" style="max-width: 420px; width: 40vw; height: auto; transform: scaleX(-1);" />
+            <div id="firecrackers-desktop" style="display: none; width: 100vw; height: 100vh; justify-content: space-between; align-items: center">
+                <img src="{{ asset("assets/images/landing/asset-beranda/firecrackers.gif") }}" alt="Firecrackers" style="max-width: 420px; width: 40vw; height: auto" />
+                <img src="{{ asset("assets/images/landing/asset-beranda/firecrackers.gif") }}" alt="Firecrackers" style="max-width: 420px; width: 40vw; height: auto; transform: scaleX(-1)" />
             </div>
-            <div id="firecrackers-mobile" style="display: none;">
-                <img src="{{ asset('assets/images/landing/asset-beranda/firecrackers.gif') }}" alt="Firecrackers" style="max-width: 400px; width: 80vw; height: auto;" />
+            <div id="firecrackers-mobile" style="display: none">
+                <img src="{{ asset("assets/images/landing/asset-beranda/firecrackers.gif") }}" alt="Firecrackers" style="max-width: 400px; width: 80vw; height: auto" />
             </div>
         </div>
         <!-- Zibairunnin GIF-->
-        <div id="zibairunnin-gif" style="position: fixed; z-index: 10000; top: 20%; left: 100vw; width: 700px; height: auto; pointer-events: none; display: none;">
-            <img src="{{ asset('assets/images/landing/asset-beranda/zibairunnin.gif') }}" alt="Zibairunnin" style="width: 100%; height: auto;" />
+        <div id="zibairunnin-gif" style="position: fixed; z-index: 10000; top: 20%; left: 100vw; width: 700px; height: auto; pointer-events: none; display: none">
+            <img src="{{ asset("assets/images/landing/asset-beranda/zibairunnin.gif") }}" alt="Zibairunnin" style="width: 100%; height: auto" />
         </div>
     @endif
-    
+
     <!-- HERO SECTION -->
     <section class="bg-mini bg-hero relative h-[110vh] w-full bg-cover max-lg:bg-center max-sm:h-[90vh]">
         <!-- <div class="absolute inset-0 z-10 bg-gradient-to-r from-[#9CC3D1] to-transparent max-sm:bg-[#9CC3D1] max-sm:opacity-70"></div> -->
-        @if($theme['name'] === 'default')
+        @if ($theme["name"] === "default")
             <div class="absolute inset-0 z-10 bg-gradient-to-r from-[#9CC3D1] to-transparent max-sm:bg-[#9CC3D1] max-sm:opacity-70"></div>
         @endif
 
         <div class="relative z-20 flex h-full items-center px-14 text-left max-sm:px-4">
-            <div class="flex flex-col justify-center {{ $theme['hero']['text_color'] }} max-sm:w-full">
+            <div class="{{ $theme["hero"]["text_color"] }} flex flex-col justify-center max-sm:w-full">
                 <h1 class="judul-mini text-6xl font-semibold max-md:text-5xl max-sm:text-[40px]">
                     Edukasi & Layanan
                     <br />
                     Psikologi
                     <!-- <span class="text-[#3886A3]">Berbinar</span> -->
                     <!-- <span class="text-[#FFBB48]">Berbinar</span> -->
-                    <span class="text-[{{ $theme['hero']['color_berbinar'] }}]">Berbinar</span>
+                    <span class="text-[{{ $theme["hero"]["color_berbinar"] }}]">Berbinar</span>
                 </h1>
                 <p class="deskripsi-mini mt-4 w-3/5 text-justify text-lg font-normal text-[#fffff] max-lg:w-3/4 max-md:text-[17px] max-sm:w-full max-sm:text-[15px] max-sm:leading-relaxed">Berbinar Insightful Indonesia adalah mitra terpercaya dalam menghadirkan layanan psikologi secara terintegrasi seperti konseling, psikotes, kelas edukasi, dan konsultasi profesional. Melalui pendekatan inklusif dan alat psikologi terstandar, Berbinar hadir untuk membangun hubungan antara perusahaan dengan klien secara profesional. dan meraih potensi yang terbaik.</p>
                 <div class="flex justify-start">
@@ -239,7 +237,7 @@
 
         <!-- VECTOR SINGA -->
         <div class="absolute bottom-0 right-20 z-10 hidden h-auto w-auto max-w-xs max-sm:right-2 sm:block">
-            <img src="{{ asset( data_get($theme, 'hero.img_singa')) }}" alt="Singa" class="h-full w-full max-sm:h-[350px] max-sm:w-auto" style="opacity: 0.9" />
+            <img src="{{ asset(data_get($theme, "hero.img_singa")) }}" alt="Singa" class="h-full w-full max-sm:h-[350px] max-sm:w-auto" style="opacity: 0.9" />
         </div>
 
         <!-- untuk default -->
@@ -248,7 +246,7 @@
         </div> -->
 
         <div class="absolute bottom-0 right-20 z-10 block h-auto w-auto max-w-xs max-sm:right-2 sm:hidden">
-            <img src="{{ asset(data_get($theme, 'hero.img_singa3')) }}" alt="Singa" class="h-full w-full max-sm:h-[420px] max-sm:w-auto" style="opacity: 0.8" />
+            <img src="{{ asset(data_get($theme, "hero.img_singa3")) }}" alt="Singa" class="h-full w-full max-sm:h-[420px] max-sm:w-auto" style="opacity: 0.8" />
         </div>
 
         {{-- WHATSAPP ICON --}}
@@ -300,7 +298,7 @@
         </h1> -->
         <h1 class="text-mini font mt-40 text-center text-4xl font-semibold text-black max-sm:mx-2 max-sm:mt-64 max-sm:text-[29px]">
             Mengapa Harus
-            <span class="{{$theme['berbinar_highlight']}} px-2 text-white" style="background-color: {{ $theme['berbinar_highlight'] }}">Berbinar</span>
+            <span class="{{ $theme["berbinar_highlight"] }} px-2 text-white" style="background-color: {{ $theme["berbinar_highlight"] }}">Berbinar</span>
         </h1>
         <div class="mx-14 my-9 mb-16 rounded-3xl bg-white shadow-md max-sm:mx-4 max-sm:my-5">
             <div class="flex flex-row items-center gap-x-6 p-8 max-md:flex-col max-md:p-5">
@@ -312,9 +310,9 @@
                 <div class="flex-col space-y-6 max-md:space-y-3">
                     <div class="flex flex-row flex-wrap gap-3 max-md:mt-4 max-md:justify-center">
                         @foreach ($visimisis as $visimisi)
-                            <div class="w-auto items-center rounded-full bg-[{{ $theme['why_berbinar']['badge'] }}] p-1.5" style="background-color: {{ $theme['why_berbinar']['badge'] }}">
+                            <div class="w-auto items-center rounded-full bg-[{{ $theme["why_berbinar"]["badge"] }}] p-1.5" style="background-color: {{ $theme["why_berbinar"]["badge"] }}">
                                 <div class="flex flex-row items-center gap-x-1.5">
-                                    <img src="{{ asset(data_get($theme, 'why_berbinar.tick')) }}" alt="Vector" class="h-6 w-6 rounded-full bg-white p-1" />
+                                    <img src="{{ asset(data_get($theme, "why_berbinar.tick")) }}" alt="Vector" class="h-6 w-6 rounded-full bg-white p-1" />
                                     <p class="text-[15px] font-medium text-white max-sm:text-[13px]">{{ $visimisi["moto"] }}</p>
                                 </div>
                             </div>
@@ -323,7 +321,7 @@
 
                     <p class="text-justify text-[17px] text-[#70787D] max-md:mt-3 max-sm:text-[15px]">Berbinar adalah solusi lengkap untuk kebutuhan psikologi Anda—dari konseling, psikotes, kelas edukasi, hingga layanan consulting profesional dengan biaya terjangkau dan fleksibilitas yang tinggi yang tentunya semua dirancang khusus sesuai kebutuhan. Saatnya wujudkan potensi terbaik Anda bersama Berbinar!</p>
                     <!-- <button class="text-md rounded-xl bg-gradient-to-r from-[#3986A3] to-[#225062] px-4 py-2 font-medium text-white max-md:w-full max-sm:text-[15px]">Lihat Produk Berbinar</button> -->
-                    <button class="text-md rounded-xl {{ $theme['why_berbinar']['view_product_button'] }} px-4 py-2 font-medium text-white max-md:w-full max-sm:text-[15px]">Lihat Produk Berbinar</button>
+                    <button class="text-md {{ $theme["why_berbinar"]["view_product_button"] }} rounded-xl px-4 py-2 font-medium text-white max-md:w-full max-sm:text-[15px]">Lihat Produk Berbinar</button>
                 </div>
             </div>
         </div>
@@ -331,12 +329,12 @@
 
     {{-- KONTEN SOSMED --}}
     <!-- <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/vector-pattern.webp'), linear-gradient(to bottom right, #EAF8FF, #BDE8FD); background-blend-mode: normal, multiply"> -->
-    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/vector-pattern.webp'), {{ $theme['latest_content']['bg'] }}; background-blend-mode: normal, multiply">
-        <h1 class="my-8 text-center text-4xl font-semibold {{ $theme['latest_content']['text_title'] }} max-sm:mx-4 max-sm:text-[29px]">
+    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/bg-content.webp'), {{ $theme["latest_content"]["bg"] }}; background-blend-mode: normal, multiply">
+        <h1 class="{{ $theme["latest_content"]["text_title"] }} my-8 text-center text-4xl font-semibold max-sm:mx-4 max-sm:text-[29px]">
             <!-- Konten Terbaru
             <span class="bg-[#3886A3] px-2 text-white">Berbinar</span> -->
             Konten Terbaru
-            <span class="bg-[{{ $theme['berbinar_highlight'] }}] px-2 text-white" style="background-color: {{ $theme['berbinar_highlight']}}" >Berbinar</span>
+            <span class="bg-[{{ $theme["berbinar_highlight"] }}] px-2 text-white" style="background-color: {{ $theme["berbinar_highlight"] }}">Berbinar</span>
         </h1>
         <div class="-mt-8 flex flex-row justify-evenly max-sm:flex-col max-sm:items-center">
             {{-- INSTAGRAM --}}
@@ -475,7 +473,7 @@
             <!-- Produk
             <span class="bg-primary px-2 text-white">Berbinar</span> -->
             Produk
-            <span class="bg-[{{ $theme['berbinar_highlight'] }}] px-2 text-white" style="background-color: {{ $theme['berbinar_highlight']}}">Berbinar</span>
+            <span class="bg-[{{ $theme["berbinar_highlight"] }}] px-2 text-white" style="background-color: {{ $theme["berbinar_highlight"] }}">Berbinar</span>
         </p>
         <div class="swiperContainer">
             <div class="swiper" id="swiperProduk">
@@ -492,7 +490,7 @@
                                     <p class="mt-3 min-h-[75px] text-[14px] text-[#70787D] max-lg:min-h-[90px] max-sm:mt-2 max-sm:leading-tight">
                                         {{ $product["deskripsi"] }}
                                     </p>
-                                    <a href="{{ $product["link"] }}" class="mt-4 self-center rounded-full bg-[#75BADB] px-4 py-2 text-sm font-semibold text-white shadow max-md:mt-4 max-sm:w-full max-sm:text-[13px]">Pelajari Selengkapnya</a>
+                                    <a href="{{ $product["link"] }}" class="mt-4 self-center rounded-full px-4 py-2 text-sm font-semibold text-white shadow max-md:mt-4 max-sm:w-full max-sm:text-[13px]" style="background-color: {{ $theme["learn_more"]["bg"] ?? $theme["why_berbinar"]["view_product_button"] }}">Pelajari Selengkapnya</a>
                                 </div>
                             </div>
                         </div>
@@ -510,7 +508,7 @@
         <p class="font relative z-10 mx-20 my-8 text-center text-4xl font-semibold text-black max-sm:mx-2 max-sm:my-4 max-sm:text-[29px]">
             Apa Kata Mereka Tentang
             <!-- <span class="bg-primary px-2 text-white">Berbinar</span> -->
-            <span class="bg-[{{ $theme['berbinar_highlight'] }}] px-2 text-white" style="background-color: {{ $theme['berbinar_highlight']}}">Berbinar</span>
+            <span class="bg-[{{ $theme["berbinar_highlight"] }}] px-2 text-white" style="background-color: {{ $theme["berbinar_highlight"] }}">Berbinar</span>
             ?
         </p>
         <div class="swiperContainer">
@@ -519,7 +517,7 @@
                     @foreach ($testimonis as $testimoni)
                         <div class="swiper-slide">
                             <div class="flex h-auto w-auto flex-col items-center justify-center rounded-3xl bg-white p-5 text-center shadow-md">
-                                <img src="{{ asset(data_get($theme, 'testimoni.quote_img')) }}" alt="Kutip" class="h-8 w-auto max-sm:h-7" />
+                                <img src="{{ asset(data_get($theme, "testimoni.quote_img")) }}" alt="Kutip" class="h-8 w-auto max-sm:h-7" />
 
                                 <div class="flex flex-grow flex-col pt-4 text-center">
                                     <p class="min-h-[198px] flex-grow text-justify text-[16px] font-medium leading-snug text-black max-lg:min-h-[220px] max-md:min-h-[198px] max-sm:min-h-[175px] max-sm:text-[14px] max-sm:leading-tight">
@@ -528,7 +526,7 @@
                                 </div>
 
                                 <div class="mt-4 flex flex-col items-center text-center max-lg:mt-2 max-sm:mt-1">
-                                    <img src="{{ asset($testimoni["image"]) ?? '' }}" alt="Kutip" class="h-[70px] w-auto rounded-full max-sm:h-14" />
+                                    <img src="{{ asset($testimoni["image"]) ?? "" }}" alt="Kutip" class="h-[70px] w-auto rounded-full max-sm:h-14" />
                                     <p class="mt-1 text-[17px] font-semibold text-black max-sm:text-[15px]">
                                         {{ $testimoni["name"] }}
                                     </p>
@@ -615,7 +613,7 @@
     </script> -->
 
     <!-- script buat petasan cina -->
-    @if($theme['name'] === 'imlek')
+    @if ($theme["name"] === "imlek")
         <script>
             const firecrackersDuration = 1500;
             window.addEventListener('DOMContentLoaded', function () {
@@ -644,7 +642,6 @@
             });
         </script>
     @endif
-    
 
     <script>
         let valueDisplays = document.querySelectorAll('.num');

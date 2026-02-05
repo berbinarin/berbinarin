@@ -21,6 +21,7 @@ use App\Http\Controllers\Dashboard\ClassPM\BerbinarPlusDashboardController;
 use App\Http\Controllers\Dashboard\ClassPM\BerbinarClassController;
 use App\Http\Controllers\Dashboard\ManagerCPM\PsycologistStaffController;
 use App\Http\Controllers\Dashboard\ManagerCPM\PeerStaffController;
+use App\Http\Controllers\Dashboard\SMC\SmcController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -47,7 +48,7 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
         // Berbinar For U
         Route::resource('/data/berbinar-for-u', BerbinarForUController::class);
 
-        Route::resource('/code-voucher',CodeVoucherController::class);
+        Route::resource('/code-voucher', CodeVoucherController::class);
 
         // // Kode Voucher
         // Route::resource('/code-voucher', CodeVoucherController::class);
@@ -57,10 +58,10 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
     Route::middleware('role:manager-cpm')->group(function () {
 
         // Psychologis Staff
-        Route::resource('/psychologists-staff',PsycologistStaffController::class);
+        Route::resource('/psychologists-staff', PsycologistStaffController::class);
 
         // Peer Counselor Staff
-        Route::resource('/peer-staff',PeerStaffController::class);
+        Route::resource('/peer-staff', PeerStaffController::class);
     });
 
     // Class Product Management
@@ -115,5 +116,12 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
         });
     });
 
+    // Smc | Social Media Creator
+    Route::middleware('role:smc')->group(function () {
+        Route::prefix('smc')->name('smc.')->group(function () {
+           
+            Route::get('/smc-example', [SmcController::class, 'index'])->name('index');
+            Route::get('/create', [SmcController::class, 'create'])->name('create');
+        });
+    });
 });
-
