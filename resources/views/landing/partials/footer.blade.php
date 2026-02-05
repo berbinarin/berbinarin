@@ -1,10 +1,10 @@
 <!-- Footer Section -->
 <section class="footer">
     <!-- <img src="{{ asset("assets/images/landing/logo/vector-wave.webp") }}" alt="Wave Vector" class="mb-0 w-full bg-[#F7F9FA] lg:-mb-[80px]" /> -->
-    <img src="{{ asset("assets/images/landing/logo/vector-wave-imlek.webp") }}" alt="Wave Vector" class="mb-0 w-full bg-[#F7F9FA] lg:-mb-[80px]" />
+    <img src="{{ asset( data_get($theme, 'footer.wave_img')) }}" alt="Wave Vector" class="mb-0 w-full bg-[#F7F9FA] lg:-mb-[80px]" />
 
     <!-- #FFEAEA untuk natal, untuk default web warna #EAF8FF -->
-    <footer class="bg-[#FFBDBD] pb-3 pt-1 lg:py-10">
+    <footer class="{{ $theme['footer']['bg'] }} pb-3 pt-1 lg:py-10" style="background-color:{{ $theme['footer']['bg'] }};">
         <div class="mx-5 flex flex-row items-start justify-between max-sm:flex-col lg:mx-14">
             <!-- Informasi Perusahaan -->
             <div class="mb-4 w-full space-y-4 text-left lg:mb-0 lg:w-2/4">

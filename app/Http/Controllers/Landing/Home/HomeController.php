@@ -12,6 +12,10 @@ class HomeController extends Controller
 
     public function index()
     {
+        session([
+            'theme' => app(\App\Services\ThemeService::class)->getTheme()
+        ]);
+        
         $visimisis = [
             [
                 'moto' => 'Profesional',
