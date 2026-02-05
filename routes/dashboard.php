@@ -121,6 +121,7 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
         Route::prefix('smc')->name('smc.')->group(function () {
            
             Route::get('/smc-example', [SmcController::class, 'index'])->name('index');
+            Route::get('/create', [SmcController::class, 'create'])->name('create');
         });
     });
 });

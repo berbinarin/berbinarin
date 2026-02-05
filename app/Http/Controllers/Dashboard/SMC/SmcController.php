@@ -11,4 +11,9 @@ class SmcController extends Controller
     {
         return view('dashboard.smc.index');
     }
+
+    public function create()
+    {
+        return view('dashboard.smc.create');
+    }
 }

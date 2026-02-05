@@ -45,7 +45,7 @@ return [
         'name' => 'imlek',
         'hero' => [
             'bg' => 'assets/images/landing/asset-beranda/bg-hero-imlek.webp',
-            'bg_mobile' => 'assets/images/landing/asset-beranda/bg-hero-mobile-imlek.webp',
+            'bg_mobile' => 'assets/images/landing/asset-beranda/bg-hero-mobile-imlek.png',
             'color_berbinar' => '#FFBB48',
             'text_color' => 'text-white',
             'img_singa' => "assets/images/landing/asset-beranda/vector-singa-cina.webp",
@@ -62,6 +62,12 @@ return [
             'bg' => 'linear-gradient(to bottom right, #ae0001, #600001, #ae0001)',
             'text_title' => 'text-white',
         ],
+
+        'learn_more' => [
+            'bg' => '#FFBB48',
+            'swiper_pagination_active' => '#E62A2A',
+        ],
+        
 
         'testimoni' => [
             'quote_img' => 'assets/images/landing/asset-beranda/vector-kutip-kuning.webp'
