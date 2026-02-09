@@ -61,6 +61,10 @@
             --swiper-scrollbar-size: 10px;
         }
 
+        .bg-content {
+            background-image: url('/assets/images/landing/asset-beranda/bg-content.png');
+        }
+
         /* Custom Responsive breakpoint */
         @media (max-width: 400px) {
             .judul-mini {
@@ -121,6 +125,10 @@
             .bg-hero {
                 background-image: url({{ $theme["hero"]["bg_mobile"] }});
                 /* background-image: url('/assets/images/landing/asset-beranda/bg-hero-mobile-taru.webp'); */
+            }
+
+            .bg-content {
+                background-image: url('/assets/images/landing/asset-beranda/bg-content-mobile.png');
             }
         }
 
@@ -329,7 +337,7 @@
 
     {{-- KONTEN SOSMED --}}
     <!-- <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/vector-pattern.webp'), linear-gradient(to bottom right, #EAF8FF, #BDE8FD); background-blend-mode: normal, multiply"> -->
-    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/bg-content.webp'), {{ $theme["latest_content"]["bg"] }}; background-blend-mode: normal, multiply">
+    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px] bg-content" style="{{ $theme["latest_content"]["bg"] }}; background-blend-mode: normal, multiply">
         <h1 class="{{ $theme["latest_content"]["text_title"] }} my-8 text-center text-4xl font-semibold max-sm:mx-4 max-sm:text-[29px]">
             <!-- Konten Terbaru
             <span class="bg-[#3886A3] px-2 text-white">Berbinar</span> -->
