@@ -41,7 +41,6 @@ class ThemeService
             $theme = 'lebaran';
         }
 
-
         // Kemerdekaan
         if ($today->between(
             now()->copy()->setMonth(8)->setDay(1),
