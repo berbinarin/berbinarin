@@ -106,7 +106,7 @@
         <div>
             <a href="https://linktr.ee/berbinarinsight" target="_blank">
                 <button
-                    class="rounded-full bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-6 py-2 font-medium text-black">Ajukan
+                    class="rounded-full bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-6 py-2 font-medium text-white">Ajukan
                     Kolaborasi</button>
             </a>
         </div>
