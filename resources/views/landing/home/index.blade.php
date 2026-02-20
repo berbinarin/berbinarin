@@ -70,6 +70,16 @@
             overflow: hidden;
         }
 
+        .embed-box {
+            border-radius: 20px;
+            overflow: hidden;
+            width: 320px;
+            max-width: 100%;
+            transform: scale(0.8);
+            transform-origin: center;
+            height: 610px;
+        }
+
         /* Custom Responsive breakpoint */
         @media (max-width: 400px) {
             .judul-mini {
@@ -478,6 +488,10 @@
                 </div>
             </div>
         </div>
+                                
+        <!-- paste disini -->
+
+
         <img src="{{ asset("assets/images/landing/asset-beranda/vector/lebaran-oranment.png") }}" class="pointer-events-none absolute bottom-0 left-0 hidden w-full max-sm:block" />
     </div>
 
