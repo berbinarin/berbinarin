@@ -83,7 +83,7 @@
 
         <!-- Footer Bottom -->
         <div class="mx-5 mt-8 border-t-2 border-[#3986A3] pt-4 text-start max-sm:mt-2 max-sm:pt-2 lg:mx-14">
-            <p class="text-md font-normal text-[#6F6C90]">Copyright ©2025 Berbinar Insightful Indonesia</p>
+            <p class="text-md font-normal text-[#6F6C90]">Copyright ©2026 Berbinar Insightful Indonesia</p>
         </div>
     </footer>
 </section>
