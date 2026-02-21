@@ -261,19 +261,19 @@
                                     <canvas id="socialMediaChart" class="mb-1" style="max-height: 400px;"></canvas>
                                     <div class="mb-4 flex gap-4 text-xs">
                                         @php
-                                            $chartLabels = ['Instagram', 'Tiktok'];
-                                            $chartColors = ['#3986A3', '#E9B306'];
+                                            $chartLabels = $smcChartLabels ?? collect();
+                                            $chartColors = ['#3986A3', '#E9B306', '#00B894', '#6C5CE7', '#D63031'];
                                         @endphp
                                         @foreach ($chartLabels as $i => $label)
                                             <div class="flex items-center gap-1">
                                                 <span class="inline-block h-3 w-3 rounded"
-                                                    style="background: {{ $chartColors[$i] }}"></span>
+                                                    style="background: {{ $chartColors[$i % count($chartColors)] }}"></span>
                                                 {{ $label }}
                                             </div>
                                         @endforeach
                                     </div>
                                 </div>
-                                <p class="text-[14px]">Total Konten Diposting adalah <span><b>265</b></span></p>
+                                <p class="text-[14px]">Total Konten Diposting adalah <span><b>{{ $smcTotalContents ?? 0 }}</b></span></p>
                             </div>
                         </div>
 
@@ -282,31 +282,53 @@
                             <div class="flex flex-col w-full items-start px-6 py-4 bg-white shadow rounded-lg">
                                 <h1 class="text-[28px] text-[#75BADB] mb-4"><b>Preview Konten Aktif</b></h1>
                                 <div class="w-full flex justify-center">
-                                    <div class="w-full max-w-sm">
-                                        <div class="h-[51vh] overflow-hidden rounded-xl">
-                                            <blockquote
-                                                class="instagram-media !m-0 !w-5"
-                                                data-instgrm-permalink="https://www.instagram.com/p/DUVfI0FCe6h/"
-                                                data-instgrm-version="14">
-                                            </blockquote>
+                                    <div class="w-full max-w-[360px]">
+                                        <div class="smc-embed h-[420px] overflow-hidden rounded-xl">
+                                            <x-embed.preview :content="$smcActiveContent" />
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Pagination -->
-                                <div class="w-full flex justify-end items-center space-x-2 mt-4">
-                                    <button class="w-8 h-8 flex items-center justify-center rounded-md border border-gray-300 hover:bg-gray-50">
-                                        <span class="text-gray-500">‹</span>
-                                    </button>
-                                    <button class="w-8 h-8 flex items-center justify-center rounded-md bg-[#3986A3] text-white">
-                                        <span>1</span>
-                                    </button>
-                                    <button class="w-8 h-8 flex items-center justify-center rounded-md border border-gray-300 hover:bg-gray-50">
-                                        <span class="text-gray-500">2</span>
-                                    </button>
-                                    <button class="w-8 h-8 flex items-center justify-center rounded-md border border-gray-300 hover:bg-gray-50">
-                                        <span class="text-gray-500">›</span>
-                                    </button>
+                                <div class="w-full flex justify-between items-center mt-4">
+                                    <div class="text-xs text-gray-500">
+                                        Total konten aktif: {{ $smcActiveCount ?? 0 }}
+                                    </div>
+                                    @php
+                                        $smcPages = !empty($smcActiveContents) ? max(1, $smcActiveContents->lastPage()) : 1;
+                                        $smcCurrent = !empty($smcActiveContents) ? $smcActiveContents->currentPage() : 1;
+                                    @endphp
+                                    <div class="flex items-center space-x-2">
+                                        @if (!empty($smcActiveContents) && !$smcActiveContents->onFirstPage())
+                                            <a href="{{ $smcActiveContents->previousPageUrl() }}" class="w-8 h-8 flex items-center justify-center rounded-md border border-gray-300 hover:bg-gray-50">
+                                                <span class="text-gray-500">‹</span>
+                                            </a>
+                                        @else
+                                            <span class="w-8 h-8 flex items-center justify-center rounded-md border border-gray-300 text-gray-300 cursor-not-allowed">‹</span>
+                                        @endif
+
+                                        @for ($page = 1; $page <= $smcPages; $page++)
+                                            @if ($page === $smcCurrent)
+                                                <span class="w-8 h-8 flex items-center justify-center rounded-md bg-[#3986A3] text-white">{{ $page }}</span>
+                                            @else
+                                                @if (!empty($smcActiveContents))
+                                                    <a href="{{ $smcActiveContents->url($page) }}" class="w-8 h-8 flex items-center justify-center rounded-md border border-gray-300 hover:bg-gray-50">
+                                                        <span class="text-gray-500">{{ $page }}</span>
+                                                    </a>
+                                                @else
+                                                    <span class="w-8 h-8 flex items-center justify-center rounded-md border border-gray-300 text-gray-300 cursor-not-allowed">{{ $page }}</span>
+                                                @endif
+                                            @endif
+                                        @endfor
+
+                                        @if (!empty($smcActiveContents) && $smcActiveContents->hasMorePages())
+                                            <a href="{{ $smcActiveContents->nextPageUrl() }}" class="w-8 h-8 flex items-center justify-center rounded-md border border-gray-300 hover:bg-gray-50">
+                                                <span class="text-gray-500">›</span>
+                                            </a>
+                                        @else
+                                            <span class="w-8 h-8 flex items-center justify-center rounded-md border border-gray-300 text-gray-300 cursor-not-allowed">›</span>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -314,15 +336,46 @@
                 </div>
 
                 @section('script')
+                    <style>
+                        .smc-embed {
+                            display: flex;
+                            align-items: flex-start;
+                            justify-content: center;
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        .smc-embed .embed-box {
+                            width: 320px;
+                            height: 380px;
+                            max-width: 100%;
+                            max-height: 100%;
+                        }
+
+                        .smc-embed .embed-box > blockquote,
+                        .smc-embed .embed-box > iframe {
+                            width: 100% !important;
+                            height: 100% !important;
+                            margin: 0 !important;
+                        }
+
+                        .smc-embed .tiktok-embed,
+                        .smc-embed .instagram-media {
+                            max-width: 100% !important;
+                        }
+                    </style>
                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                     <script async src="//www.instagram.com/embed.js"></script>
+                    <script async src="https://www.tiktok.com/embed.js"></script>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     <script>
                         document.addEventListener('DOMContentLoaded', () => {
-                            // Data statis untuk chart - diasumsikan ini data konten untuk Instagram dan Tiktok
-                            const chartDataValues = [165, 100]; // Instagram: 165 konten, Tiktok: 100 konten
-                            const chartColors = ['rgba(57, 134, 163, 0.6)', 'rgba(233, 179, 6, 0.6)'];
-                            const solidColors = ['#3986A3', '#E9B306'];
-                            const chartLabels = ['Instagram', 'Tiktok'];
+                            const chartLabels = @json($smcChartLabels ?? []);
+                            const chartDataValues = @json($smcChartValues ?? []);
+                            const chartColors = ['rgba(57, 134, 163, 0.6)', 'rgba(233, 179, 6, 0.6)', 'rgba(0, 184, 148, 0.6)', 'rgba(108, 92, 231, 0.6)', 'rgba(214, 48, 49, 0.6)'];
+                            const solidColors = ['#3986A3', '#E9B306', '#00B894', '#6C5CE7', '#D63031'];
+                            const maxValue = Math.max(0, ...chartDataValues);
+                            const maxScale = maxValue === 0 ? 10 : Math.ceil(maxValue / 10) * 10;
 
                             const ctx = document.getElementById('socialMediaChart').getContext('2d');
                             const chartData = {
@@ -330,7 +383,7 @@
                                 datasets: [{
                                     label: 'Jumlah Konten',
                                     data: chartDataValues,
-                                    backgroundColor: chartColors,
+                                    backgroundColor: chartColors.slice(0, chartDataValues.length),
                                     borderRadius: 0,
                                     barThickness: 30,
                                 }],
@@ -349,14 +402,14 @@
                                             },
                                             position: 'top',
                                             ticks: {
-                                                stepSize: 50,
+                                                stepSize: Math.max(5, Math.floor(maxScale / 4)),
                                                 callback: function(value) {
-                                                    return value % 50 === 0 ? value : '';
+                                                    return value % Math.max(5, Math.floor(maxScale / 4)) === 0 ? value : '';
                                                 }
                                             },
                                             min: 0,
-                                            max: 200,
-                                            suggestedMax: 200
+                                            max: maxScale,
+                                            suggestedMax: maxScale
                                         },
                                         y: {
                                             grid: {
@@ -403,6 +456,16 @@
                                     },
                                 }],
                             });
+
+                            if (window.instgrm && window.instgrm.Embeds) {
+                                window.instgrm.Embeds.process();
+                            }
+                        });
+
+                        window.addEventListener('load', () => {
+                            if (window.instgrm && window.instgrm.Embeds) {
+                                window.instgrm.Embeds.process();
+                            }
                         });
                     </script>
                 @endsection

@@ -6,14 +6,16 @@
 )
 
 @section("content")
-    <form action="" enctype="multipart/form-data" method="post">
+    <form action="{{ route('dashboard.social-media-contents.update', $content->id) }}" enctype="multipart/form-data" method="post">
         @csrf
+        @method('PUT')
+
         <section class="flex h-full w-full">
             <div class="flex h-full w-full flex-col">
                 <div class="py-4 md:pb-7 md:pt-12">
                     <div class="">
                         <div class="mb-2 flex items-center gap-2">
-                            <a href="{{ route("dashboard.smc.index") }}">
+                            <a href="{{ route("dashboard.social-media-contents.index") }}">
                                 <img src="{{ asset("assets/images/dashboard/svg-icon/dashboard-back.webp") }}" alt="Back Btn" />
                             </a>
                             <p tabindex="0" class="text-base font-bold leading-normal text-gray-800 focus:outline-none sm:text-lg md:text-2xl lg:text-4xl">Edit Konten</p>
@@ -29,25 +31,37 @@
                         <!-- Judul Konten -->
                         <div class="flex flex-col gap-2">
                             <label class="text-sm font-medium text-gray-700">Judul Konten</label>
-                            <input type="text" name="judul_konten" placeholder="Judul Konten" class="rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary" />
+                            <input type="text" name="title" placeholder="Judul Konten" class="rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary" value="{{ old('title', $content->title ?? '') }}"/>
                         </div>
 
                         <!-- Platform -->
                         <div class="flex flex-col gap-2">
                             <label class="text-sm font-medium text-gray-700">Platform</label>
                             <select name="platform" class="rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
-                                <option value="">Pilih Platform</option>
-                                <option value="instagram">Instagram</option>
-                                <option value="facebook">Facebook</option>
-                                <option value="twitter">Twitter</option>
-                                <option value="tiktok">TikTok</option>
+                                <option value="" disabled selected>Pilih Platform</option>
+                                <option value="instagram" {{ old('platform', $content->platform) == 'instagram' ? 'selected' : '' }}>Instagram</option>
+                                <option value="linkedin" {{ old('platform', $content->platform) == 'linkedin' ? 'selected' : '' }}>Linkedin</option>
+                                <option value="x" {{ in_array(old('platform', $content->platform), ['x', 'twitter']) ? 'selected' : '' }}>X</option>
+                                <option value="tiktok" {{ old('platform', $content->platform) == 'tiktok' ? 'selected' : '' }}>TikTok</option>
+                                <option value="youtube" {{ old('platform', $content->platform) == 'youtube' ? 'selected' : '' }}>Youtube</option>
                             </select>
                         </div>
 
                         <!-- Link  -->
-                        <div class="col-span-1 flex flex-col gap-2 md:col-span-2">
+                        <div class="flex flex-col gap-2">
                             <label class="text-sm font-medium text-gray-700">Link</label>
-                            <input type="text" name="link" placeholder="instagram.com" class="rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary" />
+                            <input type="text" name="url" placeholder="instagram.com" class="rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary" value="{{ old('url', $content->url) }}"/>
+                        </div>
+
+                        <!-- Position  -->
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-medium text-gray-700">Posisi</label>
+                            <input type="number" name="position" placeholder="1"
+                                class="rounded-lg border border-gray-300 bg-gray-100 px-4 py-2 focus:outline-none" value="{{ old('position', $content->position) }}" disabled/>
+                        </div>
+
+                        <div>
+                            <input type="hidden" name="status" value="{{ old('status', $content->status) }}">
                         </div>
                     </div>
 
