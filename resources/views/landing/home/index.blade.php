@@ -195,10 +195,21 @@
             height: auto;
         }
 
+        #ketupat-overlay img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            display: block;
+        }
+
         @media (min-width: 1024px) {
             #firecrackers-overlay img {
                 max-width: 420px;
                 width: 40vw;
+            }
+
+            #ketupat-overlay img {
+                width: 80vw;
             }
         }
 
@@ -229,6 +240,14 @@
         <!-- Zibairunnin GIF-->
         <div id="zibairunnin-gif" style="position: fixed; z-index: 10000; top: 20%; left: 100vw; width: 700px; height: auto; pointer-events: none; display: none">
             <img src="{{ asset("assets/images/landing/asset-beranda/zibairunnin.gif") }}" alt="Zibairunnin" style="width: 100%; height: auto" />
+        </div>
+    @endif
+
+    <!-- animasi lebaran -->
+    @if ($theme["name"] === "lebaran")
+        <div id="ketupat-bg" style="position: fixed; z-index: 9998; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(255, 255, 255, 0.7); display: flex; align-items: center; justify-content: center"></div>
+        <div id="ketupat-overlay" style="position: fixed; z-index: 9999; top: 0; left: 0; width: 100vw; height: 100vh; display: none; align-items: center; justify-content: center; padding: 0; margin: 0">
+            <img src="{{ asset("assets/images/landing/asset-beranda/ketupat.gif") }}" alt="Ketupat" />
         </div>
     @endif
 
@@ -488,9 +507,8 @@
                 </div>
             </div>
         </div>
-                                
-        <!-- paste disini -->
 
+        <!-- paste disini -->
 
         <img src="{{ asset("assets/images/landing/asset-beranda/vector/lebaran-oranment.png") }}" class="pointer-events-none absolute bottom-0 left-0 hidden w-full max-sm:block" />
     </div>
@@ -666,6 +684,24 @@
                         if (bg) bg.style.display = 'none';
                         if (zibairunnin) zibairunnin.style.display = 'none';
                     }, firecrackersDuration);
+                }, 1000);
+            });
+        </script>
+    @endif
+
+    <!-- script buat lebaran -->
+    @if ($theme["name"] === "lebaran")
+        <script>
+            const ketupatDuration = 2500;
+            window.addEventListener('DOMContentLoaded', function () {
+                setTimeout(function () {
+                    document.getElementById('ketupat-overlay').style.display = 'flex';
+                    setTimeout(function () {
+                        const overlay = document.getElementById('ketupat-overlay');
+                        const bg = document.getElementById('ketupat-bg');
+                        if (overlay) overlay.style.display = 'none';
+                        if (bg) bg.style.display = 'none';
+                    }, ketupatDuration);
                 }, 1000);
             });
         </script>

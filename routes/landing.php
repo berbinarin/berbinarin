@@ -34,6 +34,8 @@ use App\Http\Controllers\Landing\Product\Counseling\PsikologUmum\PsikologUmumCon
 use App\Http\Controllers\Landing\Product\Counseling\PeerStaff\PeerStaffController;
 use App\Http\Controllers\Landing\Arteri\CommentController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\Landing\Link\LinktreeController;
+use Doctrine\DBAL\Schema\Index;
 use Illuminate\Support\Facades\Route;
 
 // Home
@@ -172,6 +174,11 @@ Route::prefix('arteri')->name('arteri.')->group(function () {
     Route::post('/{articleId}/share', [ArteriController::class, 'share'])->name('share');
     Route::post('/{articleId}/view', [ArteriController::class, 'view'])->name('view');
     Route::post('/comment', [CommentController::class, 'store'])->name('comment');
+});
+
+// Kolaborasi
+Route::prefix('kolaborasi')->name('collaboration.')->group(function () {
+    Route::get('/', [LinktreeController::class, 'index'])->name('index');
 });
 
 // Psikotest Free
