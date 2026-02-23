@@ -70,9 +70,9 @@ class PeerCounselorController extends Controller
         $metode = $validatedData['metode'];
 
         if ($metode === 'online') {
-            $harga = [1 => 45000, 2 => 90000, 3 => 135000][$sesi];
+            $harga = [1 => 54000, 2 => 108000, 3 => 162000][$sesi];
         } else {
-            $harga = [1 => 55000, 2 => 110000, 3 => 165000][$sesi];
+            $harga = [1 => 66000, 2 => 132000, 3 => 198000][$sesi];
         }
 
         $validatedData['harga'] = $harga;
@@ -167,9 +167,9 @@ class PeerCounselorController extends Controller
         $metode = $validatedData['metode'];
 
         if ($metode === 'online') {
-            $harga = [1 => 45000, 2 => 90000, 3 => 135000][$sesi];
+            $harga = [1 => 54000, 2 => 108000, 3 => 162000][$sesi];
         } else {
-            $harga = [1 => 55000, 2 => 110000, 3 => 165000][$sesi];
+            $harga = [1 => 66000, 2 => 132000, 3 => 198000][$sesi];
         }
 
         $validatedData['harga'] = $harga;
