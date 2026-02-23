@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class SMCUserSeeder extends Seeder
 {
@@ -14,6 +15,10 @@ class SMCUserSeeder extends Seeder
      */
     public function run(): void
     {
+        Role::create([
+            'name' => 'smc'
+        ]);
+
         // SMC
         User::create([
             'username' => 'smc',
