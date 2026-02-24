@@ -7,7 +7,7 @@ class ThemeService
     public function getTheme(): string
     {
         $today = now();
-        $theme = 'imlek';
+        $theme = 'default';
 
         // Imlek
         if ($today->between(
@@ -34,12 +34,12 @@ class ThemeService
         }
 
         // Lebaran
-        if ($today->between(
-            now()->copy()->setMonth(2)->setDay(23),
-            now()->copy()->setMonth(3)->setDay(23)
-        )) {
-            $theme = 'lebaran';
-        }
+        // if ($today->between(
+        //     now()->copy()->setMonth(2)->setDay(23),
+        //     now()->copy()->setMonth(3)->setDay(23)
+        // )) {
+        //     $theme = 'lebaran';
+        // }
 
 
         // Kemerdekaan
