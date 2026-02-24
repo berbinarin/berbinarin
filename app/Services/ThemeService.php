@@ -12,7 +12,7 @@ class ThemeService
         // Imlek
         if ($today->between(
             now()->copy()->setMonth(2)->setDay(9),
-            now()->copy()->setMonth(2)->setDay(22)
+            now()->copy()->setMonth(2)->setDay(value: 22)
         )) {
             $theme = 'imlek';
         }

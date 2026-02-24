@@ -62,7 +62,8 @@
         }
 
         .bg-content {
-            background-image: url('/assets/images/landing/asset-beranda/bg-content.png');
+            /* background-image: url('/assets/images/landing/asset-beranda/bg-content.png'); */
+            background-image: url({{ $theme["latest_content"]["wp"] }}), {{ $theme["latest_content"]["bg"] }};
         }
 
         /* Custom Responsive breakpoint */
@@ -128,7 +129,7 @@
             }
 
             .bg-content {
-                background-image: url('/assets/images/landing/asset-beranda/bg-content-mobile.png');
+                background-image: url({{ $theme["latest_content"]["wp_mobile"] }}), {{ $theme["latest_content"]["bg"] }};
             }
         }
 
@@ -337,7 +338,7 @@
 
     {{-- KONTEN SOSMED --}}
     <!-- <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/vector-pattern.webp'), linear-gradient(to bottom right, #EAF8FF, #BDE8FD); background-blend-mode: normal, multiply"> -->
-    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px] bg-content" style="{{ $theme["latest_content"]["bg"] }}; background-blend-mode: normal, multiply">
+    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px] bg-content" style="background-blend-mode: normal, multiply">
         <h1 class="{{ $theme["latest_content"]["text_title"] }} my-8 text-center text-4xl font-semibold max-sm:mx-4 max-sm:text-[29px]">
             <!-- Konten Terbaru
             <span class="bg-[#3886A3] px-2 text-white">Berbinar</span> -->

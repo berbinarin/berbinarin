@@ -19,7 +19,9 @@ return [
         ],
 
         'latest_content' => [
-            'bg' => 'linear-gradient(to bottom right, #EAF8FF, #BDE8FD)', // background
+            'bg' => 'linear-gradient(to bottom right, #EAF8FF, #BDE8FD)', // warna background
+            'wp' => 'assets/images/landing/asset-beranda/vector-pattern.webp',
+            'wp_mobile' => '',
             'text_title' => 'text-black', // teks judul
         ],
 
@@ -60,6 +62,8 @@ return [
 
         'latest_content' => [
             'bg' => 'linear-gradient(to bottom right, #ae0001, #600001, #ae0001)',
+            'wp' => 'assets/images/landing/asset-beranda/bg-content.png',
+            'wp_mobile' => '/assets/images/landing/asset-beranda/bg-content-mobile.png', 
             'text_title' => 'text-white',
         ],
 
@@ -105,6 +109,8 @@ return [
 
         'latest_content' => [
             'bg' => 'linear-gradient(to bottom right, #EAF8FF, #BDE8FD)',
+            'wp' => 'assets/images/landing/asset-beranda/bg-content.png',
+            'wp_mobile' => '/assets/images/landing/asset-beranda/bg-content-mobile.png',
             'text_title' => 'text-black',
         ],
 
