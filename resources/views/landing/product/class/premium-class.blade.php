@@ -559,7 +559,7 @@
             <!-- Card 1 -->
             <div class="relative mx-3 flex w-full flex-col rounded-2xl bg-white px-6 pb-6 text-black shadow-lg" style="opacity: 0.9; width: 297px; height: 350px">
                 <p class="mb-5 mt-6 text-center text-xl font-semibold text-neutral-700">Fundamental</p>
-                <h1 class="text-center font-semibold text-[#3986A3]" style="font-size: 32px">Rp250.000</h1>
+                <h1 class="text-center font-semibold text-[#3986A3]" style="font-size: 32px">Rp300.000</h1>
                 <div class="mx-auto my-6 w-32 bg-gray-200" style="height: 1px"></div>
                 <div class="flex w-full flex-col items-start gap-3 pt-5">
                     <div class="flex items-start gap-2">
@@ -579,7 +579,7 @@
             <!-- Card 2 -->
             <div class="relative mx-3 flex w-full flex-col rounded-2xl bg-white px-6 pb-6 text-black shadow-lg" style="opacity: 0.9 opacity: 0.9; width: 297px; height: 350px">
                 <p class="mb-5 mt-6 text-center text-xl font-semibold text-neutral-700">Excellent</p>
-                <h1 class="text-center font-semibold text-[#3986A3]" style="font-size: 32px">Rp225.000</h1>
+                <h1 class="text-center font-semibold text-[#3986A3]" style="font-size: 32px">Rp270.000</h1>
                 <div class="mx-auto my-6 w-32 bg-gray-200" style="height: 1px"></div>
                 <div class="flex w-full flex-col items-start gap-3 pt-5">
                     <div class="flex items-start gap-2">
@@ -601,7 +601,7 @@
             <!-- Card 3 -->
             <div class="relative mx-3 flex w-full flex-col rounded-2xl bg-white px-6 pb-6 text-black shadow-lg" style="opacity: 0.9 opacity: 0.9; width: 297px; height: 350px">
                 <p class="mb-5 mt-6 text-center text-xl font-semibold text-neutral-700">Fullstack</p>
-                <h1 class="text-center font-semibold text-[#3986A3]" style="font-size: 32px">Rp360.000</h1>
+                <h1 class="text-center font-semibold text-[#3986A3]" style="font-size: 32px">Rp432.000</h1>
                 <div class="mx-auto my-6 w-32 bg-gray-200" style="height: 1px"></div>
                 <div class="flex w-full flex-col items-start gap-3 pt-5">
                     <div class="flex items-start gap-2">

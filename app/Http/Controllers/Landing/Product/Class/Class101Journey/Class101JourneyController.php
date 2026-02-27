@@ -11,17 +11,17 @@ class Class101JourneyController extends Controller
         $layanan_class_journey = [
             [
                 'name' => 'Early Bird',
-                'price' => 'Rp20.000',
+                'price' => 'Rp24.000',
                 'icon' => 'assets/images/landing/asset-kelas/class-journey/early-bird.webp'
             ],
             [
                 'name' => 'Bundling Bertiga',
-                'price' => 'Rp70.000',
+                'price' => 'Rp84.000',
                 'icon' => 'assets/images/landing/asset-kelas/class-journey/bundle-bertiga.webp'
             ],
             [
                 'name' => 'Normal Price',
-                'price' => 'Rp25.000',
+                'price' => 'Rp30.000',
                 'icon' => 'assets/images/landing/asset-kelas/class-journey/normal-price.webp'
             ],
         ];
