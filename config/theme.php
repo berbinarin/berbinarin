@@ -153,6 +153,11 @@ return [
             'text_title' => 'text-white',
         ],
 
+        'content-bg' => [
+            'bg' => '/assets/images/landing/asset-beranda/bg-content-lebaran.png'
+            
+        ],
+
         'learn_more' => [
             'bg' => '#E5AE69',
             'swiper_pagination_active' => '#087241',

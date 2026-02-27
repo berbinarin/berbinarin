@@ -62,7 +62,7 @@
         }
 
         .bg-content {
-            background-image: url('/assets/images/landing/asset-beranda/bg-content-lebaran.png');
+             background-image: url({{ $theme["content-bg"]["bg"] }});
         }
 
         .sosmed-section {
