@@ -136,7 +136,7 @@ class HomeController extends Controller
 
         $contents = SocialMediaContent::where('status', 'active')
             ->latest()
-            ->take(2)
+            // ->take(2)
             ->get();
 
         return view('landing.home.index')->with([
