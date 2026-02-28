@@ -87,7 +87,7 @@
                                         <form id="deleteForm{{ $content->id }}" action="{{ route('dashboard.social-media-contents.destroy', $content->id) }}" method="POST">
                                             @csrf
                                             @method("DELETE")
-                                            <button type="button" onclick="confirmDelete({{ $content->id }})" class="rounded bg-red-500 p-2 hover:bg-red-600 focus:outline-none"><i class="bx bx-trash-alt text-white"></i></button>
+                                            <button class="rounded bg-red-500 p-2 hover:bg-red-600 focus:outline-none"><i class="bx bx-trash-alt text-white"></i></button>
                                         </form>
                                     </td>
                                 </tr>
@@ -155,8 +155,8 @@
         let deleteModal = document.getElementById('deleteModal');
         let deleteForm = document.getElementById('deleteForm');
 
-        function openDeleteModal(classId) {
-            deleteForm.action = ``;
+        function openDeleteModal(contentId) {
+            deleteForm.action = `/dashboard/social-media-contents/${contentId}`;
             deleteModal.classList.remove('hidden');
         }
 
