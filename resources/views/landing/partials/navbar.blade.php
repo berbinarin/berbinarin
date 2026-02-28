@@ -104,10 +104,9 @@
         </a>
 
         <div>
-            <a href="https://linktr.ee/berbinarinsight" target="_blank">
-                <button
-                    class="rounded-full bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-6 py-2 font-medium text-black">Ajukan
-                    Kolaborasi</button>
+            <a href="{{ route('collaboration.index') }}" class="rounded-2xl px-6 py-2 font-medium
+            {{ isNavbarActive('collaboration') ? 'text-primary bg-white border-3 border-[#F7B23B]' : 'text-black bg-gradient-to-r from-[#F7B23B] to-[#AD7D29]' }}">
+            Ajukan Kolaborasi
             </a>
         </div>
     </div>
@@ -156,10 +155,9 @@
         ArteRi
     </a>
 
-    <a href="https://linktr.ee/berbinarinsight" target="_blank">
-        <button
-            class="mt-8 rounded-full bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-6 py-2 font-medium text-black">Ajukan
-            Kolaborasi</button>
+    <a href="{{ route('collaboration.index') }}" class="rounded-2xl px-6 py-2 font-medium
+    {{ isNavbarActive('collaboration') ? 'text-primary bg-white border-3 border-[#F7B23B]' : 'text-black bg-gradient-to-r from-[#F7B23B] to-[#AD7D29]' }}">
+        Ajukan Kolaborasi
     </a>
     <button id="closeMenu" class="absolute right-4 top-4 text-gray-600 focus:outline-none">
         <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

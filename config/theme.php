@@ -81,6 +81,11 @@ return [
             'active' => '#DA8900',
             'burger_menu' => '#DA8900'
         ],
+
+        'quotes' => [
+            'quote_icon' => 'assets/images/landing/asset-beranda/vector/quote-red.png',
+            'bg' => '#FFECEC'
+        ],
         'footer' => [
             'bg' => '#FFBDBD',
             'wave_img' => 'assets/images/landing/logo/vector-wave-imlek.webp'
@@ -129,5 +134,56 @@ return [
         ],
 
         'berbinar_highlight' => '#3886A3',
+    ],
+
+
+    'lebaran' => [
+        'name' => 'lebaran',
+        'hero' => [
+            'bg' => 'assets/images/landing/asset-beranda/bg-hero-lebaran.png',
+            'bg_mobile' => 'assets/images/landing/asset-beranda/bg-hero-mobile-lebaran.png',
+            'color_berbinar' => '#FFBB48',
+            'text_color' => 'text-white',
+            'img_singa' => "assets/images/landing/asset-beranda/vector-singa-lebaran.png",
+            'img_singa3' => "assets/images/landing/asset-beranda/vector-singa3-lebaran.png"
+        ],
+        
+        'why_berbinar' => [
+            'badge' => '#087241',
+            'tick' => 'assets/images/landing/asset-beranda/vector/tick-gold.webp',
+            'view_product_button' => 'bg-gradient-to-r from-[#F7B23B] to-[#AD7D29]',
+        ],
+
+        'latest_content' => [
+            'bg' => 'linear-gradient(to bottom right, #ae0001, #600001, #ae0001)',
+            'text_title' => 'text-white',
+        ],
+
+        'learn_more' => [
+            'bg' => '#E5AE69',
+            'swiper_pagination_active' => '#087241',
+        ],
+        
+
+        'testimoni' => [
+            'quote_img' => 'assets/images/landing/asset-beranda/vector-kutip-hijau.png'
+        ],
+
+
+        'quotes' => [
+            'quote_icon' => 'assets/images/landing/asset-beranda/vector/quote-green.png',
+            'bg' => '#F0FFF1'
+        ],
+
+        'navbar' => [
+            'active' => '#DA8900',
+            'burger_menu' => '#DA8900'
+        ],
+        'footer' => [
+            'bg' => '#DDFFDE',
+            'wave_img' => 'assets/images/landing/logo/vector-wave-lebaran.png'
+        ],
+
+        'berbinar_highlight' => '#E5AE69',
     ],
 ];

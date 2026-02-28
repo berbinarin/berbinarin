@@ -284,9 +284,9 @@
 
             let harga = 0;
             if (metode === 'online') {
-                harga = { 1: 45000, 2: 90000, 3: 135000 }[parseInt(sesi)];
+                harga = { 1: 54000, 2: 108000, 3: 162000 }[parseInt(sesi)];
             } else if (metode === 'offline') {
-                harga = { 1: 55000, 2: 110000, 3: 165000 }[parseInt(sesi)];
+                harga = { 1: 66000, 2: 132000, 3: 198000 }[parseInt(sesi)];
             }
 
             hargaInput.value = harga ? 'Rp ' + harga.toLocaleString('id-ID') : '';

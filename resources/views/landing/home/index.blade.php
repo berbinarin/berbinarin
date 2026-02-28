@@ -57,7 +57,7 @@
             --swiper-scrollbar-right: 4px;
             --swiper-scrollbar-sides-offset: 1%;
             --swiper-scrollbar-bg-color: #d4d4d4;
-            --swiper-scrollbar-drag-bg-color: #9dd4ee;
+            --swiper-scrollbar-drag-bg-color: #087241;
             --swiper-scrollbar-size: 10px;
         }
 
@@ -129,7 +129,7 @@
             }
 
             .bg-content {
-                background-image: url({{ $theme["latest_content"]["wp_mobile"] }}), {{ $theme["latest_content"]["bg"] }};
+                background-image: url('/assets/images/landing/asset-beranda/bg-content-mobile.png');
             }
         }
 
@@ -181,10 +181,21 @@
             height: auto;
         }
 
+        #ketupat-overlay img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            display: block;
+        }
+
         @media (min-width: 1024px) {
             #firecrackers-overlay img {
                 max-width: 420px;
                 width: 40vw;
+            }
+
+            #ketupat-overlay img {
+                width: 80vw;
             }
         }
 
@@ -218,6 +229,14 @@
         </div>
     @endif
 
+    <!-- animasi lebaran -->
+    @if ($theme["name"] === "lebaran")
+        <div id="ketupat-bg" style="position: fixed; z-index: 9998; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(255, 255, 255, 0.7); display: flex; align-items: center; justify-content: center"></div>
+        <div id="ketupat-overlay" style="position: fixed; z-index: 9999; top: 0; left: 0; width: 100vw; height: 100vh; display: none; align-items: center; justify-content: center; padding: 0; margin: 0">
+            <img src="{{ asset("assets/images/landing/asset-beranda/ketupat.gif") }}" alt="Ketupat" />
+        </div>
+    @endif
+
     <!-- HERO SECTION -->
     <section class="bg-mini bg-hero relative h-[110vh] w-full bg-cover max-lg:bg-center max-sm:h-[90vh]">
         <!-- <div class="absolute inset-0 z-10 bg-gradient-to-r from-[#9CC3D1] to-transparent max-sm:bg-[#9CC3D1] max-sm:opacity-70"></div> -->
@@ -245,7 +264,7 @@
         </div>
 
         <!-- VECTOR SINGA -->
-        <div class="absolute bottom-0 right-20 z-10 hidden h-auto w-auto max-w-xs max-sm:right-2 sm:block">
+        <div class="absolute bottom-0 right-[250px] z-10 hidden h-auto w-auto max-w-xs max-sm:right-2 sm:block">
             <img src="{{ asset(data_get($theme, "hero.img_singa")) }}" alt="Singa" class="h-full w-full max-sm:h-[350px] max-sm:w-auto" style="opacity: 0.9" />
         </div>
 
@@ -338,7 +357,7 @@
 
     {{-- KONTEN SOSMED --}}
     <!-- <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/vector-pattern.webp'), linear-gradient(to bottom right, #EAF8FF, #BDE8FD); background-blend-mode: normal, multiply"> -->
-    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px] bg-content" style="background-blend-mode: normal, multiply">
+    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px] bg-content" style="{{ $theme["latest_content"]["bg"] }}; background-blend-mode: normal, multiply">
         <h1 class="{{ $theme["latest_content"]["text_title"] }} my-8 text-center text-4xl font-semibold max-sm:mx-4 max-sm:text-[29px]">
             <!-- Konten Terbaru
             <span class="bg-[#3886A3] px-2 text-white">Berbinar</span> -->
@@ -351,7 +370,7 @@
                 {{--
                     <a href="https://www.instagram.com/berbinar.in/" class="cursor-pointer">
                     <div class="inline-flex bg-white shadow-xl p-2 mb-5 gap-x-1 rounded-lg justify-center">
-                    <img src="{{ asset('assets/images/landing/sosmed-icon/vector-ig-color.webp') }}" alt="Instagram" class="h-8 w-auto">
+                    <img src="{{ asset('assets/images/landing/sosmed-icon/vector-ig-color.webp') }}" alt="Instagram" class="h-8 w-auto block sm:hidden">
                     <p class="text-black text-xl font-medium">@berbinar.in</p>
                     </div>
                     </a>
@@ -474,6 +493,10 @@
                 </div>
             </div>
         </div>
+
+        <!-- paste disini -->
+
+        <img src="{{ asset("assets/images/landing/asset-beranda/vector/lebaran-oranment.png") }}" class="pointer-events-none absolute bottom-0 left-0 hidden w-full max-sm:block" />
     </div>
 
     {{-- PRODUK --}}
@@ -552,10 +575,10 @@
     </section>
 
     {{-- QUOTE --}}
-    <section class="mx-14 my-10 rounded-xl bg-[#EAF3F6] p-8 max-sm:mx-4 max-sm:p-4">
+    <section class="mx-14 my-10 rounded-xl p-8 max-sm:mx-4 max-sm:p-4" style="background-color: {{ $theme["quotes"]["bg"] }}">
         <div class="flex flex-col gap-y-4">
             <div class="flex justify-start">
-                <img src="{{ asset("assets/images/landing/asset-beranda/vector/quote.webp") }}" alt="Vector" class="h-8 w-auto max-sm:h-7" />
+                <img src="{{ asset(data_get($theme, "quotes.quote_icon")) }}" alt="Vector" class="h-8 w-auto max-sm:h-7" />
             </div>
             <p class="text-justify text-xl font-medium leading-loose text-black max-sm:text-center max-sm:text-[16px] max-sm:leading-tight">
                 <span class="text-[#3986A3]">Kesehatan mental</span>
@@ -568,7 +591,7 @@
                 terhadap keresahan dalam menghadapi persoalan kesehatan mental
             </p>
             <div class="flex justify-end">
-                <img src="{{ asset("assets/images/landing/asset-beranda/vector/quote.webp") }}" alt="Vector" class="h-8 w-auto max-sm:h-7" />
+                <img src="{{ asset(data_get($theme, "quotes.quote_icon")) }}" alt="Vector" class="h-8 w-auto max-sm:h-7" />
             </div>
         </div>
     </section>
@@ -647,6 +670,24 @@
                         if (bg) bg.style.display = 'none';
                         if (zibairunnin) zibairunnin.style.display = 'none';
                     }, firecrackersDuration);
+                }, 1000);
+            });
+        </script>
+    @endif
+
+    <!-- script buat lebaran -->
+    @if ($theme["name"] === "lebaran")
+        <script>
+            const ketupatDuration = 2500;
+            window.addEventListener('DOMContentLoaded', function () {
+                setTimeout(function () {
+                    document.getElementById('ketupat-overlay').style.display = 'flex';
+                    setTimeout(function () {
+                        const overlay = document.getElementById('ketupat-overlay');
+                        const bg = document.getElementById('ketupat-bg');
+                        if (overlay) overlay.style.display = 'none';
+                        if (bg) bg.style.display = 'none';
+                    }, ketupatDuration);
                 }, 1000);
             });
         </script>
