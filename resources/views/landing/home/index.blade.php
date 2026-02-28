@@ -66,6 +66,189 @@
             background-image: url({{ $theme["LATEST_CONTENT"]["WP"] }}), {{ $theme["LATEST_CONTENT"]["BG"] }};
         }
 
+        .sosmed-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Styling untuk social media embeds */
+        .embed-box {
+            border-radius: 20px;
+            overflow: hidden;
+            width: 320px;
+            max-width: 100%;
+            transform: scale(0.8);
+            transform-origin: center;
+            height: 610px;
+            margin: 0 auto;
+            transition:
+                transform 0.3s,
+                box-shadow 0.3s;
+        }
+
+        .embed-box:hover {
+            transform: scale(0.82);
+        }
+
+        /* Container untuk semua embed */
+        .instagram-embed-container,
+        .tiktok-embed-container,
+        .spotify-embed-container,
+        .youtube-embed-container,
+        .linkedin-embed-container,
+        .twitter-embed-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Instagram Embed */
+        .instagram-embed-container {
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .instagram-embed-container iframe,
+        .instagram-embed-container blockquote {
+            width: 100% !important;
+            max-width: 320px !important;
+            min-width: auto !important;
+            border-radius: 15px !important;
+        }
+
+        /* TikTok Embed */
+        .tiktok-embed-container {
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .tiktok-embed-container iframe,
+        .tiktok-embed-container blockquote {
+            width: 100% !important;
+            max-width: 320px !important;
+            min-width: auto !important;
+            border-radius: 15px !important;
+        }
+
+        /* Spotify Embed */
+        .spotify-embed-container {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .spotify-embed-container iframe {
+            width: 100% !important;
+            height: 380px !important;
+            border-radius: 15px;
+        }
+
+        /* YouTube Embed */
+        .youtube-embed-container {
+            width: 100%;
+            max-width: 380px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .youtube-embed-container iframe {
+            width: 100% !important;
+            border-radius: 15px;
+        }
+
+        /* LinkedIn Embed */
+        .linkedin-embed-container {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .linkedin-embed-container iframe {
+            width: 100% !important;
+            min-height: 500px !important;
+            border-radius: 15px;
+        }
+
+        /* Twitter/X Embed */
+        .twitter-embed-container {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .twitter-embed-container iframe {
+            width: 100% !important;
+            border-radius: 15px;
+        }
+
+        /* Responsive untuk konten sosmed */
+        @media (max-width: 640px) {
+            #swiperSosmed {
+                width: 500px;
+                margin: 20px auto;
+                overflow: hidden;
+            }
+
+            .embed-box {
+                transform: scale(0.75);
+                height: 580px;
+            }
+
+            .embed-box:hover {
+                transform: scale(0.77);
+            }
+
+            .instagram-embed-container,
+            .tiktok-embed-container {
+                max-width: 280px;
+            }
+
+            .spotify-embed-container {
+                max-width: 300px;
+            }
+
+            .spotify-embed-container iframe {
+                height: 350px !important;
+            }
+
+            .youtube-embed-container {
+                max-width: 320px;
+            }
+
+            .linkedin-embed-container {
+                max-width: 300px;
+            }
+
+            .linkedin-embed-container iframe {
+                min-height: 450px !important;
+            }
+
+            .twitter-embed-container {
+                max-width: 300px;
+            }
+        }
+
+        .instagram-media,
+        .tiktok-embed,
+        .twitter-tweet {
+            margin: 0 auto !important;
+            padding: 0 !important;
+        }
+
+
+        blockquote.instagram-media {
+            min-width: auto !important;
+            width: 100% !important;
+        }
+
         /* Custom Responsive breakpoint */
         @media (max-width: 400px) {
             .judul-mini {
@@ -377,55 +560,26 @@
     </section>
 
     {{-- KONTEN SOSMED --}}
-    <!-- <div class="h-[650px] w-full bg-cover max-sm:h-[1200px]" style="background-image: url('/assets/images/landing/asset-beranda/vector-pattern.webp'), linear-gradient(to bottom right, #EAF8FF, #BDE8FD); background-blend-mode: normal, multiply"> -->
-    <div class="h-[650px] w-full bg-cover max-sm:h-[1200px] bg-content" style="{{ $theme["LATEST_CONTENT"]["BG"] }}; background-blend-mode: normal, multiply">
-        <h1 class="{{ $theme["LATEST_CONTENT"]["TEXT_TITLE"] }} my-8 text-center text-4xl font-semibold max-sm:mx-4 max-sm:text-[29px]">
-            <!-- Konten Terbaru
-            <span class="bg-[#3886A3] px-2 text-white">Berbinar</span> -->
-            Konten Terbaru
-            <span class="bg-[{{ $theme["BERBINAR_HIGHLIGHT"] }}] px-2 text-white" style="background-color: {{ $theme["BERBINAR_HIGHLIGHT"] }}">Berbinar</span>
-        </h1>
-        <div class="-mt-8 flex flex-row justify-evenly max-sm:flex-col max-sm:items-center">
-            {{-- INSTAGRAM --}}
-            <div class="justify-center text-center max-sm:-mt-10">
-                {{--
-                    <a href="https://www.instagram.com/berbinar.in/" class="cursor-pointer">
-                    <div class="inline-flex bg-white shadow-xl p-2 mb-5 gap-x-1 rounded-lg justify-center">
-                    <img src="{{ asset('assets/images/landing/sosmed-icon/vector-ig-color.webp') }}" alt="Instagram" class="h-8 w-auto block sm:hidden">
-                    <p class="text-black text-xl font-medium">@berbinar.in</p>
-                    </div>
-                    </a>
-                --}}
+    
+    <div class="sosmed-section bg-content min-h-[650px] w-full bg-cover pb-8 max-sm:min-h-[700px]" style="{{ $theme["LATEST_CONTENT"]["BG"] }}; background-blend-mode: normal, multiply">
+        <!-- Title Section -->
+        <div class="pt-8">
+            <h1 class="{{ $theme["LATEST_CONTENT"]["TEXT_TITLE"] }} text-center text-4xl font-semibold max-sm:mx-4 max-sm:text-[29px]">
+                Konten Terbaru
+                <span class="bg-[{{ $theme["BERBINAR_HIGHLIGHT"] }}] px-2 text-white" style="background-color: {{ $theme["BERBINAR_HIGHLIGHT"] }}">Berbinar</span>
+            </h1>
+        </div>
 
-                {{-- EMBED --}}
-                <div style="border-radius: 20px; width: 320px; max-width: 100%; transform: scale(0.8); transform-origin: center center; overflow: hidden; height: 610px">
-                    <blockquote
-                        class="instagram-media"
-                        data-instgrm-permalink="https://www.instagram.com/p/DKB9QbsJJEm/?utm_source=ig_embed&amp%3Butm_campaign=loading"
-                        data-instgrm-version="14"
-                        style="
-                            background: #fff;
-                            border: 0;
-                            border-radius: 3px;
-                            box-shadow:
-                                0 0 1px 0 rgba(0, 0, 0, 0.5),
-                                0 1px 10px 0 rgba(0, 0, 0, 0.15);
-                            margin: 1px;
-                            max-width: 540px;
-                            min-width: 326px;
-                            padding: 0;
-                            width: 99.375%;
-                            width: -webkit-calc(100% - 2px);
-                            width: calc(100% - 2px);
-                        "
-                    >
-                        <div style="padding: 16px">
-                            <a href="https://www.instagram.com/p/DKB9QbsJJEm/?utm_source=ig_embed&amp%3Butm_campaign=loading" style="background: #ffffff; line-height: 0; padding: 0 0; text-align: center; text-decoration: none; width: 100%" target="_blank">
-                                <div style="display: flex; flex-direction: row; align-items: center">
-                                    <div style="background-color: #f4f4f4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px"></div>
-                                    <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center">
-                                        <div style="background-color: #f4f4f4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px"></div>
-                                        <div style="background-color: #f4f4f4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px"></div>
+        <!-- Carousel Section -->
+        <div class="swiperContainer mt-4">
+            <div class="swiper" id="swiperSosmed">
+                <div class="swiper-wrapper pb-1 max-sm:pb-8">
+                    @forelse ($contents as $content)
+                        <div class="swiper-slide">
+                            <div class="flex h-full items-center justify-center px-2">
+                                @if ($content->platform == "instagram")
+                                    <div class="instagram-embed-container">
+                                        <x-embed.instagram :url="$content->url" />
                                     </div>
                                 @elseif ($content->platform == "tiktok")
                                     <div class="tiktok-embed-container">
@@ -852,7 +1006,7 @@
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     <!-- script buat petasan cina -->
-    @if ($theme["name"] === "imlek")
+    @if ($theme["NAME"] === "imlek")
         <script>
             const firecrackersDuration = 1500;
             window.addEventListener('DOMContentLoaded', function () {
@@ -883,7 +1037,7 @@
     @endif
 
     <!-- script buat lebaran -->
-    @if ($theme["name"] === "lebaran")
+    @if ($theme["NAME"] === "lebaran")
         <script>
             const ketupatDuration = 2500;
             window.addEventListener('DOMContentLoaded', function () {
