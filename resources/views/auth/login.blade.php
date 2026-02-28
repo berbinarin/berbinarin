@@ -65,7 +65,7 @@
         </form>
         <!-- Copyright -->
         <div class="-mt-14 mr-24 pb-[57px] text-end text-[13px] font-bold text-[#3986A3]">
-            <h4>© 2026, Berbinar.in</h4>
+            <h4>© 2025, Berbinar.in</h4>
         </div>
     </section>
 @endsection

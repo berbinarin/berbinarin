@@ -116,11 +116,12 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
         });
     });
 
-    // SMC | Social Media Creator
+    // Smc | Social Media Creator
     Route::middleware('role:smc')->group(function () {
-        
-        Route::resource('/social-media-contents', SmcController::class);
-        Route::patch('/social-media-contents/{id}/status', [SmcController::class, 'updateStatus'])
-            ->name('social-media-contents.status');
+        Route::prefix('smc')->name('smc.')->group(function () {
+           
+            Route::get('/smc-example', [SmcController::class, 'index'])->name('index');
+            Route::get('/create', [SmcController::class, 'create'])->name('create');
+        });
     });
 });

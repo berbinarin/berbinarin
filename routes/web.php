@@ -1,5 +1,4 @@
 <?php
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +19,3 @@ require __DIR__ . '/landing.php';
 
 // menambahkan Semua route dashboard
 require __DIR__ . '/dashboard.php';
-
-
-Route::get('/test-404', function () {
-    abort(404);
-});

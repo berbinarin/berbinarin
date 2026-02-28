@@ -16,7 +16,7 @@
                     </div>
                     <p class="lg:text-md w-full text-xs text-disabled sm:text-xs md:text-sm xl:text-base">Halaman yang menampilkan dan mengelola data pendaftar sosial media creator.</p>
 
-                    <a href="{{ route('dashboard.social-media-contents.create') }}" type="button" class="mt-8 inline-flex items-start justify-start rounded-md bg-primary px-4 py-2 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
+                    <a href="{{ route('dashboard.smc.create') }}" type="button" class="mt-8 inline-flex items-start justify-start rounded-md bg-primary px-4 py-2 text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-3">
                         <p class="text-dark text-xs font-medium leading-none xl:text-sm">Tambah Data</p>
                     </a>
                 </div>
@@ -37,61 +37,99 @@
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 text-gray-700">
-                            @foreach ($contents as $content)
-                                <tr class="text-md transition hover:bg-gray-50 lg:text-base">
-                                    <td class="py-3 text-center">{{ $loop->iteration }}</td>
-                                    <td class="text-start">{{ $content->title }}</td>
-                                    <td class="text-center">
-                                        {{ in_array($content->platform, ['x', 'twitter']) ? 'X' : \Illuminate\Support\Str::ucfirst($content->platform) }}
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="{{ $content->url }}" class="text-primary underline hover:opacity-80" target="_blank" rel="noopener noreferrer">
-                                            {{ $content->url }}
-                                        </a>
-                                    </td>
-                                    <td class="text-center">{{ $content->position }}</td>
-                                    <td class="text-center">
-                                        <div x-data="smcStatus('{{ $content->status }}', 'status-form-{{ $content->id }}')" class="relative inline-block text-left">
-                                            <!-- Button -->
-                                            <button
-                                                @click="open = !open"
-                                                type="button"
-                                                :class="statusValue === 'active'
-                                                ? 'bg-green-400 hover:bg-green-500 focus:ring-green-300'
-                                                : 'bg-[#FF7563] hover:bg-red-500 focus:ring-red-300'"
-                                                class="inline-flex items-center rounded-full px-4 py-2 font-semibold text-black transition focus:outline-none focus:ring-2 focus:ring-offset-2"
-                                            >
-                                                <span x-text="statusLabel"></span>
-                                                <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                                                </svg>
-                                            </button>
+                            <tr class="text-md transition hover:bg-gray-50 lg:text-base">
+                                <td class="py-3 text-center">1</td>
+                                <td class="text-start">Cara Ternak Lele</td>
+                                <td class="text-center">Facebook</td>
+                                <td class="text-center">facebook.com</td>
+                                <td class="text-center">1</td>
+                                <td class="text-center">
+                                    <div x-data="{
+                                        open: false,
+                                        status: 'Aktif',
+                                    }" class="relative inline-block text-left">
+                                        <!-- Button -->
+                                        <button
+                                            @click="open = !open"
+                                            type="button"
+                                            :class="status === 'Aktif'
+                                            ? 'bg-green-400 hover:bg-green-500 focus:ring-green-300'
+                                            : 'bg-[#FF7563] hover:bg-red-500 focus:ring-red-300'"
+                                            class="inline-flex items-center rounded-full px-4 py-2 font-semibold text-black transition focus:outline-none focus:ring-2 focus:ring-offset-2"
+                                        >
+                                            <span x-text="status"></span>
+                                            <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </button>
 
-                                            <!-- Dropdown -->
-                                            <div x-show="open" @click.away="open = false" x-transition class="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-                                                <div class="py-1">
-                                                    <button @click="setStatus('active')" class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">Aktif</button>
-                                                    <button @click="setStatus('inactive')" class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">Nonaktif</button>
-                                                </div>
+                                        <!-- Dropdown -->
+                                        <div x-show="open" @click.away="open = false" x-transition class="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                                            <div class="py-1">
+                                                <button @click="status = 'Aktif'; open = false" class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">Aktif</button>
+                                                <button @click="status = 'Nonaktif'; open = false" class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">Nonaktif</button>
                                             </div>
                                         </div>
-                                        <form id="status-form-{{ $content->id }}" action="{{ route('dashboard.social-media-contents.status', $content->id) }}" method="POST" class="hidden">
-                                            @csrf
-                                            @method('PATCH')
-                                            <input type="hidden" name="status" value="">
-                                        </form>
-                                    </td>
+                                    </div>
+                                </td>
 
-                                    <td class="flex justify-center gap-2">
-                                        <a href="{{ route('dashboard.social-media-contents.edit', $content->id) }}" class="rounded bg-yellow-500 p-2 hover:bg-yellow-600"><i class="bx bx-edit text-white"></i></a>
-                                        <form id="deleteForm{{ $content->id }}" action="{{ route('dashboard.social-media-contents.destroy', $content->id) }}" method="POST">
-                                            @csrf
-                                            @method("DELETE")
-                                            <button class="rounded bg-red-500 p-2 hover:bg-red-600 focus:outline-none"><i class="bx bx-trash-alt text-white"></i></button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
+                                <td class="flex justify-center gap-2">
+                                    <a href="" class="rounded bg-yellow-500 p-2 hover:bg-yellow-600"><i class="bx bx-edit text-white"></i></a>
+                                    <form id="deleteForm" action="" method="POST">
+                                        @csrf
+                                        @method("DELETE")
+                                        <button class="rounded bg-red-500 p-2 hover:bg-red-600 focus:outline-none"><i class="bx bx-trash-alt text-white"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+
+
+                            <tr class="text-md transition hover:bg-gray-50 lg:text-base">
+                                <td class="py-3 text-center">2</td>
+                                <td class="text-start">Cara Ngoding</td>
+                                <td class="text-center">Facebook</td>
+                                <td class="text-center">facebook.com</td>
+                                <td class="text-center">1</td>
+                                <td class="text-center">
+                                    <div x-data="{
+                                        open: false,
+                                        status: 'Aktif',
+                                    }" class="relative inline-block text-left">
+                                        <!-- Button -->
+                                        <button
+                                            @click="open = !open"
+                                            type="button"
+                                            :class="status === 'Aktif'
+                                            ? 'bg-green-400 hover:bg-green-500 focus:ring-green-300'
+                                            : 'bg-[#FF7563] hover:bg-red-500 focus:ring-red-300'"
+                                            class="inline-flex items-center rounded-full px-4 py-2 font-semibold text-black transition focus:outline-none focus:ring-2 focus:ring-offset-2"
+                                        >
+                                            <span x-text="status"></span>
+                                            <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </button>
+
+                                        <!-- Dropdown -->
+                                        <div x-show="open" @click.away="open = false" x-transition class="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                                            <div class="py-1">
+                                                <button @click="status = 'Aktif'; open = false" class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">Aktif</button>
+                                                <button @click="status = 'Nonaktif'; open = false" class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">Nonaktif</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td class="flex justify-center gap-2">
+                                    <a href="" class="rounded bg-yellow-500 p-2 hover:bg-yellow-600"><i class="bx bx-edit text-white"></i></a>
+                                    <form id="deleteForm" action="" method="POST">
+                                        @csrf
+                                        @method("DELETE")
+                                        <button class="rounded bg-red-500 p-2 hover:bg-red-600 focus:outline-none"><i class="bx bx-trash-alt text-white"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+
                         </tbody>
                     </table>
 
@@ -131,32 +169,11 @@
 
 @section("script")
     <script>
-        function smcStatus(initialStatus, formId) {
-            return {
-                open: false,
-                statusValue: initialStatus,
-                get statusLabel() {
-                    return this.statusValue === 'active' ? 'Aktif' : 'Nonaktif';
-                },
-                async setStatus(value) {
-                    if (value === this.statusValue) {
-                        this.open = false;
-                        return;
-                    }
-
-                    const form = document.getElementById(formId);
-                    const input = form.querySelector('input[name="status"]');
-                    input.value = value;
-                    form.submit();
-                },
-            };
-        }
-
         let deleteModal = document.getElementById('deleteModal');
         let deleteForm = document.getElementById('deleteForm');
 
-        function openDeleteModal(contentId) {
-            deleteForm.action = `/dashboard/social-media-contents/${contentId}`;
+        function openDeleteModal(classId) {
+            deleteForm.action = ``;
             deleteModal.classList.remove('hidden');
         }
 

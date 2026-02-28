@@ -307,15 +307,15 @@
                 let harga = 0;
                 if (!isWeekend) {
                     if (metode === 'online') {
-                        harga = { 1: 180000, 2: 306000, 3: 432000 }[sesi];
+                        harga = { 1: 150000, 2: 300000, 3: 450000 }[sesi];
                     } else if (metode === 'offline') {
-                        harga = { 1: 210000, 2: 357600, 3: 505200 }[sesi];
+                        harga = { 1: 175000, 2: 350000, 3: 525000 }[sesi];
                     }
                 } else {
                     if (metode === 'online') {
-                        harga = { 1: 240000, 2: 408000, 3: 600000 }[sesi];
+                        harga = { 1: 200000, 2: 340000, 3: 500000 }[sesi];
                     } else if (metode === 'offline') {
-                        harga = { 1: 270000, 2: 458400, 3: 648000 }[sesi];
+                        harga = { 1: 225000, 2: 340000, 3: 500000 }[sesi];
                     }
                 }
                 hargaInput.value = 'Rp ' + harga.toLocaleString('id-ID');

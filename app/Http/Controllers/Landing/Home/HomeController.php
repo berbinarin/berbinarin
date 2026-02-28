@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Landing\Home;
 use App\Http\Controllers\Controller;
 use App\Models\Hiring_Positions;
 use App\Models\KeluargaBerbinar\TableStaff;
-use App\Models\SocialMediaContent;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -134,16 +133,10 @@ class HomeController extends Controller
             ],
         ];
 
-        $contents = SocialMediaContent::where('status', 'active')
-            ->latest()
-            // ->take(2)
-            ->get();
-
         return view('landing.home.index')->with([
             'products' => $products,
             'testimonis' => $testimonis,
             'visimisis' => $visimisis,
-            'contents' => $contents,
         ]);
     }
 

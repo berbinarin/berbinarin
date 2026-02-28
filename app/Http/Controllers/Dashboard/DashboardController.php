@@ -29,12 +29,10 @@ use App\Models\CounsellingPM\KonsellingPeerStaff;
 use App\Models\UserPsikotest;
 use App\Models\BerbinarForU;
 use App\Models\CodeVoucher;
-use App\Models\SocialMediaContent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 use Carbon\Carbon;
-use Illuminate\Support\Str;
 
 class DashboardController extends Controller
 {
@@ -112,27 +110,6 @@ class DashboardController extends Controller
             ->distinct('staff_id')
             ->count('staff_id');
 
-        $smcPlatformCounts = SocialMediaContent::select('platform', DB::raw('count(*) as total'))
-            ->groupBy('platform')
-            ->orderBy('platform')
-            ->get();
-
-        $smcChartLabels = $smcPlatformCounts
-            ->pluck('platform')
-            ->map(function ($platform) {
-                return Str::ucfirst($platform);
-            })
-            ->values();
-
-        $smcChartValues = $smcPlatformCounts->pluck('total')->values();
-        $smcTotalContents = SocialMediaContent::count('id');
-        $smcActiveContents = SocialMediaContent::where('status', 'active')
-            ->latest()
-            ->paginate(1, ['*'], 'smc_page')
-            ->withQueryString();
-        $smcActiveContent = $smcActiveContents->first();
-        $smcActiveCount = SocialMediaContent::where('status', 'active')->count('id');
-
 
         return view('dashboard.index', [
             "PeerConsellorSchedule" => $PeerConsellorSchedule,
@@ -164,13 +141,7 @@ class DashboardController extends Controller
             'CodeVoucherPeerCounselor' => $CodeVoucherPeerCounselor,
             'totalStafAktif' => $totalStafAktif,
             'totalStafTidakAktif' => $totalStafTidakAktif,
-            'UserInternship' => $UserInternship,
-            'smcChartLabels' => $smcChartLabels,
-            'smcChartValues' => $smcChartValues,
-            'smcTotalContents' => $smcTotalContents,
-            'smcActiveContents' => $smcActiveContents,
-            'smcActiveContent' => $smcActiveContent,
-            'smcActiveCount' => $smcActiveCount
+            'UserInternship' => $UserInternship
         ]);
     }
 }
