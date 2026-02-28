@@ -1,10 +1,10 @@
 <!-- Footer Section -->
 <section class="footer">
     <!-- <img src="{{ asset("assets/images/landing/logo/vector-wave.webp") }}" alt="Wave Vector" class="mb-0 w-full bg-[#F7F9FA] lg:-mb-[80px]" /> -->
-    <img src="{{ asset( data_get($theme, 'footer.wave_img')) }}" alt="Wave Vector" class="mb-0 w-full bg-[#F7F9FA] lg:-mb-[80px]" />
+    <img src="{{ asset( data_get($theme, 'FOOTER.WAVE_IMG')) }}" alt="Wave Vector" class="mb-0 w-full bg-[#F7F9FA] lg:-mb-[80px]" />
 
     <!-- #FFEAEA untuk natal, untuk default web warna #EAF8FF -->
-    <footer class="{{ $theme['footer']['bg'] }} pb-3 pt-1 lg:py-10" style="background-color:{{ $theme['footer']['bg'] }};">
+    <footer class="{{ $theme['FOOTER']['BG'] }} pb-3 pt-1 lg:py-10" style="background-color:{{ $theme['FOOTER']['BG'] }};">
         <div class="mx-5 flex flex-row items-start justify-between max-sm:flex-col lg:mx-14">
             <!-- Informasi Perusahaan -->
             <div class="mb-4 w-full space-y-4 text-left lg:mb-0 lg:w-2/4">
@@ -83,7 +83,7 @@
 
         <!-- Footer Bottom -->
         <div class="mx-5 mt-8 border-t-2 border-[#3986A3] pt-4 text-start max-sm:mt-2 max-sm:pt-2 lg:mx-14">
-            <p class="text-md font-normal text-[#6F6C90]">Copyright ©2025 Berbinar Insightful Indonesia</p>
+            <p class="text-md font-normal text-[#6F6C90]">Copyright ©2026 Berbinar Insightful Indonesia</p>
         </div>
     </footer>
 </section>

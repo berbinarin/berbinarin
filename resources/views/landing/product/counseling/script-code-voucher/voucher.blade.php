@@ -34,9 +34,9 @@
         if (!hargaAsli) {
             if (kategori === 'peer-counselor') {
                 if (metode === 'online') {
-                    hargaAsli = {1: 45000, 2: 90000, 3: 135000}[parseInt(sesi)];
+                    hargaAsli = {1: 54000, 2: 108000, 3: 162000}[parseInt(sesi)];
                 } else if (metode === 'offline') {
-                    hargaAsli = {1: 55000, 2: 110000, 3: 165000}[parseInt(sesi)];
+                    hargaAsli = {1: 66000, 2: 132000, 3: 198000}[parseInt(sesi)];
                 } else {
                     hargaAsli = 0;
                 }
@@ -51,11 +51,11 @@
                         const day = dateObj.getDay();
                         const isWeekend = (day === 0 || day === 6);
                         if (!isWeekend) {
-                            if (metode === 'online') hargaMap = {1: 150000, 2: 300000, 3: 450000};
-                            else if (metode === 'offline') hargaMap = {1: 175000, 2: 350000, 3: 525000};
+                            if (metode === 'online') hargaMap = {1: 180000, 2: 306000, 3: 432000};
+                            else if (metode === 'offline') hargaMap = {1: 210000, 2: 357600, 3: 505200};
                         } else {
-                            if (metode === 'online') hargaMap = {1: 200000, 2: 340000, 3: 500000};
-                            else if (metode === 'offline') hargaMap = {1: 225000, 2: 340000, 3: 500000};
+                            if (metode === 'online') hargaMap = {1: 240000, 2: 408000, 3: 600000};
+                            else if (metode === 'offline') hargaMap = {1: 270000, 2: 458400, 3: 648000};
                         }
                     }
                 }
@@ -142,8 +142,8 @@
             hargaDiskonSpan.textContent = 'Rp ' + hargaDiskon.toLocaleString('id-ID');
             hargaDiskonSpan.className = 'harga-diskon';
             hargaInput.value = hargaDiskon;
-            hargaInput.dataset.hargaFinal = hargaDiskon; 
-            hargaInput.dataset.hargaAsli = hargaAsli;   
+            hargaInput.dataset.hargaFinal = hargaDiskon;
+            hargaInput.dataset.hargaAsli = hargaAsli;
 
             document.getElementById('kategori_voucher').value = voucher.category || '';
             document.getElementById('code_voucher').value = voucher.code || '';

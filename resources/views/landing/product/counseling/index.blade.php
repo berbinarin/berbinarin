@@ -441,13 +441,13 @@
                         <div class="absolute rounded-xl bg-white bg-opacity-90 px-10 py-4 shadow-md backdrop-blur-sm max-xl:p-4 max-md:px-8 max-sm:px-6">
                             <p class="text-md font-semibold italic text-black">Online</p>
                             <div class="mt-1 flex flex-row items-center justify-center">
-                                <p class="text-3xl font-semibold text-[#3986A3] max-lg:text-2xl">Rp150.000</p>
+                                <p class="text-3xl font-semibold text-[#3986A3] max-lg:text-2xl">Rp180.000</p>
                                 <p class="text-sm text-black">/1jam</p>
                             </div>
 
                             <p class="text-md mt-4 font-semibold italic text-black">Offline</p>
                             <div class="mt-1 flex flex-row items-center justify-center">
-                                <p class="text-3xl font-semibold text-[#3986A3] max-lg:text-2xl">Rp175.000</p>
+                                <p class="text-3xl font-semibold text-[#3986A3] max-lg:text-2xl">Rp210.000</p>
                                 <p class="text-sm text-black">/1jam</p>
                             </div>
 
@@ -521,13 +521,13 @@
                         <div class="absolute rounded-xl bg-white bg-opacity-90 px-10 py-4 shadow-md backdrop-blur-sm max-xl:p-4 max-md:px-8 max-sm:px-6">
                             <p class="text-md font-semibold italic text-black">Online</p>
                             <div class="mt-1 flex flex-row items-center justify-center">
-                                <p class="text-3xl font-semibold text-[#3986A3] max-lg:text-2xl">Rp200.000</p>
+                                <p class="text-3xl font-semibold text-[#3986A3] max-lg:text-2xl">Rp240.000</p>
                                 <p class="text-sm text-black">/1jam</p>
                             </div>
 
                             <p class="text-md mt-4 font-semibold italic text-black">Offline</p>
                             <div class="mt-1 flex flex-row items-center justify-center">
-                                <p class="text-3xl font-semibold text-[#3986A3] max-lg:text-2xl">Rp225.000</p>
+                                <p class="text-3xl font-semibold text-[#3986A3] max-lg:text-2xl">Rp270.000</p>
                                 <p class="text-sm text-black">/1jam</p>
                             </div>
 
@@ -608,7 +608,7 @@
                             <p class="mt-2 text-justify text-sm text-[#70787D]">Lakukan dimanapun dan kapanpun melalui zoom
                                 meeting</p>
                             <div class="mt-2 flex flex-row items-center justify-center">
-                                <p class="text-3xl font-semibold text-[#3986A3] max-lg:text-2xl">Rp45.000</p>
+                                <p class="text-3xl font-semibold text-[#3986A3] max-lg:text-2xl">Rp54.000</p>
                                 <p class="text-sm text-black">/1jam</p>
                             </div>
 
@@ -630,7 +630,7 @@
                             <p class="mt-2 text-justify text-sm text-[#70787D]">Tentukan tempat dan waktu yang nyaman untuk
                                 berbicara langsung</p>
                             <div class="mt-2 flex flex-row items-center justify-center">
-                                <p class="text-3xl font-semibold text-[#3986A3] max-lg:text-2xl">Rp55.000</p>
+                                <p class="text-3xl font-semibold text-[#3986A3] max-lg:text-2xl">Rp66.000</p>
                                 <p class="text-sm text-black">/1jam</p>
                             </div>
 

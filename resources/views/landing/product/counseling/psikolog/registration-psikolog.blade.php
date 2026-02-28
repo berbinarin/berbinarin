@@ -493,8 +493,8 @@
 
     // KONSTANTA HARGA
     const HARGA = {
-        online: { weekdays: [150000, 300000, 450000], weekend: [200000, 340000, 500000] },
-        offline: { weekdays: [175000, 350000, 525000], weekend: [225000, 340000, 500000] }
+        online: { weekdays: [180000, 306000, 432000], weekend: [240000, 408000, 600000] },
+        offline: { weekdays: [210000, 357600, 505200], weekend: [270000, 458400, 648000] }
     };
 
     // MODAL SYARAT & KETENTUAN
@@ -684,11 +684,11 @@
         const isWeekend = (day === 0 || day === 6);
         let harga = 0;
         if (!isWeekend) {
-            if (metode === 'online') harga = {1: 150000, 2: 300000, 3: 450000}[sesi];
-            else if (metode === 'offline') harga = {1: 175000, 2: 350000, 3: 525000}[sesi];
+            if (metode === 'online') harga = {1: 180000, 2: 306000, 3: 432000}[sesi];
+            else if (metode === 'offline') harga = {1: 210000, 2: 357600, 3: 505200}[sesi];
         } else {
-            if (metode === 'online') harga = {1: 200000, 2: 340000, 3: 500000}[sesi];
-            else if (metode === 'offline') harga = {1: 225000, 2: 340000, 3: 500000}[sesi];
+            if (metode === 'online') harga = {1: 240000, 2: 408000, 3: 600000}[sesi];
+            else if (metode === 'offline') harga = {1: 270000, 2: 458400, 3: 648000}[sesi];
         }
         hargaInput.value = harga;
         hargaInput.dataset.hargaAsli = harga;
