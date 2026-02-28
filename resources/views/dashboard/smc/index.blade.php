@@ -84,50 +84,39 @@
 
                                     <td class="flex justify-center gap-2">
                                         <a href="{{ route('dashboard.social-media-contents.edit', $content->id) }}" class="rounded bg-yellow-500 p-2 hover:bg-yellow-600"><i class="bx bx-edit text-white"></i></a>
-                                        <form id="deleteForm{{ $content->id }}" action="{{ route('dashboard.social-media-contents.destroy', $content->id) }}" method="POST">
-                                            @csrf
-                                            @method("DELETE")
-                                            <button class="rounded bg-red-500 p-2 hover:bg-red-600 focus:outline-none"><i class="bx bx-trash-alt text-white"></i></button>
-                                        </form>
+                                        <button type="button" onclick="openDeleteModal({{ $content->id }})" class="inline-flex items-center justify-start rounded p-2 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2" style="background-color: #ef4444">
+                                            <i class="bx bxs-trash-alt text-white"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
 
-                    <!-- Modal Konfirmasi Hapus -->
-                    <div id="confirmModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/40">
-                        <div
-                            class="relative w-[560px] rounded-[20px] bg-white p-6 text-center font-plusJakartaSans shadow-lg"
-                            style="
-                                background:
-                                    linear-gradient(to right, #74aabf, #3986a3) top/100% 6px no-repeat,
-                                    white;
-                                border-radius: 20px;
-                                background-clip: padding-box, border-box;
-                            "
-                        >
-                            <!-- Warning Icon -->
-                            <img src="{{ asset("assets/images/dashboard/warning.webp") }}" alt="Warning Icon" class="mx-auto h-[83px] w-[83px]" />
-
-                            <!-- Title -->
-                            <h2 class="mt-4 text-2xl font-bold text-stone-900">Konfirmasi Batal</h2>
-
-                            <!-- Message -->
-                            <p class="mt-2 text-base font-medium text-black">Apakah Anda yakin ingin membatalkan penambahan data ini?</p>
-
-                            <!-- Actions -->
-                            <div class="mt-6 flex justify-center gap-3">
-                                <button id="cancelCancel" class="rounded-lg border border-stone-300 px-6 py-2 text-stone-700">Tidak</button>
-                                <button id="confirmCancel" class="rounded-[5px] bg-gradient-to-r from-[#74AABF] to-[#3986A3] px-6 py-2 font-medium text-white">Ya</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
-@endsection
+    
+    <!-- Modal Konfirmasi Hapus -->
+    <div id="deleteModal" class="fixed inset-0 z-10 hidden items-center justify-center bg-black bg-opacity-50 flex">
+        <div class="w-full max-w-md rounded-lg bg-white p-6 text-center">
+            <div class="mb-4 flex justify-center">
+                <img src="{{ asset('assets/images/dashboard/svg-icon/warning.webp') }}" alt="Warning Icon" class="h-12 w-12" />
+            </div>
+            <h3 class="mb-2 text-lg font-medium leading-6 text-gray-900" id="modal-title">Konfirmasi Hapus</h3>
+            <p class="mb-6 text-base text-gray-500">Apakah Anda yakin ingin menghapus kelas ini? Semua data terkait juga akan dihapus.</p>
+            <div class="flex w-full justify-center gap-4">
+                <form id="deleteForm" method="POST" class="w-1/2">
+                    @csrf
+                    @method("DELETE")
+                    <button type="submit" class="rounded-lg bg-[#3986A3] w-full px-6 py-2 text-white text-center hover:bg-[#3986A3] focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2">Hapus</button>
+                </form>
+                <button type="button" class="rounded-lg border border-[#3986A3] w-1/2 px-6 py-2 text-[#3986A3] focus:outline-none focus:ring-2 focus:ring-[#3986A3] focus:ring-offset-2" onclick="closeDeleteModal()">Batal</button>
+            </div>
+        </div>
+    </div>
+    @endsection
 
 @section("script")
     <script>

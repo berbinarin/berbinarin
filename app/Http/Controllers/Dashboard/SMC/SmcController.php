@@ -104,7 +104,13 @@ class SmcController extends Controller
         $content->delete();
         $this->syncActivePositions();
 
-        return redirect()->route('dashboard.social-media-contents.index')->with('success', 'Data Konten Berhasil Dihapus');
+        return redirect()->route('dashboard.social-media-contents.index')->with([
+            'alert' => true,
+            'icon' => asset('assets/images/dashboard/success.webp'),
+            'title' => 'Berhasil!',
+            'message' => 'Data Konten Berhasil Dihapus.',
+            'type' => 'success',
+        ]);
     }
 
     private function nextActivePosition(?int $exceptId = null): int
