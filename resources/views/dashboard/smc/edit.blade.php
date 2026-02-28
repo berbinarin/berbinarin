@@ -33,7 +33,7 @@
                         <!-- Judul Konten -->
                         <div class="flex flex-col gap-2">
                             <label class="text-sm font-medium text-gray-700">Judul Konten</label>
-                            <input type="text" name="title" placeholder="Judul Konten"
+                            <input type="text" name="title" placeholder="Judul Konten" required
                                 class="rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                                 value="{{ old('title', $content->title ?? '') }}" />
                         </div>
@@ -41,7 +41,7 @@
                         <!-- Platform -->
                         <div class="flex flex-col gap-2">
                             <label class="text-sm font-medium text-gray-700">Platform</label>
-                            <select name="platform"
+                            <select name="platform" required
                                 class="rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
                                 <option value="" disabled selected>Pilih Platform</option>
                                 <option value="instagram"
@@ -64,7 +64,7 @@
                         <!-- Link  -->
                         <div class="flex flex-col gap-2">
                             <label class="text-sm font-medium text-gray-700">Link</label>
-                            <input type="text" name="url" placeholder="instagram.com"
+                            <input type="text" name="url" placeholder="instagram.com" required
                                 class="rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
                                 value="{{ old('url', $content->url) }}" />
                         </div>
@@ -114,58 +114,49 @@
             </div>
         </div>
 
-        <!-- Modal Konfirmasi -->
-        <div id="confirmModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/40">
-            <div class="relative w-[560px] rounded-[20px] bg-white p-6 text-center font-plusJakartaSans shadow-lg"
-                style="
-                            background:
-                                linear-gradient(to right, #74aabf, #3986a3) top/100% 6px no-repeat,
-                                white;
-                            border-radius: 20px;
-                            background-clip: padding-box, border-box;
-                        ">
-                <!-- Warning Icon -->
-                <img src="{{ asset('assets/images/dashboard/warning.webp') }}" alt="Warning Icon"
-                    class="mx-auto h-[83px] w-[83px]" />
+    </form>
+    <!-- Modal Konfirmasi Batal -->
+    <div id="confirmModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/40">
+        <div
+            class="relative w-[560px] rounded-[20px] bg-white p-6 text-center font-plusJakartaSans shadow-lg"
+            style="
+                background:
+                    linear-gradient(to right, #74aabf, #3986a3) top/100% 6px no-repeat,
+                    white;
+                border-radius: 20px;
+                background-clip: padding-box, border-box;
+            "
+        >
+            <!-- Warning Icon -->
+            <img src="{{ asset("assets/images/dashboard/warning.webp") }}" alt="Warning Icon" class="mx-auto h-[83px] w-[83px]" />
 
-                <!-- Title -->
-                <h2 class="mt-4 text-2xl font-bold text-stone-900">Konfirmasi Batal</h2>
+            <!-- Title -->
+            <h2 class="mt-4 text-2xl font-bold text-stone-900">Konfirmasi Batal</h2>
 
-                <!-- Message -->
-                <p class="mt-2 text-base font-medium text-black">Apakah Anda yakin ingin membatalkan penambahan data ini?
-                </p>
+            <!-- Message -->
+            <p class="mt-2 text-base font-medium text-black">Apakah Anda yakin ingin membatalkan pengisian data?</p>
 
-                <!-- Actions -->
-                <div class="mt-6 flex justify-center gap-3">
-                    <button id="cancelCancel"
-                        class="rounded-lg border border-stone-300 px-6 py-2 text-stone-700">Tidak</button>
-                    <button id="confirmCancel"
-                        class="rounded-[5px] bg-gradient-to-r from-[#74AABF] to-[#3986A3] px-6 py-2 font-medium text-white">Ya</button>
-                </div>
+            <!-- Actions -->
+            <div class="mt-6 flex justify-center gap-3">
+                <button type="button" id="cancelSubmit" class="rounded-lg border border-stone-300 px-6 py-2 text-stone-700">Tidak</button>
+                <a href="{{ route("dashboard.social-media-contents.index") }}" class="rounded-[5px] bg-gradient-to-r from-[#74AABF] to-[#3986A3] px-6 py-2 font-medium text-white">Ya</a>
             </div>
         </div>
-    </form>
+    </div>
 @endsection
 
 @section('script')
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // MODAL KONFIRMASI BATAL
+        document.addEventListener("DOMContentLoaded", function () {
             const cancelButton = document.getElementById('cancelButton');
             const confirmModal = document.getElementById('confirmModal');
-            const confirmCancel = document.getElementById('confirmCancel');
-            const cancelCancel = document.getElementById('cancelCancel');
+            const cancelSubmit = document.getElementById('cancelSubmit');
 
             cancelButton.addEventListener('click', function(e) {
                 e.preventDefault();
                 confirmModal.classList.remove('hidden');
             });
-
-            confirmCancel.addEventListener('click', function() {
-                window.location.href = "{{ route('dashboard.social-media-contents.index') }}";
-            });
-
-            cancelCancel.addEventListener('click', function() {
+            cancelSubmit.addEventListener('click', function() {
                 confirmModal.classList.add('hidden');
             });
         });

@@ -40,8 +40,13 @@ class SmcController extends Controller
         SocialMediaContent::create($validated);
         $this->syncActivePositions();
 
-        Alert::toast('Data Konten Berhasil Ditambahkan', 'success')->autoClose(5000);
-        return redirect()->route('dashboard.social-media-contents.index');
+        return redirect()->route('dashboard.social-media-contents.index')->with([
+            'alert' => true,
+            'icon' => asset('assets/images/dashboard/success.webp'),
+            'title' => 'Berhasil!',
+            'message' => 'Data Konten Berhasil Ditambahkan.',
+            'type' => 'success',
+        ]);
     }
 
     public function edit($id)
@@ -69,7 +74,13 @@ class SmcController extends Controller
         $content->save();
         $this->syncActivePositions();
 
-        return redirect()->route('dashboard.social-media-contents.index')->with('success', 'Data Konten Berhasil Diubah');
+        return redirect()->route('dashboard.social-media-contents.index')->with([
+            'alert' => true,
+            'icon' => asset('assets/images/dashboard/success.webp'),
+            'title' => 'Berhasil!',
+            'message' => 'Data Konten Berhasil Diubah.',
+            'type' => 'success',
+        ]);
     }
 
     public function updateStatus(Request $request, $id)
