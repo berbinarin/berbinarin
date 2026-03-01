@@ -1,6 +1,6 @@
 @php
     // Desktop
-    $activeColor = $theme['navbar']['active'];
+    $activeColor = $theme['NAVBAR']['ACTIVE'];
 
     // if (!function_exists("isNavbarActive")) {
     //     function isNavbarActive($routeName, $activeColor)
@@ -50,8 +50,8 @@
 
     <!-- Burger Menu -->
     <div class="ml-auto flex md:hidden">
-        <button id="burgerMenu" class="text-[{{ $theme['navbar']['burger_menu'] }}] focus:outline-none"
-            style="color: {{ $theme['navbar']['burger_menu'] }}">
+        <button id="burgerMenu" class="text-[{{ $theme['NAVBAR']['BURGER_MENU'] }}] focus:outline-none"
+            style="color: {{ $theme['NAVBAR']['BURGER_MENU'] }}">
             <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                 xmlns="http://www.w3.org/2000/svg">
                 <line x1="4" y1="6" x2="20" y2="6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -63,51 +63,50 @@
 
     <!-- Navigasi Link -->
     <div id="navLinks" class="ml-auto hidden items-center space-x-14 max-lg:space-x-7 md:flex">
-        {{-- <a href="{{ route(" home.index") }}" class="{{ isNavbarActive(" home", $theme['navbar']['active'])
+        {{-- <a href="{{ route(" home.index") }}" class="{{ isNavbarActive(" home", $theme['NAVBAR']['ACTIVE'])
             }}">Beranda</a>
-        <a href="{{ route(" about-us.index") }}" class="{{ isNavbarActive(" about-us", $theme['navbar']['active'])
+        <a href="{{ route(" about-us.index") }}" class="{{ isNavbarActive(" about-us", $theme['NAVBAR']['ACTIVE'])
             }}">Tentang Kami</a>
-        <a href="{{ route(" product.index") }}" class="{{ isNavbarActive(" product", $theme['navbar']['active'])
+        <a href="{{ route(" product.index") }}" class="{{ isNavbarActive(" product", $theme['NAVBAR']['ACTIVE'])
             }}">Produk</a>
-        <a href="{{ route(" career.index") }}" class="{{ isNavbarActive(" career", $theme['navbar']['active'])
+        <a href="{{ route(" career.index") }}" class="{{ isNavbarActive(" career", $theme['NAVBAR']['ACTIVE'])
             }}">Karier</a>
-        <a href="{{ route(" arteri.index") }}" class="{{ isNavbarActive(" arteri", $theme['navbar']['active'])
+        <a href="{{ route(" arteri.index") }}" class="{{ isNavbarActive(" arteri", $theme['NAVBAR']['ACTIVE'])
             }}">ArteRi</a> --}}
         <a href="{{ route('home.index') }}" class="border-b-2 font-semibold
          {{ isNavbarActive('home') ? '' : 'text-gray-600 border-transparent' }}" @if(isNavbarActive('home'))
-        style="color: {{ $theme['navbar']['active'] }}; border-color: {{ $theme['navbar']['active'] }};" @endif>
+        style="color: {{ $theme['NAVBAR']['ACTIVE'] }}; border-color: {{ $theme['NAVBAR']['ACTIVE'] }};" @endif>
             Beranda
         </a>
 
         <a href="{{ route('about-us.index') }}" class="border-b-2 font-semibold
          {{ isNavbarActive('about-us') ? '' : 'text-gray-600 border-transparent' }}" @if(isNavbarActive('about-us'))
-        style="color: {{ $theme['navbar']['active'] }}; border-color: {{ $theme['navbar']['active'] }};" @endif>
+        style="color: {{ $theme['NAVBAR']['ACTIVE'] }}; border-color: {{ $theme['NAVBAR']['ACTIVE'] }};" @endif>
             Tentang Kami
         </a>
 
         <a href="{{ route('product.index') }}" class="border-b-2 font-semibold
          {{ isNavbarActive('product') ? '' : 'text-gray-600 border-transparent' }}" @if(isNavbarActive('product'))
-        style="color: {{ $theme['navbar']['active'] }}; border-color: {{ $theme['navbar']['active'] }};" @endif>
+        style="color: {{ $theme['NAVBAR']['ACTIVE'] }}; border-color: {{ $theme['NAVBAR']['ACTIVE'] }};" @endif>
             Produk
         </a>
 
         <a href="{{ route('career.index') }}" class="border-b-2 font-semibold
          {{ isNavbarActive('career') ? '' : 'text-gray-600 border-transparent' }}" @if(isNavbarActive('career'))
-        style="color: {{ $theme['navbar']['active'] }}; border-color: {{ $theme['navbar']['active'] }};" @endif>
+        style="color: {{ $theme['NAVBAR']['ACTIVE'] }}; border-color: {{ $theme['NAVBAR']['ACTIVE'] }};" @endif>
             Karier
         </a>
 
         <a href="{{ route('arteri.index') }}" class="border-b-2 font-semibold
          {{ isNavbarActive('arteri') ? '' : 'text-gray-600 border-transparent' }}" @if(isNavbarActive('arteri'))
-        style="color: {{ $theme['navbar']['active'] }}; border-color: {{ $theme['navbar']['active'] }};" @endif>
+        style="color: {{ $theme['NAVBAR']['ACTIVE'] }}; border-color: {{ $theme['NAVBAR']['ACTIVE'] }};" @endif>
             ArteRi
         </a>
 
         <div>
-            <a href="https://linktr.ee/berbinarinsight" target="_blank">
-                <button
-                    class="rounded-full bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-6 py-2 font-medium text-black">Ajukan
-                    Kolaborasi</button>
+            <a href="{{ route('collaboration.index') }}" class="rounded-2xl px-6 py-2 font-medium
+            {{ isNavbarActive('collaboration') ? 'text-primary bg-white border-3 border-[#F7B23B]' : 'text-black bg-gradient-to-r from-[#F7B23B] to-[#AD7D29]' }}">
+            Ajukan Kolaborasi
             </a>
         </div>
     </div>
@@ -115,51 +114,50 @@
 
 <!-- Screen Mobile Menu -->
 <div id="mobileMenu" class="fixed inset-0 z-40 flex hidden flex-col items-center justify-center bg-white bg-opacity-90">
-    {{-- <a href="{{ route(" home.index") }}" class="{{ isNavbarActiveMobile(" home", $theme['navbar']['active'])
+    {{-- <a href="{{ route(" home.index") }}" class="{{ isNavbarActiveMobile(" home", $theme['NAVBAR']['ACTIVE'])
         }}">Beranda</a>
-    <a href="{{ route(" about-us.index") }}" class="{{ isNavbarActiveMobile(" about-us", $theme['navbar']['active'])
+    <a href="{{ route(" about-us.index") }}" class="{{ isNavbarActiveMobile(" about-us", $theme['NAVBAR']['ACTIVE'])
         }}">Tentang Kami</a>
-    <a href="{{ route(" product.index") }}" class="{{ isNavbarActiveMobile(" product", $theme['navbar']['active'])
+    <a href="{{ route(" product.index") }}" class="{{ isNavbarActiveMobile(" product", $theme['NAVBAR']['ACTIVE'])
         }}">Produk</a>
-    <a href="{{ route(" career.index") }}" class="{{ isNavbarActiveMobile(" career", $theme['navbar']['active'])
+    <a href="{{ route(" career.index") }}" class="{{ isNavbarActiveMobile(" career", $theme['NAVBAR']['ACTIVE'])
         }}">Karier</a>
-    <a href="{{ route(" arteri.index") }}" class="{{ isNavbarActiveMobile(" arteri", $theme['navbar']['active'])
+    <a href="{{ route(" arteri.index") }}" class="{{ isNavbarActiveMobile(" arteri", $theme['NAVBAR']['ACTIVE'])
         }}">ArteRi</a> --}}
 
     <a href="{{ route('home.index') }}" class="font-Plus-Jakarta-Sans block py-4 font-medium
          {{ isNavbarActiveMobile('home') ? 'text-2xl' : 'text-base text-gray-600' }}" @if(isNavbarActiveMobile('home'))
-        style="color: {{ $theme['navbar']['active'] }};" @endif>
+        style="color: {{ $theme['NAVBAR']['ACTIVE'] }};" @endif>
         Beranda
     </a>
 
     <a href="{{ route('about-us.index') }}" class="font-Plus-Jakarta-Sans block py-4 font-medium
          {{ isNavbarActiveMobile('about-us') ? 'text-2xl' : 'text-base text-gray-600' }}"
-        @if(isNavbarActiveMobile('about-us')) style="color: {{ $theme['navbar']['active'] }};" @endif>
+        @if(isNavbarActiveMobile('about-us')) style="color: {{ $theme['NAVBAR']['ACTIVE'] }};" @endif>
         Tentang Kami
     </a>
 
     <a href="{{ route('product.index') }}" class="font-Plus-Jakarta-Sans block py-4 font-medium
          {{ isNavbarActiveMobile('product') ? 'text-2xl' : 'text-base text-gray-600' }}"
-        @if(isNavbarActiveMobile('product')) style="color: {{ $theme['navbar']['active'] }};" @endif>
+        @if(isNavbarActiveMobile('product')) style="color: {{ $theme['NAVBAR']['ACTIVE'] }};" @endif>
         Produk
     </a>
 
     <a href="{{ route('career.index') }}" class="font-Plus-Jakarta-Sans block py-4 font-medium
          {{ isNavbarActiveMobile('career') ? 'text-2xl' : 'text-base text-gray-600' }}"
-        @if(isNavbarActiveMobile('career')) style="color: {{ $theme['navbar']['active'] }};" @endif>
+        @if(isNavbarActiveMobile('career')) style="color: {{ $theme['NAVBAR']['ACTIVE'] }};" @endif>
         Karier
     </a>
 
     <a href="{{ route('arteri.index') }}" class="font-Plus-Jakarta-Sans block py-4 font-medium
          {{ isNavbarActiveMobile('arteri') ? 'text-2xl' : 'text-base text-gray-600' }}"
-        @if(isNavbarActiveMobile('arteri')) style="color: {{ $theme['navbar']['active'] }};" @endif>
+        @if(isNavbarActiveMobile('arteri')) style="color: {{ $theme['NAVBAR']['ACTIVE'] }};" @endif>
         ArteRi
     </a>
 
-    <a href="https://linktr.ee/berbinarinsight" target="_blank">
-        <button
-            class="mt-8 rounded-full bg-gradient-to-r from-[#F7B23B] to-[#AD7D29] px-6 py-2 font-medium text-black">Ajukan
-            Kolaborasi</button>
+    <a href="{{ route('collaboration.index') }}" class="rounded-2xl px-6 py-2 font-medium
+    {{ isNavbarActive('collaboration') ? 'text-primary bg-white border-3 border-[#F7B23B]' : 'text-black bg-gradient-to-r from-[#F7B23B] to-[#AD7D29]' }}">
+        Ajukan Kolaborasi
     </a>
     <button id="closeMenu" class="absolute right-4 top-4 text-gray-600 focus:outline-none">
         <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

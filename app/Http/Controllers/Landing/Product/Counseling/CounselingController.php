@@ -106,74 +106,74 @@ class CounselingController extends Controller
         $weekdayPricesOn = [
             [
                 'session' => '⏱️  1 Sesi (1 jam)',
-                'price' => 'Rp150.000',
+                'price' => 'Rp180.000',
             ],
             [
                 'session' => '⏱️  2 Sesi (2 jam)',
-                'price' => 'Rp300.000',
+                'price' => 'Rp306.000',
             ],
             [
                 'session' => '⏱️  3 Sesi (3 jam)',
-                'price' => 'Rp450.000',
+                'price' => 'Rp432.000',
             ],
         ];
 
         $weekdayPricesOff = [
             [
                 'session' => '⏱️  1 Sesi (1 jam)',
-                'price' => 'Rp175.000',
+                'price' => 'Rp210.000',
             ],
             [
                 'session' => '⏱️  2 Sesi (2 jam)',
-                'price' => 'Rp350.000',
+                'price' => 'Rp357.600',
             ],
             [
                 'session' => '⏱️  3 Sesi (3 jam)',
-                'price' => 'Rp525.000',
+                'price' => 'Rp505.200',
             ],
         ];
 
         $weekendPricesOn = [
             [
                 'session' => '⏱️  1 Sesi (1 jam)',
-                'price' => 'Rp200.000',
+                'price' => 'Rp240.000',
             ],
             [
                 'session' => '⏱️  2 Sesi (2 jam)',
-                'price' => 'Rp340.000',
+                'price' => 'Rp408.000',
             ],
             [
                 'session' => '⏱️  3 Sesi (3 jam)',
-                'price' => 'Rp500.000',
+                'price' => 'Rp600.000',
             ],
         ];
 
         $weekendPricesOff = [
             [
                 'session' => '⏱️  1 Sesi (1 jam)',
-                'price' => 'Rp225.000',
+                'price' => 'Rp270.000',
             ],
             [
                 'session' => '⏱️  2 Sesi (2 jam)',
-                'price' => 'Rp340.000',
+                'price' => 'Rp458.400',
             ],
             [
                 'session' => '⏱️  3 Sesi (3 jam)',
-                'price' => 'Rp500.000',
+                'price' => 'Rp648.000',
             ],
         ];
 
         $peers = [
             [
-                'name' => "Adinda Fasya Az-zahra D.",
-                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/adinda.webp',
-                'region' => 'Jakarta'
-            ],
-            [
                 'name' => "Qay Azneen W.",
                 'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/qay.webp',
                 'region' => 'Surabaya'
             ],
+            [
+                'name' => "Josephine Marie Yohana",
+                'image' => 'assets/images/landing/asset-konseling/image/peer-counselor/josephine.webp',
+                'region' => 'Jakarta'
+            ]
         ];
 
         $peerOnlines = [
